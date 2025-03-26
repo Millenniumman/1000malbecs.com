@@ -1,4 +1,5 @@
 
 1000 Malbecs aus Argentinien 
-![image-2](https://github.com/user-attachments/assets/429d72af-0cde-42e7-add9-0a0fce905a6c)
+![image-3](https://github.com/user-attachments/assets/24e3d9a4-b428-431a-814d-a32ec3a4096d)
+
 
