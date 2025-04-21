@@ -18,39 +18,39 @@
 
     /* Estilos de la barra de navegación vertical */
     nav {
-      width: 300px; /* Ancho aumentado */
+      width: 300px;
       background-color: #4a2c5e;
       color: #f5e6ff;
       height: 100vh;
       position: fixed;
       top: 0;
       left: 0;
-      padding: 20px;
+      padding: 15px;
       overflow-y: auto;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-      z-index: 1000; /* Por encima de todo */
+      z-index: 1000;
     }
     nav h2 {
-      margin: 0 0 20px 0;
-      font-size: 1.5em;
+      margin: 0 0 15px 0;
+      font-size: 1.4em;
       color: #f5e6ff;
       text-align: center;
     }
     nav details {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     nav summary {
       cursor: pointer;
-      padding: 8px; /* Reducido para más espacio vertical */
+      padding: 6px;
       background-color: #5d3a76;
       border-radius: 5px;
       font-weight: bold;
       display: flex;
       align-items: center;
-      font-size: 0.9em; /* Fuente más pequeña para más contenido visible */
+      font-size: 0.85em;
     }
     nav summary i {
-      margin-right: 8px;
+      margin-right: 6px;
     }
     nav summary:hover {
       background-color: #6b4685;
@@ -61,18 +61,18 @@
       margin: 0;
     }
     nav li {
-      margin: 5px 0;
+      margin: 3px 0;
     }
     nav ul ul {
-      padding-left: 15px;
+      padding-left: 12px;
     }
     nav a, nav span.filter {
       color: #f5e6ff;
       text-decoration: none;
-      font-size: 0.9em; /* Fuente más pequeña */
+      font-size: 0.85em;
       cursor: pointer;
       display: inline-block;
-      max-width: 260px; /* Ajustado para el nuevo ancho */
+      max-width: 260px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -84,7 +84,7 @@
 
     /* Contenedor principal para las tarjetas */
     .main-content {
-      margin-left: 320px; /* Ajustado para el nuevo ancho de nav */
+      margin-left: 320px;
       width: calc(100% - 320px);
       z-index: 1;
     }
@@ -164,8 +164,8 @@
     /* Media query para pantallas pequeñas */
     @media (max-width: 768px) {
       nav {
-        width: 250px; /* Ancho reducido para móviles */
-        left: -270px; /* Ajustado para el nuevo ancho */
+        width: 250px;
+        left: -270px;
         transition: left 0.3s ease;
         z-index: 1000;
       }
@@ -207,7 +207,7 @@
   <!-- Barra de navegación vertical -->
   <nav id="sidebar">
     <h2>Categorías</h2>
-    <details open>
+    <details>
       <summary><i class="fas fa-map-marker-alt"></i> Región</summary>
       <ul>
         <li><span class="filter" data-filter="region" data-value="Valle de Uco, Mendoza">Valle de Uco, Mendoza</span>
@@ -333,51 +333,9 @@
     </div>
 
     <div class="card" id="zapam-zucum-organic-malbec-2022" data-region="Valle de Uco, Mendoza" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="11" data-precio-rango="Medio">
-      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54/mitad de la página, lo que dificulta el acceso inmediato al menú. Esto puede resolverse asegurando que la barra de navegación tenga un `z-index` suficientemente alto y que su posicionamiento fijo (`position: fixed`) la mantenga siempre visible, independientemente del desplazamiento de la página.
-
-### Cambios realizados
-
-1. **Aumento del ancho de la barra**:
-   - En escritorio, el ancho de `nav` se cambió de `250px` a `300px` para dar más espacio a los nombres de vinos y bodegas, mejorando la legibilidad.
-   - En móvil, el ancho se ajustó a `250px` (en lugar de `200px`) para mantener un equilibrio entre usabilidad y espacio en pantalla.
-   - El `max-width` de los elementos `nav a, nav span.filter` se aumentó a `260px` para aprovechar el nuevo ancho.
-
-2. **Barra flotante por encima**:
-   - Se mantuvo `position: fixed` y `z-index: 1000` para `nav#sidebar`, asegurando que la barra esté siempre por encima de `.main-content` (que tiene `z-index: 1`).
-   - El botón hamburguesa tiene `z-index: 1100` para que siempre sea accesible.
-   - En la versión móvil, cuando `nav` está activa (clase `.active`), se asegura que flote sobre las tarjetas con `z-index: 1000`.
-
-3. **Evitar scroll innecesario en la barra**:
-   - Reduje el tamaño de fuente de `nav summary` y `nav a, nav span.filter` a `0.9em` para que más contenido quepa en la pantalla sin necesidad de desplazarse.
-   - Reduje el padding de `nav summary` de `10px` a `8px` para compactar ligeramente el diseño vertical.
-   - Mantuve `overflow-y: auto` para permitir scroll dentro de la barra si el contenido es muy extenso (por ejemplo, si añades más categorías o vinos), pero el diseño ahora es más compacto para minimizar la necesidad de scroll.
-
-4. **Ajustes en la versión móvil**:
-   - Actualicé `left: -270px` en la media query para reflejar el nuevo ancho de `250px` (más un margen para la transición).
-   - Confirmé que la barra se muestra por encima de las tarjetas cuando se activa con el botón hamburguesa, gracias al `z-index: 1000`.
-
-5. **Otros ajustes**:
-   - Mantuve las correcciones previas: nombres truncados con `text-overflow: ellipsis`, precios eliminados de los títulos en la navegación, y el menú móvil corregido.
-   - Corregí el error en el objeto `filters` del JavaScript (de `'precio-rango': compromis` a `'precio-rango': null`).
-
-### Notas adicionales
-- **Pruebas recomendadas**:
-  - Abre el sitio en un navegador y prueba tanto la versión de escritorio como la móvil (usa las herramientas de desarrollador para simular dispositivos móviles).
-  - Verifica que la barra de navegación sea visible y accesible sin desplazarse, incluso al final de la página.
-  - Confirma que los nombres de vinos y bodegas en la barra se vean bien con el nuevo ancho y que los puntos suspensivos aparezcan solo en nombres muy largos.
-  - Prueba el botón hamburguesa en móvil para asegurarte de que la barra flote sobre las tarjetas.
-- **Imágenes**: Las URLs externas siguen en uso. Si quieres alojar las imágenes localmente, puedo ayudarte a descargarlas y configurarlas.
-- **Escalabilidad**: Si planeas agregar más vinos o categorías, el diseño actual soporta scroll interno en la barra, pero podemos optimizarlo aún más (por ejemplo, colapsando más `<details>` por defecto).
-
-### Próximos pasos
-Por favor, dime:
-1. ¿El nuevo ancho (`300px` en escritorio, `250px` en móvil) es adecuado, o prefieres otro valor (por ejemplo, `350px` en escritorio)?
-2. ¿La barra ahora flota correctamente y es accesible sin scroll en tu prueba? Si hay algún problema, describe lo que ves.
-3. ¿Quieres ajustes adicionales? Por ejemplo:
-   - Reducir aún más la necesidad de scroll en la barra (podemos colapsar todas las categorías por defecto o usar un tamaño de fuente aún más pequeño).
-   - Agregar un botón para resetear filtros.
-   - Mejorar la accesibilidad (por ejemplo, soporte para teclado en los filtros).
-   - Añadir más categorías o funcionalidades (como un buscador o carrito).
-4. ¿Necesitas ayuda para publicar el sitio o integrarlo con un backend?
-
-Guarda el código en un archivo `.html` y pruébalo en tu navegador. Si todo está correcto o necesitas más cambios, ¡avísame y seguimos perfeccionando tu sitio! 🍷
+      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
+      <div class="card-content">
+        <div class="bottle-cell">
+          <img class="bottle" src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F659A%2FA014%2F056E%2F240B%2FBAD1%2F0A0C%2F6D0D%2F68F1%2FZapamZucum.png&shop=242730" alt="Botella de Zapam Zucum - Organic Malbec 2022" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
+        </div>
+        <div class="text-cell Grok, creado por xAI.
