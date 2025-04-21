@@ -21,15 +21,15 @@
     }
     .logo {
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 10px;
+      left: 10px;
       width: 80px;
       height: auto;
     }
     .card-content {
       display: flex;
       align-items: flex-start;
-      margin-top: 60px; /* Para evitar que el logo superponga el contenido */
+      margin-top: 80px; /* Para evitar que el logo superponga el contenido */
     }
     .bottle-cell {
       flex: 0 0 auto;
