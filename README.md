@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -44,7 +43,7 @@
     .bottle {
       width: 200px; /* Tamaño uniforme */
       height: auto; /* Mantiene la proporción */
-      max-width: 100%;
+      max-width: 50%;
       object-fit: contain; /* Evita deformaciones */
     }
     .vino {
