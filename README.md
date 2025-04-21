@@ -51,7 +51,7 @@
 
   <!-- Ejemplo de ficha -->
   <div class="card">
-    <img class="logo" src="ChatGPT Image Apr 15, 2025 at 03_39_41 PM.png" alt="Logo 1000malbecs">
+    <img class="logo" src="Logo1000malbecs.png" alt="Logo 1000malbecs">
     <img class="bottle" src="https://via.placeholder.com/150x400?text=Botella+Malbec" alt="Botella de vino">
     <div class="content">
       <h2 class="vino">Temático - Malbec 2023</h2>
