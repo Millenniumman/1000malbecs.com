@@ -1,1 +1,21 @@
-
+category_tree/
+├── Electronics/
+│   ├── Smartphones/
+│   │   ├── Samsung_Galaxy_S23.md
+│   │   └── iPhone_14_Pro.md
+│   ├── Laptops/
+│   │   ├── Macbook_Pro_14.md
+│   │   └── Dell_XPS_13.md
+│   └── Audio/
+│       ├── Bose_Noise_Cancelling_Headphones.md
+│       └── Sony_WH-1000XM4.md
+├── Fashion/
+│   ├── Clothing/
+│   │   └── Jeans.md
+│   └── Accessories/
+│       └── Sunglasses.md
+└── Home Decor/
+    ├── Furniture/
+    │   └── Sofas.md
+    └── Lighting/
+        └── Lamps.md
