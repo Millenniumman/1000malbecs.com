@@ -18,7 +18,7 @@
 
     /* Estilos de la barra de navegación vertical */
     nav {
-      width: 300px;
+      width: 500px;
       background-color: #4a2c5e;
       color: #f5e6ff;
       height: 100vh;
