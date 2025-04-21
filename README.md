@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -19,8 +19,8 @@
     /* Estilos de la barra de navegación vertical */
     nav {
       width: 400px;
-      background-color: #4A0D29;
-      color: #4A0D29;
+      background-color: #4a2c5e;
+      color: ##4A0D29;
       height: 100vh;
       position: fixed;
       top: 0;
@@ -30,10 +30,19 @@
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
+    nav .logo-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    nav .logo-container img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
     nav h2 {
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
       font-size: 1.4em;
-      color: #f5e6ff;
+      color: ##4A0D29;
       text-align: center;
     }
     nav details {
@@ -168,10 +177,14 @@
         left: -260px;
         transition: left 0.3s ease;
         z-index: 1000;
-        background-color: rgba(74, 44, 94, 0.95); /* Fondo semi-transparente */
+        background-color: rgba(74, 44, 94, 0.95);
       }
       nav.active {
         left: 0;
+      }
+      nav .logo-container img {
+        width: 150px;
+        height: 150px;
       }
       .main-content {
         margin-left: 0;
@@ -207,6 +220,11 @@
 
   <!-- Barra de navegación vertical -->
   <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/" title="Volver al inicio">
+        <img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
+      </a>
+    </div>
     <h2>Categorías</h2>
     <details>
       <summary><i class="fas fa-map-marker-alt"></i> Región</summary>
@@ -372,7 +390,7 @@
     </div>
 
     <div class="card" id="gran-poetico-malbec-2013" data-region="Valle de Uco, Mendoza" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="39" data-precio-rango="Premium">
-      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo  säljer 1000malbecs">
+      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
       <div class="card-content">
         <div class="bottle-cell">
           <img class="bottle" src="https://images.vivino.com/thumbs/rpBQXFJoQA6blGvfxBUCvA_pb_600x600.png" alt="Botella de Gran Poético - Malbec 2013" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
