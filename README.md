@@ -23,13 +23,13 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      width: 80px;
+      width: 100px;
       height: auto;
     }
     .card-content {
       display: flex;
       align-items: flex-start;
-      margin-top: 80px; /* Para evitar que el logo superponga el contenido */
+      margin-top: 140px; /* Para evitar que el logo superponga el contenido */
     }
     .bottle-cell {
       flex: 0 0 auto;
@@ -40,7 +40,7 @@
       padding: 10px;
     }
     .bottle {
-      width: 150px;
+      width: 300px;
       height: auto;
       max-width: 100%;
     }
