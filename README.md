@@ -139,7 +139,7 @@
     <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs"Width="150" Height="150">
     <div class="card-content">
       <div class="bottle-cell">
-        <img class="bottle" src="https://images.vivino.com/thumbs/rpBQXFJoQA6blGvfxBUCvA_pb_600x600.png" alt="Botella de Gran Poético - Malbec 2013" Width="300">
+        <img class="bottle" src="https://images.vivino.com/thumbs/rpBQXFJoQA6blGvfxBUCvA_pb_600x600.png" alt="Botella de Gran Poético - Malbec 2013" Width="300" Height="500">
       </div>
       <div class="text-cell">
         <h2 class="vino">Gran Poético - Malbec 2013</h2>
