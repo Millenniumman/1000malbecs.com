@@ -102,7 +102,7 @@
     .product-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 30px;
       padding: 20px 0;
       justify-items: center;
     }
@@ -140,7 +140,7 @@
       margin-bottom: 10px;
     }
     .product-item h3 {
-      font-size: 1.1em;
+      font-size: 0.95em;
       margin: 0 0 10px 0;
       color: #333;
       white-space: nowrap;
@@ -152,23 +152,36 @@
       color: #4A0D29;
       margin: 0;
     }
-    /* Tooltip para la descripción */
-    .product-item .description {
+    /* Tooltip para título, región y bodega */
+    .product-item .tooltip {
       display: none;
       position: absolute;
-      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       background-color: #333;
       color: #fff;
-      padding: 10px;
+      padding: 8px;
       border-radius: 5px;
       width: 180px;
       z-index: 10;
-      font-size: 0.85em;
+      font-size: 0.8em;
+      line-height: 1.4;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-    .product-item:hover .description {
+    .product-item .tooltip p {
+      margin: 0;
+    }
+    /* Tooltip arriba para la primera fila */
+    .product-list .product-item:nth-child(-n+3) .tooltip {
+      top: auto;
+      bottom: calc(100% + 5px);
+    }
+    /* Tooltip abajo para la segunda fila */
+    .product-list .product-item:nth-child(n+4) .tooltip {
+      top: calc(100% + 5px);
+      bottom: auto;
+    }
+    .product-item:hover .tooltip {
       display: block;
     }
 
@@ -217,7 +230,7 @@
       }
       .product-list {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 25px;
       }
       .product-item {
         width: 150px;
@@ -228,9 +241,9 @@
         height: 80px;
       }
       .product-item h3 {
-        font-size: 0.95em;
+        font-size: 0.85em;
       }
-      .product-item .description {
+      .product-item .tooltip {
         display: none; /* Ocultar tooltip en móvil */
       }
     }
@@ -363,7 +376,11 @@
           <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F5F95%2FF129%2FB710%2FDC62%2F6489%2F0A0C%2F6D0F%2F0CFA%2FTematico-Malbec.jpg&shop=242730&width=512&height=2560" alt="Temático - Malbec 2023" onerror="this.src='https://via.placeholder.com/100x300?text=Imagen+No+Disponible';">
           <h3>Temático - Malbec 2023</h3>
           <p class="price">8.5 €</p>
-          <span class="description">Un Malbec joven de expresión frutal y fresca, ideal para consumo diario.</span>
+          <span class="tooltip">
+            <p>Temático - Malbec 2023</p>
+            <p>Valle de Uco, Mendoza</p>
+            <p>Mauricio Lorca Bodega y Viñedos</p>
+          </span>
         </a>
       </div>
       <!-- Zapam Zucum - Organic Malbec 2022 -->
@@ -372,7 +389,11 @@
           <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F659A%2FA014%2F056E%2F240B%2FBAD1%2F0A0C%2F6D0D%2F68F1%2FZapamZucum.png&shop=242730" alt="Zapam Zucum - Organic Malbec 2022" onerror="this.src='https://via.placeholder.com/100x300?text=Imagen+No+Disponible';">
           <h3>Zapam Zucum - Organic 2022</h3>
           <p class="price">11 €</p>
-          <span class="description">Malbec orgánico que refleja el terruño con pureza y elegancia.</span>
+          <span class="tooltip">
+            <p>Zapam Zucum - Organic Malbec 2022</p>
+            <p>Valle de Uco, Mendoza</p>
+            <p>Mauricio Lorca Bodega y Viñedos</p>
+          </span>
         </a>
       </div>
       <!-- Fantasía - Malbec 2023 -->
@@ -381,7 +402,11 @@
           <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2FProducts%2Ffanmal%2FML-FantasiaMalbec.png&shop=242730&width=304&height=2560" alt="Fantasía - Malbec 2023" onerror="this.src='https://via.placeholder.com/100x300?text=Imagen+No+Disponible';">
           <h3>Fantasía - Malbec 2023</h3>
           <p class="price">11 €</p>
-          <span class="description">Vino de corte artístico, con carácter vivaz y aromas expresivos.</span>
+          <span class="tooltip">
+            <p>Fantasía - Malbec 2023</p>
+            <p>Valle de Uco, Mendoza</p>
+            <p>Mauricio Lorca Bodega y Viñedos</p>
+          </span>
         </a>
       </div>
       <!-- Gran Poético - Malbec 2013 -->
@@ -390,7 +415,11 @@
           <img src="https://images.vivino.com/thumbs/rpBQXFJoQA6blGvfxBUCvA_pb_600x600.png" alt="Gran Poético - Malbec 2013" onerror="this.src='https://via.placeholder.com/100x300?text=Imagen+No+Disponible';">
           <h3>Gran Poético - Malbec 2013</h3>
           <p class="price">39 €</p>
-          <span class="description">Vino ícono de autor, con paso por barrica y evolución en botella.</span>
+          <span class="tooltip">
+            <p>Gran Poético - Malbec 2013</p>
+            <p>Valle de Uco, Mendoza</p>
+            <p>Mauricio Lorca Bodega y Viñedos</p>
+          </span>
         </a>
       </div>
       <!-- Lois - Sparkling Malbec 2021 -->
@@ -399,7 +428,11 @@
           <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F50A5%2FFAC5%2F6F7E%2F6D14%2F85F8%2FC0A8%2F2936%2F8970%2FEF-LOIS-ROSE-BOTELLA-VICTORIA.png&shop=242730" alt="Lois - Sparkling Malbec 2021" onerror="this.src='https://via.placeholder.com/100x300?text=Imagen+No+Disponible';">
           <h3>Lois - Sparkling Malbec 2021</h3>
           <p class="price">15 €</p>
-          <span class="description">Malbec rosado espumante de método charmat, vibrante y aromático.</span>
+          <span class="tooltip">
+            <p>Lois - Sparkling Malbec 2021</p>
+            <p>Luján de Cuyo, Mendoza</p>
+            <p>Enrique Foster Bodega</p>
+          </span>
         </a>
       </div>
     </div>
