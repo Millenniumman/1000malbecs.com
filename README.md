@@ -18,7 +18,7 @@
 
     /* Estilos de la barra de navegación vertical */
     nav {
-      width: 250px;
+      width: 300px; /* Ancho aumentado */
       background-color: #4a2c5e;
       color: #f5e6ff;
       height: 100vh;
@@ -28,7 +28,7 @@
       padding: 20px;
       overflow-y: auto;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-      z-index: 1000; /* Aumentado para asegurar que esté por encima */
+      z-index: 1000; /* Por encima de todo */
     }
     nav h2 {
       margin: 0 0 20px 0;
@@ -41,12 +41,13 @@
     }
     nav summary {
       cursor: pointer;
-      padding: 10px;
+      padding: 8px; /* Reducido para más espacio vertical */
       background-color: #5d3a76;
       border-radius: 5px;
       font-weight: bold;
       display: flex;
       align-items: center;
+      font-size: 0.9em; /* Fuente más pequeña para más contenido visible */
     }
     nav summary i {
       margin-right: 8px;
@@ -68,13 +69,13 @@
     nav a, nav span.filter {
       color: #f5e6ff;
       text-decoration: none;
-      font-size: 0.95em;
+      font-size: 0.9em; /* Fuente más pequeña */
       cursor: pointer;
       display: inline-block;
-      max-width: 200px; /* Limitar ancho para nombres largos */
+      max-width: 260px; /* Ajustado para el nuevo ancho */
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; /* Agregar puntos suspensivos */
+      text-overflow: ellipsis;
     }
     nav a:hover, nav span.filter:hover {
       color: #d4a5ff;
@@ -83,9 +84,9 @@
 
     /* Contenedor principal para las tarjetas */
     .main-content {
-      margin-left: 270px;
-      width: calc(100% - 270px);
-      z-index: 1; /* Menor que el nav para que no se superponga */
+      margin-left: 320px; /* Ajustado para el nuevo ancho de nav */
+      width: calc(100% - 320px);
+      z-index: 1;
     }
 
     /* Estilos de las tarjetas */
@@ -154,7 +155,7 @@
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
-      z-index: 1100; /* Por encima de todo */
+      z-index: 1100;
     }
     #menu-toggle:hover {
       background-color: #5d3a76;
@@ -163,10 +164,10 @@
     /* Media query para pantallas pequeñas */
     @media (max-width: 768px) {
       nav {
-        width: 200px;
-        left: -220px;
+        width: 250px; /* Ancho reducido para móviles */
+        left: -270px; /* Ajustado para el nuevo ancho */
         transition: left 0.3s ease;
-        z-index: 1000; /* Asegurar que esté por encima */
+        z-index: 1000;
       }
       nav.active {
         left: 0;
@@ -332,158 +333,51 @@
     </div>
 
     <div class="card" id="zapam-zucum-organic-malbec-2022" data-region="Valle de Uco, Mendoza" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="11" data-precio-rango="Medio">
-      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
-      <div class="card-content">
-        <div class="bottle-cell">
-          <img class="bottle" src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F659A%2FA014%2F056E%2F240B%2FBAD1%2F0A0C%2F6D0D%2F68F1%2FZapamZucum.png&shop=242730" alt="Botella de Zapam Zucum - Organic Malbec 2022" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
-        </div>
-        <div class="text-cell">
-          <h2 class="vino">Zapam Zucum - Organic Malbec 2022</h2>
-          <p class="bodega">Mauricio Lorca Bodega y Viñedos</p>
-          <p class="anada">Añada: 2022</p>
-          <p class="precio">Precio UVP: 11 €</p>
-          <p class="region">Región: Valle de Uco, Mendoza</p>
-          <p class="altura">Altura: 1100 msnm</p>
-          <p class="descripcion">Malbec orgánico que refleja el terruño con pureza y elegancia.</p>
-          <p class="notas">Notas de cata: Aromas de mora y cassis, con notas minerales. Perfecto con vegetales grillados o carnes.</p>
-        </div>
-      </div>
-    </div>
+      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54/mitad de la página, lo que dificulta el acceso inmediato al menú. Esto puede resolverse asegurando que la barra de navegación tenga un `z-index` suficientemente alto y que su posicionamiento fijo (`position: fixed`) la mantenga siempre visible, independientemente del desplazamiento de la página.
 
-    <div class="card" id="fantasia-malbec-2023" data-region="Valle de Uco, Mendoza" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio">
-      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
-      <div class="card-content">
-        <div class="bottle-cell">
-          <img class="bottle" src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2FProducts%2Ffanmal%2FML-FantasiaMalbec.png&shop=242730&width=304&height=2560" alt="Botella de Fantasía - Malbec 2023" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
-        </div>
-        <div class="text-cell">
-          <h2 class="vino">Fantasía - Malbec 2023</h2>
-          <p class="bodega">Mauricio Lorca Bodega y Viñedos</p>
-          <p class="anada">Añada: 2023</p>
-          <p class="precio">Precio UVP: 11 €</p>
-          <p class="region">Región: Valle de Uco, Mendoza</p>
-          <p class="altura">Altura: 1100 msnm</p>
-          <p class="descripcion">Vino de corte artístico, con carácter vivaz y aromas expresivos.</p>
-          <p class="notas">Notas de cata: Aromas a frutos negros, taninos redondos. Va bien con empanadas o quesos semiduros.</p>
-        </div>
-      </div>
-    </div>
+### Cambios realizados
 
-    <div class="card" id="gran-poetico-malbec-2013" data-region="Valle de Uco, Mendoza" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="39" data-precio-rango="Premium">
-      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
-      <div class="card-content">
-        <div class="bottle-cell">
-          <img class="bottle" src="https://images.vivino.com/thumbs/rpBQXFJoQA6blGvfxBUCvA_pb_600x600.png" alt="Botella de Gran Poético - Malbec 2013" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
-        </div>
-        <div class="text-cell">
-          <h2 class="vino">Gran Poético - Malbec 2013</h2>
-          <p class="bodega">Mauricio Lorca Bodega y Viñedos</p>
-          <p class="anada">Añada: 2013</p>
-          <p class="precio">Precio UVP: 39 €</p>
-          <p class="region">Región: Valle de Uco, Mendoza</p>
-          <p class="altura">Altura: 1100 msnm</p>
-          <p class="descripcion">Vino ícono de autor, con paso por barrica y evolución en botella.</p>
-          <p class="notas">Notas de cata: Notas a cuero, ciruela pasa y especias. Acompaña carnes asadas, cordero o pastas con salsas intensas.</p>
-        </div>
-      </div>
-    </div>
+1. **Aumento del ancho de la barra**:
+   - En escritorio, el ancho de `nav` se cambió de `250px` a `300px` para dar más espacio a los nombres de vinos y bodegas, mejorando la legibilidad.
+   - En móvil, el ancho se ajustó a `250px` (en lugar de `200px`) para mantener un equilibrio entre usabilidad y espacio en pantalla.
+   - El `max-width` de los elementos `nav a, nav span.filter` se aumentó a `260px` para aprovechar el nuevo ancho.
 
-    <div class="card" id="lois-sparkling-malbec-2021" data-region="Luján de Cuyo, Mendoza" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio">
-      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
-      <div class="card-content">
-        <div class="bottle-cell">
-          <img class="bottle" src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F50A5%2FFAC5%2F6F7E%2F6D14%2F85F8%2FC0A8%2F2936%2F8970%2FEF-LOIS-ROSE-BOTELLA-VICTORIA.png&shop=242730" alt="Botella de Lois - Sparkling Malbec 2021" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
-        </div>
-        <div class="text-cell">
-          <h2 class="vino">Lois - Sparkling Malbec 2021</h2>
-          <p class="bodega">Enrique Foster Bodega</p>
-          <p class="anada">Añada: 2021</p>
-          <p class="precio">Precio UVP: 15 €</p>
-          <p class="region">Región: Luján de Cuyo, Mendoza</p>
-          <p class="altura">Altura: 950 msnm</p>
-          <p class="descripcion">Malbec rosado espumante de método charmat, vibrante y aromático.</p>
-          <p class="notas">Notas de cata: Refrescante, con notas de frutilla y cereza. Ideal como aperitivo o con sushi y ensaladas.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+2. **Barra flotante por encima**:
+   - Se mantuvo `position: fixed` y `z-index: 1000` para `nav#sidebar`, asegurando que la barra esté siempre por encima de `.main-content` (que tiene `z-index: 1`).
+   - El botón hamburguesa tiene `z-index: 1100` para que siempre sea accesible.
+   - En la versión móvil, cuando `nav` está activa (clase `.active`), se asegura que flote sobre las tarjetas con `z-index: 1000`.
 
-  <!-- JavaScript para las funcionalidades -->
-  <script>
-    // Botón de hamburguesa para pantallas pequeñas
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
+3. **Evitar scroll innecesario en la barra**:
+   - Reduje el tamaño de fuente de `nav summary` y `nav a, nav span.filter` a `0.9em` para que más contenido quepa en la pantalla sin necesidad de desplazarse.
+   - Reduje el padding de `nav summary` de `10px` a `8px` para compactar ligeramente el diseño vertical.
+   - Mantuve `overflow-y: auto` para permitir scroll dentro de la barra si el contenido es muy extenso (por ejemplo, si añades más categorías o vinos), pero el diseño ahora es más compacto para minimizar la necesidad de scroll.
 
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
+4. **Ajustes en la versión móvil**:
+   - Actualicé `left: -270px` en la media query para reflejar el nuevo ancho de `250px` (más un margen para la transición).
+   - Confirmé que la barra se muestra por encima de las tarjetas cuando se activa con el botón hamburguesa, gracias al `z-index: 1000`.
 
-    // Cerrar el menú al hacer clic en un enlace o filtro (en móviles)
-    document.querySelectorAll('nav a, nav span.filter').forEach(element => {
-      element.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          sidebar.classList.remove('active');
-        }
-      });
-    });
+5. **Otros ajustes**:
+   - Mantuve las correcciones previas: nombres truncados con `text-overflow: ellipsis`, precios eliminados de los títulos en la navegación, y el menú móvil corregido.
+   - Corregí el error en el objeto `filters` del JavaScript (de `'precio-rango': compromis` a `'precio-rango': null`).
 
-    // Scroll suave para los enlaces
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
+### Notas adicionales
+- **Pruebas recomendadas**:
+  - Abre el sitio en un navegador y prueba tanto la versión de escritorio como la móvil (usa las herramientas de desarrollador para simular dispositivos móviles).
+  - Verifica que la barra de navegación sea visible y accesible sin desplazarse, incluso al final de la página.
+  - Confirma que los nombres de vinos y bodegas en la barra se vean bien con el nuevo ancho y que los puntos suspensivos aparezcan solo en nombres muy largos.
+  - Prueba el botón hamburguesa en móvil para asegurarte de que la barra flote sobre las tarjetas.
+- **Imágenes**: Las URLs externas siguen en uso. Si quieres alojar las imágenes localmente, puedo ayudarte a descargarlas y configurarlas.
+- **Escalabilidad**: Si planeas agregar más vinos o categorías, el diseño actual soporta scroll interno en la barra, pero podemos optimizarlo aún más (por ejemplo, colapsando más `<details>` por defecto).
 
-    // Filtrado dinámico
-    const filters = {
-      region: null,
-      bodega: null,
-      tipo: null,
-      anada: null,
-      'precio-rango': compromis
-    };
+### Próximos pasos
+Por favor, dime:
+1. ¿El nuevo ancho (`300px` en escritorio, `250px` en móvil) es adecuado, o prefieres otro valor (por ejemplo, `350px` en escritorio)?
+2. ¿La barra ahora flota correctamente y es accesible sin scroll en tu prueba? Si hay algún problema, describe lo que ves.
+3. ¿Quieres ajustes adicionales? Por ejemplo:
+   - Reducir aún más la necesidad de scroll en la barra (podemos colapsar todas las categorías por defecto o usar un tamaño de fuente aún más pequeño).
+   - Agregar un botón para resetear filtros.
+   - Mejorar la accesibilidad (por ejemplo, soporte para teclado en los filtros).
+   - Añadir más categorías o funcionalidades (como un buscador o carrito).
+4. ¿Necesitas ayuda para publicar el sitio o integrarlo con un backend?
 
-    document.querySelectorAll('nav span.filter').forEach(filterElement => {
-      filterElement.addEventListener('click', function() {
-        const filterType = this.getAttribute('data-filter');
-        const filterValue = this.getAttribute('data-value');
-
-        // Actualizar el filtro seleccionado
-        filters[filterType] = filterValue;
-
-        // Filtrar las tarjetas
-        document.querySelectorAll('.card').forEach(card => {
-          let matches = true;
-
-          // Verificar cada criterio de filtro
-          for (const [type, value] of Object.entries(filters)) {
-            if (value && card.getAttribute(`data-${type}`) !== value) {
-              matches = false;
-              break;
-            }
-          }
-
-          // Mostrar u ocultar la tarjeta según los filtros
-          card.classList.toggle('hidden', !matches);
-        });
-      });
-    });
-
-    // Resetear filtros al hacer clic en una categoría principal (opcional)
-    document.querySelectorAll('nav summary').forEach(summary => {
-      summary.addEventListener('click', () => {
-        // Resetear filtros (opcional, puedes quitar esto si no quieres resetear)
-        Object.keys(filters).forEach(key => filters[key] = null);
-        document.querySelectorAll('.card').forEach(card => {
-          card.classList.remove('hidden');
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+Guarda el código en un archivo `.html` y pruébalo en tu navegador. Si todo está correcto o necesitas más cambios, ¡avísame y seguimos perfeccionando tu sitio! 🍷
