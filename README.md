@@ -20,7 +20,7 @@
     nav {
       width: 400px;
       background-color: #4A0D29;
-      color: #f5e6ff;
+      color: #4A0D29;
       height: 100vh;
       position: fixed;
       top: 0;
