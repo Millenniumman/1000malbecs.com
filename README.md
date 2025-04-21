@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -19,8 +19,8 @@
     /* Estilos de la barra de navegación vertical */
     nav {
       width: 400px;
-      background-color: #4a2c5e;
-      color: ##4A0D29;
+      background-color: #4A0D29;
+      color: #f5e6ff;
       height: 100vh;
       position: fixed;
       top: 0;
@@ -42,7 +42,7 @@
     nav h2 {
       margin: 0 0 8px 0;
       font-size: 1.4em;
-      color: ##4A0D29;
+      color: #f5e6ff;
       text-align: center;
     }
     nav details {
