@@ -1,5 +1,3 @@
-
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -79,7 +77,7 @@
 
   <!-- Ejemplo de ficha -->
   <div class="card">
-    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs" Width="200" Height="200">
+    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs" Width="150" Height="150">
     <div class="card-content">
       <div class="bottle-cell">
         <img class="bottle" src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F5F95%2FF129%2FB710%2FDC62%2F6489%2F0A0C%2F6D0F%2F0CFA%2FTematico-Malbec.jpg&shop=242730&width=512&height=2560" alt="Botella de vino">
