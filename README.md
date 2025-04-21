@@ -116,7 +116,7 @@
 
   <!-- Vino 3 -->
   <div class="card">
-    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs "Width="150" Height="150">
+    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" "Width="150" Height="150" alt="Logo 1000malbecs "Width="150" Height="150">
     <div class="card-content">
       <div class="bottle-cell">
         <img class="bottle" src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2FProducts%2Ffanmal%2FML-FantasiaMalbec.png&shop=242730&width=304&height=2560"  Width="200" Height="1000"  alt="Botella de Fantasía - Malbec 2023">
@@ -136,7 +136,7 @@
 
   <!-- Vino 4 -->
   <div class="card">
-    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs "Width="150" Height="150">
+    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" "Width="150" Height="150" alt="Logo 1000malbecs >
     <div class="card-content">
       <div class="bottle-cell">
         <img class="bottle" src="https://images.vivino.com/thumbs/rpBQXFJoQA6blGvfxBUCvA_pb_600x600.png" alt="Botella de Gran Poético - Malbec 2013" Width="200" Height="1000" >
@@ -156,7 +156,7 @@
 
   <!-- Vino 5 -->
   <div class="card">
-    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs "Width="150" Height="150">
+    <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" "Width="150" Height="150" alt="Logo 1000malbecs >
     <div class="card-content">
       <div class="bottle-cell">
         <img class="bottle" src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F50A5%2FFAC5%2F6F7E%2F6D14%2F85F8%2FC0A8%2F2936%2F8970%2FEF-LOIS-ROSE-BOTELLA-VICTORIA.png&shop=242730" Width="200" Height="1000"  alt="Botella de Lois - Sparkling Malbec 2021">
