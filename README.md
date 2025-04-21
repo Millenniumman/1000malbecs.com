@@ -101,11 +101,14 @@
     /* Estilos para la lista de productos */
     .product-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       padding: 20px 0;
+      justify-items: center;
     }
     .product-item {
+      width: 200px;
+      height: 300px;
       border: 1px solid #ddd;
       border-radius: 10px;
       background-color: #fff;
@@ -113,6 +116,9 @@
       padding: 15px;
       text-align: center;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: transform 0.2s;
     }
     .product-item:hover {
@@ -125,17 +131,21 @@
       text-decoration: none;
       color: inherit;
       display: block;
+      height: 100%;
     }
     .product-item img {
-      width: 100px;
-      height: auto;
+      width: 100%;
+      height: 100px;
       object-fit: contain;
       margin-bottom: 10px;
     }
     .product-item h3 {
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin: 0 0 10px 0;
       color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .product-item p.price {
       font-weight: bold;
@@ -153,9 +163,9 @@
       color: #fff;
       padding: 10px;
       border-radius: 5px;
-      width: 200px;
+      width: 180px;
       z-index: 10;
-      font-size: 0.9em;
+      font-size: 0.85em;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     .product-item:hover .description {
@@ -206,14 +216,19 @@
         display: block;
       }
       .product-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
+      .product-item {
+        width: 150px;
+        height: 250px;
+        padding: 10px;
+      }
       .product-item img {
-        width: 80px;
+        height: 80px;
       }
       .product-item h3 {
-        font-size: 1em;
+        font-size: 0.95em;
       }
       .product-item .description {
         display: none; /* Ocultar tooltip en móvil */
@@ -355,7 +370,7 @@
       <div class="product-item" id="zapam-zucum-organic-malbec-2022" data-region="Valle de Uco, Mendoza" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="11" data-precio-rango="Medio">
         <a href="zapam-zucum-organic-malbec-2022.html">
           <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F659A%2FA014%2F056E%2F240B%2FBAD1%2F0A0C%2F6D0D%2F68F1%2FZapamZucum.png&shop=242730" alt="Zapam Zucum - Organic Malbec 2022" onerror="this.src='https://via.placeholder.com/100x300?text=Imagen+No+Disponible';">
-          <h3>Zapam Zucum - Organic Malbec 2022</h3>
+          <h3>Zapam Zucum - Organic 2022</h3>
           <p class="price">11 €</p>
           <span class="description">Malbec orgánico que refleja el terruño con pureza y elegancia.</span>
         </a>
