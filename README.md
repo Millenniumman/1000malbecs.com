@@ -19,7 +19,7 @@
     /* Estilos de la barra de navegación vertical */
     nav {
       width: 400px;
-      background-color: #4A0D29;
+      background-color: #4A0D29; /* Nuevo color */
       color: #f5e6ff;
       height: 100vh;
       position: fixed;
@@ -51,7 +51,7 @@
     nav summary {
       cursor: pointer;
       padding: 5px;
-      background-color: #5d3a76;
+      background-color: #5A1D39; /* Ajustado para contraste */
       border-radius: 5px;
       font-weight: bold;
       display: flex;
@@ -62,7 +62,7 @@
       margin-right: 6px;
     }
     nav summary:hover {
-      background-color: #6b4685;
+      background-color: #682A46; /* Ajustado para hover */
     }
     nav ul {
       list-style: none;
@@ -158,7 +158,7 @@
       top: 20px;
       left: 20px;
       font-size: 1.5em;
-      background-color: #4a2c5e;
+      background-color: #4A0D29; /* Nuevo color */
       color: #f5e6ff;
       border: none;
       padding: 10px;
@@ -167,7 +167,7 @@
       z-index: 1100;
     }
     #menu-toggle:hover {
-      background-color: #5d3a76;
+      background-color: #5A1D39; /* Ajustado para hover */
     }
 
     /* Media query para pantallas pequeñas */
@@ -177,7 +177,7 @@
         left: -260px;
         transition: left 0.3s ease;
         z-index: 1000;
-        background-color: rgba(74, 44, 94, 0.95);
+        background-color: rgba(74, 13, 41, 0.95); /* Ajustado para móvil */
       }
       nav.active {
         left: 0;
