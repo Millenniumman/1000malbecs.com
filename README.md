@@ -19,8 +19,8 @@
     /* Estilos de la barra de navegación vertical */
     nav {
       width: 250px;
-      background-color: #4a2c5e; /* Color morado oscuro para combinar con el tema de vinos */
-      color: #f5e6ff; /* Texto en un tono claro para contraste */
+      background-color: #4a2c5e;
+      color: #f5e6ff;
       height: 100vh;
       position: fixed;
       top: 0;
@@ -28,6 +28,7 @@
       padding: 20px;
       overflow-y: auto;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      z-index: 1000; /* Aumentado para asegurar que esté por encima */
     }
     nav h2 {
       margin: 0 0 20px 0;
@@ -41,7 +42,7 @@
     nav summary {
       cursor: pointer;
       padding: 10px;
-      background-color: #5d3a76; /* Tono más claro para el fondo de las categorías */
+      background-color: #5d3a76;
       border-radius: 5px;
       font-weight: bold;
       display: flex;
@@ -51,7 +52,7 @@
       margin-right: 8px;
     }
     nav summary:hover {
-      background-color: #6b4685; /* Efecto hover más claro */
+      background-color: #6b4685;
     }
     nav ul {
       list-style: none;
@@ -69,9 +70,14 @@
       text-decoration: none;
       font-size: 0.95em;
       cursor: pointer;
+      display: inline-block;
+      max-width: 200px; /* Limitar ancho para nombres largos */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Agregar puntos suspensivos */
     }
     nav a:hover, nav span.filter:hover {
-      color: #d4a5ff; /* Color más claro para el hover */
+      color: #d4a5ff;
       text-decoration: underline;
     }
 
@@ -79,6 +85,7 @@
     .main-content {
       margin-left: 270px;
       width: calc(100% - 270px);
+      z-index: 1; /* Menor que el nav para que no se superponga */
     }
 
     /* Estilos de las tarjetas */
@@ -90,10 +97,10 @@
       background-color: #fff;
       position: relative;
       padding: 20px;
-      display: block; /* Por defecto visible */
+      display: block;
     }
     .card.hidden {
-      display: none; /* Para el filtrado dinámico */
+      display: none;
     }
     .logo {
       position: absolute;
@@ -134,7 +141,7 @@
       margin: 10px 0;
     }
 
-    /* Estilos para el botón de hamburguesa (pantallas pequeñas) */
+    /* Estilos para el botón de hamburguesa */
     #menu-toggle {
       display: none;
       position: fixed;
@@ -147,7 +154,7 @@
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
-      z-index: 1000;
+      z-index: 1100; /* Por encima de todo */
     }
     #menu-toggle:hover {
       background-color: #5d3a76;
@@ -159,6 +166,7 @@
         width: 200px;
         left: -220px;
         transition: left 0.3s ease;
+        z-index: 1000; /* Asegurar que esté por encima */
       }
       nav.active {
         left: 0;
@@ -166,6 +174,7 @@
       .main-content {
         margin-left: 0;
         width: 100%;
+        z-index: 1;
       }
       #menu-toggle {
         display: block;
@@ -204,20 +213,20 @@
           <ul>
             <li><strong>Bodega</strong>
               <ul>
-                <li><span class="filter" data-filter="bodega" data-value="Mauricio Lorca Bodega y Viñedos">Mauricio Lorca Bodega y Viñedos</span>
+                <li><span class="filter" data-filter="bodega" data-value="Mauricio Lorca Bodega y Viñedos">Mauricio Lorca Bodega</span>
                   <ul>
                     <li><strong>Tipo</strong>
                       <ul>
                         <li><span class="filter" data-filter="tipo" data-value="Estándar">Estándar</span>
                           <ul>
-                            <li><a href="#tematico-malbec-2023">Temático - Malbec 2023</a> (8.5 €)</li>
-                            <li><a href="#fantasia-malbec-2023">Fantasía - Malbec 2023</a> (11 €)</li>
-                            <li><a href="#gran-poetico-malbec-2013">Gran Poético - Malbec 2013</a> (39 €)</li>
+                            <li><a href="#tematico-malbec-2023">Temático - Malbec 2023</a></li>
+                            <li><a href="#fantasia-malbec-2023">Fantasía - Malbec 2023</a></li>
+                            <li><a href="#gran-poetico-malbec-2013">Gran Poético - Malbec 2013</a></li>
                           </ul>
                         </li>
                         <li><span class="filter" data-filter="tipo" data-value="Orgánico">Orgánico</span>
                           <ul>
-                            <li><a href="#zapam-zucum-organic-malbec-2022">Zapam Zucum - Organic Malbec 2022</a> (11 €)</li>
+                            <li><a href="#zapam-zucum-organic-malbec-2022">Zapam Zucum - Organic 2022</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -238,7 +247,7 @@
                       <ul>
                         <li><span class="filter" data-filter="tipo" data-value="Espumante">Espumante</span>
                           <ul>
-                            <li><a href="#lois-sparkling-malbec-2021">Lois - Sparkling Malbec 2021</a> (15 €)</li>
+                            <li><a href="#lois-sparkling-malbec-2021">Lois - Sparkling Malbec 2021</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -256,19 +265,19 @@
       <ul>
         <li><span class="filter" data-filter="precio-rango" data-value="Económico">Económico (< 10 €)</span>
           <ul>
-            <li><a href="#tematico-malbec-2023">Temático - Malbec 2023</a> (8.5 €)</li>
+            <li><a href="#tematico-malbec-2023">Temático - Malbec 2023</a></li>
           </ul>
         </li>
         <li><span class="filter" data-filter="precio-rango" data-value="Medio">Medio (10 € - 20 €)</span>
           <ul>
-            <li><a href="#zapam-zucum-organic-malbec-2022">Zapam Zucum - Organic Malbec 2022</a> (11 €)</li>
-            <li><a href="#fantasia-malbec-2023">Fantasía - Malbec 2023</a> (11 €)</li>
-            <li><a href="#lois-sparkling-malbec-2021">Lois - Sparkling Malbec 2021</a> (15 €)</li>
+            <li><a href="#zapam-zucum-organic-malbec-2022">Zapam Zucum - Organic 2022</a></li>
+            <li><a href="#fantasia-malbec-2023">Fantasía - Malbec 2023</a></li>
+            <li><a href="#lois-sparkling-malbec-2021">Lois - Sparkling Malbec 2021</a></li>
           </ul>
         </li>
         <li><span class="filter" data-filter="precio-rango" data-value="Premium">Premium (> 20 €)</span>
           <ul>
-            <li><a href="#gran-poetico-malbec-2013">Gran Poético - Malbec 2013</a> (39 €)</li>
+            <li><a href="#gran-poetico-malbec-2013">Gran Poético - Malbec 2013</a></li>
           </ul>
         </li>
       </ul>
@@ -284,7 +293,7 @@
         </li>
         <li><span class="filter" data-filter="anada" data-value="2022">2022</span>
           <ul>
-            <li><a href="#zapam-zucum-organic-malbec-2022">Zapam Zucum - Organic Malbec 2022</a></li>
+            <li><a href="#zapam-zucum-organic-malbec-2022">Zapam Zucum - Organic 2022</a></li>
           </ul>
         </li>
         <li><span class="filter" data-filter="anada" data-value="2021">2021</span>
@@ -436,7 +445,7 @@
       bodega: null,
       tipo: null,
       anada: null,
-      'precio-rango': null
+      'precio-rango': compromis
     };
 
     document.querySelectorAll('nav span.filter').forEach(filterElement => {
