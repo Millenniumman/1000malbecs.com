@@ -462,7 +462,7 @@
       </div>
       <!-- Enrique Foster Bodega -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="900">
-        <img src="/images/lois.png" alt="Lois - Sparkling Malbec 2021">
+        <img src="/images/Lois.png" alt="Lois - Sparkling Malbec 2021">
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
