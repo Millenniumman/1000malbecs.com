@@ -414,8 +414,7 @@
       </li>
     </ul>
   </details>
-</nav>
-  <!-- Contenido principal (home con lista de productos) -->
+</nav>  <!-- Contenido principal (home con lista de productos) -->
   <div class="main-content">
     <h1 style="font-size: 1.8em; color: #333; margin-bottom: 20px;">Nuestros Vinos Malbec</h1>
     <div class="product-list">
