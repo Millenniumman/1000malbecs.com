@@ -486,7 +486,7 @@
         <a href="pink-malbec-rosado-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-subtipo="Clásico" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="900">
-        <img src="/images/IqueMalbec.aviff" alt="Ique - Malbec 2023">
+        <img src="/images/IqueMalbec.avif" alt="Ique - Malbec 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -498,7 +498,7 @@
         <a href="ique-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-subtipo="Clásico" data-anada="2023" data-precio="21" data-precio-rango="Premium" data-altura="900">
-        <img src="/images/ReservaMalbec.aviff" alt="Foster - Malbec 2023">
+        <img src="/images/ReservaMalbec.avif" alt="Foster - Malbec 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
