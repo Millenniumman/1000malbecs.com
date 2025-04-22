@@ -413,7 +413,7 @@
     <div class="featured-products">
       <!-- Mauricio Lorca Bodega y Viñedos -->
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1100">
-        <img src="/images/tematico-malbec-2023.jpg" alt="Temático - Malbec 2023">
+        <img src="/images/Tematico-Malbec.avif" alt="Temático - Malbec 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -425,7 +425,7 @@
         <a href="tematico-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1100">
-        <img src="/images/fantasia-malbec-2023.jpg" alt="Fantasía - Malbec 2023">
+        <img src="/images/fantasiaMalbec.jpg" alt="Fantasía - Malbec 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -437,7 +437,7 @@
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1100">
-        <img src="/images/gran-poetico-malbec-2013.jpg" alt="Gran Poético - Malbec 2013">
+        <img src="/images/GranPoeticoMalbec.jpg" alt="Gran Poético - Malbec 2013">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -449,7 +449,7 @@
         <a href="gran-poetico-malbec-2013.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1100">
-        <img src="/images/zapam-zucum-organic-malbec-2022.jpg" alt="Zapam Zucum - Organic Malbec 2022">
+        <img src="/images/ZapamZucum.avif" alt="Zapam Zucum - Organic Malbec 2022">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -462,7 +462,7 @@
       </div>
       <!-- Enrique Foster Bodega -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="900">
-        <img src="/images/lois-sparkling-malbec-2021.jpg" alt="Lois - Sparkling Malbec 2021">
+        <img src="/images/EF-LOIS-ROSE-BOTELLA-VICTORIA-2.avif" alt="Lois - Sparkling Malbec 2021">
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
