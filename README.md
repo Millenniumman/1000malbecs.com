@@ -110,7 +110,9 @@
       border-radius: 10px;
       padding: 10px;
       text-align: center;
-      background-color: #fff;
+      Supplemental Response:
+
+background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: relative;
       overflow: hidden;
@@ -436,7 +438,7 @@
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1100">
-        <img src="/images/gran-poetico-malbec-2013.jpg" alt="Gran Poético - Malbec 2013">
+        <img src="/images/gran-poetico malbec-2013.jpg" alt="Gran Poético - Malbec 2013">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -547,44 +549,61 @@
     </div>
   </div>
   <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const noResults = document.getElementById('no-results');
-    const resetFilters = document.getElementById('reset-filters');
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
-    document.querySelectorAll('nav a, nav span.filter').forEach(element => {
-      element.addEventListener('click', () => {
-        if (window.innerWidth <= 768px) {
-          sidebar.classList.remove('active');
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const sidebar = document.getElementById('sidebar');
+      const noResults = document.getElementById('no-results');
+      const resetFilters = document.getElementById('reset-filters');
+
+      // Toggle sidebar on mobile
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
       });
-    });
-    document.querySelectorAll('.filter').forEach(filter => {
-      filter.addEventListener('click', () => {
-        document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
-        filter.classList.add('active');
-        const filterType = filter.dataset.filter;
-        const filterValue = filter.dataset.value;
-        let hasVisible = false;
-        document.querySelectorAll('.product-card').forEach(card => {
-          if (filterValue === 'all' || card.dataset[filterType] === filterValue) {
-            card.classList.remove('hidden');
-            hasVisible = true;
-          } else {
-            card.classList.add('hidden');
+
+      // Close sidebar when clicking a filter or link on mobile
+      document.querySelectorAll('nav a, nav span.filter').forEach(element => {
+        element.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            sidebar.classList.remove('active');
           }
         });
-        noResults.style.display = hasVisible ? 'none' : 'block';
       });
-    });
-    resetFilters.addEventListener('click', () => {
-      document.querySelectorAll('.product-card').forEach(card => {
-        card.classList.remove('hidden');
+
+      // Filter functionality
+      document.querySelectorAll('.filter').forEach(filter => {
+        filter.addEventListener('click', () => {
+          // Remove active class from all filters
+          document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
+          // Add active class to clicked filter
+          filter.classList.add('active');
+
+          const filterType = filter.dataset.filter;
+          const filterValue = filter.dataset.value;
+
+          let hasVisible = false;
+          document.querySelectorAll('.product-card').forEach(card => {
+            // Show card if filterValue is 'all' or matches the card's data attribute
+            if (filterValue === 'all' || card.dataset[filterType] === filterValue) {
+              card.classList.remove('hidden');
+              hasVisible = true;
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+
+          // Show/hide no-results message
+          noResults.style.display = hasVisible ? 'none' : 'block';
+        });
       });
-      document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
-      noResults.style.display = 'none';
+
+      // Reset filters
+      resetFilters.addEventListener('click', () => {
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.classList.remove('hidden');
+        });
+        document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
+        noResults.style.display = 'none';
+      });
     });
   </script>
 </body>
