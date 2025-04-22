@@ -110,9 +110,7 @@
       border-radius: 10px;
       padding: 10px;
       text-align: center;
-      Supplemental Response:
-
-background-color: #fff;
+      background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: relative;
       overflow: hidden;
@@ -155,7 +153,7 @@ background-color: #fff;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 200px; /* Cubre solo la imagen */
       background-color: rgba(74, 13, 41, 0.9);
       color: #f5e6ff;
       display: flex;
@@ -165,15 +163,16 @@ background-color: #fff;
       opacity: 0;
       transition: opacity 0.3s ease;
       padding: 10px;
-      font-size: 0.8em;
+      font-size: 0.75em; /* Reducido para que el texto quepa */
     }
     .product-card:hover .overlay {
       opacity: 1;
     }
     .product-card .overlay p {
-      margin: 5px 0;
+      margin: 3px 0; /* Menos espacio entre líneas */
       font-weight: normal;
       color: #f5e6ff;
+      line-height: 1.2; /* Mejor legibilidad */
     }
     .product-card.hidden {
       display: none;
@@ -438,7 +437,7 @@ background-color: #fff;
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1100">
-        <img src="/images/gran-poetico malbec-2013.jpg" alt="Gran Poético - Malbec 2013">
+        <img src="/images/gran-poetico-malbec-2013.jpg" alt="Gran Poético - Malbec 2013">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
