@@ -510,7 +510,7 @@
         <a href="foster-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-subtipo="Premium" data-anada="2023" data-precio="23" data-precio-rango="Premium" data-altura="900">
-        <img src="/images/foster-malbec-los-altepes-2023.jpg" alt="Foster - Malbec 'Los Altepes' 2023">
+        <img src="/images/LosAltepes.png" alt="Foster - Malbec 'Los Altepes' 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
