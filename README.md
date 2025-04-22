@@ -398,7 +398,7 @@
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium">
-        <img src="/images/gran-poetico-malbec-2013.jpg" alt="Gran Poético - Malbec 2013">
+        <img src="/images/GranPoeticoMalbec.jpg" alt="Gran Poético - Malbec 2013">
         <h3>Gran Poético - Malbec 2013</h3>
         <p>€25</p>
         <a href="gran-poetico-malbec-2013.html">Comprar</a>
