@@ -116,6 +116,27 @@
       color: #555;
       line-height: 1.6;
     }
+    .region-photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .region-photo {
+      text-align: center;
+    }
+    .region-photo img {
+      width: 300px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .region-photo p {
+      font-size: 0.9em;
+      color: #333;
+      margin: 5px 0 0 0;
+    }
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -174,6 +195,10 @@
       }
       .banner {
         height: 200px;
+      }
+      .region-photo img {
+        width: 100%;
+        height: 120px;
       }
     }
   </style>
@@ -320,6 +345,16 @@
       <p>
         Mendoza, conocida como la capital del vino de Argentina, es una región vitivinícola de renombre mundial. Ubicada al pie de la cordillera de los Andes, su clima seco, suelos variados y altitud ideal crean condiciones perfectas para el cultivo de la vid, especialmente del Malbec. Esta provincia produce algunos de los vinos más emblemáticos del país, combinando tradición e innovación.
       </p>
+    </div>
+    <div class="region-photos">
+      <div class="region-photo">
+        <img src="https://via.placeholder.com/300x150?text=Valle+de+Uco" alt="Valle de Uco">
+        <p>Valle de Uco</p>
+      </div>
+      <div class="region-photo">
+        <img src="https://via.placeholder.com/300x150?text=Luján+de+Cuyo" alt="Luján de Cuyo">
+        <p>Luján de Cuyo</p>
+      </div>
     </div>
     <div class="links">
       <a href="valle-de-uco.html">Explorar Valle de Uco</a>
