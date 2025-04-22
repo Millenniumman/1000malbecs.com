@@ -392,7 +392,7 @@
         <a href="tematico-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio">
-        <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2FProducts%2Ffanmal%2FML-FantasiaMalbec.png&shop=242730&width=304&height=2560)" alt="Fantasía - Malbec 2023">
+        <img src="/images/fantasiamalbec.jpg.pdf" alt="Fantasía - Malbec 2023">
         <h3>Fantasía - Malbec 2023</h3>
         <p>€11</p>
         <a href="fantasia-malbec-2023.html">Comprar</a>
