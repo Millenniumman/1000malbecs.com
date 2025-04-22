@@ -386,13 +386,13 @@
     <div class="featured-products">
       <!-- Mauricio Lorca Bodega y Viñedos -->
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico">
-        <img src="(https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F5F95%2FF129%2FB710%2FDC62%2F6489%2F0A0C%2F6D0F%2F0CFA%2FTematico-Malbec.jpg&shop=242730&width=512&height=2560)" alt="Temático - Malbec 2023">
+        <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2F5F95%2FF129%2FB710%2FDC62%2F6489%2F0A0C%2F6D0F%2F0CFA%2FTematico-Malbec.jpg&shop=242730&width=512&height=2560" alt="Temático - Malbec 2023">
         <h3>Temático - Malbec 2023</h3>
         <p>€9</p>
         <a href="tematico-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio">
-        <img src="(https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2FProducts%2Ffanmal%2FML-FantasiaMalbec.png&shop=242730&width=304&height=2560)" alt="Fantasía - Malbec 2023">
+        <img src="https://www.vino-argentino.de/storage/images/image?remote=https%3A%2F%2Fwww.vino-argentino.de%2FWebRoot%2FStore12%2FShops%2F242730%2FProducts%2Ffanmal%2FML-FantasiaMalbec.png&shop=242730&width=304&height=2560)" alt="Fantasía - Malbec 2023">
         <h3>Fantasía - Malbec 2023</h3>
         <p>€11</p>
         <a href="fantasia-malbec-2023.html">Comprar</a>
