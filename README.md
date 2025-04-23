@@ -547,47 +547,7 @@
       </div>
     </div>
   </div>
-<!-- Tarjeta 1: Finca Las Nubes Malbec 2020 -->
-  <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-altura="1700" data-tipo="Tinto" data-subtipo="Premium" data-anada="2023>
-    <img src="placeholder.jpg" alt="[Insertar imagen de Finca Las Nubes Malbec 2020]">
-    <div class="overlay">
-      <p><strong>Bodega:</strong> Finca Las Nubes</p>
-      <p><strong>Provincia:</strong> Salta</p>
-      <p><strong>Región:</strong> Cafayate</p>
-      <p><strong>Altura:</strong> 1,700 msnm</p>
-    </div>
-    <h3>Finca Las Nubes Malbec 2020</h3>
-    <p>€19.95</p>
-    <a href="finca-las-nubes-malbec-2020.html">Comprar</a>
-  </div>
 
-  <!-- Tarjeta 2: Chanarmuyo Estate Malbec 2021 -->
-  <div class="product-card" data-provincia="La Rioja" data-region="La Rioja" data-bodega="Bodega Chanarmuyo" data-altura="1000">
-    <img src="placeholder.jpg" alt="[Insertar imagen de Chanarmuyo Estate Malbec 2021]">
-    <div class="overlay">
-      <p><strong>Bodega:</strong> Bodega Chanarmuyo</p>
-      <p><strong>Provincia:</strong> La Rioja</p>
-      <p><strong>Región:</strong> La Rioja</p>
-      <p><strong>Altura:</strong> 1,000 msnm</p>
-    </div>
-    <h3>Chanarmuyo Estate Malbec 2021</h3>
-    <p>€22.55</p>
-    <a href="chanarmuyo-estate-malbec-2021.html">Comprar</a>
-  </div>
-
-  <!-- Tarjeta 3: Finca Gabriel Malbec 2021/2022 -->
-  <div class="product-card" data-provincia="Mendoza" data-region="Mendoza" data-bodega="Bodega Finca Gabriel" data-altura="900">
-    <img src="placeholder.jpg" alt="[Insertar imagen de Finca Gabriel Malbec 2021/2022]">
-    <div class="overlay">
-      <p><strong>Bodega:</strong> Bodega Finca Gabriel</p>
-      <p><strong>Provincia:</strong> Mendoza</p>
-      <p><strong>Región:</strong> Mendoza</p>
-      <p><strong>Altura:</strong> 900 msnm</p>
-    </div>
-    <h3>Finca Gabriel Malbec 2021/2022</h3>
-    <p>€22.85</p>
-    <a href="finca-gabriel-malbec-2021-2022.html">Comprar</a>
-  </div>
 </body>
 
           <script>
