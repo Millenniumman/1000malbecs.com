@@ -264,7 +264,7 @@
                         <li><span class="filter" data-filter="tipo" data-value="Estándar">Estándar</span>
                           <ul>
                             <li><a href="tematico-malbec-2023.html">Temático - Malbec 2023</a></li>
-                            <li><a href="fantasia-malbec-2023.html">Fantasía - Malbec 2023</a></li>
+                            <li><a href="fantasia-malbec-2023.html">Fantasía - Malbec 2023NPC</a></li>
                             <li><a href="gran-poetico-malbec-2013.html">Gran Poético - Malbec 2013</a></li>
                           </ul>
                         </li>
@@ -293,13 +293,13 @@
                         </li>
                         <li><span class="filter" data-filter="tipo" data-value="Tinto">Tinto</span>
                           <ul>
-                            <li><span class="filter" data-filter="subtipo" data-value="Clásico">Clásico</span>
+                            <li><span class="filter" data-filter="subtipo-mendoza" data-value="Clásico">Clásico</span>
                               <ul>
                                 <li><a href="ique-malbec-2023.html">Ique - Malbec 2023</a></li>
                                 <li><a href="foster-malbec-2023.html">Foster - Malbec 2023</a></li>
                               </ul>
                             </li>
-                            <li><span class="filter" data-filter="subtipo" data-value="Premium">Premium</span>
+                            <li><span class="filter" data-filter="subtipo-mendoza" data-value="Premium">Premium</span>
                               <ul>
                                 <li><a href="foster-malbec-los-altepes-2023.html">Foster - Malbec 'Los Altepes' 2023</a></li>
                                 <li><a href="foster-malbec-los-barrancos-2023.html">Foster - Malbec 'Los Barrancos' 2023</a></li>
@@ -316,7 +316,6 @@
             </li>
           </ul>
         </li>
-        <!-- Nueva provincia: Salta -->
         <li><span class="filter" data-filter="provincia" data-value="Salta">Salta</span>
           <ul>
             <li><strong>Región</strong>
@@ -327,7 +326,7 @@
                       <ul>
                         <li><span class="filter" data-filter="tipo" data-value="Tinto">Tinto</span>
                           <ul>
-                            <li><span class="filter" data-filter="subtipo" data-value="Clásico">Clásico</span>
+                            <li><span class="filter" data-filter="subtipo-salta" data-value="Clásico">Clásico</span>
                               <ul>
                                 <li><a href="finca-las-nubes-malbec-2020.html">Finca Las Nubes - Malbec 2020</a></li>
                               </ul>
@@ -366,7 +365,6 @@
             <li><a href="foster-malbec-limited-edition-2023.html">Foster - Malbec Limited Edition 2023</a></li>
           </ul>
         </li>
-        <!-- Nueva bodega: Finca Las Nubes -->
         <li><span class="filter" data-filter="bodega" data-value="Finca Las Nubes">Finca Las Nubes</span>
           <ul>
             <li><a href="finca-las-nubes-malbec-2020.html">Finca Las Nubes - Malbec 2020</a></li>
@@ -389,7 +387,6 @@
             <li><a href="lois-sparkling-malbec-2021.html">Lois - Sparkling Malbec 2021</a></li>
             <li><a href="pink-malbec-rosado-2023.html">Pink - Malbec Rosado 2023</a></li>
             <li><a href="ique-malbec-2023.html">Ique - Malbec 2023</a></li>
-            <!-- Nuevo vino en rango Medio -->
             <li><a href="finca-las-nubes-malbec-2020.html">Finca Las Nubes - Malbec 2020</a></li>
           </ul>
         </li>
@@ -412,7 +409,7 @@
             <li><a href="tematico-malbec-2023.html">Temático - Malbec 2023</a></li>
             <li><a href="fantasia-malbec-2023.html">Fantasía - Malbec 2023</a></li>
             <li><a href="pink-malbec-rosado-2023.html">Pink - Malbec Rosado 2023</a></li>
-            <li><a href="ique-malbec-2023.html">Ique - Malbec 2023</a></li>
+            <li><a tsk-malbec-2023.html">Ique - Malbec 2023</a></li>
             <li><a href="foster-malbec-2023.html">Foster - Malbec 2023</a></li>
             <li><a href="foster-malbec-los-altepes-2023.html">Foster - Malbec 'Los Altepes' 2023</a></li>
             <li><a href="foster-malbec-los-barrancos-2023.html">Foster - Malbec 'Los Barrancos' 2023</a></li>
@@ -429,7 +426,6 @@
             <li><a href="lois-sparkling-malbec-2021.html">Lois - Sparkling Malbec 2021</a></li>
           </ul>
         </li>
-        <!-- Nueva añada: 2020 -->
         <li><span class="filter" data-filter="anada" data-value="2020">2020</span>
           <ul>
             <li><a href="finca-las-nubes-malbec-2020.html">Finca Las Nubes - Malbec 2020</a></li>
@@ -442,10 +438,10 @@
         </li>
       </ul>
     </details>
-  </nav>
-  <div class="main-content">
+  </nav> 
+          <div class="main-content">
     <h1>Bienvenidos a 1000malbecs</h1>
-    <p>Explora nuestra selección de los mejores Malbecs de Mendoza. Usa los filtros a la izquierda para refinar los resultados.</p>
+    <p>Explora nuestra selección de los mejores Malbecs de ARGENTINA. Desde la patagonia hasta la puna. Usa los filtros a la izquierda para refinar los resultados.</p>
     <button id="reset-filters">Limpiar Filtros</button>
     <div id="no-results" style="display: none;">
       No se encontraron productos que coincidan con los filtros seleccionados.
