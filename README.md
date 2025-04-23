@@ -548,7 +548,7 @@
     </div>
   </div>
 <!-- Tarjeta 1: Finca Las Nubes Malbec 2020 -->
-  <div class="card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-altura="1700">
+  <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-altura="1700" data-tipo="Tinto" data-subtipo="Premium" data-anada="2023>
     <img src="placeholder.jpg" alt="[Insertar imagen de Finca Las Nubes Malbec 2020]">
     <div class="overlay">
       <p><strong>Bodega:</strong> Finca Las Nubes</p>
@@ -562,7 +562,7 @@
   </div>
 
   <!-- Tarjeta 2: Chanarmuyo Estate Malbec 2021 -->
-  <div class="card" data-provincia="La Rioja" data-region="La Rioja" data-bodega="Bodega Chanarmuyo" data-altura="1000">
+  <div class="product-card" data-provincia="La Rioja" data-region="La Rioja" data-bodega="Bodega Chanarmuyo" data-altura="1000">
     <img src="placeholder.jpg" alt="[Insertar imagen de Chanarmuyo Estate Malbec 2021]">
     <div class="overlay">
       <p><strong>Bodega:</strong> Bodega Chanarmuyo</p>
@@ -576,7 +576,7 @@
   </div>
 
   <!-- Tarjeta 3: Finca Gabriel Malbec 2021/2022 -->
-  <div class="card" data-provincia="Mendoza" data-region="Mendoza" data-bodega="Bodega Finca Gabriel" data-altura="900">
+  <div class="product-card" data-provincia="Mendoza" data-region="Mendoza" data-bodega="Bodega Finca Gabriel" data-altura="900">
     <img src="placeholder.jpg" alt="[Insertar imagen de Finca Gabriel Malbec 2021/2022]">
     <div class="overlay">
       <p><strong>Bodega:</strong> Bodega Finca Gabriel</p>
