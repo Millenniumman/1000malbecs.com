@@ -141,8 +141,21 @@
       font-weight: bold;
       margin: 5px 0;
     }
-    .descripcion, .notas {
+    .descripcion-box, .notas-box {
       margin: 10px 0;
+      padding: 15px;
+      background-color: #f5e6ff;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    .descripcion-box h3, .notas-box h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+      color: #4A0D29;
+    }
+    .descripcion-box p, .notas-box p {
+      margin: 0;
+      line-height: 1.5;
     }
     #menu-toggle {
       display: none;
@@ -233,8 +246,14 @@
           <p class="precio">Precio UVP: €11.0</p>
           <p class="region">Región: Luján de Cuyo, Mendoza</p>
           <p class="altura">Altura: 950 msnm</p>
-          <p class="descripcion">Malbec de alta gama con crianza en roble, potente y equilibrado.</p>
-          <p class="notas">Notas de cata: Fruta negra madura, especias, buena estructura. Excelente con carnes rojas y platos especiados.</p>
+          <div class="descripcion-box">
+            <h3>Descripción</h3>
+            <p>Malbec de alta gama con crianza en roble, potente y equilibrado.</p>
+          </div>
+          <div class="notas-box">
+            <h3>Notas de Cata y Maridaje</h3>
+            <p>Fruta negra madura, especias, buena estructura. Excelente con carnes rojas y platos especiados.</p>
+          </div>
         </div>
       </div>
     </div>
