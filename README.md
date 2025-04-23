@@ -732,7 +732,7 @@
         <!-- Nueva tarjeta 1: Altos del Plata - Malbec 2022 -->
 <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Terrazas de los Andes" data-tipo="Tinto" data-anada="2022" data-precio="12" data-precio-rango="Medio" data-altura="< 1000m">
   <img src="/images/AltosDelPlataMalbec.jpg" alt="Altos del Plata - Malbec 2022">
-  <span class="info-icon">+</span>
+  <span class="info-icon">🍷</span>
   <div class="overlay">
     <p><strong>Bodega:</strong> Terrazas de los Andes</p>
     <p><strong>Provincia:</strong> Mendoza</p>
@@ -914,5 +914,6 @@
       }
     });
   </script>
+  </div>
 </body>
 </html>
