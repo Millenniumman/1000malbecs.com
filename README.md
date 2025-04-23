@@ -15,7 +15,7 @@
       flex-direction: row;
     }
     nav {
-      width: 450px;
+      width: 350px;
       background-color: #4A0D29;
       color: #f5e6ff;
       height: 100vh;
