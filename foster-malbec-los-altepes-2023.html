@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre Foster - Malbec 'Los Altepes', un Malbec de Enrique Foster Bodega de Mendoza.">
+  <title>Foster - Malbec 'Los Altepes' - 1000malbecs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+    }
+    nav {
+      width: 350px;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav .logo-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    nav .logo-container img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
+    nav h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.4em;
+      color: #f5e6ff;
+      text-align: center;
+    }
+    nav details {
+      margin-bottom: 4px;
+    }
+    nav summary {
+      cursor: pointer;
+      padding: 5px;
+      background-color: #5A1D39;
+      border-radius: 5px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      font-size: 0.85em;
+    }
+    nav summary i {
+      margin-right: 6px;
+    }
+    nav summary:hover {
+      background-color: #682A46;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0 0 0 10px;
+      margin: 0;
+    }
+    nav li {
+      margin: 3px 0;
+    }
+    nav ul ul {
+      padding-left: 12px;
+    }
+    nav a, nav span.filter {
+      color: #f5e6ff;
+      text-decoration: none;
+      font-size: 0.85em;
+      cursor: pointer;
+      display: inline-block;
+      max-width: 260px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    nav a:hover, nav span.filter:hover {
+      color: #d4a5ff;
+      text-decoration: underline;
+    }
+    .main-content {
+      margin-left: 320px;
+      width: calc(100% - 320px);
+      z-index: 1;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      background-color: #fff;
+      position: relative;
+      padding: 20px;
+      display: block;
+    }
+    .card.hidden {
+      display: none;
+    }
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+      height: auto;
+    }
+    .card-content {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 60px;
+    }
+    .bottle-cell {
+      flex: 0 0 auto;
+      padding: 10px;
+      text-align: center;
+    }
+    .text-cell {
+      flex: 1;
+      padding: 10px;
+    }
+    .bottle {
+      width: 200px;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .vino {
+      font-size: 1.5em;
+      margin: 0 0 10px 0;
+    }
+    .bodega, .precio, .region, .altura, .anada {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .descripcion-box, .notas-box {
+      margin: 10px 0;
+      padding: 15px;
+      background-color: #f5e6ff;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    .descripcion-box h3, .notas-box h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+      color: #4A0D29;
+    }
+    .descripcion-box p, .notas-box p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    #menu-toggle {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.5em;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    #menu-toggle:hover {
+      background-color: #5A1D39;
+    }
+    @media (max-width: 768px) {
+      nav {
+        width: 250px;
+        left: -260px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        background-color: rgba(74, 13, 41, 0.95);
+      }
+      nav.active {
+        left: 0;
+      }
+      nav .logo-container img {
+        width: 150px;
+        height: 150px;
+      }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        z-index: 1;
+      }
+      #menu-toggle {
+        display: block;
+      }
+      .card-content {
+        flex-direction: column;
+        margin-top: 80px;
+      }
+      .bottle-cell, .text-cell {
+        width: 100%;
+        padding: 5px;
+      }
+      .bottle {
+        width: 150px;
+        margin: 0 auto;
+        display: block;
+      }
+      .logo {
+        width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="menu-toggle">☰</button>
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="index.html" title="Volver al inicio">
+        <img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
+      </a>
+    </div>
+    <h2>Categorías</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Ubicación</summary>
+      <ul>
+        <li><a href="index.html">Volver a la tienda</a></li>
+      </ul>
+    </details>
+  </nav>
+  <div class="main-content">
+    <div class="card" id="foster--malbec-los-altepes" data-region="Luján de Cuyo, Mendoza" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="23.0" data-precio-rango="Premium">
+      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
+      <div class="card-content">
+        <div class="bottle-cell">
+          <img class="bottle" src="/images/LosAltepes.png" alt="Botella de Foster - Malbec 'Los Altepes'" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
+        </div>
+        <div class="text-cell">
+          <h2 class="vino">Foster - Malbec 'Los Altepes'</h2>
+          <p class="bodega">Enrique Foster Bodega</p>
+          <p class="anada">Añada: 2023</p>
+          <p class="precio">Precio UVP: €23.0</p>
+          <p class="region">Región: Luján de Cuyo, Mendoza</p>
+          <p class="altura">Altura: 950 msnm</p>
+          <div class="descripcion-box">
+            <h3>Descripción</h3>
+            <p>Foster - Malbec 'Los Altepes' es un vino de parcela de Enrique Foster, proveniente de viñedos seleccionados en Perdriel, Luján de Cuyo. Con una crianza prolongada en roble francés, este Malbec ofrece complejidad y profundidad, ideal para carnes de caza, guisos o quesos maduros. La añada 2021 tiene un potencial de guarda de 8-10 años.</p>
+          </div>
+          <div class="notas-box">
+            <h3>Notas de Cata y Maridaje</h3>
+            <p>En nariz, presenta aromas a cassis, mora y cuero, con notas de clavo de olor y un toque ahumado. En boca, es robusto, con sabores a cereza negra, moka y especias orientales. Los taninos son aterciopelados, con una acidez vibrante. El final es persistente, con matices de tabaco y roble. Marida con cordero asado, estofado de carne o parmesano.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+    document.querySelectorAll('nav a, nav span.filter').forEach(element => {
+      element.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
