@@ -425,7 +425,7 @@
         <a href="tematico-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1100">
-        <img src="/images/FantasiaMalbec.avif" alt="Fantasía - Malbec 2023">
+        <img src="/images/FantasiaMalbec.jpg" alt="Fantasía - Malbec 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -437,7 +437,7 @@
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1100">
-        <img src="/images/GranPoeticoMalbec.jpg" alt="Gran Poético - Malbec 2013">
+        <img src="/images/GranPoeticoMalbec.png" alt="Gran Poético - Malbec 2013">
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -522,7 +522,7 @@
         <a href="foster-malbec-los-altepes-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-subtipo="Premium" data-anada="2023" data-precio="25" data-precio-rango="Premium" data-altura="900">
-        <img src="/images/foster-malbec-los-barrancos-2023.jpg" alt="Foster - Malbec 'Los Barrancos' 2023">
+        <img src="/images/FosterBarrancos.jpeg" alt="Foster - Malbec 'Los Barrancos' 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -534,7 +534,7 @@
         <a href="foster-malbec-los-barrancos-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-subtipo="Premium" data-anada="2023" data-precio="44" data-precio-rango="Premium" data-altura="900">
-        <img src="/images/foster-malbec-limited-edition-2023.jpg" alt="Foster - Malbec Limited Edition 2023">
+        <img src="/images/FosterLimited.png" alt="Foster - Malbec Limited Edition 2023">
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
