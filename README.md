@@ -238,6 +238,51 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Añadir al final del bloque <style> existente */
+
+/* Estilos para el ícono de información */
+.info-icon {
+  display: none; /* Oculto por defecto en escritorio */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(74, 13, 41, 0.8);
+  color: #f5e6ff;
+  font-size: 1.2em;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 15; /* Encima de la imagen, pero debajo del botón Comprar */
+}
+
+/* Ocultar el ícono cuando el overlay está visible */
+.product-card.show-overlay .info-icon {
+  display: none;
+}
+
+/* Estilos para el tooltip */
+#mobile-tooltip {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4A0D29;
+  color: #f5e6ff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  z-index: 1200; /* Encima de todo */
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Mostrar ícono y tooltip solo en móvil */
+@media (max-width: 768px) {
+  .info-icon {
+    display: block;
+  }
+}
   </style>
 </head>
 <body>
@@ -474,6 +519,7 @@
       <!-- Mauricio Lorca Bodega y Viñedos -->
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
         <img src="/images/Tematico-Malbec.avif" alt="Temático - Malbec 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -486,6 +532,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1000m - 2000m">
         <img src="/images/FantasiaMalbec.jpg" alt="Fantasía - Malbec 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -498,6 +545,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1000m - 2000m">
         <img src="/images/GranPoeticoMalbec.png" alt="Gran Poético - Malbec 2013">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -510,6 +558,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
         <img src="/images/ZapamZucum.avif" alt="Zapam Zucum - Organic Malbec 2022">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -523,6 +572,7 @@
       <!-- Enrique Foster Bodega -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="< 1000m">
         <img src="/images/Lois.png" alt="Lois - Sparkling Malbec 2021">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -535,6 +585,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Rosado" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
         <img src="/images/Pink.jpeg" alt="Pink - Malbec Rosado 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -547,6 +598,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
         <img src="/images/IqueMalbec.avif" alt="Ique - Malbec 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -559,6 +611,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="21" data-precio-rango="Premium" data-altura="< 1000m">
         <img src="/images/ReservaMalbec.avif" alt="Foster - Malbec 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -571,6 +624,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="23" data-precio-rango="Premium" data-altura="< 1000m">
         <img src="/images/LosAltepes.png" alt="Foster - Malbec 'Los Altepes' 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -583,6 +637,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="25" data-precio-rango="Premium" data-altura="< 1000m">
         <img src="/images/FosterBarrancos.jpeg" alt="Foster - Malbec 'Los Barrancos' 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -595,6 +650,7 @@
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="44" data-precio-rango="Premium" data-altura="< 1000m">
         <img src="/images/FosterLimited.png" alt="Foster - Malbec Limited Edition 2023">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
           <p><strong>Provincia:</strong> Mendoza</p>
@@ -608,6 +664,7 @@
       <!-- Finca Las Nubes Bodega -->
       <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-tipo="Tinto" data-anada="2020" data-precio="19.95" data-precio-rango="Medio" data-altura="1000m - 2000m">
         <img src="/images/FincaLasNubes.png" alt="Finca Las Nubes - Malbec 2020">
+        <span class="info-icon">ℹ️</span> <!-- Ícono de información -->
         <div class="overlay">
           <p><strong>Bodega:</strong> Finca Las Nubes</p>
           <p><strong>Provincia:</strong> Salta</p>
@@ -621,82 +678,138 @@
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.getElementById('menu-toggle');
-      const sidebar = document.getElementById('sidebar');
-      const noResults = document.getElementById('no-results');
-      const resetFilters = document.getElementById('reset-filters');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const noResults = document.getElementById('no-results');
+    const resetFilters = document.getElementById('reset-filters');
+    const tooltip = document.getElementById('mobile-tooltip');
 
-      // Objeto para almacenar filtros activos
-      let activeFilters = {};
+    // Objeto para almacenar filtros activos
+    let activeFilters = {};
 
-      // Toggle sidebar on mobile
-      menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
+    // Toggle sidebar on mobile
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
+    // Close sidebar when clicking a filter or link on mobile
+    document.querySelectorAll('nav a, nav span.filter').forEach(element => {
+      element.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('active');
+        }
       });
+    });
 
-      // Close sidebar when clicking a filter or link on mobile
-      document.querySelectorAll('nav a, nav span.filter').forEach(element => {
-        element.addEventListener('click', () => {
-          if (window.innerWidth <= 768) {
-            sidebar.classList.remove('active');
-          }
-        });
-      });
+    // Filter functionality
+    document.querySelectorAll('.filter').forEach(filter => {
+      filter.addEventListener('click', () => {
+        const filterType = filter.dataset.filter;
+        const filterValue = filter.dataset.value;
 
-      // Filter functionality
-      document.querySelectorAll('.filter').forEach(filter => {
-        filter.addEventListener('click', () => {
-          const filterType = filter.dataset.filter;
-          const filterValue = filter.dataset.value;
+        // Toggle filter: si ya está activo, desactívalo; si no, actívalo
+        if (activeFilters[filterType] === filterValue) {
+          delete activeFilters[filterType];
+          filter.classList.remove('active');
+        } else {
+          activeFilters[filterType] = filterValue;
+          // Remove active class from other filters of the same type
+          document.querySelectorAll(`.filter[data-filter="${filterType}"]`).forEach(f => f.classList.remove('active'));
+          filter.classList.add('active');
+        }
 
-          // Toggle filter: si ya está activo, desactívalo; si no, actívalo
-          if (activeFilters[filterType] === filterValue) {
-            delete activeFilters[filterType];
-            filter.classList.remove('active');
-          } else {
-            activeFilters[filterType] = filterValue;
-            // Remove active class from other filters of the same type
-            document.querySelectorAll(`.filter[data-filter="${filterType}"]`).forEach(f => f.classList.remove('active'));
-            filter.classList.add('active');
-          }
+        // Filtrar productos
+        let hasVisible = false;
+        document.querySelectorAll('.product-card').forEach(card => {
+          let show = true;
 
-          // Filtrar productos
-          let hasVisible = false;
-          document.querySelectorAll('.product-card').forEach(card => {
-            let show = true;
-
-            // Verificar cada filtro activo
-            Object.keys(activeFilters).forEach(type => {
-              if (card.dataset[type] !== activeFilters[type]) {
-                show = false;
-              }
-            });
-
-            // Mostrar u ocultar la tarjeta
-            if (show) {
-              card.classList.remove('hidden');
-              hasVisible = true;
-            } else {
-              card.classList.add('hidden');
+          // Verificar cada filtro activo
+          Object.keys(activeFilters).forEach(type => {
+            if (card.dataset[type] !== activeFilters[type]) {
+              show = false;
             }
           });
 
-          // Mostrar u ocultar mensaje de "no resultados"
-          noResults.style.display = hasVisible ? 'none' : 'block';
+          // Mostrar u ocultar la tarjeta
+          if (show) {
+            card.classList.remove('hidden');
+            hasVisible = true;
+          } else {
+            card.classList.add('hidden');
+          }
         });
-      });
 
-      // Reset filters
-      resetFilters.addEventListener('click', () => {
-        activeFilters = {};
-        document.querySelectorAll('.product-card').forEach(card => {
-          card.classList.remove('hidden');
-        });
-        document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
-        noResults.style.display = 'none';
+        // Mostrar u ocultar mensaje de "no resultados"
+        noResults.style.display = hasVisible ? 'none' : 'block';
       });
     });
-  </script>
+
+    // Reset filters
+    resetFilters.addEventListener('click', () => {
+      activeFilters = {};
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.classList.remove('hidden');
+      });
+      document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
+      noResults.style.display = 'none';
+    });
+
+    // Mobile overlay toggle for product cards
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Solo en móvil (max-width: 768px)
+        if (window.innerWidth <= 768) {
+          // Evitar que el clic en el botón "Comprar" alterne el overlay
+          if (e.target.tagName === 'A' || e.target.closest('a')) {
+            return; // Permitir que el enlace funcione normalmente
+          }
+
+          // Si la tarjeta ya tiene el overlay visible, ocultarlo
+          if (card.classList.contains('show-overlay')) {
+            card.classList.remove('show-overlay');
+          } else {
+            // Ocultar overlays de otras tarjetas
+            document.querySelectorAll('.product-card').forEach(otherCard => {
+              otherCard.classList.remove('show-overlay');
+            });
+            // Mostrar overlay de esta tarjeta
+            card.classList.add('show-overlay');
+          }
+        }
+      });
+    });
+
+    // Ocultar overlay al hacer clic fuera de las tarjetas (en móvil)
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        const isCard = e.target.closest('.product-card');
+        if (!isCard) {
+          document.querySelectorAll('.product-card').forEach(card => {
+            card.classList.remove('show-overlay');
+          });
+        }
+      }
+    });
+
+    // Mostrar tooltip en móvil solo la primera vez
+    if (window.innerWidth <= 768 && !localStorage.getItem('tooltipShown')) {
+      tooltip.style.display = 'block';
+      // Ocultar después de 5 segundos
+      setTimeout(() => {
+        tooltip.style.display = 'none';
+        localStorage.setItem('tooltipShown', 'true');
+      }, 5000);
+      // Ocultar al interactuar con la página
+      document.addEventListener('click', () => {
+        tooltip.style.display = 'none';
+        localStorage.setItem('tooltipShown', 'true');
+      }, { once: true });
+    }
+  });
+  <div id="mobile-tooltip" style="display: none;">
+  ¡Toca un producto para ver más detalles!
+</div>
+</script>
 </body>
 </html>
