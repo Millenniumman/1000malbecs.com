@@ -545,8 +545,6 @@
         <p>€44</p>
         <a href="foster-malbec-limited-edition-2023.html">Comprar</a>
       </div>
-    </div>
-  </div>
       <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-tipo="Tinto" data-subtipo="Clásico" data-anada="2020" data-precio="19.95" data-precio-rango="Premium" data-altura="1700">
         <img src="/images/FincaLasNubes.png" alt="Finca Las Nubes -Malbec 2020">
         <div class="overlay">
