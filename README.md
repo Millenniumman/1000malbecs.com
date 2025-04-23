@@ -770,7 +770,7 @@
   <h3>Catena Zapata - Malbec 2020</h3>
   <p>€30</p>
   <a href="catena-zapata-malbec-2020.html">Comprar</a>
-</div>
+
     
   <div id="mobile-tooltip" style="display: none;">
     ¡Toca un producto para ver más detalles!
