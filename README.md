@@ -251,61 +251,40 @@
     </div>
     <h2>Categorías</h2>
     <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provincia</summary>
+      <summary><i class="fas fa-wine-glass-alt"></i> Tipo</summary>
       <ul>
-        <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
+        <li><span class="filter" data-filter="tipo" data-value="Tinto">Tinto</span>
           <ul>
-            <li><strong>Región</strong>
+            <li><strong>Subtipo</strong>
               <ul>
-                <li><span class="filter" data-filter="region" data-value="Valle de Uco">Valle de Uco</span>
+                <li><span class="filter" data-filter="subtipo" data-value="Clásico">Clásico</span>
                   <ul>
-                    <li><strong>Tipo</strong>
+                    <li><strong>Provincia</strong>
                       <ul>
-                        <li><span class="filter" data-filter="tipo" data-value="Estándar">Estándar</span>
+                        <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
                           <ul>
-                            <li><a href="tematico-malbec-2023.html" data-provincia="Mendoza">Temático - Malbec 2023</a></li>
-                            <li><a href="fantasia-malbec-2023.html" data-provincia="Mendoza">Fantasía - Malbec 2023</a></li>
-                            <li><a href="gran-poetico-malbec-2013.html" data-provincia="Mendoza">Gran Poético - Malbec 2013</a></li>
+                            <li><a href="ique-malbec-2023.html" data-provincia="Mendoza">Ique - Malbec 2023</a></li>
+                            <li><a href="foster-malbec-2023.html" data-provincia="Mendoza">Foster - Malbec 2023</a></li>
                           </ul>
                         </li>
-                        <li><span class="filter" data-filter="tipo" data-value="Orgánico">Orgánico</span>
+                        <li><span class="filter" data-filter="provincia" data-value="Salta">Salta</span>
                           <ul>
-                            <li><a href="zapam-zucum-organic-malbec-2022.html" data-provincia="Mendoza">Zapam Zucum - Organic Malbec 2022</a></li>
+                            <li><a href="finca-las-nubes-malbec-2020.html" data-provincia="Salta">Finca Las Nubes - Malbec 2020</a></li>
                           </ul>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><span class="filter" data-filter="region" data-value="Luján de Cuyo">Luján de Cuyo</span>
+                <li><span class="filter" data-filter="subtipo" data-value="Premium">Premium</span>
                   <ul>
-                    <li><strong>Tipo</strong>
+                    <li><strong>Provincia</strong>
                       <ul>
-                        <li><span class="filter" data-filter="tipo" data-value="Espumante">Espumante</span>
+                        <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
                           <ul>
-                            <li><a href="lois-sparkling-malbec-2021.html" data-provincia="Mendoza">Lois - Sparkling Malbec 2021</a></li>
-                          </ul>
-                        </li>
-                        <li><span class="filter" data-filter="tipo" data-value="Rosado">Rosado</span>
-                          <ul>
-                            <li><a href="pink-malbec-rosado-2023.html" data-provincia="Mendoza">Pink - Malbec Rosado 2023</a></li>
-                          </ul>
-                        </li>
-                        <li><span class="filter" data-filter="tipo" data-value="Tinto">Tinto</span>
-                          <ul>
-                            <li><span class="filter" data-filter="subtipo" data-value="Clásico">Clásico</span>
-                              <ul>
-                                <li><a href="ique-malbec-2023.html" data-provincia="Mendoza">Ique - Malbec 2023</a></li>
-                                <li><a href="foster-malbec-2023.html" data-provincia="Mendoza">Foster - Malbec 2023</a></li>
-                              </ul>
-                            </li>
-                            <li><span class="filter" data-filter="subtipo" data-value="Premium">Premium</span>
-                              <ul>
-                                <li><a href="foster-malbec-los-altepes-2023.html" data-provincia="Mendoza">Foster - Malbec 'Los Altepes' 2023</a></li>
-                                <li><a href="foster-malbec-los-barrancos-2023.html" data-provincia="Mendoza">Foster - Malbec 'Los Barrancos' 2023</a></li>
-                                <li><a href="foster-malbec-limited-edition-2023.html" data-provincia="Mendoza">Foster - Malbec Limited Edition 2023</a></li>
-                              </ul>
-                            </li>
+                            <li><a href="foster-malbec-los-altepes-2023.html" data-provincia="Mendoza">Foster - Malbec 'Los Altepes' 2023</a></li>
+                            <li><a href="foster-malbec-los-barrancos-2023.html" data-provincia="Mendoza">Foster - Malbec 'Los Barrancos' 2023</a></li>
+                            <li><a href="foster-malbec-limited-edition-2023.html" data-provincia="Mendoza">Foster - Malbec Limited Edition 2023</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -316,25 +295,54 @@
             </li>
           </ul>
         </li>
-        <li><span class="filter" data-filter="provincia" data-value="Salta">Salta</span>
+        <li><span class="filter" data-filter="tipo" data-value="Rosado">Rosado</span>
           <ul>
-            <li><strong>Región</strong>
+            <li><strong>Provincia</strong>
               <ul>
-                <li><span class="filter" data-filter="region" data-value="Cafayate">Cafayate</span>
+                <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
                   <ul>
-                    <li><strong>Tipo</strong>
-                      <ul>
-                        <li><span class="filter" data-filter="tipo" data-value="Tinto">Tinto</span>
-                          <ul>
-                            <li><span class="filter" data-filter="subtipo" data-value="Clásico">Clásico</span>
-                              <ul>
-                                <li><a href="finca-las-nubes-malbec-2020.html" data-provincia="Salta">Finca Las Nubes - Malbec 2020</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
+                    <li><a href="pink-malbec-rosado-2023.html" data-provincia="Mendoza">Pink - Malbec Rosado 2023</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><span class="filter" data-filter="tipo" data-value="Espumante">Espumante</span>
+          <ul>
+            <li><strong>Provincia</strong>
+              <ul>
+                <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
+                  <ul>
+                    <li><a href="lois-sparkling-malbec-2021.html" data-provincia="Mendoza">Lois - Sparkling Malbec 2021</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><span class="filter" data-filter="tipo" data-value="Estándar">Estándar</span>
+          <ul>
+            <li><strong>Provincia</strong>
+              <ul>
+                <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
+                  <ul>
+                    <li><a href="tematico-malbec-2023.html" data-provincia="Mendoza">Temático - Malbec 2023</a></li>
+                    <li><a href="fantasia-malbec-2023.html" data-provincia="Mendoza">Fantasía - Malbec 2023</a></li>
+                    <li><a href="gran-poetico-malbec-2013.html" data-provincia="Mendoza">Gran Poético - Malbec 2013</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><span class="filter" data-filter="tipo" data-value="Orgánico">Orgánico</span>
+          <ul>
+            <li><strong>Provincia</strong>
+              <ul>
+                <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
+                  <ul>
+                    <li><a href="zapam-zucum-organic-malbec-2022.html" data-provincia="Mendoza">Zapam Zucum - Organic Malbec 2022</a></li>
                   </ul>
                 </li>
               </ul>
@@ -438,8 +446,8 @@
         </li>
       </ul>
     </details>
-</nav> 
-          <div class="main-content">
+</nav>
+  <div class="main-content">
     <h1>Bienvenidos a 1000malbecs</h1>
     <p>Explora nuestra selección de los mejores Malbecs de ARGENTINA. Desde la patagonia hasta la puna. Usa los filtros a la izquierda para refinar los resultados.</p>
     <button id="reset-filters">Limpiar Filtros</button>
