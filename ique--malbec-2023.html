@@ -1,274 +1,256 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Menlo; -webkit-text-stroke: #000000; background-color: #ffffff; min-height: 15.0px}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Menlo; -webkit-text-stroke: #000000; background-color: #ffffff}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre Pink - Malbec Rosado 2023, un Malbec de Enrique Foster Bodega de Mendoza.">
+  <title>Pink - Malbec Rosado 2023 - 1000malbecs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+    }
+    nav {
+      width: 350px;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav .logo-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    nav .logo-container img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
+    nav h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.4em;
+      color: #f5e6ff;
+      text-align: center;
+    }
+    nav details {
+      margin-bottom: 4px;
+    }
+    nav summary {
+      cursor: pointer;
+      padding: 5px;
+      background-color: #5A1D39;
+      border-radius: 5px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      font-size: 0.85em;
+    }
+    nav summary i {
+      margin-right: 6px;
+    }
+    nav summary:hover {
+      background-color: #682A46;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0 0 0 10px;
+      margin: 0;
+    }
+    nav li {
+      margin: 3px 0;
+    }
+    nav ul ul {
+      padding-left: 12px;
+    }
+    nav a, nav span.filter {
+      color: #f5e6ff;
+      text-decoration: none;
+      font-size: 0.85em;
+      cursor: pointer;
+      display: inline-block;
+      max-width: 260px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    nav a:hover, nav span.filter:hover {
+      color: #d4a5ff;
+      text-decoration: underline;
+    }
+    .main-content {
+      margin-left: 320px;
+      width: calc(100% - 320px);
+      z-index: 1;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      background-color: #fff;
+      position: relative;
+      padding: 20px;
+      display: block;
+    }
+    .card.hidden {
+      display: none;
+    }
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+      height: auto;
+    }
+    .card-content {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 60px;
+    }
+    .bottle-cell {
+      flex: 0 0 auto;
+      padding: 10px;
+      text-align: center;
+    }
+    .text-cell {
+      flex: 1;
+      padding: 10px;
+    }
+    .bottle {
+      width: 200px;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .vino {
+      font-size: 1.5em;
+      margin: 0 0 10px 0;
+    }
+    .bodega, .precio, .region, .altura, .anada {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .descripcion, .notas {
+      margin: 10px 0;
+    }
+    #menu-toggle {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.5em;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    #menu-toggle:hover {
+      background-color: #5A1D39;
+    }
+    @media (max-width: 768px) {
+      nav {
+        width: 250px;
+        left: -260px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        background-color: rgba(74, 13, 41, 0.95);
+      }
+      nav.active {
+        left: 0;
+      }
+      nav .logo-container img {
+        width: 150px;
+        height: 150px;
+      }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        z-index: 1;
+      }
+      #menu-toggle {
+        display: block;
+      }
+      .card-content {
+        flex-direction: column;
+        margin-top: 80px;
+      }
+      .bottle-cell, .text-cell {
+        width: 100%;
+        padding: 5px;
+      }
+      .bottle {
+        width: 150px;
+        margin: 0 auto;
+        display: block;
+      }
+      .logo {
+        width: 80px;
+      }
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">&lt;html lang="es"&gt;</span></p>
-<p class="p2"><span class="s1">&lt;head&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Descubre Ique - Malbec 2023, un Malbec de Enrique Foster Bodega de Mendoza."&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Ique - Malbec 2023 - 1000malbecs&lt;/title&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #fdfdfd;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>flex-direction: row;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>width: 350px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #4A0D29;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>color: #f5e6ff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>height: 100vh;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>position: fixed;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>top: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>left: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>overflow-y: auto;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>box-shadow: 2px 0 5px rgba(0,0,0,0.1);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 1000;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav .logo-container {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav .logo-container img {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>width: 200px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>height: 200px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>object-fit: contain;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav h2 {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 0 8px 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.4em;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>color: #f5e6ff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav details {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 4px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav summary {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 5px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #5A1D39;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 5px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: bold;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.85em;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav summary i {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin-right: 6px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav summary:hover {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #682A46;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav ul {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>list-style: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0 0 0 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav li {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin: 3px 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav ul ul {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding-left: 12px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav a, nav span.filter {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>color: #f5e6ff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.85em;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>display: inline-block;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 260px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>white-space: nowrap;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>overflow: hidden;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>text-overflow: ellipsis;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>nav a:hover, nav span.filter:hover {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>color: #d4a5ff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: underline;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.main-content {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin-left: 320px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>width: calc(100% - 320px);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 1;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.card {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 30px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #fff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>position: relative;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>display: block;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.card.hidden {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>display: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.logo {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>position: absolute;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>top: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>left: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>width: 100px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>height: auto;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.card-content {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>align-items: flex-start;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 60px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.bottle-cell {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>flex: 0 0 auto;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.text-cell {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>flex: 1;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.bottle {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>width: 200px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>height: auto;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 100%;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>object-fit: contain;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.vino {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.5em;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 0 10px 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.bodega, .precio, .region, .altura, .anada {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: bold;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin: 5px 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>.descripcion, .notas {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>margin: 10px 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>#menu-toggle {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>display: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>position: fixed;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>top: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>left: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.5em;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #4A0D29;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>color: #f5e6ff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 5px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 1100;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>#menu-toggle:hover {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #5A1D39;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>@media (max-width: 768px) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>nav {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>width: 250px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>left: -260px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>transition: left 0.3s ease;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>z-index: 1000;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>background-color: rgba(74, 13, 41, 0.95);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>nav.active {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>left: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>nav .logo-container img {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>width: 150px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>height: 150px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>.main-content {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>margin-left: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>width: 100%;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>z-index: 1;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>#menu-toggle {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>display: block;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>.card-content {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>flex-direction: column;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>margin-top: 80px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>.bottle-cell, .text-cell {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>width: 100%;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>padding: 5px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>.bottle {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>width: 150px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>margin: 0 auto;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>display: block;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>.logo {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>width: 80px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p2"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button id="menu-toggle"&gt;☰&lt;/button&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;nav id="sidebar"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="logo-container"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="index.html" title="Volver al inicio"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Categorías&lt;/h2&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;details&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;summary&gt;&lt;i class="fas fa-map-marker-alt"&gt;&lt;/i&gt; Ubicación&lt;/summary&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="index.html"&gt;Volver a la tienda&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/details&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="main-content"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="card" id="ique--malbec-2023" data-region="Luján de Cuyo, Mendoza" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2021" data-precio="11.0" data-precio-rango="Medio"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="card-content"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="bottle-cell"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;img class="bottle" src="/images/ique--malbec-2023.jpg" alt="Botella de Ique - Malbec 2023" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="text-cell"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;h2 class="vino"&gt;Ique - Malbec 2023&lt;/h2&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="bodega"&gt;Enrique Foster Bodega&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="anada"&gt;Añada: 2021&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="precio"&gt;Precio UVP: €11.0&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="region"&gt;Región: Luján de Cuyo, Mendoza&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="altura"&gt;Altura: 950 msnm&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="descripcion"&gt;Malbec de alta gama con crianza en roble, potente y equilibrado.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="notas"&gt;Notas de cata: Fruta negra madura, especias, buena estructura. Excelente con carnes rojas y platos especiados.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const menuToggle = document.getElementById('menu-toggle');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const sidebar = document.getElementById('sidebar');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>menuToggle.addEventListener('click', () =&gt; {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>sidebar.classList.toggle('active');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>document.querySelectorAll('nav a, nav span.filter').forEach(element =&gt; {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>element.addEventListener('click', () =&gt; {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>if (window.innerWidth &lt;= 768) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>sidebar.classList.remove('active');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/html&gt;</span></p>
+  <button id="menu-toggle">☰</button>
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="index.html" title="Volver al inicio">
+        <img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
+      </a>
+    </div>
+    <h2>Categorías</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Ubicación</summary>
+      <ul>
+        <li><a href="index.html">Volver a la tienda</a></li>
+      </ul>
+    </details>
+  </nav>
+  <div class="main-content">
+    <div class="card" id="pink--malbec-rosado-2023" data-region="Luján de Cuyo, Mendoza" data-bodega="Enrique Foster Bodega" data-tipo="Rosado" data-anada="2023" data-precio="11.0" data-precio-rango="Medio">
+      <img class="logo" src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
+      <div class="card-content">
+        <div class="bottle-cell">
+          <img class="bottle" src="/images/pink--malbec-rosado-2023.jpg" alt="Botella de Pink - Malbec Rosado 2023" onerror="this.src='https://via.placeholder.com/200x600?text=Imagen+No+Disponible';">
+        </div>
+        <div class="text-cell">
+          <h2 class="vino">Pink - Malbec Rosado 2023</h2>
+          <p class="bodega">Enrique Foster Bodega</p>
+          <p class="anada">Añada: 2023</p>
+          <p class="precio">Precio UVP: €11.0</p>
+          <p class="region">Región: Luján de Cuyo, Mendoza</p>
+          <p class="altura">Altura: 950 msnm</p>
+          <p class="descripcion">Malbec rosado joven, de color tenue y expresión floral delicada.</p>
+          <p class="notas">Notas de cata: Notas florales, frambuesa y cereza. Ideal con platos ligeros, ensaladas y quesos suaves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+    document.querySelectorAll('nav a, nav span.filter').forEach(element => {
+      element.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
