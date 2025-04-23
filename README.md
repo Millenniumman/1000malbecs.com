@@ -742,7 +742,6 @@
   <p>€12</p>
   <a href="altos-del-plata-malbec-2022.html">Comprar</a>
 </div>
-
 <!-- Nueva tarjeta 2: Colomé - Malbec 2021 -->
 <div class="product-card" data-provincia="Salta" data-region="Calchaquí" data-bodega="Bodega Colomé" data-tipo="Tinto" data-anada="2021" data-precio="18" data-precio-rango="Medio" data-altura="2000m - 3000m">
   <img src="/images/ColomeMalbec.jpg" alt="Colomé - Malbec 2021">
@@ -757,7 +756,6 @@
   <p>€18</p>
   <a href="colome-malbec-2021.html">Comprar</a>
 </div>
-
 <!-- Nueva tarjeta 3: Catena Zapata - Malbec 2020 -->
 <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Catena Zapata" data-tipo="Tinto" data-anada="2020" data-precio="30" data-precio-rango="Premium" data-altura="1000m - 2000m">
   <img src="/images/CatenaZapataMalbec.jpg" alt="Catena Zapata - Malbec 2020">
@@ -772,9 +770,7 @@
   <p>€30</p>
   <a href="catena-zapata-malbec-2020.html">Comprar</a>
 </div>
-      </div>
-    </div>
-  </div>
+    
   <div id="mobile-tooltip" style="display: none;">
     ¡Toca un producto para ver más detalles!
   </div>
