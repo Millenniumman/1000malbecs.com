@@ -554,7 +554,7 @@
           <p><strong>Altura:</strong> 1700 msnm</p>
         </div>
         <h3>Foster - Finca Las Nubes Malbec 2020</h3>
-        <p>€44</p>
+        <p>€19.95</p>
         <a href="finca-las-nubes-malbec-2020.html">Comprar</a>
       </div>
     </div>
