@@ -304,12 +304,69 @@
 <body>
   <button id="menu-toggle">☰</button>
   <nav id="sidebar">
-  <!-- ... Logo, Categorías, Ubicación (Mendoza), Vino (Tipo, Añada), Rango de Precio permanecen iguales ... -->
+  <div class="logo-container">
+    <a href="/" title="Volver al inicio">
+      <img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
+    </a>
+  </div>
+  <h2>Categorías</h2>
   <details>
     <summary><i class="fas fa-map-marker-alt"></i> Ubicación</summary>
     <ul>
       <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
-        <!-- ... Mendoza, Valle de Uco, Luján de Cuyo, Altura (< 1000m, 1000m - 2000m) sin cambios ... -->
+        <ul>
+          <li><strong>Región</strong>
+            <ul>
+              <li><span class="filter" data-filter="region" data-value="Valle de Uco">Valle de Uco</span>
+                <ul>
+                  <li><a href="tematico-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
+                  <li><a href="fantasia-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
+                  <li><a href="gran-poetico-malbec-2013.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
+                  <li><a href="zapam-zucum-organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
+                  <li><a href="catena-zapata-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Catena Zapata - Malbec 2020</a></li>
+                </ul>
+              </li>
+              <li><span class="filter" data-filter="region" data-value="Luján de Cuyo">Luján de Cuyo</span>
+                <ul>
+                  <li><a href="lois-sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
+                  <li><a href="pink-malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
+                  <li><a href="ique-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Ique - Malbec 2023</a></li>
+                  <li><a href="foster-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 2023</a></li>
+                  <li><a href="foster-malbec-los-altepes-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes' 2023</a></li>
+                  <li><a href="foster-malbec-los-barrancos-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos' 2023</a></li>
+                  <li><a href="foster-malbec-limited-edition-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition 2023</a></li>
+                  <li><a href="altos-del-plata-malbec-2022.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Altos del Plata - Malbec 2022</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Altura</strong>
+            <ul>
+              <li><span class="filter" data-filter="altura" data-value="< 1000m">< 1000m</span>
+                <ul>
+                  <li><a href="lois-sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
+                  <li><a href="pink-malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
+                  <li><a href="ique-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Ique - Malbec 2023</a></li>
+                  <li><a href="foster-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 2023</a></li>
+                  <li><a href="foster-malbec-los-altepes-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes' 2023</a></li>
+                  <li><a href="foster-malbec-los-barrancos-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos' 2023</a></li>
+                  <li><a href="foster-malbec-limited-edition-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition 2023</a></li>
+                  <li><a href="altos-del-plata-malbec-2022.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Altos del Plata - Malbec 2022</a></li>
+                </ul>
+              </li>
+              <li><span class="filter" data-filter="altura" data-value="1000m - 2000m">1000m - 2000m</span>
+                <ul>
+                  <li><a href="tematico-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
+                  <li><a href="fantasia-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
+                  <li><a href="gran-poetico-malbec-2013.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
+                  <li><a href="zapam-zucum-organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
+                  <li><a href="catena-zapata-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Catena Zapata - Malbec 2020</a></li>
+                  <li><a href="finca-las-nubes-malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Finca Las Nubes - Malbec 2020</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </li>
       <li><span class="filter" data-filter="provincia" data-value="Salta">Salta</span>
         <ul>
@@ -345,7 +402,89 @@
       </li>
     </ul>
   </details>
-  <!-- ... Vino (Tipo, Añada) sin cambios ... -->
+  <details>
+    <summary><i class="fas fa-wine-glass-alt"></i> Vino</summary>
+    <ul>
+      <li><strong>Tipo</strong>
+        <ul>
+          <li><span class="filter" data-filter="tipo" data-value="Tinto">Tinto</span>
+            <ul>
+              <li><a href="ique-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Ique - Malbec 2023</a></li>
+              <li><a href="foster-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 2023</a></li>
+              <li><a href="foster-malbec-los-altepes-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes' 2023</a></li>
+              <li><a href="foster-malbec-los-barrancos-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos' 2023</a></li>
+              <li><a href="foster-malbec-limited-edition-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition 2023</a></li>
+              <li><a href="finca-las-nubes-malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Finca Las Nubes - Malbec 2020</a></li>
+              <li><a href="altos-del-plata-malbec-2022.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Altos del Plata - Malbec 2022</a></li>
+              <li><a href="colome-malbec-2021.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2021" data-altura="2000m - 3000m">Colomé - Malbec 2021</a></li>
+              <li><a href="catena-zapata-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Catena Zapata - Malbec 2020</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="tipo" data-value="Rosado">Rosado</span>
+            <ul>
+              <li><a href="pink-malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="tipo" data-value="Espumante">Espumante</span>
+            <ul>
+              <li><a href="lois-sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="tipo" data-value="Estándar">Estándar</span>
+            <ul>
+              <li><a href="tematico-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
+              <li><a href="fantasia-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
+              <li><a href="gran-poetico-malbec-2013.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="tipo" data-value="Orgánico">Orgánico</span>
+            <ul>
+              <li><a href="zapam-zucum-organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Añada</strong>
+        <ul>
+          <li><span class="filter" data-filter="anada" data-value="2023">2023</span>
+            <ul>
+              <li><a href="tematico-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
+              <li><a href="fantasia-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
+              <li><a href="pink-malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
+              <li><a href="ique-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Ique - Malbec 2023</a></li>
+              <li><a href="foster-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 2023</a></li>
+              <li><a href="foster-malbec-los-altepes-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes' 2023</a></li>
+              <li><a href="foster-malbec-los-barrancos-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos' 2023</a></li>
+              <li><a href="foster-malbec-limited-edition-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition 2023</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="anada" data-value="2022">2022</span>
+            <ul>
+              <li><a href="zapam-zucum-organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
+              <li><a href="altos-del-plata-malbec-2022.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Altos del Plata - Malbec 2022</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="anada" data-value="2021">2021</span>
+            <ul>
+              <li><a href="lois-sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
+              <li><a href="colome-malbec-2021.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2021" data-altura="2000m - 3000m">Colomé - Malbec 2021</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="anada" data-value="2020">2020</span>
+            <ul>
+              <li><a href="finca-las-nubes-malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Finca Las Nubes - Malbec 2020</a></li>
+              <li><a href="catena-zapata-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Catena Zapata - Malbec 2020</a></li>
+            </ul>
+          </li>
+          <li><span class="filter" data-filter="anada" data-value="2013">2013</span>
+            <ul>
+              <li><a href="gran-poetico-malbec-2013.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </details>
   <details>
     <summary><i class="fas fa-wine-bottle"></i> Bodega</summary>
     <ul>
@@ -390,9 +529,40 @@
       </li>
     </ul>
   </details>
-  <!-- ... Rango de Precio sin cambios ... -->
+  <details>
+    <summary><i class="fas fa-dollar-sign"></i> Rango de Precio</summary>
+    <ul>
+      <li><span class="filter" data-filter="precio-rango" data-value="Económico">Económico (< 10 €)</span>
+        <ul>
+          <li><a href="tematico-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
+        </ul>
+      </li>
+      <li><span class="filter" data-filter="precio-rango" data-value="Medio">Medio (10 € - 20 €)</span>
+        <ul>
+          <li><a href="zapam-zucum-organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
+          <li><a href="fantasia-malbec-2023.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
+          <li><a href="lois-sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
+          <li><a href="pink-malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
+          <li><a href="ique-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Ique - Malbec 2023</a></li>
+          <li><a href="finca-las-nubes-malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Finca Las Nubes - Malbec 2020</a></li>
+          <li><a href="altos-del-plata-malbec-2022.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Altos del Plata - Malbec 2022</a></li>
+          <li><a href="colome-malbec-2021.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2021" data-altura="2000m - 3000m">Colomé - Malbec 2021</a></li>
+        </ul>
+      </li>
+      <li><span class="filter" data-filter="precio-rango" data-value="Premium">Premium (> 20 €)</span>
+        <ul>
+          <li><a href="gran-poetico-malbec-2013.html" data-provincia="Mendoza" data-tipo="Estándar" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
+          <li><a href="foster-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 2023</a></li>
+          <li><a href="foster-malbec-los-altepes-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes' 2023</a></li>
+          <li><a href="foster-malbec-los-barrancos-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos' 2023</a></li>
+          <li><a href="foster-malbec-limited-edition-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition 2023</a></li>
+          <li><a href="catena-zapata-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Catena Zapata - Malbec 2020</a></li>
+        </ul>
+      </li>
+    </ul>
+  </details>
 </nav>
-  <div class="main-content">
+   <div class="main-content">
     <h1>Bienvenidos a 1000malbecs</h1>
     <p>Explora nuestra selección de los mejores Malbecs de ARGENTINA. Desde la patagonia hasta la puna. Usa los filtros a la izquierda para refinar los resultados.</p>
     <button id="reset-filters">Limpiar Filtros</button>
