@@ -243,7 +243,7 @@
 </head>
 <body>
   <button id="menu-toggle">☰</button>
- <nav id="sidebar">
+<nav id="sidebar">
     <div class="logo-container">
       <a href="/" title="Volver al inicio">
         <img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
@@ -438,7 +438,7 @@
         </li>
       </ul>
     </details>
-</nav>         
+</nav> 
           <div class="main-content">
     <h1>Bienvenidos a 1000malbecs</h1>
     <p>Explora nuestra selección de los mejores Malbecs de ARGENTINA. Desde la patagonia hasta la puna. Usa los filtros a la izquierda para refinar los resultados.</p>
