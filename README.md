@@ -72,10 +72,10 @@
     nav ul ul {
       padding-left: 12px;
     }
+    /* Estilos para la jerarquía de navegación */
     nav a, nav span.filter {
       color: #f5e6ff;
       text-decoration: none;
-      font-size: 0.85em;
       cursor: pointer;
       display: inline-block;
       max-width: 260px;
@@ -83,117 +83,98 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    /* Provincia: tamaño más grande */
+    nav ul > li > span.filter {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    /* Región: tamaño intermedio */
+    nav ul > li > ul > li > ul > li > span.filter {
+      font-size: 1em;
+      font-weight: normal;
+    }
+    /* Altura: tamaño más pequeño */
+    nav ul > li > ul > li > ul > li > ul > li > span.filter {
+      font-size: 0.9em;
+      font-weight: normal;
+    }
+    /* Vinos: igual o ligeramente más pequeño que Altura */
+    nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
+      font-size: 0.85em;
+    }
     nav a:hover, nav span.filter:hover {
       color: #d4a5ff;
       text-decoration: underline;
-    }
-    nav .filter.active {
-      background-color: #682A46;
-      color: #fff;
-      padding: 2px 5px;
-      border-radius: 3px;
     }
     .main-content {
       margin-left: 320px;
       width: calc(100% - 320px);
       z-index: 1;
     }
-    .featured-products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-    .product-card {
+    .card {
       border: 1px solid #ddd;
       border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-      background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      background-color: #fff;
       position: relative;
-      overflow: hidden;
+      padding: 20px;
+      display: block;
     }
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-    .product-card h3 {
-      font-size: 1em;
-      margin: 8px 0;
-      color: #4A0D29;
-    }
-    .product-card p {
-      font-weight: bold;
-      color: #4A0D29;
-      margin: 5px 0;
-      font-size: 0.9em;
-    }
-    .product-card a {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 6px 12px;
-      background-color: #4A0D29;
-      color: #f5e6ff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 0.85em;
-      z-index: 15; /* Encima del overlay */
-    }
-    .product-card a:hover {
-      background-color: #682A46;
-    }
-    .product-card .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 200px;
-      background-color: rgba(74, 13, 41, 0.9);
-      color: #f5e6ff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      padding: 10px;
-      font-size: 0.75em;
-    }
-    .product-card:hover .overlay {
-      opacity: 1;
-    }
-    .product-card .overlay p {
-      margin: 3px 0;
-      font-weight: normal;
-      color: #f5e6ff;
-      line-height: 1.2;
-    }
-    .product-card.hidden {
+    .card.hidden {
       display: none;
     }
-    #no-results {
-      padding: 20px;
+    .logo {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 100px;
+      height: auto;
+      display: none; /* Ocultar por defecto */
+    }
+    .card-content {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 20px; /* Reducido porque no hay logo en escritorio */
+    }
+    .bottle-cell {
+      flex: 0 0 auto;
+      padding: 10px;
       text-align: center;
-      color: #4A0D29;
+    }
+    .text-cell {
+      flex: 1;
+      padding: 10px;
+    }
+    .bottle {
+      width: 200px;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .vino {
+      font-size: 1.5em;
+      margin: 0 0 10px 0;
+    }
+    .bodega, .precio, .region, .altura, .anada {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .descripcion-box, .notas-box {
+      margin: 10px 0;
+      padding: 15px;
+      background-color: #f5e6ff;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    .descripcion-box h3, .notas-box h3 {
+      margin: 0 0 10px 0;
       font-size: 1.2em;
+      color: #4A0D29;
     }
-    #reset-filters {
-      margin: 10px 20px;
-      padding: 8px 16px;
-      background-color: #4A0D29;
-      color: #f5e6ff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    #reset-filters:hover {
-      background-color: #682A46;
+    .descripcion-box p, .notas-box p {
+      margin: 0;
+      line-height: 1.5;
     }
     #menu-toggle {
       display: none;
@@ -212,41 +193,6 @@
     #menu-toggle:hover {
       background-color: #5A1D39;
     }
-    /* Estilos para el ícono de información */
-    .info-icon {
-      display: none; /* Oculto por defecto en escritorio */
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: rgba(74, 13, 41, 0.8);
-      color: #f5e6ff;
-      font-size: 1.2em;
-      padding: 5px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 15; /* Encima de la imagen, pero debajo del botón Comprar */
-    }
-    /* Ocultar el ícono cuando el overlay está visible */
-    .product-card.show-overlay .info-icon {
-      display: none;
-    }
-    /* Estilos para el tooltip */
-    #mobile-tooltip {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #4A0D29;
-      color: #f5e6ff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 0.9em;
-      z-index: 1200; /* Encima de todo */
-      text-align: center;
-      max-width: 90%;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-    /* Estilos para el overlay en móvil */
     @media (max-width: 768px) {
       nav {
         width: 250px;
@@ -270,33 +216,37 @@
       #menu-toggle {
         display: block;
       }
-      .featured-products {
-        grid-template-columns: 1fr;
+      .card-content {
+        flex-direction: column;
+        margin-top: 80px;
       }
-      .info-icon {
+      .bottle-cell, .text-cell {
+        width: 100%;
+        padding: 5px;
+      }
+      .bottle {
+        width: 150px;
+        margin: 0 auto;
         display: block;
       }
-      /* Desactivar hover en móvil y ajustar overlay */
-      .product-card:hover .overlay {
-        opacity: 0; /* Desactiva el hover en móvil */
+      .logo {
+        display: block; /* Mostrar logo en móvil */
+        width: 80px;
+        left: auto;
+        right: 10px;
       }
-      .product-card.show-overlay .overlay {
-        opacity: 1; /* Muestra el overlay cuando se activa con clic */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 200px; /* Cubre solo la imagen */
-        background-color: rgba(74, 13, 41, 0.95); /* Más opaco para mejor legibilidad */
-        z-index: 10; /* Asegura que esté encima de la imagen */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
+      /* Ajustar tamaños de fuente en móvil para mantener legibilidad */
+      nav ul > li > span.filter {
+        font-size: 1em;
       }
-      .product-card.show-overlay {
-        position: relative;
+      nav ul > li > ul > li > ul > li > span.filter {
+        font-size: 0.95em;
+      }
+      nav ul > li > ul > li > ul > li > ul > li > span.filter {
+        font-size: 0.9em;
+      }
+      nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
+        font-size: 0.85em;
       }
     }
   </style>
