@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -5,7 +6,7 @@
   <meta name="description" content="Descubre los mejores Malbecs de ARGENTINA, desde la Patagonia hasta la Puna.">
   <title>1000malbecs - Los 1000 Mejores Malbecs</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <style>
+  <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #fdfdfd;
@@ -14,10 +15,8 @@
       display: flex;
       flex-direction: row;
     }
-
-    /* Estilos de la barra de navegación vertical */
     nav {
-      width: 400px;
+      width: 450px;
       background-color: #4A0D29;
       color: #f5e6ff;
       height: 100vh;
@@ -77,7 +76,6 @@
     nav a, nav span.filter {
       color: #f5e6ff;
       text-decoration: none;
-      font-size: 0.85em;
       cursor: pointer;
       display: inline-block;
       max-width: 260px;
@@ -85,106 +83,133 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    /* Estilos para la jerarquía de navegación */
+    nav ul > li > span.filter {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    nav ul > li > ul > li > ul > li > span.filter {
+      font-size: 1em;
+      font-weight: normal;
+    }
+    nav ul > li > ul > li > ul > li > ul > li > span.filter {
+      font-size: 0.9em;
+      font-weight: normal;
+    }
+    nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
+      font-size: 0.85em;
+    }
     nav a:hover, nav span.filter:hover {
       color: #d4a5ff;
       text-decoration: underline;
     }
-
-    /* Contenedor principal para la lista de productos */
+    nav .filter.active {
+      background-color: #682A46;
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
     .main-content {
-      margin-left: 320px;
-      width: calc(100% - 320px);
+      margin-left: 470px; /* Ajustado para el ancho de nav (450px + padding) */
+      width: calc(100% - 470px);
       z-index: 1;
     }
-
-    /* Estilos para la lista de productos */
-    .product-list {
+    .featured-products {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      padding: 20px 0;
-      justify-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      padding: 20px;
     }
-    .product-item {
-      width: 200px;
-      height: 300px;
+    .product-card {
       border: 1px solid #ddd;
       border-radius: 10px;
+      padding: 10px;
+      text-align: center;
       background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s;
-    }
-    .product-item:hover {
-      transform: scale(1.05);
-    }
-    .product-item.hidden {
-      display: none;
-    }
-    .product-item a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      height: 100%;
-    }
-    .product-item img {
-      width: 100%;
-      height: 100px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-    .product-item h3 {
-      font-size: 0.95em;
-      margin: 0 0 10px 0;
-      color: #333;
-      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
     }
-    .product-item p.price {
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-card h3 {
+      font-size: 1em;
+      margin: 8px 0;
+      color: #4A0D29;
+    }
+    .product-card p {
       font-weight: bold;
       color: #4A0D29;
-      margin: 0;
+      margin: 5px 0;
+      font-size: 0.9em;
     }
-    /* Tooltip para título, región y bodega */
-    .product-item .tooltip {
-      display: none;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: #fff;
-      padding: 8px;
+    .product-card a {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 12px;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      text-decoration: none;
       border-radius: 5px;
-      width: 180px;
-      z-index: 10;
-      font-size: 0.8em;
-      line-height: 1.4;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-size: 0.85em;
     }
-    .product-item .tooltip p {
-      margin: 0;
+    .product-card a:hover {
+      background-color: #682A46;
     }
-    /* Tooltip arriba para la primera fila */
-    .product-list .product-item:nth-child(-n+3) .tooltip {
-      top: auto;
-      bottom: calc(100% + 5px);
+    .product-card .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background-color: rgba(74, 13, 41, 0.9);
+      color: #f5e6ff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 10px;
+      font-size: 0.75em;
     }
-    /* Tooltip abajo para la segunda fila */
-    .product-list .product-item:nth-child(n+4) .tooltip {
-      top: calc(100% + 5px);
-      bottom: auto;
+    .product-card:hover .overlay {
+      opacity: 1;
     }
-    .product-item:hover .tooltip {
-      display: block;
+    .product-card .overlay p {
+      margin: 3px 0;
+      font-weight: normal;
+      color: #f5e6ff;
+      line-height: 1.2;
     }
-
-    /* Estilos para el botón de hamburguesa */
+    .product-card.hidden {
+      display: none;
+    }
+    #no-results {
+      padding: 20px;
+      text-align: center;
+      color: #4A0D29;
+      font-size: 1.2em;
+    }
+    #reset-filters {
+      margin: 10px 20px;
+      padding: 8px 16px;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #reset-filters:hover {
+      background-color: #682A46;
+    }
     #menu-toggle {
       display: none;
       position: fixed;
@@ -202,8 +227,6 @@
     #menu-toggle:hover {
       background-color: #5A1D39;
     }
-
-    /* Media query para pantallas pequeñas */
     @media (max-width: 768px) {
       nav {
         width: 250px;
@@ -227,32 +250,30 @@
       #menu-toggle {
         display: block;
       }
-      .product-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+      .featured-products {
+        grid-template-columns: 1fr;
       }
-      .product-item {
-        width: 150px;
-        height: 250px;
-        padding: 10px;
+      /* Ajustar tamaños de fuente en móvil */
+      nav ul > li > span.filter {
+        font-size: 1em;
       }
-      .product-item img {
-        height: 80px;
+      nav ul > li > ul > li > ul > li > span.filter {
+        font-size: 0.95em;
       }
-      .product-item h3 {
+      nav ul > li > ul > li > ul > li > ul > li > span.filter {
+        font-size: 0.9em;
+      }
+      nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
         font-size: 0.85em;
-      }
-      .product-item .tooltip {
-        display: none; /* Ocultar tooltip en móvil */
       }
     }
   </style>
 </head>
 <body>
   <button id="menu-toggle">☰</button>
-<nav id="sidebar">
+  <nav id="sidebar">
     <div class="logo-container">
-      <a href="index.html" title="Volver al inicio">
+      <a href="/" title="Volver al inicio">
         <img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
       </a>
     </div>
@@ -260,1301 +281,150 @@
     <details>
       <summary><i class="fas fa-map-marker-alt"></i> Ubicación</summary>
       <ul>
-       
-        <li><span class="filter" data-filter="provincia" data-value="La Rioja">La Rioja</span>
+        {% for provincia in provincias %}
+        <li><span class="filter" data-filter="provincia" data-value="{{ provincia }}">{{ provincia }}</span>
           <ul>
             <li><strong>Región</strong>
               <ul>
-               
-                <li><span class="filter" data-filter="region" data-value="Valle de Famatina">Valle de Famatina</span>
+                {% for region in regiones_por_provincia[provincia] %}
+                <li><span class="filter" data-filter="region" data-value="{{ region }}">{{ region }}</span>
                   <ul>
                     <li><strong>Altura</strong>
                       <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="1000m - 2000m">1000m - 2000m</span>
+                        {% for altura in alturas_por_provincia_region[provincia][region] %}
+                        <li><span class="filter" data-filter="altura" data-value="{{ altura }}">{{ altura }}</span>
                           <ul>
-                           
-                            <li><a href="vinos/chanarmuyo-estate-malbec.html" data-provincia="La Rioja" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">CHANARMUYO Estate Malbec</a></li>
-                           
+                            {% for vino in vinos_por_provincia_region_altura[provincia][region][altura] %}
+                            <li><a href="{{ vino.url_landing }}" data-provincia="{{ vino.provincia }}" data-tipo="{{ vino.tipo }}" data-anada="{{ vino.anada }}" data-altura="{{ vino.rango_altura }}">{{ vino.nombre_vino }}</a></li>
+                            {% endfor %}
                           </ul>
                         </li>
-                       
+                        {% endfor %}
                       </ul>
                     </li>
                   </ul>
                 </li>
-               
+                {% endfor %}
               </ul>
             </li>
           </ul>
         </li>
-       
-        <li><span class="filter" data-filter="provincia" data-value="Mendoza">Mendoza</span>
-          <ul>
-            <li><strong>Región</strong>
-              <ul>
-               
-                <li><span class="filter" data-filter="region" data-value="Agrelo, Luján de Cuyo">Agrelo, Luján de Cuyo</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="< 1000m">< 1000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/sptima-ros-de-malbec.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Séptima Rosé de Malbec</a></li>
-                           
-                            <li><a href="vinos/sptima-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Séptima Malbec</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-                <li><span class="filter" data-filter="region" data-value="Luján de Cuyo">Luján de Cuyo</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="< 1000m">< 1000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/lois--sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
-                           
-                            <li><a href="vinos/pink--malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
-                           
-                            <li><a href="vinos/ique--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Ique - Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-los-barrancos.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos'</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-limited-edition.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition</a></li>
-                           
-                            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-                           
-                            <li><a href="vinos/carrascal-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Carrascal Malbec</a></li>
-                           
-                            <li><a href="vinos/weinert-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Weinert Malbec 2018</a></li>
-                           
-                            <li><a href="vinos/weinert-malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="< 1000m">Weinert Malbec 2010</a></li>
-                           
-                            <li><a href="vinos/weinert-malbec-1995.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="1995" data-altura="< 1000m">Weinert Malbec 1995</a></li>
-                           
-                            <li><a href="vinos/luigi-bosca-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">LUIGI BOSCA Malbec</a></li>
-                           
-                            <li><a href="vinos/luigi-bosca-de-sangre-malbec-doc.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">LUIGI BOSCA De SANGRE Malbec D.O.C</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="1000m - 2000m">1000m - 2000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/tomero--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Tomero - Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/tomero-single-vineyard-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2021</a></li>
-                           
-                            <li><a href="vinos/tomero-single-vineyard-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2020</a></li>
-                           
-                            <li><a href="vinos/tomero-single-vineyard-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/vistalba--malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Vistalba - Malbec 2021</a></li>
-                           
-                            <li><a href="vinos/vistalba--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Vistalba - Gran Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/tomero--cuartel-41-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/tomero--cuartel-41-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2018</a></li>
-                           
-                            <li><a href="vinos/tomero--cuartel-41-malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2016</a></li>
-                           
-                            <li><a href="vinos/paso-de-piedra--malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Paso de Piedra - Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Viña Alicia - Malbec 2016</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Viña Alicia - Malbec 2013</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2012.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2012" data-altura="1000m - 2000m">Viña Alicia - Malbec 2012</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="1000m - 2000m">Viña Alicia - Malbec 2010</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-                <li><span class="filter" data-filter="region" data-value="Maipú">Maipú</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="< 1000m">< 1000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/finca-gabriel-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">FINCA GABRIEL Malbec</a></li>
-                           
-                            <li><a href="vinos/finca-gabriel-edicin-especial-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">FINCA GABRIEL Edición Especial Malbec</a></li>
-                           
-                            <li><a href="vinos/jorge-rubio-privado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="< 1000m">JORGE RUBIO PRIVADO Malbec</a></li>
-                           
-                            <li><a href="vinos/jorge-rubio-gran-reserva-malbecmerlot.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2020" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec/Merlot</a></li>
-                           
-                            <li><a href="vinos/jorge-rubio-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec</a></li>
-                           
-                            <li><a href="vinos/jorge-rubio-premiado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2018" data-altura="< 1000m">JORGE RUBIO PREMIADO Malbec</a></li>
-                           
-                            <li><a href="vinos/cicchitti-primmo-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">CICCHITTI Primmo Malbec</a></li>
-                           
-                            <li><a href="vinos/vos-malbec-de-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">VOS Malbec de Malbec</a></li>
-                           
-                            <li><a href="vinos/cicchitti-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">CICCHITTI Malbec</a></li>
-                           
-                            <li><a href="vinos/cicchitti-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">CICCHITTI Gran Reserva Malbec</a></li>
-                           
-                            <li><a href="vinos/cicchitti-malbec-edicin-limitada.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="< 1000m">Cicchitti Malbec Edición Limitada</a></li>
-                           
-                            <li><a href="vinos/la-grupa-syrah-malbec-075.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 0.75</a></li>
-                           
-                            <li><a href="vinos/la-grupa-syrah-malbec-125.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 1.25</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-                <li><span class="filter" data-filter="region" data-value="San Rafael">San Rafael</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="< 1000m">< 1000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/gran-famiglia--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="< 1000m">Gran Famiglia - Malbec 2017</a></li>
-                           
-                            <li><a href="vinos/famiglia-bianchi-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Famiglia Bianchi Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/famiglia-bianchi-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Famiglia Bianchi Malbec 2021</a></li>
-                           
-                            <li><a href="vinos/famiglia-bianchi-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Famiglia Bianchi Malbec 2020</a></li>
-                           
-                            <li><a href="vinos/famiglia-bianchi-malbec-2014.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2014" data-altura="< 1000m">Famiglia Bianchi Malbec 2014</a></li>
-                           
-                            <li><a href="vinos/particular-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Particular Malbec 2020</a></li>
-                           
-                            <li><a href="vinos/particular-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/particular-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Particular Malbec 2018</a></li>
-                           
-                            <li><a href="vinos/particular-malbec-2019-magnum-15-lts.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019 Magnum 1.5 Lts</a></li>
-                           
-                            <li><a href="vinos/enzo-bianchi--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Enzo Bianchi - Gran Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/jorge-rubio-gran-reserva-malbec-magnum.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec Magnum</a></li>
-                           
-                            <li><a href="vinos/casa-araujo-varietal.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Varietal</a></li>
-                           
-                            <li><a href="vinos/casa-araujo-roble.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Roble</a></li>
-                           
-                            <li><a href="vinos/casa-araujo-mimi.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Mimi</a></li>
-                           
-                            <li><a href="vinos/nucha.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Nucha</a></li>
-                           
-                            <li><a href="vinos/graciano-reserva-blend.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Graciano Reserva Blend</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-                <li><span class="filter" data-filter="region" data-value="Valle de Uco">Valle de Uco</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="1000m - 2000m">1000m - 2000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/temtico--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/zapam-zucum--organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
-                           
-                            <li><a href="vinos/fantasa--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/gran-potico--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
-                           
-                            <li><a href="vinos/urano--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Urano - Malbec 2017</a></li>
-                           
-                            <li><a href="vinos/eral-bravo--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Eral Bravo - Malbec 2017</a></li>
-                           
-                            <li><a href="vinos/a-contramano-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">A CONTRAMANO Malbec</a></li>
-                           
-                            <li><a href="vinos/chakana-nuna-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">CHAKANA Nuna Malbec Bio</a></li>
-                           
-                            <li><a href="vinos/dilema-day-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Dilema Day Malbec</a></li>
-                           
-                            <li><a href="vinos/resero-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="1000m - 2000m">Resero Malbec</a></li>
-                           
-                            <li><a href="vinos/caminante-de-los-mundos-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="1000m - 2000m">Caminante de los Mundos Malbec Bio</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-              </ul>
-            </li>
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="provincia" data-value="Neuquen">Neuquen</span>
-          <ul>
-            <li><strong>Región</strong>
-              <ul>
-               
-                <li><span class="filter" data-filter="region" data-value="San Patricio del Chañar">San Patricio del Chañar</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="< 1000m">< 1000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/saurus--malbec-2023.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Saurus - Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/saurus-patagonia-select--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Patagonia Select - Malbec 2022</a></li>
-                           
-                            <li><a href="vinos/saurus-barrel-fermented--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Barrel Fermented - Malbec 2022</a></li>
-                           
-                            <li><a href="vinos/familia-schroeder--malbec-2019.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Familia Schroeder - Malbec 2019</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-              </ul>
-            </li>
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="provincia" data-value="Salta">Salta</span>
-          <ul>
-            <li><strong>Región</strong>
-              <ul>
-               
-                <li><span class="filter" data-filter="region" data-value="Cafayate">Cafayate</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="1000m - 2000m">1000m - 2000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/imaginate-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Imaginate Malbec</a></li>
-                           
-                            <li><a href="vinos/amar-vivir-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Amar Vivir Malbec</a></li>
-                           
-                            <li><a href="vinos/tukma-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tukma Malbec</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-                <li><span class="filter" data-filter="region" data-value="Valle de Calchaquí">Valle de Calchaquí</span>
-                  <ul>
-                    <li><strong>Altura</strong>
-                      <ul>
-                       
-                        <li><span class="filter" data-filter="altura" data-value="1000m - 2000m">1000m - 2000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/bad-brothers--malbec-premium-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Bad Brothers - Malbec Premium 2020</a></li>
-                           
-                            <li><a href="vinos/sunal-ilgico--malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Sunal Ilógico - Malbec 2020</a></li>
-                           
-                          </ul>
-                        </li>
-                       
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-               
-              </ul>
-            </li>
-          </ul>
-        </li>
-       
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-glass-alt"></i> Vino</summary>
-      <ul>
-        <li><strong>Tipo</strong>
-          <ul>
-           
-            <li><span class="filter" data-filter="tipo" data-value="Blend">Blend</span>
-              <ul>
-               
-                <li><a href="vinos/la-grupa-syrah-malbec-075.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 0.75</a></li>
-               
-                <li><a href="vinos/la-grupa-syrah-malbec-125.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 1.25</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="tipo" data-value="Espumante">Espumante</span>
-              <ul>
-               
-                <li><a href="vinos/lois--sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="tipo" data-value="Orgánico">Orgánico</span>
-              <ul>
-               
-                <li><a href="vinos/zapam-zucum--organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
-               
-                <li><a href="vinos/jorge-rubio-privado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="< 1000m">JORGE RUBIO PRIVADO Malbec</a></li>
-               
-                <li><a href="vinos/jorge-rubio-gran-reserva-malbecmerlot.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2020" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec/Merlot</a></li>
-               
-                <li><a href="vinos/jorge-rubio-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec</a></li>
-               
-                <li><a href="vinos/jorge-rubio-premiado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2018" data-altura="< 1000m">JORGE RUBIO PREMIADO Malbec</a></li>
-               
-                <li><a href="vinos/chakana-nuna-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">CHAKANA Nuna Malbec Bio</a></li>
-               
-                <li><a href="vinos/caminante-de-los-mundos-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="1000m - 2000m">Caminante de los Mundos Malbec Bio</a></li>
-               
-                <li><a href="vinos/jorge-rubio-gran-reserva-malbec-magnum.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec Magnum</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="tipo" data-value="Rosado">Rosado</span>
-              <ul>
-               
-                <li><a href="vinos/pink--malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
-               
-                <li><a href="vinos/sptima-ros-de-malbec.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Séptima Rosé de Malbec</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="tipo" data-value="Tinto">Tinto</span>
-              <ul>
-               
-                <li><a href="vinos/temtico--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
-               
-                <li><a href="vinos/fantasa--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
-               
-                <li><a href="vinos/gran-potico--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
-               
-                <li><a href="vinos/ique--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Ique - Malbec 2023</a></li>
-               
-                <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-               
-                <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-               
-                <li><a href="vinos/foster--malbec-los-barrancos.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos'</a></li>
-               
-                <li><a href="vinos/foster--malbec-limited-edition.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition</a></li>
-               
-                <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-               
-                <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-               
-                <li><a href="vinos/urano--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Urano - Malbec 2017</a></li>
-               
-                <li><a href="vinos/eral-bravo--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Eral Bravo - Malbec 2017</a></li>
-               
-                <li><a href="vinos/tomero--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Tomero - Malbec 2023</a></li>
-               
-                <li><a href="vinos/tomero-single-vineyard-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2021</a></li>
-               
-                <li><a href="vinos/tomero-single-vineyard-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2020</a></li>
-               
-                <li><a href="vinos/tomero-single-vineyard-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2019</a></li>
-               
-                <li><a href="vinos/vistalba--malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Vistalba - Malbec 2021</a></li>
-               
-                <li><a href="vinos/vistalba--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Vistalba - Gran Malbec 2019</a></li>
-               
-                <li><a href="vinos/tomero--cuartel-41-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2019</a></li>
-               
-                <li><a href="vinos/tomero--cuartel-41-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2018</a></li>
-               
-                <li><a href="vinos/tomero--cuartel-41-malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2016</a></li>
-               
-                <li><a href="vinos/carrascal-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Carrascal Malbec</a></li>
-               
-                <li><a href="vinos/weinert-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Weinert Malbec 2018</a></li>
-               
-                <li><a href="vinos/weinert-malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="< 1000m">Weinert Malbec 2010</a></li>
-               
-                <li><a href="vinos/weinert-malbec-1995.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="1995" data-altura="< 1000m">Weinert Malbec 1995</a></li>
-               
-                <li><a href="vinos/paso-de-piedra--malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Paso de Piedra - Malbec 2019</a></li>
-               
-                <li><a href="vinos/via-alicia--malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Viña Alicia - Malbec 2016</a></li>
-               
-                <li><a href="vinos/via-alicia--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Viña Alicia - Malbec 2013</a></li>
-               
-                <li><a href="vinos/via-alicia--malbec-2012.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2012" data-altura="1000m - 2000m">Viña Alicia - Malbec 2012</a></li>
-               
-                <li><a href="vinos/via-alicia--malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="1000m - 2000m">Viña Alicia - Malbec 2010</a></li>
-               
-                <li><a href="vinos/gran-famiglia--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="< 1000m">Gran Famiglia - Malbec 2017</a></li>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Famiglia Bianchi Malbec 2023</a></li>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Famiglia Bianchi Malbec 2021</a></li>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Famiglia Bianchi Malbec 2020</a></li>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2014.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2014" data-altura="< 1000m">Famiglia Bianchi Malbec 2014</a></li>
-               
-                <li><a href="vinos/particular-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Particular Malbec 2020</a></li>
-               
-                <li><a href="vinos/particular-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019</a></li>
-               
-                <li><a href="vinos/particular-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Particular Malbec 2018</a></li>
-               
-                <li><a href="vinos/particular-malbec-2019-magnum-15-lts.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019 Magnum 1.5 Lts</a></li>
-               
-                <li><a href="vinos/enzo-bianchi--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Enzo Bianchi - Gran Malbec 2019</a></li>
-               
-                <li><a href="vinos/saurus--malbec-2023.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Saurus - Malbec 2023</a></li>
-               
-                <li><a href="vinos/saurus-patagonia-select--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Patagonia Select - Malbec 2022</a></li>
-               
-                <li><a href="vinos/saurus-barrel-fermented--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Barrel Fermented - Malbec 2022</a></li>
-               
-                <li><a href="vinos/familia-schroeder--malbec-2019.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Familia Schroeder - Malbec 2019</a></li>
-               
-                <li><a href="vinos/bad-brothers--malbec-premium-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Bad Brothers - Malbec Premium 2020</a></li>
-               
-                <li><a href="vinos/sunal-ilgico--malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Sunal Ilógico - Malbec 2020</a></li>
-               
-                <li><a href="vinos/chanarmuyo-estate-malbec.html" data-provincia="La Rioja" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">CHANARMUYO Estate Malbec</a></li>
-               
-                <li><a href="vinos/finca-gabriel-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">FINCA GABRIEL Malbec</a></li>
-               
-                <li><a href="vinos/finca-gabriel-edicin-especial-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">FINCA GABRIEL Edición Especial Malbec</a></li>
-               
-                <li><a href="vinos/a-contramano-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">A CONTRAMANO Malbec</a></li>
-               
-                <li><a href="vinos/luigi-bosca-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">LUIGI BOSCA Malbec</a></li>
-               
-                <li><a href="vinos/luigi-bosca-de-sangre-malbec-doc.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">LUIGI BOSCA De SANGRE Malbec D.O.C</a></li>
-               
-                <li><a href="vinos/cicchitti-primmo-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">CICCHITTI Primmo Malbec</a></li>
-               
-                <li><a href="vinos/vos-malbec-de-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">VOS Malbec de Malbec</a></li>
-               
-                <li><a href="vinos/cicchitti-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">CICCHITTI Malbec</a></li>
-               
-                <li><a href="vinos/cicchitti-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">CICCHITTI Gran Reserva Malbec</a></li>
-               
-                <li><a href="vinos/cicchitti-malbec-edicin-limitada.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="< 1000m">Cicchitti Malbec Edición Limitada</a></li>
-               
-                <li><a href="vinos/dilema-day-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Dilema Day Malbec</a></li>
-               
-                <li><a href="vinos/resero-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="1000m - 2000m">Resero Malbec</a></li>
-               
-                <li><a href="vinos/sptima-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Séptima Malbec</a></li>
-               
-                <li><a href="vinos/imaginate-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Imaginate Malbec</a></li>
-               
-                <li><a href="vinos/amar-vivir-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Amar Vivir Malbec</a></li>
-               
-                <li><a href="vinos/tukma-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tukma Malbec</a></li>
-               
-                <li><a href="vinos/casa-araujo-varietal.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Varietal</a></li>
-               
-                <li><a href="vinos/casa-araujo-roble.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Roble</a></li>
-               
-                <li><a href="vinos/casa-araujo-mimi.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Mimi</a></li>
-               
-                <li><a href="vinos/nucha.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Nucha</a></li>
-               
-                <li><a href="vinos/graciano-reserva-blend.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Graciano Reserva Blend</a></li>
-               
-              </ul>
-            </li>
-           
-          </ul>
-        </li>
-        <li><strong>Añada</strong>
-          <ul>
-           
-            <li><span class="filter" data-filter="anada" data-value="2023">2023</span>
-              <ul>
-               
-                <li><a href="vinos/temtico--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
-               
-                <li><a href="vinos/fantasa--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
-               
-                <li><a href="vinos/pink--malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
-               
-                <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-               
-                <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-               
-                <li><a href="vinos/foster--malbec-los-barrancos.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos'</a></li>
-               
-                <li><a href="vinos/foster--malbec-limited-edition.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition</a></li>
-               
-                <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-               
-                <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-               
-                <li><a href="vinos/tomero--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Tomero - Malbec 2023</a></li>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Famiglia Bianchi Malbec 2023</a></li>
-               
-                <li><a href="vinos/saurus--malbec-2023.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Saurus - Malbec 2023</a></li>
-               
-                <li><a href="vinos/sptima-ros-de-malbec.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Séptima Rosé de Malbec</a></li>
-               
-                <li><a href="vinos/casa-araujo-varietal.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Varietal</a></li>
-               
-                <li><a href="vinos/casa-araujo-roble.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Roble</a></li>
-               
-                <li><a href="vinos/casa-araujo-mimi.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Mimi</a></li>
-               
-                <li><a href="vinos/nucha.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Nucha</a></li>
-               
-                <li><a href="vinos/graciano-reserva-blend.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Graciano Reserva Blend</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2022">2022</span>
-              <ul>
-               
-                <li><a href="vinos/zapam-zucum--organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
-               
-                <li><a href="vinos/carrascal-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Carrascal Malbec</a></li>
-               
-                <li><a href="vinos/saurus-patagonia-select--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Patagonia Select - Malbec 2022</a></li>
-               
-                <li><a href="vinos/saurus-barrel-fermented--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Barrel Fermented - Malbec 2022</a></li>
-               
-                <li><a href="vinos/finca-gabriel-edicin-especial-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">FINCA GABRIEL Edición Especial Malbec</a></li>
-               
-                <li><a href="vinos/chakana-nuna-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">CHAKANA Nuna Malbec Bio</a></li>
-               
-                <li><a href="vinos/luigi-bosca-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">LUIGI BOSCA Malbec</a></li>
-               
-                <li><a href="vinos/cicchitti-primmo-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">CICCHITTI Primmo Malbec</a></li>
-               
-                <li><a href="vinos/la-grupa-syrah-malbec-075.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 0.75</a></li>
-               
-                <li><a href="vinos/la-grupa-syrah-malbec-125.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 1.25</a></li>
-               
-                <li><a href="vinos/resero-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="1000m - 2000m">Resero Malbec</a></li>
-               
-                <li><a href="vinos/sptima-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Séptima Malbec</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2021">2021</span>
-              <ul>
-               
-                <li><a href="vinos/lois--sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
-               
-                <li><a href="vinos/ique--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Ique - Malbec 2023</a></li>
-               
-                <li><a href="vinos/tomero-single-vineyard-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2021</a></li>
-               
-                <li><a href="vinos/vistalba--malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Vistalba - Malbec 2021</a></li>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Famiglia Bianchi Malbec 2021</a></li>
-               
-                <li><a href="vinos/chanarmuyo-estate-malbec.html" data-provincia="La Rioja" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">CHANARMUYO Estate Malbec</a></li>
-               
-                <li><a href="vinos/finca-gabriel-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">FINCA GABRIEL Malbec</a></li>
-               
-                <li><a href="vinos/jorge-rubio-privado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="< 1000m">JORGE RUBIO PRIVADO Malbec</a></li>
-               
-                <li><a href="vinos/a-contramano-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">A CONTRAMANO Malbec</a></li>
-               
-                <li><a href="vinos/luigi-bosca-de-sangre-malbec-doc.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">LUIGI BOSCA De SANGRE Malbec D.O.C</a></li>
-               
-                <li><a href="vinos/vos-malbec-de-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">VOS Malbec de Malbec</a></li>
-               
-                <li><a href="vinos/cicchitti-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">CICCHITTI Malbec</a></li>
-               
-                <li><a href="vinos/dilema-day-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Dilema Day Malbec</a></li>
-               
-                <li><a href="vinos/caminante-de-los-mundos-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="1000m - 2000m">Caminante de los Mundos Malbec Bio</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2020">2020</span>
-              <ul>
-               
-                <li><a href="vinos/tomero-single-vineyard-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2020</a></li>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Famiglia Bianchi Malbec 2020</a></li>
-               
-                <li><a href="vinos/particular-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Particular Malbec 2020</a></li>
-               
-                <li><a href="vinos/bad-brothers--malbec-premium-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Bad Brothers - Malbec Premium 2020</a></li>
-               
-                <li><a href="vinos/sunal-ilgico--malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Sunal Ilógico - Malbec 2020</a></li>
-               
-                <li><a href="vinos/jorge-rubio-gran-reserva-malbecmerlot.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2020" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec/Merlot</a></li>
-               
-                <li><a href="vinos/amar-vivir-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Amar Vivir Malbec</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2019">2019</span>
-              <ul>
-               
-                <li><a href="vinos/tomero-single-vineyard-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2019</a></li>
-               
-                <li><a href="vinos/vistalba--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Vistalba - Gran Malbec 2019</a></li>
-               
-                <li><a href="vinos/tomero--cuartel-41-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2019</a></li>
-               
-                <li><a href="vinos/paso-de-piedra--malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Paso de Piedra - Malbec 2019</a></li>
-               
-                <li><a href="vinos/particular-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019</a></li>
-               
-                <li><a href="vinos/particular-malbec-2019-magnum-15-lts.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019 Magnum 1.5 Lts</a></li>
-               
-                <li><a href="vinos/enzo-bianchi--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Enzo Bianchi - Gran Malbec 2019</a></li>
-               
-                <li><a href="vinos/familia-schroeder--malbec-2019.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Familia Schroeder - Malbec 2019</a></li>
-               
-                <li><a href="vinos/jorge-rubio-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec</a></li>
-               
-                <li><a href="vinos/imaginate-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Imaginate Malbec</a></li>
-               
-                <li><a href="vinos/tukma-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tukma Malbec</a></li>
-               
-                <li><a href="vinos/jorge-rubio-gran-reserva-malbec-magnum.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec Magnum</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2018">2018</span>
-              <ul>
-               
-                <li><a href="vinos/tomero--cuartel-41-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2018</a></li>
-               
-                <li><a href="vinos/weinert-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Weinert Malbec 2018</a></li>
-               
-                <li><a href="vinos/particular-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Particular Malbec 2018</a></li>
-               
-                <li><a href="vinos/jorge-rubio-premiado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2018" data-altura="< 1000m">JORGE RUBIO PREMIADO Malbec</a></li>
-               
-                <li><a href="vinos/cicchitti-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">CICCHITTI Gran Reserva Malbec</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2017">2017</span>
-              <ul>
-               
-                <li><a href="vinos/urano--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Urano - Malbec 2017</a></li>
-               
-                <li><a href="vinos/eral-bravo--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Eral Bravo - Malbec 2017</a></li>
-               
-                <li><a href="vinos/gran-famiglia--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="< 1000m">Gran Famiglia - Malbec 2017</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2016">2016</span>
-              <ul>
-               
-                <li><a href="vinos/tomero--cuartel-41-malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2016</a></li>
-               
-                <li><a href="vinos/via-alicia--malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Viña Alicia - Malbec 2016</a></li>
-               
-                <li><a href="vinos/cicchitti-malbec-edicin-limitada.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="< 1000m">Cicchitti Malbec Edición Limitada</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2014">2014</span>
-              <ul>
-               
-                <li><a href="vinos/famiglia-bianchi-malbec-2014.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2014" data-altura="< 1000m">Famiglia Bianchi Malbec 2014</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2013">2013</span>
-              <ul>
-               
-                <li><a href="vinos/gran-potico--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
-               
-                <li><a href="vinos/via-alicia--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Viña Alicia - Malbec 2013</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2012">2012</span>
-              <ul>
-               
-                <li><a href="vinos/via-alicia--malbec-2012.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2012" data-altura="1000m - 2000m">Viña Alicia - Malbec 2012</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="2010">2010</span>
-              <ul>
-               
-                <li><a href="vinos/weinert-malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="< 1000m">Weinert Malbec 2010</a></li>
-               
-                <li><a href="vinos/via-alicia--malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="1000m - 2000m">Viña Alicia - Malbec 2010</a></li>
-               
-              </ul>
-            </li>
-           
-            <li><span class="filter" data-filter="anada" data-value="1995">1995</span>
-              <ul>
-               
-                <li><a href="vinos/weinert-malbec-1995.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="1995" data-altura="< 1000m">Weinert Malbec 1995</a></li>
-               
-              </ul>
-            </li>
-           
-          </ul>
-        </li>
+        {% endfor %}
       </ul>
     </details>
     <details>
       <summary><i class="fas fa-wine-bottle"></i> Bodega</summary>
       <ul>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Agustín Lanús">Agustín Lanús</span>
+        {% for bodega in bodegas %}
+        <li><span class="filter" data-filter="bodega" data-value="{{ bodega }}">{{ bodega }}</span>
           <ul>
-           
-            <li><a href="vinos/bad-brothers--malbec-premium-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Bad Brothers - Malbec Premium 2020</a></li>
-           
-            <li><a href="vinos/sunal-ilgico--malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Sunal Ilógico - Malbec 2020</a></li>
-           
+            {% for vino in vinos_por_bodega[bodega] %}
+            <li><a href="{{ vino.url_landing }}" data-provincia="{{ vino.provincia }}" data-tipo="{{ vino.tipo }}" data-anada="{{ vino.anada }}" data-altura="{{ vino.rango_altura }}">{{ vino.nombre_vino }}</a></li>
+            {% endfor %}
           </ul>
         </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Bodega Chanarmuyo">Bodega Chanarmuyo</span>
-          <ul>
-           
-            <li><a href="vinos/chanarmuyo-estate-malbec.html" data-provincia="La Rioja" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">CHANARMUYO Estate Malbec</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Bodega Finca Gabriel">Bodega Finca Gabriel</span>
-          <ul>
-           
-            <li><a href="vinos/finca-gabriel-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">FINCA GABRIEL Malbec</a></li>
-           
-            <li><a href="vinos/finca-gabriel-edicin-especial-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">FINCA GABRIEL Edición Especial Malbec</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Bodega Resero">Bodega Resero</span>
-          <ul>
-           
-            <li><a href="vinos/resero-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="1000m - 2000m">Resero Malbec</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Bodega Séptima">Bodega Séptima</span>
-          <ul>
-           
-            <li><a href="vinos/sptima-ros-de-malbec.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Séptima Rosé de Malbec</a></li>
-           
-            <li><a href="vinos/sptima-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Séptima Malbec</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Bodega Tukma">Bodega Tukma</span>
-          <ul>
-           
-            <li><a href="vinos/tukma-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tukma Malbec</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Bodegas Bianchi">Bodegas Bianchi</span>
-          <ul>
-           
-            <li><a href="vinos/gran-famiglia--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="< 1000m">Gran Famiglia - Malbec 2017</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Famiglia Bianchi Malbec 2023</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Famiglia Bianchi Malbec 2021</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Famiglia Bianchi Malbec 2020</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2014.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2014" data-altura="< 1000m">Famiglia Bianchi Malbec 2014</a></li>
-           
-            <li><a href="vinos/particular-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Particular Malbec 2020</a></li>
-           
-            <li><a href="vinos/particular-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019</a></li>
-           
-            <li><a href="vinos/particular-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Particular Malbec 2018</a></li>
-           
-            <li><a href="vinos/particular-malbec-2019-magnum-15-lts.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019 Magnum 1.5 Lts</a></li>
-           
-            <li><a href="vinos/enzo-bianchi--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Enzo Bianchi - Gran Malbec 2019</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Bodegas Etchart">Bodegas Etchart</span>
-          <ul>
-           
-            <li><a href="vinos/imaginate-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Imaginate Malbec</a></li>
-           
-            <li><a href="vinos/amar-vivir-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Amar Vivir Malbec</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Casa Araujo">Casa Araujo</span>
-          <ul>
-           
-            <li><a href="vinos/casa-araujo-varietal.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Varietal</a></li>
-           
-            <li><a href="vinos/casa-araujo-roble.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Roble</a></li>
-           
-            <li><a href="vinos/casa-araujo-mimi.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Mimi</a></li>
-           
-            <li><a href="vinos/nucha.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Nucha</a></li>
-           
-            <li><a href="vinos/graciano-reserva-blend.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Graciano Reserva Blend</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Chakana">Chakana</span>
-          <ul>
-           
-            <li><a href="vinos/a-contramano-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">A CONTRAMANO Malbec</a></li>
-           
-            <li><a href="vinos/chakana-nuna-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">CHAKANA Nuna Malbec Bio</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Cicchitti">Cicchitti</span>
-          <ul>
-           
-            <li><a href="vinos/cicchitti-primmo-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">CICCHITTI Primmo Malbec</a></li>
-           
-            <li><a href="vinos/vos-malbec-de-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">VOS Malbec de Malbec</a></li>
-           
-            <li><a href="vinos/cicchitti-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">CICCHITTI Malbec</a></li>
-           
-            <li><a href="vinos/cicchitti-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">CICCHITTI Gran Reserva Malbec</a></li>
-           
-            <li><a href="vinos/cicchitti-malbec-edicin-limitada.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="< 1000m">Cicchitti Malbec Edición Limitada</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Dilema Wines">Dilema Wines</span>
-          <ul>
-           
-            <li><a href="vinos/dilema-day-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Dilema Day Malbec</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Enrique Foster Bodega">Enrique Foster Bodega</span>
-          <ul>
-           
-            <li><a href="vinos/lois--sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
-           
-            <li><a href="vinos/pink--malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
-           
-            <li><a href="vinos/ique--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Ique - Malbec 2023</a></li>
-           
-            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-           
-            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-           
-            <li><a href="vinos/foster--malbec-los-barrancos.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos'</a></li>
-           
-            <li><a href="vinos/foster--malbec-limited-edition.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition</a></li>
-           
-            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-           
-            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Eral Bravo">Eral Bravo</span>
-          <ul>
-           
-            <li><a href="vinos/urano--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Urano - Malbec 2017</a></li>
-           
-            <li><a href="vinos/eral-bravo--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Eral Bravo - Malbec 2017</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Familia Schroeder">Familia Schroeder</span>
-          <ul>
-           
-            <li><a href="vinos/saurus--malbec-2023.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Saurus - Malbec 2023</a></li>
-           
-            <li><a href="vinos/saurus-patagonia-select--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Patagonia Select - Malbec 2022</a></li>
-           
-            <li><a href="vinos/saurus-barrel-fermented--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Barrel Fermented - Malbec 2022</a></li>
-           
-            <li><a href="vinos/familia-schroeder--malbec-2019.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Familia Schroeder - Malbec 2019</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Finca y Bodega Vistalba">Finca y Bodega Vistalba</span>
-          <ul>
-           
-            <li><a href="vinos/tomero--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Tomero - Malbec 2023</a></li>
-           
-            <li><a href="vinos/tomero-single-vineyard-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2021</a></li>
-           
-            <li><a href="vinos/tomero-single-vineyard-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2020</a></li>
-           
-            <li><a href="vinos/tomero-single-vineyard-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2019</a></li>
-           
-            <li><a href="vinos/vistalba--malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Vistalba - Malbec 2021</a></li>
-           
-            <li><a href="vinos/vistalba--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Vistalba - Gran Malbec 2019</a></li>
-           
-            <li><a href="vinos/tomero--cuartel-41-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2019</a></li>
-           
-            <li><a href="vinos/tomero--cuartel-41-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2018</a></li>
-           
-            <li><a href="vinos/tomero--cuartel-41-malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2016</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Jasmine Monet">Jasmine Monet</span>
-          <ul>
-           
-            <li><a href="vinos/caminante-de-los-mundos-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="1000m - 2000m">Caminante de los Mundos Malbec Bio</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Jorge Rubio">Jorge Rubio</span>
-          <ul>
-           
-            <li><a href="vinos/jorge-rubio-privado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="< 1000m">JORGE RUBIO PRIVADO Malbec</a></li>
-           
-            <li><a href="vinos/jorge-rubio-gran-reserva-malbecmerlot.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2020" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec/Merlot</a></li>
-           
-            <li><a href="vinos/jorge-rubio-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec</a></li>
-           
-            <li><a href="vinos/jorge-rubio-premiado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2018" data-altura="< 1000m">JORGE RUBIO PREMIADO Malbec</a></li>
-           
-            <li><a href="vinos/jorge-rubio-gran-reserva-malbec-magnum.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec Magnum</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="La Grupa Wines">La Grupa Wines</span>
-          <ul>
-           
-            <li><a href="vinos/la-grupa-syrah-malbec-075.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 0.75</a></li>
-           
-            <li><a href="vinos/la-grupa-syrah-malbec-125.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 1.25</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Luigi Bosca">Luigi Bosca</span>
-          <ul>
-           
-            <li><a href="vinos/luigi-bosca-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">LUIGI BOSCA Malbec</a></li>
-           
-            <li><a href="vinos/luigi-bosca-de-sangre-malbec-doc.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">LUIGI BOSCA De SANGRE Malbec D.O.C</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Mauricio Lorca Bodega y Viñedos">Mauricio Lorca Bodega y Viñedos</span>
-          <ul>
-           
-            <li><a href="vinos/temtico--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
-           
-            <li><a href="vinos/zapam-zucum--organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
-           
-            <li><a href="vinos/fantasa--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
-           
-            <li><a href="vinos/gran-potico--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Viña Alicia">Viña Alicia</span>
-          <ul>
-           
-            <li><a href="vinos/paso-de-piedra--malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Paso de Piedra - Malbec 2019</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Viña Alicia - Malbec 2016</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Viña Alicia - Malbec 2013</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2012.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2012" data-altura="1000m - 2000m">Viña Alicia - Malbec 2012</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="1000m - 2000m">Viña Alicia - Malbec 2010</a></li>
-           
-          </ul>
-        </li>
-       
-        <li><span class="filter" data-filter="bodega" data-value="Weinert Bodega y Cavas">Weinert Bodega y Cavas</span>
-          <ul>
-           
-            <li><a href="vinos/carrascal-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Carrascal Malbec</a></li>
-           
-            <li><a href="vinos/weinert-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Weinert Malbec 2018</a></li>
-           
-            <li><a href="vinos/weinert-malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="< 1000m">Weinert Malbec 2010</a></li>
-           
-            <li><a href="vinos/weinert-malbec-1995.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="1995" data-altura="< 1000m">Weinert Malbec 1995</a></li>
-           
-          </ul>
-        </li>
-       
+        {% endfor %}
       </ul>
     </details>
     <details>
       <summary><i class="fas fa-dollar-sign"></i> Rango de Precio</summary>
       <ul>
-       
-        <li><span class="filter" data-filter="precio-rango" data-value="Económico">Económico</span>
+        {% for rango in rangos_precio %}
+        <li><span class="filter" data-filter="precio-rango" data-value="{{ rango }}">{{ rango }}</span>
           <ul>
-           
-            <li><a href="vinos/temtico--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Temático - Malbec 2023</a></li>
-           
-            <li><a href="vinos/jorge-rubio-gran-reserva-malbecmerlot.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2020" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec/Merlot</a></li>
-           
-            <li><a href="vinos/casa-araujo-varietal.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Varietal</a></li>
-           
-            <li><a href="vinos/casa-araujo-roble.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Roble</a></li>
-           
+            {% for vino in vinos_por_rango_precio[rango] %}
+            <li><a href="{{ vino.url_landing }}" data-provincia="{{ vino.provincia }}" data-tipo="{{ vino.tipo }}" data-anada="{{ vino.anada }}" data-altura="{{ vino.rango_altura }}">{{ vino.nombre_vino }}</a></li>
+            {% endfor %}
           </ul>
         </li>
-       
-        <li><span class="filter" data-filter="precio-rango" data-value="Medio">Medio</span>
+        {% endfor %}
+      </ul>
+    </details>
+    <details>
+      <summary><i class="fas fa-calendar-alt"></i> Añada</summary>
+      <ul>
+        {% for anada in anadas %}
+        <li><span class="filter" data-filter="anada" data-value="{{ anada }}">{{ anada }}</span>
           <ul>
-           
-            <li><a href="vinos/zapam-zucum--organic-malbec-2022.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">Zapam Zucum - Organic Malbec 2022</a></li>
-           
-            <li><a href="vinos/fantasa--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Fantasía - Malbec 2023</a></li>
-           
-            <li><a href="vinos/lois--sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
-           
-            <li><a href="vinos/pink--malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
-           
-            <li><a href="vinos/ique--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Ique - Malbec 2023</a></li>
-           
-            <li><a href="vinos/urano--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Urano - Malbec 2017</a></li>
-           
-            <li><a href="vinos/tomero--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Tomero - Malbec 2023</a></li>
-           
-            <li><a href="vinos/vistalba--malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Vistalba - Malbec 2021</a></li>
-           
-            <li><a href="vinos/carrascal-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Carrascal Malbec</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Famiglia Bianchi Malbec 2023</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Famiglia Bianchi Malbec 2021</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Famiglia Bianchi Malbec 2020</a></li>
-           
-            <li><a href="vinos/famiglia-bianchi-malbec-2014.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2014" data-altura="< 1000m">Famiglia Bianchi Malbec 2014</a></li>
-           
-            <li><a href="vinos/saurus--malbec-2023.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Saurus - Malbec 2023</a></li>
-           
-            <li><a href="vinos/saurus-patagonia-select--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Patagonia Select - Malbec 2022</a></li>
-           
-            <li><a href="vinos/bad-brothers--malbec-premium-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Bad Brothers - Malbec Premium 2020</a></li>
-           
-            <li><a href="vinos/cicchitti-primmo-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">CICCHITTI Primmo Malbec</a></li>
-           
-            <li><a href="vinos/dilema-day-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Dilema Day Malbec</a></li>
-           
-            <li><a href="vinos/la-grupa-syrah-malbec-075.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 0.75</a></li>
-           
-            <li><a href="vinos/resero-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="1000m - 2000m">Resero Malbec</a></li>
-           
-            <li><a href="vinos/sptima-ros-de-malbec.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Séptima Rosé de Malbec</a></li>
-           
-            <li><a href="vinos/sptima-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Séptima Malbec</a></li>
-           
-            <li><a href="vinos/casa-araujo-mimi.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Casa Araujo Mimi</a></li>
-           
-            <li><a href="vinos/nucha.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Nucha</a></li>
-           
-            <li><a href="vinos/graciano-reserva-blend.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Graciano Reserva Blend</a></li>
-           
+            {% for vino in vinos_por_anada[anada] %}
+            <li><a href="{{ vino.url_landing }}" data-provincia="{{ vino.provincia }}" data-tipo="{{ vino.tipo }}" data-anada="{{ vino.anada }}" data-altura="{{ vino.rango_altura }}">{{ vino.nombre_vino }}</a></li>
+            {% endfor %}
           </ul>
         </li>
-       
-        <li><span class="filter" data-filter="precio-rango" data-value="Premium">Premium</span>
-          <ul>
-           
-            <li><a href="vinos/gran-potico--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Gran Poético - Malbec 2013</a></li>
-           
-            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-           
-            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-           
-            <li><a href="vinos/foster--malbec-los-barrancos.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos'</a></li>
-           
-            <li><a href="vinos/foster--malbec-limited-edition.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition</a></li>
-           
-            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-           
-            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-           
-            <li><a href="vinos/eral-bravo--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="1000m - 2000m">Eral Bravo - Malbec 2017</a></li>
-           
-            <li><a href="vinos/tomero-single-vineyard-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2021</a></li>
-           
-            <li><a href="vinos/tomero-single-vineyard-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2020</a></li>
-           
-            <li><a href="vinos/tomero-single-vineyard-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2019</a></li>
-           
-            <li><a href="vinos/vistalba--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Vistalba - Gran Malbec 2019</a></li>
-           
-            <li><a href="vinos/tomero--cuartel-41-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2019</a></li>
-           
-            <li><a href="vinos/tomero--cuartel-41-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2018</a></li>
-           
-            <li><a href="vinos/tomero--cuartel-41-malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2016</a></li>
-           
-            <li><a href="vinos/weinert-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Weinert Malbec 2018</a></li>
-           
-            <li><a href="vinos/weinert-malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="< 1000m">Weinert Malbec 2010</a></li>
-           
-            <li><a href="vinos/weinert-malbec-1995.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="1995" data-altura="< 1000m">Weinert Malbec 1995</a></li>
-           
-            <li><a href="vinos/paso-de-piedra--malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Paso de Piedra - Malbec 2019</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Viña Alicia - Malbec 2016</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2013.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Viña Alicia - Malbec 2013</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2012.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2012" data-altura="1000m - 2000m">Viña Alicia - Malbec 2012</a></li>
-           
-            <li><a href="vinos/via-alicia--malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="1000m - 2000m">Viña Alicia - Malbec 2010</a></li>
-           
-            <li><a href="vinos/gran-famiglia--malbec-2017.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2017" data-altura="< 1000m">Gran Famiglia - Malbec 2017</a></li>
-           
-            <li><a href="vinos/particular-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="< 1000m">Particular Malbec 2020</a></li>
-           
-            <li><a href="vinos/particular-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019</a></li>
-           
-            <li><a href="vinos/particular-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Particular Malbec 2018</a></li>
-           
-            <li><a href="vinos/particular-malbec-2019-magnum-15-lts.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Particular Malbec 2019 Magnum 1.5 Lts</a></li>
-           
-            <li><a href="vinos/enzo-bianchi--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Enzo Bianchi - Gran Malbec 2019</a></li>
-           
-            <li><a href="vinos/saurus-barrel-fermented--malbec-2022.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Saurus Barrel Fermented - Malbec 2022</a></li>
-           
-            <li><a href="vinos/familia-schroeder--malbec-2019.html" data-provincia="Neuquen" data-tipo="Tinto" data-anada="2019" data-altura="< 1000m">Familia Schroeder - Malbec 2019</a></li>
-           
-            <li><a href="vinos/sunal-ilgico--malbec-2020.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Sunal Ilógico - Malbec 2020</a></li>
-           
-            <li><a href="vinos/chanarmuyo-estate-malbec.html" data-provincia="La Rioja" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">CHANARMUYO Estate Malbec</a></li>
-           
-            <li><a href="vinos/finca-gabriel-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">FINCA GABRIEL Malbec</a></li>
-           
-            <li><a href="vinos/finca-gabriel-edicin-especial-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">FINCA GABRIEL Edición Especial Malbec</a></li>
-           
-            <li><a href="vinos/jorge-rubio-privado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="< 1000m">JORGE RUBIO PRIVADO Malbec</a></li>
-           
-            <li><a href="vinos/jorge-rubio-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec</a></li>
-           
-            <li><a href="vinos/jorge-rubio-premiado-malbec.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2018" data-altura="< 1000m">JORGE RUBIO PREMIADO Malbec</a></li>
-           
-            <li><a href="vinos/a-contramano-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">A CONTRAMANO Malbec</a></li>
-           
-            <li><a href="vinos/chakana-nuna-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2022" data-altura="1000m - 2000m">CHAKANA Nuna Malbec Bio</a></li>
-           
-            <li><a href="vinos/luigi-bosca-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">LUIGI BOSCA Malbec</a></li>
-           
-            <li><a href="vinos/luigi-bosca-de-sangre-malbec-doc.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">LUIGI BOSCA De SANGRE Malbec D.O.C</a></li>
-           
-            <li><a href="vinos/vos-malbec-de-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">VOS Malbec de Malbec</a></li>
-           
-            <li><a href="vinos/cicchitti-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">CICCHITTI Malbec</a></li>
-           
-            <li><a href="vinos/cicchitti-gran-reserva-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">CICCHITTI Gran Reserva Malbec</a></li>
-           
-            <li><a href="vinos/cicchitti-malbec-edicin-limitada.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="< 1000m">Cicchitti Malbec Edición Limitada</a></li>
-           
-            <li><a href="vinos/la-grupa-syrah-malbec-125.html" data-provincia="Mendoza" data-tipo="Blend" data-anada="2022" data-altura="< 1000m">LA Grupa Syrah Malbec 1.25</a></li>
-           
-            <li><a href="vinos/imaginate-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Imaginate Malbec</a></li>
-           
-            <li><a href="vinos/amar-vivir-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Amar Vivir Malbec</a></li>
-           
-            <li><a href="vinos/caminante-de-los-mundos-malbec-bio.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2021" data-altura="1000m - 2000m">Caminante de los Mundos Malbec Bio</a></li>
-           
-            <li><a href="vinos/tukma-malbec.html" data-provincia="Salta" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tukma Malbec</a></li>
-           
-            <li><a href="vinos/jorge-rubio-gran-reserva-malbec-magnum.html" data-provincia="Mendoza" data-tipo="Orgánico" data-anada="2019" data-altura="< 1000m">JORGE RUBIO GRAN RESERVA Malbec Magnum</a></li>
-           
-          </ul>
-        </li>
-       
+        {% endfor %}
       </ul>
     </details>
   </nav>
+  <div class="main-content">
+    <button id="reset-filters">Restablecer Filtros</button>
+    <div class="featured-products">
+      <!-- Insertar contenido de tarjetas.html aquí -->
+      {% include 'tarjetas.html' %}
+    </div>
+    <div id="no-results" style="display: none;">No se encontraron productos que coincidan con los filtros seleccionados.</div>
+  </div>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+    document.querySelectorAll('nav a, nav span.filter').forEach(element => {
+      element.addEventListener('click', () => {
+        if (window.innerWidth <= 768px) {
+          sidebar.classList.remove('active');
+        }
+      });
+    });
+    // Asumiendo que el JavaScript de filtrado existente se incluye aquí
+    // Por ejemplo, algo como:
+    /*
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.product-card');
+    const resetButton = document.getElementById('reset-filters');
+    const noResults = document.getElementById('no-results');
+    
+    let activeFilters = {};
+
+    filters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        const filterType = filter.getAttribute('data-filter');
+        const filterValue = filter.getAttribute('data-value');
+        
+        if (activeFilters[filterType] === filterValue) {
+          delete activeFilters[filterType];
+          filter.classList.remove('active');
+        } else {
+          activeFilters[filterType] = filterValue;
+          document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(f => f.classList.remove('active'));
+          filter.classList.add('active');
+        }
+
+        let visibleCards = 0;
+        cards.forEach(card => {
+          let showCard = true;
+          for (const [type, value] of Object.entries(activeFilters)) {
+            if (card.getAttribute(`data-${type}`) !== value) {
+              showCard = false;
+              break;
+            }
+          }
+          card.classList.toggle('hidden', !showCard);
+          if (showCard) visibleCards++;
+        });
+
+        noResults.style.display = visibleCards === 0 ? 'block' : 'none';
+      });
+    });
+
+    resetButton.addEventListener('click', () => {
+      activeFilters = {};
+      filters.forEach(filter => filter.classList.remove('active'));
+      cards.forEach(card => card.classList.remove('hidden'));
+      noResults.style.display = 'none';
+    });
+    */
+  </script>
 <div class="main-content">
   <h1>Bienvenidos a 1000malbecs</h1>
   <p>Explora nuestra selección de los mejores Malbecs de ARGENTINA. Desde la patagonia hasta la puna. Usa los filtros a la izquierda para refinar los resultados.</p>
