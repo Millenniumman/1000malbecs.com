@@ -249,6 +249,162 @@
         font-size: 0.85em;
       }
     }
+     /* Contenedor principal para la lista de productos */
+    .main-content {
+      margin-left: 320px;
+      width: calc(100% - 320px);
+      z-index: 1;
+    }
+
+    /* Estilos para la lista de productos */
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 20px 0;
+      justify-items: center;
+    }
+    .product-item {
+      width: 200px;
+      height: 300px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+    .product-item:hover {
+      transform: scale(1.05);
+    }
+    .product-item.hidden {
+      display: none;
+    }
+    .product-item a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
+    }
+    .product-item img {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product-item h3 {
+      font-size: 0.95em;
+      margin: 0 0 10px 0;
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .product-item p.price {
+      font-weight: bold;
+      color: #4A0D29;
+      margin: 0;
+    }
+    /* Tooltip para título, región y bodega */
+    .product-item .tooltip {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 8px;
+      border-radius: 5px;
+      width: 180px;
+      z-index: 10;
+      font-size: 0.8em;
+      line-height: 1.4;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .product-item .tooltip p {
+      margin: 0;
+    }
+    /* Tooltip arriba para la primera fila */
+    .product-list .product-item:nth-child(-n+3) .tooltip {
+      top: auto;
+      bottom: calc(100% + 5px);
+    }
+    /* Tooltip abajo para la segunda fila */
+    .product-list .product-item:nth-child(n+4) .tooltip {
+      top: calc(100% + 5px);
+      bottom: auto;
+    }
+    .product-item:hover .tooltip {
+      display: block;
+    }
+
+    /* Estilos para el botón de hamburguesa */
+    #menu-toggle {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.5em;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    #menu-toggle:hover {
+      background-color: #5A1D39;
+    }
+
+    /* Media query para pantallas pequeñas */
+    @media (max-width: 768px) {
+      nav {
+        width: 250px;
+        left: -260px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        background-color: rgba(74, 13, 41, 0.95);
+      }
+      nav.active {
+        left: 0;
+      }
+      nav .logo-container img {
+        width: 150px;
+        height: 150px;
+      }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        z-index: 1;
+      }
+      #menu-toggle {
+        display: block;
+      }
+      .product-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+      .product-item {
+        width: 150px;
+        height: 250px;
+        padding: 10px;
+      }
+      .product-item img {
+        height: 80px;
+      }
+      .product-item h3 {
+        font-size: 0.85em;
+      }
+      .product-item .tooltip {
+        display: none; /* Ocultar tooltip en móvil */
+      }
+    }
   </style>
 </head>
 <body>
