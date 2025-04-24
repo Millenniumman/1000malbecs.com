@@ -5,7 +5,7 @@
   <meta name="description" content="Descubre los mejores Malbecs de ARGENTINA, desde la Patagonia hasta la Puna.">
   <title>1000malbecs - Los 1000 Mejores Malbecs</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
+     <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #fdfdfd;
@@ -14,8 +14,10 @@
       display: flex;
       flex-direction: row;
     }
+
+    /* Estilos de la barra de navegación vertical */
     nav {
-      width: 350px;
+      width: 400px;
       background-color: #4A0D29;
       color: #f5e6ff;
       height: 100vh;
@@ -72,10 +74,10 @@
     nav ul ul {
       padding-left: 12px;
     }
-    /* Estilos para la jerarquía de navegación */
     nav a, nav span.filter {
       color: #f5e6ff;
       text-decoration: none;
+      font-size: 0.85em;
       cursor: pointer;
       display: inline-block;
       max-width: 260px;
@@ -83,173 +85,12 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    /* Provincia: tamaño más grande */
-    nav ul > li > span.filter {
-      font-size: 1.1em;
-      font-weight: bold;
-    }
-    /* Región: tamaño intermedio */
-    nav ul > li > ul > li > ul > li > span.filter {
-      font-size: 1em;
-      font-weight: normal;
-    }
-    /* Altura: tamaño más pequeño */
-    nav ul > li > ul > li > ul > li > ul > li > span.filter {
-      font-size: 0.9em;
-      font-weight: normal;
-    }
-    /* Vinos: igual o ligeramente más pequeño que Altura */
-    nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
-      font-size: 0.85em;
-    }
     nav a:hover, nav span.filter:hover {
       color: #d4a5ff;
       text-decoration: underline;
     }
-    .main-content {
-      margin-left: 320px;
-      width: calc(100% - 320px);
-      z-index: 1;
-    }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      background-color: #fff;
-      position: relative;
-      padding: 20px;
-      display: block;
-    }
-    .card.hidden {
-      display: none;
-    }
-    .logo {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 100px;
-      height: auto;
-      display: none; /* Ocultar por defecto */
-    }
-    .card-content {
-      display: flex;
-      align-items: flex-start;
-      margin-top: 20px; /* Reducido porque no hay logo en escritorio */
-    }
-    .bottle-cell {
-      flex: 0 0 auto;
-      padding: 10px;
-      text-align: center;
-    }
-    .text-cell {
-      flex: 1;
-      padding: 10px;
-    }
-    .bottle {
-      width: 200px;
-      height: auto;
-      max-width: 100%;
-      object-fit: contain;
-    }
-    .vino {
-      font-size: 1.5em;
-      margin: 0 0 10px 0;
-    }
-    .bodega, .precio, .region, .altura, .anada {
-      font-weight: bold;
-      margin: 5px 0;
-    }
-    .descripcion-box, .notas-box {
-      margin: 10px 0;
-      padding: 15px;
-      background-color: #f5e6ff;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-    }
-    .descripcion-box h3, .notas-box h3 {
-      margin: 0 0 10px 0;
-      font-size: 1.2em;
-      color: #4A0D29;
-    }
-    .descripcion-box p, .notas-box p {
-      margin: 0;
-      line-height: 1.5;
-    }
-    #menu-toggle {
-      display: none;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 1.5em;
-      background-color: #4A0D29;
-      color: #f5e6ff;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1100;
-    }
-    #menu-toggle:hover {
-      background-color: #5A1D39;
-    }
-    @media (max-width: 768px) {
-      nav {
-        width: 250px;
-        left: -260px;
-        transition: left 0.3s ease;
-        z-index: 1000;
-        background-color: rgba(74, 13, 41, 0.95);
-      }
-      nav.active {
-        left: 0;
-      }
-      nav .logo-container img {
-        width: 150px;
-        height: 150px;
-      }
-      .main-content {
-        margin-left: 0;
-        width: 100%;
-        z-index: 1;
-      }
-      #menu-toggle {
-        display: block;
-      }
-      .card-content {
-        flex-direction: column;
-        margin-top: 80px;
-      }
-      .bottle-cell, .text-cell {
-        width: 100%;
-        padding: 5px;
-      }
-      .bottle {
-        width: 150px;
-        margin: 0 auto;
-        display: block;
-      }
-      .logo {
-        display: block; /* Mostrar logo en móvil */
-        width: 80px;
-        left: auto;
-        right: 10px;
-      }
-      /* Ajustar tamaños de fuente en móvil para mantener legibilidad */
-      nav ul > li > span.filter {
-        font-size: 1em;
-      }
-      nav ul > li > ul > li > ul > li > span.filter {
-        font-size: 0.95em;
-      }
-      nav ul > li > ul > li > ul > li > ul > li > span.filter {
-        font-size: 0.9em;
-      }
-      nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
-        font-size: 0.85em;
-      }
-    }
-     /* Contenedor principal para la lista de productos */
+
+    /* Contenedor principal para la lista de productos */
     .main-content {
       margin-left: 320px;
       width: calc(100% - 320px);
