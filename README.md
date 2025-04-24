@@ -303,7 +303,7 @@
 </head>
 <body>
   <button id="menu-toggle">☰</button>
- <nav id="sidebar">
+<nav id="sidebar">
     <div class="logo-container">
       <a href="index.html" title="Volver al inicio">
         <img src="https://github.com/user-attachments/assets/2e1ec570-c588-4e9b-bb54-3371487cbada" alt="Logo 1000malbecs">
@@ -477,16 +477,6 @@
                            
                             <li><a href="vinos/tomero--cuartel-41-malbec-2016.html" data-provincia="Cuyo" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2016</a></li>
                            
-                            <li><a href="vinos/paso-de-piedra--malbec-2019.html" data-provincia="Cuyo" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Paso de Piedra - Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2016.html" data-provincia="Cuyo" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Viña Alicia - Malbec 2016</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2013.html" data-provincia="Cuyo" data-tipo="Tinto" data-anada="2013" data-altura="1000m - 2000m">Viña Alicia - Malbec 2013</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2012.html" data-provincia="Cuyo" data-tipo="Tinto" data-anada="2012" data-altura="1000m - 2000m">Viña Alicia - Malbec 2012</a></li>
-                           
-                            <li><a href="vinos/via-alicia--malbec-2010.html" data-provincia="Cuyo" data-tipo="Tinto" data-anada="2010" data-altura="1000m - 2000m">Viña Alicia - Malbec 2010</a></li>
-                           
                           </ul>
                         </li>
                        
@@ -620,62 +610,8 @@
                     <li><strong>Altura</strong>
                       <ul>
                        
-                        <li><span class="filter" data-filter="altura" data-value="< 1000m">< 1000m</span>
-                          <ul>
-                           
-                            <li><a href="vinos/lois--sparkling-malbec-2021.html" data-provincia="Mendoza" data-tipo="Espumante" data-anada="2021" data-altura="< 1000m">Lois - Sparkling Malbec 2021</a></li>
-                           
-                            <li><a href="vinos/pink--malbec-rosado-2023.html" data-provincia="Mendoza" data-tipo="Rosado" data-anada="2023" data-altura="< 1000m">Pink - Malbec Rosado 2023</a></li>
-                           
-                            <li><a href="vinos/ique--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">Ique - Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-los-barrancos.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Barrancos'</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-limited-edition.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec Limited Edition</a></li>
-                           
-                            <li><a href="vinos/foster--malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec</a></li>
-                           
-                            <li><a href="vinos/foster--malbec-los-altepes.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="< 1000m">Foster - Malbec 'Los Altepes'</a></li>
-                           
-                            <li><a href="vinos/carrascal-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">Carrascal Malbec</a></li>
-                           
-                            <li><a href="vinos/weinert-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="< 1000m">Weinert Malbec 2018</a></li>
-                           
-                            <li><a href="vinos/weinert-malbec-2010.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2010" data-altura="< 1000m">Weinert Malbec 2010</a></li>
-                           
-                            <li><a href="vinos/weinert-malbec-1995.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="1995" data-altura="< 1000m">Weinert Malbec 1995</a></li>
-                           
-                            <li><a href="vinos/luigi-bosca-malbec.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2022" data-altura="< 1000m">LUIGI BOSCA Malbec</a></li>
-                           
-                            <li><a href="vinos/luigi-bosca-de-sangre-malbec-doc.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="< 1000m">LUIGI BOSCA De SANGRE Malbec D.O.C</a></li>
-                           
-                          </ul>
-                        </li>
-                       
                         <li><span class="filter" data-filter="altura" data-value="1000m - 2000m">1000m - 2000m</span>
                           <ul>
-                           
-                            <li><a href="vinos/tomero--malbec-2023.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2023" data-altura="1000m - 2000m">Tomero - Malbec 2023</a></li>
-                           
-                            <li><a href="vinos/tomero-single-vineyard-malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2021</a></li>
-                           
-                            <li><a href="vinos/tomero-single-vineyard-malbec-2020.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2020" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2020</a></li>
-                           
-                            <li><a href="vinos/tomero-single-vineyard-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero Single Vineyard Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/vistalba--malbec-2021.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2021" data-altura="1000m - 2000m">Vistalba - Malbec 2021</a></li>
-                           
-                            <li><a href="vinos/vistalba--gran-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Vistalba - Gran Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/tomero--cuartel-41-malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2019</a></li>
-                           
-                            <li><a href="vinos/tomero--cuartel-41-malbec-2018.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2018" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2018</a></li>
-                           
-                            <li><a href="vinos/tomero--cuartel-41-malbec-2016.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2016" data-altura="1000m - 2000m">Tomero - Cuartel 41 Malbec 2016</a></li>
                            
                             <li><a href="vinos/paso-de-piedra--malbec-2019.html" data-provincia="Mendoza" data-tipo="Tinto" data-anada="2019" data-altura="1000m - 2000m">Paso de Piedra - Malbec 2019</a></li>
                            
