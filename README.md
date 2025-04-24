@@ -359,81 +359,7 @@
     <button id="reset-filters">Restablecer Filtros</button>
     <div class="featured-products">
       <!-- Insertar contenido de tarjetas.html aquí -->
-      {% include 'tarjetas.html' %}
-    </div>
-    <div id="no-results" style="display: none;">No se encontraron productos que coincidan con los filtros seleccionados.</div>
-  </div>
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
-    document.querySelectorAll('nav a, nav span.filter').forEach(element => {
-      element.addEventListener('click', () => {
-        if (window.innerWidth <= 768px) {
-          sidebar.classList.remove('active');
-        }
-      });
-    });
-    // Asumiendo que el JavaScript de filtrado existente se incluye aquí
-    // Por ejemplo, algo como:
-    /*
-    const filters = document.querySelectorAll('.filter');
-    const cards = document.querySelectorAll('.product-card');
-    const resetButton = document.getElementById('reset-filters');
-    const noResults = document.getElementById('no-results');
-    
-    let activeFilters = {};
-
-    filters.forEach(filter => {
-      filter.addEventListener('click', () => {
-        const filterType = filter.getAttribute('data-filter');
-        const filterValue = filter.getAttribute('data-value');
-        
-        if (activeFilters[filterType] === filterValue) {
-          delete activeFilters[filterType];
-          filter.classList.remove('active');
-        } else {
-          activeFilters[filterType] = filterValue;
-          document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(f => f.classList.remove('active'));
-          filter.classList.add('active');
-        }
-
-        let visibleCards = 0;
-        cards.forEach(card => {
-          let showCard = true;
-          for (const [type, value] of Object.entries(activeFilters)) {
-            if (card.getAttribute(`data-${type}`) !== value) {
-              showCard = false;
-              break;
-            }
-          }
-          card.classList.toggle('hidden', !showCard);
-          if (showCard) visibleCards++;
-        });
-
-        noResults.style.display = visibleCards === 0 ? 'block' : 'none';
-      });
-    });
-
-    resetButton.addEventListener('click', () => {
-      activeFilters = {};
-      filters.forEach(filter => filter.classList.remove('active'));
-      cards.forEach(card => card.classList.remove('hidden'));
-      noResults.style.display = 'none';
-    });
-    */
-  </script>
-<div class="main-content">
-  <h1>Bienvenidos a 1000malbecs</h1>
-  <p>Explora nuestra selección de los mejores Malbecs de ARGENTINA. Desde la patagonia hasta la puna. Usa los filtros a la izquierda para refinar los resultados.</p>
-  <button id="reset-filters">Limpiar Filtros</button>
-  <div id="no-results" style="display: none;">
-    No se encontraron productos que coincidan con los filtros seleccionados.
-  </div>
-  <div class="featured-products">
-    <!-- Mauricio Lorca Bodega y Viñedos -->
+       <!-- Mauricio Lorca Bodega y Viñedos -->
     <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
       <img src="/images/Tematico-Malbec.avif" alt="Temático - Malbec 2023">
       <span class="info-icon">🍷</span>
@@ -638,118 +564,72 @@
       ¡Toca un producto para ver más detalles!
     </div>
   </div> <!-- Cierre de featured-products -->
-</div> <!-- Cierre de main-content -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+
+      {% include 'tarjetas.html' %}
+    </div></div>
+    <div id="no-results" style="display: none;">No se encontraron productos que coincidan con los filtros seleccionados.</div>
+  </div>
+  <script>
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
-    const noResults = document.getElementById('no-results');
-    const resetFilters = document.getElementById('reset-filters');
-    const tooltip = document.getElementById('mobile-tooltip');
-
-    let activeFilters = {};
-
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+    menuToggle.addEventListener('click', () => {
       sidebar.classList.toggle('active');
     });
-
     document.querySelectorAll('nav a, nav span.filter').forEach(element => {
-      element.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
+      element.addEventListener('click', () => {
+        if (window.innerWidth <= 768px) {
           sidebar.classList.remove('active');
         }
       });
     });
+    // Asumiendo que el JavaScript de filtrado existente se incluye aquí
+    // Por ejemplo, algo como:
+    /*
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.product-card');
+    const resetButton = document.getElementById('reset-filters');
+    const noResults = document.getElementById('no-results');
+    
+    let activeFilters = {};
 
-    document.querySelectorAll('.filter').forEach(filter => {
-      filter.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const filterType = filter.dataset.filter;
-        const filterValue = filter.dataset.value;
-
+    filters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        const filterType = filter.getAttribute('data-filter');
+        const filterValue = filter.getAttribute('data-value');
+        
         if (activeFilters[filterType] === filterValue) {
           delete activeFilters[filterType];
           filter.classList.remove('active');
         } else {
           activeFilters[filterType] = filterValue;
-          document.querySelectorAll(`.filter[data-filter="${filterType}"]`).forEach(f => f.classList.remove('active'));
+          document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(f => f.classList.remove('active'));
           filter.classList.add('active');
         }
 
-        let hasVisible = false;
-        document.querySelectorAll('.product-card').forEach(card => {
-          let show = true;
-          Object.keys(activeFilters).forEach(type => {
-            const normalizedType = type.replace('precio-rango', 'precioRango');
-            const cardValue = card.dataset[normalizedType];
-            if (cardValue !== activeFilters[type]) {
-              show = false;
+        let visibleCards = 0;
+        cards.forEach(card => {
+          let showCard = true;
+          for (const [type, value] of Object.entries(activeFilters)) {
+            if (card.getAttribute(`data-${type}`) !== value) {
+              showCard = false;
+              break;
             }
-          });
-          if (show) {
-            card.classList.remove('hidden');
-            hasVisible = true;
-          } else {
-            card.classList.add('hidden');
           }
+          card.classList.toggle('hidden', !showCard);
+          if (showCard) visibleCards++;
         });
-        noResults.style.display = hasVisible ? 'none' : 'block';
+
+        noResults.style.display = visibleCards === 0 ? 'block' : 'none';
       });
     });
 
-    resetFilters.addEventListener('click', (e) => {
-      e.stopPropagation();
+    resetButton.addEventListener('click', () => {
       activeFilters = {};
-      document.querySelectorAll('.product-card').forEach(card => {
-        card.classList.remove('hidden');
-      });
-      document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
+      filters.forEach(filter => filter.classList.remove('active'));
+      cards.forEach(card => card.classList.remove('hidden'));
       noResults.style.display = 'none';
     });
-
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          if (e.target.tagName === 'A' || e.target.closest('a')) {
-            return;
-          }
-          e.stopPropagation();
-          if (card.classList.contains('show-overlay')) {
-            card.classList.remove('show-overlay');
-          } else {
-            document.querySelectorAll('.product-card').forEach(otherCard => {
-              otherCard.classList.remove('show-overlay');
-            });
-            card.classList.add('show-overlay');
-          }
-        }
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        const isCard = e.target.closest('.product-card');
-        if (!isCard) {
-          document.querySelectorAll('.product-card').forEach(card => {
-            card.classList.remove('show-overlay');
-          });
-        }
-      }
-    });
-
-    if (window.innerWidth <= 768 && !localStorage.getItem('tooltipShown')) {
-      tooltip.style.display = 'block';
-      setTimeout(() => {
-        tooltip.style.display = 'none';
-        localStorage.setItem('tooltipShown', 'true');
-      }, 5000);
-      document.addEventListener('click', () => {
-        tooltip.style.display = 'none';
-        localStorage.setItem('tooltipShown', 'true');
-      }, { once: true });
-    }
-  });
-</script>
+    */
+  </script>
 </body>
 </html>
