@@ -85,22 +85,27 @@
     }
     /* Estilos para la jerarquía de navegación */
     nav ul > li > span.filter {
-      font-size: 1.1em;
+      font-size: 1.2em;
       font-weight: bold;
+      color: #f5e6ff; /* Bright for Provincia */
+    }
+    nav ul > li > ul > li > span.filter {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #e0c7ff; /* Slightly dimmer for Región */
     }
     nav ul > li > ul > li > ul > li > span.filter {
       font-size: 1em;
       font-weight: normal;
+      color: #d4a5ff; /* Lightest for Altura */
     }
-    nav ul > li > ul > li > ul > li > ul > li > span.filter {
+    nav ul > li > ul > li > ul > li > ul > li > a {
       font-size: 0.9em;
       font-weight: normal;
-    }
-    nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
-      font-size: 0.85em;
+      color: #f5e6ff;
     }
     nav a:hover, nav span.filter:hover {
-      color: #d4a5ff;
+      color: #fff;
       text-decoration: underline;
     }
     nav .filter.active {
@@ -110,7 +115,7 @@
       border-radius: 3px;
     }
     .main-content {
-      margin-left: 470px; /* Ajustado para el ancho de nav (450px + padding) */
+      margin-left: 470px;
       width: calc(100% - 470px);
       z-index: 1;
     }
@@ -163,6 +168,15 @@
     .product-card a:hover {
       background-color: #682A46;
     }
+    .product-card .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 10;
+      color: #4A0D29;
+    }
     .product-card .overlay {
       position: absolute;
       top: 0;
@@ -181,6 +195,9 @@
       font-size: 0.75em;
     }
     .product-card:hover .overlay {
+      opacity: 1;
+    }
+    .product-card .overlay.active {
       opacity: 1;
     }
     .product-card .overlay p {
@@ -253,17 +270,22 @@
       .featured-products {
         grid-template-columns: 1fr;
       }
-      /* Ajustar tamaños de fuente en móvil */
+      .product-card:hover .overlay {
+        opacity: 0;
+      }
+      .product-card .overlay.active {
+        opacity: 1;
+      }
       nav ul > li > span.filter {
         font-size: 1em;
       }
-      nav ul > li > ul > li > ul > li > span.filter {
+      nav ul > li > ul > li > span.filter {
         font-size: 0.95em;
       }
-      nav ul > li > ul > li > ul > li > ul > li > span.filter {
+      nav ul > li > ul > li > ul > li > span.filter {
         font-size: 0.9em;
       }
-      nav ul > li > ul > li > ul > li > ul > li > ul > li > a {
+      nav ul > li > ul > li > ul > li > ul > li > a {
         font-size: 0.85em;
       }
     }
@@ -358,215 +380,208 @@
   <div class="main-content">
     <button id="reset-filters">Restablecer Filtros</button>
     <div class="featured-products">
-      <!-- Insertar contenido de tarjetas.html aquí -->
-       <!-- Mauricio Lorca Bodega y Viñedos -->
-    <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
-      <img src="/images/Tematico-Malbec.avif" alt="Temático - Malbec 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Valle de Uco</p>
-        <p><strong>Altura:</strong> 1100 msnm</p>
+      <!-- Mauricio Lorca Bodega y Viñedos -->
+      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
+        <img src="/images/Tematico-Malbec.avif" alt="Temático - Malbec 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Valle de Uco</p>
+          <p><strong>Altura:</strong> 1100 msnm</p>
+        </div>
+        <h3>Temático - Malbec 2023</h3>
+        <p>€9</p>
+        <a href="tematico-malbec-2023.html">Comprar</a>
       </div>
-      <h3>Temático - Malbec 2023</h3>
-      <p>€9</p>
-      <a href="tematico-malbec-2023.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1000m - 2000m">
-      <img src="/images/FantasiaMalbec.jpg" alt="Fantasía - Malbec 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Valle de Uco</p>
-        <p><strong>Altura:</strong> 1100 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1000m - 2000m">
+        <img src="/images/FantasiaMalbec.jpg" alt="Fantasía - Malbec 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Valle de Uco</p>
+          <p><strong>Altura:</strong> 1100 msnm</p>
+        </div>
+        <h3>Fantasía - Malbec 2023</h3>
+        <p>€11</p>
+        <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
-      <h3>Fantasía - Malbec 2023</h3>
-      <p>€11</p>
-      <a href="fantasia-malbec-2023.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1000m - 2000m">
-      <img src="/images/GranPoeticoMalbec.png" alt="Gran Poético - Malbec 2013">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Valle de Uco</p>
-        <p><strong>Altura:</strong> 1100 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1000m - 2000m">
+        <img src="/images/GranPoeticoMalbec.png" alt="Gran Poético - Malbec 2013">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Valle de Uco</p>
+          <p><strong>Altura:</strong> 1100 msnm</p>
+        </div>
+        <h3>Gran Poético - Malbec 2013</h3>
+        <p>€25</p>
+        <a href="gran-poetico-malbec-2013.html">Comprar</a>
       </div>
-      <h3>Gran Poético - Malbec 2013</h3>
-      <p>€25</p>
-      <a href="gran-poetico-malbec-2013.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
-      <img src="/images/ZapamZucum.avif" alt="Zapam Zucum - Organic Malbec 2022">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Valle de Uco</p>
-        <p><strong>Altura:</strong> 1100 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
+        <img src="/images/ZapamZucum.avif" alt="Zapam Zucum - Organic Malbec 2022">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Valle de Uco</p>
+          <p><strong>Altura:</strong> 1100 msnm</p>
+        </div>
+        <h3>Zapam Zucum - Organic Malbec 2022</h3>
+        <p>€13</p>
+        <a href="zapam-zucum-organic-malbec-2022.html">Comprar</a>
       </div>
-      <h3>Zapam Zucum - Organic Malbec 2022</h3>
-      <p>€13</p>
-      <a href="zapam-zucum-organic-malbec-2022.html">Comprar</a>
-    </div>
-    <!-- Enrique Foster Bodega -->
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="< 1000m">
-      <img src="/images/Lois.png" alt="Lois - Sparkling Malbec 2021">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 900 msnm</p>
+      <!-- Enrique Foster Bodega -->
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="< 1000m">
+        <img src="/images/Lois.png" alt="Lois - Sparkling Malbec 2021">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Lois - Sparkling Malbec 2021</h3>
+        <p>€15</p>
+        <a href="lois-sparkling-malbec-2021.html">Comprar</a>
       </div>
-      <h3>Lois - Sparkling Malbec 2021</h3>
-      <p>€15</p>
-      <a href="lois-sparkling-malbec-2021.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Rosado" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
-      <img src="/images/Pink.jpeg" alt="Pink - Malbec Rosado 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 900 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Rosado" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
+        <img src="/images/Pink.jpeg" alt="Pink - Malbec Rosado 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Pink - Malbec Rosado 2023</h3>
+        <p>€11</p>
+        <a href="/pink--malbec-rosado-2023.html">Comprar</a>
       </div>
-      <h3>Pink - Malbec Rosado 2023</h3>
-      <p>€11</p>
-      <a href="/pink--malbec-rosado-2023.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
-      <img src="/images/IqueMalbec.avif" alt="Ique - Malbec 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 900 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
+        <img src="/images/IqueMalbec.avif" alt="Ique - Malbec 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Ique - Malbec 2023</h3>
+        <p>€11</p>
+        <a href="ique-malbec-2023.html">Comprar</a>
       </div>
-      <h3>Ique - Malbec 2023</h3>
-      <p>€11</p>
-      <a href="ique-malbec-2023.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="21" data-precio-rango="Premium" data-altura="< 1000m">
-      <img src="/images/ReservaMalbec.avif" alt="Foster - Malbec 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 900 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="21" data-precio-rango="Premium" data-altura="< 1000m">
+        <img src="/images/ReservaMalbec.avif" alt="Foster - Malbec 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Foster - Malbec 2023</h3>
+        <p>€21</p>
+        <a href="foster-malbec-2023.html">Comprar</a>
       </div>
-      <h3>Foster - Malbec 2023</h3>
-      <p>€21</p>
-      <a href="foster-malbec-2023.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="23" data-precio-rango="Premium" data-altura="< 1000m">
-      <img src="/images/LosAltepes.png" alt="Foster - Malbec 'Los Altepes' 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 900 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="23" data-precio-rango="Premium" data-altura="< 1000m">
+        <img src="/images/LosAltepes.png" alt="Foster - Malbec 'Los Altepes' 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Foster - Malbec 'Los Altepes' 2023</h3>
+        <p>€23</p>
+        <a href="foster-malbec-los-altepes-2023.html">Comprar</a>
       </div>
-      <h3>Foster - Malbec 'Los Altepes' 2023</h3>
-      <p>€23</p>
-      <a href="foster-malbec-los-altepes-2023.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="25" data-precio-rango="Premium" data-altura="< 1000m">
-      <img src="/images/FosterBarrancos.jpeg" alt="Foster - Malbec 'Los Barrancos' 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 900 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="25" data-precio-rango="Premium" data-altura="< 1000m">
+        <img src="/images/FosterBarrancos.jpeg" alt="Foster - Malbec 'Los Barrancos' 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Foster - Malbec 'Los Barrancos' 2023</h3>
+        <p>€25</p>
+        <a href="foster-malbec-los-barrancos-2023.html">Comprar</a>
       </div>
-      <h3>Foster - Malbec 'Los Barrancos' 2023</h3>
-      <p>€25</p>
-      <a href="foster-malbec-los-barrancos-2023.html">Comprar</a>
-    </div>
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="44" data-precio-rango="Premium" data-altura="< 1000m">
-      <img src="/images/FosterLimited.png" alt="Foster - Malbec Limited Edition 2023">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 900 msnm</p>
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="44" data-precio-rango="Premium" data-altura="< 1000m">
+        <img src="/images/FosterLimited.png" alt="Foster - Malbec Limited Edition 2023">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Foster - Malbec Limited Edition 2023</h3>
+        <p>€44</p>
+        <a href="foster-malbec-limited-edition-2023.html">Comprar</a>
       </div>
-      <h3>Foster - Malbec Limited Edition 2023</h3>
-      <p>€44</p>
-      <a href="foster-malbec-limited-edition-2023.html">Comprar</a>
-    </div>
-    <!-- Finca Las Nubes Bodega -->
-    <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-tipo="Tinto" data-anada="2020" data-precio="19.95" data-precio-rango="Medio" data-altura="1000m - 2000m">
-      <img src="/images/FincaLasNubes.png" alt="Finca Las Nubes - Malbec 2020">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Finca Las Nubes</p>
-        <p><strong>Provincia:</strong> Salta</p>
-        <p><strong>Región:</strong> Cafayate</p>
-        <p><strong>Altura:</strong> 1700 msnm</p>
+      <!-- Finca Las Nubes Bodega -->
+      <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-tipo="Tinto" data-anada="2020" data-precio="19.95" data-precio-rango="Medio" data-altura="1000m - 2000m">
+        <img src="/images/FincaLasNubes.png" alt="Finca Las Nubes - Malbec 2020">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Finca Las Nubes</p>
+          <p><strong>Provincia:</strong> Salta</p>
+          <p><strong>Región:</strong> Cafayate</p>
+          <p><strong>Altura:</strong> 1700 msnm</p>
+        </div>
+        <h3>Finca Las Nubes - Malbec 2020</h3>
+        <p>€19.95</p>
+        <a href="finca-las-nubes-malbec-2020.html">Comprar</a>
       </div>
-      <h3>Finca Las Nubes - Malbec 2020</h3>
-      <p>€19.95</p>
-      <a href="finca-las-nubes-malbec-2020.html">Comprar</a>
-    </div>
-    <!-- Nueva tarjeta 1: Altos del Plata - Malbec 2022 -->
-    <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Terrazas de los Andes" data-tipo="Tinto" data-anada="2022" data-precio="12" data-precio-rango="Medio" data-altura="< 1000m">
-      <img src="/images/AltosDelPlataMalbec.jpg" alt="Altos del Plata - Malbec 2022">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Terrazas de los Andes</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Luján de Cuyo</p>
-        <p><strong>Altura:</strong> 980 msnm</p>
+      <!-- Altos del Plata - Malbec 2022 -->
+      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Terrazas de los Andes" data-tipo="Tinto" data-anada="2022" data-precio="12" data-precio-rango="Medio" data-altura="< 1000m">
+        <img src="/images/AltosDelPlataMalbec.jpg" alt="Altos del Plata - Malbec 2022">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Terrazas de los Andes</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 980 msnm</p>
+        </div>
+        <h3>Altos del Plata - Malbec 2022</h3>
+        <p>€12</p>
+        <a href="altos-del-plata-malbec-2022.html">Comprar</a>
       </div>
-      <h3>Altos del Plata - Malbec 2022</h3>
-      <p>€12</p>
-      <a href="altos-del-plata-malbec-2022.html">Comprar</a>
-    </div>
-    <!-- Nueva tarjeta 2: Colomé - Malbec 2021 -->
-    <div class="product-card" data-provincia="Salta" data-region="Calchaquí" data-bodega="Bodega Colomé" data-tipo="Tinto" data-anada="2021" data-precio="18" data-precio-rango="Medio" data-altura="2000m - 3000m">
-      <img src="/images/ColomeMalbec.jpg" alt="Colomé - Malbec 2021">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Bodega Colomé</p>
-        <p><strong>Provincia:</strong> Salta</p>
-        <p><strong>Región:</strong> Calchaquí</p>
-        <p><strong>Altura:</strong> 2300 msnm</p>
+      <!-- Colomé - Malbec 2021 -->
+      <div class="product-card" data-provincia="Salta" data-region="Calchaquí" data-bodega="Bodega Colomé" data-tipo="Tinto" data-anada="2021" data-precio="18" data-precio-rango="Medio" data-altura="2000m - 3000m">
+        <img src="/images/ColomeMalbec.jpg" alt="Colomé - Malbec 2021">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Colomé</p>
+          <p><strong>Provincia:</strong> Salta</p>
+          <p><strong>Región:</strong> Calchaquí</p>
+          <p><strong>Altura:</strong> 2300 msnm</p>
+        </div>
+        <h3>Colomé - Malbec 2021</h3>
+        <p>€18</p>
+        <a href="colome-malbec-2021.html">Comprar</a>
       </div>
-      <h3>Colomé - Malbec 2021</h3>
-      <p>€18</p>
-      <a href="colome-malbec-2021.html">Comprar</a>
-    </div>
-    <!-- Nueva tarjeta 3: Catena Zapata - Malbec 2020 -->
-    <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Catena Zapata" data-tipo="Tinto" data-anada="2020" data-precio="30" data-precio-rango="Premium" data-altura="1000m - 2000m">
-      <img src="/images/CatenaZapataMalbec.jpg" alt="Catena Zapata - Malbec 2020">
-      <span class="info-icon">🍷</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Catena Zapata</p>
-        <p><strong>Provincia:</strong> Mendoza</p>
-        <p><strong>Región:</strong> Valle de Uco</p>
-        <p><strong>Altura:</strong> 1200 msnm</p>
+      <!-- Catena Zapata - Malbec 2020 -->
+      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Catena Zapata" data-tipo="Tinto" data-anada="2020" data-precio="30" data-precio-rango="Premium" data-altura="1000m - 2000m">
+        <img src="/images/CatenaZapataMalbec.jpg" alt="Catena Zapata - Malbec 2020">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Catena Zapata</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Valle de Uco</p>
+          <p><strong>Altura:</strong> 1200 msnm</p>
+        </div>
+        <h3>Catena Zapata - Malbec 2020</h3>
+        <p>€30</p>
+        <a href="catena-zapata-malbec-2020.html">Comprar</a>
       </div>
-      <h3>Catena Zapata - Malbec 2020</h3>
-      <p>€30</p>
-      <a href="catena-zapata-malbec-2020.html">Comprar</a>
     </div>
-    <div id="mobile-tooltip" style="display: none;">
-      ¡Toca un producto para ver más detalles!
-    </div>
-  </div> <!-- Cierre de featured-products -->
-
-      {% include 'tarjetas.html' %}
-    </div></div>
     <div id="no-results" style="display: none;">No se encontraron productos que coincidan con los filtros seleccionados.</div>
   </div>
   <script>
@@ -582,21 +597,36 @@
         }
       });
     });
-    // Asumiendo que el JavaScript de filtrado existente se incluye aquí
-    // Por ejemplo, algo como:
-    /*
+
+    // Overlay toggle for product cards
+    document.querySelectorAll('.product-card .info-icon').forEach(icon => {
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const overlay = icon.parentElement.querySelector('.overlay');
+        overlay.classList.toggle('active');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.product-card')) {
+        document.querySelectorAll('.overlay.active').forEach(overlay => {
+          overlay.classList.remove('active');
+        });
+      }
+    });
+
+    // Filtering logic
     const filters = document.querySelectorAll('.filter');
     const cards = document.querySelectorAll('.product-card');
     const resetButton = document.getElementById('reset-filters');
     const noResults = document.getElementById('no-results');
-    
+
     let activeFilters = {};
 
     filters.forEach(filter => {
       filter.addEventListener('click', () => {
         const filterType = filter.getAttribute('data-filter');
         const filterValue = filter.getAttribute('data-value');
-        
+
         if (activeFilters[filterType] === filterValue) {
           delete activeFilters[filterType];
           filter.classList.remove('active');
@@ -629,7 +659,6 @@
       cards.forEach(card => card.classList.remove('hidden'));
       noResults.style.display = 'none';
     });
-    */
   </script>
 </body>
 </html>
