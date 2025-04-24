@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -344,50 +344,8 @@
     <button id="reset-filters">Limpiar Filtros</button>
     <div class="featured-products">
       <!-- Example product card -->
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-altura="1000-1200">
-        <img src="https://via.placeholder.com/150" alt="Producto 1">
-        <i class="fas fa-wine-glass-alt info-icon"></i>
-        <div class="overlay">
-          <p>Nombre: Malbec Reserva</p>
-          <p>Bodega: Catena Zapata</p>
-          <p>Provincia: Mendoza</p>
-          <p>Región: Luján de Cuyo</p>
-          <p>Precio: $2500</p>
-        </div>
-        <h3>Malbec Reserva</h3>
-        <p>$2500</p>
-        <a href="#">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-altura=">1500">
-        <img src="https://via.placeholder.com/150" alt="Producto 2">
-        <i class="fas fa-wine-glass-alt info-icon"></i>
-        <div class="overlay">
-          <p>Nombre: Malbec Alto</p>
-          <p>Bodega: Colomé</p>
-          <p>Provincia: Salta</p>
-          <p>Región: Cafayate</p>
-          <p>Precio: $3200</p>
-        </div>
-        <h3>Malbec Alto</h3>
-        <p>$3200</p>
-        <a href="#">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Patagonia" data-region="Río Negro" data-altura="1000-1200">
-        <img src="https://via.placeholder.com/150" alt="Producto 3">
-        <i class="fas fa-wine-glass-alt info-icon"></i>
-        <div class="overlay">
-          <p>Nombre: Malbec Patagónico</p>
-          <p>Bodega: Bodega del Fin del Mundo</p>
-          <p>Provincia: Patagonia</p>
-          <p>Región: Río Negro</p>
-          <p>Precio: $2800</p>
-        </div>
-        <h3>Malbec Patagónico</h3>
-        <p>$2800</p>
-        <a href="#">Comprar</a>
-      </div>
-      <!-- Add more product cards as needed -->
-      <!-- Mauricio Lorca Bodega y Viñedos -->
+      
+            <!-- Mauricio Lorca Bodega y Viñedos -->
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
         <img src="/images/Tematico-Malbec.avif" alt="Temático - Malbec 2023">
         <span class="info-icon">🍷</span>
