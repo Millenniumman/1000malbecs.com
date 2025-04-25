@@ -11,8 +11,8 @@
     <!-- Twitter Card Meta Tags (opcional) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="1000 Malbecs - Catálogo de Vinos">
-    <meta name="twitter:description" content="Descubre nuestra selección de Malbecs y otros vinos de Argentina, desde Mendoza hasta Salta.">
-    <meta name="twitter:image" content="/images/1000-malbecs-logo.png">
+    <meta name="twitter:description" content="Descubre nuestra selección de Malbecs argentinos, desde la patagónia hasta la puna.">
+    <meta name="twitter:image" content="/images/l000-malbecs-logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Descubre los mejores Malbecs de ARGENTINA, desde la Patagonia hasta la Puna.">
