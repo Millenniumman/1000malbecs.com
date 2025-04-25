@@ -2,3 +2,11 @@ bash
 
 touch /Users/f.augspach/Desktop/Vinos/.nojekyll
 
+bash
+
+cd /Users/f.augspach/Desktop/Vinos
+git add .nojekyll
+git commit -m "Add .nojekyll to bypass Jekyll"
+git push origin main  # or gh-pages, depending on your branch
+
+
