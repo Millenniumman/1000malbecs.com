@@ -1777,6 +1777,81 @@
         <p>€19.95</p>
         <a href="finca-las-nubes-malbec-2020.html">Comprar</a>
       </div>
+      <div class="product-card" 
+                 data-provincia="Mendoza" 
+                 data-region="San Rafael" 
+                 data-bodega="Casa Araujo" 
+                 data-tipo="Malbec" 
+                 data-anada="2023" 
+                 data-precio="9.49" 
+                 data-precio-rango="0-10 EUR" 
+                 data-altura="500-1000 msnm">
+                <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023">
+                <span class="info-icon">🍷</span>
+                <div class="overlay">
+                    <p><strong>Bodega:</strong> Casa Araujo</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altura:</strong> 520</p>
+                </div>
+            </div>
+           
+            <div class="product-card" 
+                 data-provincia="Mendoza" 
+                 data-region="San Rafael" 
+                 data-bodega="Casa Araujo" 
+                 data-tipo="Malbec Bivarietal" 
+                 data-anada="2023" 
+                 data-precio="10.9" 
+                 data-precio-rango="10-20 EUR" 
+                 data-altura="500-1000 msnm">
+                <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023">
+                <span class="info-icon">🍷</span>
+                <div class="overlay">
+                    <p><strong>Bodega:</strong> Casa Araujo</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altura:</strong> 520</p>
+                </div>
+            </div>
+           
+            <div class="product-card" 
+                 data-provincia="Mendoza" 
+                 data-region="San Rafael" 
+                 data-bodega="Casa Araujo" 
+                 data-tipo="Malbec" 
+                 data-anada="2023" 
+                 data-precio="12.49" 
+                 data-precio-rango="10-20 EUR" 
+                 data-altura="500-1000 msnm">
+                <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023">
+                <span class="info-icon">🍷</span>
+                <div class="overlay">
+                    <p><strong>Bodega:</strong> Casa Araujo</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altura:</strong> 520</p>
+                </div>
+            </div>
+           
+            <div class="product-card" 
+                 data-provincia="Mendoza" 
+                 data-region="San Rafael" 
+                 data-bodega="Casa Araujo" 
+                 data-tipo="Reserva Malbec" 
+                 data-anada="2023" 
+                 data-precio="12.99" 
+                 data-precio-rango="10-20 EUR" 
+                 data-altura="500-1000 msnm">
+                <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Botella de Graciano Reserva Blend 2023">
+                <span class="info-icon">🍷</span>
+                <div class="overlay">
+                    <p><strong>Bodega:</strong> Casa Araujo</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altura:</strong> 520</p>
+                </div>
+            
       <!-- Altos del Plata - Malbec 2022 -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Terrazas de los Andes" data-tipo="Tinto" data-anada="2022" data-precio="12" data-precio-rango="Medio" data-altura="< 1000m">
         <img src="/images/AltosDelPlataMalbec.jpg" alt="Altos del Plata - Malbec 2022">
