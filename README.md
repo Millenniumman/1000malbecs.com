@@ -1,6 +1,34 @@
 
 <html lang="es">
 <head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000 Malbecs - Catálogo de Vinos</title>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="1000 Malbecs - Los 1000 mejores malbecs Argentinos">
+    <meta property="og:description" content="Descubre nuestra selección de Malbecs argentinos, desde la patagónia hasta la puna.">
+    <meta property="og:image" content="/images/1000-malbecs-logo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card Meta Tags (opcional) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1000 Malbecs - Catálogo de Vinos">
+    <meta name="twitter:description" content=""Descubre nuestra selección de Malbecs argentinos, desde la patagónia hasta la puna.">
+    <meta name="twitter:image" content="/images/1000-malbecs-logo.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Bienvenidos a 1000 Malbecs</h1>
+    <a href="/tarjetas.html">Ver Catálogo de Vinos</a>
+</body>
+</html>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Descubre los mejores Malbecs de ARGENTINA, desde la Patagonia hasta la Puna.">
