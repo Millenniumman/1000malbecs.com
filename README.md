@@ -1806,8 +1806,10 @@
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
                 </div>
-            </div>
-           
+        <h3>Casa Araujo Cask - Malbec 2023</h3>
+        <p>9,49</p>
+        <a href=/vinos/casa-araujo-roble-2023.html">Comprar</a>
+      </div>   
             <div class="product-card" 
                  data-provincia="Mendoza" 
                  data-region="San Rafael" 
@@ -1825,8 +1827,10 @@
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
                 </div>
-            </div>
-           
+        <h3>Mimi Malbec Bivarietal -2023</h3>
+        <p>€12</p>
+        <a href="/vinos/casa-araujo-mimi-2023.html">Comprar</a>
+      </div>
             <div class="product-card" 
                  data-provincia="Mendoza" 
                  data-region="San Rafael" 
@@ -1843,9 +1847,11 @@
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
-                </div>
-            </div>
-           
+</div>
+        <h3>Nucha Malbec Orgánico - 2023</h3>
+        <p>€12.49</p>
+        <a href="/vinos/nucha-2023.html">Comprar</a>
+      </div>
             <div class="product-card" 
                  data-provincia="Mendoza" 
                  data-region="San Rafael" 
@@ -1863,7 +1869,11 @@
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
                 </div>
-            </div>
+        <h3>Graciano Reserva Blend - Malbec 2023</h3>
+        <p>€12.99</p>
+        <a href="vinos/Graciano Reserva Blend-2022.html">Comprar</a>
+      </div>
+        
       <!-- Altos del Plata - Malbec 2022 -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Terrazas de los Andes" data-tipo="Tinto" data-anada="2022" data-precio="12" data-precio-rango="Medio" data-altura="< 1000m">
         <img src="/images/AltosDelPlataMalbec.jpg" alt="Altos del Plata - Malbec 2022">
