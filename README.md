@@ -1808,7 +1808,7 @@
                 </div>
         <h3>Casa Araujo Cask - Malbec 2023</h3>
         <p>9,49</p>
-        <a href=/vinos/casa-araujo-roble-2023.html">Comprar</a>
+        <a href="/vinos/casa-araujo-roble-2023.html">Comprar</a>
       </div>   
             <div class="product-card" 
                  data-provincia="Mendoza" 
@@ -1871,7 +1871,7 @@
                 </div>
         <h3>Graciano Reserva Blend - Malbec 2023</h3>
         <p>€12.99</p>
-        <a href="vinos/Graciano Reserva Blend-2022.html">Comprar</a>
+        <a href="vinos/graciano-reserva-blend-2023.html">Comprar</a>
       </div>
         
       <!-- Altos del Plata - Malbec 2022 -->
