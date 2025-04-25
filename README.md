@@ -3,7 +3,7 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="1000 Malbecs - Los 1000 mejores malbecs Argentinos">
     <meta property="og:description" content="Descubre nuestra selección de Malbecs argentinos, desde la patagónia hasta la puna.">
-    <meta property="og:image" content="/images/1000-malbecs-logo.jpg">
+    <meta property="og:image" content="/images/1000-malbecs-logo.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://www.1000malbecs.com/">
