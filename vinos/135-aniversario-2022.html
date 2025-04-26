@@ -3,26 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detalles del vino {{ nombre_vino }} - {{ anada }} en 1000malbecs.">
+  <meta name="description" content="Detalles del vino 135 Aniversario - 2022 en 1000malbecs.">
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="{{ nombre_vino }} - {{ anada }} - 1000malbecs">
-  <meta property="og:description" content="{{ descripcion|truncate(160, True) }}">
-  <meta property="og:image" content="https://1000malbecs.com{{ ruta_imagen_large }}">
-  <meta property="og:url" content="https://1000malbecs.com/vinos/{{ url_landing }}">
+  <meta property="og:title" content="135 Aniversario - 2022 - 1000malbecs">
+  <meta property="og:description" content="Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega">
+  <meta property="og:image" content="https://1000malbecs.com/images/large/135-aniversario-2022.jpg">
+  <meta property="og:url" content="https://1000malbecs.com/vinos/135-aniversario-2022.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
   <meta property="og:locale" content="es_ES">
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ nombre_vino }} - {{ anada }} - 1000malbecs">
-  <meta name="twitter:description" content="{{ descripcion|truncate(160, True) }}">
-  <meta name="twitter:image" content="https://1000malbecs.com{{ ruta_imagen_large }}">
+  <meta name="twitter:title" content="135 Aniversario - 2022 - 1000malbecs">
+  <meta name="twitter:description" content="Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega">
+  <meta name="twitter:image" content="https://1000malbecs.com/images/large/135-aniversario-2022.jpg">
   <meta name="twitter:site" content="@1000malbecs">
-  <title>{{ nombre_vino }} - {{ anada }} - 1000malbecs</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
-
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detalles del vino 135 Aniversario - 2022 en 1000malbecs.">
   <title>135 Aniversario - 2022 - 1000malbecs</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
@@ -131,16 +126,25 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    .product-details img {
-      width: 100%;
+    .product-image {
+      flex: 1 1 40%;
       max-width: 400px;
+    }
+    .product-image img {
+      width: 100%;
       height: auto;
       border-radius: 10px;
-      margin-bottom: 20px;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+    }
+    .product-info {
+      flex: 1 1 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
     .product-details h1 {
       color: #4A0D29;
@@ -149,7 +153,7 @@
       text-align: center;
     }
     .product-details .info-box {
-      margin: 15px 0;
+      margin: 0;
       padding: 15px;
       background-color: #f5e6ff;
       border: 1px solid #4A0D29;
@@ -167,7 +171,7 @@
       color: #333;
     }
     .product-details p.info {
-      margin: 10px 0;
+      margin: 5px 0;
       font-size: 1em;
       color: #333;
     }
@@ -186,9 +190,7 @@
       text-align: center;
       width: 100%;
       max-width: 200px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      align-self: center;
     }
     .buy-button:hover {
       background-color: #5A1D39;
@@ -293,14 +295,19 @@
         object-fit: contain;
       }
       .product-details {
+        flex-direction: column;
         padding: 15px;
+      }
+      .product-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .product-info {
+        flex: 1 1 100%;
       }
       .product-details h1 {
         font-size: 1.5em;
         margin-top: 20px;
-      }
-      .product-details img {
-        max-width: 100%;
       }
       .product-details .info-box {
         padding: 10px;
@@ -574,6 +581,10 @@
                             <li><a href="/vinos/graciano-reserva-blend-2023.html" data-provincia="Mendoza" data-tipo="Reserva Malbec" data-anada="2023" data-altura="500-1000 msnm" data-bodega="Casa Araujo" data-precio-rango="10-20 EUR">Graciano Reserva Blend</a></li>
                            
                             <li><a href="/vinos/quinta-generacin-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="10-20 EUR">Quinta Generación Malbec</a></li>
+                           
+                            <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
+                           
+                            <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
                            
                           </ul>
                         </li>
@@ -850,9 +861,9 @@
                
                 <li><a href="/vinos/quinta-generacin-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="10-20 EUR">Quinta Generación Malbec</a></li>
                
-                <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
+                <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
                
-                <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
+                <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
                
               </ul>
             </li>
@@ -1130,9 +1141,9 @@
                
                 <li><a href="/vinos/quinta-generacin-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="10-20 EUR">Quinta Generación Malbec</a></li>
                
-                <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
+                <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
                
-                <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
+                <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
                
               </ul>
             </li>
@@ -1206,9 +1217,9 @@
            
             <li><a href="/vinos/quinta-generacin-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="10-20 EUR">Quinta Generación Malbec</a></li>
            
-            <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
+            <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
            
-            <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
+            <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
            
           </ul>
         </li>
@@ -1501,7 +1512,7 @@
            
             <li><a href="/vinos/casa-araujo-roble-2023.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2023" data-altura="500-1000 msnm" data-bodega="Casa Araujo" data-precio-rango="0-10 EUR">Casa Araujo Roble</a></li>
            
-            <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
+            <li><a href="/vinos/goye-malbec-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="0-10 EUR">Goye Malbec</a></li>
            
           </ul>
         </li>
@@ -1649,7 +1660,7 @@
            
             <li><a href="/vinos/tukma-malbec-2019.html" data-provincia="Salta" data-tipo="Malbec" data-anada="2019" data-altura="1500+ msnm" data-bodega="Bodega Tukma" data-precio-rango="20-50 EUR">Tukma Malbec</a></li>
            
-            <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Desconocido" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
+            <li><a href="/vinos/135-aniversario-2022.html" data-provincia="Mendoza" data-tipo="Malbec" data-anada="2022" data-altura="500-1000 msnm" data-bodega="Bodega Goyenechea" data-precio-rango="20-50 EUR">135 Aniversario</a></li>
            
           </ul>
         </li>
@@ -1687,24 +1698,28 @@
   </div>
   <div class="main-content">
     <div class="product-details">
-      <h1>135 Aniversario - 2022</h1>
-      <img src="/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
-           onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-      <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
-      <p class="info"><strong>Provincia:</strong> Desconocido</p>
-      <p class="info"><strong>Región:</strong> San Rafael</p>
-      <p class="info"><strong>Altura:</strong> 520</p>
-      <p class="info"><strong>Tipo:</strong> Malbec</p>
-      <p class="info"><strong>Precio:</strong> €39.99</p>
-      <div class="info-box">
-        <h2>Descripción</h2>
-        <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
+      <div class="product-image">
+        <img src="/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
+             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
-      <div class="info-box">
-        <h2>Notas de Cata</h2>
-        <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
+      <div class="product-info">
+        <h1>135 Aniversario - 2022</h1>
+        <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
+        <p class="info"><strong>Provincia:</strong> Mendoza</p>
+        <p class="info"><strong>Región:</strong> San Rafael</p>
+        <p class="info"><strong>Altura:</strong> 520</p>
+        <p class="info"><strong>Tipo:</strong> Malbec</p>
+        <p class="info"><strong>Precio:</strong> €39.99</p>
+        <div class="info-box">
+          <h2>Descripción</h2>
+          <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
+        </div>
+        <div class="info-box">
+          <h2>Notas de Cata</h2>
+          <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
+        </div>
+        <a href="#" class="buy-button">Comprar Ahora</a>
       </div>
-      <a href="#" class="buy-button">Comprar Ahora</a>
     </div>
   </div>
   <footer>
