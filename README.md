@@ -162,7 +162,7 @@
     }
     .product-card img {
       width: 100%;
-      height: 200px;
+      height: 120px;
       object-fit: cover;
       border-radius: 5px;
     }
