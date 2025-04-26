@@ -1759,19 +1759,7 @@
         <p>€11</p>
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2013" data-precio="25" data-precio-rango="Premium" data-altura="1000m - 2000m">
-        <img src="/images/GranPoeticoMalbec.png" alt="Gran Poético - Malbec 2013">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Valle de Uco</p>
-          <p><strong>Altura:</strong> 1100 msnm</p>
-        </div>
-        <h3>Gran Poético - Malbec 2013</h3>
-        <p>€25</p>
-        <a href="gran-poetico-malbec-2013.html">Comprar</a>
-      </div>
+  
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
         <img src="/images/ZapamZucum.avif" alt="Zapam Zucum - Organic Malbec 2022">
         <span class="info-icon">🍷</span>
@@ -1990,6 +1978,49 @@
         <p>€12</p>
         <a href="altos-del-plata-malbec-2022.html">Comprar</a>
       </div>
+<a href="/vinos/quinta-generacin-malbec-2022.html">
+        <div class="product-card"
+             data-provincia="Mendoza"
+             data-region="San Rafael"
+             data-bodega="Bodega Goyenechea"
+             data-tipo="Malbec"
+             data-anada="2022"
+             data-precio="19.99"
+             data-precio-rango="10-20 EUR"
+             data-altura="500-1000 msnm">
+          <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altura:</strong> 520</p>
+          </div>
+        </div>
+      </a>
+<a href="/vinos/goye-malbec-2022.html">
+        <div class="product-card"
+             data-provincia=“Mendoza
+             data-region="San Rafael"
+             data-bodega="Bodega Goyenechea"
+             data-tipo="Malbec"
+             data-anada="2022"
+             data-precio="9.49"
+             data-precio-rango="0-10 EUR"
+             data-altura="500-1000 msnm">
+          <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Provincia:</strong> Desconocido</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altura:</strong> 520</p>
+          </div>
+        </div>
+      </a>
+     
       <!-- Colomé - Malbec 2021 -->
       <div class="product-card" data-provincia="Salta" data-region="Calchaquí" data-bodega="Bodega Colomé" data-tipo="Tinto" data-anada="2021" data-precio="18" data-precio-rango="Medio" data-altura="2000m - 3000m">
         <img src="/images/ColomeMalbec.jpg" alt="Colomé - Malbec 2021">
