@@ -1755,7 +1755,7 @@
       
             <!-- Mauricio Lorca Bodega y Viñedos -->
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
-        <img src="/images/Tematico-Malbec.avif" alt="Temático - Malbec 2023">
+        <img src="/images/small/tematico-malbec.jpg" alt="Temático - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -1768,7 +1768,7 @@
         <a href="tematico-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1000m - 2000m">
-        <img src="/images/FantasiaMalbec.jpg" alt="Fantasía - Malbec 2023">
+        <img src="/images/small/fantasa--malbec-2023-2023.jpg" alt="Fantasía - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -1781,7 +1781,7 @@
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
-        <img src="/images/ZapamZucum.avif" alt="Zapam Zucum - Organic Malbec 2022">
+        <img src="/images/small/zapam-zucum--organic-malbec-2022-2022" alt="Zapam Zucum - Organic Malbec 2022">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -1795,7 +1795,7 @@
       </div>
       <!-- Enrique Foster Bodega -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/Lois.png" alt="Lois - Sparkling Malbec 2021">
+        <img src="/images/small/lois--sparkling-malbec-2021-2021.jpg" alt="Lois - Sparkling Malbec 2021">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -1808,7 +1808,7 @@
         <a href="lois-sparkling-malbec-2021.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Rosado" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/Pink.jpeg" alt="Pink - Malbec Rosado 2023">
+        <img src="/images/small/pink--malbec-rosado-2023-2023.jpeg" alt="Pink - Malbec Rosado 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -1821,7 +1821,7 @@
         <a href="/pink--malbec-rosado-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/IqueMalbec.avif" alt="Ique - Malbec 2023">
+        <img src="/images/small/ique--malbec-2023-2021.jpg" alt="Ique - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -1834,7 +1834,7 @@
         <a href="ique-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="21" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/ReservaMalbec.avif" alt="Foster - Malbec 2023">
+        <img src="/images/small/foster-malbec-2023.jpg" alt="Foster - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -1847,7 +1847,7 @@
         <a href="foster-malbec-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="23" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/LosAltepes.png" alt="Foster - Malbec 'Los Altepes' 2023">
+        <img src="/images/small/foster-malbec-los-altepes-2023.jpg" alt="Foster - Malbec 'Los Altepes' 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -1860,7 +1860,7 @@
         <a href="foster-malbec-los-altepes-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="25" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/FosterBarrancos.jpeg" alt="Foster - Malbec 'Los Barrancos' 2023">
+        <img src="/images/small/foster-malbec-los-barrancos-2023.jpg" alt="Foster - Malbec 'Los Barrancos' 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -1873,7 +1873,7 @@
         <a href="foster-malbec-los-barrancos-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="44" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/FosterLimited.png" alt="Foster - Malbec Limited Edition 2023">
+        <img src="/images/small/foster-malbec-limited-edition-2023.jpg" alt="Foster - Malbec Limited Edition 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -1887,7 +1887,7 @@
       </div>
       <!-- Finca Las Nubes Bodega -->
       <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-tipo="Tinto" data-anada="2020" data-precio="19.95" data-precio-rango="Medio" data-altura="1000m - 2000m">
-        <img src="/images/FincaLasNubes.png" alt="Finca Las Nubes - Malbec 2020">
+        <img src="/images/small/finca-las-nubes-malbec-2020.jpg" alt="Finca Las Nubes - Malbec 2020">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Finca Las Nubes</p>
