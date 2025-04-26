@@ -2,8 +2,8 @@
 <head>
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="1000 Malbecs - Los 1000 mejores malbecs Argentinos">
-    <meta property="og:description" content="Descubre nuestra selección de Malbecs argentinos, desde la patagónia hasta la puna.">
-    <meta property="og:image" content="/images/l000-malbecs-logo.png">
+    <meta property="og:description" content="Descubre nuestra selección de Malbecs Argentinos, desde la Patagonia hasta la Puna.">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://www.1000malbecs.com/">
@@ -11,8 +11,8 @@
     <!-- Twitter Card Meta Tags (opcional) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="1000 Malbecs - Catálogo de Vinos">
-    <meta name="twitter:description" content="Descubre nuestra selección de Malbecs argentinos, desde la patagónia hasta la puna.">
-    <meta name="twitter:image" content="/images/l000-malbecs-logo.png">
+    <meta name="twitter:description" content="Descubre nuestra selección de Malbecs Argentinos, desde la Patagonia hasta la Puna.">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Descubre los mejores Malbecs de ARGENTINA, desde la Patagonia hasta la Puna.">
