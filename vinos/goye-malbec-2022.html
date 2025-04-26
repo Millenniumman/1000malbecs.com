@@ -249,6 +249,11 @@
       margin-right: 8px;
       font-size: 1.2em;
     }
+    footer img.social-icon {
+      width: 1.2em;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
     @media (max-width: 768px) {
       nav {
         width: 250px;
@@ -318,8 +323,9 @@
       footer p {
         font-size: 0.9em;
       }
-      footer i {
+      footer i, footer img.social-icon {
         font-size: 1em;
+        width: 1em;
       }
     }
   </style>
@@ -330,7 +336,7 @@
   <nav id="sidebar">
     <div class="logo-container">
       <a href="/index.html" title="Volver al inicio">
-        <img src="images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
       </a>
     </div>
     <h2>Categorías</h2>
@@ -1677,7 +1683,7 @@
   </nav>
   <div class="main-content product-page">
     <div class="card" id="goye-malbec-2022.html" data-region="San Rafael, Desconocido" data-bodega="Bodega Goyenechea" data-tipo="Malbec" data-anada="2022" data-precio="9.49" data-precio-rango="0-10 EUR">
-      <img class="logo" src="images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
+      <img class="logo" src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
       <div class="card-content">
         <div class="bottle-cell">
           <img class="bottle product-image" src="/images/large/goye-malbec-2022.jpg" alt="Botella de Goye Malbec" onerror="this.src='https://via.placeholder.com/600x600?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
@@ -1708,11 +1714,11 @@
     </p>
     <h3>Síguenos en</h3>
     <p>
-      <i class="fab fa-x"></i>
+      <img src="/images/x-icon.png" alt="X" class="social-icon">
       <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
     </p>
     <p>
-      <i class="fab fa-instagram"></i>
+      <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
       <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
     </p>
   </footer>
