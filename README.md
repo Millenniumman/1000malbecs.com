@@ -1759,7 +1759,6 @@
         <p>€11</p>
         <a href="fantasia-malbec-2023.html">Comprar</a>
       </div>
-  
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
         <img src="/images/ZapamZucum.avif" alt="Zapam Zucum - Organic Malbec 2022">
         <span class="info-icon">🍷</span>
@@ -1985,7 +1984,6 @@
         </div>
         <h3>Quinta Generación Malbec - 2022</h3>
         <p class="price">€19.99</p>
-        <p class="codigo">Código: BG-QuintaGene-2022</p>
         <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
       </div>
      
@@ -2010,12 +2008,11 @@
         </div>
         <h3>Goye Malbec - 2022</h3>
         <p class="price">€9.49</p>
-        <p class="codigo">Código: BG-GoyeMalbec-2022</p>
         <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
       </div>
      
       <div class="product-card"
-           data-provincia="Desconocido"
+           data-provincia="Mendoza"
            data-region="San Rafael"
            data-bodega="Bodega Goyenechea"
            data-tipo="Malbec"
@@ -2035,7 +2032,6 @@
         </div>
         <h3>135 Aniversario - 2022</h3>
         <p class="price">€39.99</p>
-        <p class="codigo">Código: BG-135Anivers-2022</p>
         <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar</a>
       </div>
      
