@@ -28,7 +28,7 @@
       overflow-y: auto;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       z-index: 1000;
-      isolation: isolate;
+      transition: left 0.3s ease;
     }
     nav .logo-container {
       text-align: center;
@@ -119,18 +119,40 @@
       height: auto;
       border-radius: 10px;
       margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     .product-details h1 {
       color: #4A0D29;
       font-size: 1.8em;
       margin-bottom: 10px;
+      text-align: center;
     }
-    .product-details p {
+    .product-details .info-box {
+      margin: 15px 0;
+      padding: 15px;
+      background-color: #f5e6ff;
+      border: 1px solid #4A0D29;
+      border-radius: 5px;
+    }
+    .product-details .info-box h2 {
+      color: #4A0D29;
+      font-size: 1.3em;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .product-details .info-box p {
+      margin: 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .product-details p.info {
       margin: 10px 0;
       font-size: 1em;
       color: #333;
     }
-    .product-details p strong {
+    .product-details p.info strong {
       color: #4A0D29;
     }
     .buy-button {
@@ -142,6 +164,12 @@
       border-radius: 5px;
       margin-top: 20px;
       font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     .buy-button:hover {
       background-color: #5A1D39;
@@ -158,7 +186,7 @@
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
-      z-index: 1300;
+      z-index: 1500;
     }
     #menu-toggle:hover {
       background-color: #5A1D39;
@@ -167,7 +195,7 @@
       display: none;
     }
     #menu-checkbox:checked + #menu-toggle + #sidebar {
-      left: 0 !important;
+      left: 0;
     }
     .mobile-logo {
       display: none;
@@ -211,16 +239,13 @@
       nav {
         width: 250px;
         left: -260px;
-        transition: left 0.3s ease;
-        z-index: 1200;
         background-color: rgba(74, 13, 41, 0.95);
         position: fixed;
-        display: block;
-        overflow: visible;
-        isolation: isolate;
+        z-index: 1200;
+        transition: left 0.3s ease;
       }
       nav.active {
-        left: 0 !important;
+        left: 0;
         width: 100%;
       }
       nav .logo-container {
@@ -230,20 +255,22 @@
         margin-left: 0;
         width: 100%;
         padding: 10px;
+        margin-top: 80px; /* Espacio para el logo y el menú */
       }
       #menu-toggle {
         display: block;
+        z-index: 1500;
       }
       .mobile-logo {
         display: block;
         position: fixed;
         top: 20px;
         right: 20px;
-        z-index: 1300;
+        z-index: 1500;
       }
       .mobile-logo img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         object-fit: contain;
       }
       .product-details {
@@ -251,13 +278,20 @@
       }
       .product-details h1 {
         font-size: 1.5em;
+        margin-top: 20px;
       }
       .product-details img {
         max-width: 100%;
       }
+      .product-details .info-box {
+        padding: 10px;
+      }
+      .product-details .info-box h2 {
+        font-size: 1.2em;
+      }
       .buy-button {
         width: 100%;
-        text-align: center;
+        max-width: none;
         padding: 12px;
       }
       footer {
@@ -277,13 +311,8 @@
   </style>
 </head>
 <body>
-  <input type="checkbox" id="menu-checkbox" style="display: none;">
+  <input type="checkbox" id="menu-checkbox">
   <label for="menu-checkbox" id="menu-toggle">☰</label>
-  <div class="mobile-logo">
-    <a href="/index.html" title="Volver al inicio">
-      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
-    </a>
-  </div>
   <nav id="sidebar">
     <div class="logo-container">
       <a href="/index.html" title="Volver al inicio">
@@ -292,7 +321,7 @@
     </div>
     <h2>Categorías</h2>
     <noscript>
-      <p>Para usar los filtros, habilite JavaScript. <a href="/vinos/todos.html">Ver todos los vinos</a></p>
+      <p>Para usar los filtros, habilite JavaScript. <a href="/tarjetas.html">Ver todos los vinos</a></p>
     </noscript>
     <details aria-expanded="false">
       <summary aria-label="Filtrar por Ubicación"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</summary>
@@ -1632,19 +1661,30 @@
     </details>
    
   </nav>
+  <div class="mobile-logo">
+    <a href="/index.html" title="Volver al inicio">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
+    </a>
+  </div>
   <div class="main-content">
     <div class="product-details">
       <h1>135 Aniversario - 2022</h1>
       <img src="/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
            onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-      <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-      <p><strong>Provincia:</strong> Desconocido</p>
-      <p><strong>Región:</strong> San Rafael</p>
-      <p><strong>Altura:</strong> 520</p>
-      <p><strong>Tipo:</strong> Malbec</p>
-      <p><strong>Precio:</strong> €39.99</p>
-      <p><strong>Descripción:</strong> Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
-      <p><strong>Notas de Cata:</strong> nan</p>
+      <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
+      <p class="info"><strong>Provincia:</strong> Desconocido</p>
+      <p class="info"><strong>Región:</strong> San Rafael</p>
+      <p class="info"><strong>Altura:</strong> 520</p>
+      <p class="info"><strong>Tipo:</strong> Malbec</p>
+      <p class="info"><strong>Precio:</strong> €39.99</p>
+      <div class="info-box">
+        <h2>Descripción</h2>
+        <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
+      </div>
+      <div class="info-box">
+        <h2>Notas de Cata</h2>
+        <p>nan</p>
+      </div>
       <a href="#" class="buy-button">Comprar Ahora</a>
     </div>
   </div>
@@ -1677,7 +1717,6 @@
       }
     };
 
-    // Filtrado
     document.addEventListener('DOMContentLoaded', () => {
       console.log('Page loaded:', window.location.href);
 
