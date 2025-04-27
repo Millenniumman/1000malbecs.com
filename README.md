@@ -1769,8 +1769,8 @@
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
                 </div>
-         <h3>Casa Araujo Cask - Malbec 2023</h3>
-        <p>9,49</p>
+         <h3>Casa Araujo Cask - Malbec - 2023</h3>
+        <p>€9,49</p>
         <a href="/vinos/casa-araujo-roble-2023.html">Comprar</a>
       </div>   
             <div class="product-card" 
@@ -1790,7 +1790,7 @@
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
                 </div>
-        <h3>Mimi Malbec Bivarietal -2023</h3>
+        <h3>Mimi - Malbec Bivarietal - 2023</h3>
         <p>€12</p>
         <a href="/vinos/casa-araujo-mimi-2023.html">Comprar</a>
       </div>
@@ -1832,7 +1832,7 @@
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
                 </div>
-        <h3>Graciano Reserva Blend - Malbec 2023</h3>
+        <h3>Graciano Reserva Blend - Malbec - 2023</h3>
         <p>€12.99</p>
         <a href="vinos/graciano-reserva-blend-2023.html">Comprar</a>
       </div>
@@ -1856,7 +1856,7 @@
           <p><strong>Altura:</strong> 520</p>
           <p><strong>Código:</strong> BG-QuintaGene-2022</p>
         </div>
-        <h3>Quinta Generación Malbec - 2022</h3>
+        <h3>Quinta Generación - Malbec - 2022</h3>
         <p class="price">€19.99</p>
         <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
       </div>
@@ -1880,7 +1880,7 @@
           <p><strong>Altura:</strong> 520</p>
           <p><strong>Código:</strong> BG-GoyeMalbec-2022</p>
         </div>
-        <h3>Goye Malbec - 2022</h3>
+        <h3>Goye - Malbec - 2022</h3>
         <p class="price">€9.49</p>
         <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
       </div>
@@ -1899,18 +1899,18 @@
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Desconocido</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
           <p><strong>Región:</strong> San Rafael</p>
           <p><strong>Altura:</strong> 520</p>
           <p><strong>Código:</strong> BG-135Anivers-2022</p>
         </div>
-        <h3>135 Aniversario - 2022</h3>
+        <h3>135 Aniversario - Malbec -- 2022</h3>
         <p class="price">€39.99</p>
         <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar</a>
       </div>
             <!-- Mauricio Lorca Bodega y Viñedos -->
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
-        <img src="/images/small/tematico-malbec.jpg" alt="Temático - Malbec 2023">
+        <img src="/images/small/temtico--malbec-2023-2023.jpg" alt="Temático - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
