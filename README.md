@@ -1920,7 +1920,7 @@
         </div>
         <h3>Temático - Malbec 2023</h3>
         <p>€9</p>
-        <a href="temtico--malbec-2023-2023.html">Comprar</a>
+        <a href="vinos/temtico--malbec-2023-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1000m - 2000m">
         <img src="/images/small/fantasa--malbec-2023-2023.jpg" alt="Fantasía - Malbec 2023">
