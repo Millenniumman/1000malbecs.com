@@ -1752,7 +1752,146 @@
     <button id="reset-filters">Limpiar Filtros</button>
     <div class="featured-products">
       <!-- Example product card -->
-      
+      <h3>Casa Araujo Cask - Malbec 2023</h3>
+        <p>9,49</p>
+        <a href="/vinos/casa-araujo-roble-2023.html">Comprar</a>
+      </div>   
+            <div class="product-card" 
+                 data-provincia="Mendoza" 
+                 data-region="San Rafael" 
+                 data-bodega="Casa Araujo" 
+                 data-tipo="Malbec Bivarietal" 
+                 data-anada="2023" 
+                 data-precio="10.9" 
+                 data-precio-rango="10-20 EUR" 
+                 data-altura="500-1000 msnm">
+                <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023">
+                <span class="info-icon">🍷</span>
+                <div class="overlay">
+                    <p><strong>Bodega:</strong> Casa Araujo</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altura:</strong> 520</p>
+                </div>
+        <h3>Mimi Malbec Bivarietal -2023</h3>
+        <p>€12</p>
+        <a href="/vinos/casa-araujo-mimi-2023.html">Comprar</a>
+      </div>
+            <div class="product-card" 
+                 data-provincia="Mendoza" 
+                 data-region="San Rafael" 
+                 data-bodega="Casa Araujo" 
+                 data-tipo="Malbec" 
+                 data-anada="2023" 
+                 data-precio="12.49" 
+                 data-precio-rango="10-20 EUR" 
+                 data-altura="500-1000 msnm">
+                <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023">
+                <span class="info-icon">🍷</span>
+                <div class="overlay">
+                    <p><strong>Bodega:</strong> Casa Araujo</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altura:</strong> 520</p>
+</div>
+        <h3>Nucha Malbec Orgánico - 2023</h3>
+        <p>€12.49</p>
+        <a href="/vinos/nucha-2023.html">Comprar</a>
+      </div>
+            <div class="product-card" 
+                 data-provincia="Mendoza" 
+                 data-region="San Rafael" 
+                 data-bodega="Casa Araujo" 
+                 data-tipo="Reserva Malbec" 
+                 data-anada="2023" 
+                 data-precio="12.99" 
+                 data-precio-rango="10-20 EUR" 
+                 data-altura="500-1000 msnm">
+                <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Botella de Graciano Reserva Blend 2023">
+                <span class="info-icon">🍷</span>
+                <div class="overlay">
+                    <p><strong>Bodega:</strong> Casa Araujo</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altura:</strong> 520</p>
+                </div>
+        <h3>Graciano Reserva Blend - Malbec 2023</h3>
+        <p>€12.99</p>
+        <a href="vinos/graciano-reserva-blend-2023.html">Comprar</a>
+      </div>
+        
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="San Rafael"
+           data-bodega="Bodega Goyenechea"
+           data-tipo="Malbec"
+           data-anada="2022"
+           data-precio="19.99"
+           data-precio-rango="10-20 EUR"
+           data-altura="500-1000 msnm">
+        <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> San Rafael</p>
+          <p><strong>Altura:</strong> 520</p>
+          <p><strong>Código:</strong> BG-QuintaGene-2022</p>
+        </div>
+        <h3>Quinta Generación Malbec - 2022</h3>
+        <p class="price">€19.99</p>
+        <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
+      </div>
+     
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="San Rafael"
+           data-bodega="Bodega Goyenechea"
+           data-tipo="Malbec"
+           data-anada="2022"
+           data-precio="9.49"
+           data-precio-rango="0-10 EUR"
+           data-altura="500-1000 msnm">
+        <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> San Rafael</p>
+          <p><strong>Altura:</strong> 520</p>
+          <p><strong>Código:</strong> BG-GoyeMalbec-2022</p>
+        </div>
+        <h3>Goye Malbec - 2022</h3>
+        <p class="price">€9.49</p>
+        <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
+      </div>
+     
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="San Rafael"
+           data-bodega="Bodega Goyenechea"
+           data-tipo="Malbec"
+           data-anada="2022"
+           data-precio="39.99"
+           data-precio-rango="20-50 EUR"
+           data-altura="500-1000 msnm">
+        <img src="/images/small/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+          <p><strong>Provincia:</strong> Desconocido</p>
+          <p><strong>Región:</strong> San Rafael</p>
+          <p><strong>Altura:</strong> 520</p>
+          <p><strong>Código:</strong> BG-135Anivers-2022</p>
+        </div>
+        <h3>135 Aniversario - 2022</h3>
+        <p class="price">€39.99</p>
+        <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar</a>
+      </div>
+     
             <!-- Mauricio Lorca Bodega y Viñedos -->
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
         <img src="/images/small/tematico-malbec.jpg" alt="Temático - Malbec 2023">
@@ -1916,146 +2055,7 @@
                     <p><strong>Región:</strong> San Rafael</p>
                     <p><strong>Altura:</strong> 520</p>
                 </div>
-        <h3>Casa Araujo Cask - Malbec 2023</h3>
-        <p>9,49</p>
-        <a href="/vinos/casa-araujo-roble-2023.html">Comprar</a>
-      </div>   
-            <div class="product-card" 
-                 data-provincia="Mendoza" 
-                 data-region="San Rafael" 
-                 data-bodega="Casa Araujo" 
-                 data-tipo="Malbec Bivarietal" 
-                 data-anada="2023" 
-                 data-precio="10.9" 
-                 data-precio-rango="10-20 EUR" 
-                 data-altura="500-1000 msnm">
-                <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023">
-                <span class="info-icon">🍷</span>
-                <div class="overlay">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altura:</strong> 520</p>
-                </div>
-        <h3>Mimi Malbec Bivarietal -2023</h3>
-        <p>€12</p>
-        <a href="/vinos/casa-araujo-mimi-2023.html">Comprar</a>
-      </div>
-            <div class="product-card" 
-                 data-provincia="Mendoza" 
-                 data-region="San Rafael" 
-                 data-bodega="Casa Araujo" 
-                 data-tipo="Malbec" 
-                 data-anada="2023" 
-                 data-precio="12.49" 
-                 data-precio-rango="10-20 EUR" 
-                 data-altura="500-1000 msnm">
-                <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023">
-                <span class="info-icon">🍷</span>
-                <div class="overlay">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altura:</strong> 520</p>
-</div>
-        <h3>Nucha Malbec Orgánico - 2023</h3>
-        <p>€12.49</p>
-        <a href="/vinos/nucha-2023.html">Comprar</a>
-      </div>
-            <div class="product-card" 
-                 data-provincia="Mendoza" 
-                 data-region="San Rafael" 
-                 data-bodega="Casa Araujo" 
-                 data-tipo="Reserva Malbec" 
-                 data-anada="2023" 
-                 data-precio="12.99" 
-                 data-precio-rango="10-20 EUR" 
-                 data-altura="500-1000 msnm">
-                <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Botella de Graciano Reserva Blend 2023">
-                <span class="info-icon">🍷</span>
-                <div class="overlay">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altura:</strong> 520</p>
-                </div>
-        <h3>Graciano Reserva Blend - Malbec 2023</h3>
-        <p>€12.99</p>
-        <a href="vinos/graciano-reserva-blend-2023.html">Comprar</a>
-      </div>
         
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="San Rafael"
-           data-bodega="Bodega Goyenechea"
-           data-tipo="Malbec"
-           data-anada="2022"
-           data-precio="19.99"
-           data-precio-rango="10-20 EUR"
-           data-altura="500-1000 msnm">
-        <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520</p>
-          <p><strong>Código:</strong> BG-QuintaGene-2022</p>
-        </div>
-        <h3>Quinta Generación Malbec - 2022</h3>
-        <p class="price">€19.99</p>
-        <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
-      </div>
-     
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="San Rafael"
-           data-bodega="Bodega Goyenechea"
-           data-tipo="Malbec"
-           data-anada="2022"
-           data-precio="9.49"
-           data-precio-rango="0-10 EUR"
-           data-altura="500-1000 msnm">
-        <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520</p>
-          <p><strong>Código:</strong> BG-GoyeMalbec-2022</p>
-        </div>
-        <h3>Goye Malbec - 2022</h3>
-        <p class="price">€9.49</p>
-        <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
-      </div>
-     
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="San Rafael"
-           data-bodega="Bodega Goyenechea"
-           data-tipo="Malbec"
-           data-anada="2022"
-           data-precio="39.99"
-           data-precio-rango="20-50 EUR"
-           data-altura="500-1000 msnm">
-        <img src="/images/small/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Desconocido</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520</p>
-          <p><strong>Código:</strong> BG-135Anivers-2022</p>
-        </div>
-        <h3>135 Aniversario - 2022</h3>
-        <p class="price">€39.99</p>
-        <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar</a>
-      </div>
-     
       <!-- Altos del Plata - Malbec 2022 -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Terrazas de los Andes" data-tipo="Tinto" data-anada="2022" data-precio="12" data-precio-rango="Medio" data-altura="< 1000m">
         <img src="/images/AltosDelPlataMalbec.jpg" alt="Altos del Plata - Malbec 2022">
