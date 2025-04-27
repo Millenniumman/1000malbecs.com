@@ -1936,7 +1936,7 @@
         <a href="vinos/fantasa--malbec-2023-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
-        <img src="/images/small/zapam-zucum-organic-malbec-2022-2022" alt="Zapam Zucum - Organic Malbec 2022">
+        <img src="/images/small/zapam-zucum-organic-malbec-2022" alt="Zapam Zucum - Organic Malbec 2022">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -1946,7 +1946,7 @@
         </div>
         <h3>Zapam Zucum - Organic Malbec 2022</h3>
         <p>€13</p>
-        <a href="vinos/apam-zucum--organic-malbec-2022-2022.html">Comprar</a>
+        <a href="vinos/zapam-zucum-organic-malbec-2022.html">Comprar</a>
       </div>
       <!-- Enrique Foster Bodega -->
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="< 1000m">
