@@ -1963,7 +1963,7 @@
         <a href="vinos/lois--sparkling-malbec-2021-2021.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Rosado" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/small/pink--malbec-rosado-2023-2023.jpeg" alt="Pink - Malbec Rosado 2023">
+        <img src="/images/small/pink--malbec-rosado-2023-2023.jpg" alt="Pink - Malbec Rosado 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
