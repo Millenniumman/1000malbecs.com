@@ -2051,7 +2051,7 @@
         <a href="vinos/foster-malbec-los-barrancos-2023.html">Comprar</a>
       </div>
       <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="44" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/small/foster-malbec-limited-edition-2023.jpg" alt="Foster - Malbec Limited Edition 2023">
+        <img src="/images/small/foster--malbec-limited-edition-2023.jpg" alt="Foster - Malbec Limited Edition 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -2061,7 +2061,7 @@
         </div>
         <h3>Foster - Malbec Limited Edition 2023</h3>
         <p>€44</p>
-        <a href="vinos/foster-malbec-limited-edition-2023.html">Comprar</a>
+        <a href="vinos/foster--malbec-limited-edition-2023.html">Comprar</a>
       </div>
       <!-- Finca Las Nubes Bodega -->
       <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-tipo="Tinto" data-anada="2020" data-precio="19.95" data-precio-rango="Medio" data-altura="1000m - 2000m">
