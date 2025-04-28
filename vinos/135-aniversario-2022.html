@@ -270,16 +270,9 @@
         position: fixed;
         z-index: 1200;
         transition: left 0.3s ease;
+        margin-top: 60px; /* Espacio para evitar superposición con el menú hamburguesa */
       }
-      @media (max-width: 768px) {
-  #sidebar {
-    width: 100%;
-    height: auto;
-    position: static;
-    border-right: none;
-    border-bottom: 1px solid #E0E0E0;
-    margin-top: 60px; /* Espacio para evitar superposición con el menú hamburguesa */
-  }
+
       nav.active {
         left: 0;
         width: 100%;
