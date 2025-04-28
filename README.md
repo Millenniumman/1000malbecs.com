@@ -1752,6 +1752,28 @@
     <button id="reset-filters">Limpiar Filtros</button>
     <div class="featured-products">
       <!-- Example product card -->
+        <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="San Rafael"
+           data-bodega="Casa Araujo"
+           data-tipo="Malbec Bivarietal"
+           data-anada="2023"
+           data-precio="7.14"
+           data-precio-rango="0-10 EUR"
+           data-altura="500-1000 msnm">
+        <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Casa Araujo</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> San Rafael</p>
+          <p><strong>Altura:</strong> 520</p>
+        </div>
+        <h3>Casa Araujo Varietal - 2023</h3>
+        <p class="price">€7.14</p>
+        <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
+      </div>
          <div class="product-card" 
                  data-provincia="Mendoza" 
                  data-region="San Rafael" 
