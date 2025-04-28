@@ -1750,28 +1750,6 @@
   <div class="main-content">
     <h2 class="welcome-title">Bienvenidos a 1000 Malbecs, el sitio de los 1000 mejores malbecs argentinos, desde la Patagonia hasta la Puna</h2>
        <main>
-    <!-- Aquí va la nueva barra horizontal -->
-    <nav class="filter-nav">
-      <div class="nav-container">
-        <div class="nav-section">
-          <h3>Provincias</h3>
-          <ul>
-            <li><a href="/provincias/la-rioja" class="nav-button">La Rioja</a></li>
-            <li><a href="/provincias/mendoza" class="nav-button">Mendoza</a></li>
-            <li><a href="/provincias/neuquen" class="nav-button">Neuquén</a></li>
-            <li><a href="/provincias/salta" class="nav-button">Salta</a></li>
-          </ul>
-        </div>
-        <div class="nav-section">
-          <h3>Bodegas</h3>
-          <ul>
-            <li><a href="/bodegas/casa-araujo" class="nav-button">Casa Araujo</a></li>
-            <li><a href="/bodegas/goyenechea" class="nav-button">Goyenechea</a></li>
-            <li><a href="/bodegas/jorge-rubio" class="nav-button">Jorge Rubio</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
     <button id="reset-filters">Limpiar Filtros</button>
     <div class="featured-products">
       <!-- Example product card -->
