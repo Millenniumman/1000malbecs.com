@@ -1749,34 +1749,7 @@
   </nav>
   <div class="main-content">
     <h2 class="welcome-title">Bienvenidos a 1000 Malbecs, el sitio de los 1000 mejores malbecs argentinos, desde la Patagonia hasta la Puna</h2>
-       <!-- Barra de filtros -->
-  <aside class="filter-sidebar">
-    <h2>Filtros</h2>
-    <form id="filter-form">
-      <details open>
-        <summary>Origen y Añada</summary>
-        <label><input type="checkbox" name="origen-anada" value="Mendoza-San Rafael-500-1000 msnm-2023"> Mendoza, San Rafael, 500-1000 msnm, 2023</label>
-        <label><l><input type="checkbox" name="origen-anada" value="Mendoza-Valle de Uco-1000-1500 msnm-2022"> Mendoza, Valle de Uco, 1000-1500 msnm, 2022</label>
-        <label><input type="checkbox" name="origen-anada" value="San Juan-Tulum-500-1000 msnm-2023"> San Juan, Tulum, 500-1000 msnm, 2023</label>
-      </details>
-      <details>
-        <summary>Bodega</summary>
-        <label><input type="checkbox" name="bodega" value="Casa Araujo"> Casa Araujo</label>
-        <label><input type="checkbox" name="bodega" value="Bodega Ejemplo"> Bodega Ejemplo</label>
-      </details>
-      <details>
-        <summary>Tipo</summary>
-        <label><input type="checkbox" name="tipo" value="Malbec Bivarietal"> Malbec Bivarietal</label>
-        <label><input type="checkbox" name="tipo" value="Cabernet Sauvignon"> Cabernet Sauvignon</label>
-      </details>
-      <details>
-        <summary>Rango de Precio</summary>
-        <label><input type="checkbox" name="precio-rango" value="0-10 EUR"> 0-10 EUR</label>
-        <label><input type="checkbox" name="precio-rango" value="10-20 EUR"> 10-20 EUR</label>
-      </details>
-      <button type="reset">Limpiar Filtros</button>
-    </form>
-  </aside>
+       
     <button id="reset-filters">Limpiar Filtros</button>
     <div class="featured-products">
       <!-- Example product card -->
