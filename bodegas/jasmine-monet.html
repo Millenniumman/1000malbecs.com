@@ -25,6 +25,7 @@
     .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
     .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
     main { margin-left: 290px; padding: 20px; width: 100%; }
+    main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
     .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
     .product-card {
       background-color: #FFFFFF;
@@ -154,8 +155,13 @@
       .logo-container { display: none; }
       main {
         margin-left: 0;
-        margin-top: 60px;
+        margin-top: 120px; /* Aumentado para evitar superposición con el logo */
         padding: 10px;
+      }
+      main h1 {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 15px;
       }
       .product-card:hover .overlay { display: none; }
       .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
