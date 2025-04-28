@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1000 Malbecs - Jorge Rubio</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      z-index: 100;
+    }
+    .logo-container { text-align: center; margin-bottom: 20px; }
+    .logo-container img { max-width: 150px; height: auto; }
+    #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+    #sidebar details { margin-bottom: 15px; }
+    #sidebar details:first-of-type { margin-bottom: 25px; }
+    #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
+    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+    #sidebar li { margin: 5px 0; }
+    .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+    .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+    .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+    main { margin-left: 290px; padding: 20px; width: 100%; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; text-align: center; position: relative; overflow: hidden; }
+    .product-card img { max-width: 100%; height: auto; }
+    .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; }
+    .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: #FFFFFF; padding: 10px; box-sizing: border-box; }
+    .product-card:hover .overlay { display: block; }
+    .product-card .overlay.active { display: block; } /* Para móviles */
+    .product-card h3 { font-size: 16px; margin: 10px 0; color: #4A2C59; }
+    .price { font-size: 14px; color: #4A2C59; margin-bottom: 10px; }
+    .buy-button { display: inline-block; background-color: #4A2C59; color: #FFFFFF; padding: 8px 16px; border-radius: 5px; text-decoration: none; }
+    @media (max-width: 768px) {
+      #sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #E0E0E0; margin-top: 60px; }
+      .logo-container img { max-width: 120px; }
+      #sidebar h2 { font-size: 16px; }
+      #sidebar summary { font-size: 14px; }
+      #sidebar .nav-link { font-size: 13px; }
+      #sidebar details:first-of-type { margin-bottom: 20px; }
+      main { margin-left: 0; }
+      .product-card:hover .overlay { display: none; } /* Desactivar hover en móviles */
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra lateral -->
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/index.html" title="Volver al inicio">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
+      </a>
+    </div>
+    <h2>Categorías</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
+      <ul>
+        
+        <li><a href="/provincias/la-rioja" class="nav-link">La Rioja</a></li>
+        
+        <li><a href="/provincias/mendoza" class="nav-link">Mendoza</a></li>
+        
+        <li><a href="/provincias/neuquén" class="nav-link">Neuquén</a></li>
+        
+        <li><a href="/provincias/salta" class="nav-link">Salta</a></li>
+        
+      </ul>
+    </details>
+    <details>
+      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
+      <ul>
+        
+        <li><a href="/bodegas/casa-araujo" class="nav-link">Casa Araujo</a></li>
+        
+        <li><a href="/bodegas/goyenechea" class="nav-link">Goyenechea</a></li>
+        
+        <li><a href="/bodegas/jorge-rubio" class="nav-link active">Jorge Rubio</a></li>
+        
+      </ul>
+    </details>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <h1>Jorge Rubio</h1>
+    <div class="product-grid">
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="General Alvear"
+           data-bodega="Jorge Rubio"
+           data-tipo="Malbec"
+           data-anada=""
+           data-precio="27.849999999999998"
+           data-precio-rango="20+ EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> General Alvear</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€27.849999999999998</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="General Alvear"
+           data-bodega="Jorge Rubio"
+           data-tipo="Malbec"
+           data-anada=""
+           data-precio="23.65"
+           data-precio-rango="20+ EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> General Alvear</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€23.65</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="General Alvear"
+           data-bodega="Jorge Rubio"
+           data-tipo="Malbec"
+           data-anada=""
+           data-precio="22.849999999999998"
+           data-precio-rango="20+ EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> General Alvear</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€22.849999999999998</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="General Alvear"
+           data-bodega="Jorge Rubio"
+           data-tipo="Reserva Malbec"
+           data-anada=""
+           data-precio="71.65"
+           data-precio-rango="20+ EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> General Alvear</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€71.65</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="San Rafael"
+           data-bodega="Jorge Rubio"
+           data-tipo="Reserva Malbec"
+           data-anada=""
+           data-precio="74.0"
+           data-precio-rango="20+ EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> San Rafael</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€74.0</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="General Alvear"
+           data-bodega="Jorge Rubio"
+           data-tipo="Reserva Bivarietal Malbec /Merlot"
+           data-anada=""
+           data-precio="4.6499999999999995"
+           data-precio-rango="0-10 EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> General Alvear</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€4.6499999999999995</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="General Alvear"
+           data-bodega="Jorge Rubio"
+           data-tipo="Malbec"
+           data-anada=""
+           data-precio="63.65"
+           data-precio-rango="20+ EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> General Alvear</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€63.65</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="General Alvear"
+           data-bodega="Jorge Rubio"
+           data-tipo="Malbec"
+           data-anada=""
+           data-precio="27.849999999999998"
+           data-precio-rango="20+ EUR"
+           data-altura="">
+        <img src="" alt="Botella de "
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Jorge Rubio</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> General Alvear</p>
+          <p><strong>Altura:</strong> </p>
+        </div>
+        <h3></h3>
+        <p class="price">€27.849999999999998</p>
+        <a href="" class="buy-button">Comprar</a>
+      </div>
+      
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Resaltar enlace activo
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+          const details = link.closest('details');
+          if (details) {
+            details.setAttribute('open', '');
+          }
+        }
+      });
+
+      // Manejar hover en móviles
+      const productCards = document.querySelectorAll('.product-card');
+      productCards.forEach(card => {
+        const overlay = card.querySelector('.overlay');
+        card.addEventListener('click', (e) => {
+          // Evitar que el clic en el botón "Comprar" active el overlay
+          if (!e.target.classList.contains('buy-button')) {
+            e.preventDefault();
+            overlay.classList.toggle('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
