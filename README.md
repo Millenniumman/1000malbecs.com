@@ -351,12 +351,7 @@
       </a>
     </div>
     <h2>Categorías</h2>
-       
-  </nav>
-  <div class="main-content">
-    <h2 class="welcome-title">Bienvenidos a 1000 Malbecs, el sitio de los 1000 mejores malbecs argentinos, desde la Patagonia hasta la Puna</h2>
-       <main>
- <!-- Barra de navegación con menús flotantes -->
+     <!-- Barra de navegación con menús flotantes -->
     <nav class="filter-nav">
       <div class="nav-container">
         <div class="dropdown">
@@ -376,9 +371,11 @@
             <a href="/bodegas/jorge-rubio" class="dropdown-item">Jorge Rubio</a>
           </div>
         </div>
-      </div>
-    </nav>
-
+      </div>   
+  </nav>
+  <div class="main-content">
+    <h2 class="welcome-title">Bienvenidos a 1000 Malbecs, el sitio de los 1000 mejores malbecs argentinos, desde la Patagonia hasta la Puna</h2>
+       <main>
            <button id="reset-filters">Limpiar Filtros</button>
     <div class="featured-products">
       <!-- Example product card -->
