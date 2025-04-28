@@ -1758,7 +1758,7 @@
                  data-bodega="Casa Araujo" 
                  data-tipo="Malbec" 
                  data-anada="2023" 
-                 data-precio="9.49" 
+                 data-precio="10.2" 
                  data-precio-rango="0-10 EUR" 
                  data-altura="500-1000 msnm">
                 <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023">
@@ -1770,7 +1770,7 @@
                     <p><strong>Altura:</strong> 520</p>
                 </div>
          <h3>Casa Araujo Cask - Malbec - 2023</h3>
-        <p>€9,49</p>
+        <p>€10.2</p>
         <a href="/vinos/casa-araujo-roble-2023.html">Comprar</a>
       </div>   
             <div class="product-card" 
@@ -1779,7 +1779,7 @@
                  data-bodega="Casa Araujo" 
                  data-tipo="Malbec Bivarietal" 
                  data-anada="2023" 
-                 data-precio="10.9" 
+                 data-precio="11.8" 
                  data-precio-rango="10-20 EUR" 
                  data-altura="500-1000 msnm">
                 <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023">
@@ -1791,7 +1791,7 @@
                     <p><strong>Altura:</strong> 520</p>
                 </div>
         <h3>Mimi - Malbec Bivarietal - 2023</h3>
-        <p>€12</p>
+        <p>€11.8</p>
         <a href="/vinos/casa-araujo-mimi-2023.html">Comprar</a>
       </div>
             <div class="product-card" 
@@ -1800,7 +1800,7 @@
                  data-bodega="Casa Araujo" 
                  data-tipo="Malbec" 
                  data-anada="2023" 
-                 data-precio="12.49" 
+                 data-precio="12.99" 
                  data-precio-rango="10-20 EUR" 
                  data-altura="500-1000 msnm">
                 <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023">
@@ -1812,7 +1812,7 @@
                     <p><strong>Altura:</strong> 520</p>
 </div>
         <h3>Nucha Malbec Orgánico - 2023</h3>
-        <p>€12.49</p>
+        <p>€12.99</p>
         <a href="/vinos/nucha-2023.html">Comprar</a>
       </div>
             <div class="product-card" 
@@ -1821,7 +1821,7 @@
                  data-bodega="Casa Araujo" 
                  data-tipo="Reserva Malbec" 
                  data-anada="2023" 
-                 data-precio="12.99" 
+                 data-precio="13.59" 
                  data-precio-rango="10-20 EUR" 
                  data-altura="500-1000 msnm">
                 <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Botella de Graciano Reserva Blend 2023">
@@ -1833,7 +1833,7 @@
                     <p><strong>Altura:</strong> 520</p>
                 </div>
         <h3>Graciano Reserva Blend - Malbec - 2023</h3>
-        <p>€12.99</p>
+        <p>€13.59</p>
         <a href="vinos/graciano-reserva-blend-2023.html">Comprar</a>
       </div>
         
