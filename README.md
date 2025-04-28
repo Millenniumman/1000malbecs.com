@@ -1771,7 +1771,7 @@
           <p><strong>Altura:</strong> 520</p>
         </div>
         <h3>Casa Araujo Varietal - 2023</h3>
-        <p class="price">€7.14</p>
+        <p class="price">€7.99</p>
         <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
       </div>
          <div class="product-card" 
@@ -1780,7 +1780,7 @@
                  data-bodega="Casa Araujo" 
                  data-tipo="Malbec" 
                  data-anada="2023" 
-                 data-precio="10.2" 
+                 data-precio="10.19" 
                  data-precio-rango="0-10 EUR" 
                  data-altura="500-1000 msnm">
                 <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023">
@@ -1792,7 +1792,7 @@
                     <p><strong>Altura:</strong> 520</p>
                 </div>
          <h3>Casa Araujo Cask - Malbec - 2023</h3>
-        <p>€10.2</p>
+        <p>€10.19</p>
         <a href="/vinos/casa-araujo-roble-2023.html">Comprar</a>
       </div>   
             <div class="product-card" 
