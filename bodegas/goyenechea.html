@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; }
-    #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; }
+    .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 10px; left: 10px; z-index: 110; }
+    #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
     .logo-container { text-align: center; margin-bottom: 20px; }
     .logo-container img { max-width: 150px; height: auto; }
     #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
@@ -126,13 +127,26 @@
       border-radius: 5px;
     }
     @media (max-width: 768px) {
-      #sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #E0E0E0; margin-top: 60px; }
-      .logo-container img { max-width: 120px; }
-      #sidebar h2 { font-size: 16px; }
-      #sidebar summary { font-size: 14px; }
-      #sidebar .nav-link { font-size: 13px; }
-      #sidebar details:first-of-type { margin-bottom: 20px; }
-      main { margin-left: 0; }
+      body { display: block; }
+      .hamburger { display: block; }
+      #sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        border-bottom: 1px solid #E0E0E0;
+      }
+      #sidebar.open {
+        transform: translateX(0);
+      }
+      main {
+        margin-left: 0;
+        margin-top: 60px;
+        padding: 10px;
+      }
       .product-card:hover .overlay { display: none; }
       .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
       .product-card { width: 180px; height: 280px; }
@@ -140,6 +154,9 @@
       .info-icon { display: block !important; }
       .overlay { max-height: 120px; pointer-events: auto; }
       .overlay.active { display: block !important; }
+      .presentation { margin: 10px 0; padding: 10px; }
+      .gallery { flex-direction: column; }
+      .gallery img { width: 100%; height: auto; max-height: 150px; }
     }
     @media (min-width: 769px) {
       .info-icon { display: none; }
@@ -147,6 +164,7 @@
   </style>
 </head>
 <body>
+  <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
       <a href="/index.html" title="Volver al inicio">
@@ -183,22 +201,30 @@
   </nav>
   <main>
     <h1>Goyenechea</h1>
-    <!--
+    
     <section class="presentation">
       <h2>Acerca de Goyenechea</h2>
-      <p>Descripción de Goyenechea. Aquí puedes agregar información sobre la historia, características, o detalles relevantes de la provincia/bodega.</p>
+      <p>Descripción de Goyenechea. Aquí puedes agregar información sobre la historia, características, o detalles relevantes de la bodega.</p>
       <div class="gallery">
-        <img src="/images/bodega/goyenechea-1.jpg" alt="Imagen 1 de Goyenechea">
-        <img src="/images/bodega/goyenechea-2.jpg" alt="Imagen 2 de Goyenechea">
+        <img src="/images/bodega/goyenechea-1.jpg" alt="Imagen 1 de Goyenechea"
+             onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
+        <img src="/images/bodega/goyenechea-2.jpg" alt="Imagen 2 de Goyenechea"
+             onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
       </div>
     </section>
-    -->
+    
     <div class="product-grid">
       
     </div>
   </main>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+        console.log(`Sidebar ${sidebar.classList.contains('open') ? 'abierto' : 'cerrado'}`);
+      });
       const navLinks = document.querySelectorAll('.nav-link');
       const currentPath = window.location.pathname;
       navLinks.forEach(link => {
