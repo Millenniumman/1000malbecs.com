@@ -1801,7 +1801,7 @@
                  data-bodega="Casa Araujo" 
                  data-tipo="Malbec Bivarietal" 
                  data-anada="2023" 
-                 data-precio="11.8" 
+                 data-precio="11.79" 
                  data-precio-rango="10-20 EUR" 
                  data-altura="500-1000 msnm">
                 <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023">
