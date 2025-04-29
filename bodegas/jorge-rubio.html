@@ -231,29 +231,42 @@
       margin-right: 5px;
     }
     @media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* Mantener dos columnas */
-    gap: 20px; /* Aumentar el espacio entre fichas */
-    justify-items: center; /* Centrar las fichas en sus celdas */
+  main {
+    margin-left: 0;
+    margin-top: 120px;
+    padding: 0; /* Ajustado para el banner */
+    width: 100%;
   }
-      @media (max-width: 768px) {
+  .presentation {
+    padding: 0; /* Ajustado para el banner */
+    margin: 10px 0;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Aumentado */
+    justify-items: center;
+  }
+  .product-card {
+    width: 100%;
+    max-width: none;
+    height: 280px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .product-card img {
+    width: 140px;
+    height: 140px;
+  }
   .banner-image {
-    width: 100vw; /* Usar el ancho completo del viewport */
+    width: 100vw;
     height: auto;
-    max-height: 200px; /* Aumentar ligeramente para mejor apariencia */
+    max-height: 200px;
     object-fit: cover;
     position: relative;
     left: 50%;
     right: 50%;
-    margin-left: -50vw; /* Neutralizar el padding del contenedor */
+    margin-left: -50vw;
     margin-right: -50vw;
-  }
-  .presentation {
-    padding: 0; /* Eliminar el padding para el banner */
-    margin: 10px 0;
-  }
-  main {
-    padding: 0; /* Eliminar el padding de main para el banner */
   }
   .product-card {
     width: 100%; /* Asegurar que ocupe el ancho de la celda */
