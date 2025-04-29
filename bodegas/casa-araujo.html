@@ -14,25 +14,87 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
     .header { display: none; }
     .logo { max-width: 150px; height: auto; }
-    .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 10px; left: 10px; z-index: 110; }
-    #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 110;
+    }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
     .logo-container { text-align: center; margin-bottom: 20px; }
-    #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+    #sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A2C59;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
     #sidebar details { margin-bottom: 15px; }
     #sidebar details:first-of-type { margin-bottom: 25px; }
-    #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
-    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+    #sidebar summary i'd { margin-right: 10px; color: #4A2C59; }
     #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
     #sidebar li { margin: 5px 0; }
-    .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+    .nav-link {
+      font-size: 14px;
+      color: #4A2C59;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
     .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
     .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-    main { margin-left: 290px; padding: 20px; width: 100%; }
+    main {
+      margin-left: 290px;
+      padding: 20px;
+      width: calc(100% - 290px);
+      flex: 1;
+    }
     main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
     .product-card {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
@@ -122,8 +184,12 @@
       font-size: 14px;
       color: #333;
       line-height: 1.6;
-    }
-  .gallery img {
+    }.gallery {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.gallery img {
   width: 200px;
   height: 150px;
   object-fit: cover;
@@ -143,8 +209,51 @@
   .desktop-only {
     display: none;
   }
-} 
-    .logo { max-width: 100px; }
+}
+    footer {
+      background-color: #F8F8F8;
+      padding: 15px;
+      text-align: center;
+      border-top: 1px solid #E0E0E0;
+      width: 100%;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      color: #4A2C59;
+    }
+    .footer-content a {
+      color: #4A2C59;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-content a:hover {
+      color: #7B4F8C;
+    }
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .fa-whatsapp {
+      font-size: 20px;
+      color: #25D366;
+      margin-right: 5px;
+    }
+    @media (max-width: 768px) {
+      body { display: block; }
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 120;
+      }
+      .logo { max-width: 100px; }
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
@@ -164,6 +273,7 @@
         margin-left: 0;
         margin-top: 120px;
         padding: 10px;
+        width: 100%;
       }
       main h1 {
         font-size: 20px;
@@ -171,7 +281,9 @@
         margin-bottom: 15px;
       }
       .product-card:hover .overlay { display: none; }
-      .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
       .product-card { width: 180px; height: 280px; }
       .product-card img { width: 160px; height: 160px; }
       .info-icon { display: block !important; }
@@ -181,6 +293,16 @@
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
       .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .footer-content {
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 12px;
+      }
+      .social-icon, .fa-whatsapp {
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+      }
     }
     @media (min-width: 769px) {
       .header { display: none; }
