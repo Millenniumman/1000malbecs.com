@@ -91,10 +91,10 @@
     }
     main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
     .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-    }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns on desktop */
+    gap: 10px;
+  }
     .product-card {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
@@ -281,9 +281,10 @@
         margin-bottom: 15px;
       }
       .product-card:hover .overlay { display: none; }
-      .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      }
+         .product-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+      gap: 15px;
+    }
       .product-card { width: 180px; height: 280px; }
       .product-card img { width: 160px; height: 160px; }
       .info-icon { display: block !important; }
