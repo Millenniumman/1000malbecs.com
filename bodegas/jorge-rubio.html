@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -69,7 +68,7 @@
       display: flex;
       align-items: center;
     }
-    #sidebar summary i { margin-right: 10px; color: #4A2C59; } /* Fixed typo: i'd to i */
+    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
     #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
     #sidebar li { margin: 5px 0; }
     .nav-link {
@@ -92,7 +91,7 @@
     main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns on desktop */
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
     .product-card {
@@ -103,7 +102,8 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      width: 200px;
+      width: 100%;
+      max-width: 200px;
       height: 300px;
       display: flex;
       flex-direction: column;
@@ -132,7 +132,7 @@
       left: 0;
       width: 100%;
       max-height: 100px;
-      background-color: rgba(74, 44, 89, 0.8) !important; /* #4A2C59 violáceo */
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 10px;
       box-sizing: border-box;
@@ -143,8 +143,8 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay { display: block; }
     .product-card .overlay.active { display: block !important; }
@@ -196,6 +196,11 @@
       object-fit: cover;
       border-radius: 5px;
     }
+    .banner-container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
     footer {
       background-color: #F8F8F8;
       padding: 15px;
@@ -231,78 +236,46 @@
       margin-right: 5px;
     }
     @media (max-width: 768px) {
-  main {
-    margin-left: 0;
-    margin-top: 120px;
-    padding: 0; /* Ajustado para el banner */
-    width: 100%;
-  }
-  .presentation {
-    padding: 0; /* Ajustado para el banner */
-    margin: 10px 0;
-  }
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* Aumentado */
-    justify-items: center;
-  }
-  .product-card {
-    width: 100%;
-    max-width: none;
-    height: 280px;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  .product-card img {
-    width: 140px;
-    height: 140px;
-  }
-  .banner-image {
-    width: 100vw;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-  }
-  .product-card {
-    width: 100%; /* Asegurar que ocupe el ancho de la celda */
-    max-width: none; /* Eliminar cualquier restricción de ancho */
-    height: 280px;
-    padding: 10px; /* Reducir ligeramente el padding para más espacio */
-    box-sizing: border-box; /* Asegurar que el borde y padding no sumen al ancho */
-  }
-  .product-card img {
-    width: 140px; /* Reducir el tamaño de la imagen para mejor ajuste */
-    height: 140px;
-  }
-  main {
-    padding: 15px; /* Aumentar el padding del contenedor para evitar que las fichas toquen los bordes */
-  }
+      body { display: block; }
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        z-index: 120;
+      }
       .logo { max-width: 100px; }
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
+        max-height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
         transform: translateX(-100%);
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
-        padding-top: 50px; /* Added to push content below hamburger */
+        padding: 20px;
+        padding-top: 50px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       #sidebar.open {
         transform: translateX(0);
+      }
+      #sidebar ul {
+        max-height: none;
+        padding-bottom: 20px;
+      }
+      #sidebar li {
+        margin: 8px 0;
       }
       .logo-container { display: none; }
       main {
         margin-left: 0;
         margin-top: 120px;
-        padding: 10px;
+        padding: 15px;
         width: 100%;
       }
       main h1 {
@@ -311,25 +284,50 @@
         margin-bottom: 15px;
       }
       .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
       }
       .product-card {
-        width: 100%; /* Full width of grid cell */
+        width: 100%;
+        max-width: none;
         height: 280px;
+        padding: 10px;
+        box-sizing: border-box;
       }
       .product-card img {
-        width: 160px;
-        height: 160px;
+        width: 140px;
+        height: 140px;
       }
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
       .overlay { max-height: 120px; pointer-events: auto; }
       .overlay.active { display: block !important; }
-      .presentation { margin: 10px 0; padding: 10px; }
-      .gallery { flex-direction: column; }
+      .presentation {
+        margin: 10px 0;
+        padding: 15px;
+      }
+      .gallery {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
       .desktop-only { display: none; }
-      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .banner-container {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      .banner-image {
+        width: 100vw;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
       .footer-content {
         flex-wrap: wrap;
         gap: 15px;
@@ -365,84 +363,55 @@
     <details>
       <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
       <ul>
-        
         <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
         <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
         <li><a href="/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-        
         <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
-        
       </ul>
     </details>
     <details>
       <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
       <ul>
-        
         <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
-        
         <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
         <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
-        
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
-        
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
         <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
         <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
         <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
         <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
         <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
         <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
-        
         <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
-        
         <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link active">Jorge Rubio</a></li>
-        
         <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
-        
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
         <li><a href="/bodegas/mauricio-lorca-bodega-y-viñedos.html" class="nav-link">Mauricio Lorca Bodega y Viñedos</a></li>
-        
         <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
         <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
       </ul>
     </details>
   </nav>
   <main>
     <h1>Jorge Rubio</h1>
-    
     <section class="presentation">
       <h2>Acerca de Jorge Rubio</h2>
       <p>Nuestra bodega, fundada en 2003 por Jorge Alberto Rubio, fusiona la innovación con la rica tradición vinícola de toda una vida dedicada a la enología. Desde sus inicios, bajo el concepto de Vinos de Autor, hemos ampliado nuestra infraestructura y talento humano para crear productos distintivos. Trabajamos desde el viñedo a la copa, cuidando cada detalle, respetando la naturaleza y nuestra comunidad. El resultado: vinos inimitables que reflejan la región y transmiten nuestra cultura, conquistando mercados nacionales e internacionales.</p>
-      <div class="gallery">
+      <div class="banner-container">
         <img src="https://www.autorjorgerubio.com.ar/upload/nuestro_terrior.jpg" alt="Banner de Jorge Rubio" class="banner-image">
+      </div>
+      <div class="gallery">
         <img src="https://www.autorjorgerubio.com.ar/upload/nuestro_paisaje.jpg" alt="Imagen 2 de Jorge Rubio" class="desktop-only">
-     <img src="https://www.autorjorgerubio.com.ar/upload/nuestra_tradicion.jpg" alt="Imagen 2 de Jorge Rubio" class="desktop-only">
-      <img src="https://www.autorjorgerubio.com.ar/upload/nuestras_raices.jpg" alt="Imagen 2 de Jorge Rubio" class="desktop-only">
+        <img src="https://www.autorjorgerubio.com.ar/upload/nuestra_tradicion.jpg" alt="Imagen 3 de Jorge Rubio" class="desktop-only">
+        <img src="https://www.autorjorgerubio.com.ar/upload/nuestras_raices.jpg" alt="Imagen 4 de Jorge Rubio" class="desktop-only">
       </div>
     </section>
-    
     <div class="product-grid">  
       <div class="product-card"
            data-provincia="Mendoza"
@@ -465,7 +434,6 @@
         <p class="price">€18.19</p>
         <a href="/vinos/finca-gabriel-malbec-2021.html" class="buy-button">Comprar</a>
       </div>
-      
       <div class="product-card"
            data-provincia="Mendoza"
            data-region="General Alvear"
@@ -487,7 +455,6 @@
         <p class="price">€18.99</p>
         <a href="/vinos/finca-gabriel-edicin-especial-malbec-2022.html" class="buy-button">Comprar</a>
       </div>
-      
       <div class="product-card"
            data-provincia="Mendoza"
            data-region="General Alvear"
@@ -509,7 +476,6 @@
         <p class="price">€23.19</p>
         <a href="/vinos/a-contramano-malbec-2021.html" class="buy-button">Comprar</a>
       </div>
-      
       <div class="product-card"
            data-provincia="Mendoza"
            data-region="General Alvear"
@@ -531,7 +497,6 @@
         <p class="price">€23.19</p>
         <a href="/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Comprar</a>
       </div>
-      
       <div class="product-card"
            data-provincia="Mendoza"
            data-region="General Alvear"
@@ -553,7 +518,6 @@
         <p class="price">€58.99</p>
         <a href="/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Comprar</a>
       </div>
-      
       <div class="product-card"
            data-provincia="Mendoza"
            data-region="San Rafael"
@@ -575,7 +539,6 @@
         <p class="price">€66.99</p>
         <a href="/vinos/jorge-rubio-gran-reserva-malbec-magnum-2019.html" class="buy-button">Comprar</a>
       </div>
-      
     </div>
   </main>
   <footer>
