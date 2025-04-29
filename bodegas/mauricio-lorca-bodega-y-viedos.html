@@ -8,8 +8,8 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - Mauricio Lorca Bodega y Viñedos">
   <meta property="og:description" content="Descubre los mejores vinos de Mauricio Lorca Bodega y Viñedos en 1000 Malbecs. Explora nuestra selección de Malbecs y otros varietales.">
-  <meta property="og:image" content="https://tudominio.com/images/l000-malbecs-logo.png">
-  <meta property="og:url" content="https://tudominio.com/bodegas/mauricio-lorca-bodega-y-viñedos.html">
+  <meta property="og:image" content="https://1000malbecs.com/images/l000-malbecs-logo.png">
+  <meta property="og:url" content="https://1000malbecs.com/bodegas/mauricio-lorca-bodega-y-viñedos.html">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
     }
-    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar summary i'd { margin-right: 10px; color: #4A2C59; }
     #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
     #sidebar li { margin: 5px 0; }
     .nav-link {
@@ -386,7 +386,7 @@
       <p>Descripción de Mauricio Lorca Bodega y Viñedos. Aquí puedes agregar información sobre la historia, características, o detalles relevantes de la bodega.</p>
       <div class="gallery">
         <img src="/images/bodega/mauricio-lorca-bodega-y-viñedos-1.jpg" alt="Banner de Mauricio Lorca Bodega y Viñedos" class="banner-image">
-        <img src="/images/bodega/mauricio-lorca-bodega-y-viñedos-2.jpg" alt="Imagen 2 de Mauricio Lorca Bodega y Viñedos" class="desktop-only" onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
+        <img src="/images/bodega/mauricio-lorca-bodega-y-viñedos-2.jpg" alt="Imagen 2 de Mauricio Lorca Bodega y Viñedos" class="desktop-only">
       </div>
     </section>
     
@@ -401,8 +401,7 @@
            data-precio="11.0"
            data-precio-rango="10-20 EUR"
            data-altura="1100">
-        <img src="/images/small/fantasa--malbec-2023-2023.jpg" alt="Botella de Fantasía - Malbec 2023"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load for Fantasía - Malbec 2023: /images/small/fantasa--malbec-2023-2023.jpg');">
+        <img src="/images/small/fantasa--malbec-2023-2023.jpg" alt="Botella de Fantasía - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -424,8 +423,7 @@
            data-precio="39.0"
            data-precio-rango="20+ EUR"
            data-altura="1100">
-        <img src="https://via.placeholder.com/200x200?text=Imagen+No+Disponible" alt="Botella de Gran Poético - Malbec 2013"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load for Gran Poético - Malbec 2013: https://via.placeholder.com/200x200?text=Imagen+No+Disponible');">
+        <img src="/images/small/gran-potico--malbec-2013-2013.jpg" alt="Botella de Gran Poético - Malbec 2013">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -447,8 +445,7 @@
            data-precio="8.5"
            data-precio-rango="0-10 EUR"
            data-altura="1100">
-        <img src="/images/small/temtico--malbec-2023-2023.jpg" alt="Botella de Temático - Malbec 2023"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load for Temático - Malbec 2023: /images/small/temtico--malbec-2023-2023.jpg');">
+        <img src="/images/small/temtico--malbec-2023-2023.jpg" alt="Botella de Temático - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -470,8 +467,7 @@
            data-precio="11.0"
            data-precio-rango="10-20 EUR"
            data-altura="1100">
-        <img src="https://via.placeholder.com/200x200?text=Imagen+No+Disponible" alt="Botella de Zapam Zucum - Organic Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load for Zapam Zucum - Organic Malbec 2022: https://via.placeholder.com/200x200?text=Imagen+No+Disponible');">
+        <img src="/images/small/zapam-zucum--organic-malbec-2022-2022.jpg" alt="Botella de Zapam Zucum - Organic Malbec 2022">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
@@ -502,5 +498,48 @@
       </span>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+          const details = link.closest('details');
+          if (details) {
+            details.setAttribute('open', '');
+          }
+        }
+      });
+      const infoIcons = document.querySelectorAll('.info-icon');
+      infoIcons.forEach(icon => {
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+            const overlay = icon.closest('.product-card').querySelector('.overlay');
+            if (overlay) {
+              overlay.classList.toggle('active');
+              console.log(`Overlay toggled for card: ${icon.closest('.product-card').querySelector('h3').textContent}`);
+            }
+          });
+        });
+      });
+      const buyButtons = document.querySelectorAll('.buy-button');
+      buyButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+    });
+  </script>
 </body>
 </html>

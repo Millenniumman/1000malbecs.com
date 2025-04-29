@@ -8,8 +8,8 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - La Grupa Wines">
   <meta property="og:description" content="Descubre los mejores vinos de La Grupa Wines en 1000 Malbecs. Explora nuestra selección de Malbecs y otros varietales.">
-  <meta property="og:image" content="https://tudominio.com/images/l000-malbecs-logo.png">
-  <meta property="og:url" content="https://tudominio.com/bodegas/la-grupa-wines.html">
+  <meta property="og:image" content="https://1000malbecs.com/images/l000-malbecs-logo.png">
+  <meta property="og:url" content="https://1000malbecs.com/bodegas/la-grupa-wines.html">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
     }
-    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar summary i'd { margin-right: 10px; color: #4A2C59; }
     #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
     #sidebar li { margin: 5px 0; }
     .nav-link {
@@ -386,7 +386,7 @@
       <p>Descripción de La Grupa Wines. Aquí puedes agregar información sobre la historia, características, o detalles relevantes de la bodega.</p>
       <div class="gallery">
         <img src="/images/bodega/la-grupa-wines-1.jpg" alt="Banner de La Grupa Wines" class="banner-image">
-        <img src="/images/bodega/la-grupa-wines-2.jpg" alt="Imagen 2 de La Grupa Wines" class="desktop-only" onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
+        <img src="/images/bodega/la-grupa-wines-2.jpg" alt="Imagen 2 de La Grupa Wines" class="desktop-only">
       </div>
     </section>
     
@@ -401,8 +401,7 @@
            data-precio="15.649999999999999"
            data-precio-rango="10-20 EUR"
            data-altura="700">
-        <img src="https://via.placeholder.com/200x200?text=Imagen+No+Disponible" alt="Botella de LA Grupa Syrah Malbec 0.75"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load for LA Grupa Syrah Malbec 0.75: https://via.placeholder.com/200x200?text=Imagen+No+Disponible');">
+        <img src="/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="Botella de LA Grupa Syrah Malbec 0.75">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> La Grupa Wines</p>
@@ -424,8 +423,7 @@
            data-precio="20.45"
            data-precio-rango="20+ EUR"
            data-altura="700">
-        <img src="https://via.placeholder.com/200x200?text=Imagen+No+Disponible" alt="Botella de LA Grupa Syrah Malbec 1.25"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load for LA Grupa Syrah Malbec 1.25: https://via.placeholder.com/200x200?text=Imagen+No+Disponible');">
+        <img src="/images/small/la-grupa-syrah-malbec-125-2022.jpg" alt="Botella de LA Grupa Syrah Malbec 1.25">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> La Grupa Wines</p>
@@ -456,5 +454,48 @@
       </span>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+          const details = link.closest('details');
+          if (details) {
+            details.setAttribute('open', '');
+          }
+        }
+      });
+      const infoIcons = document.querySelectorAll('.info-icon');
+      infoIcons.forEach(icon => {
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+            const overlay = icon.closest('.product-card').querySelector('.overlay');
+            if (overlay) {
+              overlay.classList.toggle('active');
+              console.log(`Overlay toggled for card: ${icon.closest('.product-card').querySelector('h3').textContent}`);
+            }
+          });
+        });
+      });
+      const buyButtons = document.querySelectorAll('.buy-button');
+      buyButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+    });
+  </script>
 </body>
 </html>
