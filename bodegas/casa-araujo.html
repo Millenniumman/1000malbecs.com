@@ -526,13 +526,28 @@
       
     </div>
   </main>
+ <footer>
+    <div class="footer-content">
+      <span>
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
+      </span>
+      <span>
+        <img src="/images/x-icon.png" alt="X" class="social-icon">
+        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+      </span>
+      <span>
+        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
+        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+      </span>
+    </div>
+  </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
       const sidebar = document.querySelector('#sidebar');
       hamburger.addEventListener('click', () => {
         sidebar.classList.toggle('open');
-        console.log(`Sidebar ${sidebar.classList.contains('open') ? 'abierto' : 'cerrado'}`);
       });
       const navLinks = document.querySelectorAll('.nav-link');
       const currentPath = window.location.pathname;
@@ -547,20 +562,19 @@
       });
       const infoIcons = document.querySelectorAll('.info-icon');
       infoIcons.forEach(icon => {
-        icon.addEventListener('click', (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          console.log(`Ícono tocado: ${icon.closest('.product-card').querySelector('h3').textContent}`);
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+            const overlay = icon.closest('.product-card').querySelector('.overlay');
+            if (overlay) {
+              overlay.classList.toggle('active');
+              console.log(`Overlay toggled for card: ${icon.closest('.product-card').querySelector('h3').textContent}`);
+            }
           });
-          const overlay = icon.closest('.product-card').querySelector('.overlay');
-          if (overlay) {
-            overlay.classList.toggle('active');
-            console.log(`Overlay ${overlay.classList.contains('active') ? 'activado' : 'desactivado'}`);
-          } else {
-            console.log('Error: No se encontró el overlay para', icon.closest('.product-card').querySelector('h3').textContent);
-          }
         });
       });
       const buyButtons = document.querySelectorAll('.buy-button');
