@@ -231,14 +231,44 @@
       margin-right: 5px;
     }
     @media (max-width: 768px) {
-      body { display: block; }
-      .header {
-        display: block;
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 120;
-      }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* Mantener dos columnas */
+    gap: 20px; /* Aumentar el espacio entre fichas */
+    justify-items: center; /* Centrar las fichas en sus celdas */
+  }
+      @media (max-width: 768px) {
+  .banner-image {
+    width: 100vw; /* Usar el ancho completo del viewport */
+    height: auto;
+    max-height: 200px; /* Aumentar ligeramente para mejor apariencia */
+    object-fit: cover;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw; /* Neutralizar el padding del contenedor */
+    margin-right: -50vw;
+  }
+  .presentation {
+    padding: 0; /* Eliminar el padding para el banner */
+    margin: 10px 0;
+  }
+  main {
+    padding: 0; /* Eliminar el padding de main para el banner */
+  }
+  .product-card {
+    width: 100%; /* Asegurar que ocupe el ancho de la celda */
+    max-width: none; /* Eliminar cualquier restricción de ancho */
+    height: 280px;
+    padding: 10px; /* Reducir ligeramente el padding para más espacio */
+    box-sizing: border-box; /* Asegurar que el borde y padding no sumen al ancho */
+  }
+  .product-card img {
+    width: 140px; /* Reducir el tamaño de la imagen para mejor ajuste */
+    height: 140px;
+  }
+  main {
+    padding: 15px; /* Aumentar el padding del contenedor para evitar que las fichas toquen los bordes */
+  }
       .logo { max-width: 100px; }
       .hamburger { display: block; }
       #sidebar {
