@@ -1,460 +1,444 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Menlo; -webkit-text-stroke: #000000; background-color: #ffffff}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, est...">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="1000malbecs - A CONTRAMANO Malbec 2021">
+  <meta property="og:description" content="A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, est...">
+  <meta property="og:image" content="https://1000malbecs.com/images/large/a-contramano-malbec-2021.jpg">
+  <meta property="og:url" content="https://1000malbecs.com/vinos/a-contramano-malbec-2021.html">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="1000malbecs">
+  <meta property="og:locale" content="es_ES">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1000malbecs - A CONTRAMANO Malbec 2021">
+  <meta name="twitter:description" content="A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, est...">
+  <meta name="twitter:image" content="https://1000malbecs.com/images/large/a-contramano-malbec-2021.jpg">
+  <meta name="twitter:site" content="@1000malbecs">
+  <title>1000malbecs - A CONTRAMANO Malbec 2021</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header { display: none; }
+    .logo { max-width: 150px; height: auto; }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 110;
+    }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      font-family: 'Montserrat', sans-serif;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .logo-container { text-align: center; margin-bottom: 20px; }
+    #sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A2C59;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    #sidebar details { margin-bottom: 15px; }
+    #sidebar details:first-of-type { margin-bottom: 25px; }
+    #sidebar summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+    #sidebar li { margin: 5px 0; }
+    .nav-link {
+      font-size: 14px;
+      color: #4A2C59;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+    .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+    .main-content {
+      margin-left: 290px;
+      width: calc(100% - 290px);
+      z-index: 1;
+      flex: 1;
+      padding: 20px;
+    }
+    .product-details {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+    .product-image {
+      flex: 0 0 40%;
+      max-width: 350px;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .product-image img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+    }
+    .product-info {
+      flex: 0 0 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-sizing: border-box;
+    }
+    .product-details h1 {
+      color: #4A0D29;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .product-details .info-box {
+      margin: 0;
+      padding: 15px;
+      background-color: #f5e6ff;
+      border: 1px solid #4A0D29;
+      border-radius: 5px;
+    }
+    .product-details .info-box h2 {
+      color: #4A0D29;
+      font-size: 1.3em;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .product-details .info-box p {
+      margin: 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .product-details p.info {
+      margin: 5px 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .product-details p.info strong {
+      color: #4A0D29;
+    }
+    .buy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+    }
+    .buy-button:hover {
+      background-color: #5A1D39;
+    }
+    footer {
+      background-color: #3A0B22;
+      color: #f5e6ff;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      margin-top: auto;
+    }
+    footer h3 {
+      color: #f5e6ff;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    footer p {
+      margin: 8px 0;
+      font-size: 1em;
+    }
+    footer a {
+      color: #d4a5ff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer i {
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+    footer img.social-icon {
+      width: 1.2em;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @media (max-width: 768px) {
+      body { display: block; }
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 120;
+      }
+      .logo { max-width: 100px; }
+      .hamburger { display: block; }
+      #sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        border-bottom: 1px solid #E0E0E0;
+      }
+      #sidebar.open {
+        transform: translateX(0);
+      }
+      .logo-container { display: none; }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+        margin-top: 120px;
+      }
+      .product-details {
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 15px;
+      }
+      .product-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+        max-height: none;
+      }
+      .product-image img {
+        max-height: none;
+      }
+      .product-info {
+        flex: 1 1 100%;
+      }
+      .product-details h1 {
+        font-size: 1.5em;
+        margin-top: 20px;
+      }
+      .product-details .info-box {
+        padding: 10px;
+      }
+      .product-details .info-box h2 {
+        font-size: 1.2em;
+      }
+      .buy-button {
+        width: 100%;
+        max-width: none;
+        padding: 12px;
+      }
+      footer {
+        padding: 15px;
+      }
+      footer h3 {
+        font-size: 1em;
+      }
+      footer p {
+        font-size: 0.9em;
+      }
+      footer i, footer img.social-icon {
+        font-size: 1em;
+        width: 1em;
+      }
+    }
+    @media (min-width: 769px) {
+      .header { display: none; }
+      .logo-container { display: block; }
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="es"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, est..."&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- Open Graph Meta Tags --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta property="og:title" content="1000malbecs - A CONTRAMANO Malbec 2021"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta property="og:description" content="A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, est..."&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta property="og:image" content="https://1000malbecs.com/images/large/a-contramano-malbec-2021.jpg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta property="og:url" content="https://1000malbecs.com/vinos/a-contramano-malbec-2021.html"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta property="og:type" content="product"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta property="og:site_name" content="1000malbecs"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta property="og:locale" content="es_ES"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- Twitter Card Meta Tags --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="twitter:card" content="summary_large_image"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="twitter:title" content="1000malbecs - A CONTRAMANO Malbec 2021"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="twitter:description" content="A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, est..."&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="twitter:image" content="https://1000malbecs.com/images/large/a-contramano-malbec-2021.jpg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="twitter:site" content="@1000malbecs"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;1000malbecs - A CONTRAMANO Malbec 2021&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #fdfdfd;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>min-height: 100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.header { display: none; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.logo { max-width: 150px; height: auto; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.hamburger {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4A2C59;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 110;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 250px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #F8F8F8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>overflow-y: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-right: 1px solid #E0E0E0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Montserrat', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 100;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transition: transform 0.3s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.logo-container { text-align: center; margin-bottom: 20px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4A2C59;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar details { margin-bottom: 15px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar details:first-of-type { margin-bottom: 25px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar summary {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4A2C59;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 5px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar summary i { margin-right: 10px; color: #4A2C59; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#sidebar li { margin: 5px 0; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.nav-link {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4A2C59;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 5px 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 3px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transition: all 0.3s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.nav-link.active { background-color: #4A2C59; color: #FFFFFF; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.main-content {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-left: 290px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: calc(100% - 290px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-details {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 800px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-wrap: nowrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-image {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex: 0 0 40%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 350px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-height: 500px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-image img {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-height: 500px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>object-fit: contain;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-info {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex: 0 0 60%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-details h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4A0D29;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.8em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-details .info-box {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #f5e6ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #4A0D29;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-details .info-box h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4A0D29;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.3em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-details .info-box p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #333;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-details p.info {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 5px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #333;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.product-details p.info strong {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4A0D29;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.buy-button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: inline-block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #4A0D29;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #f5e6ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 200px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-self: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.buy-button:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #5A1D39;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #3A0B22;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #f5e6ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer h3 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #f5e6ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.2em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 10px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 8px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #d4a5ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer a:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: underline;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer i {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-right: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.2em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer img.social-icon {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 1.2em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-right: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>vertical-align: middle;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@media (max-width: 768px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>body { display: block; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>display: block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>position: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>top: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>right: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>z-index: 120;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.logo { max-width: 100px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.hamburger { display: block; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>#sidebar {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>height: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>position: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>top: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>left: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>transform: translateX(-100%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>z-index: 100;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>border-bottom: 1px solid #E0E0E0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>#sidebar.open {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>transform: translateX(0);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.logo-container { display: none; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.main-content {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>margin-left: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>padding: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>margin-top: 120px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.product-details {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>padding: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.product-image {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>flex: 1 1 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>max-width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>max-height: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.product-image img {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>max-height: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.product-info {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>flex: 1 1 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.product-details h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 1.5em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>margin-top: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.product-details .info-box {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>padding: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.product-details .info-box h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 1.2em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.buy-button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>max-width: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>padding: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>footer {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>padding: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>footer h3 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>footer p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 0.9em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>footer i, footer img.social-icon {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width: 1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@media (min-width: 769px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.header { display: none; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.logo-container { display: block; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;header class="header"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;a href="/index.html" title="Volver al inicio"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button class="hamburger"&gt;☰&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;nav id="sidebar"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="logo-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="/index.html" title="Volver al inicio"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Categorías&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;summary&gt;&lt;i class="fas fa-map-marker-alt"&gt;&lt;/i&gt; Provincias&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/provincias/la-rioja.html" class="nav-link active"&gt;La Rioja&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/provincias/mendoza.html" class="nav-link active"&gt;Mendoza&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/provincias/neuquen.html" class="nav-link active"&gt;Neuquen&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/provincias/salta.html" class="nav-link active"&gt;Salta&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;summary&gt;&lt;i class="fas fa-wine-bottle"&gt;&lt;/i&gt; Bodegas&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/agustín-lanús.html" class="nav-link active"&gt;Agustín Lanús&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/bodega-chanarmuyo.html" class="nav-link active"&gt;Bodega Chanarmuyo&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/bodega-goyenechea.html" class="nav-link active"&gt;Bodega Goyenechea&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/bodega-resero.html" class="nav-link active"&gt;Bodega Resero&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/bodega-séptima.html" class="nav-link active"&gt;Bodega Séptima&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/bodega-tukma.html" class="nav-link active"&gt;Bodega Tukma&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/bodegas-bianchi.html" class="nav-link active"&gt;Bodegas Bianchi&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/bodegas-etchart.html" class="nav-link active"&gt;Bodegas Etchart&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/casa-araujo.html" class="nav-link active"&gt;Casa Araujo&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/chakana.html" class="nav-link active"&gt;Chakana&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/cicchitti.html" class="nav-link active"&gt;Cicchitti&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/dilema-wines.html" class="nav-link active"&gt;Dilema Wines&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/enrique-foster-bodega.html" class="nav-link active"&gt;Enrique Foster Bodega&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/eral-bravo.html" class="nav-link active"&gt;Eral Bravo&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/familia-schroeder.html" class="nav-link active"&gt;Familia Schroeder&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link active"&gt;Finca y Bodega Vistalba&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/jasmine-monet.html" class="nav-link active"&gt;Jasmine Monet&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/jorge-rubio.html" class="nav-link active"&gt;Jorge Rubio&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/la-grupa-wines.html" class="nav-link active"&gt;La Grupa Wines&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/luigi-bosca.html" class="nav-link active"&gt;Luigi Bosca&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/mauricio-lorca-bodega-y-viñedos.html" class="nav-link active"&gt;Mauricio Lorca Bodega y Viñedos&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/viña-alicia.html" class="nav-link active"&gt;Viña Alicia&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link active"&gt;Weinert Bodega y Cavas&lt;/a&gt;&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="main-content"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="product-details"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="product-image"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src="/images/large/a-contramano-malbec-2021.jpg" alt="Botella de A CONTRAMANO Malbec 2021"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="product-info"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;A CONTRAMANO Malbec - 2021&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="info"&gt;&lt;strong&gt;Bodega:&lt;/strong&gt; Jorge Rubio&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="info"&gt;&lt;strong&gt;Provincia:&lt;/strong&gt; Mendoza&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="info"&gt;&lt;strong&gt;Región:&lt;/strong&gt; General Alvear&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="info"&gt;&lt;strong&gt;Altura:&lt;/strong&gt; 500&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="info"&gt;&lt;strong&gt;Tipo:&lt;/strong&gt; Malbec&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="info"&gt;&lt;strong&gt;Precio:&lt;/strong&gt; €27.849999999999998&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="info-box"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Descripción&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, este Malbec refleja el terroir mendocino. La añada 2022 ofrece vivacidad y un perfil accesible.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="info-box"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Notas de Cata&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;En nariz, presenta aromas a frambuesa, cereza y un toque de pimienta, con notas de violetas y hierbas frescas. En boca, es jugoso, con sabores a frutos rojos, especias suaves y un dejo de cacao. Los taninos son suaves, con una acidez equilibrada. El final es redondo, con notas de fruta fresca. Marida con choripán, pizza margarita o fiambres artesanales.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="/vinos/a-contramano-malbec-2021.html" class="buy-button"&gt;Comprar Ahora&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;i class="fab fa-whatsapp"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"&gt;Dudas o consultas: +49 151 5822 4728&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Síguenos en&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;img src="/images/x-icon.png" alt="X" class="social-icon"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X"&gt;@1000malbecs&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;img src="/images/instagram-icon.png" alt="Instagram" class="social-icon"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram"&gt;@1000malbecs&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.addEventListener('DOMContentLoaded', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const hamburger = document.querySelector('.hamburger');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const sidebar = document.querySelector('#sidebar');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>hamburger.addEventListener('click', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>sidebar.classList.toggle('open');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const navLinks = document.querySelectorAll('.nav-link');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const currentPath = window.location.pathname;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>navLinks.forEach(link =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (link.getAttribute('href') === currentPath) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>link.classList.add('active');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const details = link.closest('details');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>if (details) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>details.setAttribute('open', '');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+  <header class="header">
+    <a href="/index.html" title="Volver al inicio">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+  <button class="hamburger">☰</button>
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/index.html" title="Volver al inicio">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+      </a>
+    </div>
+    <h2>Categorías</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
+      <ul>
+       
+        <li><a href="/provincias/la-rioja.html" class="nav-link active">La Rioja</a></li>
+       
+        <li><a href="/provincias/mendoza.html" class="nav-link active">Mendoza</a></li>
+       
+        <li><a href="/provincias/neuquen.html" class="nav-link active">Neuquen</a></li>
+       
+        <li><a href="/provincias/salta.html" class="nav-link active">Salta</a></li>
+       
+      </ul>
+    </details>
+    <details>
+      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
+      <ul>
+       
+        <li><a href="/bodegas/agustín-lanús.html" class="nav-link active">Agustín Lanús</a></li>
+       
+        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link active">Bodega Chanarmuyo</a></li>
+       
+        <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link active">Bodega Goyenechea</a></li>
+       
+        <li><a href="/bodegas/bodega-resero.html" class="nav-link active">Bodega Resero</a></li>
+       
+        <li><a href="/bodegas/bodega-séptima.html" class="nav-link active">Bodega Séptima</a></li>
+       
+        <li><a href="/bodegas/bodega-tukma.html" class="nav-link active">Bodega Tukma</a></li>
+       
+        <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link active">Bodegas Bianchi</a></li>
+       
+        <li><a href="/bodegas/bodegas-etchart.html" class="nav-link active">Bodegas Etchart</a></li>
+       
+        <li><a href="/bodegas/casa-araujo.html" class="nav-link active">Casa Araujo</a></li>
+       
+        <li><a href="/bodegas/chakana.html" class="nav-link active">Chakana</a></li>
+       
+        <li><a href="/bodegas/cicchitti.html" class="nav-link active">Cicchitti</a></li>
+       
+        <li><a href="/bodegas/dilema-wines.html" class="nav-link active">Dilema Wines</a></li>
+       
+        <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link active">Enrique Foster Bodega</a></li>
+       
+        <li><a href="/bodegas/eral-bravo.html" class="nav-link active">Eral Bravo</a></li>
+       
+        <li><a href="/bodegas/familia-schroeder.html" class="nav-link active">Familia Schroeder</a></li>
+       
+        <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link active">Finca y Bodega Vistalba</a></li>
+       
+        <li><a href="/bodegas/jasmine-monet.html" class="nav-link active">Jasmine Monet</a></li>
+       
+        <li><a href="/bodegas/jorge-rubio.html" class="nav-link active">Jorge Rubio</a></li>
+       
+        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link active">La Grupa Wines</a></li>
+       
+        <li><a href="/bodegas/luigi-bosca.html" class="nav-link active">Luigi Bosca</a></li>
+       
+        <li><a href="/bodegas/mauricio-lorca-bodega-y-viñedos.html" class="nav-link active">Mauricio Lorca Bodega y Viñedos</a></li>
+       
+        <li><a href="/bodegas/viña-alicia.html" class="nav-link active">Viña Alicia</a></li>
+       
+        <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link active">Weinert Bodega y Cavas</a></li>
+       
+      </ul>
+    </details>
+  </nav>
+  <div class="main-content">
+    <div class="product-details">
+      <div class="product-image">
+        <img src="/images/large/a-contramano-malbec-2021.jpg" alt="Botella de A CONTRAMANO Malbec 2021"
+             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+      </div>
+      <div class="product-info">
+        <h1>A CONTRAMANO Malbec - 2021</h1>
+        <p class="info"><strong>Bodega:</strong> Jorge Rubio</p>
+        <p class="info"><strong>Provincia:</strong> Mendoza</p>
+        <p class="info"><strong>Región:</strong> General Alvear</p>
+        <p class="info"><strong>Altura:</strong> 500</p>
+        <p class="info"><strong>Tipo:</strong> Malbec</p>
+        <p class="info"><strong>Precio:</strong> €27.849999999999998</p>
+        <div class="info-box">
+          <h2>Descripción</h2>
+          <p>A CONTRAMANO Malbec de Chakana es un vino frutal y expresivo, elaborado en Mendoza con un estilo fresco y moderno. Ideal para asados, pizzas o embutidos, este Malbec refleja el terroir mendocino. La añada 2022 ofrece vivacidad y un perfil accesible.</p>
+        </div>
+        <div class="info-box">
+          <h2>Notas de Cata</h2>
+          <p>En nariz, presenta aromas a frambuesa, cereza y un toque de pimienta, con notas de violetas y hierbas frescas. En boca, es jugoso, con sabores a frutos rojos, especias suaves y un dejo de cacao. Los taninos son suaves, con una acidez equilibrada. El final es redondo, con notas de fruta fresca. Marida con choripán, pizza margarita o fiambres artesanales.</p>
+        </div>
+        <a href="/vinos/a-contramano-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>
+      <i class="fab fa-whatsapp"></i>
+      <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">Dudas o consultas: +49 151 5822 4728</a>
+    </p>
+    <h3>Síguenos en</h3>
+    <p>
+      <img src="/images/x-icon.png" alt="X" class="social-icon">
+      <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+    </p>
+    <p>
+      <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
+      <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+    </p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+          const details = link.closest('details');
+          if (details) {
+            details.setAttribute('open', '');
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
