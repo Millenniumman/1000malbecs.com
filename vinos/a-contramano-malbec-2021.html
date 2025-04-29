@@ -184,20 +184,15 @@
     footer {
       background-color: #3A0B22;
       color: #f5e6ff;
-      padding: 20px;
+      padding: 10px;
       text-align: center;
       width: 100%;
       margin-top: auto;
     }
-    footer h3 {
-      color: #f5e6ff;
-      font-size: 1.2em;
-      font-weight: bold;
-      margin: 10px 0;
-    }
     footer p {
-      margin: 8px 0;
-      font-size: 1em;
+      margin: 0;
+      font-size: 0.9em;
+      display: inline;
     }
     footer a {
       color: #d4a5ff;
@@ -208,13 +203,18 @@
       text-decoration: underline;
     }
     footer i {
-      margin-right: 8px;
-      font-size: 1.2em;
+      margin-right: 5px;
+      font-size: 1em;
+      vertical-align: middle;
     }
     footer img.social-icon {
-      width: 1.2em;
-      margin-right: 8px;
+      width: 1em;
+      margin-right: 5px;
       vertical-align: middle;
+    }
+    footer span.separator {
+      color: #f5e6ff;
+      margin: 0 5px;
     }
     @media (max-width: 768px) {
       body { display: block; }
@@ -236,6 +236,7 @@
         transform: translateX(-100%);
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
+        padding-top: 50px; /* Added to push content below hamburger */
       }
       #sidebar.open {
         transform: translateX(0);
@@ -279,17 +280,25 @@
         padding: 12px;
       }
       footer {
-        padding: 15px;
-      }
-      footer h3 {
-        font-size: 1em;
+        padding: 8px;
       }
       footer p {
-        font-size: 0.9em;
+        font-size: 0.8em;
       }
       footer i, footer img.social-icon {
-        font-size: 1em;
-        width: 1em;
+        font-size: 0.9em;
+        width: 0.9em;
+      }
+    }
+    @media (max-width: 480px) {
+      footer p {
+        font-size: 0.7em;
+      }
+      footer a {
+        margin: 0 3px;
+      }
+      footer span.separator {
+        margin: 0 3px;
       }
     }
     @media (min-width: 769px) {
@@ -315,67 +324,67 @@
     <details>
       <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
       <ul>
-       
+        
         <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-       
+        
         <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-       
+        
         <li><a href="/provincias/neuquen.html" class="nav-link">Neuquen</a></li>
-       
+        
         <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
-       
+        
       </ul>
     </details>
     <details>
       <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
       <ul>
-       
+        
         <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
-       
+        
         <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-       
+        
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-       
+        
         <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
-       
+        
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
-       
+        
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-       
+        
         <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-       
+        
         <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-       
+        
         <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-       
+        
         <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-       
+        
         <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-       
+        
         <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
-       
+        
         <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
-       
+        
         <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-       
+        
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-       
+        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-       
+        
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-       
+        
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-       
+        
         <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
-       
+        
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-       
+        
         <li><a href="/bodegas/mauricio-lorca-bodega-y-viñedos.html" class="nav-link">Mauricio Lorca Bodega y Viñedos</a></li>
-       
+        
         <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
-       
+        
         <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-       
+        
       </ul>
     </details>
   </nav>
@@ -406,17 +415,11 @@
   </div>
   <footer>
     <p>
-      <i class="fab fa-whatsapp"></i>
-      <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">Dudas o consultas: +49 151 5822 4728</a>
-    </p>
-    <h3>Síguenos en</h3>
-    <p>
-      <img src="/images/x-icon.png" alt="X" class="social-icon">
-      <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
-    </p>
-    <p>
-      <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-      <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+      <i class="fab fa-whatsapp"></i><a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
+      <span class="separator">|</span>
+      <img src="/images/x-icon.png" alt="X" class="social-icon"><a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+      <span class="separator">|</span>
+      <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon"><a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
     </p>
   </footer>
   <script>
@@ -441,4 +444,3 @@
   </script>
 </body>
 </html>
- 
