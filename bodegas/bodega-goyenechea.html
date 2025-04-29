@@ -134,6 +134,46 @@
       object-fit: cover;
       border-radius: 5px;
     }
+    footer {
+      background-color: #F8F8F8;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #E0E0E0;
+      margin-top: 20px;
+    }
+    footer p {
+      font-size: 14px;
+      color: #4A2C59;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    footer h3 {
+      font-size: 16px;
+      color: #4A2C59;
+      margin: 15px 0 10px;
+    }
+    footer a {
+      color: #4A2C59;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #7B4F8C;
+    }
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .fa-whatsapp {
+      font-size: 20px;
+      color: #25D366;
+      margin-right: 8px;
+    }
     @media (max-width: 768px) {
       body { display: block; }
       .header {
@@ -180,6 +220,22 @@
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
       .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      footer {
+        padding: 15px;
+      }
+      footer p {
+        font-size: 12px;
+        flex-direction: column;
+        gap: 5px;
+      }
+      footer h3 {
+        font-size: 14px;
+      }
+      .social-icon, .fa-whatsapp {
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+      }
     }
     @media (min-width: 769px) {
       .header { display: none; }
@@ -354,50 +410,20 @@
       
     </div>
   </main>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.hamburger');
-      const sidebar = document.querySelector('#sidebar');
-      hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-        console.log(`Sidebar ${sidebar.classList.contains('open') ? 'abierto' : 'cerrado'}`);
-      });
-      const navLinks = document.querySelectorAll('.nav-link');
-      const currentPath = window.location.pathname;
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-          link.classList.add('active');
-          const details = link.closest('details');
-          if (details) {
-            details.setAttribute('open', '');
-          }
-        }
-      });
-      const infoIcons = document.querySelectorAll('.info-icon');
-      infoIcons.forEach(icon => {
-        icon.addEventListener('click', (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          console.log(`Ícono tocado: ${icon.closest('.product-card').querySelector('h3').textContent}`);
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
-          });
-          const overlay = icon.closest('.product-card').querySelector('.overlay');
-          if (overlay) {
-            overlay.classList.toggle('active');
-            console.log(`Overlay ${overlay.classList.contains('active') ? 'activado' : 'desactivado'}`);
-          } else {
-            console.log('Error: No se encontró el overlay para', icon.closest('.product-card').querySelector('h3').textContent);
-          }
-        });
-      });
-      const buyButtons = document.querySelectorAll('.buy-button');
-      buyButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          e.stopPropagation();
-        });
-      });
-    });
-  </script>
+  <footer>
+    <p>
+      <i class="fab fa-whatsapp"></i>
+      <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">Dudas o consultas: +49 151 5822 4728</a>
+    </p>
+    <h3>Síguenos en</h3>
+    <p>
+      <img src="/images/x-icon.png" alt="X" class="social-icon">
+      <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+    </p>
+    <p>
+      <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
+      <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+    </p>
+  </footer>
 </body>
 </html>
