@@ -178,7 +178,8 @@
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
-      .gallery img { width: 100%; height: auto; max-height: 150px; }
+      .desktop-only { display: none; }
+      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
     }
     @media (min-width: 769px) {
       .header { display: none; }
@@ -273,14 +274,10 @@
     
     <section class="presentation">
       <h2>Acerca de Casa Araujo</h2>
-      <p>Nuestro hogar está ubicado en el oasis de Villa Atuel, San Rafael, sur de Mendoza. Un paraíso natural deslumbrante, con una potencia fenomenal para ser la tierra de nuestras uvas.Desde nuestros orígenes en el 2001 trabajamos en sintonía con nuestro entorno, poniendo todo en cada detalle del proceso. Estamos hechos del amor a nuestra tierra, que honramos haciendo el mejor vino posible, de la pasión por hacer un producto fantástico y puro, y del respeto a la comunidad que generamos.</p>
+      <p>Descripción de Casa Araujo. Aquí puedes agregar información sobre la historia, características, o detalles relevantes de la bodega.</p>
       <div class="gallery">
-        <img src="https://www.bodegaaraujo.com.ar/images/uploads/banners/185.png" alt="Imagen 1 de Casa Araujo"
-             onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
-        <img src="https://www.bodegaaraujo.com.ar/images/uploads/banners/187.png" alt="Imagen 2 de Casa Araujo"
-             onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
-        <img src="https://www.bodegaaraujo.com.ar/images/uploads/banners/153.jpg" alt="Imagen 2 de Casa Araujo"
-             onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
+        <img src="/images/bodega/casa-araujo-1.jpg" alt="Banner de Casa Araujo" class="banner-image">
+        <img src="/images/bodega/casa-araujo-2.jpg" alt="Imagen 2 de Casa Araujo" class="desktop-only" onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
       </div>
     </section>
     

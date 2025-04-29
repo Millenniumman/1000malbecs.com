@@ -178,7 +178,8 @@
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
-      .gallery img { width: 100%; height: auto; max-height: 150px; }
+      .desktop-only { display: none; }
+      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
     }
     @media (min-width: 769px) {
       .header { display: none; }
@@ -275,10 +276,8 @@
       <h2>Acerca de Eral Bravo</h2>
       <p>Descripción de Eral Bravo. Aquí puedes agregar información sobre la historia, características, o detalles relevantes de la bodega.</p>
       <div class="gallery">
-        <img src="/images/bodega/eral-bravo-1.jpg" alt="Imagen 1 de Eral Bravo"
-             onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
-        <img src="/images/bodega/eral-bravo-2.jpg" alt="Imagen 2 de Eral Bravo"
-             onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
+        <img src="/images/bodega/eral-bravo-1.jpg" alt="Banner de Eral Bravo" class="banner-image">
+        <img src="/images/bodega/eral-bravo-2.jpg" alt="Imagen 2 de Eral Bravo" class="desktop-only" onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
       </div>
     </section>
     
