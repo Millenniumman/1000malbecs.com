@@ -222,6 +222,7 @@
       justify-content: space-between;
       z-index: 5;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-sizing: border-box;
     }
     .product-card img {
       width: 180px;
@@ -419,16 +420,41 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
+      .product-grid.same-bodega .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+      }
+      .product-grid.same-bodega .product-card img {
+        width: 140px;
+        height: 140px;
+      }
+      .product-grid.same-bodega .product-card:nth-child(n+3) {
+        display: none;
+      }
+      .product-grid.same-region {
+        gap: 20px;
+      }
+      .product-grid.same-region .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+      }
+      .product-grid.same-region .product-card img {
+        width: 140px;
+        height: 140px;
+      }
       .product-card {
         width: 100%;
         max-width: none;
-        height: 280px;
+        height: 260px;
         padding: 10px;
         pointer-events: none;
+        box-sizing: border-box;
       }
       .product-card img {
-        width: 160px;
-        height: 160px;
+        width: 140px;
+        height: 140px;
         pointer-events: none;
       }
       .product-card h3, .product-card .price {
@@ -587,7 +613,7 @@
       <h2>También te podrían interesar</h2>
       
       <h3>Más vinos de Casa Araujo</h3>
-      <div class="product/Grid same-bodega">
+      <div class="product-grid same-bodega">
         
         <div class="product-card" data-overlay-id="casa-araujo-mimi-2023.html">
           <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023"
