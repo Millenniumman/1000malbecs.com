@@ -204,7 +204,7 @@
     .product-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
+      gap: 40px;
       margin-bottom: 30px;
     }
     .product-card {
@@ -215,7 +215,6 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      width: 100%;
       max-width: 200px;
       height: 300px;
       display: flex;
@@ -416,11 +415,13 @@
         margin: 15px 0 10px;
       }
       .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 25px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
       }
       .product-card {
-        width: 180px;
+        width: 100%;
+        max-width: none;
         height: 280px;
         padding: 10px;
         pointer-events: none;
@@ -433,9 +434,6 @@
       .product-card h3, .product-card .price {
         pointer-events: none;
       }
-      .product-card:nth-child(n+3) {
-        display: none;
-      }
       .info-icon {
         display: block !important;
         pointer-events: auto;
@@ -444,11 +442,12 @@
         max-height: 120px;
         pointer-events: auto;
       }
-      .product-card:hover .overlay {
-        display: none;
-      }
       .overlay.active {
         display: block !important;
+        z-index: 12;
+      }
+      .product-card:hover .overlay {
+        display: none;
       }
     }
     @media (max-width: 480px) {
@@ -465,8 +464,12 @@
     @media (min-width: 769px) {
       .header { display: none; }
       .logo-container { display: block; }
+      .product-grid {
+        gap: 40px;
+      }
       .product-card {
         pointer-events: auto;
+        max-width: 200px;
       }
       .product-card img, .product-card h3, .product-card .price {
         pointer-events: none;
@@ -584,7 +587,7 @@
       <h2>También te podrían interesar</h2>
       
       <h3>Más vinos de Finca y Bodega Vistalba</h3>
-      <div class="product-grid same-bodega">
+      <div class="product/Grid same-bodega">
         
         <div class="product-card" data-overlay-id="tomero--cuartel-41-malbec-2018-2018.html">
           <img src="/images/small/tomero--cuartel-41-malbec-2018-2018.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2018 2018"
