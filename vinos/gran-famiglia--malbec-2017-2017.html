@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="description" content="Gran Famiglia - Malbec 2017 de Bodegas Bianchi es un vino estructurado y elegante, elaborado en San Rafael, Mendoza, con una crianza en roble que resalta su ...">
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000malbecs - Gran Famiglia - Malbec 2017 2017">
@@ -177,6 +180,7 @@
       width: 100%;
       max-width: 200px;
       align-self: center;
+      pointer-events: auto;
     }
     .buy-button:hover {
       background-color: #5A1D39;
@@ -219,12 +223,14 @@
       justify-content: space-between;
       z-index: 5;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      pointer-events: none;
     }
     .product-card img {
       width: 180px;
       height: 180px;
       object-fit: contain;
       margin: 0 auto;
+      pointer-events: none;
     }
     .info-icon {
       position: absolute;
@@ -235,13 +241,14 @@
       line-height: 40px;
       font-size: 24px;
       cursor: pointer;
-      z-index: 20;
+      z-index: 30;
       display: none;
       color: #4A2C59;
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 50%;
       text-align: center;
       touch-action: manipulation;
+      pointer-events: auto;
     }
     .overlay {
       display: none;
@@ -256,7 +263,8 @@
       box-sizing: border-box;
       font-size: 12px;
       overflow-y: auto;
-      z-index: 10;
+      z-index: 20;
+      pointer-events: none;
     }
     .overlay p {
       margin: 2px 0;
@@ -277,11 +285,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      pointer-events: none;
     }
     .product-card .price {
       font-size: 14px;
       color: #4A2C59;
       margin: 5px 0;
+      pointer-events: none;
     }
     .product-card .buy-button {
       padding: 6px 12px;
@@ -562,11 +572,11 @@
       <h3>Más vinos de Bodegas Bianchi</h3>
       <div class="recommended-grid same-bodega">
         
-        <div class="product-card" data-id="enzo-bianchi--gran-malbec-2019-2019.html">
+        <div class="product-card" data-overlay-id="enzo-bianchi--gran-malbec-2019-2019.html">
           <img src="/images/small/enzo-bianchi--gran-malbec-2019-2019.jpg" alt="Botella de Enzo Bianchi - Gran Malbec 2019 2019"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="enzo-bianchi--gran-malbec-2019-2019.html">🍷</div>
+          <div class="overlay" data-overlay-id="enzo-bianchi--gran-malbec-2019-2019.html">
             <p><strong>Bodega:</strong> Bodegas Bianchi</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -577,11 +587,11 @@
           <a href="/vinos/enzo-bianchi--gran-malbec-2019-2019.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-id="famiglia-bianchi-malbec-2014-2014.html">
+        <div class="product-card" data-overlay-id="famiglia-bianchi-malbec-2014-2014.html">
           <img src="/images/small/famiglia-bianchi-malbec-2014-2014.jpg" alt="Botella de Famiglia Bianchi Malbec 2014 2014"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="famiglia-bianchi-malbec-2014-2014.html">🍷</div>
+          <div class="overlay" data-overlay-id="famiglia-bianchi-malbec-2014-2014.html">
             <p><strong>Bodega:</strong> Bodegas Bianchi</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -592,11 +602,11 @@
           <a href="/vinos/famiglia-bianchi-malbec-2014-2014.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-id="famiglia-bianchi-malbec-2020-2020.html">
+        <div class="product-card" data-overlay-id="famiglia-bianchi-malbec-2020-2020.html">
           <img src="/images/small/famiglia-bianchi-malbec-2020-2020.jpg" alt="Botella de Famiglia Bianchi Malbec 2020 2020"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="famiglia-bianchi-malbec-2020-2020.html">🍷</div>
+          <div class="overlay" data-overlay-id="famiglia-bianchi-malbec-2020-2020.html">
             <p><strong>Bodega:</strong> Bodegas Bianchi</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -607,11 +617,11 @@
           <a href="/vinos/famiglia-bianchi-malbec-2020-2020.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-id="famiglia-bianchi-malbec-2021-2021.html">
+        <div class="product-card" data-overlay-id="famiglia-bianchi-malbec-2021-2021.html">
           <img src="/images/small/famiglia-bianchi-malbec-2021-2021.jpg" alt="Botella de Famiglia Bianchi Malbec 2021 2021"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="famiglia-bianchi-malbec-2021-2021.html">🍷</div>
+          <div class="overlay" data-overlay-id="famiglia-bianchi-malbec-2021-2021.html">
             <p><strong>Bodega:</strong> Bodegas Bianchi</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -628,11 +638,11 @@
       <h3>Vinos de San Rafael</h3>
       <div class="recommended-grid same-region">
         
-        <div class="product-card" data-id="135-aniversario-2022.html">
+        <div class="product-card" data-overlay-id="135-aniversario-2022.html">
           <img src="/images/small/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="135-aniversario-2022.html">🍷</div>
+          <div class="overlay" data-overlay-id="135-aniversario-2022.html">
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -643,11 +653,11 @@
           <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-id="casa-araujo-mimi-2023.html">
+        <div class="product-card" data-overlay-id="casa-araujo-mimi-2023.html">
           <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="casa-araujo-mimi-2023.html">🍷</div>
+          <div class="overlay" data-overlay-id="casa-araujo-mimi-2023.html">
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -658,11 +668,11 @@
           <a href="/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-id="casa-araujo-roble-2023.html">
+        <div class="product-card" data-overlay-id="casa-araujo-roble-2023.html">
           <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="casa-araujo-roble-2023.html">🍷</div>
+          <div class="overlay" data-overlay-id="casa-araujo-roble-2023.html">
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -673,11 +683,11 @@
           <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-id="casa-araujo-varietal-2023.html">
+        <div class="product-card" data-overlay-id="casa-araujo-varietal-2023.html">
           <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon">🍷</div>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="casa-araujo-varietal-2023.html">🍷</div>
+          <div class="overlay" data-overlay-id="casa-araujo-varietal-2023.html">
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -724,42 +734,49 @@
       const productCards = document.querySelectorAll('.product-card');
       console.log(`Found ${productCards.length} product-card elements`);
       productCards.forEach(card => {
+        const overlayId = card.getAttribute('data-overlay-id');
         const infoIcon = card.querySelector('.info-icon');
         const overlay = card.querySelector('.overlay');
-        const cardId = card.getAttribute('data-id');
         if (!infoIcon) {
-          console.error(`No info-icon found in product-card: ${cardId}`);
+          console.error(`No info-icon found in product-card: ${overlayId}`);
+        } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
+          console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
         }
         if (!overlay) {
-          console.error(`No overlay found in product-card: ${cardId}`);
+          console.error(`No overlay found in product-card: ${overlayId}`);
+        } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
+          console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
         }
       });
 
-      // Manejar clics en info-icon
-      const infoIcons = document.querySelectorAll('.info-icon');
-      console.log(`Found ${infoIcons.length} info-icon elements`);
-      infoIcons.forEach(icon => {
-        icon.addEventListener('click', (e) => {
+      // Event delegation para info-icon
+      document.querySelectorAll('.recommended-grid').forEach(grid => {
+        grid.addEventListener('click', (e) => {
+          const infoIcon = e.target.closest('.info-icon');
+          if (!infoIcon) return;
+          
           e.preventDefault();
           e.stopPropagation();
-          const productCard = icon.closest('.product-card');
-          if (!productCard) {
-            console.error('No product-card found for icon:', icon);
-            return;
-          }
-          const cardId = productCard.getAttribute('data-id');
-          const overlay = productCard.querySelector('.overlay');
-          if (!overlay) {
-            console.error(`No overlay found in product-card: ${cardId}`);
-            return;
-          }
+          
+          const overlayId = infoIcon.getAttribute('data-overlay-id');
+          console.log(`Clicked info-icon for overlayId: ${overlayId}`);
+          
           // Cerrar todos los overlays
           document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
             otherOverlay.classList.remove('active');
           });
-          // Alternar el overlay actual
+          
+          // Encontrar el overlay correspondiente
+          const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+          if (!overlay) {
+            console.error(`No overlay found for data-overlay-id: ${overlayId}`);
+            return;
+          }
+          
+          // Alternar el overlay
           overlay.classList.toggle('active');
-          console.log(`Toggled overlay for card: ${cardId}, Name: ${productCard.querySelector('h4').textContent}`);
+          const productCard = overlay.closest('.product-card');
+          console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h4').textContent}`);
         });
       });
 
