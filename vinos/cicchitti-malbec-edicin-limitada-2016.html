@@ -230,14 +230,18 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      font-size: 28px; /* Mayor tamaño para mejor área de toque */
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 24px;
       cursor: pointer;
       z-index: 20;
       display: none;
       color: #4A2C59;
-      padding: 8px; /* Mayor área de toque */
-      border-radius: 50%; /* Estética circular */
-      background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      text-align: center;
+      touch-action: manipulation;
     }
     .overlay {
       display: none;
@@ -560,16 +564,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
       <h3>Más vinos de Cicchitti</h3>
       <div class="recommended-grid same-bodega">
         
-        <div class="product-card"
-             data-bodega="Cicchitti"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2018"
-             data-precio="34.55">
+        <div class="product-card" data-id="cicchitti-gran-reserva-malbec-2018.html">
           <img src="/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="Botella de CICCHITTI Gran Reserva Malbec 2018"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> Cicchitti</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -581,16 +579,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
           <a href="/vinos/cicchitti-gran-reserva-malbec-2018.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card"
-             data-bodega="Cicchitti"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2021"
-             data-precio="21.65">
+        <div class="product-card" data-id="cicchitti-malbec-2021.html">
           <img src="/images/small/cicchitti-malbec-2021.jpg" alt="Botella de CICCHITTI Malbec 2021"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> Cicchitti</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -602,16 +594,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
           <a href="/vinos/cicchitti-malbec-2021.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card"
-             data-bodega="Cicchitti"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2022"
-             data-precio="17.55">
+        <div class="product-card" data-id="cicchitti-primmo-malbec-2022.html">
           <img src="/images/small/cicchitti-primmo-malbec-2022.jpg" alt="Botella de CICCHITTI Primmo Malbec 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> Cicchitti</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -623,16 +609,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
           <a href="/vinos/cicchitti-primmo-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card"
-             data-bodega="Cicchitti"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2021"
-             data-precio="22.55">
+        <div class="product-card" data-id="vos-malbec-de-malbec-2021.html">
           <img src="/images/small/vos-malbec-de-malbec-2021.jpg" alt="Botella de VOS Malbec de Malbec 2021"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> Cicchitti</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -650,16 +630,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
       <h3>Vinos de Maipú</h3>
       <div class="recommended-grid same-region">
         
-        <div class="product-card"
-             data-bodega="Cicchitti"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2018"
-             data-precio="34.55">
+        <div class="product-card" data-id="cicchitti-gran-reserva-malbec-2018.html">
           <img src="/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="Botella de CICCHITTI Gran Reserva Malbec 2018"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> Cicchitti</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -671,16 +645,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
           <a href="/vinos/cicchitti-gran-reserva-malbec-2018.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card"
-             data-bodega="Cicchitti"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2021"
-             data-precio="21.65">
+        <div class="product-card" data-id="cicchitti-malbec-2021.html">
           <img src="/images/small/cicchitti-malbec-2021.jpg" alt="Botella de CICCHITTI Malbec 2021"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> Cicchitti</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -692,16 +660,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
           <a href="/vinos/cicchitti-malbec-2021.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card"
-             data-bodega="Cicchitti"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2022"
-             data-precio="17.55">
+        <div class="product-card" data-id="cicchitti-primmo-malbec-2022.html">
           <img src="/images/small/cicchitti-primmo-malbec-2022.jpg" alt="Botella de CICCHITTI Primmo Malbec 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> Cicchitti</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -713,16 +675,10 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
           <a href="/vinos/cicchitti-primmo-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card"
-             data-bodega="La Grupa Wines"
-             data-provincia="Mendoza"
-             data-region="Maipú"
-             data-altura="700"
-             data-anada="2022"
-             data-precio="15.65">
+        <div class="product-card" data-id="la-grupa-syrah-malbec-075-2022.html">
           <img src="/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="Botella de LA Grupa Syrah Malbec 0.75 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <span class="info-icon">🍷</span>
+          <div class="info-icon">🍷</div>
           <div class="overlay">
             <p><strong>Bodega:</strong> La Grupa Wines</p>
             <p><strong>Provincia:</strong> Mendoza</p>
@@ -765,12 +721,27 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
           }
         }
       });
-      // Detectar si es mobile
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      // Toggle overlay on info-icon (mobile)
+
+      // Validar DOM
+      const productCards = document.querySelectorAll('.product-card');
+      console.log(`Found ${productCards.length} product-card elements`);
+      productCards.forEach(card => {
+        const infoIcon = card.querySelector('.info-icon');
+        const overlay = card.querySelector('.overlay');
+        const cardId = card.getAttribute('data-id');
+        if (!infoIcon) {
+          console.error(`No info-icon found in product-card: ${cardId}`);
+        }
+        if (!overlay) {
+          console.error(`No overlay found in product-card: ${cardId}`);
+        }
+      });
+
+      // Manejar clics en info-icon
       const infoIcons = document.querySelectorAll('.info-icon');
+      console.log(`Found ${infoIcons.length} info-icon elements`);
       infoIcons.forEach(icon => {
-        const toggleOverlay = (e) => {
+        icon.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
           const productCard = icon.closest('.product-card');
@@ -778,38 +749,25 @@ Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
             console.error('No product-card found for icon:', icon);
             return;
           }
+          const cardId = productCard.getAttribute('data-id');
           const overlay = productCard.querySelector('.overlay');
           if (!overlay) {
-            console.error('No overlay found in product-card:', productCard);
+            console.error(`No overlay found in product-card: ${cardId}`);
             return;
           }
-          // Cerrar todos los otros overlays
+          // Cerrar todos los overlays
           document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
-            if (otherOverlay !== overlay) {
-              otherOverlay.classList.remove('active');
-            }
+            otherOverlay.classList.remove('active');
           });
           // Alternar el overlay actual
           overlay.classList.toggle('active');
-          console.log(`Toggled overlay for ${productCard.querySelector('h4').textContent} (Event: ${e.type})`);
-        };
-        // Usar touchstart en mobile, click en desktop
-        if (isMobile) {
-          icon.addEventListener('touchstart', toggleOverlay, { passive: false });
-        } else {
-          icon.addEventListener('click', toggleOverlay);
-        }
+          console.log(`Toggled overlay for card: ${cardId}, Name: ${productCard.querySelector('h4').textContent}`);
+        });
       });
-      // Cerrar overlays al tocar fuera (mobile)
-      document.addEventListener('touchstart', (e) => {
-        if (isMobile && !e.target.closest('.product-card')) {
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
-          });
-        }
-      }, { passive: true });
+
+      // Cerrar overlays al clicar/tocar fuera
       document.addEventListener('click', (e) => {
-        if (!isMobile && !e.target.closest('.product-card')) {
+        if (!e.target.closest('.product-card')) {
           document.querySelectorAll('.overlay.active').forEach(overlay => {
             overlay.classList.remove('active');
           });
