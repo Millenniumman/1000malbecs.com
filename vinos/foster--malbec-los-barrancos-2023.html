@@ -201,7 +201,7 @@
       font-size: 1.4em;
       margin: 20px 0 15px;
     }
-    .recommended-grid {
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
@@ -223,29 +223,27 @@
       justify-content: space-between;
       z-index: 5;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      pointer-events: none;
     }
     .product-card img {
       width: 180px;
       height: 180px;
       object-fit: contain;
       margin: 0 auto;
-      pointer-events: none;
     }
     .info-icon {
       position: absolute;
       top: 10px;
       right: 10px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      font-size: 24px;
+      font-size: 20px;
       cursor: pointer;
-      z-index: 30;
+      z-index: 10;
       display: none;
       color: #4A2C59;
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
       text-align: center;
       touch-action: manipulation;
       pointer-events: auto;
@@ -257,19 +255,18 @@
       left: 0;
       width: 100%;
       max-height: 100px;
-      background-color: rgba(74, 44, 89, 0.8);
+      background-color: rgba(128, 0, 0, 0.8);
       color: #FFFFFF;
       padding: 10px;
       box-sizing: border-box;
       font-size: 12px;
       overflow-y: auto;
-      z-index: 20;
+      z-index: 6;
       pointer-events: none;
     }
     .overlay p {
       margin: 2px 0;
       color: #FFFFFF;
-      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
@@ -277,7 +274,7 @@
     .product-card .overlay.active {
       display: block;
     }
-    .product-card h4 {
+    .product-card h3 {
       font-size: 14px;
       margin: 5px 0;
       color: #4A2C59;
@@ -285,13 +282,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      pointer-events: none;
     }
     .product-card .price {
       font-size: 14px;
       color: #4A2C59;
       margin: 5px 0;
-      pointer-events: none;
     }
     .product-card .buy-button {
       padding: 6px 12px;
@@ -419,25 +414,34 @@
         font-size: 1.2em;
         margin: 15px 0 10px;
       }
-      .recommended-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 25px;
       }
       .product-card {
-        width: 100%;
-        max-width: none;
+        width: 180px;
         height: 280px;
         padding: 10px;
+        pointer-events: none;
       }
       .product-card img {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
+        pointer-events: none;
+      }
+      .product-card h3, .product-card .price {
+        pointer-events: none;
       }
       .product-card:nth-child(n+3) {
         display: none;
       }
       .info-icon {
         display: block;
+        pointer-events: auto;
+      }
+      .overlay {
+        max-height: 80px;
+        pointer-events: auto;
       }
       .product-card:hover .overlay {
         display: none;
@@ -457,6 +461,12 @@
     @media (min-width: 769px) {
       .header { display: none; }
       .logo-container { display: block; }
+      .product-card {
+        pointer-events: auto;
+      }
+      .product-card img, .product-card h3, .product-card .price {
+        pointer-events: none;
+      }
     }
   </style>
 </head>
@@ -570,7 +580,7 @@
       <h2>También te podrían interesar</h2>
       
       <h3>Más vinos de Enrique Foster Bodega</h3>
-      <div class="recommended-grid same-bodega">
+      <div class="product-grid same-bodega">
         
         <div class="product-card" data-overlay-id="foster--malbec-2023.html">
           <img src="/images/small/foster--malbec-2023.jpg" alt="Botella de Foster - Malbec 2023"
@@ -582,7 +592,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 950 msnm</p>
           </div>
-          <h4>Foster - Malbec 2023</h4>
+          <h3>Foster - Malbec 2023</h3>
           <p class="price">€21.00</p>
           <a href="/vinos/foster--malbec-2023.html" class="buy-button">Comprar</a>
         </div>
@@ -597,7 +607,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 950 msnm</p>
           </div>
-          <h4>Foster - Malbec 'Los Altepes' 2023</h4>
+          <h3>Foster - Malbec 'Los Altepes' 2023</h3>
           <p class="price">€23.00</p>
           <a href="/vinos/foster--malbec-los-altepes-2023.html" class="buy-button">Comprar</a>
         </div>
@@ -612,7 +622,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 950 msnm</p>
           </div>
-          <h4>Foster - Malbec Limited Edition 2023</h4>
+          <h3>Foster - Malbec Limited Edition 2023</h3>
           <p class="price">€44.00</p>
           <a href="/vinos/foster--malbec-limited-edition-2023.html" class="buy-button">Comprar</a>
         </div>
@@ -627,7 +637,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 950 msnm</p>
           </div>
-          <h4>Ique - Malbec 2023 2021</h4>
+          <h3>Ique - Malbec 2023 2021</h3>
           <p class="price">€11.00</p>
           <a href="/vinos/ique--malbec-2023-2021.html" class="buy-button">Comprar</a>
         </div>
@@ -636,7 +646,7 @@
       
       
       <h3>Vinos de Luján de Cuyo</h3>
-      <div class="recommended-grid same-region">
+      <div class="product-grid same-region">
         
         <div class="product-card" data-overlay-id="lois--sparkling-malbec-2021-2021.html">
           <img src="/images/small/lois--sparkling-malbec-2021-2021.jpg" alt="Botella de Lois - Sparkling Malbec 2021 2021"
@@ -648,7 +658,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 950 msnm</p>
           </div>
-          <h4>Lois - Sparkling Malbec 2021 2021</h4>
+          <h3>Lois - Sparkling Malbec 2021 2021</h3>
           <p class="price">€15.00</p>
           <a href="/vinos/lois--sparkling-malbec-2021-2021.html" class="buy-button">Comprar</a>
         </div>
@@ -663,7 +673,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 900 msnm</p>
           </div>
-          <h4>LUIGI BOSCA De SANGRE Malbec D.O.C 2021</h4>
+          <h3>LUIGI BOSCA De SANGRE Malbec D.O.C 2021</h3>
           <p class="price">€36.45</p>
           <a href="/vinos/luigi-bosca-de-sangre-malbec-doc-2021.html" class="buy-button">Comprar</a>
         </div>
@@ -678,7 +688,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 900 msnm</p>
           </div>
-          <h4>LUIGI BOSCA Malbec 2022</h4>
+          <h3>LUIGI BOSCA Malbec 2022</h3>
           <p class="price">€28.45</p>
           <a href="/vinos/luigi-bosca-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
@@ -693,7 +703,7 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 1100 msnm</p>
           </div>
-          <h4>Paso de Piedra - Malbec 2019 2019</h4>
+          <h3>Paso de Piedra - Malbec 2019 2019</h3>
           <p class="price">€21.00</p>
           <a href="/vinos/paso-de-piedra--malbec-2019-2019.html" class="buy-button">Comprar</a>
         </div>
@@ -749,34 +759,36 @@
         }
       });
 
-      // Event delegation para info-icon
-      document.querySelectorAll('.recommended-grid').forEach(grid => {
-        grid.addEventListener('click', (e) => {
-          const infoIcon = e.target.closest('.info-icon');
-          if (!infoIcon) return;
-          
-          e.preventDefault();
-          e.stopPropagation();
-          
-          const overlayId = infoIcon.getAttribute('data-overlay-id');
-          console.log(`Clicked info-icon for overlayId: ${overlayId}`);
-          
-          // Cerrar todos los overlays
-          document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
-            otherOverlay.classList.remove('active');
+      // Manejar clics y toques en info-icon
+      document.querySelectorAll('.info-icon').forEach(icon => {
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const overlayId = icon.getAttribute('data-overlay-id');
+            console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+            
+            // Cerrar todos los overlays
+            document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
+              otherOverlay.classList.remove('active');
+            });
+            
+            // Encontrar el overlay dentro del mismo product-card
+            const productCard = icon.closest('.product-card');
+            if (!productCard) {
+              console.error(`No product-card found for info-icon: ${overlayId}`);
+              return;
+            }
+            const overlay = productCard.querySelector('.overlay');
+            if (!overlay) {
+              console.error(`No overlay found in product-card: ${overlayId}`);
+              return;
+            }
+            
+            // Alternar el overlay
+            overlay.classList.toggle('active');
+            console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
           });
-          
-          // Encontrar el overlay correspondiente
-          const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
-          if (!overlay) {
-            console.error(`No overlay found for data-overlay-id: ${overlayId}`);
-            return;
-          }
-          
-          // Alternar el overlay
-          overlay.classList.toggle('active');
-          const productCard = overlay.closest('.product-card');
-          console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h4').textContent}`);
         });
       });
 
