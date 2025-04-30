@@ -200,11 +200,11 @@
     .recommended-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 30px;
       margin-bottom: 30px;
     }
     .product-card {
-      background-color: #fff;
+      background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
       border-radius: 5px;
       padding: 15px;
@@ -217,6 +217,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      z-index: 5;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .product-card img {
@@ -225,10 +226,49 @@
       object-fit: contain;
       margin: 0 auto;
     }
+    .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 28px; /* Mayor tamaño para mejor área de toque */
+      cursor: pointer;
+      z-index: 20;
+      display: none;
+      color: #4A2C59;
+      padding: 8px; /* Mayor área de toque */
+      border-radius: 50%; /* Estética circular */
+      background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+    }
+    .overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-height: 100px;
+      background-color: rgba(74, 44, 89, 0.8);
+      color: #FFFFFF;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 12px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+    .overlay p {
+      margin: 2px 0;
+      color: #FFFFFF;
+      visibility: visible;
+    }
+    .product-card:hover .overlay {
+      display: block;
+    }
+    .product-card .overlay.active {
+      display: block;
+    }
     .product-card h4 {
       font-size: 14px;
       margin: 5px 0;
-      color: #4A0D29;
+      color: #4A2C59;
       flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -236,7 +276,7 @@
     }
     .product-card .price {
       font-size: 14px;
-      color: #4A0D29;
+      color: #4A2C59;
       margin: 5px 0;
     }
     .product-card .buy-button {
@@ -367,7 +407,7 @@
       }
       .recommended-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 25px;
       }
       .product-card {
         width: 100%;
@@ -380,17 +420,13 @@
         height: 140px;
       }
       .product-card:nth-child(n+3) {
-        display: none; /* Mostrar solo 2 cards en mobile */
+        display: none;
       }
-      footer {
-        padding: 8px;
+      .info-icon {
+        display: block;
       }
-      footer p {
-        font-size: 0.8em;
-      }
-      footer i, footer img.social-icon {
-        font-size: 0.9em;
-        width: 0.9em;
+      .product-card:hover .overlay {
+        display: none;
       }
     }
     @media (max-width: 480px) {
@@ -522,33 +558,85 @@
       <h3>Más vinos de Cicchitti</h3>
       <div class="recommended-grid same-bodega">
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="Cicchitti"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2018"
+             data-precio="34.55">
           <img src="/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="Botella de CICCHITTI Gran Reserva Malbec 2018"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>CICCHITTI Gran Reserva Malbec 2018</h4>
           <p class="price">€34.55</p>
           <a href="/vinos/cicchitti-gran-reserva-malbec-2018.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="Cicchitti"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2021"
+             data-precio="21.65">
           <img src="/images/small/cicchitti-malbec-2021.jpg" alt="Botella de CICCHITTI Malbec 2021"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>CICCHITTI Malbec 2021</h4>
           <p class="price">€21.65</p>
           <a href="/vinos/cicchitti-malbec-2021.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="Cicchitti"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2016"
+             data-precio="29.99">
           <img src="/images/small/cicchitti-malbec-edicin-limitada-2016.jpg" alt="Botella de Cicchitti Malbec Edición Limitada 2016"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>Cicchitti Malbec Edición Limitada 2016</h4>
           <p class="price">€29.99</p>
           <a href="/vinos/cicchitti-malbec-edicin-limitada-2016.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="Cicchitti"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2021"
+             data-precio="22.55">
           <img src="/images/small/vos-malbec-de-malbec-2021.jpg" alt="Botella de VOS Malbec de Malbec 2021"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>VOS Malbec de Malbec 2021</h4>
           <p class="price">€22.55</p>
           <a href="/vinos/vos-malbec-de-malbec-2021.html" class="buy-button">Comprar</a>
@@ -560,33 +648,85 @@
       <h3>Vinos de Maipú</h3>
       <div class="recommended-grid same-region">
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="Cicchitti"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2018"
+             data-precio="34.55">
           <img src="/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="Botella de CICCHITTI Gran Reserva Malbec 2018"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>CICCHITTI Gran Reserva Malbec 2018</h4>
           <p class="price">€34.55</p>
           <a href="/vinos/cicchitti-gran-reserva-malbec-2018.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="Cicchitti"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2021"
+             data-precio="21.65">
           <img src="/images/small/cicchitti-malbec-2021.jpg" alt="Botella de CICCHITTI Malbec 2021"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>CICCHITTI Malbec 2021</h4>
           <p class="price">€21.65</p>
           <a href="/vinos/cicchitti-malbec-2021.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="Cicchitti"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2016"
+             data-precio="29.99">
           <img src="/images/small/cicchitti-malbec-edicin-limitada-2016.jpg" alt="Botella de Cicchitti Malbec Edición Limitada 2016"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>Cicchitti Malbec Edición Limitada 2016</h4>
           <p class="price">€29.99</p>
           <a href="/vinos/cicchitti-malbec-edicin-limitada-2016.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card">
+        <div class="product-card"
+             data-bodega="La Grupa Wines"
+             data-provincia="Mendoza"
+             data-region="Maipú"
+             data-altura="700"
+             data-anada="2022"
+             data-precio="15.65">
           <img src="/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="Botella de LA Grupa Syrah Malbec 0.75 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <span class="info-icon">🍷</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> La Grupa Wines</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Maipú</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
           <h4>LA Grupa Syrah Malbec 0.75 2022</h4>
           <p class="price">€15.65</p>
           <a href="/vinos/la-grupa-syrah-malbec-075-2022.html" class="buy-button">Comprar</a>
@@ -621,6 +761,56 @@
           if (details) {
             details.setAttribute('open', '');
           }
+        }
+      });
+      // Detectar si es mobile
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      // Toggle overlay on info-icon (mobile)
+      const infoIcons = document.querySelectorAll('.info-icon');
+      infoIcons.forEach(icon => {
+        const toggleOverlay = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const productCard = icon.closest('.product-card');
+          if (!productCard) {
+            console.error('No product-card found for icon:', icon);
+            return;
+          }
+          const overlay = productCard.querySelector('.overlay');
+          if (!overlay) {
+            console.error('No overlay found in product-card:', productCard);
+            return;
+          }
+          // Cerrar todos los otros overlays
+          document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
+            if (otherOverlay !== overlay) {
+              otherOverlay.classList.remove('active');
+            }
+          });
+          // Alternar el overlay actual
+          overlay.classList.toggle('active');
+          console.log(`Toggled overlay for ${productCard.querySelector('h4').textContent} (Event: ${e.type})`);
+        };
+        // Usar touchstart en mobile, click en desktop
+        if (isMobile) {
+          icon.addEventListener('touchstart', toggleOverlay, { passive: false });
+        } else {
+          icon.addEventListener('click', toggleOverlay);
+        }
+      });
+      // Cerrar overlays al tocar fuera (mobile)
+      document.addEventListener('touchstart', (e) => {
+        if (isMobile && !e.target.closest('.product-card')) {
+          document.querySelectorAll('.overlay.active').forEach(overlay => {
+            overlay.classList.remove('active');
+          });
+        }
+      }, { passive: true });
+      document.addEventListener('click', (e) => {
+        if (!isMobile && !e.target.closest('.product-card')) {
+          document.querySelectorAll('.overlay.active').forEach(overlay => {
+            overlay.classList.remove('active');
+          });
         }
       });
     });
