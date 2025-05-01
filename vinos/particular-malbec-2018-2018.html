@@ -207,17 +207,19 @@
       gap: 40px;
       margin-bottom: 30px;
       width: 100%;
+      justify-items: center;
     }
     .product-card {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
       border-radius: 5px;
       padding: 15px;
+      padding-bottom: 20px;
       text-align: center;
       position: relative;
       overflow: visible;
       max-width: 250px;
-      min-height: 360px;
+      min-height: 380px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -234,6 +236,8 @@
       object-fit: contain;
       margin: 0 auto;
       display: block;
+      float: none;
+      justify-self: center;
     }
     .info-icon {
       position: absolute;
@@ -288,6 +292,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: normal;
+      text-align: center;
     }
     .product-card .price {
       font-size: 16px;
@@ -295,6 +300,7 @@
       margin: 10px 0;
       position: relative;
       z-index: 7;
+      text-align: center;
     }
     .product-card .buy-button {
       padding: 8px 16px;
@@ -304,6 +310,7 @@
       margin-bottom: 15px;
       position: relative;
       z-index: 7;
+      text-align: center;
     }
     footer {
       background-color: #3A0B22;
@@ -459,17 +466,34 @@
         width: 100%;
         max-width: none;
         height: 260px;
+        min-height: auto;
         padding: 10px;
+        padding-bottom: 10px;
         pointer-events: none;
         box-sizing: border-box;
+        overflow: hidden;
       }
       .product-card img {
         width: 140px;
         height: 140px;
         pointer-events: none;
+        margin: 0 auto;
+        display: block;
       }
-      .product-card h3, .product-card .price {
-        pointer-events: none;
+      .product-card h3 {
+        font-size: 14px;
+        min-height: 36px;
+        margin: 5px 0;
+      }
+      .product-card .price {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
       }
       .info-icon {
         display: block !important;
@@ -504,31 +528,38 @@
       .product-grid {
         gap: 40px;
         width: 100%;
+        justify-items: center;
       }
       .product-card {
         pointer-events: auto;
         max-width: 250px;
-        min-height: 360px;
+        min-height: 380px;
         width: 100%;
         align-items: center;
+        padding-bottom: 20px;
       }
       .product-card img {
         width: 200px;
         height: 200px;
         display: block;
         margin: 0 auto;
+        float: none;
       }
       .product-card h3 {
         font-size: 16px;
         min-height: 40px;
         white-space: normal;
+        text-align: center;
       }
       .product-card .price {
         font-size: 16px;
         margin: 10px 0;
+        text-align: center;
       }
       .product-card .buy-button {
         margin-bottom: 15px;
+        padding: 8px 16px;
+        font-size: 14px;
       }
       .product-card img, .product-card h3, .product-card .price {
         pointer-events: none;
@@ -570,11 +601,11 @@
         
         <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
         
-        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        
+        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
         
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
         
@@ -590,21 +621,19 @@
         
         <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
         
-        <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
-        
         <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
         
         <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
         
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
+        <li><a href="/bodegas/fecovita.html" class="nav-link">Fecovita</a></li>
+        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
@@ -729,49 +758,49 @@
           <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="casa-araujo-mimi-2023.html">
-          <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023"
+        <div class="product-card" data-overlay-id="goye-malbec-2022.html">
+          <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="casa-araujo-mimi-2023.html">🍷</div>
-          <div class="overlay" data-overlay-id="casa-araujo-mimi-2023.html">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+          <div class="info-icon" data-overlay-id="goye-malbec-2022.html">🍷</div>
+          <div class="overlay" data-overlay-id="goye-malbec-2022.html">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
             <p><strong>Altura:</strong> 520 msnm</p>
           </div>
-          <h3>Casa Araujo Mimi 2023</h3>
-          <p class="price">€11.19</p>
-          <a href="/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
+          <h3>Goye Malbec 2022</h3>
+          <p class="price">€9.49</p>
+          <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="casa-araujo-roble-2023.html">
-          <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
+        <div class="product-card" data-overlay-id="quinta-generacin-malbec-2022.html">
+          <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="casa-araujo-roble-2023.html">🍷</div>
-          <div class="overlay" data-overlay-id="casa-araujo-roble-2023.html">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+          <div class="info-icon" data-overlay-id="quinta-generacin-malbec-2022.html">🍷</div>
+          <div class="overlay" data-overlay-id="quinta-generacin-malbec-2022.html">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
             <p><strong>Altura:</strong> 520 msnm</p>
           </div>
-          <h3>Casa Araujo Roble 2023</h3>
-          <p class="price">€10.19</p>
-          <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
+          <h3>Quinta Generación Malbec 2022</h3>
+          <p class="price">€19.99</p>
+          <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="casa-araujo-varietal-2023.html">
-          <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
+        <div class="product-card" data-overlay-id="famiglia-bianchi-malbec-2023-2023.html">
+          <img src="/images/small/famiglia-bianchi-malbec-2023-2023.jpg" alt="Botella de Famiglia Bianchi Malbec 2023 2023"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="casa-araujo-varietal-2023.html">🍷</div>
-          <div class="overlay" data-overlay-id="casa-araujo-varietal-2023.html">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+          <div class="info-icon" data-overlay-id="famiglia-bianchi-malbec-2023-2023.html">🍷</div>
+          <div class="overlay" data-overlay-id="famiglia-bianchi-malbec-2023-2023.html">
+            <p><strong>Bodega:</strong> Bodegas Bianchi</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
+            <p><strong>Altura:</strong> 800 msnm</p>
           </div>
-          <h3>Casa Araujo Varietal 2023</h3>
-          <p class="price">€7.99</p>
-          <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
+          <h3>Famiglia Bianchi Malbec 2023 2023</h3>
+          <p class="price">€14.00</p>
+          <a href="/vinos/famiglia-bianchi-malbec-2023-2023.html" class="buy-button">Comprar</a>
         </div>
         
       </div>

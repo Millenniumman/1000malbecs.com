@@ -207,17 +207,19 @@
       gap: 40px;
       margin-bottom: 30px;
       width: 100%;
+      justify-items: center;
     }
     .product-card {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
       border-radius: 5px;
       padding: 15px;
+      padding-bottom: 20px;
       text-align: center;
       position: relative;
       overflow: visible;
       max-width: 250px;
-      min-height: 360px;
+      min-height: 380px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -234,6 +236,8 @@
       object-fit: contain;
       margin: 0 auto;
       display: block;
+      float: none;
+      justify-self: center;
     }
     .info-icon {
       position: absolute;
@@ -288,6 +292,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: normal;
+      text-align: center;
     }
     .product-card .price {
       font-size: 16px;
@@ -295,6 +300,7 @@
       margin: 10px 0;
       position: relative;
       z-index: 7;
+      text-align: center;
     }
     .product-card .buy-button {
       padding: 8px 16px;
@@ -304,6 +310,7 @@
       margin-bottom: 15px;
       position: relative;
       z-index: 7;
+      text-align: center;
     }
     footer {
       background-color: #3A0B22;
@@ -459,17 +466,34 @@
         width: 100%;
         max-width: none;
         height: 260px;
+        min-height: auto;
         padding: 10px;
+        padding-bottom: 10px;
         pointer-events: none;
         box-sizing: border-box;
+        overflow: hidden;
       }
       .product-card img {
         width: 140px;
         height: 140px;
         pointer-events: none;
+        margin: 0 auto;
+        display: block;
       }
-      .product-card h3, .product-card .price {
-        pointer-events: none;
+      .product-card h3 {
+        font-size: 14px;
+        min-height: 36px;
+        margin: 5px 0;
+      }
+      .product-card .price {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
       }
       .info-icon {
         display: block !important;
@@ -504,31 +528,38 @@
       .product-grid {
         gap: 40px;
         width: 100%;
+        justify-items: center;
       }
       .product-card {
         pointer-events: auto;
         max-width: 250px;
-        min-height: 360px;
+        min-height: 380px;
         width: 100%;
         align-items: center;
+        padding-bottom: 20px;
       }
       .product-card img {
         width: 200px;
         height: 200px;
         display: block;
         margin: 0 auto;
+        float: none;
       }
       .product-card h3 {
         font-size: 16px;
         min-height: 40px;
         white-space: normal;
+        text-align: center;
       }
       .product-card .price {
         font-size: 16px;
         margin: 10px 0;
+        text-align: center;
       }
       .product-card .buy-button {
         margin-bottom: 15px;
+        padding: 8px 16px;
+        font-size: 14px;
       }
       .product-card img, .product-card h3, .product-card .price {
         pointer-events: none;
@@ -570,11 +601,11 @@
         
         <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
         
-        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        
+        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
         
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
         
@@ -590,21 +621,19 @@
         
         <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
         
-        <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
-        
         <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
         
         <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
         
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
+        <li><a href="/bodegas/fecovita.html" class="nav-link">Fecovita</a></li>
+        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
@@ -620,7 +649,7 @@
   <div class="main-content">
     <div class="product-details">
       <div class="product-image">
-        <img src="/images/large/sunal_ilogico--malbec-2020-2020.jpg" alt="Botella de Sunal Ilógico - Malbec 2020 2020"
+        <img src="/images/large/sunal-ilgico--malbec-2020-2020.jpg" alt="Botella de Sunal Ilógico - Malbec 2020 2020"
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
@@ -638,7 +667,7 @@
           <h2>Notas de Cata</h2>
           <p>En nariz, ofrece aromas a mora, ciruela y violetas, con notas de tabaco y especias dulces. En boca, es estructurado, con sabores a frutos negros, chocolate y un toque de pimienta. Los taninos son firmes pero aterciopelados, con una acidez vibrante. El final es largo, con matices de grafito y fruta madura. Marida con cordero asado, estofado de carne o queso parmesano.</p>
         </div>
-        <a href="/vinos/sunal_ilogico--malbec-2020-2020.html" class="buy-button">Comprar Ahora</a>
+        <a href="/vinos/sunal-ilgico--malbec-2020-2020.html" class="buy-button">Comprar Ahora</a>
       </div>
     </div>
     <!-- Nueva sección: También te podrían interesar -->
@@ -665,6 +694,41 @@
         
       </div>
       
+      
+      <h3>Vinos de Valle de Calchaquí</h3>
+      <div class="product-grid same-region">
+        
+        <div class="product-card" data-overlay-id="tukma-malbec-2019.html">
+          <img src="/images/small/tukma-malbec-2019.jpg" alt="Botella de Tukma Malbec 2019"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="tukma-malbec-2019.html">🍷</div>
+          <div class="overlay" data-overlay-id="tukma-malbec-2019.html">
+            <p><strong>Bodega:</strong> Bodega Tukma</p>
+            <p><strong>Provincia:</strong> Salta</p>
+            <p><strong>Región:</strong> Valle de Calchaquí</p>
+            <p><strong>Altura:</strong> 1700 msnm</p>
+          </div>
+          <h3>Tukma Malbec 2019</h3>
+          <p class="price">€19.29</p>
+          <a href="/vinos/tukma-malbec-2019.html" class="buy-button">Comprar</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="tukma-gran-corte-2017.html">
+          <img src="/images/small/tukma-gran-corte-2017.jpg" alt="Botella de Tukma Gran Corte 2017"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="tukma-gran-corte-2017.html">🍷</div>
+          <div class="overlay" data-overlay-id="tukma-gran-corte-2017.html">
+            <p><strong>Bodega:</strong> Bodega Tukma</p>
+            <p><strong>Provincia:</strong> Salta</p>
+            <p><strong>Región:</strong> Valle de Calchaquí</p>
+            <p><strong>Altura:</strong> 1900 msnm</p>
+          </div>
+          <h3>Tukma Gran Corte 2017</h3>
+          <p class="price">€41.29</p>
+          <a href="/vinos/tukma-gran-corte-2017.html" class="buy-button">Comprar</a>
+        </div>
+        
+      </div>
       
     </section>
   </div>
