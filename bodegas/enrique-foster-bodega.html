@@ -7,7 +7,7 @@
   <title>1000 Malbecs - Enrique Foster Bodega</title>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - Enrique Foster Bodega">
-  <meta property="og:description" content="">
+  <meta property="og:description" content="Entrado el siglo XX, más precisamente en 1938, Arnaldo Benito Etchart adquirió esta bodega que pertenecía a la familia de su mujer, Carmen Rosa, e inició el ...">
   <meta property="og:image" content="/images/bodegas/enrique-foster-bodega-1.jpg">
   <meta property="og:url" content="https://1000malbecs.com/bodegas/enrique-foster-bodega.html">
   <meta property="og:type" content="website">
@@ -189,10 +189,17 @@
       display: flex;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
     .gallery img {
       width: 200px;
       height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .banner-image {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -243,7 +250,7 @@
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
@@ -251,6 +258,9 @@
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
         padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
       }
       #sidebar.open {
         transform: translateX(0);
@@ -273,20 +283,33 @@
       }
       .product-card {
         width: 100%;
-        height: 280px;
+        min-height: 280px;
+        height: auto;
+        position: relative;
       }
       .product-card img {
         width: 160px;
         height: 160px;
+        object-fit: contain;
       }
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
-      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay {
+        max-height: 120px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
-      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .banner-image {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
+      }
       .footer-content {
         flex-wrap: wrap;
         gap: 15px;
@@ -343,8 +366,6 @@
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
-        <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
-        
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
         
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
@@ -367,13 +388,13 @@
         
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
+        <li><a href="/bodegas/fecovita.html" class="nav-link">Fecovita</a></li>
+        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
@@ -391,7 +412,7 @@
     
     <section class="presentation">
       <h2>Acerca de Enrique Foster Bodega</h2>
-      <p></p>
+      <p>Entrado el siglo XX, más precisamente en 1938, Arnaldo Benito Etchart adquirió esta bodega que pertenecía a la familia de su mujer, Carmen Rosa, e inició el proceso de desarrollo que la ha llevado a convertirse en lo que es hoy: una de las más prestigiosas de la Argentina.</p>
       <div class="gallery">
         
         <img src="/images/bodegas/enrique-foster-bodega-1.jpg" alt="Banner de Enrique Foster Bodega" class="banner-image">
@@ -416,7 +437,7 @@
            data-precio="11.0"
            data-precio-rango="10-20 EUR"
            data-altura="950">
-        <img src="/images/placeholder.jpg" alt="Botella de Ique - Malbec 2023">
+        <img src="/images/small/ique--malbec-2023-2021.jpg" alt="Botella de Ique - Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -438,7 +459,7 @@
            data-precio="11.0"
            data-precio-rango="10-20 EUR"
            data-altura="950">
-        <img src="/images/placeholder.jpg" alt="Botella de Pink - Malbec Rosado 2023">
+        <img src="/images/small/pink--malbec-rosado-2023-2023.jpg" alt="Botella de Pink - Malbec Rosado 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -460,7 +481,7 @@
            data-precio="15.0"
            data-precio-rango="10-20 EUR"
            data-altura="950">
-        <img src="/images/placeholder.jpg" alt="Botella de Lois - Sparkling Malbec 2021">
+        <img src="/images/small/lois--sparkling-malbec-2021-2021.jpg" alt="Botella de Lois - Sparkling Malbec 2021">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -482,7 +503,7 @@
            data-precio="21.0"
            data-precio-rango="20+ EUR"
            data-altura="950">
-        <img src="/images/placeholder.jpg" alt="Botella de Foster - Malbec">
+        <img src="/images/small/foster--malbec-2023.jpg" alt="Botella de Foster - Malbec">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -504,7 +525,7 @@
            data-precio="23.0"
            data-precio-rango="20+ EUR"
            data-altura="950">
-        <img src="/images/placeholder.jpg" alt="Botella de Foster - Malbec 'Los Altepes'">
+        <img src="/images/small/foster--malbec-limited-edition-2023.jpg" alt="Botella de Foster - Malbec 'Los Altepes'">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -526,7 +547,7 @@
            data-precio="25.0"
            data-precio-rango="20+ EUR"
            data-altura="950">
-        <img src="/images/placeholder.jpg" alt="Botella de Foster - Malbec 'Los Barrancos'">
+        <img src="/images/small/foster--malbec-los-altepes-2023.jpg" alt="Botella de Foster - Malbec 'Los Barrancos'">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
@@ -548,7 +569,7 @@
            data-precio="44.0"
            data-precio-rango="20+ EUR"
            data-altura="950">
-        <img src="/images/placeholder.jpg" alt="Botella de Foster - Malbec Limited Edition">
+        <img src="/images/small/foster--malbec-los-barrancos-2023.jpg" alt="Botella de Foster - Malbec Limited Edition">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Enrique Foster Bodega</p>

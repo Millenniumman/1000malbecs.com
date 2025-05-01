@@ -7,7 +7,7 @@
   <title>1000 Malbecs - Bodegas Bianchi</title>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - Bodegas Bianchi">
-  <meta property="og:description" content="">
+  <meta property="og:description" content="Nuestra visión es convertirnos en una de las Bodegas Argentinas ​​​​​​​más reconocidas como marca global, honrando su identidad familiar y calidad enológica,...">
   <meta property="og:image" content="/images/bodegas/bodegas-bianchi-1.jpg">
   <meta property="og:url" content="https://1000malbecs.com/bodegas/bodegas-bianchi.html">
   <meta property="og:type" content="website">
@@ -189,10 +189,17 @@
       display: flex;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
     .gallery img {
       width: 200px;
       height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .banner-image {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -243,7 +250,7 @@
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
@@ -251,6 +258,9 @@
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
         padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
       }
       #sidebar.open {
         transform: translateX(0);
@@ -273,20 +283,33 @@
       }
       .product-card {
         width: 100%;
-        height: 280px;
+        min-height: 280px;
+        height: auto;
+        position: relative;
       }
       .product-card img {
         width: 160px;
         height: 160px;
+        object-fit: contain;
       }
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
-      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay {
+        max-height: 120px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
-      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .banner-image {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
+      }
       .footer-content {
         flex-wrap: wrap;
         gap: 15px;
@@ -343,8 +366,6 @@
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
-        <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
-        
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
         
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
@@ -367,13 +388,13 @@
         
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
+        <li><a href="/bodegas/fecovita.html" class="nav-link">Fecovita</a></li>
+        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
@@ -391,7 +412,7 @@
     
     <section class="presentation">
       <h2>Acerca de Bodegas Bianchi</h2>
-      <p></p>
+      <p>Nuestra visión es convertirnos en una de las Bodegas Argentinas ​​​​​​​más reconocidas como marca global, honrando su identidad familiar y calidad enológica, construyendo su futuro con la pasión y compromiso de sus colaboradores para entregar valor de forma continua a sus consumidores y a todo el ecosistema de la compañía, de manera sustentable e impulsados por la innovación continua.</p>
       <div class="gallery">
         
         <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Banner de Bodegas Bianchi" class="banner-image">
@@ -416,7 +437,7 @@
            data-precio="14.0"
            data-precio-rango="10-20 EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Famiglia Bianchi Malbec 2023">
+        <img src="/images/small/famiglia-bianchi-malbec-2023-2023.jpg" alt="Botella de Famiglia Bianchi Malbec 2023">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -438,7 +459,7 @@
            data-precio="15.0"
            data-precio-rango="10-20 EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Famiglia Bianchi Malbec 2021">
+        <img src="/images/small/famiglia-bianchi-malbec-2021-2021.jpg" alt="Botella de Famiglia Bianchi Malbec 2021">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -460,7 +481,7 @@
            data-precio="17.0"
            data-precio-rango="10-20 EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Famiglia Bianchi Malbec 2020">
+        <img src="/images/small/famiglia-bianchi-malbec-2020-2020.jpg" alt="Botella de Famiglia Bianchi Malbec 2020">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -482,7 +503,7 @@
            data-precio="20.0"
            data-precio-rango="10-20 EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Famiglia Bianchi Malbec 2014">
+        <img src="/images/small/famiglia-bianchi-malbec-2014-2014.jpg" alt="Botella de Famiglia Bianchi Malbec 2014">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -504,7 +525,7 @@
            data-precio="21.0"
            data-precio-rango="20+ EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Gran Famiglia - Malbec 2017">
+        <img src="/images/small/gran-famiglia--malbec-2017-2017.jpg" alt="Botella de Gran Famiglia - Malbec 2017">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -526,7 +547,7 @@
            data-precio="25.0"
            data-precio-rango="20+ EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Particular Malbec 2020">
+        <img src="/images/small/particular-malbec-2020-2020.jpg" alt="Botella de Particular Malbec 2020">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -548,7 +569,7 @@
            data-precio="26.0"
            data-precio-rango="20+ EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Particular Malbec 2019">
+        <img src="/images/small/particular-malbec-2019-2019.jpg" alt="Botella de Particular Malbec 2019">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -570,7 +591,7 @@
            data-precio="27.0"
            data-precio-rango="20+ EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Particular Malbec 2018">
+        <img src="/images/small/particular-malbec-2018-2018.jpg" alt="Botella de Particular Malbec 2018">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -592,7 +613,7 @@
            data-precio="49.0"
            data-precio-rango="20+ EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Enzo Bianchi - Gran Malbec 2019">
+        <img src="/images/small/enzo-bianchi--gran-malbec-2019-2019.jpg" alt="Botella de Enzo Bianchi - Gran Malbec 2019">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>
@@ -614,7 +635,7 @@
            data-precio="59.0"
            data-precio-rango="20+ EUR"
            data-altura="800">
-        <img src="/images/placeholder.jpg" alt="Botella de Particular Malbec 2019 Magnum 1.5 Lts">
+        <img src="/images/small/particular-malbec-2019-magnum-15-lts-2019.jpg" alt="Botella de Particular Malbec 2019 Magnum 1.5 Lts">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Bodegas Bianchi</p>

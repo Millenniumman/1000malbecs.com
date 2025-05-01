@@ -189,10 +189,17 @@
       display: flex;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
     .gallery img {
       width: 200px;
       height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .banner-image {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -243,7 +250,7 @@
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
@@ -251,6 +258,9 @@
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
         padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
       }
       #sidebar.open {
         transform: translateX(0);
@@ -273,20 +283,33 @@
       }
       .product-card {
         width: 100%;
-        height: 280px;
+        min-height: 280px;
+        height: auto;
+        position: relative;
       }
       .product-card img {
         width: 160px;
         height: 160px;
+        object-fit: contain;
       }
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
-      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay {
+        max-height: 120px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
-      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .banner-image {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
+      }
       .footer-content {
         flex-wrap: wrap;
         gap: 15px;
@@ -343,8 +366,6 @@
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
-        <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
-        
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
         
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
@@ -367,13 +388,13 @@
         
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
+        <li><a href="/bodegas/fecovita.html" class="nav-link">Fecovita</a></li>
+        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
@@ -416,7 +437,7 @@
            data-precio="21.0"
            data-precio-rango="20+ EUR"
            data-altura="1100">
-        <img src="/images/placeholder.jpg" alt="Botella de Paso de Piedra - Malbec 2019">
+        <img src="/images/small/paso-de-piedra--malbec-2019-2019.jpg" alt="Botella de Paso de Piedra - Malbec 2019">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Viña Alicia</p>
@@ -438,7 +459,7 @@
            data-precio="39.0"
            data-precio-rango="20+ EUR"
            data-altura="1100">
-        <img src="/images/placeholder.jpg" alt="Botella de Viña Alicia - Malbec 2016">
+        <img src="/images/small/via-alicia--malbec-2016-2016.jpg" alt="Botella de Viña Alicia - Malbec 2016">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Viña Alicia</p>
@@ -460,7 +481,7 @@
            data-precio="44.0"
            data-precio-rango="20+ EUR"
            data-altura="1100">
-        <img src="/images/placeholder.jpg" alt="Botella de Viña Alicia - Malbec 2013">
+        <img src="/images/small/via-alicia--malbec-2013-2013.jpg" alt="Botella de Viña Alicia - Malbec 2013">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Viña Alicia</p>
@@ -482,7 +503,7 @@
            data-precio="46.0"
            data-precio-rango="20+ EUR"
            data-altura="1100">
-        <img src="/images/placeholder.jpg" alt="Botella de Viña Alicia - Malbec 2012">
+        <img src="/images/small/via-alicia--malbec-2012-2012.jpg" alt="Botella de Viña Alicia - Malbec 2012">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Viña Alicia</p>
@@ -504,7 +525,7 @@
            data-precio="49.0"
            data-precio-rango="20+ EUR"
            data-altura="1100">
-        <img src="/images/placeholder.jpg" alt="Botella de Viña Alicia - Malbec 2010">
+        <img src="/images/small/via-alicia--malbec-2010-2010.jpg" alt="Botella de Viña Alicia - Malbec 2010">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Viña Alicia</p>
