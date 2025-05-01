@@ -298,11 +298,23 @@
         font-size: 18px;
       }
     }
-    @media (min-width: 769px) {
-      .header { display: none; }
-      .logo-container { display: block; }
-      .info-icon { display: none; }
-    }
+    /* Ajustes para mobile */
+@media (max-width: 768px) {
+  .info-icon {
+    display: block !important;
+  }
+  .overlay {
+    max-height: 150px; /* Aumentamos para cubrir más espacio */
+    pointer-events: auto;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0; /* Comienza desde el borde superior */
+    padding: 40px 10px 10px 10px; /* Ajustamos el padding: 40px arriba para que el texto comience más abajo */
+  }
+  .overlay.active {
+    display: block !important;
+  }
+}
   </style>
 </head>
 <body>
