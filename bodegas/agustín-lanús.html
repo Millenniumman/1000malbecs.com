@@ -107,7 +107,6 @@
       height: 300px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       z-index: 5;
     }
     .product-card img {
@@ -152,7 +151,6 @@
       font-size: 14px;
       margin: 5px 0;
       color: #4A2C59;
-      flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -189,10 +187,17 @@
       display: flex;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
     .gallery img {
       width: 200px;
       height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .banner-image {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -243,7 +248,7 @@
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
@@ -251,6 +256,9 @@
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
         padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
       }
       #sidebar.open {
         transform: translateX(0);
@@ -273,20 +281,58 @@
       }
       .product-card {
         width: 100%;
-        height: 280px;
+        min-height: 320px;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px;
+        box-sizing: border-box;
       }
       .product-card img {
         width: 160px;
         height: 160px;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+      .product-card h3 {
+        font-size: 14px;
+        margin: 5px 0;
+        color: #4A2C59;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 40px;
+      }
+      .product-card .price {
+        font-size: 14px;
+        color: #4A2C59;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        margin-top: 5px;
       }
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
-      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay {
+        max-height: 120px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
-      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .gallery img.banner-image {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
       .footer-content {
         flex-wrap: wrap;
         gap: 15px;
@@ -389,12 +435,17 @@
     
     <section class="presentation">
       <h2>Acerca de Agustín Lanús</h2>
-      <p>"Actualmente un pequeño puñado de enólogos del Valle Calchaquí produce vinos en el límite de donde se pueden cultivar uvas. Estos viñedos están ubicados en lugares extremadamente aislados, lo que hace que el tiempo, los recursos y los costos de mantenimiento de los viñedos sean un desafío incluso para el enólogo más apasionado.Sin embargo, la calidad superior de los vinos producidos justifica el esfuerzo, ya que las variaciones extremas de temperatura, los niveles más altos de radiación solar y el largo período de maduración dan como resultado vinos altamente concentrados y complejos.
-​"</p>
+      <p>Entrado el siglo XX, más precisamente en 1938, Arnaldo Benito Etchart adquirió esta bodega que pertenecía a la familia de su mujer, Carmen Rosa, e inició el proceso de desarrollo que la ha llevado a convertirse en lo que es hoy: una de las más prestigiosas de la Argentina.</p>
       <div class="gallery">
         
         <img src="/images/bodegas/agustin-lanus-1.jpg" alt="Banner de Agustín Lanús" class="banner-image">
-         
+        
+        <img src="/images/bodegas/agustn-lans-2.jpg" alt="Imagen 2 de Agustín Lanús" class="desktop-only">
+        
+        <img src="/images/bodegas/agustn-lans-3.jpg" alt="Imagen 3 de Agustín Lanús" class="desktop-only">
+        
+        <img src="/images/bodegas/agustn-lans-4.jpg" alt="Imagen 4 de Agustín Lanús" class="desktop-only">
+        
       </div>
     </section>
     
@@ -431,7 +482,7 @@
            data-precio="21.0"
            data-precio-rango="20+ EUR"
            data-altura="1800">
-        <img src="/images/small/sunal-ilogico--malbec-2020-2020.jpg" alt="Botella de Sunal Ilógico - Malbec 2020">
+        <img src="/images/small/sunal-ilgico--malbec-2020-2020.jpg" alt="Botella de Sunal Ilógico - Malbec 2020">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Agustín Lanús</p>
