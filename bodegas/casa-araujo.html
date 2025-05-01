@@ -7,8 +7,8 @@
   <title>1000 Malbecs - Casa Araujo</title>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - Casa Araujo">
-  <meta property="og:description" content="Descubre los mejores vinos de Casa Araujo en 1000 Malbecs. Explora nuestra selección de Malbecs y otros varietales.">
-  <meta property="og:image" content="https://1000malbecs.com/images/l000-malbecs-logo.png">
+  <meta property="og:description" content="\">
+  <meta property="og:image" content="/images/bodegas/casa-araujo-1.jpg">
   <meta property="og:url" content="https://1000malbecs.com/bodegas/casa-araujo.html">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/styles.css">
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
     }
-    #sidebar summary i { margin-right: 10px; color: #4A2C59; } /* Fixed typo: i'd to i */
+    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
     #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
     #sidebar li { margin: 5px 0; }
     .nav-link {
@@ -92,7 +92,7 @@
     main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns on desktop */
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
     .product-card {
@@ -107,7 +107,6 @@
       height: 300px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       z-index: 5;
     }
     .product-card img {
@@ -132,7 +131,7 @@
       left: 0;
       width: 100%;
       max-height: 100px;
-      background-color: rgba(74, 44, 89, 0.8) !important; /* #4A2C59 violáceo */
+      background-color: rgba(74, 44, 89, 0.8) !important;
       color: #FFFFFF;
       padding: 10px;
       box-sizing: border-box;
@@ -152,7 +151,6 @@
       font-size: 14px;
       margin: 5px 0;
       color: #4A2C59;
-      flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -189,10 +187,17 @@
       display: flex;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
     .gallery img {
       width: 200px;
       height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .banner-image {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -243,14 +248,17 @@
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
         transform: translateX(-100%);
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
-        padding-top: 50px; /* Added to push content below hamburger */
+        padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
       }
       #sidebar.open {
         transform: translateX(0);
@@ -268,25 +276,65 @@
         margin-bottom: 15px;
       }
       .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
       .product-card {
-        width: 100%; /* Full width of grid cell */
-        height: 280px;
+        width: 100%;
+        min-height: 320px;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px;
+        box-sizing: border-box;
       }
       .product-card img {
         width: 160px;
         height: 160px;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+      .product-card h3 {
+        font-size: 14px;
+        margin: 5px 0;
+        color: #4A2C59;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 40px;
+      }
+      .product-card .price {
+        font-size: 14px;
+        color: #4A2C59;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        margin-top: 5px;
       }
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
-      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay {
+        max-height: 150px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+        top: 0;
+        padding: 40px 10px 10px 10px;
+      }
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
-      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .gallery img.banner-image {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
       .footer-content {
         flex-wrap: wrap;
         gap: 15px;
@@ -339,11 +387,11 @@
         
         <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
         
-        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        
+        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
         
         <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
         
@@ -359,21 +407,19 @@
         
         <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
         
-        <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
-        
         <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
         
         <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
         
         <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
+        <li><a href="/bodegas/fecovita.html" class="nav-link">Fecovita</a></li>
+        
         <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
         <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
         <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
@@ -391,12 +437,17 @@
     
     <section class="presentation">
       <h2>Acerca de Casa Araujo</h2>
-      <p>Nuestro hogar está ubicado en el oasis de Villa Atuel, San Rafael, sur de Mendoza. Un paraíso natural deslumbrante, con una potencia fenomenal para ser la tierra de nuestras uvas.Desde nuestros orígenes en el 2001 trabajamos en sintonía con nuestro entorno, poniendo todo en cada detalle del proceso. Estamos hechos del amor a nuestra tierra, que honramos haciendo el mejor vino posible, de la pasión por hacer un producto fantástico y puro, y del respeto a la comunidad que generamos.</p>
+      <p>\</p>
       <div class="gallery">
-        <img src="https://www.bodegaaraujo.com.ar/images/uploads/banners/185.png" alt="Banner de Casa Araujo" class="banner-image">
-        <img src="https://www.bodegaaraujo.com.ar/images/uploads/banners/187.png" alt="Imagen 2 de Casa Araujo" class="desktop-only">
-     <img src="https://www.bodegaaraujo.com.ar/images/uploads/banners/182.png" alt="Imagen 2 de Casa Araujo" class="desktop-only">
-      <img src="https://www.bodegaaraujo.com.ar/images/uploads/banners/153.jpg" alt="Imagen 2 de Casa Araujo" class="desktop-only">
+        
+        <img src="/images/bodegas/casa-araujo-1.jpg" alt="Banner de Casa Araujo" class="banner-image">
+        
+        <img src="/images/bodegas/casa-araujo-2.jpg" alt="Imagen 2 de Casa Araujo" class="desktop-only">
+        
+        <img src="/images/bodegas/casa-araujo-3.jpg" alt="Imagen 3 de Casa Araujo" class="desktop-only">
+        
+        <img src="/images/bodegas/casa-araujo-4.jpg" alt="Imagen 4 de Casa Araujo" class="desktop-only">
+        
       </div>
     </section>
     
