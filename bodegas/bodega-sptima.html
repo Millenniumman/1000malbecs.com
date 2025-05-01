@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1000 Malbecs - Bodega Séptima</title>
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="1000 Malbecs - Bodega Séptima">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="/images/bodegas/bodega-sptima-1.jpg">
+  <meta property="og:url" content="https://1000malbecs.com/bodegas/bodega-séptima.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header { display: none; }
+    .logo { max-width: 150px; height: auto; }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 110;
+    }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .logo-container { text-align: center; margin-bottom: 20px; }
+    #sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A2C59;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    #sidebar details { margin-bottom: 15px; }
+    #sidebar details:first-of-type { margin-bottom: 25px; }
+    #sidebar summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+    #sidebar li { margin: 5px 0; }
+    .nav-link {
+      font-size: 14px;
+      color: #4A2C59;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+    .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+    main {
+      margin-left: 290px;
+      padding: 20px;
+      width: calc(100% - 290px);
+      flex: 1;
+    }
+    main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      width: 200px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 5;
+    }
+    .product-card img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+    .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      display: none;
+    }
+    .overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-height: 100px;
+      background-color: rgba(74, 44, 89, 0.8) !important;
+      color: #FFFFFF;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 12px;
+      overflow-y: auto;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .overlay p {
+      margin: 2px 0;
+      color: #FFFFFF !important;
+      visibility: visible !important;
+    }
+    .product-card:hover .overlay { display: block; }
+    .product-card .overlay.active { display: block !important; }
+    .product-card h3 {
+      font-size: 14px;
+      margin: 5px 0;
+      color: #4A2C59;
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .price { font-size: 14px; color: #4A2C59; margin: 5px 0; }
+    .buy-button {
+      display: inline-block;
+      background-color: #4A2C59;
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 12px;
+      z-index: 10;
+      position: relative;
+    }
+    .presentation {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+    }
+    .presentation h2 {
+      font-size: 20px;
+      color: #4A2C59;
+      margin-bottom: 10px;
+    }
+    .presentation p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .gallery {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .gallery img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #F8F8F8;
+      padding: 15px;
+      text-align: center;
+      border-top: 1px solid #E0E0E0;
+      width: 100%;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      color: #4A2C59;
+    }
+    .footer-content a {
+      color: #4A2C59;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-content a:hover {
+      color: #7B4F8C;
+    }
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .fa-whatsapp {
+      font-size: 20px;
+      color: #25D366;
+      margin-right: 5px;
+    }
+    @media (max-width: 768px) {
+      body { display: block; }
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 120;
+      }
+      .logo { max-width: 100px; }
+      .hamburger { display: block; }
+      #sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        border-bottom: 1px solid #E0E0E0;
+        padding-top: 50px;
+      }
+      #sidebar.open {
+        transform: translateX(0);
+      }
+      .logo-container { display: none; }
+      main {
+        margin-left: 0;
+        margin-top: 120px;
+        padding: 10px;
+        width: 100%;
+      }
+      main h1 {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 15px;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .product-card {
+        width: 100%;
+        height: 280px;
+      }
+      .product-card img {
+        width: 160px;
+        height: 160px;
+      }
+      .product-card:hover .overlay { display: none; }
+      .info-icon { display: block !important; }
+      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay.active { display: block !important; }
+      .presentation { margin: 10px 0; padding: 10px; }
+      .gallery { flex-direction: column; }
+      .desktop-only { display: none; }
+      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .footer-content {
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 12px;
+      }
+      .social-icon, .fa-whatsapp {
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+      }
+    }
+    @media (min-width: 769px) {
+      .header { display: none; }
+      .logo-container { display: block; }
+      .info-icon { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="/index.html" title="Volver al inicio">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+  <button class="hamburger">☰</button>
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/index.html" title="Volver al inicio">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+      </a>
+    </div>
+    <h2>Categorías</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
+      <ul>
+        
+        <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+        
+        <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+        
+        <li><a href="/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
+        
+        <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
+        
+      </ul>
+    </details>
+    <details>
+      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
+      <ul>
+        
+        <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
+        
+        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        
+        <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+        
+        <li><a href="/bodegas/bodega-resero.html" class="nav-link">Bodega Resero</a></li>
+        
+        <li><a href="/bodegas/bodega-séptima.html" class="nav-link active">Bodega Séptima</a></li>
+        
+        <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+        
+        <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+        
+        <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+        
+        <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+        
+        <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+        
+        <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+        
+        <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
+        
+        <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
+        
+        <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+        
+        <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+        
+        <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+        
+        <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+        
+        <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+        
+        <li><a href="/bodegas/la-grupa-wines.html" class="nav-link">La Grupa Wines</a></li>
+        
+        <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+        
+        <li><a href="/bodegas/mauricio-lorca-bodega-y-viñedos.html" class="nav-link">Mauricio Lorca Bodega y Viñedos</a></li>
+        
+        <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+        
+        <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+        
+      </ul>
+    </details>
+  </nav>
+  <main>
+    <h1>Bodega Séptima</h1>
+    
+    <section class="presentation">
+      <h2>Acerca de Bodega Séptima</h2>
+      <p></p>
+      <div class="gallery">
+        
+        <img src="/images/bodegas/bodega-sptima-1.jpg" alt="Banner de Bodega Séptima" class="banner-image">
+        
+        <img src="/images/bodegas/bodega-sptima-2.jpg" alt="Imagen 2 de Bodega Séptima" class="desktop-only">
+        
+        <img src="/images/bodegas/bodega-sptima-3.jpg" alt="Imagen 3 de Bodega Séptima" class="desktop-only">
+        
+        <img src="/images/bodegas/bodega-sptima-4.jpg" alt="Imagen 4 de Bodega Séptima" class="desktop-only">
+        
+      </div>
+    </section>
+    
+    <div class="product-grid">
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="Agrelo, Luján de Cuyo"
+           data-bodega="Bodega Séptima"
+           data-tipo="Malbec"
+           data-anada="2023.0"
+           data-precio="19.55"
+           data-precio-rango="10-20 EUR"
+           data-altura="900">
+        <img src="/images/placeholder.jpg" alt="Botella de Séptima Rosé de Malbec">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Séptima</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Agrelo, Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Séptima Rosé de Malbec</h3>
+        <p class="price">€19.55</p>
+        <a href="/vinos/sptima-ros-de-malbec-2023.html" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card"
+           data-provincia="Mendoza"
+           data-region="Agrelo, Luján de Cuyo"
+           data-bodega="Bodega Séptima"
+           data-tipo="Malbec"
+           data-anada="2022.0"
+           data-precio="19.95"
+           data-precio-rango="10-20 EUR"
+           data-altura="900">
+        <img src="/images/placeholder.jpg" alt="Botella de Séptima Malbec">
+        <span class="info-icon">🍷</span>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Séptima</p>
+          <p><strong>Provincia:</strong> Mendoza</p>
+          <p><strong>Región:</strong> Agrelo, Luján de Cuyo</p>
+          <p><strong>Altura:</strong> 900 msnm</p>
+        </div>
+        <h3>Séptima Malbec</h3>
+        <p class="price">€19.95</p>
+        <a href="/vinos/sptima-malbec-2022.html" class="buy-button">Comprar</a>
+      </div>
+      
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <span>
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
+      </span>
+      <span>
+        <img src="/images/x-icon.png" alt="X" class="social-icon">
+        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+      </span>
+      <span>
+        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
+        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+      </span>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+          const details = link.closest('details');
+          if (details) {
+            details.setAttribute('open', '');
+          }
+        }
+      });
+      const infoIcons = document.querySelectorAll('.info-icon');
+      infoIcons.forEach(icon => {
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+            const overlay = icon.closest('.product-card').querySelector('.overlay');
+            if (overlay) {
+              overlay.classList.toggle('active');
+              console.log(`Overlay toggled for card: ${icon.closest('.product-card').querySelector('h3').textContent}`);
+            }
+          });
+        });
+      });
+      const buyButtons = document.querySelectorAll('.buy-button');
+      buyButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
