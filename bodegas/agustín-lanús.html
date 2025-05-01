@@ -7,7 +7,7 @@
   <title>1000 Malbecs - Agustín Lanús</title>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - Agustín Lanús">
-  <meta property="og:description" content="Entrado el siglo XX, más precisamente en 1938, Arnaldo Benito Etchart adquirió esta bodega que pertenecía a la familia de su mujer, Carmen Rosa, e inició el ...">
+  <meta property="og:description" content="Actualmente un pequeño puñado de enólogos del Valle Calchaquí produce vinos en el límite de donde se pueden cultivar uvas. Estos viñedos están ubicados en lu...">
   <meta property="og:image" content="/images/bodegas/agustin-lanus-1.jpg">
   <meta property="og:url" content="https://1000malbecs.com/bodegas/agustín-lanús.html">
   <meta property="og:type" content="website">
@@ -116,37 +116,35 @@
       margin: 0 auto;
     }
     .info-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 10;
-  display: none;
-}
-
-.overlay {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-height: 100px;
-  background-color: rgba(74, 44, 89, 0.8) !important;
-  color: #FFFFFF;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 12px;
-  overflow-y: auto;
-  z-index: 6;
-  pointer-events: none;
-}
-
-.overlay p {
-  margin: 2px 0;
-  color: #FFFFFF !important;
-  visibility: visible !important;
-}
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      display: none;
+    }
+    .overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-height: 100px;
+      background-color: rgba(74, 44, 89, 0.8) !important;
+      color: #FFFFFF;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 12px;
+      overflow-y: auto;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .overlay p {
+      margin: 2px 0;
+      color: #FFFFFF !important;
+      visibility: visible !important;
+    }
     .product-card:hover .overlay { display: block; }
     .product-card .overlay.active { display: block !important; }
     .product-card h3 {
@@ -319,10 +317,12 @@
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
       .overlay {
-        max-height: 120px;
+        max-height: 150px;
         pointer-events: auto;
         width: 100%;
         box-sizing: border-box;
+        top: 0;
+        padding: 40px 10px 10px 10px;
       }
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
@@ -346,23 +346,11 @@
         font-size: 18px;
       }
     }
-   /* Ajustes para mobile */
-@media (max-width: 768px) {
-  .info-icon {
-    display: block !important;
-  }
-  .overlay {
-    max-height: 150px; /* Aumentamos para cubrir más espacio */
-    pointer-events: auto;
-    width: 100%;
-    box-sizing: border-box;
-    top: 0; /* Comienza desde el borde superior */
-    padding: 40px 10px 10px 10px; /* Ajustamos el padding: 40px arriba para que el texto comience más abajo */
-  }
-  .overlay.active {
-    display: block !important;
-  }
-}
+    @media (min-width: 769px) {
+      .header { display: none; }
+      .logo-container { display: block; }
+      .info-icon { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -399,7 +387,9 @@
         
         <li><a href="/bodegas/agustín-lanús.html" class="nav-link active">Agustín Lanús</a></li>
         
-        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        
+        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
@@ -416,8 +406,6 @@
         <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
         
         <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
         
         <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
         
@@ -449,16 +437,18 @@
     
     <section class="presentation">
       <h2>Acerca de Agustín Lanús</h2>
-      <p>Actualmente un pequeño puñado de enólogos del Valle Calchaquí produce vinos en el límite de donde se pueden cultivar uvas. Estos viñedos están ubicados en lugares extremadamente aislados, lo que hace que el tiempo, los recursos y los costos de mantenimiento de los viñedos sean un desafío incluso para el enólogo más apasionado.Sin embargo, la calidad superior de los vinos producidos justifica el esfuerzo, ya que las variaciones extremas de temperatura, los niveles más altos de radiación solar y el largo período de maduración dan como resultado vinos altamente concentrados y complejos.
-​</p>
+      <p>Actualmente un pequeño puñado de enólogos del Valle Calchaquí produce vinos en el límite de donde se pueden cultivar uvas. Estos viñedos están ubicados en lugares extremadamente aislados, lo que hace que el tiempo, los recursos y los costos de mantenimiento de los viñedos sean un desafío incluso para el enólogo más apasionado.Sin embargo, la calidad superior de los vinos producidos justifica el esfuerzo, ya que las variaciones extremas de temperatura, los niveles más altos de radiación solar y el largo período de maduración dan como resultado vinos altamente concentrados y complejos. ​</p>
       <div class="gallery">
         
         <img src="/images/bodegas/agustin-lanus-1.jpg" alt="Banner de Agustín Lanús" class="banner-image">
         
+        <img src="/images/bodegas/agustn-lans-2.jpg" alt="Imagen 2 de Agustín Lanús" class="desktop-only">
+        
+        <img src="/images/bodegas/agustn-lans-3.jpg" alt="Imagen 3 de Agustín Lanús" class="desktop-only">
+        
+        <img src="/images/bodegas/agustn-lans-4.jpg" alt="Imagen 4 de Agustín Lanús" class="desktop-only">
+        
       </div>
-    </section>
-    
-    <div class="product-grid">
     </section>
     
     <div class="product-grid">
@@ -494,7 +484,7 @@
            data-precio="21.0"
            data-precio-rango="20+ EUR"
            data-altura="1800">
-        <img src="/images/small/sunal_ilogico--malbec-2020-2020.jpg" alt="Botella de Sunal Ilógico - Malbec 2020">
+        <img src="/images/small/sunal-ilgico--malbec-2020-2020.jpg" alt="Botella de Sunal Ilógico - Malbec 2020">
         <span class="info-icon">🍷</span>
         <div class="overlay">
           <p><strong>Bodega:</strong> Agustín Lanús</p>
