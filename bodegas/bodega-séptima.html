@@ -107,7 +107,6 @@
       height: 300px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       z-index: 5;
     }
     .product-card img {
@@ -152,7 +151,6 @@
       font-size: 14px;
       margin: 5px 0;
       color: #4A2C59;
-      flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -189,10 +187,17 @@
       display: flex;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
     .gallery img {
       width: 200px;
       height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .banner-image {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -243,7 +248,7 @@
       .hamburger { display: block; }
       #sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
@@ -251,6 +256,9 @@
         z-index: 100;
         border-bottom: 1px solid #E0E0E0;
         padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
       }
       #sidebar.open {
         transform: translateX(0);
@@ -273,20 +281,60 @@
       }
       .product-card {
         width: 100%;
-        height: 280px;
+        min-height: 320px;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px;
+        box-sizing: border-box;
       }
       .product-card img {
         width: 160px;
         height: 160px;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+      .product-card h3 {
+        font-size: 14px;
+        margin: 5px 0;
+        color: #4A2C59;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 40px;
+      }
+      .product-card .price {
+        font-size: 14px;
+        color: #4A2C59;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        margin-top: 5px;
       }
       .product-card:hover .overlay { display: none; }
       .info-icon { display: block !important; }
-      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay {
+        max-height: 150px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+        top: 0;
+        padding: 40px 10px 10px 10px;
+      }
       .overlay.active { display: block !important; }
       .presentation { margin: 10px 0; padding: 10px; }
       .gallery { flex-direction: column; }
       .desktop-only { display: none; }
-      .banner-image { width: 100%; height: auto; max-height: 150px; object-fit: cover; }
+      .gallery img.banner-image {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
       .footer-content {
         flex-wrap: wrap;
         gap: 15px;
@@ -298,23 +346,11 @@
         font-size: 18px;
       }
     }
-    /* Ajustes para mobile */
-@media (max-width: 768px) {
-  .info-icon {
-    display: block !important;
-  }
-  .overlay {
-    max-height: 150px; /* Aumentamos para cubrir más espacio */
-    pointer-events: auto;
-    width: 100%;
-    box-sizing: border-box;
-    top: 0; /* Comienza desde el borde superior */
-    padding: 40px 10px 10px 10px; /* Ajustamos el padding: 40px arriba para que el texto comience más abajo */
-  }
-  .overlay.active {
-    display: block !important;
-  }
-}
+    @media (min-width: 769px) {
+      .header { display: none; }
+      .logo-container { display: block; }
+      .info-icon { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -351,7 +387,9 @@
         
         <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
         
-        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        
+        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
@@ -368,8 +406,6 @@
         <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
         
         <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/bodegas/dilema-wines.html" class="nav-link">Dilema Wines</a></li>
         
         <li><a href="/bodegas/enrique-foster-bodega.html" class="nav-link">Enrique Foster Bodega</a></li>
         
@@ -404,13 +440,13 @@
       <p></p>
       <div class="gallery">
         
-        <img src="/images/bodegas/bodega-septima-1.jpg" alt="Banner de Bodega Séptima" class="banner-image">
+        <img src="/images/bodegas/bodega-sptima-1.jpg" alt="Banner de Bodega Séptima" class="banner-image">
         
-        <img src="/images/bodegas/bodega-septima-2.jpg" alt="Imagen 2 de Bodega Séptima" class="desktop-only">
+        <img src="/images/bodegas/bodega-sptima-2.jpg" alt="Imagen 2 de Bodega Séptima" class="desktop-only">
         
-        <img src="/images/bodegas/bodega-septima-3.jpg" alt="Imagen 3 de Bodega Séptima" class="desktop-only">
+        <img src="/images/bodegas/bodega-sptima-3.jpg" alt="Imagen 3 de Bodega Séptima" class="desktop-only">
         
-        <img src="/images/bodegas/bodega-septima-4.jpg" alt="Imagen 4 de Bodega Séptima" class="desktop-only">
+        <img src="/images/bodegas/bodega-sptima-4.jpg" alt="Imagen 4 de Bodega Séptima" class="desktop-only">
         
       </div>
     </section>
