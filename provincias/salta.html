@@ -5,25 +5,154 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Salta</title>
+  <meta property="og:title" content="1000 Malbecs - Salta">
+  <meta property="og:description" content="Explora los vinos de Salta en 1000 Malbecs. Calidad y tradición en cada botella.">
+  <meta property="og:image" content="https://1000malbecs.com/images/provincia/salta-1.jpg">
+  <meta property="og:url" content="https://1000malbecs.com/provincias/salta.html">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; }
-    #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .banner {
+      width: 100%;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      font-size: 3em;
+      font-weight: bold;
+    }
+    .header { display: none; }
+    .logo { max-width: 150px; height: auto; }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 110;
+    }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
     .logo-container { text-align: center; margin-bottom: 20px; }
-    .logo-container img { max-width: 150px; height: auto; }
-    #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+    #sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A2C59;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
     #sidebar details { margin-bottom: 15px; }
     #sidebar details:first-of-type { margin-bottom: 25px; }
-    #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
+    #sidebar summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+    }
     #sidebar summary i { margin-right: 10px; color: #4A2C59; }
     #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
     #sidebar li { margin: 5px 0; }
-    .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+    .nav-link {
+      font-size: 14px;
+      color: #4A2C59;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
     .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
     .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-    main { margin-left: 290px; padding: 20px; width: 100%; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    main {
+      margin-left: 290px;
+      padding: 20px;
+      width: calc(100% - 290px);
+      flex: 1;
+    }
+    main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
+    .presentation {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+    }
+    .presentation h2 {
+      font-size: 20px;
+      color: #4A2C59;
+      margin-bottom: 10px;
+    }
+    .presentation p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .wineries-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .winery-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .winery-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .winery-card h3 {
+      font-size: 16px;
+      color: #4A2C59;
+      margin: 10px 0;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 20px 0;
+    }
     .product-card {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
@@ -36,7 +165,6 @@
       height: 300px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       z-index: 5;
     }
     .product-card img {
@@ -61,7 +189,7 @@
       left: 0;
       width: 100%;
       max-height: 100px;
-      background-color: rgba(74, 44, 89, 0.8) !important; /* #4A2C59 violáceo */
+      background-color: rgba(74, 44, 89, 0.8) !important;
       color: #FFFFFF;
       padding: 10px;
       box-sizing: border-box;
@@ -81,7 +209,6 @@
       font-size: 14px;
       margin: 5px 0;
       color: #4A2C59;
-      flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -98,59 +225,127 @@
       z-index: 10;
       position: relative;
     }
-    .presentation {
-      margin: 20px 0;
-      padding: 20px;
-      background-color: #f8f8f8;
-      border-radius: 5px;
+    footer {
+      background-color: #F8F8F8;
+      padding: 15px;
+      text-align: center;
+      border-top: 1px solid #E0E0E0;
+      width: 100%;
     }
-    .presentation h2 {
-      font-size: 20px;
-      color: #4A2C59;
-      margin-bottom: 10px;
-    }
-    .presentation p {
-      font-size: 14px;
-      color: #333;
-      line-height: 1.6;
-    }
-    .gallery {
+    .footer-content {
       display: flex;
-      gap: 10px;
-      margin-top: 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      color: #4A2C59;
     }
-    .gallery img {
-      width: 200px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 5px;
+    .footer-content a {
+      color: #4A2C59;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-content a:hover { color: #7B4F8C; }
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .fa-whatsapp {
+      font-size: 20px;
+      color: #25D366;
+      margin-right: 5px;
     }
     @media (max-width: 768px) {
-      #sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #E0E0E0; margin-top: 60px; }
-      .logo-container img { max-width: 120px; }
-      #sidebar h2 { font-size: 16px; }
-      #sidebar summary { font-size: 14px; }
-      #sidebar .nav-link { font-size: 13px; }
-      #sidebar details:first-of-type { margin-bottom: 20px; }
-      main { margin-left: 0; }
+      body { display: block; }
+      .banner { height: 200px; font-size: 1.5em; }
+      .header { display: block; position: fixed; top: 10px; right: 10px; z-index: 120; }
+      .logo { max-width: 100px; }
+      .hamburger { display: block; }
+      #sidebar {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        border-bottom: 1px solid #E0E0E0;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+      #sidebar.open { transform: translateX(0); }
+      .logo-container { display: none; }
+      main { margin-left: 0; margin-top: 120px; padding: 10px; width: 100%; }
+      main h1 { font-size: 20px; line-height: 1.4; margin-bottom: 15px; }
+      .wineries-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+      .winery-card img { height: 100px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+      .product-card {
+        width: 100%;
+        min-height: 320px;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .product-card img {
+        width: 160px;
+        height: 160px;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+      .product-card h3 {
+        font-size: 14px;
+        margin: 5px 0;
+        color: #4A2C59;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 40px;
+      }
+      .product-card .price { font-size: 14px; color: #4A2C59; margin: 5px 0; }
+      .product-card .buy-button { margin-top: 5px; }
       .product-card:hover .overlay { display: none; }
-      .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
-      .product-card { width: 180px; height: 280px; }
-      .product-card img { width: 160px; height: 160px; }
       .info-icon { display: block !important; }
-      .overlay { max-height: 120px; pointer-events: auto; }
+      .overlay {
+        max-height: 150px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+        top: 0;
+        padding: 40px 10px 10px 10px;
+      }
       .overlay.active { display: block !important; }
+      .presentation { margin: 10px 0; padding: 10px; }
+      .footer-content { flex-wrap: wrap; gap: 15px; font-size: 12px; }
+      .social-icon, .fa-whatsapp { width: 18px; height: 18px; font-size: 18px; }
     }
     @media (min-width: 769px) {
+      .header { display: none; }
+      .logo-container { display: block; }
       .info-icon { display: none; }
     }
   </style>
 </head>
 <body>
+  <header class="header">
+    <a href="/index.html" title="Volver al inicio">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+  <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
       <a href="/index.html" title="Volver al inicio">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
     <h2>Categorías</h2>
@@ -168,152 +363,160 @@
         
       </ul>
     </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
-      <ul>
-        
-        <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/bodegas/goyenechea.html" class="nav-link">Goyenechea</a></li>
-        
-        <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-      </ul>
-    </details>
   </nav>
   <main>
-    <h1>Salta</h1>
-    <!--
+    <!-- Banner -->
+    <div class="banner" style="background-image: url('/images/provincia/salta-1.jpg');">
+      <h1>Salta</h1>
+    </div>
+    <!-- Descripción de la provincia -->
     <section class="presentation">
       <h2>Acerca de Salta</h2>
-      <p>Descripción de Salta. Aquí puedes agregar información sobre la historia, características, o detalles relevantes de la provincia/bodega.</p>
-      <div class="gallery">
-        <img src="/images/provincia/salta-1.jpg" alt="Imagen 1 de Salta">
-        <img src="/images/provincia/salta-2.jpg" alt="Imagen 2 de Salta">
-      </div>
+      <p>Salta, hogar de los viñedos más altos del mundo, produce vinos de gran intensidad. Su clima extremo y suelos únicos en el noroeste argentino dan vida a Malbecs potentes y estructurados.</p>
     </section>
-    -->
+    <!-- Fila con 4 bodegas -->
+    <section class="wineries-grid">
+      
+      <div class="winery-card">
+        <img src="/images/bodegas/agustn-lans-1.jpg" alt="Agustín Lanús"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <h3>Agustín Lanús</h3>
+      </div>
+      
+      <div class="winery-card">
+        <img src="/images/bodegas/bodega-tukma-1.jpg" alt="Bodega Tukma"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <h3>Bodega Tukma</h3>
+      </div>
+      
+      <div class="winery-card">
+        <img src="/images/bodegas/bodegas-etchart-1.jpg" alt="Bodegas Etchart"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <h3>Bodegas Etchart</h3>
+      </div>
+      
+    </section>
+    <!-- Dos filas de productos -->
     <div class="product-grid">
       
-      <div class="product-card"
-           data-provincia="Salta"
-           data-region="Cafayate"
-           data-bodega="Bodegas Etchart"
-           data-tipo="Malbec"
-           data-anada="2020.0"
-           data-precio="117.65"
-           data-precio-rango="20+ EUR"
-           data-altura="1600">
-        <img src="/images/small/amar-vivir-malbec-2020.jpg" alt="Botella de Amar Vivir Malbec"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Etchart</p>
-          <p><strong>Provincia:</strong> Salta</p>
-          <p><strong>Región:</strong> Cafayate</p>
-          <p><strong>Altura:</strong> 1600 msnm</p>
-        </div>
-        <h3>Amar Vivir Malbec</h3>
-        <p class="price">€117.65</p>
-        <a href="/vinos/amar-vivir-malbec-2020.html" class="buy-button">Comprar</a>
-      </div>
-      
-      <div class="product-card"
-           data-provincia="Salta"
-           data-region="Valle de Calchaquí"
-           data-bodega="Agustín Lanús"
-           data-tipo="Malbec"
-           data-anada="2020.0"
-           data-precio="15.0"
-           data-precio-rango="10-20 EUR"
-           data-altura="1800">
+      <div class="product-card" data-overlay-id="bad-brothers-malbec-premium-2020.html">
         <img src="/images/small/bad-brothers--malbec-premium-2020-2020.jpg" alt="Botella de Bad Brothers - Malbec Premium 2020"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <div class="info-icon" data-overlay-id="bad-brothers-malbec-premium-2020.html">🍷</div>
+        <div class="overlay" data-overlay-id="bad-brothers-malbec-premium-2020.html">
           <p><strong>Bodega:</strong> Agustín Lanús</p>
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Valle de Calchaquí</p>
           <p><strong>Altura:</strong> 1800 msnm</p>
         </div>
         <h3>Bad Brothers - Malbec Premium 2020</h3>
-        <p class="price">€15.0</p>
+        <p class="price">€17.49</p>
         <a href="/vinos/bad-brothers--malbec-premium-2020-2020.html" class="buy-button">Comprar</a>
       </div>
       
-      <div class="product-card"
-           data-provincia="Salta"
-           data-region="Cafayate"
-           data-bodega="Bodegas Etchart"
-           data-tipo="Malbec"
-           data-anada="2019.0"
-           data-precio="61.949999999999996"
-           data-precio-rango="20+ EUR"
-           data-altura="1600">
-        <img src="https://via.placeholder.com/200x200?text=Imagen+No+Disponible" alt="Botella de Imaginate Malbec"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Etchart</p>
+      <div class="product-card" data-overlay-id="tukma-malbec.html">
+        <img src="/images/small/tukma-malbec-2019.jpg" alt="Botella de Tukma Malbec"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <div class="info-icon" data-overlay-id="tukma-malbec.html">🍷</div>
+        <div class="overlay" data-overlay-id="tukma-malbec.html">
+          <p><strong>Bodega:</strong> Bodega Tukma</p>
           <p><strong>Provincia:</strong> Salta</p>
-          <p><strong>Región:</strong> Cafayate</p>
-          <p><strong>Altura:</strong> 1600 msnm</p>
+          <p><strong>Región:</strong> Valle de Calchaquí</p>
+          <p><strong>Altura:</strong> 1700 msnm</p>
         </div>
-        <h3>Imaginate Malbec</h3>
-        <p class="price">€61.949999999999996</p>
-        <a href="/vinos/imaginate-malbec-2019.html" class="buy-button">Comprar</a>
+        <h3>Tukma Malbec</h3>
+        <p class="price">€19.29</p>
+        <a href="/vinos/tukma-malbec-2019.html" class="buy-button">Comprar</a>
       </div>
       
-      <div class="product-card"
-           data-provincia="Salta"
-           data-region="Valle de Calchaquí"
-           data-bodega="Agustín Lanús"
-           data-tipo="Malbec"
-           data-anada="2020.0"
-           data-precio="21.0"
-           data-precio-rango="20+ EUR"
-           data-altura="1800">
-        <img src="https://via.placeholder.com/200x200?text=Imagen+No+Disponible" alt="Botella de Sunal Ilógico - Malbec 2020"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
+      <div class="product-card" data-overlay-id="sunal-ilgico-malbec-2020.html">
+        <img src="/images/small/sunal-ilgico--malbec-2020-2020.jpg" alt="Botella de Sunal Ilógico - Malbec 2020"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <div class="info-icon" data-overlay-id="sunal-ilgico-malbec-2020.html">🍷</div>
+        <div class="overlay" data-overlay-id="sunal-ilgico-malbec-2020.html">
           <p><strong>Bodega:</strong> Agustín Lanús</p>
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Valle de Calchaquí</p>
           <p><strong>Altura:</strong> 1800 msnm</p>
         </div>
         <h3>Sunal Ilógico - Malbec 2020</h3>
-        <p class="price">€21.0</p>
+        <p class="price">€25.49</p>
         <a href="/vinos/sunal-ilgico--malbec-2020-2020.html" class="buy-button">Comprar</a>
       </div>
       
-      <div class="product-card"
-           data-provincia="Salta"
-           data-region="Cafayate"
-           data-bodega="Bodega Tukma"
-           data-tipo="Malbec"
-           data-anada="2019.0"
-           data-precio="23.95"
-           data-precio-rango="20+ EUR"
-           data-altura="1600">
-        <img src="https://via.placeholder.com/200x200?text=Imagen+No+Disponible" alt="Botella de Tukma Malbec"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
+      <div class="product-card" data-overlay-id="tukma-gran-corte.html">
+        <img src="/images/placeholder.jpg" alt="Botella de Tukma Gran Corte"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <div class="info-icon" data-overlay-id="tukma-gran-corte.html">🍷</div>
+        <div class="overlay" data-overlay-id="tukma-gran-corte.html">
           <p><strong>Bodega:</strong> Bodega Tukma</p>
+          <p><strong>Provincia:</strong> Salta</p>
+          <p><strong>Región:</strong> Valle de Calchaquí</p>
+          <p><strong>Altura:</strong> 1900 msnm</p>
+        </div>
+        <h3>Tukma Gran Corte</h3>
+        <p class="price">€41.29</p>
+        <a href="/vinos/no-disponible.html" class="buy-button">Comprar</a>
+      </div>
+      
+    </div>
+    <div class="product-grid">
+      
+      <div class="product-card" data-overlay-id="imaginate-malbec.html">
+        <img src="/images/small/imaginate-malbec-2019.jpg" alt="Botella de Imaginate Malbec"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <div class="info-icon" data-overlay-id="imaginate-malbec.html">🍷</div>
+        <div class="overlay" data-overlay-id="imaginate-malbec.html">
+          <p><strong>Bodega:</strong> Bodegas Etchart</p>
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Cafayate</p>
           <p><strong>Altura:</strong> 1600 msnm</p>
         </div>
-        <h3>Tukma Malbec</h3>
-        <p class="price">€23.95</p>
-        <a href="/vinos/tukma-malbec-2019.html" class="buy-button">Comprar</a>
+        <h3>Imaginate Malbec</h3>
+        <p class="price">€56.99</p>
+        <a href="/vinos/imaginate-malbec-2019.html" class="buy-button">Comprar</a>
+      </div>
+      
+      <div class="product-card" data-overlay-id="amar-vivir-malbec.html">
+        <img src="/images/small/amar-vivir-malbec-2020.jpg" alt="Botella de Amar Vivir Malbec"
+             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+        <div class="info-icon" data-overlay-id="amar-vivir-malbec.html">🍷</div>
+        <div class="overlay" data-overlay-id="amar-vivir-malbec.html">
+          <p><strong>Bodega:</strong> Bodegas Etchart</p>
+          <p><strong>Provincia:</strong> Salta</p>
+          <p><strong>Región:</strong> Cafayate</p>
+          <p><strong>Altura:</strong> 1600 msnm</p>
+        </div>
+        <h3>Amar Vivir Malbec</h3>
+        <p class="price">€112.99</p>
+        <a href="/vinos/amar-vivir-malbec-2020.html" class="buy-button">Comprar</a>
       </div>
       
     </div>
   </main>
+  <footer>
+    <div class="footer-content">
+      <span>
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
+      </span>
+      <span>
+        <img src="/images/x-icon.png" alt="X" class="social-icon">
+        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+      </span>
+      <span>
+        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
+        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+      </span>
+    </div>
+  </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
       const navLinks = document.querySelectorAll('.nav-link');
       const currentPath = window.location.pathname;
       navLinks.forEach(link => {
@@ -327,20 +530,19 @@
       });
       const infoIcons = document.querySelectorAll('.info-icon');
       infoIcons.forEach(icon => {
-        icon.addEventListener('click', (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          console.log(`Ícono tocado: ${icon.closest('.product-card').querySelector('h3').textContent}`);
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+            const overlay = icon.closest('.product-card').querySelector('.overlay');
+            if (overlay) {
+              overlay.classList.toggle('active');
+              console.log(`Overlay toggled for card: ${icon.closest('.product-card').querySelector('h3').textContent}`);
+            }
           });
-          const overlay = icon.closest('.product-card').querySelector('.overlay');
-          if (overlay) {
-            overlay.classList.toggle('active');
-            console.log(`Overlay ${overlay.classList.contains('active') ? 'activado' : 'desactivado'}`);
-          } else {
-            console.log('Error: No se encontró el overlay para', icon.closest('.product-card').querySelector('h3').textContent);
-          }
         });
       });
       const buyButtons = document.querySelectorAll('.buy-button');
