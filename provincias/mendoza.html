@@ -118,11 +118,21 @@
       color: #333;
       line-height: 1.6;
     }
+    .wineries-section h2 {
+      font-size: 22px;
+      color: #4A2C59;
+      margin: 20px 0 10px;
+    }
+    .wineries-section h3 {
+      font-size: 18px;
+      color: #4A2C59;
+      margin: 15px 0 10px;
+    }
     .wineries-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      margin: 20px 0;
+      margin: 10px 0;
     }
     .winery-card {
       background-color: #FFFFFF;
@@ -142,10 +152,28 @@
       object-fit: cover;
       border-radius: 5px;
     }
-    .winery-card h3 {
+    .winery-card h4 {
       font-size: 16px;
       color: #4A2C59;
       margin: 10px 0;
+    }
+    .winery-card a {
+      color: #4A2C59;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 5px 10px;
+      border: 1px solid #4A2C59;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .winery-card a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .products-section h2 {
+      font-size: 22px;
+      color: #4A2C59;
+      margin: 20px 0 10px;
     }
     .product-grid {
       display: grid;
@@ -374,161 +402,300 @@
       <h2>Acerca de Mendoza</h2>
       <p>Mendoza, el corazón del vino argentino, es famosa por sus Malbecs de clase mundial. Con viñedos a los pies de los Andes, su clima seco y altitudes únicas crean vinos elegantes y estructurados.</p>
     </section>
-    <!-- Fila con 4 bodegas -->
-    <section class="wineries-grid">
+    <!-- Bodegas agrupadas por región -->
+    <section class="wineries-section">
+      <h2>Bodegas de Mendoza</h2>
       
-      <div class="winery-card">
-        <img src="/images/bodegas/bodega-estancia-mendoza-1.jpg" alt="Bodega Estancia Mendoza"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <h3>Bodega Estancia Mendoza</h3>
+      <h3>Agrelo, Luján de Cuyo</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/bodega-sptima-1.jpg" alt="Bodega Séptima"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Bodega Séptima</h4>
+          <a href="/bodegas/bodega-sptima.html">Visitar Bodega</a>
+        </div>
+        
       </div>
       
-      <div class="winery-card">
-        <img src="/images/bodegas/bodega-foster-lorca-1.jpg" alt="Bodega Foster Lorca"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <h3>Bodega Foster Lorca</h3>
+      <h3>General Alvear</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/jorge-rubio-1.jpg" alt="Jorge Rubio"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Jorge Rubio</h4>
+          <a href="/bodegas/jorge-rubio.html">Visitar Bodega</a>
+        </div>
+        
       </div>
       
-      <div class="winery-card">
-        <img src="/images/bodegas/bodega-goyenechea-1.jpg" alt="Bodega Goyenechea"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <h3>Bodega Goyenechea</h3>
+      <h3>Guaymallen</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/cicchitti-1.jpg" alt="Cicchitti"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Cicchitti</h4>
+          <a href="/bodegas/cicchitti.html">Visitar Bodega</a>
+        </div>
+        
       </div>
       
-      <div class="winery-card">
-        <img src="/images/bodegas/bodega-sptima-1.jpg" alt="Bodega Séptima"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <h3>Bodega Séptima</h3>
+      <h3>Luján de Cuyo</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/chakana-1.jpg" alt="Chakana"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Chakana</h4>
+          <a href="/bodegas/chakana.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/finca-y-bodega-vistalba-1.jpg" alt="Finca y Bodega Vistalba"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Finca y Bodega Vistalba</h4>
+          <a href="/bodegas/finca-y-bodega-vistalba.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/luigi-bosca-1.jpg" alt="Luigi Bosca"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Luigi Bosca</h4>
+          <a href="/bodegas/luigi-bosca.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/via-alicia-1.jpg" alt="Viña Alicia"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Viña Alicia</h4>
+          <a href="/bodegas/via-alicia.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/weinert-bodega-y-cavas-1.jpg" alt="Weinert Bodega y Cavas"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Weinert Bodega y Cavas</h4>
+          <a href="/bodegas/weinert-bodega-y-cavas.html">Visitar Bodega</a>
+        </div>
+        
+      </div>
+      
+      <h3>San Rafael</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/bodega-goyenechea-1.jpg" alt="Bodega Goyenechea"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Bodega Goyenechea</h4>
+          <a href="/bodegas/bodega-goyenechea.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Bodegas Bianchi"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Bodegas Bianchi</h4>
+          <a href="/bodegas/bodegas-bianchi.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/casa-araujo-1.jpg" alt="Casa Araujo"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Casa Araujo</h4>
+          <a href="/bodegas/casa-araujo.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/jorge-rubio-1.jpg" alt="Jorge Rubio"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Jorge Rubio</h4>
+          <a href="/bodegas/jorge-rubio.html">Visitar Bodega</a>
+        </div>
+        
+      </div>
+      
+      <h3>Tunuyan</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Bodegas Bianchi"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Bodegas Bianchi</h4>
+          <a href="/bodegas/bodegas-bianchi.html">Visitar Bodega</a>
+        </div>
+        
+      </div>
+      
+      <h3>Tupungato</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/bodega-estancia-mendoza-1.jpg" alt="Bodega Estancia Mendoza"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Bodega Estancia Mendoza</h4>
+          <a href="/bodegas/bodega-estancia-mendoza.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/jasmine-monet-1.jpg" alt="Jasmine Monet"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Jasmine Monet</h4>
+          <a href="/bodegas/jasmine-monet.html">Visitar Bodega</a>
+        </div>
+        
+      </div>
+      
+      <h3>Valle de Uco</h3>
+      <div class="wineries-grid">
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/bodega-foster-lorca-1.jpg" alt="Bodega Foster Lorca"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Bodega Foster Lorca</h4>
+          <a href="/bodegas/bodega-foster-lorca.html">Visitar Bodega</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/eral-bravo-1.jpg" alt="Eral Bravo"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Eral Bravo</h4>
+          <a href="/bodegas/eral-bravo.html">Visitar Bodega</a>
+        </div>
+        
       </div>
       
     </section>
-    <!-- Dos filas de productos -->
-    <div class="product-grid">
-      
-      <div class="product-card" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot.html">
-        <img src="/images/small/jorge-rubio-gran-reserva-malbecmerlot-2020.jpg" alt="Botella de JORGE RUBIO GRAN RESERVA Malbec/Merlot"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot.html">🍷</div>
-        <div class="overlay" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot.html">
-          <p><strong>Bodega:</strong> Jorge Rubio</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> General Alvear</p>
-          <p><strong>Altura:</strong> 500 msnm</p>
+    <!-- Vinos -->
+    <section class="products-section">
+      <h2>Vinos de Mendoza</h2>
+      <div class="product-grid">
+        
+        <div class="product-card" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot.html">
+          <img src="/images/small/jorge-rubio-gran-reserva-malbecmerlot-2020.jpg" alt="Botella de JORGE RUBIO GRAN RESERVA Malbec/Merlot"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot.html">🍷</div>
+          <div class="overlay" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot.html">
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 500 msnm</p>
+          </div>
+          <h3>JORGE RUBIO GRAN RESERVA Malbec/Merlot</h3>
+          <p class="price">€4.6499999999999995</p>
+          <a href="/vinos/jorge-rubio-gran-reserva-malbecmerlot-2020.html" class="buy-button">Comprar</a>
         </div>
-        <h3>JORGE RUBIO GRAN RESERVA Malbec/Merlot</h3>
-        <p class="price">€4.6499999999999995</p>
-        <a href="/vinos/jorge-rubio-gran-reserva-malbecmerlot-2020.html" class="buy-button">Comprar</a>
-      </div>
-      
-      <div class="product-card" data-overlay-id="casa-araujo-varietal.html">
-        <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="casa-araujo-varietal.html">🍷</div>
-        <div class="overlay" data-overlay-id="casa-araujo-varietal.html">
-          <p><strong>Bodega:</strong> Casa Araujo</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520 msnm</p>
+        
+        <div class="product-card" data-overlay-id="casa-araujo-varietal.html">
+          <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="casa-araujo-varietal.html">🍷</div>
+          <div class="overlay" data-overlay-id="casa-araujo-varietal.html">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+          </div>
+          <h3>Casa Araujo Varietal</h3>
+          <p class="price">€7.99</p>
+          <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
         </div>
-        <h3>Casa Araujo Varietal</h3>
-        <p class="price">€7.99</p>
-        <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
-      </div>
-      
-      <div class="product-card" data-overlay-id="goye-malbec.html">
-        <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="goye-malbec.html">🍷</div>
-        <div class="overlay" data-overlay-id="goye-malbec.html">
-          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520 msnm</p>
+        
+        <div class="product-card" data-overlay-id="goye-malbec.html">
+          <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="goye-malbec.html">🍷</div>
+          <div class="overlay" data-overlay-id="goye-malbec.html">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+          </div>
+          <h3>Goye Malbec</h3>
+          <p class="price">€9.49</p>
+          <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
-        <h3>Goye Malbec</h3>
-        <p class="price">€9.49</p>
-        <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
-      </div>
-      
-      <div class="product-card" data-overlay-id="temtico-malbec.html">
-        <img src="/images/small/temtico--malbec-2023-2023.jpg" alt="Botella de Temático - Malbec"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="temtico-malbec.html">🍷</div>
-        <div class="overlay" data-overlay-id="temtico-malbec.html">
-          <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Valle de Uco</p>
-          <p><strong>Altura:</strong> 1100 msnm</p>
+        
+        <div class="product-card" data-overlay-id="temtico-malbec.html">
+          <img src="/images/small/temtico--malbec-2023-2023.jpg" alt="Botella de Temático - Malbec"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="temtico-malbec.html">🍷</div>
+          <div class="overlay" data-overlay-id="temtico-malbec.html">
+            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Altura:</strong> 1100 msnm</p>
+          </div>
+          <h3>Temático - Malbec</h3>
+          <p class="price">€9.99</p>
+          <a href="/vinos/temtico--malbec-2023.html" class="buy-button">Comprar</a>
         </div>
-        <h3>Temático - Malbec</h3>
-        <p class="price">€9.99</p>
-        <a href="/vinos/temtico--malbec-2023.html" class="buy-button">Comprar</a>
+        
       </div>
-      
-    </div>
-    <div class="product-grid">
-      
-      <div class="product-card" data-overlay-id="casa-araujo-roble.html">
-        <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="casa-araujo-roble.html">🍷</div>
-        <div class="overlay" data-overlay-id="casa-araujo-roble.html">
-          <p><strong>Bodega:</strong> Casa Araujo</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520 msnm</p>
+      <div class="product-grid">
+        
+        <div class="product-card" data-overlay-id="casa-araujo-roble.html">
+          <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="casa-araujo-roble.html">🍷</div>
+          <div class="overlay" data-overlay-id="casa-araujo-roble.html">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+          </div>
+          <h3>Casa Araujo Roble</h3>
+          <p class="price">€10.19</p>
+          <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
         </div>
-        <h3>Casa Araujo Roble</h3>
-        <p class="price">€10.19</p>
-        <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
-      </div>
-      
-      <div class="product-card" data-overlay-id="casa-araujo-mimi.html">
-        <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="casa-araujo-mimi.html">🍷</div>
-        <div class="overlay" data-overlay-id="casa-araujo-mimi.html">
-          <p><strong>Bodega:</strong> Casa Araujo</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520 msnm</p>
+        
+        <div class="product-card" data-overlay-id="casa-araujo-mimi.html">
+          <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="casa-araujo-mimi.html">🍷</div>
+          <div class="overlay" data-overlay-id="casa-araujo-mimi.html">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+          </div>
+          <h3>Casa Araujo Mimi</h3>
+          <p class="price">€11.19</p>
+          <a href="/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
         </div>
-        <h3>Casa Araujo Mimi</h3>
-        <p class="price">€11.19</p>
-        <a href="/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
-      </div>
-      
-      <div class="product-card" data-overlay-id="la-grupa-syrah-malbec-075.html">
-        <img src="/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="Botella de LA Grupa Syrah Malbec 0.75"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="la-grupa-syrah-malbec-075.html">🍷</div>
-        <div class="overlay" data-overlay-id="la-grupa-syrah-malbec-075.html">
-          <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Tupungato</p>
-          <p><strong>Altura:</strong> 700 msnm</p>
+        
+        <div class="product-card" data-overlay-id="la-grupa-syrah-malbec-075.html">
+          <img src="/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="Botella de LA Grupa Syrah Malbec 0.75"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="la-grupa-syrah-malbec-075.html">🍷</div>
+          <div class="overlay" data-overlay-id="la-grupa-syrah-malbec-075.html">
+            <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Tupungato</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
+          <h3>LA Grupa Syrah Malbec 0.75</h3>
+          <p class="price">€11.99</p>
+          <a href="/vinos/la-grupa-syrah-malbec-075-2022.html" class="buy-button">Comprar</a>
         </div>
-        <h3>LA Grupa Syrah Malbec 0.75</h3>
-        <p class="price">€11.99</p>
-        <a href="/vinos/la-grupa-syrah-malbec-075-2022.html" class="buy-button">Comprar</a>
-      </div>
-      
-      <div class="product-card" data-overlay-id="cicchitti-primmo-malbec.html">
-        <img src="/images/small/cicchitti-primmo-malbec-2022.jpg" alt="Botella de CICCHITTI Primmo Malbec"
-             onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-        <div class="info-icon" data-overlay-id="cicchitti-primmo-malbec.html">🍷</div>
-        <div class="overlay" data-overlay-id="cicchitti-primmo-malbec.html">
-          <p><strong>Bodega:</strong> Cicchitti</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Guaymallen</p>
-          <p><strong>Altura:</strong> 700 msnm</p>
+        
+        <div class="product-card" data-overlay-id="cicchitti-primmo-malbec.html">
+          <img src="/images/small/cicchitti-primmo-malbec-2022.jpg" alt="Botella de CICCHITTI Primmo Malbec"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="cicchitti-primmo-malbec.html">🍷</div>
+          <div class="overlay" data-overlay-id="cicchitti-primmo-malbec.html">
+            <p><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Guaymallen</p>
+            <p><strong>Altura:</strong> 700 msnm</p>
+          </div>
+          <h3>CICCHITTI Primmo Malbec</h3>
+          <p class="price">€12.89</p>
+          <a href="/vinos/cicchitti-primmo-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
-        <h3>CICCHITTI Primmo Malbec</h3>
-        <p class="price">€12.89</p>
-        <a href="/vinos/cicchitti-primmo-malbec-2022.html" class="buy-button">Comprar</a>
+        
       </div>
-      
-    </div>
+    </section>
   </main>
   <footer>
     <div class="footer-content">
