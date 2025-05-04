@@ -846,22 +846,22 @@
         <h3 class="section-title">Conocé nuestras provincias</h3>
         <div class="province-grid">
             <a href="/provincias/mendoza.html" class="province-card">
-                <img src="/images/provincias/mendoza-1.jpg" alt="Viñedos de Mendoza">
+                <img src="/images/provincia/mendoza-1.jpg" alt="Viñedos de Mendoza">
                 <span class="province-name">Mendoza</span>
                 <div class="province-overlay">Mendoza</div>
             </a>
             <a href="/provincias/salta.html" class="province-card">
-                <img src="/images/provincias/salta-1.jpg" alt="Viñedos de Salta">
+                <img src="/images/provincia/salta-1.jpg" alt="Viñedos de Salta">
                 <span class="province-name">Salta</span>
                 <div class="province-overlay">Salta</div>
             </a>
             <a href="/provincias/la-rioja.html" class="province-card">
-                <img src="/images/provincias/la-rioja-1.jpg" alt="Viñedos de La Rioja">
+                <img src="/images/provincia/la-rioja-1.jpg" alt="Viñedos de La Rioja">
                 <span class="province-name">La Rioja</span>
                 <div class="province-overlay">La Rioja</div>
             </a>
             <a href="/provincias/neuquén.html" class="province-card">
-                <img src="/images/provincias/neuquen-1.jpg" alt="Viñedos de Neuquén">
+                <img src="/images/provincia/neuquen-1.jpg" alt="Viñedos de Neuquén">
                 <span class="province-name">Neuquén</span>
                 <div class="province-overlay">Neuquén</div>
             </a>
