@@ -500,6 +500,7 @@
         </details>
     </nav>
     <div class="main-content">
+        <h2 class="welcome-title">Bienvenidos a 1000 Malbecs, el sitio de los 1000 mejores malbecs argentinos, desde la Patagonia hasta la Puna</h2>
         <main>
             <!-- Banner Carousel -->
             <div class="banner-carousel">
