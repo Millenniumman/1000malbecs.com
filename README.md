@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -43,9 +44,9 @@
             cursor: pointer;
             padding: 10px;
             position: fixed;
-            top: 10px;
+            top: 15px; /* Ajustado para mejor espaciado */
             left: 10px;
-            z-index: 120; /* Aumentado para estar encima del logo */
+            z-index: 110;
         }
         #sidebar {
             width: 250px;
@@ -116,7 +117,7 @@
             background-color: #FFFFFF;
             border: 1px solid #E0E0E0;
             border-radius: 5px;
-            padding: 10px; /* Reducido para más espacio */
+            padding: 10px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -147,25 +148,25 @@
             top: 0;
             left: 0;
             width: 100%;
-            max-height: 120px; /* Aumentado para más contenido */
-            background-color: rgba(74, 44, 89, 0.8);
+            max-height: 120px;
+            background-color: rgba(74, 44, 89, 0.8) !important;
             color: #FFFFFF;
             padding: 10px;
             box-sizing: border-box;
-            font-size: 11px; /* Reducido para mobile */
+            font-size: 11px;
             overflow-y: auto;
-            z-index: 6;
+            z-index: 7; /* Aumentado para asegurar visibilidad */
             pointer-events: none;
         }
         .overlay p {
             margin: 2px 0;
-            color: #FFFFFF;
-            visibility: visible;
+            color: #FFFFFF !important;
+            visibility: visible !important;
         }
         .product-card:hover .overlay { display: block; }
-        .product-card .overlay.active { display: block; }
+        .product-card .overlay.active { display: block !important; }
         .product-card h3 {
-            font-size: 12px; /* Reducido para desktop */
+            font-size: 12px;
             margin: 5px 0;
             color: #4A2C59;
             overflow: hidden;
@@ -173,7 +174,7 @@
             white-space: nowrap;
         }
         .price {
-            font-size: 11px; /* Reducido para desktop */
+            font-size: 11px;
             color: #4A2C59;
             margin: 5px 0;
         }
@@ -184,7 +185,7 @@
             padding: 6px 12px;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 11px; /* Ajustado para consistencia */
+            font-size: 11px;
             z-index: 10;
             position: relative;
         }
@@ -319,9 +320,9 @@
                 position: fixed;
                 top: 10px;
                 right: 10px;
-                z-index: 110; /* Debajo del hamburger */
+                z-index: 120; /* Aumentado para estar encima del hamburger */
             }
-            .logo { max-width: 80px; } /* Reducido para mobile */
+            .logo { max-width: 100px; } /* Revertido al tamaño funcional */
             .hamburger { display: block; }
             #sidebar {
                 width: 100%;
@@ -343,7 +344,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 100px; /* Reducido para evitar superposición */
+                margin-top: 120px; /* Revertido al valor funcional */
                 padding: 10px;
                 width: 100%;
             }
@@ -379,7 +380,7 @@
                 margin: 0 auto;
             }
             .product-card h3 {
-                font-size: 13px; /* Ligeramente mayor para mobile */
+                font-size: 14px; /* Revertido al valor funcional */
                 margin: 5px 0;
                 color: #4A2C59;
                 overflow: hidden;
@@ -388,7 +389,7 @@
                 max-height: 40px;
             }
             .product-card .price {
-                font-size: 12px; /* Ligeramente mayor para mobile */
+                font-size: 14px; /* Revertido al valor funcional */
                 color: #4A2C59;
                 margin: 5px 0;
             }
@@ -397,19 +398,17 @@
                 font-size: 11px;
             }
             .product-card:hover .overlay { display: none; }
-            .info-icon { display: block; }
+            .info-icon { display: block !important; } /* Adoptado del funcional */
             .overlay {
-                max-height: 160px; /* Aumentado para mobile */
+                max-height: 150px; /* Adoptado del funcional */
                 pointer-events: auto;
                 width: 100%;
                 box-sizing: border-box;
                 top: 0;
-                padding: 10px; /* Ajustado para mejor legibilidad */
+                padding: 40px 10px 10px 10px; /* Adoptado del funcional */
                 display: none; /* Asegurar que solo se muestre con .active */
             }
-            .overlay.active {
-                display: block; /* Forzar visibilidad cuando activo */
-            }
+            .overlay.active { display: block !important; } /* Adoptado del funcional */
             .banner-carousel {
                 margin-bottom: 20px;
             }
