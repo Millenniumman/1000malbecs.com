@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -334,7 +334,7 @@
                 border-radius: 5px;
             }
             .logo {
-                max-width: 60px !important;
+                max-width: 80px !important; /* Aumentado de 60px a 80px */
                 height: auto !important;
                 display: block;
             }
@@ -362,7 +362,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 80px;
+                margin-top: 100px; /* Aumentado para el logo más grande */
                 padding: 10px;
                 width: 100%;
             }
@@ -486,7 +486,7 @@
 <body>
     <header class="header">
         <a href="/index.html" title="Volver al inicio">
-            <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo+No+Disponible';">
+            <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
         </a>
     </header>
     <button class="hamburger">☰</button>
@@ -701,7 +701,7 @@
                  data-region="San Rafael"
                  data-bodega="Bodega Goyenechea"
                  data-tipo="Malbec"
-                 data-an056ada="2022"
+                 data-anada="2022"
                  data-precio="9.49"
                  data-precio-rango="0-10 EUR"
                  data-altura="500-1000 msnm">
@@ -743,6 +743,23 @@
             </div>
         </div>
 
+        <!-- Visitá nuestras bodegas -->
+        <h3 class="section-title">Visitá nuestras bodegas</h3>
+        <div class="winery-grid">
+            <a href="/bodegas/bodega-foster-lorca.html" class="winery-card">
+                <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo Bodega Foster Lorca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
+            </a>
+            <a href="/bodegas/bodegas-bianchi.html" class="winery-card">
+                <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo Bodegas Bianchi" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
+            </a>
+            <a href="/bodegas/luigi-bosca.html" class="winery-card">
+                <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo Luigi Bosca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
+            </a>
+            <a href="/bodegas/bodegas-etchart.html" class="winery-card">
+                <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Logo Bodegas Etchart" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
+            </a>
+        </div>
+
         <!-- Conocé nuestras provincias -->
         <h3 class="section-title">Conocé nuestras provincias</h3>
         <div class="province-grid">
@@ -765,23 +782,6 @@
                 <img src="/images/provincias/neuquen-1.jpg" alt="Viñedos de Neuquén">
                 <span class="province-name">Neuquén</span>
                 <div class="province-overlay">Neuquén</div>
-            </a>
-        </div>
-
-        <!-- Visitá nuestras bodegas -->
-        <h3 class="section-title">Visitá nuestras bodegas</h3>
-        <div class="winery-grid">
-            <a href="/bodegas/bodega-foster-lorca.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo Bodega Foster Lorca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-            </a>
-            <a href="/bodegas/bodegas-bianchi.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo Bodegas Bianchi" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-            </a>
-            <a href="/bodegas/luigi-bosca.html" class="winery-card">
-                <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo Luigi Bosca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-            </a>
-            <a href="/bodegas/bodegas-etchart.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Logo Bodegas Etchart" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
             </a>
         </div>
     </main>
