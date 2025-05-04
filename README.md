@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -21,869 +22,778 @@
     <meta name="twitter:description" content="Descubre nuestra selección de Malbecs argentinos, desde la Patagonia hasta la Puna.">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
 
-<link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .header { display: none; }
-    .logo { max-width: 150px; height: auto; }
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: #4A2C59;
-      cursor: pointer;
-      padding: 10px;
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 110;
-    }
-    #sidebar {
-      width: 250px;
-      background-color: #F8F8F8;
-      padding: 20px;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      overflow-y: auto;
-      border-right: 1px solid #E0E0E0;
-      z-index: 100;
-      transition: transform 0.3s ease;
-    }
-    .logo-container { text-align: center; margin-bottom: 20px; }
-    #sidebar h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #4A2C59;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-    }
-    #sidebar details { margin-bottom: 15px; }
-    #sidebar details:first-of-type { margin-bottom: 25px; }
-    #sidebar summary {
-      font-size: 16px;
-      font-weight: 500;
-      color: #4A2C59;
-      cursor: pointer;
-      padding: 5px 0;
-      display: flex;
-      align-items: center;
-    }
-    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
-    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
-    #sidebar li { margin: 5px 0; }
-    .nav-link {
-      font-size: 14px;
-      color: #4A2C59;
-      text-decoration: none;
-      display: block;
-      padding: 5px 10px;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-    .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
-    .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-    main {
-      margin-left: 290px;
-      padding: 20px;
-      width: calc(100% - 290px);
-      flex: 1;
-    }
-    main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .product-card {
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 5px;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      width: 200px;
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-      z-index: 5;
-    }
-    .product-card img {
-      width: 180px;
-      height: 180px;
-      object-fit: contain;
-      margin: 0 auto;
-    }
-    .info-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 10;
-      display: none;
-    }
-    .overlay {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      max-height: 100px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
-      color: #FFFFFF;
-      padding: 10px;
-      box-sizing: border-box;
-      font-size: 12px;
-      overflow-y: auto;
-      z-index: 6;
-      pointer-events: none;
-    }
-    .overlay p {
-      margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
-    }
-    .product-card:hover .overlay { display: block; }
-    .product-card .overlay.active { display: block !important; }
-    .product-card h3 {
-      font-size: 14px;
-      margin: 5px 0;
-      color: #4A2C59;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .price { font-size: 14px; color: #4A2C59; margin: 5px 0; }
-    .buy-button {
-      display: inline-block;
-      background-color: #4A2C59;
-      color: #FFFFFF;
-      padding: 6px 12px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 12px;
-      z-index: 10;
-      position: relative;
-    }
-    .presentation {
-      margin: 20px 0;
-      padding: 20px;
-      background-color: #f8f8f8;
-      border-radius: 5px;
-    }
-    .presentation h2 {
-      font-size: 20px;
-      color: #4A2C59;
-      margin-bottom: 10px;
-    }
-    .presentation p {
-      font-size: 14px;
-      color: #333;
-      line-height: 1.6;
-    }
-    .gallery {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-    .gallery img {
-      width: 200px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-    .banner-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-    footer {
-      background-color: #F8F8F8;
-      padding: 15px;
-      text-align: center;
-      border-top: 1px solid #E0E0E0;
-      width: 100%;
-    }
-    .footer-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      font-size: 14px;
-      color: #4A2C59;
-    }
-    .footer-content a {
-      color: #4A2C59;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .footer-content a:hover {
-      color: #7B4F8C;
-    }
-    .social-icon {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-    .fa-whatsapp {
-      font-size: 20px;
-      color: #25D366;
-      margin-right: 5px;
-    }
-    @media (max-width: 768px) {
-      body { display: block; }
-      .header {
-        display: block;
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 120;
-      }
-      .logo { max-width: 100px; }
-      .hamburger { display: block; }
-      #sidebar {
-        width: 100%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
-        z-index: 100;
-        border-bottom: 1px solid #E0E0E0;
-        padding-top: 50px;
-        padding-bottom: 20px;
-        overflow-y: auto;
-        box-sizing: border-box;
-      }
-      #sidebar.open {
-        transform: translateX(0);
-      }
-      .logo-container { display: none; }
-      main {
-        margin-left: 0;
-        margin-top: 120px;
-        padding: 10px;
-        width: 100%;
-      }
-      main h1 {
-        font-size: 20px;
-        line-height: 1.4;
-        margin-bottom: 15px;
-      }
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-      .product-card {
-        width: 100%;
-        min-height: 320px;
-        height: auto;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 10px;
-        box-sizing: border-box;
-      }
-      .product-card img {
-        width: 160px;
-        height: 160px;
-        object-fit: contain;
-        margin: 0 auto;
-      }
-      .product-card h3 {
-        font-size: 14px;
-        margin: 5px 0;
-        color: #4A2C59;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: normal;
-        max-height: 40px;
-      }
-      .product-card .price {
-        font-size: 14px;
-        color: #4A2C59;
-        margin: 5px 0;
-      }
-      .product-card .buy-button {
-        margin-top: 5px;
-      }
-      .product-card:hover .overlay { display: none; }
-      .info-icon { display: block !important; }
-      .overlay {
-        max-height: 150px;
-        pointer-events: auto;
-        width: 100%;
-        box-sizing: border-box;
-        top: 0;
-        padding: 40px 10px 10px 10px;
-      }
-      .overlay.active { display: block !important; }
-      .presentation { margin: 10px 0; padding: 10px; }
-      .gallery { flex-direction: column; }
-      .desktop-only { display: none; }
-      .gallery img.banner-image {
-        width: 100%;
-        height: auto;
-        max-height: 150px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-      .footer-content {
-        flex-wrap: wrap;
-        gap: 15px;
-        font-size: 12px;
-      }
-      .social-icon, .fa-whatsapp {
-        width: 18px;
-        height: 18px;
-        font-size: 18px;
-      }
-    }
-    @media (min-width: 769px) {
-      .header { display: none; }
-      .logo-container { display: block; }
-      .info-icon { display: none; }
-    }
-  </style>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header { display: none; }
+        .logo { max-width: 150px; height: auto; }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #4A2C59;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 110;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #F8F8F8;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            border-right: 1px solid #E0E0E0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .logo-container { text-align: center; margin-bottom: 20px; }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        #sidebar details { margin-bottom: 15px; }
+        #sidebar details:first-of-type { margin-bottom: 25px; }
+        #sidebar summary {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4A2C59;
+            cursor: pointer;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+        #sidebar li { margin: 5px 0; }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main {
+            margin-left: 290px;
+            padding: 20px;
+            width: calc(100% - 290px);
+            flex: 1;
+        }
+        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
+        .welcome-title {
+            font-size: 28px;
+            color: #4A2C59;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .product-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 200px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+        }
+        .product-card img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+        .info-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            display: none;
+        }
+        .overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 100px;
+            background-color: rgba(74, 44, 89, 0.8);
+            color: #FFFFFF;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 12px;
+            overflow-y: auto;
+            z-index: 6;
+            pointer-events: none;
+        }
+        .overlay p {
+            margin: 2px 0;
+            color: #FFFFFF;
+            visibility: visible;
+        }
+        .product-card:hover .overlay { display: block; }
+        .product-card .overlay.active { display: block; }
+        .product-card h3 {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #4A2C59;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .price { font-size: 14px; color: #4A2C59; margin: 5px 0; }
+        .buy-button {
+            display: inline-block;
+            background-color: #4A2C59;
+            color: #FFFFFF;
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 12px;
+            z-index: 10;
+            position: relative;
+        }
+        /* Banner carousel */
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+        }
+        .banner-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .banner-item {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 300px;
+        }
+        .banner-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .banner-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .banner-nav button {
+            background: rgba(74, 44, 89, 0.7);
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .banner-nav button:hover {
+            background: #4A2C59;
+        }
+        /* Section titles */
+        .section-title {
+            font-size: 22px;
+            color: #4A2C59;
+            margin: 20px 0 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        /* Province and winery grids */
+        .province-grid, .winery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .province-card, .winery-card {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .province-card img, .winery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .province-overlay, .winery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 44, 89, 0.7);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .province-card:hover .province-overlay, .winery-card:hover .winery-overlay {
+            opacity: 1;
+        }
+        footer {
+            background-color: #F8F8F8;
+            padding: 15px;
+            text-align: center;
+            border-top: 1px solid #E0E0E0;
+            width: 100%;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+            color: #4A2C59;
+        }
+        .footer-content a {
+            color: #4A2C59;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-content a:hover {
+            color: #7B4F8C;
+        }
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .fa-whatsapp {
+            font-size: 20px;
+            color: #25D366;
+            margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+            body { display: block; }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 120;
+            }
+            .logo { max-width: 100px; }
+            .hamburger { display: block; }
+            #sidebar {
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(-100%);
+                z-index: 100;
+                border-bottom: 1px solid #E0E0E0;
+                padding-top: 50px;
+                padding-bottom: 20px;
+                overflow-y: auto;
+                box-sizing: border-box;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            .logo-container { display: none; }
+            main {
+                margin-left: 0;
+                margin-top: 120px;
+                padding: 10px;
+                width: 100%;
+            }
+            main h1 {
+                font-size: 20px;
+                line-height: 1.4;
+                margin-bottom: 15px;
+            }
+            .welcome-title {
+                font-size: 22px;
+                line-height: 1.4;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .product-card {
+                width: 100%;
+                min-height: 320px;
+                height: auto;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            .product-card img {
+                width: 160px;
+                height: 160px;
+                object-fit: contain;
+                margin: 0 auto;
+            }
+            .product-card h3 {
+                font-size: 14px;
+                margin: 5px 0;
+                color: #4A2C59;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+                max-height: 40px;
+            }
+            .product-card .price {
+                font-size: 14px;
+                color: #4A2C59;
+                margin: 5px 0;
+            }
+            .product-card .buy-button {
+                margin-top: 5px;
+            }
+            .product-card:hover .overlay { display: none; }
+            .info-icon { display: block; }
+            .overlay {
+                max-height: 150px;
+                pointer-events: auto;
+                width: 100%;
+                box-sizing: border-box;
+                top: 0;
+                padding: 40px 10px 10px 10px;
+            }
+            .overlay.active { display: block; }
+            .banner-carousel {
+                margin-bottom: 20px;
+            }
+            .banner-item {
+                height: 200px;
+            }
+            .province-grid, .winery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .province-card, .winery-card {
+                width: 100%;
+                height: 150px;
+            }
+            .footer-content {
+                flex-wrap: wrap;
+                gap: 15px;
+                font-size: 12px;
+            }
+            .social-icon, .fa-whatsapp {
+                width: 18px;
+                height: 18px;
+                font-size: 18px;
+            }
+        }
+        @media (min-width: 769px) {
+            .header { display: none; }
+            .logo-container { display: block; }
+            .info-icon { display: none; }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <a href="/index.html" title="Volver al inicio">
-      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-    </a>
-  </header>
-  <button class="hamburger">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/index.html" title="Volver al inicio">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Categorías</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
-      <ul>
-        
-        <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
-      <ul>
-        
-        <li><a href="/bodegas/agustín-lanús.html" class="nav-link active">Agustín Lanús</a></li>
-        
-        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
-        
-        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-  </nav>
-  <div class="main-content">
-    <h2 class="welcome-title">Bienvenidos a 1000 Malbecs, el sitio de los 1000 mejores malbecs argentinos, desde la Patagonia hasta la Puna</h2>
-       <main>
-    <button id="reset-filters">Limpiar Filtros</button>
-    <div class="featured-products">
-      <!-- Example product card -->
-        <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="San Rafael"
-           data-bodega="Casa Araujo"
-           data-tipo="Malbec Bivarietal"
-           data-anada="2023"
-           data-precio="7.99"
-           data-precio-rango="0-10 EUR"
-           data-altura="500-1000 msnm">
-        <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Casa Araujo</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520</p>
+    <header class="header">
+        <a href="/index.html" title="Volver al inicio">
+            <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+        </a>
+    </header>
+    <button class="hamburger">☰</button>
+    <nav id="sidebar">
+        <div class="logo-container">
+            <a href="/index.html" title="Volver al inicio">
+                <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+            </a>
         </div>
-        <h3>Casa Araujo Varietal - 2023</h3>
-        <p class="price">€7.99</p>
-        <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
-      </div>
-         <div class="product-card" 
-                 data-provincia="Mendoza" 
-                 data-region="San Rafael" 
-                 data-bodega="Casa Araujo" 
-                 data-tipo="Malbec" 
-                 data-anada="2023" 
-                 data-precio="10.19" 
-                 data-precio-rango="0-10 EUR" 
-                 data-altura="500-1000 msnm">
-                <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023">
-                <span class="info-icon">🍷</span>
-                <div class="overlay">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altura:</strong> 520</p>
+        <h2>Categorías</h2>
+        <details>
+            <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
+            <ul>
+                <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+                <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+                <li><a href="/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
+                <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
+            <ul>
+                <li><a href="/bodegas/agustín-lanús.html" class="nav-link active">Agustín Lanús</a></li>
+                <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+                <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+                <li><a href="/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+                <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+                <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
+                <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+                <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+                <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+                <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+                <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+                <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+                <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+                <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+                <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+                <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+                <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+                <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+                <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+                <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+            </ul>
+        </details>
+    </nav>
+    <div class="main-content">
+        <h2 class="welcome-title">Bienvenidos a 1000 Malbecs, el sitio de los 1000 mejores malbecs argentinos, desde la Patagonia hasta la Puna</h2>
+        <main>
+            <!-- Banner Carousel -->
+            <div class="banner-carousel">
+                <div class="banner-container">
+                    <div class="banner-item">
+                        <img src="https://images.unsplash.com/photo-1515036551584-c400d2046f51" alt="Banner 1">
+                    </div>
+                    <div class="banner-item">
+                        <img src="https://images.unsplash.com/photo-1585509231947-946d002e8e9e" alt="Banner 2">
+                    </div>
+                    <div class="banner-item">
+                        <img src="https://images.unsplash.com/photo-1511914261318-3b16a80fa605" alt="Banner 3">
+                    </div>
                 </div>
-         <h3>Casa Araujo Cask - Malbec - 2023</h3>
-        <p>€10.19</p>
-        <a href="/vinos/casa-araujo-roble-2023.html">Comprar</a>
-      </div>   
-            <div class="product-card" 
-                 data-provincia="Mendoza" 
-                 data-region="San Rafael" 
-                 data-bodega="Casa Araujo" 
-                 data-tipo="Malbec Bivarietal" 
-                 data-anada="2023" 
-                 data-precio="11.79" 
-                 data-precio-rango="10-20 EUR" 
-                 data-altura="500-1000 msnm">
-                <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023">
-                <span class="info-icon">🍷</span>
-                <div class="overlay">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altura:</strong> 520</p>
+                <div class="banner-nav">
+                    <button onclick="moveBanner(-1)">&#10094;</button>
+                    <button onclick="moveBanner(1)">&#10095;</button>
                 </div>
-        <h3>Mimi - Malbec Bivarietal - 2023</h3>
-        <p>€11.8</p>
-        <a href="/vinos/casa-araujo-mimi-2023.html">Comprar</a>
-      </div>
-            <div class="product-card" 
-                 data-provincia="Mendoza" 
-                 data-region="San Rafael" 
-                 data-bodega="Casa Araujo" 
-                 data-tipo="Malbec" 
-                 data-anada="2023" 
-                 data-precio="12.99" 
-                 data-precio-rango="10-20 EUR" 
-                 data-altura="500-1000 msnm">
-                <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023">
-                <span class="info-icon">🍷</span>
-                <div class="overlay">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altura:</strong> 520</p>
-</div>
-        <h3>Nucha Malbec Orgánico - 2023</h3>
-        <p>€12.99</p>
-        <a href="/vinos/nucha-2023.html">Comprar</a>
-      </div>
-            <div class="product-card" 
-                 data-provincia="Mendoza" 
-                 data-region="San Rafael" 
-                 data-bodega="Casa Araujo" 
-                 data-tipo="Reserva Malbec" 
-                 data-anada="2023" 
-                 data-precio="13.59" 
-                 data-precio-rango="10-20 EUR" 
-                 data-altura="500-1000 msnm">
-                <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Botella de Graciano Reserva Blend 2023">
-                <span class="info-icon">🍷</span>
-                <div class="overlay">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altura:</strong> 520</p>
-                </div>
-        <h3>Graciano Reserva Blend - Malbec - 2023</h3>
-        <p>€13.59</p>
-        <a href="vinos/graciano-reserva-blend-2023.html">Comprar</a>
-      </div>
-        
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="San Rafael"
-           data-bodega="Bodega Goyenechea"
-           data-tipo="Malbec"
-           data-anada="2022"
-           data-precio="19.99"
-           data-precio-rango="10-20 EUR"
-           data-altura="500-1000 msnm">
-        <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520</p>
-          <p><strong>Código:</strong> BG-QuintaGene-2022</p>
-        </div>
-        <h3>Quinta Generación - Malbec - 2022</h3>
-        <p class="price">€19.99</p>
-        <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
-      </div>
-     
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="San Rafael"
-           data-bodega="Bodega Goyenechea"
-           data-tipo="Malbec"
-           data-anada="2022"
-           data-precio="9.49"
-           data-precio-rango="0-10 EUR"
-           data-altura="500-1000 msnm">
-        <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520</p>
-          <p><strong>Código:</strong> BG-GoyeMalbec-2022</p>
-        </div>
-        <h3>Goye - Malbec - 2022</h3>
-        <p class="price">€9.49</p>
-        <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
-      </div>
-     
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="San Rafael"
-           data-bodega="Bodega Goyenechea"
-           data-tipo="Malbec"
-           data-anada="2022"
-           data-precio="39.99"
-           data-precio-rango="20-50 EUR"
-           data-altura="500-1000 msnm">
-        <img src="/images/small/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> San Rafael</p>
-          <p><strong>Altura:</strong> 520</p>
-          <p><strong>Código:</strong> BG-135Anivers-2022</p>
-        </div>
-        <h3>135 Aniversario - Malbec -- 2022</h3>
-        <p class="price">€39.99</p>
-        <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar</a>
-      </div>
-            <!-- Mauricio Lorca Bodega y Viñedos -->
-      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="9" data-precio-rango="Económico" data-altura="1000m - 2000m">
-        <img src="/images/small/temtico--malbec-2023-2023.jpg" alt="Temático - Malbec 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Valle de Uco</p>
-          <p><strong>Altura:</strong> 1100 msnm</p>
-        </div>
-        <h3>Temático - Malbec 2023</h3>
-        <p>€9</p>
-        <a href="vinos/temtico--malbec-2023-2023.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Estándar" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="1000m - 2000m">
-        <img src="/images/small/fantasa--malbec-2023-2023.jpg" alt="Fantasía - Malbec 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Valle de Uco</p>
-          <p><strong>Altura:</strong> 1100 msnm</p>
-        </div>
-        <h3>Fantasía - Malbec 2023</h3>
-        <p>€11</p>
-        <a href="vinos/fantasa--malbec-2023-2023.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Mauricio Lorca Bodega y Viñedos" data-tipo="Orgánico" data-anada="2022" data-precio="13" data-precio-rango="Medio" data-altura="1000m - 2000m">
-        <img src="/images/small/zapam-zucum-organic-malbec-2022.jpg" alt="Zapam Zucum - Organic Malbec 2022">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Mauricio Lorca Bodega y Viñedos</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Valle de Uco</p>
-          <p><strong>Altura:</strong> 1100 msnm</p>
-        </div>
-        <h3>Zapam Zucum - Organic Malbec - 2022</h3>
-        <p>€13</p>
-        <a href="vinos/zapam-zucum--organic-malbec-2022-2022.html">Comprar</a>
-      </div>
-      <!-- Enrique Foster Bodega -->
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Espumante" data-anada="2021" data-precio="15" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/small/lois--sparkling-malbec-2021-2021.jpg" alt="Lois - Sparkling Malbec 2021">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>Lois - Sparkling Malbec 2021</h3>
-        <p>€15</p>
-        <a href="vinos/lois--sparkling-malbec-2021-2021.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Rosado" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/small/pink--malbec-rosado-2023-2023.jpg" alt="Pink - Malbec Rosado 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>Pink - Malbec Rosado 2023</h3>
-        <p>€11</p>
-        <a href="/vinos/pink--malbec-rosado-2023-2023.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="11" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/small/ique--malbec-2023-2021.jpg" alt="Ique - Malbec 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>Ique - Malbec 2023</h3>
-        <p>€11</p>
-        <a href="vinos/ique--malbec-2023-2021.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="21" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/small/foster--malbec-2023.jpg" alt="Foster - Malbec 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>Foster - Malbec 2023</h3>
-        <p>€21</p>
-        <a href="vinos/foster--malbec-2023.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="23" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/small/foster--malbec-los-altepes-2023.jpg" alt="Foster - Malbec 'Los Altepes' 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>Foster - Malbec 'Los Altepes' 2023</h3>
-        <p>€23</p>
-        <a href="vinos/foster--malbec-los-altepes-2023.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="25" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/small/foster--malbec-los-barrancos-2023.jpg" alt="Foster - Malbec 'Los Barrancos' 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>Foster - Malbec 'Los Barrancos' 2023</h3>
-        <p>€25</p>
-        <a href="vinos/foster-malbec-los-barrancos-2023.html">Comprar</a>
-      </div>
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Enrique Foster Bodega" data-tipo="Tinto" data-anada="2023" data-precio="44" data-precio-rango="Premium" data-altura="< 1000m">
-        <img src="/images/small/foster--malbec-limited-edition-2023.jpg" alt="Foster - Malbec Limited Edition 2023">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Enrique Foster Bodega</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>Foster - Malbec Limited Edition 2023</h3>
-        <p>€44</p>
-        <a href="vinos/foster--malbec-limited-edition-2023.html">Comprar</a>
-      </div>
-      <!-- Finca Las Nubes Bodega -->
-      <div class="product-card" data-provincia="Salta" data-region="Cafayate" data-bodega="Finca Las Nubes" data-tipo="Tinto" data-anada="2020" data-precio="19.95" data-precio-rango="Medio" data-altura="1000m - 2000m">
-        <img src="/images/small/finca-las-nubes-malbec-2020.jpg" alt="Finca Las Nubes - Malbec 2020">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Finca Las Nubes</p>
-          <p><strong>Provincia:</strong> Salta</p>
-          <p><strong>Región:</strong> Cafayate</p>
-          <p><strong>Altura:</strong> 1700 msnm</p>
-        </div>
-        <h3>Finca Las Nubes - Malbec 2020</h3>
-        <p>€19.95</p>
-        <a href="vinos/finca-las-nubes-malbec-2020.html">Comprar</a>
-      </div>
-      <!-- Altos del Plata - Malbec 2022 -->
-      <div class="product-card" data-provincia="Mendoza" data-region="Luján de Cuyo" data-bodega="Terrazas de los Andes" data-tipo="Tinto" data-anada="2022" data-precio="12" data-precio-rango="Medio" data-altura="< 1000m">
-        <img src="/images/AltosDelPlataMalbec.jpg" alt="Altos del Plata - Malbec 2022">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Terrazas de los Andes</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 980 msnm</p>
-        </div>
-        <h3>Altos del Plata - Malbec 2022</h3>
-        <p>€12</p>
-        <a href="altos-del-plata-malbec-2022.html">Comprar</a>
-      </div>
-        
-      <!-- Colomé - Malbec 2021 -->
-      <div class="product-card" data-provincia="Salta" data-region="Calchaquí" data-bodega="Bodega Colomé" data-tipo="Tinto" data-anada="2021" data-precio="18" data-precio-rango="Medio" data-altura="2000m - 3000m">
-        <img src="/images/ColomeMalbec.jpg" alt="Colomé - Malbec 2021">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Colomé</p>
-          <p><strong>Provincia:</strong> Salta</p>
-          <p><strong>Región:</strong> Calchaquí</p>
-          <p><strong>Altura:</strong> 2300 msnm</p>
-        </div>
-        <h3>Colomé - Malbec 2021</h3>
-        <p>€18</p>
-        <a href="colome-malbec-2021.html">Comprar</a>
-      </div>
-      <!-- Catena Zapata - Malbec 2020 -->
-      <div class="product-card" data-provincia="Mendoza" data-region="Valle de Uco" data-bodega="Catena Zapata" data-tipo="Tinto" data-anada="2020" data-precio="30" data-precio-rango="Premium" data-altura="1000m - 2000m">
-        <img src="/images/CatenaZapataMalbec.jpg" alt="Catena Zapata - Malbec 2020">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Catena Zapata</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Valle de Uco</p>
-          <p><strong>Altura:</strong> 1200 msnm</p>
-        </div>
-        <h3>Catena Zapata - Malbec 2020</h3>
-        <p>€30</p>
-        <a href="catena-zapata-malbec-2020.html">Comprar</a>
-      </div>
-    </div>
-    <div id="no-results" style="display: none;">No se encontraron productos con los filtros seleccionados.</div>
-  </div>
-  <script>
-    // Sidebar toggle for mobile
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-      document.getElementById('sidebar').classList.toggle('active');
-    });
+            </div>
 
-    // Overlay toggle for mobile (wine glass icon)
-    document.querySelectorAll('.info-icon').forEach(icon => {
-      icon.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-          const overlay = this.nextElementSibling;
-          overlay.classList.toggle('active');
-          e.stopPropagation();
-        }
-      });
-    });
+            <!-- Vinos destacados de Mayo -->
+            <h3 class="section-title">Vinos destacados de Mayo</h3>
+            <div class="product-grid">
+                <!-- Casa Araujo Varietal 2023 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="San Rafael"
+                     data-bodega="Casa Araujo"
+                     data-tipo="Malbec Bivarietal"
+                     data-anada="2023"
+                     data-precio="7.99"
+                     data-precio-rango="0-10 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Casa Araujo</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altura:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Casa Araujo Varietal - 2023</h3>
+                    <p class="price">€7.99</p>
+                    <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
+                </div>
+                <!-- Casa Araujo Roble 2023 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="San Rafael"
+                     data-bodega="Casa Araujo"
+                     data-tipo="Malbec"
+                     data-anada="2023"
+                     data-precio="10.19"
+                     data-precio-rango="0-10 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Casa Araujo</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altura:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Casa Araujo Roble - 2023</h3>
+                    <p class="price">€10.19</p>
+                    <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
+                </div>
+                <!-- Goyenechea Quinta Generación 2022 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="San Rafael"
+                     data-bodega="Bodega Goyenechea"
+                     data-tipo="Malbec"
+                     data-anada="2022"
+                     data-precio="19.99"
+                     data-precio-rango="10-20 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altura:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Quinta Generación - 2022</h3>
+                    <p class="price">€19.99</p>
+                    <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
+                </div>
+                <!-- Jorge Rubio Gran Reserva 2020 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="Maipú"
+                     data-bodega="Jorge Rubio"
+                     data-tipo="Malbec"
+                     data-anada="2020"
+                     data-precio="22.99"
+                     data-precio-rango="20-50 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/gran-reserva-2020.jpg" alt="Botella de Gran Reserva 2020"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Jorge Rubio</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> Maipú</p>
+                        <p><strong>Altura:</strong> 800 msnm</p>
+                    </div>
+                    <h3>Gran Reserva - 2020</h3>
+                    <p class="price">€22.99</p>
+                    <a href="/vinos/gran-reserva-2020.html" class="buy-button">Comprar</a>
+                </div>
+            </div>
+            <div class="product-grid">
+                <!-- Casa Araujo Mimi 2023 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="San Rafael"
+                     data-bodega="Casa Araujo"
+                     data-tipo="Malbec Bivarietal"
+                     data-anada="2023"
+                     data-precio="11.79"
+                     data-precio-rango="10-20 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Casa Araujo</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altura:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Mimi - Malbec Bivarietal - 2023</h3>
+                    <p class="price">€11.79</p>
+                    <a href="/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
+                </div>
+                <!-- Casa Araujo Nucha 2023 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="San Rafael"
+                     data-bodega="Casa Araujo"
+                     data-tipo="Malbec"
+                     data-anada="2023"
+                     data-precio="12.99"
+                     data-precio-rango="10-20 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Casa Araujo</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altura:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Nucha Malbec Orgánico - 2023</h3>
+                    <p class="price">€12.99</p>
+                    <a href="/vinos/nucha-2023.html" class="buy-button">Comprar</a>
+                </div>
+                <!-- Goyenechea Goye 2022 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="San Rafael"
+                     data-bodega="Bodega Goyenechea"
+                     data-tipo="Malbec"
+                     data-anada="2022"
+                     data-precio="9.49"
+                     data-precio-rango="0-10 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altura:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Goye - Malbec - 2022</h3>
+                    <p class="price">€9.49</p>
+                    <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
+                </div>
+                <!-- Jorge Rubio Roble 2022 -->
+                <div class="product-card"
+                     data-provincia="Mendoza"
+                     data-region="Maipú"
+                     data-bodega="Jorge Rubio"
+                     data-tipo="Malbec"
+                     data-anada="2022"
+                     data-precio="15.99"
+                     data-precio-rango="10-20 EUR"
+                     data-altura="500-1000 msnm">
+                    <img src="/images/small/roble-2022.jpg" alt="Botella de Roble 2022"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <span class="info-icon">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Jorge Rubio</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> Maipú</p>
+                        <p><strong>Altura:</strong> 800 msnm</p>
+                    </div>
+                    <h3>Roble - Malbec - 2022</h3>
+                    <p class="price">€15.99</p>
+                    <a href="/vinos/roble-2022.html" class="buy-button">Comprar</a>
+                </div>
+            </div>
 
-    // Close overlays when clicking outside
-    document.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        document.querySelectorAll('.overlay.active').forEach(overlay => {
-          if (!overlay.contains(e.target) && !e.target.matches('.info-icon')) {
-            overlay.classList.remove('active');
-          }
+            <!-- Conocé nuestras provincias -->
+            <h3 class="section-title">Conocé nuestras provincias</h3>
+            <div class="province-grid">
+                <a href="/provincias/mendoza.html" class="province-card">
+                    <img src="https://images.unsplash.com/photo-1596551420998-2e0d3d21f144" alt="Mendoza">
+                    <div class="province-overlay">Mendoza</div>
+                </a>
+                <a href="/provincias/salta.html" class="province-card">
+                    <img src="https://images.unsplash.com/photo-1613749043749-9e77f0d361d7" alt="Salta">
+                    <div class="province-overlay">Salta</div>
+                </a>
+                <a href="/provincias/la-rioja.html" class="province-card">
+                    <img src="https://images.unsplash.com/photo-1605515362509-6b0c7a7e0d6e" alt="La Rioja">
+                    <div class="province-overlay">La Rioja</div>
+                </a>
+                <a href="/provincias/neuquén.html" class="province-card">
+                    <img src="https://images.unsplash.com/photo-1613749043749-9e77f0d361d7" alt="Neuquén">
+                    <div class="province-overlay">Neuquén</div>
+                </a>
+            </div>
+
+            <!-- Visitá nuestras bodegas -->
+            <h3 class="section-title">Visitá nuestras bodegas</h3>
+            <div class="winery-grid">
+                <a href="/bodegas/bodega-foster-lorca.html" class="winery-card">
+                    <img src="https://images.unsplash.com/photo-1515036551584-c400d2046f51" alt="Bodega Foster Lorca">
+                    <div class="winery-overlay">Bodega Foster Lorca</div>
+                </a>
+                <a href="/bodegas/bodegas-bianchi.html" class="winery-card">
+                    <img src="https://images.unsplash.com/photo-1585509231947-946d002e8e9e" alt="Bodegas Bianchi">
+                    <div class="winery-overlay">Bodegas Bianchi</div>
+                </a>
+                <a href="/bodegas/luigi-bosca.html" class="winery-card">
+                    <img src="https://images.unsplash.com/photo-1511914261318-3b16a80fa605" alt="Luigi Bosca">
+                    <div class="winery-overlay">Luigi Bosca</div>
+                </a>
+                <a href="/bodegas/bodegas-etchart.html" class="winery-card">
+                    <img src="https://images.unsplash.com/photo-1596551420998-2e0d3d21f144" alt="Bodegas Etchart">
+                    <div class="winery-overlay">Bodegas Etchart</div>
+                </a>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <a href="/contacto.html">Contacto</a>
+            <a href="/terminos.html">Términos y Condiciones</a>
+            <a href="https://www.instagram.com/1000malbecs" target="_blank">
+                <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon"> Instagram
+            </a>
+            <a href="https://wa.me/1234567890" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </footer>
+    <script>
+        // Sidebar toggle for mobile
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('open');
         });
-      }
-    });
 
-    // Filter logic
-    document.querySelectorAll('.filter').forEach(filter => {
-      filter.addEventListener('click', function() {
-        this.classList.toggle('active');
-        applyFilters();
-      });
-    });
+        // Banner carousel
+        let currentBanner = 0;
+        const banners = document.querySelectorAll('.banner-item');
+        const bannerContainer = document.querySelector('.banner-container');
 
-    document.getElementById('reset-filters').addEventListener('click', function() {
-      document.querySelectorAll('.filter.active').forEach(filter => {
-        filter.classList.remove('active');
-      });
-      applyFilters();
-    });
-
-    function applyFilters() {
-      const products = document.querySelectorAll('.product-card');
-      let hasVisible = false;
-
-      products.forEach(product => {
-        const provincia = product.dataset.provincia;
-        const region = product.dataset.region;
-        const altura = product.dataset.altura;
-
-        const activeProvincia = Array.from(document.querySelectorAll('.filter[data-provincia].active')).map(f => f.dataset.provincia);
-        const activeRegion = Array.from(document.querySelectorAll('.filter[data-region].active')).map(f => f.dataset.region);
-        const activeAltura = Array.from(document.querySelectorAll('.filter[data-altura].active')).map(f => f.dataset.altura);
-
-        const provinciaMatch = activeProvincia.length === 0 || activeProvincia.includes(provincia);
-        const regionMatch = activeRegion.length === 0 || activeRegion.includes(region);
-        const alturaMatch = activeAltura.length === 0 || activeAltura.includes(altura);
-
-        if (provinciaMatch && regionMatch && alturaMatch) {
-          product.classList.remove('hidden');
-          hasVisible = true;
-        } else {
-          product.classList.add('hidden');
+        function moveBanner(direction) {
+            currentBanner += direction;
+            if (currentBanner < 0) currentBanner = banners.length - 1;
+            if (currentBanner >= banners.length) currentBanner = 0;
+            bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
         }
-      });
 
-      document.getElementById('no-results').style.display = hasVisible ? 'none' : 'block';
-    }
-  </script>
+        // Auto-slide every 5 seconds
+        setInterval(() => moveBanner(1), 5000);
+
+        // Overlay toggle for mobile (wine glass icon)
+        document.querySelectorAll('.info-icon').forEach(icon => {
+            icon.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    const overlay = this.nextElementSibling;
+                    overlay.classList.toggle('active');
+                    e.stopPropagation();
+                }
+            });
+        });
+
+        // Close overlays when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.overlay.active').forEach(overlay => {
+                    if (!overlay.contains(e.target) && !e.target.matches('.info-icon')) {
+                        overlay.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
