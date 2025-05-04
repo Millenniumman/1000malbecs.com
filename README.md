@@ -44,7 +44,7 @@
             cursor: pointer;
             padding: 10px;
             position: fixed;
-            top: 15px; /* Ajustado para mejor espaciado */
+            top: 15px;
             left: 10px;
             z-index: 110;
         }
@@ -155,7 +155,7 @@
             box-sizing: border-box;
             font-size: 11px;
             overflow-y: auto;
-            z-index: 7; /* Aumentado para asegurar visibilidad */
+            z-index: 7;
             pointer-events: none;
         }
         .overlay p {
@@ -320,9 +320,18 @@
                 position: fixed;
                 top: 10px;
                 right: 10px;
-                z-index: 120; /* Aumentado para estar encima del hamburger */
+                z-index: 120;
+                width: auto; /* Asegurar que no ocupe toda la pantalla */
+                height: auto; /* Limitar la altura */
+                background: rgba(248, 248, 248, 0.9); /* Fondo claro para visibilidad */
+                padding: 5px; /* Espaciado interno */
+                border-radius: 5px; /* Bordes suaves */
             }
-            .logo { max-width: 100px; } /* Revertido al tamaño funcional */
+            .logo {
+                max-width: 80px; /* Reducido para evitar que ocupe toda la pantalla */
+                height: auto;
+                display: block;
+            }
             .hamburger { display: block; }
             #sidebar {
                 width: 100%;
@@ -344,7 +353,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 120px; /* Revertido al valor funcional */
+                margin-top: 140px; /* Aumentado para dejar espacio al logo y hamburguesa */
                 padding: 10px;
                 width: 100%;
             }
@@ -380,7 +389,7 @@
                 margin: 0 auto;
             }
             .product-card h3 {
-                font-size: 14px; /* Revertido al valor funcional */
+                font-size: 14px;
                 margin: 5px 0;
                 color: #4A2C59;
                 overflow: hidden;
@@ -389,7 +398,7 @@
                 max-height: 40px;
             }
             .product-card .price {
-                font-size: 14px; /* Revertido al valor funcional */
+                font-size: 14px;
                 color: #4A2C59;
                 margin: 5px 0;
             }
@@ -398,17 +407,17 @@
                 font-size: 11px;
             }
             .product-card:hover .overlay { display: none; }
-            .info-icon { display: block !important; } /* Adoptado del funcional */
+            .info-icon { display: block !important; }
             .overlay {
-                max-height: 150px; /* Adoptado del funcional */
+                max-height: 150px;
                 pointer-events: auto;
                 width: 100%;
                 box-sizing: border-box;
                 top: 0;
-                padding: 40px 10px 10px 10px; /* Adoptado del funcional */
-                display: none; /* Asegurar que solo se muestre con .active */
+                padding: 40px 10px 10px 10px;
+                display: none;
             }
-            .overlay.active { display: block !important; } /* Adoptado del funcional */
+            .overlay.active { display: block !important; }
             .banner-carousel {
                 margin-bottom: 20px;
             }
