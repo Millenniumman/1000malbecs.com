@@ -297,6 +297,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin-bottom: 40px;
+            position: relative; /* Para flechas de navegación */
         }
         .province-card, .winery-card {
             position: relative;
@@ -341,6 +342,33 @@
             background: #FFFFFF;
             padding: 10px;
             box-sizing: border-box;
+        }
+        .winery-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .winery-nav button {
+            background: rgba(74, 44, 89, 0.7);
+            color: #FFFFFF;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .winery-nav button:hover {
+            background: #4A2C59;
+            opacity: 1;
+        }
+        .winery-nav button.hidden {
+            display: none;
         }
         footer {
             background-color: #F8F8F8;
@@ -496,25 +524,31 @@
                 overflow-x: auto;
                 gap: 15px;
                 padding: 0 10px;
-                -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en iOS */
-                scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
             }
             .winery-grid::-webkit-scrollbar {
-                display: none; /* Oculta la barra de desplazamiento en Chrome/Safari */
+                display: none;
+            }
+            .winery-grid.has-right {
+                box-shadow: 8px 0 8px -8px rgba(0,0,0,0.3);
+            }
+            .winery-grid.has-left {
+                box-shadow: -8px 0 8px -8px rgba(0,0,0,0.3);
             }
             .province-card, .winery-card {
                 width: 100%;
                 height: 150px;
             }
             .winery-card {
-                flex: 0 0 150px; /* Ancho fijo para cada logo */
+                flex: 0 0 150px;
                 height: 150px;
             }
             .province-card {
                 position: relative;
             }
             .province-card .province-overlay {
-                display: none; /* Desactivado en mobile */
+                display: none;
             }
             .province-card .province-name {
                 display: block;
@@ -566,12 +600,19 @@
                 height: 18px;
                 font-size: 18px;
             }
+            .winery-nav {
+                display: flex;
+            }
         }
         @media (min-width: 769px) {
             .header { display: none; }
             .logo-container { display: block; }
             .info-icon { display: none; }
             .hamburger { display: none; }
+            .winery-nav { display: none; }
+            .winery-grid.has-left, .winery-grid.has-right {
+                box-shadow: none;
+            }
         }
     </style>
 </head>
@@ -857,6 +898,10 @@
             <a href="/bodegas/bodegas-etchart.html" class="winery-card">
                 <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Logo Bodegas Etchart" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
             </a>
+            <div class="winery-nav">
+                <button class="winery-prev hidden">❮</button>
+                <button class="winery-next">❯</button>
+            </div>
         </div>
 
         <!-- Conocé nuestras provincias -->
@@ -1005,6 +1050,42 @@
                 focusedSuggestion = -1;
             }
         });
+
+        // Winery grid scroll indicators
+        const wineryGrid = document.querySelector('.winery-grid');
+        const wineryPrev = document.querySelector('.winery-prev');
+        const wineryNext = document.querySelector('.winery-next');
+
+        function updateWineryScrollIndicators() {
+            const scrollLeft = wineryGrid.scrollLeft;
+            const scrollWidth = wineryGrid.scrollWidth;
+            const clientWidth = wineryGrid.clientWidth;
+
+            // Update shadow classes
+            wineryGrid.classList.toggle('has-left', scrollLeft > 0);
+            wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
+
+            // Update button visibility
+            if (wineryPrev && wineryNext) {
+                wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
+                wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
+            }
+        }
+
+        if (wineryGrid) {
+            wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
+            window.addEventListener('resize', updateWineryScrollIndicators);
+            updateWineryScrollIndicators(); // Initial check
+        }
+
+        if (wineryPrev && wineryNext) {
+            wineryPrev.addEventListener('click', () => {
+                wineryGrid.scrollBy({ left: -150, behavior: 'smooth' });
+            });
+            wineryNext.addEventListener('click', () => {
+                wineryGrid.scrollBy({ left: 150, behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
