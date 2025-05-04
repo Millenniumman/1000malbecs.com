@@ -486,13 +486,29 @@
             .banner-item {
                 height: 200px;
             }
-            .province-grid, .winery-grid {
+            .province-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
+            .winery-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 15px;
+                padding: 0 10px;
+                -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en iOS */
+                scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+            }
+            .winery-grid::-webkit-scrollbar {
+                display: none; /* Oculta la barra de desplazamiento en Chrome/Safari */
+            }
             .province-card, .winery-card {
                 width: 100%;
-                height: 200px; /* Aumentado de 150px a 200px para logos más grandes */
+                height: 150px;
+            }
+            .winery-card {
+                flex: 0 0 150px; /* Ancho fijo para cada logo */
+                height: 150px;
             }
             .province-card {
                 position: relative;
@@ -518,9 +534,9 @@
                 height: 100%;
                 object-fit: contain;
                 background: #FFFFFF;
-                padding: 5px; /* Reducido de 10px a 5px para más espacio */
+                padding: 5px;
                 box-sizing: border-box;
-                max-width: 100%; /* Evita desbordamiento */
+                max-width: 100%;
             }
             .search-container {
                 max-width: 100%;
@@ -847,22 +863,22 @@
         <h3 class="section-title">Conocé nuestras provincias</h3>
         <div class="province-grid">
             <a href="/provincias/mendoza.html" class="province-card">
-                <img src="/images/provincias/mendoza-1.jpg" alt="Viñedos de Mendoza">
+                <img src="/images/provincia/mendoza-1.jpg" alt="Viñedos de Mendoza">
                 <span class="province-name">Mendoza</span>
                 <div class="province-overlay">Mendoza</div>
             </a>
             <a href="/provincias/salta.html" class="province-card">
-                <img src="/images/provincias/salta-1.jpg" alt="Viñedos de Salta">
+                <img src="/images/provincia/salta-1.jpg" alt="Viñedos de Salta">
                 <span class="province-name">Salta</span>
                 <div class="province-overlay">Salta</div>
             </a>
             <a href="/provincias/la-rioja.html" class="province-card">
-                <img src="/images/provincias/la-rioja-1.jpg" alt="Viñedos de La Rioja">
+                <img src="/images/provincia/la-rioja-1.jpg" alt="Viñedos de La Rioja">
                 <span class="province-name">La Rioja</span>
                 <div class="province-overlay">La Rioja</div>
             </a>
             <a href="/provincias/neuquén.html" class="province-card">
-                <img src="/images/provincias/neuquen-1.jpg" alt="Viñedos de Neuquén">
+                <img src="/images/provincia/neuquen-1.jpg" alt="Viñedos de Neuquén">
                 <span class="province-name">Neuquén</span>
                 <div class="province-overlay">Neuquén</div>
             </a>
@@ -912,7 +928,7 @@
 
         // Close overlays when clicking outside
         document.addEventListener('click', function(e) {
-            document.querySelectorAll('.overlay.active'). -forEach(overlay => {
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
                 if (!overlay.contains(e.target) && !e.target.matches('.info-icon')) {
                     overlay.classList.remove('active');
                 }
