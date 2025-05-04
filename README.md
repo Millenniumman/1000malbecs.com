@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -226,13 +226,62 @@
         .banner-nav button:hover {
             background: #4A2C59;
         }
-        /* Section titles */
-        .section-title {
-            font-size: 22px;
+        /* Search bar */
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            outline: none;
             color: #4A2C59;
-            margin: 20px 0 10px;
-            text-align: center;
-            text-transform: uppercase;
+            box-sizing: border-box;
+        }
+        .search-input::placeholder {
+            color: #7B4F8C;
+        }
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #4A2C59;
+        }
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 150;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .search-suggestions li {
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #4A2C59;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .search-suggestions li:hover,
+        .search-suggestions li.focused {
+            background: #4A2C59;
+            color: #FFFFFF;
         }
         /* Province and winery grids */
         .province-grid, .winery-grid {
@@ -334,7 +383,7 @@
                 border-radius: 5px;
             }
             .logo {
-                max-width: 80px !important; /* Aumentado de 60px a 80px */
+                max-width: 80px !important;
                 height: auto !important;
                 display: block;
             }
@@ -362,7 +411,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 100px; /* Aumentado para el logo más grande */
+                margin-top: 100px;
                 padding: 10px;
                 width: 100%;
             }
@@ -464,6 +513,24 @@
                 padding: 10px;
                 box-sizing: border-box;
             }
+            .search-container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            .search-input {
+                font-size: 14px;
+                padding: 8px 35px 8px 12px;
+            }
+            .search-icon {
+                font-size: 16px;
+                right: 12px;
+            }
+            .search-suggestions {
+                font-size: 12px;
+            }
+            .search-suggestions li {
+                padding: 8px 12px;
+            }
             .footer-content {
                 flex-wrap: wrap;
                 gap: 15px;
@@ -550,6 +617,13 @@
                 <button onclick="moveBanner(-1)">❮</button>
                 <button onclick="moveBanner(1)">❯</button>
             </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Busca tu vino favorito...">
+            <i class="fas fa-search search-icon"></i>
+            <ul class="search-suggestions"></ul>
         </div>
 
         <!-- Vinos destacados de Mayo -->
@@ -834,6 +908,77 @@
                     overlay.classList.remove('active');
                 }
             });
+        });
+
+        // Predictive search
+        const searchInput = document.querySelector('.search-input');
+        const suggestionsList = document.querySelector('.search-suggestions');
+        const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
+            name: card.querySelector('h3').textContent.trim(),
+            url: card.querySelector('.buy-button').href
+        }));
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+            suggestionsList.innerHTML = '';
+            suggestionsList.style.display = 'none';
+
+            if (query.length >= 3) {
+                const matches = wines.filter(wine => wine.name.toLowerCase().includes(query)).slice(0, 5);
+                if (matches.length > 0) {
+                    matches.forEach(wine => {
+                        const li = document.createElement('li');
+                        li.textContent = wine.name;
+                        li.dataset.url = wine.url;
+                        suggestionsList.appendChild(li);
+                    });
+                    suggestionsList.style.display = 'block';
+                }
+            }
+        });
+
+        suggestionsList.addEventListener('click', function(e) {
+            const li = e.target.closest('li');
+            if (li && li.dataset.url) {
+                window.location.href = li.dataset.url;
+            }
+        });
+
+        // Keyboard navigation for suggestions
+        let focusedSuggestion = -1;
+        searchInput.addEventListener('keydown', function(e) {
+            const suggestions = suggestionsList.querySelectorAll('li');
+            if (suggestions.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
+                updateFocus(suggestions);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
+                updateFocus(suggestions);
+            } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
+                e.preventDefault();
+                window.location.href = suggestions[focusedSuggestion].dataset.url;
+            }
+        });
+
+        function updateFocus(suggestions) {
+            suggestions.forEach((suggestion, index) => {
+                suggestion.classList.toggle('focused', index === focusedSuggestion);
+            });
+            if (focusedSuggestion >= 0) {
+                suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
+            }
+        }
+
+        // Hide suggestions when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+                suggestionsList.style.display = 'none';
+                focusedSuggestion = -1;
+            }
         });
     </script>
 </body>
