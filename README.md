@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +46,7 @@
             position: fixed;
             top: 15px;
             left: 10px;
-            z-index: 130; /* Aumentado para estar por encima del header */
+            z-index: 130;
         }
         #sidebar {
             width: 250px;
@@ -77,7 +78,6 @@
             cursor: pointer;
             padding: 5px 0;
             display: flex;
-            align-items: center secciones
             align-items: center;
         }
         #sidebar summary i { margin-right: 10px; color: #4A2C59; }
@@ -247,13 +247,14 @@
             height: 200px;
             overflow: hidden;
             border-radius: 5px;
+            display: block;
         }
         .province-card img, .winery-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .province-overlay, .winery-overlay {
+        .province-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -270,8 +271,19 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        .province-card:hover .province-overlay, .winery-card:hover .winery-overlay {
+        .province-card:hover .province-overlay {
             opacity: 1;
+        }
+        .province-card .province-name {
+            display: none; /* Oculto en desktop */
+        }
+        .winery-card img.logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #FFFFFF;
+            padding: 10px;
+            box-sizing: border-box;
         }
         footer {
             background-color: #F8F8F8;
@@ -322,13 +334,13 @@
                 border-radius: 5px;
             }
             .logo {
-                max-width: 60px !important; /* Forzado para evitar conflictos */
+                max-width: 60px !important;
                 height: auto !important;
                 display: block;
             }
             .hamburger {
-                display: block !important; /* Forzado para asegurar visibilidad */
-                z-index: 130; /* Por encima del header */
+                display: block !important;
+                z-index: 130;
             }
             #sidebar {
                 width: 100%;
@@ -350,7 +362,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 80px; /* Espacio para logo y hamburguesa */
+                margin-top: 80px;
                 padding: 10px;
                 width: 100%;
             }
@@ -425,6 +437,33 @@
                 width: 100%;
                 height: 150px;
             }
+            .province-card {
+                position: relative;
+            }
+            .province-card .province-overlay {
+                display: none; /* Desactivado en mobile */
+            }
+            .province-card .province-name {
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                color: #FFFFFF;
+                font-size: 16px;
+                font-weight: 600;
+                background: rgba(74, 44, 89, 0.7);
+                padding: 5px 10px;
+                border-radius: 3px;
+                z-index: 10;
+            }
+            .winery-card img.logo {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                background: #FFFFFF;
+                padding: 10px;
+                box-sizing: border-box;
+            }
             .footer-content {
                 flex-wrap: wrap;
                 gap: 15px;
@@ -447,10 +486,7 @@
 <body>
     <header class="header">
         <a href="/index.html" title="Volver al inicio">
-            <!-- Usando placeholder para probar -->
-            <img src="https://via.placeholder.com/60x60" alt="Logo 1000malbecs" class="logo">
-            <!-- Reemplazar con tu logo una vez confirmado -->
-            <!-- <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo"> -->
+            <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo+No+Disponible';">
         </a>
     </header>
     <button class="hamburger">☰</button>
@@ -665,7 +701,7 @@
                  data-region="San Rafael"
                  data-bodega="Bodega Goyenechea"
                  data-tipo="Malbec"
-                 data-anada="2022"
+                 data-an056ada="2022"
                  data-precio="9.49"
                  data-precio-rango="0-10 EUR"
                  data-altura="500-1000 msnm">
@@ -712,18 +748,22 @@
         <div class="province-grid">
             <a href="/provincias/mendoza.html" class="province-card">
                 <img src="/images/provincias/mendoza-1.jpg" alt="Viñedos de Mendoza">
+                <span class="province-name">Mendoza</span>
                 <div class="province-overlay">Mendoza</div>
             </a>
             <a href="/provincias/salta.html" class="province-card">
                 <img src="/images/provincias/salta-1.jpg" alt="Viñedos de Salta">
+                <span class="province-name">Salta</span>
                 <div class="province-overlay">Salta</div>
             </a>
             <a href="/provincias/la-rioja.html" class="province-card">
                 <img src="/images/provincias/la-rioja-1.jpg" alt="Viñedos de La Rioja">
+                <span class="province-name">La Rioja</span>
                 <div class="province-overlay">La Rioja</div>
             </a>
             <a href="/provincias/neuquén.html" class="province-card">
                 <img src="/images/provincias/neuquen-1.jpg" alt="Viñedos de Neuquén">
+                <span class="province-name">Neuquén</span>
                 <div class="province-overlay">Neuquén</div>
             </a>
         </div>
@@ -732,20 +772,16 @@
         <h3 class="section-title">Visitá nuestras bodegas</h3>
         <div class="winery-grid">
             <a href="/bodegas/bodega-foster-lorca.html" class="winery-card">
-                <img src="/images/bodegas/bodega-foster-lorca-1.jpg" alt="Bodega Foster Lorca">
-                <div class="winery-overlay">Bodega Foster Lorca</div>
+                <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo Bodega Foster Lorca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
             </a>
             <a href="/bodegas/bodegas-bianchi.html" class="winery-card">
-                <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Bodegas Bianchi">
-                <div class="winery-overlay">Bodegas Bianchi</div>
+                <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo Bodegas Bianchi" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
             </a>
             <a href="/bodegas/luigi-bosca.html" class="winery-card">
-                <img src="/images/bodegas/luigi-bosca-1.jpg" alt="Luigi Bosca">
-                <div class="winery-overlay">Luigi Bosca</div>
+                <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo Luigi Bosca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
             </a>
             <a href="/bodegas/bodegas-etchart.html" class="winery-card">
-                <img src="/images/bodegas/bodegas-etchart-1.jpg" alt="Bodegas Etchart">
-                <div class="winery-overlay">Bodegas Etchart</div>
+                <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Logo Bodegas Etchart" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
             </a>
         </div>
     </main>
