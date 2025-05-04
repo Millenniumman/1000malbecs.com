@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -281,6 +282,14 @@
         .search-suggestions li.focused {
             background: #4A2C59;
             color: #FFFFFF;
+        }
+        /* Section titles */
+        .section-title {
+            font-size: 22px;
+            color: #4A2C59;
+            margin: 20px 0 10px;
+            text-align: center;
+            text-transform: uppercase;
         }
         /* Province and winery grids */
         .province-grid, .winery-grid {
@@ -678,7 +687,7 @@
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
-                 data-bodega="Bodega Goyenechea"
+                 data  data-bodega="Bodega Goyenechea"
                  data-tipo="Malbec"
                  data-anada="2022"
                  data-precio="19.99"
@@ -697,17 +706,17 @@
                 <p class="price">€19.99</p>
                 <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Jorge Rubio Gran Reserva 2020 -->
+            <!-- Jorge Rubio Privado Malbec 2021 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="Maipú"
                  data-bodega="Jorge Rubio"
                  data-tipo="Malbec"
-                 data-anada="2020"
-                 data-precio="22.99"
-                 data-precio-rango="20-50 EUR"
+                 data-anada="2021"
+                 data-precio="15.99"
+                 data-precio-rango="10-20 EUR"
                  data-altura="500-1000 msnm">
-                <img src="/images/small/jorge-rubio-gran-reserva-malbecmerlot-2020.jpg" alt="Botella de Gran Reserva 2020"
+                <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Botella de Jorge Rubio Privado Malbec 2021"
                      onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 <span class="info-icon">🍷</span>
                 <div class="overlay">
@@ -716,9 +725,9 @@
                     <p><strong>Región:</strong> Maipú</p>
                     <p><strong>Altura:</strong> 800 msnm</p>
                 </div>
-                <h3>Gran Reserva - 2020</h3>
-                <p class="price">€22.99</p>
-                <a href="/vinos/jorge-rubio-gran-reserva-malbecmerlot-2020" class="buy-button">Comprar</a>
+                <h3>Privado Malbec - 2021</h3>
+                <p class="price">€15.99</p>
+                <a href="https://www.1000malbecs.com/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Comprar</a>
             </div>
         </div>
         <div class="product-grid">
@@ -791,17 +800,17 @@
                 <p class="price">€9.49</p>
                 <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Jorge Rubio Roble 2022 -->
+            <!-- Jorge Rubio Premiado Malbec 2018 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="Maipú"
                  data-bodega="Jorge Rubio"
                  data-tipo="Malbec"
-                 data-anada="2022"
-                 data-precio="15.99"
-                 data-precio-rango="10-20 EUR"
+                 data-anada="2018"
+                 data-precio="22.99"
+                 data-precio-rango="20-50 EUR"
                  data-altura="500-1000 msnm">
-                <img src="/images/small/roble-2022.jpg" alt="Botella de Roble 2022"
+                <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Botella de Jorge Rubio Premiado Malbec 2018"
                      onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 <span class="info-icon">🍷</span>
                 <div class="overlay">
@@ -810,9 +819,9 @@
                     <p><strong>Región:</strong> Maipú</p>
                     <p><strong>Altura:</strong> 800 msnm</p>
                 </div>
-                <h3>Roble - Malbec - 2022</h3>
-                <p class="price">€15.99</p>
-                <a href="/vinos/roble-2022.html" class="buy-button">Comprar</a>
+                <h3>Premiado Malbec - 2018</h3>
+                <p class="price">€22.99</p>
+                <a href="https://www.1000malbecs.com/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Comprar</a>
             </div>
         </div>
 
