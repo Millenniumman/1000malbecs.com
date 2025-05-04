@@ -45,7 +45,7 @@
             position: fixed;
             top: 10px;
             left: 10px;
-            z-index: 110;
+            z-index: 120; /* Aumentado para estar encima del logo */
         }
         #sidebar {
             width: 250px;
@@ -116,7 +116,7 @@
             background-color: #FFFFFF;
             border: 1px solid #E0E0E0;
             border-radius: 5px;
-            padding: 15px;
+            padding: 10px; /* Reducido para más espacio */
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -147,12 +147,12 @@
             top: 0;
             left: 0;
             width: 100%;
-            max-height: 100px;
+            max-height: 120px; /* Aumentado para más contenido */
             background-color: rgba(74, 44, 89, 0.8);
             color: #FFFFFF;
             padding: 10px;
             box-sizing: border-box;
-            font-size: 12px;
+            font-size: 11px; /* Reducido para mobile */
             overflow-y: auto;
             z-index: 6;
             pointer-events: none;
@@ -165,14 +165,18 @@
         .product-card:hover .overlay { display: block; }
         .product-card .overlay.active { display: block; }
         .product-card h3 {
-            font-size: 14px;
+            font-size: 12px; /* Reducido para desktop */
             margin: 5px 0;
             color: #4A2C59;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        .price { font-size: 14px; color: #4A2C59; margin: 5px 0; }
+        .price {
+            font-size: 11px; /* Reducido para desktop */
+            color: #4A2C59;
+            margin: 5px 0;
+        }
         .buy-button {
             display: inline-block;
             background-color: #4A2C59;
@@ -180,7 +184,7 @@
             padding: 6px 12px;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 11px; /* Ajustado para consistencia */
             z-index: 10;
             position: relative;
         }
@@ -315,9 +319,9 @@
                 position: fixed;
                 top: 10px;
                 right: 10px;
-                z-index: 120;
+                z-index: 110; /* Debajo del hamburger */
             }
-            .logo { max-width: 100px; }
+            .logo { max-width: 80px; } /* Reducido para mobile */
             .hamburger { display: block; }
             #sidebar {
                 width: 100%;
@@ -339,7 +343,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 120px;
+                margin-top: 100px; /* Reducido para evitar superposición */
                 padding: 10px;
                 width: 100%;
             }
@@ -375,7 +379,7 @@
                 margin: 0 auto;
             }
             .product-card h3 {
-                font-size: 14px;
+                font-size: 13px; /* Ligeramente mayor para mobile */
                 margin: 5px 0;
                 color: #4A2C59;
                 overflow: hidden;
@@ -384,24 +388,28 @@
                 max-height: 40px;
             }
             .product-card .price {
-                font-size: 14px;
+                font-size: 12px; /* Ligeramente mayor para mobile */
                 color: #4A2C59;
                 margin: 5px 0;
             }
             .product-card .buy-button {
                 margin-top: 5px;
+                font-size: 11px;
             }
             .product-card:hover .overlay { display: none; }
             .info-icon { display: block; }
             .overlay {
-                max-height: 150px;
+                max-height: 160px; /* Aumentado para mobile */
                 pointer-events: auto;
                 width: 100%;
                 box-sizing: border-box;
                 top: 0;
-                padding: 40px 10px 10px 10px;
+                padding: 10px; /* Ajustado para mejor legibilidad */
+                display: none; /* Asegurar que solo se muestre con .active */
             }
-            .overlay.active { display: block; }
+            .overlay.active {
+                display: block; /* Forzar visibilidad cuando activo */
+            }
             .banner-carousel {
                 margin-bottom: 20px;
             }
@@ -500,8 +508,8 @@
                     </div>
                 </div>
                 <div class="banner-nav">
-                    <button onclick="moveBanner(-1)">&#10094;</button>
-                    <button onclick="moveBanner(1)">&#10095;</button>
+                    <button onclick="moveBanner(-1)">❮</button>
+                    <button onclick="moveBanner(1)">❯</button>
                 </div>
             </div>
 
@@ -700,19 +708,19 @@
             <h3 class="section-title">Conocé nuestras provincias</h3>
             <div class="province-grid">
                 <a href="/provincias/mendoza.html" class="province-card">
-                    <img src="https://images.unsplash.com/photo-1596551420998-2e0d3d21f144" alt="Mendoza">
+                    <img src="/images/provincias/mendoza-1.jpg" alt="Viñedos de Mendoza">
                     <div class="province-overlay">Mendoza</div>
                 </a>
                 <a href="/provincias/salta.html" class="province-card">
-                    <img src="https://images.unsplash.com/photo-1613749043749-9e77f0d361d7" alt="Salta">
+                    <img src="/images/provincias/salta-1.jpg" alt="Viñedos de Salta">
                     <div class="province-overlay">Salta</div>
                 </a>
                 <a href="/provincias/la-rioja.html" class="province-card">
-                    <img src="https://images.unsplash.com/photo-1605515362509-6b0c7a7e0d6e" alt="La Rioja">
+                    <img src="/images/provincias/la-rioja-1.jpg" alt="Viñedos de La Rioja">
                     <div class="province-overlay">La Rioja</div>
                 </a>
                 <a href="/provincias/neuquén.html" class="province-card">
-                    <img src="https://images.unsplash.com/photo-1613749043749-9e77f0d361d7" alt="Neuquén">
+                    <img src="/images/provincias/neuquen-1.jpg" alt="Viñedos de Neuquén">
                     <div class="province-overlay">Neuquén</div>
                 </a>
             </div>
@@ -721,19 +729,19 @@
             <h3 class="section-title">Visitá nuestras bodegas</h3>
             <div class="winery-grid">
                 <a href="/bodegas/bodega-foster-lorca.html" class="winery-card">
-                    <img src="https://images.unsplash.com/photo-1515036551584-c400d2046f51" alt="Bodega Foster Lorca">
+                    <img src="/images/bodegas/bodega-foster-lorca-1.jpg" alt="Bodega Foster Lorca">
                     <div class="winery-overlay">Bodega Foster Lorca</div>
                 </a>
                 <a href="/bodegas/bodegas-bianchi.html" class="winery-card">
-                    <img src="https://images.unsplash.com/photo-1585509231947-946d002e8e9e" alt="Bodegas Bianchi">
+                    <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Bodegas Bianchi">
                     <div class="winery-overlay">Bodegas Bianchi</div>
                 </a>
                 <a href="/bodegas/luigi-bosca.html" class="winery-card">
-                    <img src="https://images.unsplash.com/photo-1511914261318-3b16a80fa605" alt="Luigi Bosca">
+                    <img src="/images/bodegas/luigi-bosca-1.jpg" alt="Luigi Bosca">
                     <div class="winery-overlay">Luigi Bosca</div>
                 </a>
                 <a href="/bodegas/bodegas-etchart.html" class="winery-card">
-                    <img src="https://images.unsplash.com/photo-1596551420998-2e0d3d21f144" alt="Bodegas Etchart">
+                    <img src="/images/bodegas/bodegas-etchart-1.jpg" alt="Bodegas Etchart">
                     <div class="winery-overlay">Bodegas Etchart</div>
                 </a>
             </div>
@@ -775,23 +783,19 @@
         // Overlay toggle for mobile (wine glass icon)
         document.querySelectorAll('.info-icon').forEach(icon => {
             icon.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    const overlay = this.nextElementSibling;
-                    overlay.classList.toggle('active');
-                    e.stopPropagation();
-                }
+                const overlay = this.nextElementSibling;
+                overlay.classList.toggle('active');
+                e.stopPropagation();
             });
         });
 
         // Close overlays when clicking outside
         document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                document.querySelectorAll('.overlay.active').forEach(overlay => {
-                    if (!overlay.contains(e.target) && !e.target.matches('.info-icon')) {
-                        overlay.classList.remove('active');
-                    }
-                });
-            }
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+                if (!overlay.contains(e.target) && !e.target.matches('.info-icon')) {
+                    overlay.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>
