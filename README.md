@@ -707,7 +707,7 @@
                  data-precio="22.99"
                  data-precio-rango="20-50 EUR"
                  data-altura="500-1000 msnm">
-                <img src="/images/small/gran-reserva-2020.jpg" alt="Botella de Gran Reserva 2020"
+                <img src="/images/small/jorge-rubio-gran-reserva-malbecmerlot-2020.jpg" alt="Botella de Gran Reserva 2020"
                      onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 <span class="info-icon">🍷</span>
                 <div class="overlay">
@@ -718,7 +718,7 @@
                 </div>
                 <h3>Gran Reserva - 2020</h3>
                 <p class="price">€22.99</p>
-                <a href="/vinos/gran-reserva-2020.html" class="buy-button">Comprar</a>
+                <a href="/vinos/jorge-rubio-gran-reserva-malbecmerlot-2020" class="buy-button">Comprar</a>
             </div>
         </div>
         <div class="product-grid">
