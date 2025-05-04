@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -492,7 +492,7 @@
             }
             .province-card, .winery-card {
                 width: 100%;
-                height: 150px;
+                height: 200px; /* Aumentado de 150px a 200px para logos más grandes */
             }
             .province-card {
                 position: relative;
@@ -518,8 +518,9 @@
                 height: 100%;
                 object-fit: contain;
                 background: #FFFFFF;
-                padding: 10px;
+                padding: 5px; /* Reducido de 10px a 5px para más espacio */
                 box-sizing: border-box;
+                max-width: 100%; /* Evita desbordamiento */
             }
             .search-container {
                 max-width: 100%;
@@ -687,7 +688,7 @@
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
-                 data  data-bodega="Bodega Goyenechea"
+                 data-bodega="Bodega Goyenechea"
                  data-tipo="Malbec"
                  data-anada="2022"
                  data-precio="19.99"
@@ -846,22 +847,22 @@
         <h3 class="section-title">Conocé nuestras provincias</h3>
         <div class="province-grid">
             <a href="/provincias/mendoza.html" class="province-card">
-                <img src="/images/provincia/mendoza-1.jpg" alt="Viñedos de Mendoza">
+                <img src="/images/provincias/mendoza-1.jpg" alt="Viñedos de Mendoza">
                 <span class="province-name">Mendoza</span>
                 <div class="province-overlay">Mendoza</div>
             </a>
             <a href="/provincias/salta.html" class="province-card">
-                <img src="/images/provincia/salta-1.jpg" alt="Viñedos de Salta">
+                <img src="/images/provincias/salta-1.jpg" alt="Viñedos de Salta">
                 <span class="province-name">Salta</span>
                 <div class="province-overlay">Salta</div>
             </a>
             <a href="/provincias/la-rioja.html" class="province-card">
-                <img src="/images/provincia/la-rioja-1.jpg" alt="Viñedos de La Rioja">
+                <img src="/images/provincias/la-rioja-1.jpg" alt="Viñedos de La Rioja">
                 <span class="province-name">La Rioja</span>
                 <div class="province-overlay">La Rioja</div>
             </a>
             <a href="/provincias/neuquén.html" class="province-card">
-                <img src="/images/provincia/neuquen-1.jpg" alt="Viñedos de Neuquén">
+                <img src="/images/provincias/neuquen-1.jpg" alt="Viñedos de Neuquén">
                 <span class="province-name">Neuquén</span>
                 <div class="province-overlay">Neuquén</div>
             </a>
@@ -911,7 +912,7 @@
 
         // Close overlays when clicking outside
         document.addEventListener('click', function(e) {
-            document.querySelectorAll('.overlay.active').forEach(overlay => {
+            document.querySelectorAll('.overlay.active'). -forEach(overlay => {
                 if (!overlay.contains(e.target) && !e.target.matches('.info-icon')) {
                     overlay.classList.remove('active');
                 }
