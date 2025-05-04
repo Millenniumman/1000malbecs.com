@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="Descubre nuestra selección de Malbecs argentinos, desde la Patagonia hasta la Puna.">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
 
-    <link rel="stylesheet" href="/styles.css">
+    <!-- <link rel="stylesheet" href="/styles.css"> COMENTADO PARA EVITAR CONFLICTOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
@@ -45,7 +45,7 @@
             position: fixed;
             top: 15px;
             left: 10px;
-            z-index: 110;
+            z-index: 130; /* Aumentado para estar por encima del header */
         }
         #sidebar {
             width: 250px;
@@ -77,6 +77,7 @@
             cursor: pointer;
             padding: 5px 0;
             display: flex;
+            align-items: center secciones
             align-items: center;
         }
         #sidebar summary i { margin-right: 10px; color: #4A2C59; }
@@ -321,11 +322,14 @@
                 border-radius: 5px;
             }
             .logo {
-                max-width: 60px; /* Más pequeño, como en las landings */
-                height: auto;
+                max-width: 60px !important; /* Forzado para evitar conflictos */
+                height: auto !important;
                 display: block;
             }
-            .hamburger { display: block; }
+            .hamburger {
+                display: block !important; /* Forzado para asegurar visibilidad */
+                z-index: 130; /* Por encima del header */
+            }
             #sidebar {
                 width: 100%;
                 height: 100vh;
@@ -346,7 +350,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 80px; /* Reducido para ajustarse al logo más pequeño */
+                margin-top: 80px; /* Espacio para logo y hamburguesa */
                 padding: 10px;
                 width: 100%;
             }
@@ -436,13 +440,17 @@
             .header { display: none; }
             .logo-container { display: block; }
             .info-icon { display: none; }
+            .hamburger { display: none; }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <a href="/index.html" title="Volver al inicio">
-            <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+            <!-- Usando placeholder para probar -->
+            <img src="https://via.placeholder.com/60x60" alt="Logo 1000malbecs" class="logo">
+            <!-- Reemplazar con tu logo una vez confirmado -->
+            <!-- <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo"> -->
         </a>
     </header>
     <button class="hamburger">☰</button>
