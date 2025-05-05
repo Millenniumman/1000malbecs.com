@@ -664,6 +664,12 @@
                 <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
             </ul>
         </details>
+<details>
+        <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
+        <ul>
+            <li><a href="/eventos" class="nav-link">Ver Eventos</a></li>
+        </ul>
+    </details>
     </nav>
     <main>
         <!-- Banner Carousel -->
