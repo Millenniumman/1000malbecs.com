@@ -667,7 +667,7 @@
 <details>
         <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
         <ul>
-            <li><a href="/eventos" class="nav-link">Ver Eventos</a></li>
+            <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
         </ul>
     </details>
     </nav>
