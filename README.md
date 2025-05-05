@@ -670,13 +670,13 @@
         <div class="banner-carousel">
             <div class="banner-container">
                 <div class="banner-item">
-                    <img src="https://images.unsplash.com/photo-1515036551584-c400d2046f51" alt="Banner 1">
+                    <img src="/images/banner/banner-1.jpg" alt="Banner 1">
                 </div>
                 <div class="banner-item">
-                    <img src="https://images.unsplash.com/photo-1585509231947-946d002e8e9e" alt="Banner 2">
+                    <img src=/images/banner/banner-2.jpg" alt="Banner 2">
                 </div>
                 <div class="banner-item">
-                    <img src="https://images.unsplash.com/photo-1511914261318-3b16a80fa605" alt="Banner 3">
+                    <img src="/images/banner/banner-3.jpg" alt="Banner 3">
                 </div>
             </div>
             <div class="banner-nav">
