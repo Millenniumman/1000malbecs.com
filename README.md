@@ -670,13 +670,13 @@
         <div class="banner-carousel">
             <div class="banner-container">
                 <div class="banner-item">
-                    <img src="/images/banner/banner-1.jpg" alt="Banner 1">
+                    <img src="/images/banners/banner-1.jpg" alt="Banner 1">
                 </div>
                 <div class="banner-item">
-                    <img src="/images/banner/banner-2.jpg" alt="Banner 2">
+                    <img src="/images/banners/banner-2.jpg" alt="Banner 2">
                 </div>
                 <div class="banner-item">
-                    <img src="/images/banner/banner-3.jpg" alt="Banner 3">
+                    <img src="/images/banners/banner-3.jpg" alt="Banner 3">
                 </div>
             </div>
             <div class="banner-nav">
