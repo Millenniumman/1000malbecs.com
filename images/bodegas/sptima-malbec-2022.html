@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="description" content="Séptima Malbec es un vino tinto icónico de Bodega Séptima, elaborado en Agrelo con un enfoque en la excelencia enológica y el respeto al terroir. Este Malbec...">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="1000malbecs - Séptima Malbec 2022">
+  <meta property="og:description" content="Séptima Malbec es un vino tinto icónico de Bodega Séptima, elaborado en Agrelo con un enfoque en la excelencia enológica y el respeto al terroir. Este Malbec...">
+  <meta property="og:image" content="https://1000malbecs.com/images/large/sptima-malbec-2022.jpg">
+  <meta property="og:url" content="https://1000malbecs.com/vinos/sptima-malbec-2022.html">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="1000malbecs">
+  <meta property="og:locale" content="es_ES">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1000malbecs - Séptima Malbec 2022">
+  <meta name="twitter:description" content="Séptima Malbec es un vino tinto icónico de Bodega Séptima, elaborado en Agrelo con un enfoque en la excelencia enológica y el respeto al terroir. Este Malbec...">
+  <meta name="twitter:image" content="https://1000malbecs.com/images/large/sptima-malbec-2022.jpg">
+  <meta name="twitter:site" content="@1000malbecs">
+  <title>1000malbecs - Séptima Malbec 2022</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header { display: none; }
+    .logo { max-width: 150px; height: auto; }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 110;
+    }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      font-family: 'Montserrat', sans-serif;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .logo-container { text-align: center; margin-bottom: 20px; }
+    #sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A2C59;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    #sidebar details { margin-bottom: 15px; }
+    #sidebar details:first-of-type { margin-bottom: 25px; }
+    #sidebar summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+    #sidebar li { margin: 5px 0; }
+    .nav-link {
+      font-size: 14px;
+      color: #4A2C59;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+    .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+    .main-content {
+      margin-left: 290px;
+      width: calc(100% - 290px);
+      z-index: 1;
+      flex: 1;
+      padding: 20px;
+    }
+    .product-details {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+    .product-image {
+      flex: 0 0 40%;
+      max-width: 350px;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .product-image img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+    }
+    .product-info {
+      flex: 0 0 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-sizing: border-box;
+    }
+    .product-details h1 {
+      color: #4A0D29;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .product-details .info-box {
+      margin: 0;
+      padding: 15px;
+      background-color: #f5e6ff;
+      border: 1px solid #4A0D29;
+      border-radius: 5px;
+    }
+    .product-details .info-box h2 {
+      color: #4A0D29;
+      font-size: 1.3em;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .product-details .info-box p {
+      margin: 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .product-details p.info {
+      margin: 5px 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .product-details p.info strong {
+      color: #4A0D29;
+    }
+    .main-buy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #FF9900; /* Amazon-like orange */
+      color: #000000; /* Black text for contrast */
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+      pointer-events: auto;
+    }
+    .main-buy-button:hover {
+      background-color: #E68A00; /* Darker orange for hover */
+    }
+    .buy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4A0D29; /* Original dark purple */
+      color: #f5e6ff; /* Original light purple text */
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+      pointer-events: auto;
+    }
+    .buy-button:hover {
+      background-color: #5A1D39; /* Original darker purple for hover */
+    }
+    .recommended-section {
+      max-width: 800px;
+      margin: 40px auto 0;
+      padding: 20px;
+    }
+    .recommended-section h2 {
+      color: #4A0D29;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .recommended-section h3 {
+      color: #4A0D29;
+      font-size: 1.4em;
+      margin: 20px 0 15px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 30px;
+      width: 100%;
+      justify-items: center;
+    }
+    .product-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 5px;
+      padding: 15px;
+      padding-bottom: 20px;
+      text-align: center;
+      position: relative;
+      overflow: visible;
+      max-width: 250px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 5;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .product-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      margin: 0 auto;
+      display: block;
+      float: none;
+      justify-self: center;
+    }
+    .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      display: none;
+      color: #4A2C59;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      touch-action: manipulation;
+      pointer-events: auto;
+    }
+    .overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-height: 100px;
+      background-color: rgba(74, 44, 89, 0.8) !important;
+      color: #FFFFFF;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 12px;
+      overflow-y: auto;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .overlay p {
+      margin: 2px 0;
+      color: #FFFFFF !important;
+      visibility: visible !important;
+    }
+    .product-card:hover .overlay {
+      display: block;
+    }
+    .product-card .overlay.active {
+      display: block !important;
+    }
+    .product-card h3 {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #4A2C59;
+      min-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      text-align: center;
+    }
+    .product-card .price {
+      font-size: 16px;
+      color: #4A2C59;
+      margin: 10px 0;
+      position: relative;
+      z-index: 7;
+      text-align: center;
+    }
+    .product-card .buy-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      max-width: none;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 7;
+      text-align: center;
+    }
+    footer {
+      background-color: #3A0B22;
+      color: #f5e6ff;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      margin-top: auto;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+      display: inline;
+    }
+    footer a {
+      color: #d4a5ff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer i {
+      margin-right: 5px;
+      font-size: 1em;
+      vertical-align: middle;
+    }
+    footer img.social-icon {
+      width: 1em;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    footer span.separator {
+      color: #f5e6ff;
+      margin: 0 5px;
+    }
+    @media (max-width: 768px) {
+      body { display: block; }
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 120;
+      }
+      .logo { max-width: 100px; }
+      .hamburger { display: block; }
+      #sidebar {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        border-bottom: 1px solid #E0E0E0;
+        padding: 20px;
+        padding-top: 50px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #sidebar.open {
+        transform: translateX(0);
+      }
+      #sidebar ul {
+        max-height: none;
+        padding-bottom: 20px;
+      }
+      #sidebar li {
+        margin: 8px 0;
+      }
+      .logo-container { display: none; }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+        margin-top: 120px;
+      }
+      .product-details {
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 15px;
+      }
+      .product-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+        max-height: none;
+      }
+      .product-image img {
+        max-height: none;
+      }
+      .product-info {
+        flex: 1 1 100%;
+      }
+      .product-details h1 {
+        font-size: 1.5em;
+        margin-top: 20px;
+      }
+      .product-details .info-box {
+        padding: 10px;
+      }
+      .product-details .info-box h2 {
+        font-size: 1.2em;
+      }
+      .main-buy-button, .buy-button {
+        width: 100%;
+        max-width: none;
+        padding: 12px;
+      }
+      .recommended-section {
+        margin: 30px 10px 0;
+        padding: 15px;
+      }
+      .recommended-section h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
+      .recommended-section h3 {
+        font-size: 1.2em;
+        margin: 15px 0 10px;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .product-grid.same-bodega .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+      }
+      .product-grid.same-bodega .product-card img {
+        width: 140px;
+        height: 140px;
+      }
+      .product-grid.same-bodega .product-card:nth-child(n+3) {
+        display: none;
+      }
+      .product-grid.same-region {
+        gap: 20px;
+      }
+      .product-grid.same-region .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+      }
+      .product-grid.same-region .product-card img {
+        width: 140px;
+        height: 140px;
+      }
+      .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+        min-height: auto;
+        padding: 10px;
+        padding-bottom: 10px;
+        pointer-events: none;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .product-card img {
+        width: 140px;
+        height: 140px;
+        pointer-events: none;
+        margin: 0 auto;
+        display: block;
+      }
+      .product-card h3 {
+        font-size: 14px;
+        min-height: 36px;
+        margin: 5px 0;
+      }
+      .product-card .price {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      .info-icon {
+        display: block !important;
+        pointer-events: auto;
+      }
+      .overlay {
+        max-height: 120px;
+        pointer-events: auto;
+      }
+      .overlay.active {
+        display: block !important;
+        z-index: 12;
+      }
+      .product-card:hover .overlay {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      footer p {
+        font-size: 0.7em;
+      }
+      footer a {
+        margin: 0 3px;
+      }
+      footer span.separator {
+        margin: 0 3px;
+      }
+    }
+    @media (min-width: 769px) {
+      .header { display: none; }
+      .logo-container { display: block; }
+      .product-grid {
+        gap: 40px;
+        width: 100%;
+        justify-items: center;
+      }
+      .product-card {
+        pointer-events: auto;
+        max-width: 250px;
+        min-height: 380px;
+        width: 100%;
+        align-items: center;
+        padding-bottom: 20px;
+      }
+      .product-card img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+        float: none;
+      }
+      .product-card h3 {
+        font-size: 16px;
+        min-height: 40px;
+        white-space: normal;
+        text-align: center;
+      }
+      .product-card .price {
+        font-size: 16px;
+        margin: 10px 0;
+        text-align: center;
+      }
+      .product-card .buy-button {
+        margin-bottom: 15px;
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      .product-card img, .product-card h3, .product-card .price {
+        pointer-events: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="/index.html" title="Volver al inicio">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+  <button class="hamburger">☰</button>
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/index.html" title="Volver al inicio">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+      </a>
+    </div>
+    <h2>Categorías</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
+      <ul>
+        
+        <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+        
+        <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+        
+        <li><a href="/provincias/neuquen.html" class="nav-link">Neuquen</a></li>
+        
+        <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
+        
+      </ul>
+    </details>
+    <details>
+      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
+      <ul>
+        
+        <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
+        
+        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        
+        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+        
+        <li><a href="/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+        
+        <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+        
+        <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
+        
+        <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+        
+        <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+        
+        <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+        
+        <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+        
+        <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+        
+        <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+        
+        <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+        
+        <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+        
+        <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+        
+        <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+        
+        <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+        
+        <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+        
+        <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+        
+        <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+        
+      </ul>
+    </details>
+  </nav>
+  <div class="main-content">
+    <div class="product-details">
+      <div class="product-image">
+        <img src="/images/large/sptima-malbec-2022.jpg" alt="Botella de Séptima Malbec 2022"
+             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+      </div>
+      <div class="product-info">
+        <h1>Séptima Malbec - 2022</h1>
+        <p class="info"><strong>Bodega:</strong> Bodega Séptima</p>
+        <p class="info"><strong>Provincia:</strong> Mendoza</p>
+        <p class="info"><strong>Región:</strong> Luján de Cuyo</p>
+        <p class="info"><strong>Altura:</strong> 900</p>
+        <p class="info"><strong>Precio:</strong> €15.49</p>
+        <div class="info-box">
+          <h2>Descripción</h2>
+          <p>Séptima Malbec es un vino tinto icónico de Bodega Séptima, elaborado en Agrelo con un enfoque en la excelencia enológica y el respeto al terroir. Este Malbec monovarietal combina la herencia histórica con la innovación, ofreciendo un perfil suave y equilibrado, ideal para carnes a la parrilla, pastas o quesos semiduros. La añada 2023 refleja la calidad de los viñedos a 1050 metros de altitud, con un estilo elegante y persistente.</p>
+        </div>
+        <div class="info-box">
+          <h2>Notas de Cata</h2>
+          <p>Color rojo intenso con reflejos violáceos. En nariz, presenta aromas a cerezas frescas, mermelada de frutilla y notas de vainilla y tostados de su crianza en roble americano, con toques de romero, sandía y frambuesa. En boca, es suave y elegante, con taninos dulces y un retrogusto frutal con roble ahumado. Muy equilibrado y persistente. Marida con bife de chorizo, lasagnas o gouda añejo.</p>
+        </div>
+        <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20S%C3%A9ptima%20Malbec%0ABodega:%20Bodega%20S%C3%A9ptima%0AA%C3%B1o:%202022%0APrecio:%20%E2%82%AC15.49%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fsptima-malbec-2022.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
+      </div>
+    </div>
+    <!-- Nueva sección: También te podrían interesar -->
+    <section class="recommended-section">
+      <h2>También te podrían interesar</h2>
+      
+      <h3>Más vinos de Bodega Séptima</h3>
+      <div class="product-grid same-bodega">
+        
+        <div class="product-card" data-overlay-id="sptima-ros-de-malbec-2023.html">
+          <img src="/images/small/sptima-ros-de-malbec-2023.jpg" alt="Botella de Séptima Rosé de Malbec 2023"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="sptima-ros-de-malbec-2023.html">🍷</div>
+          <div class="overlay" data-overlay-id="sptima-ros-de-malbec-2023.html">
+            <p><strong>Bodega:</strong> Bodega Séptima</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 900 msnm</p>
+          </div>
+          <h3>Séptima Rosé de Malbec 2023</h3>
+          <p class="price">€14.99</p>
+          <a href="/vinos/sptima-ros-de-malbec-2023.html" class="buy-button">Comprar</a>
+        </div>
+        
+      </div>
+      
+      
+      <h3>Vinos de Luján de Cuyo</h3>
+      <div class="product-grid same-region">
+        
+        <div class="product-card" data-overlay-id="chakana-nuna-malbec-bio-2022.html">
+          <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Botella de CHAKANA Nuna Malbec Bio 2022"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="chakana-nuna-malbec-bio-2022.html">🍷</div>
+          <div class="overlay" data-overlay-id="chakana-nuna-malbec-bio-2022.html">
+            <p><strong>Bodega:</strong> Chakana</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1000 msnm</p>
+          </div>
+          <h3>CHAKANA Nuna Malbec Bio 2022</h3>
+          <p class="price">€19.19</p>
+          <a href="/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Comprar</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="tomero--cuartel-41-malbec-2016.html">
+          <img src="/images/small/tomero--cuartel-41-malbec-2016.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2016"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="tomero--cuartel-41-malbec-2016.html">🍷</div>
+          <div class="overlay" data-overlay-id="tomero--cuartel-41-malbec-2016.html">
+            <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1000 msnm</p>
+          </div>
+          <h3>Tomero - Cuartel 41 Malbec 2016</h3>
+          <p class="price">€67.99</p>
+          <a href="/vinos/tomero--cuartel-41-malbec-2016.html" class="buy-button">Comprar</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="tomero--cuartel-41-malbec-2018.html">
+          <img src="/images/small/tomero--cuartel-41-malbec-2018.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2018"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="tomero--cuartel-41-malbec-2018.html">🍷</div>
+          <div class="overlay" data-overlay-id="tomero--cuartel-41-malbec-2018.html">
+            <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1000 msnm</p>
+          </div>
+          <h3>Tomero - Cuartel 41 Malbec 2018</h3>
+          <p class="price">€64.99</p>
+          <a href="/vinos/tomero--cuartel-41-malbec-2018.html" class="buy-button">Comprar</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="tomero--cuartel-41-malbec-2019.html">
+          <img src="/images/small/tomero--cuartel-41-malbec-2019.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2019"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="tomero--cuartel-41-malbec-2019.html">🍷</div>
+          <div class="overlay" data-overlay-id="tomero--cuartel-41-malbec-2019.html">
+            <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1000 msnm</p>
+          </div>
+          <h3>Tomero - Cuartel 41 Malbec 2019</h3>
+          <p class="price">€62.99</p>
+          <a href="/vinos/tomero--cuartel-41-malbec-2019.html" class="buy-button">Comprar</a>
+        </div>
+        
+      </div>
+      
+    </section>
+  </div>
+  <footer>
+    <p>
+      <i class="fab fa-whatsapp"></i><a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
+      <span class="separator">|</span>
+      <img src="/images/x-icon.png" alt="X" class="social-icon"><a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+      <span class="separator">|</span>
+      <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon"><a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+    </p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+          const details = link.closest('details');
+          if (details) {
+            details.setAttribute('open', '');
+          }
+        }
+      });
+
+      // Validar DOM
+      const productCards = document.querySelectorAll('.product-card');
+      console.log(`Found ${productCards.length} product-card elements`);
+      productCards.forEach(card => {
+        const overlayId = card.getAttribute('data-overlay-id');
+        const infoIcon = card.querySelector('.info-icon');
+        const overlay = card.querySelector('.overlay');
+        if (!infoIcon) {
+          console.error(`No info-icon found in product-card: ${overlayId}`);
+        } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
+          console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
+        }
+        if (!overlay) {
+          console.error(`No overlay found in product-card: ${overlayId}`);
+        } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
+          console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
+        }
+      });
+
+      // Manejar clics y toques en info-icon
+      document.querySelectorAll('.info-icon').forEach(icon => {
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const overlayId = icon.getAttribute('data-overlay-id');
+            console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+            
+            // Cerrar todos los overlays
+            document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
+              otherOverlay.classList.remove('active');
+            });
+            
+            // Encontrar el overlay dentro del mismo product-card
+            const productCard = icon.closest('.product-card');
+            if (!productCard) {
+              console.error(`No product-card found for info-icon: ${overlayId}`);
+              return;
+            }
+            const overlay = productCard.querySelector('.overlay');
+            if (!overlay) {
+              console.error(`No overlay found in product-card: ${overlayId}`);
+              return;
+            }
+            
+            // Alternar el overlay
+            overlay.classList.toggle('active');
+            console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
+          });
+        });
+      });
+
+      // Cerrar overlays al clicar/tocar fuera
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.product-card')) {
+          document.querySelectorAll('.overlay.active').forEach(overlay => {
+            overlay.classList.remove('active');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
