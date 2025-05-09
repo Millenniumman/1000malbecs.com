@@ -416,10 +416,15 @@
       .product-image {
         flex: 1 1 100%;
         max-width: 100%;
-        max-height: none;
+        max-height: 400px;
+        overflow: hidden;
       }
       .product-image img {
-        max-height: none;
+        max-height: 400px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
       }
       .product-info {
         flex: 1 1 100%;
@@ -453,7 +458,7 @@
       }
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid.NUMcolumns: repeat(2, 1fr);
         gap: 15px;
       }
       .product-grid.same-bodega .product-card {
@@ -662,7 +667,7 @@
     <details open>
       <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
       <ul>
-        <li><a href="/eventos" class="nav-link">Ver Eventos</a></li>
+        <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
       </ul>
     </details>
   </nav>

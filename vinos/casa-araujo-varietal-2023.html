@@ -167,11 +167,29 @@
     .product-details p.info strong {
       color: #4A0D29;
     }
+    .main-buy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #FF9900; /* Amazon-like orange */
+      color: #000000; /* Black text for contrast */
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+      pointer-events: auto;
+    }
+    .main-buy-button:hover {
+      background-color: #E68A00; /* Darker orange for hover */
+    }
     .buy-button {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #4A0D29;
-      color: #f5e6ff;
+      background-color: #4A0D29; /* Original dark purple */
+      color: #f5e6ff; /* Original light purple text */
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -183,7 +201,7 @@
       pointer-events: auto;
     }
     .buy-button:hover {
-      background-color: #5A1D39;
+      background-color: #5A1D39; /* Original darker purple for hover */
     }
     .recommended-section {
       max-width: 800px;
@@ -398,10 +416,15 @@
       .product-image {
         flex: 1 1 100%;
         max-width: 100%;
-        max-height: none;
+        max-height: 400px;
+        overflow: hidden;
       }
       .product-image img {
-        max-height: none;
+        max-height: 400px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
       }
       .product-info {
         flex: 1 1 100%;
@@ -416,7 +439,7 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .buy-button {
+      .main-buy-button, .buy-button {
         width: 100%;
         max-width: none;
         padding: 12px;
@@ -435,7 +458,7 @@
       }
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid.NUMcolumns: repeat(2, 1fr);
         gap: 15px;
       }
       .product-grid.same-bodega .product-card {
@@ -599,9 +622,9 @@
       <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
       <ul>
         
-        <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
+        <li><a href="/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
         
-        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
         
         <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
@@ -609,7 +632,7 @@
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
-        <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
+        <li><a href="/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
         
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
         
@@ -635,10 +658,16 @@
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
-        <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+        <li><a href="/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
         
         <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
         
+      </ul>
+    </details>
+    <details open>
+      <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
+      <ul>
+        <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
       </ul>
     </details>
   </nav>
@@ -663,7 +692,7 @@
           <h2>Notas de Cata</h2>
           <p>A la vista presenta color rojo rubí, intenso con leves destellos violáceos. De gran complejidad aromática, combina ciruelas, violetas e higos. Perfil alcanzado con un cuidado esmerado desde el viñedo, trabajando con fruta madura y respetando un sistema de producción de calidad. En boca es amplio, de gran volumen y taninos dulces, ofrece sensaciones grasas que lo hacen el compañero ideal para comidas correctamente sazonadas</p>
         </div>
-        <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar Ahora</a>
+        <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Casa%20Araujo%20Varietal%0ABodega:%20Casa%20Araujo%0AA%C3%B1o:%202023%0APrecio:%20%E2%82%AC7.99%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fcasa-araujo-varietal-2023.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
       </div>
     </div>
     <!-- Nueva sección: También te podrían interesar -->
@@ -784,11 +813,11 @@
           <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="enzo-bianchi--gran-malbec-2019-2019.html">
-          <img src="/images/small/enzo-bianchi--gran-malbec-2019-2019.jpg" alt="Botella de Enzo Bianchi - Gran Malbec 2019 2019"
+        <div class="product-card" data-overlay-id="enzo-bianchi-gran-malbec-2019-2019.html">
+          <img src="/images/small/enzo-bianchi-gran-malbec-2019-2019.jpg" alt="Botella de Enzo Bianchi - Gran Malbec 2019 2019"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="enzo-bianchi--gran-malbec-2019-2019.html">🍷</div>
-          <div class="overlay" data-overlay-id="enzo-bianchi--gran-malbec-2019-2019.html">
+          <div class="info-icon" data-overlay-id="enzo-bianchi-gran-malbec-2019-2019.html">🍷</div>
+          <div class="overlay" data-overlay-id="enzo-bianchi-gran-malbec-2019-2019.html">
             <p><strong>Bodega:</strong> Bodegas Bianchi</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> San Rafael</p>
@@ -796,7 +825,7 @@
           </div>
           <h3>Enzo Bianchi - Gran Malbec 2019 2019</h3>
           <p class="price">€62.99</p>
-          <a href="/vinos/enzo-bianchi--gran-malbec-2019-2019.html" class="buy-button">Comprar</a>
+          <a href="/vinos/enzo-bianchi-gran-malbec-2019-2019.html" class="buy-button">Comprar</a>
         </div>
         
       </div>

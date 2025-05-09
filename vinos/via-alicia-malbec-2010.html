@@ -416,10 +416,15 @@
       .product-image {
         flex: 1 1 100%;
         max-width: 100%;
-        max-height: none;
+        max-height: 400px;
+        overflow: hidden;
       }
       .product-image img {
-        max-height: none;
+        max-height: 400px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
       }
       .product-info {
         flex: 1 1 100%;
@@ -453,7 +458,7 @@
       }
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid.NUMcolumns: repeat(2, 1fr);
         gap: 15px;
       }
       .product-grid.same-bodega .product-card {
@@ -617,9 +622,9 @@
       <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
       <ul>
         
-        <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
+        <li><a href="/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
         
-        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
         
         <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
@@ -627,7 +632,7 @@
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
-        <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
+        <li><a href="/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
         
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
         
@@ -653,10 +658,16 @@
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
-        <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+        <li><a href="/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
         
         <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
         
+      </ul>
+    </details>
+    <details open>
+      <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
+      <ul>
+        <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
       </ul>
     </details>
   </nav>
@@ -757,34 +768,34 @@
       <h3>Vinos de Luján de Cuyo</h3>
       <div class="product-grid same-region">
         
-        <div class="product-card" data-overlay-id="sptima-malbec-2022.html">
-          <img src="/images/small/sptima-malbec-2022.jpg" alt="Botella de Séptima Malbec 2022"
+        <div class="product-card" data-overlay-id="septima-malbec-2022.html">
+          <img src="/images/small/septima-malbec-2022.jpg" alt="Botella de Septima Malbec 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="sptima-malbec-2022.html">🍷</div>
-          <div class="overlay" data-overlay-id="sptima-malbec-2022.html">
+          <div class="info-icon" data-overlay-id="septima-malbec-2022.html">🍷</div>
+          <div class="overlay" data-overlay-id="septima-malbec-2022.html">
             <p><strong>Bodega:</strong> Bodega Séptima</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 900 msnm</p>
           </div>
-          <h3>Séptima Malbec 2022</h3>
+          <h3>Septima Malbec 2022</h3>
           <p class="price">€15.49</p>
-          <a href="/vinos/sptima-malbec-2022.html" class="buy-button">Comprar</a>
+          <a href="/vinos/septima-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="sptima-ros-de-malbec-2023.html">
-          <img src="/images/small/sptima-ros-de-malbec-2023.jpg" alt="Botella de Séptima Rosé de Malbec 2023"
+        <div class="product-card" data-overlay-id="septima-rose-de-malbec-2023.html">
+          <img src="/images/small/septima-rose-de-malbec-2023.jpg" alt="Botella de Septima Rose de Malbec 2023"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="sptima-ros-de-malbec-2023.html">🍷</div>
-          <div class="overlay" data-overlay-id="sptima-ros-de-malbec-2023.html">
+          <div class="info-icon" data-overlay-id="septima-rose-de-malbec-2023.html">🍷</div>
+          <div class="overlay" data-overlay-id="septima-rose-de-malbec-2023.html">
             <p><strong>Bodega:</strong> Bodega Séptima</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 900 msnm</p>
           </div>
-          <h3>Séptima Rosé de Malbec 2023</h3>
+          <h3>Septima Rose de Malbec 2023</h3>
           <p class="price">€14.99</p>
-          <a href="/vinos/sptima-ros-de-malbec-2023.html" class="buy-button">Comprar</a>
+          <a href="/vinos/septima-rose-de-malbec-2023.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="chakana-nuna-malbec-bio-2022.html">
@@ -802,11 +813,11 @@
           <a href="/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="tomero--cuartel-41-malbec-2016.html">
-          <img src="/images/small/tomero--cuartel-41-malbec-2016.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2016"
+        <div class="product-card" data-overlay-id="tomero-cuartel-41-malbec-2016.html">
+          <img src="/images/small/tomero-cuartel-41-malbec-2016.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2016"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="tomero--cuartel-41-malbec-2016.html">🍷</div>
-          <div class="overlay" data-overlay-id="tomero--cuartel-41-malbec-2016.html">
+          <div class="info-icon" data-overlay-id="tomero-cuartel-41-malbec-2016.html">🍷</div>
+          <div class="overlay" data-overlay-id="tomero-cuartel-41-malbec-2016.html">
             <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> Luján de Cuyo</p>
@@ -814,7 +825,7 @@
           </div>
           <h3>Tomero - Cuartel 41 Malbec 2016</h3>
           <p class="price">€67.99</p>
-          <a href="/vinos/tomero--cuartel-41-malbec-2016.html" class="buy-button">Comprar</a>
+          <a href="/vinos/tomero-cuartel-41-malbec-2016.html" class="buy-button">Comprar</a>
         </div>
         
       </div>

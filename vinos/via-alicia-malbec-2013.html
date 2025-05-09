@@ -8,20 +8,20 @@
   <meta http-equiv="Expires" content="0">
   <meta name="description" content="Viña Alicia - Malbec 2013 de Viña Alicia es un vino de guarda excepcional, elaborado en Las Compuertas, Luján de Cuyo, con una crianza extendida en roble que...">
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="1000malbecs - Viña Alicia - Malbec 2013 2013">
+  <meta property="og:title" content="1000malbecs - Viña Alicia Malbec 2013">
   <meta property="og:description" content="Viña Alicia - Malbec 2013 de Viña Alicia es un vino de guarda excepcional, elaborado en Las Compuertas, Luján de Cuyo, con una crianza extendida en roble que...">
-  <meta property="og:image" content="https://1000malbecs.com/images/large/via-alicia--malbec-2013-2013.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/vinos/via-alicia--malbec-2013-2013.html">
+  <meta property="og:image" content="https://1000malbecs.com/images/large/via-alicia-malbec-2013.jpg">
+  <meta property="og:url" content="https://1000malbecs.com/vinos/via-alicia-malbec-2013.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
   <meta property="og:locale" content="es_ES">
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="1000malbecs - Viña Alicia - Malbec 2013 2013">
+  <meta name="twitter:title" content="1000malbecs - Viña Alicia Malbec 2013">
   <meta name="twitter:description" content="Viña Alicia - Malbec 2013 de Viña Alicia es un vino de guarda excepcional, elaborado en Las Compuertas, Luján de Cuyo, con una crianza extendida en roble que...">
-  <meta name="twitter:image" content="https://1000malbecs.com/images/large/via-alicia--malbec-2013-2013.jpg">
+  <meta name="twitter:image" content="https://1000malbecs.com/images/large/via-alicia-malbec-2013.jpg">
   <meta name="twitter:site" content="@1000malbecs">
-  <title>1000malbecs - Viña Alicia - Malbec 2013 2013</title>
+  <title>1000malbecs - Viña Alicia Malbec 2013</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
@@ -167,11 +167,29 @@
     .product-details p.info strong {
       color: #4A0D29;
     }
+    .main-buy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #FF9900; /* Amazon-like orange */
+      color: #000000; /* Black text for contrast */
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+      pointer-events: auto;
+    }
+    .main-buy-button:hover {
+      background-color: #E68A00; /* Darker orange for hover */
+    }
     .buy-button {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #4A0D29;
-      color: #f5e6ff;
+      background-color: #4A0D29; /* Original dark purple */
+      color: #f5e6ff; /* Original light purple text */
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -183,7 +201,7 @@
       pointer-events: auto;
     }
     .buy-button:hover {
-      background-color: #5A1D39;
+      background-color: #5A1D39; /* Original darker purple for hover */
     }
     .recommended-section {
       max-width: 800px;
@@ -398,10 +416,15 @@
       .product-image {
         flex: 1 1 100%;
         max-width: 100%;
-        max-height: none;
+        max-height: 400px;
+        overflow: hidden;
       }
       .product-image img {
-        max-height: none;
+        max-height: 400px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
       }
       .product-info {
         flex: 1 1 100%;
@@ -416,7 +439,7 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .buy-button {
+      .main-buy-button, .buy-button {
         width: 100%;
         max-width: none;
         padding: 12px;
@@ -435,7 +458,7 @@
       }
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid.NUMcolumns: repeat(2, 1fr);
         gap: 15px;
       }
       .product-grid.same-bodega .product-card {
@@ -599,9 +622,9 @@
       <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
       <ul>
         
-        <li><a href="/bodegas/agustín-lanús.html" class="nav-link">Agustín Lanús</a></li>
+        <li><a href="/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
         
-        <li><a href="/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
         
         <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
@@ -609,7 +632,7 @@
         
         <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
-        <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
+        <li><a href="/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
         
         <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
         
@@ -635,21 +658,27 @@
         
         <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
-        <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+        <li><a href="/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
         
         <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
         
+      </ul>
+    </details>
+    <details open>
+      <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
+      <ul>
+        <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
       </ul>
     </details>
   </nav>
   <div class="main-content">
     <div class="product-details">
       <div class="product-image">
-        <img src="/images/large/via-alicia-malbec-2013.jpg" alt="Botella de Viña Alicia - Malbec 2013"
+        <img src="/images/large/via-alicia-malbec-2013.jpg" alt="Botella de Viña Alicia Malbec 2013"
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Viña Alicia - Malbec 2013</h1>
+        <h1>Viña Alicia Malbec - 2013</h1>
         <p class="info"><strong>Bodega:</strong> Viña Alicia</p>
         <p class="info"><strong>Provincia:</strong> Mendoza</p>
         <p class="info"><strong>Región:</strong> Luján de Cuyo</p>
@@ -663,7 +692,7 @@
           <h2>Notas de Cata</h2>
           <p>En nariz, ofrece aromas a ciruela seca, cuero y trufa negra, con notas de tabaco y especias exóticas. En boca, es profundo, con sabores a frutos negros maduros, chocolate amargo y regaliz. Los taninos son suaves, con una acidez equilibrada. El final es largo, con matices de café tostado y mineralidad. Marida con venado asado, risotto de hongos o quesos añejos.</p>
         </div>
-        <a href="/vinos/via-alicia-malbec-2013.html" class="buy-button">Comprar Ahora</a>
+        <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Vi%C3%B1a%20Alicia%20Malbec%0ABodega:%20Vi%C3%B1a%20Alicia%0AA%C3%B1o:%202013%0APrecio:%20%E2%82%AC55.99%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fvia-alicia-malbec-2013.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
       </div>
     </div>
     <!-- Nueva sección: También te podrían interesar -->
@@ -673,8 +702,8 @@
       <h3>Más vinos de Viña Alicia</h3>
       <div class="product-grid same-bodega">
         
-        <div class="product-card" data-overlay-id="paso-de-piedra--malbec-2019-2019.html">
-          <img src="/images/small/paso-de-piedra-malbec-2019.jpg" alt="Botella de Paso de Piedra - Malbec 2019 2019"
+        <div class="product-card" data-overlay-id="paso-de-piedra-malbec-2019.html">
+          <img src="/images/small/paso-de-piedra-malbec-2019.jpg" alt="Botella de Paso de Piedra Malbec 2019"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="paso-de-piedra-malbec-2019.html">🍷</div>
           <div class="overlay" data-overlay-id="paso-de-piedra-malbec-2019.html">
@@ -683,13 +712,13 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 1100 msnm</p>
           </div>
-          <h3>Paso de Piedra - Malbec 2019</h3>
+          <h3>Paso de Piedra Malbec 2019</h3>
           <p class="price">€25.49</p>
           <a href="/vinos/paso-de-piedra-malbec-2019.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="via-alicia-malbec-2010.html">
-          <img src="/images/small/via-alicia-malbec-2010.jpg" alt="Botella de Viña Alicia - Malbec 2010 2010"
+          <img src="/images/small/via-alicia-malbec-2010.jpg" alt="Botella de Viña Alicia Malbec 2010"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="via-alicia-malbec-2010.html">🍷</div>
           <div class="overlay" data-overlay-id="via-alicia-malbec-2010.html">
@@ -698,13 +727,13 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 1100 msnm</p>
           </div>
-          <h3>Viña Alicia - Malbec 2010</h3>
+          <h3>Viña Alicia Malbec 2010</h3>
           <p class="price">€61.99</p>
           <a href="/vinos/via-alicia-malbec-2010.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="via-alicia-malbec-2012.html">
-          <img src="/images/small/via-alicia-malbec-2012.jpg" alt="Botella de Viña Alicia - Malbec 2012 2012"
+          <img src="/images/small/via-alicia-malbec-2012.jpg" alt="Botella de Viña Alicia Malbec 2012"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="via-alicia-malbec-2012.html">🍷</div>
           <div class="overlay" data-overlay-id="via-alicia-malbec-2012.html">
@@ -713,14 +742,13 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 1100 msnm</p>
           </div>
-          <h3>Viña Alicia - Malbec 2012</h3>
+          <h3>Viña Alicia Malbec 2012</h3>
           <p class="price">€57.99</p>
           <a href="/vinos/via-alicia-malbec-2012.html" class="buy-button">Comprar</a>
         </div>
-
         
         <div class="product-card" data-overlay-id="via-alicia-malbec-2016.html">
-          <img src="/images/small/via-alicia-malbec-2016.jpg" alt="Botella de Viña Alicia - Malbec 2016 2016"
+          <img src="/images/small/via-alicia-malbec-2016.jpg" alt="Botella de Viña Alicia Malbec 2016"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="via-alicia-malbec-2016.html">🍷</div>
           <div class="overlay" data-overlay-id="via-alicia-malbec-2016.html">
@@ -729,13 +757,9 @@
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 1100 msnm</p>
           </div>
-          <h3>Viña Alicia - Malbec 2016</h3>
+          <h3>Viña Alicia Malbec 2016</h3>
           <p class="price">€51.99</p>
           <a href="/vinos/via-alicia-malbec-2016.html" class="buy-button">Comprar</a>
-        </div>
-        
-      </div>
-      
         </div>
         
       </div>
@@ -744,34 +768,34 @@
       <h3>Vinos de Luján de Cuyo</h3>
       <div class="product-grid same-region">
         
-        <div class="product-card" data-overlay-id="sptima-malbec-2022.html">
-          <img src="/images/small/sptima-malbec-2022.jpg" alt="Botella de Séptima Malbec 2022"
+        <div class="product-card" data-overlay-id="septima-malbec-2022.html">
+          <img src="/images/small/septima-malbec-2022.jpg" alt="Botella de Septima Malbec 2022"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="sptima-malbec-2022.html">🍷</div>
-          <div class="overlay" data-overlay-id="sptima-malbec-2022.html">
+          <div class="info-icon" data-overlay-id="septima-malbec-2022.html">🍷</div>
+          <div class="overlay" data-overlay-id="septima-malbec-2022.html">
             <p><strong>Bodega:</strong> Bodega Séptima</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 900 msnm</p>
           </div>
-          <h3>Séptima Malbec 2022</h3>
+          <h3>Septima Malbec 2022</h3>
           <p class="price">€15.49</p>
-          <a href="/vinos/sptima-malbec-2022.html" class="buy-button">Comprar</a>
+          <a href="/vinos/septima-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="sptima-ros-de-malbec-2023.html">
-          <img src="/images/small/sptima-ros-de-malbec-2023.jpg" alt="Botella de Séptima Rosé de Malbec 2023"
+        <div class="product-card" data-overlay-id="septima-rose-de-malbec-2023.html">
+          <img src="/images/small/septima-rose-de-malbec-2023.jpg" alt="Botella de Septima Rose de Malbec 2023"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="sptima-ros-de-malbec-2023.html">🍷</div>
-          <div class="overlay" data-overlay-id="sptima-ros-de-malbec-2023.html">
+          <div class="info-icon" data-overlay-id="septima-rose-de-malbec-2023.html">🍷</div>
+          <div class="overlay" data-overlay-id="septima-rose-de-malbec-2023.html">
             <p><strong>Bodega:</strong> Bodega Séptima</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> Luján de Cuyo</p>
             <p><strong>Altura:</strong> 900 msnm</p>
           </div>
-          <h3>Séptima Rosé de Malbec 2023</h3>
+          <h3>Septima Rose de Malbec 2023</h3>
           <p class="price">€14.99</p>
-          <a href="/vinos/sptima-ros-de-malbec-2023.html" class="buy-button">Comprar</a>
+          <a href="/vinos/septima-rose-de-malbec-2023.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="chakana-nuna-malbec-bio-2022.html">
@@ -789,11 +813,11 @@
           <a href="/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Comprar</a>
         </div>
         
-        <div class="product-card" data-overlay-id="tomero--cuartel-41-malbec-2016.html">
-          <img src="/images/small/tomero--cuartel-41-malbec-2016.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2016"
+        <div class="product-card" data-overlay-id="tomero-cuartel-41-malbec-2016.html">
+          <img src="/images/small/tomero-cuartel-41-malbec-2016.jpg" alt="Botella de Tomero - Cuartel 41 Malbec 2016"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="tomero--cuartel-41-malbec-2016.html">🍷</div>
-          <div class="overlay" data-overlay-id="tomero--cuartel-41-malbec-2016.html">
+          <div class="info-icon" data-overlay-id="tomero-cuartel-41-malbec-2016.html">🍷</div>
+          <div class="overlay" data-overlay-id="tomero-cuartel-41-malbec-2016.html">
             <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
             <p><strong>Provincia:</strong> Mendoza</p>
             <p><strong>Región:</strong> Luján de Cuyo</p>
@@ -801,7 +825,7 @@
           </div>
           <h3>Tomero - Cuartel 41 Malbec 2016</h3>
           <p class="price">€67.99</p>
-          <a href="/vinos/tomero--cuartel-41-malbec-2016.html" class="buy-button">Comprar</a>
+          <a href="/vinos/tomero-cuartel-41-malbec-2016.html" class="buy-button">Comprar</a>
         </div>
         
       </div>
