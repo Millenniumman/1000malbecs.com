@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="description" content="Tukma Malbec ist ein Rotwein, der von Bodega Tukma in Cafayates Weinbergen hergestellt wird.Dieser Malbec spiegelt die Intensität und Frische des Salta Terro...">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="1000malbecs - Tukma Malbec 2019">
+  <meta property="og:description" content="Tukma Malbec ist ein Rotwein, der von Bodega Tukma in Cafayates Weinbergen hergestellt wird.Dieser Malbec spiegelt die Intensität und Frische des Salta Terro...">
+  <meta property="og:image" content="https://1000malbecs.com/images/large/tukma-malbec-2019.jpg">
+  <meta property="og:url" content="https://1000malbecs.com/de/vinos/tukma-malbec-2019.html">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="1000malbecs">
+  <meta property="og:locale" content="de_ES">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1000malbecs - Tukma Malbec 2019">
+  <meta name="twitter:description" content="Tukma Malbec ist ein Rotwein, der von Bodega Tukma in Cafayates Weinbergen hergestellt wird.Dieser Malbec spiegelt die Intensität und Frische des Salta Terro...">
+  <meta name="twitter:image" content="https://1000malbecs.com/images/large/tukma-malbec-2019.jpg">
+  <meta name="twitter:site" content="@1000malbecs">
+  <!-- Hreflang for SEO -->
+  
+  <link rel="alternate" hreflang="es" href="https://1000malbecs.com/vinos/tukma-malbec-2019.html">
+  
+  <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/vinos/tukma-malbec-2019.html">
+  
+  <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/vinos/tukma-malbec-2019.html">
+  
+  <title>1000malbecs - Tukma Malbec 2019</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header {
+      display: none;
+      z-index: 120;
+    }
+    .logo { max-width: 150px; height: auto; }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 110;
+    }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      font-family: 'Montserrat', sans-serif;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .logo-container { text-align: center; margin-bottom: 20px; }
+    #sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A2C59;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    #sidebar details { margin-bottom: 15px; }
+    #sidebar details:first-of-type { margin-bottom: 25px; }
+    #sidebar summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+    #sidebar li { margin: 5px 0; }
+    .nav-link {
+      font-size: 14px;
+      color: #4A2C59;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+    .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+    .main-content {
+      margin-left: 290px;
+      width: calc(100% - 290px);
+      z-index: 1;
+      flex: 1;
+      padding: 20px;
+    }
+    .product-details {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+    .product-image {
+      flex: 0 0 40%;
+      max-width: 350px;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .product-image img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+    }
+    .product-info {
+      flex: 0 0 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-sizing: border-box;
+    }
+    .product-details h1 {
+      color: #4A0D29;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .product-details .info-box {
+      margin: 0;
+      padding: 15px;
+      background-color: #f5e6ff;
+      border: 1px solid #4A0D29;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .product-details .info-box h2 {
+      color: #4A0D29;
+      font-size: 1.3em;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .product-details .info-box p {
+      margin: 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .product-details p.info {
+      margin: 5px 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .product-details p.info strong {
+      color: #4A0D29;
+    }
+    .main-buy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #FF9900;
+      color: #000000;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+      pointer-events: auto;
+    }
+    .main-buy-button:hover {
+      background-color: #E68A00;
+    }
+    .buy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4A0D29;
+      color: #f5e6ff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+      pointer-events: auto;
+    }
+    .buy-button:hover {
+      background-color: #5A1D39;
+    }
+    .pdf-button {
+      display: block;
+      padding: 10px 20px;
+      background-color: #4A2C59;
+      color: #f5e6ff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      margin: 10px auto 0;
+      box-sizing: border-box;
+    }
+    .pdf-button:hover {
+      background-color: #5A1D39;
+    }
+    .recommended-section {
+      max-width: 800px;
+      margin: 40px auto 0;
+      padding: 20px;
+    }
+    .recommended-section h2 {
+      color: #4A0D29;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .recommended-section h3 {
+      color: #4A0D29;
+      font-size: 1.4em;
+      margin: 20px 0 15px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 30px;
+      width: 100%;
+      justify-items: center;
+    }
+    .product-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 5px;
+      padding: 15px;
+      padding-bottom: 20px;
+      text-align: center;
+      position: relative;
+      overflow: visible;
+      max-width: 250px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 5;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .product-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      margin: 0 auto;
+      display: block;
+      float: none;
+      justify-self: center;
+    }
+    .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      display: none;
+      color: #4A2C59;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      touch-action: manipulation;
+      pointer-events: auto;
+    }
+    .overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-height: 100px;
+      background-color: rgba(74, 44, 89, 0.8) !important;
+      color: #FFFFFF;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 12px;
+      overflow-y: auto;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .overlay p {
+      margin: 2px 0;
+      color: #FFFFFF !important;
+      visibility: visible !important;
+    }
+    .product-card:hover .overlay {
+      display: block;
+    }
+    .product-card .overlay.active {
+      display: block !important;
+    }
+    .product-card h3 {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #4A2C59;
+      min-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      text-align: center;
+    }
+    .product-card .price {
+      font-size: 16px;
+      color: #4A2C59;
+      margin: 10px 0;
+      position: relative;
+      z-index: 7;
+      text-align: center;
+    }
+    .product-card .buy-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      max-width: none;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 7;
+      text-align: center;
+    }
+    footer {
+      background-color: #3A0B22;
+      color: #f5e6ff;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      margin-top: auto;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+      display: inline;
+    }
+    footer a {
+      color: #d4a5ff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer i {
+      margin-right: 5px;
+      font-size: 1em;
+      vertical-align: middle;
+    }
+    footer img.social-icon {
+      width: 1em;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    footer span.separator {
+      color: #f5e6ff;
+      margin: 0 5px;
+    }
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 130;
+      display: flex;
+      gap: 10px;
+    }
+    .language-selector a {
+      text-decoration: none;
+      color: #4A2C59;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .language-selector a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .language-selector a.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    @media (max-width: 768px) {
+      body { display: block; }
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 120;
+      }
+      .logo { max-width: 100px; }
+      .hamburger {
+        display: block;
+        z-index: 110;
+      }
+      #sidebar {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        border-bottom: 1px solid #E0E0E0;
+        padding: 20px;
+        padding-top: 50px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #sidebar.open {
+        transform: translateX(0);
+      }
+      #sidebar ul {
+        max-height: none;
+        padding-bottom: 20px;
+      }
+      #sidebar li {
+        margin: 8px 0;
+      }
+      .logo-container { display: none; }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+        margin-top: 120px;
+      }
+      .product-details {
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 15px;
+      }
+      .product-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+        max-height: 400px;
+        overflow: hidden;
+      }
+      .product-image img {
+        max-height: 400px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+      .product-info {
+        flex: 1 1 100%;
+      }
+      .product-details h1 {
+        font-size: 1.5em;
+        margin-top: 20px;
+      }
+      .product-details .info-box {
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .product-details .info-box h2 {
+        font-size: 1.2em;
+      }
+      .main-buy-button, .buy-button, .pdf-button {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        box-sizing: border-box;
+      }
+      .recommended-section {
+        margin: 30px 10px 0;
+        padding: 15px;
+      }
+      .recommended-section h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
+      .recommended-section h3 {
+        font-size: 1.2em;
+        margin: 15px 0 10px;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .product-grid.same-bodega .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+      }
+      .product-grid.same-bodega .product-card img {
+        width: 140px;
+        height: 140px;
+      }
+      .product-grid.same-bodega .product-card:nth-child(n+3) {
+        display: none;
+      }
+      .product-grid.same-region {
+        gap: 20px;
+      }
+      .product-grid.same-region .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+      }
+      .product-grid.same-region .product-card img {
+        width: 140px;
+        height: 140px;
+      }
+      .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+        min-height: auto;
+        padding: 10px;
+        padding-bottom: 10px;
+        pointer-events: none;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .product-card img {
+        width: 140px;
+        height: 140px;
+        pointer-events: none;
+        margin: 0 auto;
+        display: block;
+      }
+      .product-card h3 {
+        font-size: 14px;
+        min-height: 36px;
+        margin: 5px 0;
+      }
+      .product-card .price {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      .info-icon {
+        display: block !important;
+        pointer-events: auto;
+      }
+      .overlay {
+        max-height: 120px;
+        pointer-events: auto;
+      }
+      .overlay.active {
+        display: block !important;
+        z-index: 12;
+      }
+      .product-card:hover .overlay {
+        display: none;
+      }
+      .language-selector {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        z-index: 130;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+    @media (max-width: 480px) {
+      footer p {
+        font-size: 0.7em;
+      }
+      footer a {
+        margin: 0 3px;
+      }
+      footer span.separator {
+        margin: 0 3px;
+      }
+    }
+    @media (min-width: 769px) {
+      .header { display: none; }
+      .logo-container { display: block; }
+      .product-grid {
+        gap: 40px;
+        width: 100%;
+        justify-items: center;
+      }
+      .product-card {
+        pointer-events: auto;
+        max-width: 250px;
+        min-height: 380px;
+        width: 100%;
+        align-items: center;
+        padding-bottom: 20px;
+      }
+      .product-card img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+        float: none;
+      }
+      .product-card h3 {
+        font-size: 16px;
+        min-height: 40px;
+        white-space: normal;
+        text-align: center;
+      }
+      .product-card .price {
+        font-size: 16px;
+        margin: 10px 0;
+        text-align: center;
+      }
+      .product-card .buy-button {
+        margin-bottom: 15px;
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      .product-card img, .product-card h3, .product-card .price {
+        pointer-events: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-selector">
+    <a href="/vinos/tukma-malbec-2019.html" class="">ES</a>
+    <a href="/en/vinos/tukma-malbec-2019.html" class="">EN</a>
+    <a href="/de/vinos/tukma-malbec-2019.html" class="active">DE</a>
+  </div>
+  <header class="header">
+    <a href="/de/index.html" title="1000malbecs - ">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+  <button class="hamburger">☰</button>
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/de/index.html" title="1000malbecs - ">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+      </a>
+    </div>
+    <h2>Kategorien</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
+      <ul>
+        
+        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+        
+        <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+        
+        <li><a href="/de/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
+        
+        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
+        
+      </ul>
+    </details>
+    <details>
+      <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
+      <ul>
+        
+        <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
+        
+        <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        
+        <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+        
+        <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+        
+        <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+        
+        <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
+        
+        <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+        
+        <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+        
+        <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+        
+        <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+        
+        <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+        
+        <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+        
+        <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+        
+        <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+        
+        <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+        
+        <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+        
+        <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+        
+        <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+        
+        <li><a href="/de/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
+        
+        <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+        
+      </ul>
+    </details>
+    <details open>
+      <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
+      <ul>
+        <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
+      </ul>
+    </details>
+  </nav>
+  <div class="main-content">
+    <div class="product-details">
+      <div class="product-image">
+        <img src="/images/large/tukma-malbec-2019.jpg" alt="Botella de Tukma Malbec 2019"
+             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+      </div>
+      <div class="product-info">
+        <h1>Tukma Malbec - 2019</h1>
+        <p class="info"><strong>Weingut:</strong> Bodega Tukma</p>
+        <p class="info"><strong>Provinz:</strong> Salta</p>
+        <p class="info"><strong>Region:</strong> Valle de Calchaquí</p>
+        <p class="info"><strong>Höhe:</strong> 1700</p>
+        <p class="info"><strong>Preis:</strong> €19.29</p>
+        <div class="info-box">
+          <h2>Beschreibung</h2>
+          <p>Tukma Malbec ist ein Rotwein, der von Bodega Tukma in Cafayates Weinbergen hergestellt wird.Dieser Malbec spiegelt die Intensität und Frische des Salta Terroir mit einem eleganten und Obststil wider, der ideal für geröstete Fleisch, Empanadas oder harte Käse ist.Der 2022 -Jahrgang bietet ein konzentriertes Profil mit weichen Tanninen, perfekt für diejenigen, die die Essenz von Norte Argentino suchen.</p>
+        </div>
+        <div class="info-box">
+          <h2>Verkostungsnotizen</h2>
+          <p>In der Nase zeigt es Aromen zu schwarzen Früchten wie Blackberry und Blaubeer, mit Pfeffernoten, Veilchen und einer Mineralrührin.Im Mund ist es robust, mit Aromen zu Pflaumen, Gewürzen und Kakaourlaub.Die Tannine sind fest, aber samtig, mit einer Säure, die Frische bringt.Das Ende ist lang, mit Nuancen von Graphit und reifen Früchten.Asado Lamb, Fleisch Empanadas oder Parmesankäse.</p>
+        </div>
+        
+        <a href="https://wa.me/+4915158224728?text=Jetzt kaufen:%0A%0ANombre:%20Tukma%20Malbec%202019%0ABodega:%20Bodega%20Tukma%0AA%C3%B1o:%202019%0APrecio:%20%E2%82%AC19.29%0ALink:%20https%3A%2F%2F1000malbecs.com/de/vinos/tukma-malbec-2019.html" class="main-buy-button" target="_blank" rel="noopener">Jetzt kaufen</a>
+      </div>
+    </div>
+    <section class="recommended-section">
+      <h2>Das könnte dir auch gefallen</h2>
+      
+      <h3>Weitere Weine von Bodega Tukma</h3>
+      <div class="product-grid same-bodega">
+        
+        <div class="product-card" data-overlay-id="tukma-gran-corte-2017.html">
+          <img src="/images/small/tukma-gran-corte-2017.jpg" alt="Botella de Tukma Gran Corte 2017"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="tukma-gran-corte-2017.html">🍷</div>
+          <div class="overlay" data-overlay-id="tukma-gran-corte-2017.html">
+            <p><strong>Weingut:</strong> Bodega Tukma</p>
+            <p><strong>Provinz:</strong> Salta</p>
+            <p><strong>Region:</strong> Valle de Calchaquí</p>
+            <p><strong>Höhe:</strong> 1900 msnm</p>
+          </div>
+          <h3>Tukma Gran Corte 2017</h3>
+          <p class="price">€41.29</p>
+          <a href="/de/vinos/tukma-gran-corte-2017.html" class="buy-button">Kaufen</a>
+        </div>
+        
+      </div>
+      
+      
+      <h3>Weine aus Valle de Calchaquí</h3>
+      <div class="product-grid same-region">
+        
+        <div class="product-card" data-overlay-id="bad-brothers-malbec-premium-2020.html">
+          <img src="/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Botella de Bad Brothers Malbec Premium 2020"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="bad-brothers-malbec-premium-2020.html">🍷</div>
+          <div class="overlay" data-overlay-id="bad-brothers-malbec-premium-2020.html">
+            <p><strong>Weingut:</strong> Agustin Lanus</p>
+            <p><strong>Provinz:</strong> Salta</p>
+            <p><strong>Region:</strong> Valle de Calchaquí</p>
+            <p><strong>Höhe:</strong> 2100 msnm</p>
+          </div>
+          <h3>Bad Brothers Malbec Premium 2020</h3>
+          <p class="price">€17.49</p>
+          <a href="/de/vinos/bad-brothers-malbec-premium-2020.html" class="buy-button">Kaufen</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="sunal-ilogico-malbec-2020.html">
+          <img src="/images/small/sunal-ilogico-malbec-2020.jpg" alt="Botella de Sunal Ilogico Malbec 2020"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="sunal-ilogico-malbec-2020.html">🍷</div>
+          <div class="overlay" data-overlay-id="sunal-ilogico-malbec-2020.html">
+            <p><strong>Weingut:</strong> Agustin Lanus</p>
+            <p><strong>Provinz:</strong> Salta</p>
+            <p><strong>Region:</strong> Valle de Calchaquí</p>
+            <p><strong>Höhe:</strong> 2200 msnm</p>
+          </div>
+          <h3>Sunal Ilogico Malbec 2020</h3>
+          <p class="price">€25.49</p>
+          <a href="/de/vinos/sunal-ilogico-malbec-2020.html" class="buy-button">Kaufen</a>
+        </div>
+        
+      </div>
+      
+    </section>
+  </div>
+  <footer>
+    <p>
+      <i class="fab fa-whatsapp"></i><a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Kontakt über WhatsApp">+49 151 5822 4728</a>
+      <span class="separator">|</span>
+      <img src="/images/x-icon.png" alt="X" class="social-icon"><a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folge uns auf X">@1000malbecs</a>
+      <span class="separator">|</span>
+      <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon"><a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folge uns auf Instagram">@1000malbecs</a>
+    </p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('#sidebar');
+        let isSidebarOpen = false;
+
+        if (hamburger && sidebar) {
+          hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isSidebarOpen = !isSidebarOpen;
+            sidebar.classList.toggle('open', isSidebarOpen);
+            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
+          });
+        } else {
+          console.error('Hamburger or sidebar not found');
+        }
+
+        // Evitar propagación en enlaces
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.stopPropagation();
+          });
+        });
+
+        // Activar enlace de navegación actual
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname;
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+            const details = link.closest('details');
+            if (details) {
+              details.setAttribute('open', '');
+            }
+          }
+        });
+
+        // Manejo de tarjetas de producto
+        const productCards = document.querySelectorAll('.product-card');
+        console.log(`Found ${productCards.length} product-card elements`);
+        productCards.forEach(card => {
+          const overlayId = card.getAttribute('data-overlay-id');
+          const infoIcon = card.querySelector('.info-icon');
+          const overlay = card.querySelector('.overlay');
+          if (!infoIcon) {
+            console.error(`No info-icon found in product-card: ${overlayId}`);
+          } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
+            console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
+          }
+          if (!overlay) {
+            console.error(`No overlay found in product-card: ${overlayId}`);
+          } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
+            console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
+          }
+        });
+
+        // Manejo de íconos de información
+        document.querySelectorAll('.info-icon').forEach(icon => {
+          ['click', 'touchstart'].forEach(eventType => {
+            icon.addEventListener(eventType, (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const overlayId = icon.getAttribute('data-overlay-id');
+              console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+              document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
+                otherOverlay.classList.remove('active');
+              });
+              const productCard = icon.closest('.product-card');
+              if (!productCard) {
+                console.error(`No product-card found for info-icon: ${overlayId}`);
+                return;
+              }
+              const overlay = productCard.querySelector('.overlay');
+              if (!overlay) {
+                console.error(`No overlay found in product-card: ${overlayId}`);
+                return;
+              }
+              overlay.classList.toggle('active');
+              console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
+            });
+          });
+        });
+
+        // Cerrar overlays al hacer clic fuera
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.product-card')) {
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+          }
+        });
+      } catch (error) {
+        console.error('Error in DOMContentLoaded handler:', error);
+      }
+    });
+  </script>
+</body>
+</html>
