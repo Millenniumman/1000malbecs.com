@@ -35,7 +35,7 @@
     }
     .header {
       display: none;
-      z-index: 120;
+      z-index: 120; /* Asegurar que el header esté por encima de otros elementos */
     }
     .logo { max-width: 150px; height: auto; }
     .hamburger {
@@ -398,7 +398,7 @@
       .logo { max-width: 100px; }
       .hamburger {
         display: block;
-        z-index: 110;
+        z-index: 110; /* Asegurar que el botón hamburguesa esté visible */
       }
       #sidebar {
         width: 100%;
@@ -722,7 +722,7 @@
         
         <div class="info-box">
           <h2>Ficha Técnica</h2>
-          <a href="/fichas/ficha-roble.pdf" class="pdf-button pdf-download" target="_blank" rel="noopener" download="casa-araujo-roble-2023-ficha-tecnica.pdf" aria-label="Descargar ficha técnica de Casa Araujo Roble 2023">Descargar Ficha Técnica (PDF)</a>
+          <a href="/fichas/ficha-roble.pdf" class="pdf-button" target="_blank" rel="noopener" download aria-label="Descargar ficha técnica de Casa Araujo Roble 2023">Descargar Ficha Técnica (PDF)</a>
         </div>
         
         <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Casa%20Araujo%20Roble%202023%0ABodega:%20Casa%20Araujo%0AA%C3%B1o:%202023%0APrecio:%20%E2%82%AC10.19%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fcasa-araujo-roble-2023.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
@@ -877,43 +877,19 @@
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
       const sidebar = document.querySelector('#sidebar');
+      // Mantener el estado del sidebar
       let isSidebarOpen = false;
       hamburger.addEventListener('click', (e) => {
-        e.stopPropagation();
+        e.stopPropagation(); // Evitar que el clic cierre el sidebar
         isSidebarOpen = !isSidebarOpen;
         sidebar.classList.toggle('open', isSidebarOpen);
       });
-      // Manejo de descarga de PDF
-      document.querySelectorAll('.pdf-download').forEach(button => {
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const url = button.getAttribute('href');
-          const filename = button.getAttribute('download');
-          fetch(url)
-            .then(response => response.blob())
-            .then(blob => {
-              const blobUrl = window.URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = blobUrl;
-              a.download = filename;
-              document.body.appendChild(a);
-              a.click();
-              a.remove();
-              window.URL.revokeObjectURL(blobUrl);
-            })
-            .catch(error => {
-              console.error('Error downloading PDF:', error);
-              window.open(url, '_blank');
-            });
-        });
-      });
+      // Evitar que clics en enlaces (como el PDF) cierren el sidebar
       document.querySelectorAll('a').forEach(link => {
-        if (!link.classList.contains('pdf-download')) {
-          link.addEventListener('click', (e) => {
-            e.stopPropagation();
-          });
-        }
+        link.addEventListener('click', (e) => {
+          // No modificar el estado del sidebar al hacer clic en enlaces
+          e.stopPropagation();
+        });
       });
       const navLinks = document.querySelectorAll('.nav-link');
       const currentPath = window.location.pathname;
@@ -968,6 +944,7 @@
           });
         });
       });
+      // Cerrar overlays al clicar/tocar fuera, sin afectar el sidebar
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.product-card')) {
           document.querySelectorAll('.overlay.active').forEach(overlay => {

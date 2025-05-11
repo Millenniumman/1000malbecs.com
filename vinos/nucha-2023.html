@@ -33,7 +33,10 @@
       flex-direction: column;
       min-height: 100vh;
     }
-    .header { display: none; }
+    .header {
+      display: none;
+      z-index: 120; /* Asegurar que el header esté por encima de otros elementos */
+    }
     .logo { max-width: 150px; height: auto; }
     .hamburger {
       display: none;
@@ -393,7 +396,10 @@
         z-index: 120;
       }
       .logo { max-width: 100px; }
-      .hamburger { display: block; }
+      .hamburger {
+        display: block;
+        z-index: 110; /* Asegurar que el botón hamburguesa esté visible */
+      }
       #sidebar {
         width: 100%;
         height: 100vh;
@@ -716,7 +722,7 @@
         
         <div class="info-box">
           <h2>Ficha Técnica</h2>
-          <a href="/fichas/ficha-nucha.pdf" class="pdf-button" target="_blank" rel="noopener" aria-label="Descargar ficha técnica de Nucha 2023">Descargar Ficha Técnica (PDF)</a>
+          <a href="/fichas/ficha-nucha.pdf" class="pdf-button" target="_blank" rel="noopener" download aria-label="Descargar ficha técnica de Nucha 2023">Descargar Ficha Técnica (PDF)</a>
         </div>
         
         <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Nucha%202023%0ABodega:%20Casa%20Araujo%0AA%C3%B1o:%202023%0APrecio:%20%E2%82%AC12.99%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fnucha-2023.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
@@ -871,8 +877,19 @@
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
       const sidebar = document.querySelector('#sidebar');
-      hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
+      // Mantener el estado del sidebar
+      let isSidebarOpen = false;
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evitar que el clic cierre el sidebar
+        isSidebarOpen = !isSidebarOpen;
+        sidebar.classList.toggle('open', isSidebarOpen);
+      });
+      // Evitar que clics en enlaces (como el PDF) cierren el sidebar
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          // No modificar el estado del sidebar al hacer clic en enlaces
+          e.stopPropagation();
+        });
       });
       const navLinks = document.querySelectorAll('.nav-link');
       const currentPath = window.location.pathname;
@@ -927,6 +944,7 @@
           });
         });
       });
+      // Cerrar overlays al clicar/tocar fuera, sin afectar el sidebar
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.product-card')) {
           document.querySelectorAll('.overlay.active').forEach(overlay => {
