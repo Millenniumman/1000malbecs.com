@@ -409,6 +409,9 @@
       padding: 5px 10px;
       border-radius: 3px;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     .language-selector a:hover {
       background-color: #4A2C59;
@@ -592,15 +595,6 @@
       .product-card:hover .overlay {
         display: none;
       }
-      .language-selector {
-        position: fixed;
-        top: 50px;
-        right: 10px;
-        z-index: 130;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
     }
     @media (max-width: 480px) {
       footer p {
@@ -660,9 +654,9 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="vinos/bad-brothers-malbec-premium-2020.html" class="active">ES 🇪🇸</a>
-    <a href="/en/vinos/bad-brothers-malbec-premium-2020.html" class="">EN 🇬🇧</a>
-    <a href="/de/vinos/bad-brothers-malbec-premium-2020.html" class="">DE 🇩🇪</a>
+    <a href="vinos/bad-brothers-malbec-premium-2020.html" class="active" aria-label="Español">ES 🇪🇸</a>
+    <a href="/en/vinos/bad-brothers-malbec-premium-2020.html" class="" aria-label="Inglés">EN 🇬🇧</a>
+    <a href="/de/vinos/bad-brothers-malbec-premium-2020.html" class="" aria-label="Alemán">DE 🇩🇪</a>
   </div>
   <header class="header">
     <a href="//index.html" title="1000malbecs - ">
@@ -768,7 +762,7 @@
         
         <div class="info-box">
           <h2>Ficha Técnica</h2>
-          <a href="file:///Users/f.augspach/Desktop/Vinos/fichas/ficha-bad-brothers-malbec.pdf" class="pdf-button" download="bad-brothers-malbec-premium-2020-ficha-tecnica.pdf" aria-label="Descargar Ficha Técnica (PDF) Bad Brothers Malbec Premium 2020">Descargar Ficha Técnica (PDF)</a>
+          <a href="//fichas/ficha-bad-brothers-malbec.pdf" class="pdf-button" target="_blank" rel="noopener" download aria-label=" Bad Brothers Malbec Premium 2020"> (PDF)</a>
         </div>
         
         <a href="https://wa.me/+4915158224728?text=Comprar Ahora:%0A%0ANombre:%20Bad%20Brothers%20Malbec%20Premium%202020%0ABodega:%20Agustin%20Lanus%0AA%C3%B1o:%202020%0APrecio:%20%E2%82%AC17.49%0ALink:%20https%3A%2F%2F1000malbecs.com/vinos/bad-brothers-malbec-premium-2020.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
@@ -850,7 +844,6 @@
         const hamburger = document.querySelector('.hamburger');
         const sidebar = document.querySelector('#sidebar');
         let isSidebarOpen = false;
-
         if (hamburger && sidebar) {
           hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -861,15 +854,11 @@
         } else {
           console.error('Hamburger or sidebar not found');
         }
-
-        // Evitar propagación en enlaces
         document.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', (e) => {
             e.stopPropagation();
           });
         });
-
-        // Activar enlace de navegación actual
         const navLinks = document.querySelectorAll('.nav-link');
         const currentPath = window.location.pathname;
         navLinks.forEach(link => {
@@ -881,8 +870,6 @@
             }
           }
         });
-
-        // Manejo de tarjetas de producto
         const productCards = document.querySelectorAll('.product-card');
         console.log(`Found ${productCards.length} product-card elements`);
         productCards.forEach(card => {
@@ -894,14 +881,13 @@
           } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
             console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
           }
+以色列
           if (!overlay) {
             console.error(`No overlay found in product-card: ${overlayId}`);
           } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
             console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
           }
         });
-
-        // Manejo de íconos de información
         document.querySelectorAll('.info-icon').forEach(icon => {
           ['click', 'touchstart'].forEach(eventType => {
             icon.addEventListener(eventType, (e) => {
@@ -927,8 +913,6 @@
             });
           });
         });
-
-        // Cerrar overlays al hacer clic fuera
         document.addEventListener('click', (e) => {
           if (!e.target.closest('.product-card')) {
             document.querySelectorAll('.overlay.active').forEach(overlay => {

@@ -409,6 +409,9 @@
       padding: 5px 10px;
       border-radius: 3px;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     .language-selector a:hover {
       background-color: #4A2C59;
@@ -592,15 +595,6 @@
       .product-card:hover .overlay {
         display: none;
       }
-      .language-selector {
-        position: fixed;
-        top: 50px;
-        right: 10px;
-        z-index: 130;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
     }
     @media (max-width: 480px) {
       footer p {
@@ -660,9 +654,9 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="vinos/foster-malbec-los-altepes-2015.html" class="active">ES 🇪🇸</a>
-    <a href="/en/vinos/foster-malbec-los-altepes-2015.html" class="">EN 🇬🇧</a>
-    <a href="/de/vinos/foster-malbec-los-altepes-2015.html" class="">DE 🇩🇪</a>
+    <a href="vinos/foster-malbec-los-altepes-2015.html" class="active" aria-label="Español">ES 🇪🇸</a>
+    <a href="/en/vinos/foster-malbec-los-altepes-2015.html" class="" aria-label="Inglés">EN 🇬🇧</a>
+    <a href="/de/vinos/foster-malbec-los-altepes-2015.html" class="" aria-label="Alemán">DE 🇩🇪</a>
   </div>
   <header class="header">
     <a href="//index.html" title="1000malbecs - ">
@@ -922,7 +916,6 @@ Es el complemento ideal para acompañar pastas y carnes rojas.</p>
         const hamburger = document.querySelector('.hamburger');
         const sidebar = document.querySelector('#sidebar');
         let isSidebarOpen = false;
-
         if (hamburger && sidebar) {
           hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -933,15 +926,11 @@ Es el complemento ideal para acompañar pastas y carnes rojas.</p>
         } else {
           console.error('Hamburger or sidebar not found');
         }
-
-        // Evitar propagación en enlaces
         document.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', (e) => {
             e.stopPropagation();
           });
         });
-
-        // Activar enlace de navegación actual
         const navLinks = document.querySelectorAll('.nav-link');
         const currentPath = window.location.pathname;
         navLinks.forEach(link => {
@@ -953,8 +942,6 @@ Es el complemento ideal para acompañar pastas y carnes rojas.</p>
             }
           }
         });
-
-        // Manejo de tarjetas de producto
         const productCards = document.querySelectorAll('.product-card');
         console.log(`Found ${productCards.length} product-card elements`);
         productCards.forEach(card => {
@@ -966,14 +953,13 @@ Es el complemento ideal para acompañar pastas y carnes rojas.</p>
           } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
             console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
           }
+以色列
           if (!overlay) {
             console.error(`No overlay found in product-card: ${overlayId}`);
           } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
             console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
           }
         });
-
-        // Manejo de íconos de información
         document.querySelectorAll('.info-icon').forEach(icon => {
           ['click', 'touchstart'].forEach(eventType => {
             icon.addEventListener(eventType, (e) => {
@@ -999,8 +985,6 @@ Es el complemento ideal para acompañar pastas y carnes rojas.</p>
             });
           });
         });
-
-        // Cerrar overlays al hacer clic fuera
         document.addEventListener('click', (e) => {
           if (!e.target.closest('.product-card')) {
             document.querySelectorAll('.overlay.active').forEach(overlay => {
