@@ -24,6 +24,14 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
 se transforme en un sueño, elevando el espíritu a descubrir la...">
   <meta name="twitter:image" content="https://1000malbecs.com/images/large/fantasa-malbec-2023.jpg">
   <meta name="twitter:site" content="@1000malbecs">
+  <!-- Hreflang for SEO -->
+  
+  <link rel="alternate" hreflang="es" href="https://1000malbecs.com/vinos/fantasa-malbec-2023.html">
+  
+  <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/vinos/fantasa-malbec-2023.html">
+  
+  <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/vinos/fantasa-malbec-2023.html">
+  
   <title>1000malbecs - Fantasía Malbec 2023</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -36,7 +44,10 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
       flex-direction: column;
       min-height: 100vh;
     }
-    .header { display: none; }
+    .header {
+      display: none;
+      z-index: 120;
+    }
     .logo { max-width: 150px; height: auto; }
     .hamburger {
       display: none;
@@ -150,6 +161,7 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
       background-color: #f5e6ff;
       border: 1px solid #4A0D29;
       border-radius: 5px;
+      box-sizing: border-box;
     }
     .product-details .info-box h2 {
       color: #4A0D29;
@@ -173,8 +185,8 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
     .main-buy-button {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #FF9900; /* Amazon-like orange */
-      color: #000000; /* Black text for contrast */
+      background-color: #FF9900;
+      color: #000000;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -186,13 +198,13 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
       pointer-events: auto;
     }
     .main-buy-button:hover {
-      background-color: #E68A00; /* Darker orange for hover */
+      background-color: #E68A00;
     }
     .buy-button {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #4A0D29; /* Original dark purple */
-      color: #f5e6ff; /* Original light purple text */
+      background-color: #4A0D29;
+      color: #f5e6ff;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -204,7 +216,24 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
       pointer-events: auto;
     }
     .buy-button:hover {
-      background-color: #5A1D39; /* Original darker purple for hover */
+      background-color: #5A1D39;
+    }
+    .pdf-button {
+      display: block;
+      padding: 10px 20px;
+      background-color: #4A2C59;
+      color: #f5e6ff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      margin: 10px auto 0;
+      box-sizing: border-box;
+    }
+    .pdf-button:hover {
+      background-color: #5A1D39;
     }
     .recommended-section {
       max-width: 800px;
@@ -368,6 +397,30 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
       color: #f5e6ff;
       margin: 0 5px;
     }
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 130;
+      display: flex;
+      gap: 10px;
+    }
+    .language-selector a {
+      text-decoration: none;
+      color: #4A2C59;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .language-selector a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .language-selector a.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
     @media (max-width: 768px) {
       body { display: block; }
       .header {
@@ -378,7 +431,10 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
         z-index: 120;
       }
       .logo { max-width: 100px; }
-      .hamburger { display: block; }
+      .hamburger {
+        display: block;
+        z-index: 110;
+      }
       #sidebar {
         width: 100%;
         height: 100vh;
@@ -438,14 +494,17 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
       }
       .product-details .info-box {
         padding: 10px;
+        box-sizing: border-box;
       }
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button {
+      .main-buy-button, .buy-button, .pdf-button {
         width: 100%;
-        max-width: none;
+        max-width: 100%;
         padding: 12px;
+        margin: 10px 0;
+        box-sizing: border-box;
       }
       .recommended-section {
         margin: 30px 10px 0;
@@ -536,6 +595,15 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
       .product-card:hover .overlay {
         display: none;
       }
+      .language-selector {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        z-index: 130;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
     }
     @media (max-width: 480px) {
       footer p {
@@ -594,15 +662,20 @@ se transforme en un sueño, elevando el espíritu a descubrir la...">
   </style>
 </head>
 <body>
+  <div class="language-selector">
+    <a href="vinos/fantasa-malbec-2023.html" class="active">ES</a>
+    <a href="/en/vinos/fantasa-malbec-2023.html" class="">EN</a>
+    <a href="/de/vinos/fantasa-malbec-2023.html" class="">DE</a>
+  </div>
   <header class="header">
-    <a href="/index.html" title="Volver al inicio">
+    <a href="//index.html" title="1000malbecs - ">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
-      <a href="/index.html" title="Volver al inicio">
+      <a href="//index.html" title="1000malbecs - ">
         <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
@@ -697,10 +770,10 @@ Cada varietal, expresando fielmente las cualidades del terroir en el que crece l
           <h2>Notas de Cata</h2>
           <p>Intenso color rojo púrpura. Especiado con reminiscencias de cerezas y un sutil toque de roble. Joven y frutado con una acidez bien balanceada. Ideal para acompañar carnes blancas condimentadas. Carnes rojas y comidas con salsas cremosas y lácteas. Excelente compañero del chocolate.</p>
         </div>
-        <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Fantas%C3%ADa%20Malbec%202023%0ABodega:%20Bodega%20Foster%20Lorca%0AA%C3%B1o:%202023%0APrecio:%20%E2%82%AC13.99%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Ffantasa-malbec-2023.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
+        
+        <a href="https://wa.me/+4915158224728?text=Comprar Ahora:%0A%0ANombre:%20Fantas%C3%ADa%20Malbec%202023%0ABodega:%20Bodega%20Foster%20Lorca%0AA%C3%B1o:%202023%0APrecio:%20%E2%82%AC13.99%0ALink:%20https%3A%2F%2F1000malbecs.com/vinos/fantasa-malbec-2023.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
       </div>
     </div>
-    <!-- Nueva sección: También te podrían interesar -->
     <section class="recommended-section">
       <h2>También te podrían interesar</h2>
       
@@ -848,83 +921,99 @@ Cada varietal, expresando fielmente las cualidades del terroir en el que crece l
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.hamburger');
-      const sidebar = document.querySelector('#sidebar');
-      hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
-      const navLinks = document.querySelectorAll('.nav-link');
-      const currentPath = window.location.pathname;
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-          link.classList.add('active');
-          const details = link.closest('details');
-          if (details) {
-            details.setAttribute('open', '');
-          }
-        }
-      });
+      try {
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('#sidebar');
+        let isSidebarOpen = false;
 
-      // Validar DOM
-      const productCards = document.querySelectorAll('.product-card');
-      console.log(`Found ${productCards.length} product-card elements`);
-      productCards.forEach(card => {
-        const overlayId = card.getAttribute('data-overlay-id');
-        const infoIcon = card.querySelector('.info-icon');
-        const overlay = card.querySelector('.overlay');
-        if (!infoIcon) {
-          console.error(`No info-icon found in product-card: ${overlayId}`);
-        } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
-          console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
-        }
-        if (!overlay) {
-          console.error(`No overlay found in product-card: ${overlayId}`);
-        } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
-          console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
-        }
-      });
-
-      // Manejar clics y toques en info-icon
-      document.querySelectorAll('.info-icon').forEach(icon => {
-        ['click', 'touchstart'].forEach(eventType => {
-          icon.addEventListener(eventType, (e) => {
-            e.preventDefault();
+        if (hamburger && sidebar) {
+          hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
-            const overlayId = icon.getAttribute('data-overlay-id');
-            console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
-            
-            // Cerrar todos los overlays
-            document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
-              otherOverlay.classList.remove('active');
-            });
-            
-            // Encontrar el overlay dentro del mismo product-card
-            const productCard = icon.closest('.product-card');
-            if (!productCard) {
-              console.error(`No product-card found for info-icon: ${overlayId}`);
-              return;
-            }
-            const overlay = productCard.querySelector('.overlay');
-            if (!overlay) {
-              console.error(`No overlay found in product-card: ${overlayId}`);
-              return;
-            }
-            
-            // Alternar el overlay
-            overlay.classList.toggle('active');
-            console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
+            isSidebarOpen = !isSidebarOpen;
+            sidebar.classList.toggle('open', isSidebarOpen);
+            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
+          });
+        } else {
+          console.error('Hamburger or sidebar not found');
+        }
+
+        // Evitar propagación en enlaces
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.stopPropagation();
           });
         });
-      });
 
-      // Cerrar overlays al clicar/tocar fuera
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.product-card')) {
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
+        // Activar enlace de navegación actual
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname;
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+            const details = link.closest('details');
+            if (details) {
+              details.setAttribute('open', '');
+            }
+          }
+        });
+
+        // Manejo de tarjetas de producto
+        const productCards = document.querySelectorAll('.product-card');
+        console.log(`Found ${productCards.length} product-card elements`);
+        productCards.forEach(card => {
+          const overlayId = card.getAttribute('data-overlay-id');
+          const infoIcon = card.querySelector('.info-icon');
+          const overlay = card.querySelector('.overlay');
+          if (!infoIcon) {
+            console.error(`No info-icon found in product-card: ${overlayId}`);
+          } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
+            console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
+          }
+          if (!overlay) {
+            console.error(`No overlay found in product-card: ${overlayId}`);
+          } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
+            console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
+          }
+        });
+
+        // Manejo de íconos de información
+        document.querySelectorAll('.info-icon').forEach(icon => {
+          ['click', 'touchstart'].forEach(eventType => {
+            icon.addEventListener(eventType, (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const overlayId = icon.getAttribute('data-overlay-id');
+              console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+              document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
+                otherOverlay.classList.remove('active');
+              });
+              const productCard = icon.closest('.product-card');
+              if (!productCard) {
+                console.error(`No product-card found for info-icon: ${overlayId}`);
+                return;
+              }
+              const overlay = productCard.querySelector('.overlay');
+              if (!overlay) {
+                console.error(`No overlay found in product-card: ${overlayId}`);
+                return;
+              }
+              overlay.classList.toggle('active');
+              console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
+            });
           });
-        }
-      });
+        });
+
+        // Cerrar overlays al hacer clic fuera
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.product-card')) {
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+          }
+        });
+      } catch (error) {
+        console.error('Error in DOMContentLoaded handler:', error);
+      }
     });
   </script>
 </body>

@@ -21,6 +21,14 @@
   <meta name="twitter:description" content="Bad Brothers - Malbec Premium 2020 de Agustín Lanús es un vino frutal y expresivo, elaborado en el Valle de Calchaquí, Salta, con un enfoque en la intensidad...">
   <meta name="twitter:image" content="https://1000malbecs.com/images/large/bad-brothers-malbec-premium-2020.jpg">
   <meta name="twitter:site" content="@1000malbecs">
+  <!-- Hreflang for SEO -->
+  
+  <link rel="alternate" hreflang="es" href="https://1000malbecs.com/vinos/bad-brothers-malbec-premium-2020.html">
+  
+  <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/vinos/bad-brothers-malbec-premium-2020.html">
+  
+  <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/vinos/bad-brothers-malbec-premium-2020.html">
+  
   <title>1000malbecs - Bad Brothers Malbec Premium 2020</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -35,7 +43,7 @@
     }
     .header {
       display: none;
-      z-index: 120; /* Asegurar que el header esté por encima de otros elementos */
+      z-index: 120;
     }
     .logo { max-width: 150px; height: auto; }
     .hamburger {
@@ -386,6 +394,30 @@
       color: #f5e6ff;
       margin: 0 5px;
     }
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 130;
+      display: flex;
+      gap: 10px;
+    }
+    .language-selector a {
+      text-decoration: none;
+      color: #4A2C59;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .language-selector a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .language-selector a.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
     @media (max-width: 768px) {
       body { display: block; }
       .header {
@@ -398,7 +430,7 @@
       .logo { max-width: 100px; }
       .hamburger {
         display: block;
-        z-index: 110; /* Asegurar que el botón hamburguesa esté visible */
+        z-index: 110;
       }
       #sidebar {
         width: 100%;
@@ -560,6 +592,15 @@
       .product-card:hover .overlay {
         display: none;
       }
+      .language-selector {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        z-index: 130;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
     }
     @media (max-width: 480px) {
       footer p {
@@ -618,15 +659,20 @@
   </style>
 </head>
 <body>
+  <div class="language-selector">
+    <a href="vinos/bad-brothers-malbec-premium-2020.html" class="active">ES</a>
+    <a href="/en/vinos/bad-brothers-malbec-premium-2020.html" class="">EN</a>
+    <a href="/de/vinos/bad-brothers-malbec-premium-2020.html" class="">DE</a>
+  </div>
   <header class="header">
-    <a href="/index.html" title="Volver al inicio">
+    <a href="//index.html" title="1000malbecs - ">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
-      <a href="/index.html" title="Volver al inicio">
+      <a href="//index.html" title="1000malbecs - ">
         <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
@@ -722,10 +768,10 @@
         
         <div class="info-box">
           <h2>Ficha Técnica</h2>
-          <a href="/fichas/ficha-bad-brothers-malbec.pdf" class="pdf-button" target="_blank" rel="noopener" download aria-label="Descargar ficha técnica de Bad Brothers Malbec Premium 2020">Descargar Ficha Técnica (PDF)</a>
+          <a href="file:///Users/f.augspach/Desktop/Vinos/fichas/ficha-bad-brothers-malbec.pdf" class="pdf-button" download="bad-brothers-malbec-premium-2020-ficha-tecnica.pdf" aria-label="Descargar Ficha Técnica (PDF) Bad Brothers Malbec Premium 2020">Descargar Ficha Técnica (PDF)</a>
         </div>
         
-        <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Bad%20Brothers%20Malbec%20Premium%202020%0ABodega:%20Agustin%20Lanus%0AA%C3%B1o:%202020%0APrecio:%20%E2%82%AC17.49%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fbad-brothers-malbec-premium-2020.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
+        <a href="https://wa.me/+4915158224728?text=Comprar Ahora:%0A%0ANombre:%20Bad%20Brothers%20Malbec%20Premium%202020%0ABodega:%20Agustin%20Lanus%0AA%C3%B1o:%202020%0APrecio:%20%E2%82%AC17.49%0ALink:%20https%3A%2F%2F1000malbecs.com/vinos/bad-brothers-malbec-premium-2020.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
       </div>
     </div>
     <section class="recommended-section">
@@ -800,83 +846,99 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.hamburger');
-      const sidebar = document.querySelector('#sidebar');
-      // Mantener el estado del sidebar
-      let isSidebarOpen = false;
-      hamburger.addEventListener('click', (e) => {
-        e.stopPropagation(); // Evitar que el clic cierre el sidebar
-        isSidebarOpen = !isSidebarOpen;
-        sidebar.classList.toggle('open', isSidebarOpen);
-      });
-      // Evitar que clics en enlaces (como el PDF) cierren el sidebar
-      document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', (e) => {
-          // No modificar el estado del sidebar al hacer clic en enlaces
-          e.stopPropagation();
-        });
-      });
-      const navLinks = document.querySelectorAll('.nav-link');
-      const currentPath = window.location.pathname;
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-          link.classList.add('active');
-          const details = link.closest('details');
-          if (details) {
-            details.setAttribute('open', '');
-          }
-        }
-      });
-      const productCards = document.querySelectorAll('.product-card');
-      console.log(`Found ${productCards.length} product-card elements`);
-      productCards.forEach(card => {
-        const overlayId = card.getAttribute('data-overlay-id');
-        const infoIcon = card.querySelector('.info-icon');
-        const overlay = card.querySelector('.overlay');
-        if (!infoIcon) {
-          console.error(`No info-icon found in product-card: ${overlayId}`);
-        } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
-          console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
-        }
-        if (!overlay) {
-          console.error(`No overlay found in product-card: ${overlayId}`);
-        } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
-          console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
-        }
-      });
-      document.querySelectorAll('.info-icon').forEach(icon => {
-        ['click', 'touchstart'].forEach(eventType => {
-          icon.addEventListener(eventType, (e) => {
-            e.preventDefault();
+      try {
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('#sidebar');
+        let isSidebarOpen = false;
+
+        if (hamburger && sidebar) {
+          hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
-            const overlayId = icon.getAttribute('data-overlay-id');
-            console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
-            document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
-              otherOverlay.classList.remove('active');
-            });
-            const productCard = icon.closest('.product-card');
-            if (!productCard) {
-              console.error(`No product-card found for info-icon: ${overlayId}`);
-              return;
-            }
-            const overlay = productCard.querySelector('.overlay');
-            if (!overlay) {
-              console.error(`No overlay found in product-card: ${overlayId}`);
-              return;
-            }
-            overlay.classList.toggle('active');
-            console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
+            isSidebarOpen = !isSidebarOpen;
+            sidebar.classList.toggle('open', isSidebarOpen);
+            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
+          });
+        } else {
+          console.error('Hamburger or sidebar not found');
+        }
+
+        // Evitar propagación en enlaces
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.stopPropagation();
           });
         });
-      });
-      // Cerrar overlays al clicar/tocar fuera, sin afectar el sidebar
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.product-card')) {
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
+
+        // Activar enlace de navegación actual
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname;
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+            const details = link.closest('details');
+            if (details) {
+              details.setAttribute('open', '');
+            }
+          }
+        });
+
+        // Manejo de tarjetas de producto
+        const productCards = document.querySelectorAll('.product-card');
+        console.log(`Found ${productCards.length} product-card elements`);
+        productCards.forEach(card => {
+          const overlayId = card.getAttribute('data-overlay-id');
+          const infoIcon = card.querySelector('.info-icon');
+          const overlay = card.querySelector('.overlay');
+          if (!infoIcon) {
+            console.error(`No info-icon found in product-card: ${overlayId}`);
+          } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
+            console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
+          }
+          if (!overlay) {
+            console.error(`No overlay found in product-card: ${overlayId}`);
+          } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
+            console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
+          }
+        });
+
+        // Manejo de íconos de información
+        document.querySelectorAll('.info-icon').forEach(icon => {
+          ['click', 'touchstart'].forEach(eventType => {
+            icon.addEventListener(eventType, (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const overlayId = icon.getAttribute('data-overlay-id');
+              console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+              document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
+                otherOverlay.classList.remove('active');
+              });
+              const productCard = icon.closest('.product-card');
+              if (!productCard) {
+                console.error(`No product-card found for info-icon: ${overlayId}`);
+                return;
+              }
+              const overlay = productCard.querySelector('.overlay');
+              if (!overlay) {
+                console.error(`No overlay found in product-card: ${overlayId}`);
+                return;
+              }
+              overlay.classList.toggle('active');
+              console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
+            });
           });
-        }
-      });
+        });
+
+        // Cerrar overlays al hacer clic fuera
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.product-card')) {
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+          }
+        });
+      } catch (error) {
+        console.error('Error in DOMContentLoaded handler:', error);
+      }
     });
   </script>
 </body>
