@@ -203,6 +203,23 @@
     .buy-button:hover {
       background-color: #5A1D39; /* Original darker purple for hover */
     }
+    .pdf-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4A2C59; /* Color morado */
+      color: #f5e6ff; /* Texto claro */
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-size: 1em;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+    }
+    .pdf-button:hover {
+      background-color: #5A1D39; /* Más oscuro al pasar el ratón */
+    }
     .recommended-section {
       max-width: 800px;
       margin: 40px auto 0;
@@ -439,7 +456,7 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button {
+      .main-buy-button, .buy-button, .pdf-button {
         width: 100%;
         max-width: none;
         padding: 12px;
@@ -458,7 +475,7 @@
       }
       .product-grid {
         display: grid;
-        grid.NUMcolumns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
       .product-grid.same-bodega .product-card {
@@ -612,7 +629,7 @@
         
         <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
         
-        <li><a href="/provincias/neuquen.html" class="nav-link">Neuquen</a></li>
+        <li><a href="/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
         
         <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
         
@@ -682,7 +699,7 @@
         <p class="info"><strong>Bodega:</strong> Agustin Lanus</p>
         <p class="info"><strong>Provincia:</strong> Salta</p>
         <p class="info"><strong>Región:</strong> Valle de Calchaquí</p>
-        <p class="info"><strong>Altura:</strong> 1800</p>
+        <p class="info"><strong>Altura:</strong> 2100</p>
         <p class="info"><strong>Precio:</strong> €17.49</p>
         <div class="info-box">
           <h2>Descripción</h2>
@@ -692,10 +709,16 @@
           <h2>Notas de Cata</h2>
           <p>En nariz, presenta aromas a cereza, frambuesa y pimienta negra, con matices de hierbas frescas y un toque de vainilla. En boca, es jugoso, con sabores a frutos rojos, especias y un dejo de cacao. Los taninos son suaves, con una acidez alta que aporta frescura. El final es redondo, con notas de fruta fresca y mineralidad. Marida con empanadas salteñas, costillas asadas o queso parmesano.</p>
         </div>
-        <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Bad%20Brothers%20Malbec%20Premium%0ABodega:%20Agustin%20Lanus%0AA%C3%B1o:%202020%0APrecio:%20%E2%82%AC17.49%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fbad-brothers-malbec-premium-2020.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
+        
+        <div class="info-box">
+          <h2>Ficha Técnica</h2>
+          <p><a href="/fichas/ficha-bad-brothers-malbec.pdf" class="pdf-button" target="_blank" rel="noopener" aria-label="Descargar ficha técnica de Bad Brothers Malbec Premium 2020">Descargar Ficha Técnica (PDF)</a></p>
+        </div>
+        
+        <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Bad%20Brothers%20Malbec%20Premium%202020%0ABodega:%20Agustin%20Lanus%0AA%C3%B1o:%202020%0APrecio:%20%E2%82%AC17.49%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fbad-brothers-malbec-premium-2020.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
       </div>
     </div>
-    <!-- Nueva sección: También te podrían interesar -->
+    <!-- Nueva sección: También te podrían EVERYWHERE te podrían interesar -->
     <section class="recommended-section">
       <h2>También te podrían interesar</h2>
       
@@ -703,16 +726,16 @@
       <div class="product-grid same-bodega">
         
         <div class="product-card" data-overlay-id="sunal-ilogico-malbec-2020.html">
-          <img src="/images/small/sunal-ilogico-malbec-2020.jpg" alt="Botella de Sunal Ilogico Malbec  2020"
+          <img src="/images/small/sunal-ilogico-malbec-2020.jpg" alt="Botella de Sunal Ilogico Malbec 2020"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="sunal-ilogico-malbec-2020.html">🍷</div>
           <div class="overlay" data-overlay-id="sunal-ilogico-malbec-2020.html">
             <p><strong>Bodega:</strong> Agustin Lanus</p>
             <p><strong>Provincia:</strong> Salta</p>
             <p><strong>Región:</strong> Valle de Calchaquí</p>
-            <p><strong>Altura:</strong> 1800 msnm</p>
+            <p><strong>Altura:</strong> 2200 msnm</p>
           </div>
-          <h3>Sunal Ilogico Malbec  2020</h3>
+          <h3>Sunal Ilogico Malbec 2020</h3>
           <p class="price">€25.49</p>
           <a href="/vinos/sunal-ilogico-malbec-2020.html" class="buy-button">Comprar</a>
         </div>
