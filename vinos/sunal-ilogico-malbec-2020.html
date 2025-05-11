@@ -722,7 +722,7 @@
         
         <div class="info-box">
           <h2>Ficha Técnica</h2>
-          <a href="file:///Users/f.augspach/Desktop/Vinos/fichas/ficha-sunal-ilgico-malbec.pdf" class="pdf-button pdf-download" target="_blank" rel="noopener" download="sunal-ilogico-malbec-2020-ficha-tecnica.pdf" aria-label="Descargar ficha técnica de Sunal Ilogico Malbec 2020">Descargar Ficha Técnica (PDF)</a>
+          <a href="file:///Users/f.augspach/Desktop/Vinos/fichas/ficha-sunal-ilgico-malbec.pdf" class="pdf-button" download="sunal-ilogico-malbec-2020-ficha-tecnica.pdf" aria-label="Descargar ficha técnica de Sunal Ilogico Malbec 2020">Descargar Ficha Técnica (PDF)</a>
         </div>
         
         <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Sunal%20Ilogico%20Malbec%202020%0ABodega:%20Agustin%20Lanus%0AA%C3%B1o:%202020%0APrecio:%20%E2%82%AC25.49%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fsunal-ilogico-malbec-2020.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
@@ -816,40 +816,8 @@
           console.error('Hamburger or sidebar not found');
         }
 
-        // Manejo de descarga de PDF
-        document.querySelectorAll('.pdf-download').forEach(button => {
-          button.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const url = button.getAttribute('href');
-            const filename = button.getAttribute('download');
-            console.log('Attempting to download PDF:', url, 'as', filename);
-            fetch(url)
-              .then(response => {
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                return response.blob();
-              })
-              .then(blob => {
-                const blobUrl = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                window.URL.revokeObjectURL(blobUrl);
-                console.log('PDF download initiated:', filename);
-              })
-              .catch(error => {
-                console.error('Error downloading PDF:', error);
-                alert('No se pudo descargar el PDF. Por favor, intenta abrirlo manualmente.');
-                window.open(url, '_blank');
-              });
-          });
-        });
-
-        // Evitar propagación en otros enlaces
-        document.querySelectorAll('a:not(.pdf-download)').forEach(link => {
+        // Evitar propagación en enlaces
+        document.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', (e) => {
             e.stopPropagation();
           });

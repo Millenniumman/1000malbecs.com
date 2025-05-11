@@ -722,7 +722,7 @@
         
         <div class="info-box">
           <h2>Ficha Técnica</h2>
-          <a href="file:///Users/f.augspach/Desktop/Vinos/fichas/ficha-nucha.pdf" class="pdf-button pdf-download" target="_blank" rel="noopener" download="nucha-2023-ficha-tecnica.pdf" aria-label="Descargar ficha técnica de Nucha 2023">Descargar Ficha Técnica (PDF)</a>
+          <a href="file:///Users/f.augspach/Desktop/Vinos/fichas/ficha-nucha.pdf" class="pdf-button" download="nucha-2023-ficha-tecnica.pdf" aria-label="Descargar ficha técnica de Nucha 2023">Descargar Ficha Técnica (PDF)</a>
         </div>
         
         <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Nucha%202023%0ABodega:%20Casa%20Araujo%0AA%C3%B1o:%202023%0APrecio:%20%E2%82%AC12.99%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fnucha-2023.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
@@ -891,40 +891,8 @@
           console.error('Hamburger or sidebar not found');
         }
 
-        // Manejo de descarga de PDF
-        document.querySelectorAll('.pdf-download').forEach(button => {
-          button.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const url = button.getAttribute('href');
-            const filename = button.getAttribute('download');
-            console.log('Attempting to download PDF:', url, 'as', filename);
-            fetch(url)
-              .then(response => {
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                return response.blob();
-              })
-              .then(blob => {
-                const blobUrl = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                window.URL.revokeObjectURL(blobUrl);
-                console.log('PDF download initiated:', filename);
-              })
-              .catch(error => {
-                console.error('Error downloading PDF:', error);
-                alert('No se pudo descargar el PDF. Por favor, intenta abrirlo manualmente.');
-                window.open(url, '_blank');
-              });
-          });
-        });
-
-        // Evitar propagación en otros enlaces
-        document.querySelectorAll('a:not(.pdf-download)').forEach(link => {
+        // Evitar propagación en enlaces
+        document.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', (e) => {
             e.stopPropagation();
           });
