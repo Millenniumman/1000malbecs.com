@@ -421,160 +421,126 @@
     background-color: #4A2C59;
     color: #FFFFFF;
   }
-  @media (max-width: 768px) {
-    .header {
-      display: block;
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 120;
-    }
-    .logo { max-width: 100px; }
-    .hamburger { display: block; z-index: 110; }
-    #sidebar {
-      width: 100%;
-      height: 100vh;
-      max-height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      transform: translateX(-100%);
-      z-index: 100;
-      border-bottom: 1px solid #E0E0E0;
-      padding: 20px;
-      padding-top: 50px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    #sidebar.open { transform: translateX(0); }
-    #sidebar ul { max-height: none; padding-bottom: 20px; }
-    #sidebar li { margin: 8px 0; }
-    .logo-container { display: none; }
-    .main-content {
-      margin-left: 0;
-      width: 100%;
-      padding: 10px;
-      margin-top: 120px;
-    }
-    .product-details {
-      flex-direction: column;
-      flex-wrap: wrap;
-      padding: 15px;
-    }
-    .product-image {
-      flex: 1 1 100%;
-      max-width: 100%;
-      max-height: 400px;
-      overflow: hidden;
-    }
-    .product-image img {
-      max-height: 400px;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      margin: 0 auto;
-    }
-    .product-info { flex: 1 1 100%; }
-    .product-details h1 {
-      font-size: 1.5em;
-      margin-top: 20px;
-    }
-    .product-details .info-box { padding: 10px; box-sizing: border-box; }
-    .product-details .info-box h2 { font-size: 1.2em; }
-    .main-buy-button, .buy-button, .pdf-button {
-      width: 100%;
-      max-width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      box-sizing: border-box;
-    }
-    .recommended-section {
-      margin: 30px 10px 0;
-      padding: 15px;
-    }
-    .recommended-section h2 {
-      font-size: 1.5em;
-      margin-bottom: 15px;
-    }
-    .recommended-section h3 {
-      font-size: 1.2em;
-      margin: 15px 0 10px;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    .product-grid.same-bodega .product-card,
-    .product-grid.same-region .product-card {
-      width: 100%;
-      max-width: none;
-      height: 260px;
-    }
-    .product-grid.same-bodega .product-card img,
-    .product-grid.same-region .product-card img {
-      width: 140px;
-      height: 140px;
-    }
-    .product-grid.same-bodega .product-card:nth-child(n+3) {
-      display: none;
-    }
-    .product-card {
-      width: 100%;
-      max-width: none;
-      height: 260px;
-      min-height: auto;
-      padding: 10px;
-      padding-bottom: 10px;
-      box-sizing: border-box;
-      overflow: hidden;
-      position: relative;
-    }
-    .product-card img {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto;
-      display: block;
-      pointer-events: none;
-    }
-    .product-card h3 {
-      font-size: 14px;
-      min-height: 36px;
-      margin: 5px 0;
-    }
-    .product-card .price {
-      font-size: 14px;
-      margin: 5px 0;
-    }
-    .product-card .buy-button {
-      padding: 6px 12px;
-      font-size: 12px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      pointer-events: auto;
-    }
-    .info-icon {
-      display: block !important;
-      pointer-events: auto;
-      z-index: 10;
-    }
-    .overlay {
-      max-height: 150px;
-      pointer-events: auto;
-      width: 100%;
-      box-sizing: border-box;
-      top: 0;
-      padding: 40px 10px 10px 10px;
-      display: none;
-      z-index: 6;
-    }
-    .overlay.active {
-      display: block !important;
-      z-index: 6;
-    }
-    .product-card:hover .overlay {
-      display: none;
-    }
+  @media (min-width: 769px) {
+  .header { display: none; }
+  .hamburger { display: none; }
+  #sidebar {
+    transform: translateX(0);
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  .logo-container { display: block; }
+  .main-content {
+    margin-left: 290px;
+    width: calc(100% - 290px);
+    padding: 20px;
+    margin-top: 0;
+  }
+  .product-details {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 20px;
+  }
+  .product-image {
+    flex: 0 0 40%;
+    max-width: 350px;
+    max-height: 500px;
+  }
+  .product-image img {
+    max-height: 500px;
+    width: 100%;
+    height: auto;
+  }
+  .product-info { flex: 0 0 60%; }
+  .product-details h1 { font-size: 1.8em; }
+  .product-details .info-box { padding: 15px; }
+  .product-details .info-box h2 { font-size: 1.3em; }
+  .main-buy-button, .buy-button, .pdf-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 20px;
+    margin: 10px auto 0;
+  }
+  .recommended-section {
+    margin: 40px auto 0;
+    padding: 20px;
+  }
+  .recommended-section h2 { font-size: 1.8em; }
+  .recommended-section h3 { font-size: 1.4em; }
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .product-grid.same-bodega .product-card,
+  .product-grid.same-region .product-card {
+    max-width: 250px;
+    min-height: 360px;
+    width: 100%;
+    height: auto;
+  }
+  .product-grid.same-bodega .product-card img,
+  .product-grid.same-region .product-card img {
+    width: 200px;
+    height: 200px;
+  }
+  .product-grid.same-bodega .product-card:nth-child(n+3) {
+    display: block;
+  }
+  .product-card {
+    pointer-events: auto;
+    max-width: 250px;
+    min-height: 360px;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .product-card img {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    float: none;
+  }
+  .product-card h3 {
+    font-size: 16px;
+    min-height: 40px;
+    white-space: normal;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .product-card .price {
+    font-size: 16px;
+    margin: 5px 0;
+    text-align: center;
+  }
+  .product-card .buy-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 180px;
+    box-sizing: border-box;
+  }
+  .product-card img, .product-card h3, .product-card .price {
+    pointer-events: none;
+  }
+  .info-icon { display: none; }
+  .overlay {
+    max-height: 150px;
+    pointer-events: none;
+    z-index: 6;
+  }
+  .product-card:hover .overlay { display: block; }
+}
     .language-selector {
       position: fixed;
       top: 80px;
@@ -834,7 +800,7 @@
       <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> San Rafael</p>
       <p><strong>Altitud:</strong> 520 msnm</p>
-      <p><strong>:</strong> 2022</p>
+      <p><strong>Añada:</strong> 2022</p>
     </div>
     <h3>135 Aniversario 2022</h3>
     <p class="price">€39.99</p>
@@ -850,7 +816,7 @@
       <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> San Rafael</p>
       <p><strong>Altitud:</strong> 520 msnm</p>
-      <p><strong>:</strong> 2022</p>
+      <p><strong>Añada:</strong> 2022</p>
     </div>
     <h3>Goye Malbec 2022</h3>
     <p class="price">€9.49</p>
@@ -870,7 +836,7 @@
       <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> San Rafael</p>
       <p><strong>Altitud:</strong> 800 msnm</p>
-      <p><strong>:</strong> 2019</p>
+      <p><strong>Añada:</strong> 2019</p>
     </div>
     <h3>Enzo Bianchi Gran Malbec 2019</h3>
     <p class="price">€62.99</p>
@@ -886,7 +852,7 @@
       <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> San Rafael</p>
       <p><strong>Altitud:</strong> 800 msnm</p>
-      <p><strong>:</strong> 2014</p>
+      <p><strong>Añada:</strong> 2014</p>
     </div>
     <h3>Famiglia Bianchi Malbec 2014</h3>
     <p class="price">€21.49</p>
@@ -902,7 +868,7 @@
       <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> San Rafael</p>
       <p><strong>Altitud:</strong> 800 msnm</p>
-      <p><strong>:</strong> 2020</p>
+      <p><strong>Añada:</strong> 2020</p>
     </div>
     <h3>Famiglia Bianchi Malbec 2020</h3>
     <p class="price">€19.49</p>
@@ -918,7 +884,7 @@
       <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> San Rafael</p>
       <p><strong>Altitud:</strong> 800 msnm</p>
-      <p><strong>:</strong> 2021</p>
+      <p><strong>Añada:</strong> 2021</p>
     </div>
     <h3>Famiglia Bianchi Malbec 2021</h3>
     <p class="price">€18.49</p>
