@@ -35,7 +35,7 @@
     }
     .header {
       display: none;
-      z-index: 120;
+      z-index: 120; /* Asegurar que el header esté por encima de otros elementos */
     }
     .logo { max-width: 150px; height: auto; }
     .hamburger {
@@ -398,7 +398,7 @@
       .logo { max-width: 100px; }
       .hamburger {
         display: block;
-        z-index: 110;
+        z-index: 110; /* Asegurar que el botón hamburguesa esté visible */
       }
       #sidebar {
         width: 100%;
@@ -722,7 +722,7 @@
         
         <div class="info-box">
           <h2>Ficha Técnica</h2>
-          <a href="file:///Users/f.augspach/Desktop/Vinos/fichas/ficha-nucha.pdf" class="pdf-button" download="nucha-2023-ficha-tecnica.pdf" aria-label="Descargar ficha técnica de Nucha 2023">Descargar Ficha Técnica (PDF)</a>
+          <a href="/fichas/ficha-nucha.pdf" class="pdf-button" target="_blank" rel="noopener" download aria-label="Descargar ficha técnica de Nucha 2023">Descargar Ficha Técnica (PDF)</a>
         </div>
         
         <a href="https://wa.me/+4915158224728?text=Hola,%20estoy%20interesado%20en%20comprar%20este%20vino:%0A%0ANombre:%20Nucha%202023%0ABodega:%20Casa%20Araujo%0AA%C3%B1o:%202023%0APrecio:%20%E2%82%AC12.99%0ALink:%20https%3A%2F%2F1000malbecs.com%2Fvinos%2Fnucha-2023.html" class="main-buy-button" target="_blank" rel="noopener">Comprar Ahora</a>
@@ -875,99 +875,83 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      try {
-        const hamburger = document.querySelector('.hamburger');
-        const sidebar = document.querySelector('#sidebar');
-        let isSidebarOpen = false;
-
-        if (hamburger && sidebar) {
-          hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isSidebarOpen = !isSidebarOpen;
-            sidebar.classList.toggle('open', isSidebarOpen);
-            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
-          });
-        } else {
-          console.error('Hamburger or sidebar not found');
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      // Mantener el estado del sidebar
+      let isSidebarOpen = false;
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evitar que el clic cierre el sidebar
+        isSidebarOpen = !isSidebarOpen;
+        sidebar.classList.toggle('open', isSidebarOpen);
+      });
+      // Evitar que clics en enlaces (como el PDF) cierren el sidebar
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          // No modificar el estado del sidebar al hacer clic en enlaces
+          e.stopPropagation();
+        });
+      });
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+          const details = link.closest('details');
+          if (details) {
+            details.setAttribute('open', '');
+          }
         }
-
-        // Evitar propagación en enlaces
-        document.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', (e) => {
+      });
+      const productCards = document.querySelectorAll('.product-card');
+      console.log(`Found ${productCards.length} product-card elements`);
+      productCards.forEach(card => {
+        const overlayId = card.getAttribute('data-overlay-id');
+        const infoIcon = card.querySelector('.info-icon');
+        const overlay = card.querySelector('.overlay');
+        if (!infoIcon) {
+          console.error(`No info-icon found in product-card: ${overlayId}`);
+        } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
+          console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
+        }
+        if (!overlay) {
+          console.error(`No overlay found in product-card: ${overlayId}`);
+        } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
+          console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
+        }
+      });
+      document.querySelectorAll('.info-icon').forEach(icon => {
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.preventDefault();
             e.stopPropagation();
-          });
-        });
-
-        // Activar enlace de navegación actual
-        const navLinks = document.querySelectorAll('.nav-link');
-        const currentPath = window.location.pathname;
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-            const details = link.closest('details');
-            if (details) {
-              details.setAttribute('open', '');
+            const overlayId = icon.getAttribute('data-overlay-id');
+            console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+            document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
+              otherOverlay.classList.remove('active');
+            });
+            const productCard = icon.closest('.product-card');
+            if (!productCard) {
+              console.error(`No product-card found for info-icon: ${overlayId}`);
+              return;
             }
-          }
-        });
-
-        // Manejo de tarjetas de producto
-        const productCards = document.querySelectorAll('.product-card');
-        console.log(`Found ${productCards.length} product-card elements`);
-        productCards.forEach(card => {
-          const overlayId = card.getAttribute('data-overlay-id');
-          const infoIcon = card.querySelector('.info-icon');
-          const overlay = card.querySelector('.overlay');
-          if (!infoIcon) {
-            console.error(`No info-icon found in product-card: ${overlayId}`);
-          } else if (infoIcon.getAttribute('data-overlay-id') !== overlayId) {
-            console.error(`Mismatch in info-icon data-overlay-id: ${infoIcon.getAttribute('data-overlay-id')} vs ${overlayId}`);
-          }
-          if (!overlay) {
-            console.error(`No overlay found in product-card: ${overlayId}`);
-          } else if (overlay.getAttribute('data-overlay-id') !== overlayId) {
-            console.error(`Mismatch in overlay data-overlay-id: ${overlay.getAttribute('data-overlay-id')} vs ${overlayId}`);
-          }
-        });
-
-        // Manejo de íconos de información
-        document.querySelectorAll('.info-icon').forEach(icon => {
-          ['click', 'touchstart'].forEach(eventType => {
-            icon.addEventListener(eventType, (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              const overlayId = icon.getAttribute('data-overlay-id');
-              console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
-              document.querySelectorAll('.overlay.active').forEach(otherOverlay => {
-                otherOverlay.classList.remove('active');
-              });
-              const productCard = icon.closest('.product-card');
-              if (!productCard) {
-                console.error(`No product-card found for info-icon: ${overlayId}`);
-                return;
-              }
-              const overlay = productCard.querySelector('.overlay');
-              if (!overlay) {
-                console.error(`No overlay found in product-card: ${overlayId}`);
-                return;
-              }
-              overlay.classList.toggle('active');
-              console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
-            });
+            const overlay = productCard.querySelector('.overlay');
+            if (!overlay) {
+              console.error(`No overlay found in product-card: ${overlayId}`);
+              return;
+            }
+            overlay.classList.toggle('active');
+            console.log(`Toggled overlay for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}`);
           });
         });
-
-        // Cerrar overlays al hacer clic fuera
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('.product-card')) {
-            document.querySelectorAll('.overlay.active').forEach(overlay => {
-              overlay.classList.remove('active');
-            });
-          }
-        });
-      } catch (error) {
-        console.error('Error in DOMContentLoaded handler:', error);
-      }
+      });
+      // Cerrar overlays al clicar/tocar fuera, sin afectar el sidebar
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.product-card')) {
+          document.querySelectorAll('.overlay.active').forEach(overlay => {
+            overlay.classList.remove('active');
+          });
+        }
+      });
     });
   </script>
 </body>
