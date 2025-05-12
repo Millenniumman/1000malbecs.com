@@ -250,8 +250,8 @@
   }
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
+    gap: 30px; /* Reduced gap for better fit */
     margin-bottom: 30px;
     width: 100%;
     justify-items: center;
@@ -401,6 +401,11 @@
     z-index: 130;
     display: flex;
     gap: 10px;
+    transition: opacity 0.3s ease; /* Added for smooth hide/show */
+  }
+  .language-selector.hidden {
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction when hidden */
   }
   .language-selector a {
     text-decoration: none;
@@ -516,8 +521,9 @@
       width: 140px;
       height: 140px;
     }
-    .product-grid.same-bodega .product-card:nth-child(n+3) {
-      display: none;
+    .product-grid.same-bodega .product-card:nth-child(n+3),
+    .product-grid.same-region .product-card:nth-child(n+3) {
+      display: none; /* Hide extra cards beyond 2 in mobile */
     }
     .product-card {
       width: 100%;
@@ -575,163 +581,179 @@
     .product-card:hover .overlay {
       display: none;
     }
-   .language-selector {
-    position: fixed;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 130;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    .language-selector {
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 130;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.3s ease; /* Smooth transition for hide/show */
+    }
+    .language-selector.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .language-selector a {
+      font-size: 12px;
+      padding: 4px 8px;
+      color: #4A2C59;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .language-selector a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .language-selector a.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
   }
-  .language-selector a {
-    font-size: 12px;
-    padding: 4px 8px;
-    color: #4A2C59;
-    text-decoration: none;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-  .language-selector a:hover {
-    background-color: #4A2C59;
-    color: #FFFFFF;
-  }
-  .language-selector a.active {
-    background-color: #4A2C59;
-    color: #FFFFFF;
-  }
-}
   @media (max-width: 480px) {
     footer p { font-size: 0.7em; }
     footer a { margin: 0 3px; }
     footer span.separator { margin: 0 3px; }
   }
- @media (min-width: 769px) {
-  .header { display: none; }
-  .hamburger { display: none; }
-  #sidebar {
-    transform: translateX(0);
-    position: fixed;
-    width: 250px;
-    height: 100vh;
-    top: 0;
-    left: 0;
+  @media (min-width: 769px) {
+    .header { display: none; }
+    .hamburger { display: none; }
+    #sidebar {
+      transform: translateX(0);
+      position: fixed;
+      width: 250px;
+      height: 100vh;
+      top: 0;
+      left: 0;
+    }
+    .logo-container { display: block; }
+    .main-content {
+      margin-left: 290px;
+      width: calc(100% - 290px);
+      padding: 20px;
+      margin-top: 0;
+    }
+    .product-details {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      padding: 20px;
+    }
+    .product-image {
+      flex: 0 0 40%;
+      max-width: 350px;
+      max-height: 500px;
+    }
+    .product-image img {
+      max-height: 500px;
+      width: 100%;
+      height: auto;
+    }
+    .product-info { flex: 0 0 60%; }
+    .product-details h1 { font-size: 1.8em; }
+    .product-details .info-box { padding: 15px; }
+    .product-details .info-box h2 { font-size: 1.3em; }
+    .main-buy-button, .buy-button, .pdf-button {
+      width: 100%;
+      max-width: 200px;
+      padding: 10px 20px;
+      margin: 10px auto 0;
+    }
+    .recommended-section {
+      margin: 40px auto 0;
+      padding: 20px;
+    }
+    .recommended-section h2 { font-size: 1.8em; }
+    .recommended-section h3 { font-size: 1.4em; }
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+      gap: 30px; /* Adjusted gap */
+      max-width: 800px; /* Consistent with product-details */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .product-grid.same-bodega .product-card,
+    .product-grid.same-region .product-card {
+      max-width: 250px;
+      min-height: 360px;
+      width: 100%;
+      height: auto;
+    }
+    .product-grid.same-bodega .product-card img,
+    .product-grid.same-region .product-card img {
+      width: 200px;
+      height: 200px;
+    }
+    .product-grid.same-bodega .product-card:nth-child(n+4),
+    .product-grid.same-region .product-card:nth-child(n+4) {
+      display: none; /* Hide cards beyond 3 per section */
+    }
+    .product-card {
+      pointer-events: auto;
+      max-width: 250px;
+      min-height: 360px;
+      width: 100%;
+      align-items: center;
+      padding: 15px;
+      padding-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+    .product-card img {
+      width: 200px;
+      height: 200px;
+      display: block;
+      margin: 0 auto;
+      float: none;
+    }
+    .product-card h3 {
+      font-size: 16px;
+      min-height: 40px;
+      white-space: normal;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .product-card .price {
+      font-size: 16px;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .product-card .buy-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 180px;
+      box-sizing: border-box;
+    }
+    .product-card img, .product-card h3, .product-card .price {
+      pointer-events: none;
+    }
+    .info-icon { display: none; }
+    .overlay {
+      max-height: 150px;
+      pointer-events: none;
+      z-index: 6;
+    }
+    .product-card:hover .overlay { display: block; }
+    .language-selector {
+      transition: opacity 0.3s ease; /* Ensure smooth transition in desktop too */
+    }
+    .language-selector.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
-  .logo-container { display: block; }
-  .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
-    padding: 20px;
-    margin-top: 0;
-  }
-  .product-details {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding: 20px;
-  }
-  .product-image {
-    flex: 0 0 40%;
-    max-width: 350px;
-    max-height: 500px;
-  }
-  .product-image img {
-    max-height: 500px;
-    width: 100%;
-    height: auto;
-  }
-  .product-info { flex: 0 0 60%; }
-  .product-details h1 { font-size: 1.8em; }
-  .product-details .info-box { padding: 15px; }
-  .product-details .info-box h2 { font-size: 1.3em; }
-  .main-buy-button, .buy-button, .pdf-button {
-    width: 100%;
-    max-width: 200px;
-    padding: 10px 20px;
-    margin: 10px auto 0;
-  }
-  .recommended-section {
-    margin: 40px auto 0;
-    padding: 20px;
-  }
-  .recommended-section h2 { font-size: 1.8em; }
-  .recommended-section h3 { font-size: 1.4em; }
-  .product-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-  }
-  .product-grid.same-bodega .product-card,
-  .product-grid.same-region .product-card {
-    max-width: 250px;
-    min-height: 360px;
-    width: 100%;
-    height: auto;
-  }
-  .product-grid.same-bodega .product-card img,
-  .product-grid.same-region .product-card img {
-    width: 200px;
-    height: 200px;
-  }
-  .product-grid.same-bodega .product-card:nth-child(n+3) {
-    display: block;
-  }
-  .product-card {
-    pointer-events: auto;
-    max-width: 250px;
-    min-height: 360px;
-    width: 100%;
-    align-items: center;
-    padding: 15px;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
-  }
-  .product-card img {
-    width: 200px;
-    height: 200px;
-    display: block;
-    margin: 0 auto;
-    float: none;
-  }
-  .product-card h3 {
-    font-size: 16px;
-    min-height: 40px;
-    white-space: normal;
-    text-align: center;
-    margin: 10px 0;
-  }
-  .product-card .price {
-    font-size: 16px;
-    margin: 5px 0;
-    text-align: center;
-  }
-  .product-card .buy-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 180px;
-    box-sizing: border-box;
-  }
-  .product-card img, .product-card h3, .product-card .price {
-    pointer-events: none;
-  }
-  .info-icon { display: none; }
-  .overlay {
-    max-height: 150px;
-    pointer-events: none;
-    z-index: 6;
-  }
-  .product-card:hover .overlay { display: block; }
-}
 </style>
 </head>
 <body>
@@ -937,22 +959,6 @@
     <a href="/de/vinos/famiglia-bianchi-malbec-2020.html" class="buy-button">Kaufen</a>
   </div>
   
-  <div class="product-card" data-overlay-id="famiglia-bianchi-malbec-2021.html">
-    <img src="/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Botella de Famiglia Bianchi Malbec 2021"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="famiglia-bianchi-malbec-2021.html">🍷</div>
-    <div class="overlay" data-overlay-id="famiglia-bianchi-malbec-2021.html">
-      <p><strong>Weingut:</strong> Bodegas Bianchi</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> San Rafael</p>
-      <p><strong>Höhe:</strong> 800 msnm</p>
-      <p><strong>Jahrgang:</strong> 2021</p>
-    </div>
-    <h3>Famiglia Bianchi Malbec 2021</h3>
-    <p class="price">€18.49</p>
-    <a href="/de/vinos/famiglia-bianchi-malbec-2021.html" class="buy-button">Kaufen</a>
-  </div>
-  
 </div>
       
     </section>
@@ -969,6 +975,7 @@
  <script>
   document.addEventListener('DOMContentLoaded', () => {
     try {
+      // Hamburger menu
       const hamburger = document.querySelector('.hamburger');
       const sidebar = document.querySelector('#sidebar');
       let isSidebarOpen = false;
@@ -982,11 +989,15 @@
       } else {
         console.error('Hamburger or sidebar not found');
       }
+
+      // Prevent link clicks from closing sidebar
       document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (e) => {
           e.stopPropagation();
         });
       });
+
+      // Highlight active nav link
       const navLinks = document.querySelectorAll('.nav-link');
       const currentPath = window.location.pathname;
       navLinks.forEach(link => {
@@ -998,6 +1009,8 @@
           }
         }
       });
+
+      // Info icon overlay toggle
       const infoIcons = document.querySelectorAll('.info-icon');
       console.log(`Found ${infoIcons.length} info-icon elements`);
       infoIcons.forEach(icon => {
@@ -1025,6 +1038,8 @@
           }, { passive: false });
         });
       });
+
+      // Close overlays when clicking outside product cards
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.product-card')) {
           document.querySelectorAll('.overlay.active').forEach(overlay => {
@@ -1032,6 +1047,28 @@
           });
         }
       });
+
+      // Hide language selector on scroll down in mobile
+      const languageSelector = document.querySelector('.language-selector');
+      let lastScrollY = window.scrollY;
+      let scrollThreshold = 50; // Pixels before hiding
+      if (languageSelector) {
+        window.addEventListener('scroll', () => {
+          if (window.innerWidth <= 768) { // Only apply in mobile
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+              // Scrolling down and past threshold
+              languageSelector.classList.add('hidden');
+            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+              // Scrolling up or near top
+              languageSelector.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+          }
+        });
+      } else {
+        console.error('Language selector not found');
+      }
     } catch (error) {
       console.error('Error in DOMContentLoaded handler:', error);
     }
