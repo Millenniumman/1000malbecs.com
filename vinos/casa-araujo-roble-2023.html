@@ -31,7 +31,7 @@
   <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/vinos/casa-araujo-roble-2023.html">
   
   <title>1000 Malbecs - Casa Araujo Roble 2023</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
   body {
     font-family: Arial, sans-serif;
@@ -191,9 +191,9 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
-    max-width: 200px;
     align-self: center;
     pointer-events: auto;
+    box-sizing: border-box;
   }
   .main-buy-button:hover {
     background-color: #E68A00;
@@ -209,16 +209,16 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
-    max-width: 200px;
     align-self: center;
     pointer-events: auto;
+    box-sizing: border-box;
   }
   .buy-button:hover {
     background-color: #5A1D39;
   }
   .pdf-button {
     display: block;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #4A2C59;
     color: #f5e6ff;
     text-decoration: none;
@@ -226,8 +226,6 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
-    max-width: 200px;
-    margin: 10px auto 0;
     box-sizing: border-box;
   }
   .pdf-button:hover {
@@ -250,10 +248,10 @@
     margin: 20px 0 15px;
   }
   .recommended-section .region-title {
-    color: #6B1D49; /* Slightly different shade for distinction */
+    color: #6B1D49;
     font-size: 1.4em;
-    margin: 30px 0 15px; /* Extra margin-top for separation */
-    border-bottom: 2px solid #6B1D49; /* Underline for emphasis */
+    margin: 30px 0 15px;
+    border-bottom: 2px solid #6B1D49;
     padding-bottom: 5px;
   }
   .product-grid {
@@ -369,17 +367,17 @@
   }
   footer {
     background-color: #F5F5DC;
-    color: #333;
-    padding: 10px;
+    color: #1A1A1A;
+    padding: 15px;
     text-align: center;
     width: 100%;
     margin-top: auto;
   }
   footer p {
     margin: 0;
-    font-size: 0.9em;
+    font-size: 1em;
     display: inline;
-    color: #333;
+    color: #1A1A1A;
   }
   footer a {
     color: #4A2C59;
@@ -400,7 +398,7 @@
     vertical-align: middle;
   }
   footer span.separator {
-    color: #333;
+    color: #1A1A1A;
     margin: 0 5px;
   }
   .language-selector {
@@ -497,10 +495,13 @@
     .product-details .info-box h2 { font-size: 1.2em; }
     .main-buy-button, .buy-button, .pdf-button {
       width: 100%;
-      max-width: 100%;
       padding: 12px;
       margin: 10px 0;
       box-sizing: border-box;
+    }
+    .pdf-button {
+      padding: 10px;
+      margin: 10px 0;
     }
     .recommended-section {
       margin: 30px 10px 0;
@@ -577,7 +578,7 @@
     .info-icon {
       display: block !important;
       pointer-events: auto;
-      z-index:10;
+      z-index: 10;
     }
     .overlay {
       max-height: 150px;
@@ -629,9 +630,15 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
+    footer {
+      padding: 12px;
+    }
+    footer p {
+      font-size: 0.9em;
+    }
   }
   @media (max-width: 480px) {
-    footer p { font-size: 0.7em; }
+    footer p { font-size: 0.8em; }
     footer a { margin: 0 3px; }
     footer span.separator { margin: 0 3px; }
   }
@@ -673,10 +680,8 @@
     .product-details .info-box { padding: 15px; }
     .product-details .info-box h2 { font-size: 1.3em; }
     .main-buy-button, .buy-button, .pdf-button {
-      width: 100%;
-      max-width: 200px;
-      padding: 10px 20px;
-      margin: 10px auto 0;
+      padding: 15px;
+      margin: 15px 0 0;
     }
     .recommended-section {
       margin: 40px auto 0;
@@ -771,6 +776,12 @@
       opacity: 0;
       pointer-events: none;
     }
+    footer {
+      padding: 15px;
+    }
+    footer p {
+      font-size: 1em;
+    }
   }
 </style>
 </head>
@@ -781,14 +792,14 @@
     <a href="/de/vinos/casa-araujo-roble-2023.html" class="" aria-label="Alemán">DE 🇩🇪</a>
   </div>
   <header class="header">
-    <a href="//index.html" title="1000 Malbecs - ">
+    <a href="/" title="1000 Malbecs - ">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
   <button class="hamburger" aria-label="Toggle menu">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
-      <a href="//index.html" title="1000 Malbecs - ">
+      <a href="/" title="1000 Malbecs - ">
         <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
@@ -883,15 +894,17 @@
         </div>
         
         
-        <a href="/fichas/ficha-roble.pdf" class="pdf-button" target="_blank">
-          Download Technical Sheet
-        </a>
+        <div class="info-box">
+          <h2>Ficha Técnica</h2>
+          <a href="/fichas/ficha-roble.pdf" class="pdf-button" target="_blank">Descargar Ficha Técnica</a>
+        </div>
         
       </div>
     </div>
     <div class="recommended-section">
       
-      <h3> Casa Araujo</h3>
+      <!-- Updated: Use more_wines_from for bodega title -->
+      <h3>Más vinos de Casa Araujo</h3>
       <div class="product-grid same-bodega">
         
         <div class="product-card">
@@ -900,7 +913,7 @@
           <h3>Casa Araujo Mimi 2023</h3>
           <div class="price">€11.19</div>
           <a href="/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar ahora</a>
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-casa-araujo-mimi-2023.html"></i>
+          <span class="info-icon" data-overlay-id="bodega-casa-araujo-mimi-2023.html">🍷</span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> san rafael</p>
@@ -914,7 +927,7 @@
           <h3>Casa Araujo Varietal 2023</h3>
           <div class="price">€7.99</div>
           <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar ahora</a>
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-casa-araujo-varietal-2023.html"></i>
+          <span class="info-icon" data-overlay-id="bodega-casa-araujo-varietal-2023.html">🍷</span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> san rafael</p>
@@ -928,7 +941,7 @@
           <h3>Graciano Reserva Blend 2023</h3>
           <div class="price">€13.59</div>
           <a href="/vinos/graciano-reserva-blend-2023.html" class="buy-button">Comprar ahora</a>
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-graciano-reserva-blend-2023.html"></i>
+          <span class="info-icon" data-overlay-id="bodega-graciano-reserva-blend-2023.html">🍷</span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> san rafael</p>
@@ -938,9 +951,9 @@
         
       </div>
       
-      <!-- Fixed: Distinct Region Title with Region Name -->
       
-      <h3 class="region-title"> san rafael</h3>
+      <!-- Updated: Use wines_from for region title -->
+      <h3 class="region-title">Vinos de san rafael</h3>
       <div class="product-grid same-region">
         
         <div class="product-card">
@@ -949,7 +962,7 @@
           <h3>135 Aniversario 2022</h3>
           <div class="price">€39.99</div>
           <a href="/vinos/135-aniversario-2022.html" class="buy-button">Comprar ahora</a>
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="region-135-aniversario-2022.html"></i>
+          <span class="info-icon" data-overlay-id="region-135-aniversario-2022.html">🍷</span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Región:</strong> san rafael</p>
@@ -963,7 +976,7 @@
           <h3>Goye Malbec 2022</h3>
           <div class="price">€9.49</div>
           <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar ahora</a>
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="region-goye-malbec-2022.html"></i>
+          <span class="info-icon" data-overlay-id="region-goye-malbec-2022.html">🍷</span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Región:</strong> san rafael</p>
@@ -977,7 +990,7 @@
           <h3>Quinta Generación Malbec 2022</h3>
           <div class="price">€19.99</div>
           <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar ahora</a>
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="region-quinta-generacin-malbec-2022.html"></i>
+          <span class="info-icon" data-overlay-id="region-quinta-generacin-malbec-2022.html">🍷</span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Región:</strong> san rafael</p>
@@ -1079,7 +1092,7 @@
         // Hide language selector on scroll down
         const languageSelector = document.querySelector('.language-selector');
         let lastScrollY = window.scrollY;
-        let scrollThreshold = 50; // Pixels before hiding
+        let scrollThreshold = 50;
         if (languageSelector) {
           window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
@@ -1094,9 +1107,13 @@
           console.error('Language selector not found');
         }
 
-        // Debug: Confirm region title
+        // Debug: Confirm emoji and titles
+        const wineGlassEmojis = document.querySelectorAll('.info-icon');
+        console.log(`Found ${wineGlassEmojis.length} wine glass emojis (🍷)`);
+        const bodegaTitle = document.querySelector('.recommended-section h3:not(.region-title)');
         const regionTitle = document.querySelector('.region-title');
-        console.log(`Region title found: ${regionTitle ? regionTitle.textContent : 'Not found'}`);
+        console.log(`Bodega title: ${bodegaTitle ? bodegaTitle.textContent : 'Not found'}`);
+        console.log(`Region title: ${regionTitle ? regionTitle.textContent : 'Not found'}`);
       } catch (error) {
         console.error('Error in DOMContentLoaded handler:', error);
       }
