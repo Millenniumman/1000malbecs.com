@@ -49,7 +49,7 @@
  .hamburger {
   display: none;
   font-size: 24px;
-  background: none;
+  background: rgba(255, 255, 255, 0.9); /* Added background for visibility */
   border: none;
   color: #4A2C59;
   cursor: pointer;
@@ -57,22 +57,43 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 120; /* Increased from 110 to ensure it’s above other elements */
+  z-index: 130; /* Increased to avoid overlap */
 }
+@media (max-width: 768px) {
+  .header {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 120;
+  }
+  .hamburger {
+    display: block;
+    z-index: 130; /* Ensure it’s above .header */
+  }
   #sidebar {
-    width: 250px;
-    background-color: #F8F8F8;
-    padding: 20px;
+    width: 100%;
     height: 100vh;
+    max-height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    transform: translateX(-100%);
+    z-index: 110; /* Increased to ensure visibility */
+    background-color: #F8F8F8; /* Explicit background */
+    border-bottom: 1px solid #E0E0E0;
+    padding: 20px;
+    padding-top: 60px; /* Increased to avoid overlap with hamburger */
+    padding-bottom: 80px;
     overflow-y: auto;
-    border-right: 1px solid #E0E0E0;
-    font-family: 'Montserrat', sans-serif;
-    z-index: 100;
-    transition: transform 0.3s ease;
+    -webkit-overflow-scrolling: touch;
+    transition: transform 0.3s ease; /* Ensure smooth transition */
   }
+  #sidebar.open {
+    transform: translateX(0);
+    display: block !important; /* Force visibility */
+  }
+}
   .logo-container { text-align: center; margin-bottom: 20px; display: block; }
   #sidebar h2 {
     font-size: 18px;
@@ -754,79 +775,79 @@
   </header>
   <button class="hamburger">☰</button>
   <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/de/index.html" title="1000 Malbecs - ">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Kategorien</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
-      <ul>
-        
-        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/de/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
-      <ul>
-        
-        <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/de/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
-      <ul>
-        <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
-      </ul>
-    </details>
-  </nav>
+  <div class="logo-container">
+    <a href="/de/index.html" title="1000 Malbecs - ">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </div>
+  <h2>Kategorien</h2>
+  <details>
+    <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
+    <ul>
+      
+      <li><a href="/de/provincias/la-rioja.html" class="nav-link" data-provincia="La Rioja">La Rioja</a></li>
+      
+      <li><a href="/de/provincias/mendoza.html" class="nav-link" data-provincia="Mendoza">Mendoza</a></li>
+      
+      <li><a href="/de/provincias/neuquén.html" class="nav-link" data-provincia="Neuquén">Neuquén</a></li>
+      
+      <li><a href="/de/provincias/salta.html" class="nav-link" data-provincia="Salta">Salta</a></li>
+      
+    </ul>
+  </details>
+  <details>
+    <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
+    <ul>
+      
+      <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link" data-bodega="Agustin Lanus">Agustin Lanus</a></li>
+      
+      <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link" data-bodega="Bodega Chanarmuyo">Bodega Chanarmuyo</a></li>
+      
+      <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link" data-bodega="Bodega Estancia Mendoza">Bodega Estancia Mendoza</a></li>
+      
+      <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link" data-bodega="Bodega Foster Lorca">Bodega Foster Lorca</a></li>
+      
+      <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link" data-bodega="Bodega Goyenechea">Bodega Goyenechea</a></li>
+      
+      <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link" data-bodega="Bodega Séptima">Bodega Séptima</a></li>
+      
+      <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link" data-bodega="Bodega Tukma">Bodega Tukma</a></li>
+      
+      <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link" data-bodega="Bodegas Bianchi">Bodegas Bianchi</a></li>
+      
+      <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link" data-bodega="Bodegas Etchart">Bodegas Etchart</a></li>
+      
+      <li><a href="/de/bodegas/casa-araujo.html" class="nav-link" data-bodega="Casa Araujo">Casa Araujo</a></li>
+      
+      <li><a href="/de/bodegas/chakana.html" class="nav-link" data-bodega="Chakana">Chakana</a></li>
+      
+      <li><a href="/de/bodegas/cicchitti.html" class="nav-link" data-bodega="Cicchitti">Cicchitti</a></li>
+      
+      <li><a href="/de/bodegas/eral-bravo.html" class="nav-link" data-bodega="Eral Bravo">Eral Bravo</a></li>
+      
+      <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link" data-bodega="Familia Schroeder">Familia Schroeder</a></li>
+      
+      <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link" data-bodega="Finca y Bodega Vistalba">Finca y Bodega Vistalba</a></li>
+      
+      <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link" data-bodega="Jasmine Monet">Jasmine Monet</a></li>
+      
+      <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link" data-bodega="Jorge Rubio">Jorge Rubio</a></li>
+      
+      <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link" data-bodega="Luigi Bosca">Luigi Bosca</a></li>
+      
+      <li><a href="/de/bodegas/via-alicia.html" class="nav-link" data-bodega="Viña Alicia">Viña Alicia</a></li>
+      
+      <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link" data-bodega="Weinert Bodega y Cavas">Weinert Bodega y Cavas</a></li>
+      
+    </ul>
+  </details>
+  <details open>
+    <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
+    <ul>
+      <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
+    </ul>
+  </details>
+</nav>
   <div class="main-content">
     <div class="product-details">
       <div class="product-image">
@@ -941,17 +962,20 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {
-       const hamburger = document.querySelector('.hamburger');
+const hamburger = document.querySelector('.hamburger');
 const sidebar = document.querySelector('#sidebar');
 let isSidebarOpen = false;
 if (hamburger && sidebar) {
   ['click', 'touchstart'].forEach(eventType => {
     hamburger.addEventListener(eventType, (e) => {
       e.stopPropagation();
-      e.preventDefault(); // Prevent default for touchstart to avoid scrolling issues
+      e.preventDefault();
       isSidebarOpen = !isSidebarOpen;
       sidebar.classList.toggle('open', isSidebarOpen);
-      console.log(`Hamburger ${eventType}, sidebar open: ${isSidebarOpen}`);
+      if (isSidebarOpen) {
+        sidebar.style.display = 'block'; // Force visibility
+      }
+      console.log(`Hamburger ${eventType}, sidebar open: ${isSidebarOpen}, display: ${sidebar.style.display}`);
     }, { passive: false });
   });
 } else {
@@ -963,16 +987,17 @@ if (hamburger && sidebar) {
           });
         });
         const navLinks = document.querySelectorAll('.nav-link');
-        const currentPath = window.location.pathname;
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-            const details = link.closest('details');
-            if (details) {
-              details.setAttribute('open', '');
-            }
-          }
-        });
+const currentPath = window.location.pathname;
+navLinks.forEach(link => {
+  console.log(`Nav link: ${link.textContent}, href: ${link.getAttribute('href')}`);
+  if (link.getAttribute('href') === currentPath) {
+    link.classList.add('active');
+    const details = link.closest('details');
+    if (details) {
+      details.setAttribute('open', '');
+    }
+  }
+});
         const infoIcons = document.querySelectorAll('.info-icon');
         console.log(`Found ${infoIcons.length} info-icon elements`);
         infoIcons.forEach(icon => {
