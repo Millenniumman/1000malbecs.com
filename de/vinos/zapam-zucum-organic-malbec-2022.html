@@ -31,7 +31,7 @@
   <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/vinos/zapam-zucum-organic-malbec-2022.html">
   
   <title>1000 Malbecs - Zapam Zucum Organic Malbec 2022</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
   body {
     font-family: Arial, sans-serif;
@@ -191,9 +191,9 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
-    max-width: 200px;
     align-self: center;
     pointer-events: auto;
+    box-sizing: border-box;
   }
   .main-buy-button:hover {
     background-color: #E68A00;
@@ -209,16 +209,16 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
-    max-width: 200px;
     align-self: center;
     pointer-events: auto;
+    box-sizing: border-box;
   }
   .buy-button:hover {
     background-color: #5A1D39;
   }
   .pdf-button {
     display: block;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #4A2C59;
     color: #f5e6ff;
     text-decoration: none;
@@ -226,8 +226,6 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
-    max-width: 200px;
-    margin: 10px auto 0;
     box-sizing: border-box;
   }
   .pdf-button:hover {
@@ -248,6 +246,13 @@
     color: #4A0D29;
     font-size: 1.4em;
     margin: 20px 0 15px;
+  }
+  .recommended-section .region-title {
+    color: #6B1D49;
+    font-size: 1.4em;
+    margin: 30px 0 15px;
+    border-bottom: 2px solid #6B1D49;
+    padding-bottom: 5px;
   }
   .product-grid {
     display: grid;
@@ -362,17 +367,17 @@
   }
   footer {
     background-color: #F5F5DC;
-    color: #333;
-    padding: 10px;
+    color: #1A1A1A;
+    padding: 15px;
     text-align: center;
     width: 100%;
     margin-top: auto;
   }
   footer p {
     margin: 0;
-    font-size: 0.9em;
+    font-size: 1em;
     display: inline;
-    color: #333;
+    color: #1A1A1A;
   }
   footer a {
     color: #4A2C59;
@@ -393,7 +398,7 @@
     vertical-align: middle;
   }
   footer span.separator {
-    color: #333;
+    color: #1A1A1A;
     margin: 0 5px;
   }
   .language-selector {
@@ -490,10 +495,13 @@
     .product-details .info-box h2 { font-size: 1.2em; }
     .main-buy-button, .buy-button, .pdf-button {
       width: 100%;
-      max-width: 100%;
       padding: 12px;
       margin: 10px 0;
       box-sizing: border-box;
+    }
+    .pdf-button {
+      padding: 10px;
+      margin: 10px 0;
     }
     .recommended-section {
       margin: 30px 10px 0;
@@ -506,6 +514,12 @@
     .recommended-section h3 {
       font-size: 1.2em;
       margin: 15px 0 10px;
+    }
+    .recommended-section .region-title {
+      font-size: 1.2em;
+      margin: 20px 0 10px;
+      border-bottom: 2px solid #6B1D49;
+      padding-bottom: 5px;
     }
     .product-grid {
       display: grid;
@@ -564,7 +578,7 @@
     .info-icon {
       display: block !important;
       pointer-events: auto;
-      z-index:10;
+      z-index: 10;
     }
     .overlay {
       max-height: 150px;
@@ -616,9 +630,15 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
+    footer {
+      padding: 12px;
+    }
+    footer p {
+      font-size: 0.9em;
+    }
   }
   @media (max-width: 480px) {
-    footer p { font-size: 0.7em; }
+    footer p { font-size: 0.8em; }
     footer a { margin: 0 3px; }
     footer span.separator { margin: 0 3px; }
   }
@@ -660,10 +680,8 @@
     .product-details .info-box { padding: 15px; }
     .product-details .info-box h2 { font-size: 1.3em; }
     .main-buy-button, .buy-button, .pdf-button {
-      width: 100%;
-      max-width: 200px;
-      padding: 10px 20px;
-      margin: 10px auto 0;
+      padding: 15px;
+      margin: 15px 0 0;
     }
     .recommended-section {
       margin: 40px auto 0;
@@ -671,6 +689,12 @@
     }
     .recommended-section h2 { font-size: 1.8em; }
     .recommended-section h3 { font-size: 1.4em; }
+    .recommended-section .region-title {
+      font-size: 1.4em;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #6B1D49;
+      padding-bottom: 5px;
+    }
     .product-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
@@ -752,6 +776,12 @@
       opacity: 0;
       pointer-events: none;
     }
+    footer {
+      padding: 15px;
+    }
+    footer p {
+      font-size: 1em;
+    }
   }
 </style>
 </head>
@@ -762,14 +792,14 @@
     <a href="/de/vinos/zapam-zucum-organic-malbec-2022.html" class="active" aria-label="Alemán">DE 🇩🇪</a>
   </div>
   <header class="header">
-    <a href="/de/index.html" title="1000 Malbecs - ">
+    <a href="/de/" title="1000 Malbecs - ">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
   <button class="hamburger" aria-label="Toggle menu">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
-      <a href="/de/index.html" title="1000 Malbecs - ">
+      <a href="/de/" title="1000 Malbecs - ">
         <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
@@ -868,13 +898,13 @@ und weißer Pfeffer.Gute Struktur und weiche Tannine.Ideal, um gewürztes weiße
 und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
         </div>
         
-        <!-- Fixed: PDF Download Button for All Languages -->
         
       </div>
     </div>
     <div class="recommended-section">
       
-      <h3> Bodega Foster Lorca</h3>
+      <!-- Updated: Use more_wines_from for bodega title -->
+      <h3>Weitere Weine von Bodega Foster Lorca</h3>
       <div class="product-grid same-bodega">
         
         <div class="product-card">
@@ -883,8 +913,7 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
           <h3>Foster  Malbec 2020</h3>
           <div class="price">€25.49</div>
           <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Jetzt kaufen</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-foster-malbec-2020.html"></i>
+          <span class="info-icon" data-overlay-id="bodega-foster-malbec-2020.html">🍷</span>
           <div class="overlay">
             <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
             <p><strong>Region:</strong> valle de uco</p>
@@ -898,8 +927,7 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
           <h3>Foster  Malbec 2018</h3>
           <div class="price">€26.49</div>
           <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Jetzt kaufen</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-foster-malbec-2018.html"></i>
+          <span class="info-icon" data-overlay-id="bodega-foster-malbec-2018.html">🍷</span>
           <div class="overlay">
             <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
             <p><strong>Region:</strong> valle de uco</p>
@@ -913,8 +941,7 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
           <h3>Foster  Malbec 2015</h3>
           <div class="price">€27.49</div>
           <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Jetzt kaufen</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-foster-malbec-2015.html"></i>
+          <span class="info-icon" data-overlay-id="bodega-foster-malbec-2015.html">🍷</span>
           <div class="overlay">
             <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
             <p><strong>Region:</strong> valle de uco</p>
@@ -924,9 +951,9 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
         
       </div>
       
-      <!-- Fixed: Debug Other Wines from Region -->
       
-      <h3></h3>
+      <!-- Updated: Use wines_from for region title -->
+      <h3 class="region-title">Weine aus valle de uco</h3>
       <div class="product-grid same-region">
         
         <div class="product-card">
@@ -935,8 +962,7 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
           <h3>Foster  Malbec Magnum 1.25 lts 2015</h3>
           <div class="price">€51.99</div>
           <a href="/de/vinos/foster-malbec-magnum-125-lts-2015.html" class="buy-button">Jetzt kaufen</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="region-foster-malbec-magnum-125-lts-2015.html"></i>
+          <span class="info-icon" data-overlay-id="region-foster-malbec-magnum-125-lts-2015.html">🍷</span>
           <div class="overlay">
             <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
             <p><strong>Region:</strong> valle de uco</p>
@@ -950,8 +976,7 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
           <h3>Foster  Malbec Magnum 1.25 lts 2007</h3>
           <div class="price">€59.99</div>
           <a href="/de/vinos/foster-malbec-magnum-125-lts-2007.html" class="buy-button">Jetzt kaufen</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="region-foster-malbec-magnum-125-lts-2007.html"></i>
+          <span class="info-icon" data-overlay-id="region-foster-malbec-magnum-125-lts-2007.html">🍷</span>
           <div class="overlay">
             <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
             <p><strong>Region:</strong> valle de uco</p>
@@ -965,8 +990,7 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
           <h3>Foster  Malbec 'Los Altepes' 2021</h3>
           <div class="price">€25.49</div>
           <a href="/de/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Jetzt kaufen</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
-          <i class="fas fa-wine-glass info-icon" data-overlay-id="region-foster-malbec-los-altepes-2021.html"></i>
+          <span class="info-icon" data-overlay-id="region-foster-malbec-los-altepes-2021.html">🍷</span>
           <div class="overlay">
             <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
             <p><strong>Region:</strong> valle de uco</p>
@@ -1068,7 +1092,7 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
         // Hide language selector on scroll down
         const languageSelector = document.querySelector('.language-selector');
         let lastScrollY = window.scrollY;
-        let scrollThreshold = 50; // Pixels before hiding
+        let scrollThreshold = 50;
         if (languageSelector) {
           window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
@@ -1083,9 +1107,13 @@ und Milchprodukte.Ausgezeichneter Schokoladenbegleiter.</p>
           console.error('Language selector not found');
         }
 
-        // Debug: Confirm Font Awesome icon load
-        const wineGlassIcons = document.querySelectorAll('.fas.fa-wine-glass');
-        console.log(`Found ${wineGlassIcons.length} wine glass icons (fas fa-wine-glass)`);
+        // Debug: Confirm emoji and titles
+        const wineGlassEmojis = document.querySelectorAll('.info-icon');
+        console.log(`Found ${wineGlassEmojis.length} wine glass emojis (🍷)`);
+        const bodegaTitle = document.querySelector('.recommended-section h3:not(.region-title)');
+        const regionTitle = document.querySelector('.region-title');
+        console.log(`Bodega title: ${bodegaTitle ? bodegaTitle.textContent : 'Not found'}`);
+        console.log(`Region title: ${regionTitle ? regionTitle.textContent : 'Not found'}`);
       } catch (error) {
         console.error('Error in DOMContentLoaded handler:', error);
       }
