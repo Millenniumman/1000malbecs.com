@@ -360,8 +360,8 @@
     text-align: center;
   }
   footer {
-    background-color: #3A0B22;
-    color: #f5e6ff;
+    background-color: #F5F5DC; /* Beige */
+    color: #333; /* Texto oscuro para contraste */
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -371,9 +371,10 @@
     margin: 0;
     font-size: 0.9em;
     display: inline;
+    color: #333; /* Consistente con footer */
   }
   footer a {
-    color: #d4a5ff;
+    color: #4A2C59; /* Morado oscuro para enlaces */
     text-decoration: none;
     margin: 0 5px;
   }
@@ -391,7 +392,7 @@
     vertical-align: middle;
   }
   footer span.separator {
-    color: #f5e6ff;
+    color: #333; /* Consistente con texto */
     margin: 0 5px;
   }
   .language-selector {
@@ -583,16 +584,16 @@
     }
     .language-selector {
       position: fixed;
-      top: 10px; /* Alineado con el logo y hamburguesa */
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 130;
       display: flex;
       flex-direction: row;
-      gap: 3px;
+      gap: 2px; /* Reducido */
       justify-content: center;
       background-color: rgba(255, 255, 255, 0.9);
-      padding: 2px 4px; /* Reducido para mayor compacidad */
+      padding: 1px 3px; /* Reducido */
       border-radius: 4px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: opacity 0.3s ease;
@@ -602,8 +603,8 @@
       pointer-events: none;
     }
     .language-selector a {
-      font-size: 10px;
-      padding: 3px 6px;
+      font-size: 9px; /* Reducido */
+      padding: 2px 4px; /* Reducido */
       color: #4A2C59;
       text-decoration: none;
       border-radius: 2px;
