@@ -46,19 +46,19 @@
     z-index: 120;
   }
   .logo { max-width: 150px; height: auto; }
-  .hamburger {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #4A2C59;
-    cursor: pointer;
-    padding: 10px;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 110;
-  }
+ .hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #4A2C59;
+  cursor: pointer;
+  padding: 10px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 120; /* Increased from 110 to ensure it’s above other elements */
+}
   #sidebar {
     width: 250px;
     background-color: #F8F8F8;
@@ -717,11 +717,28 @@
       right: 20px;
       padding: 15px;
     }
-    .language-selector a {
-      font-size: 16px;
-      padding: 8px 12px;
-    }
+    .language-selector {
+    display: flex;
+    flex-direction: column;
+    top: 20px;
+    right: 20px;
+    padding: 10px; /* Reduced from 15px */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
+  .language-selector a {
+    font-size: 14px; /* Reduced from 16px */
+    padding: 5px 8px; /* Reduced from 8px 12px */
+    color: #4A2C59;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
 </style>
 </head>
 <body>
@@ -908,19 +925,22 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {
-        const hamburger = document.querySelector('.hamburger');
-        const sidebar = document.querySelector('#sidebar');
-        let isSidebarOpen = false;
-        if (hamburger && sidebar) {
-          hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isSidebarOpen = !isSidebarOpen;
-            sidebar.classList.toggle('open', isSidebarOpen);
-            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
-          });
-        } else {
-          console.error('Hamburger or sidebar not found');
-        }
+       const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('#sidebar');
+let isSidebarOpen = false;
+if (hamburger && sidebar) {
+  ['click', 'touchstart'].forEach(eventType => {
+    hamburger.addEventListener(eventType, (e) => {
+      e.stopPropagation();
+      e.preventDefault(); // Prevent default for touchstart to avoid scrolling issues
+      isSidebarOpen = !isSidebarOpen;
+      sidebar.classList.toggle('open', isSidebarOpen);
+      console.log(`Hamburger ${eventType}, sidebar open: ${isSidebarOpen}`);
+    }, { passive: false });
+  });
+} else {
+  console.error('Hamburger or sidebar not found:', { hamburger, sidebar });
+}
         document.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', (e) => {
             e.stopPropagation();
