@@ -395,64 +395,61 @@
     margin: 0 5px;
   }
   .language-selector {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 130;
-    display: flex;
-    gap: 10px;
-  }
-  .language-selector a {
-    text-decoration: none;
-    color: #4A2C59;
-    font-size: 14px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .language-selector a:hover {
-    background-color: #4A2C59;
-    color: #FFFFFF;
-  }
-  .language-selector a.active {
-    background-color: #4A2C59;
-    color: #FFFFFF;
-  }
-  
-  #sidebar .language-selector {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 130;
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Vertical on desktop */
   gap: 10px;
-  justify-content: center;
-  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-#sidebar .language-selector a {
+.language-selector a {
+  text-decoration: none;
+  color: #4A2C59;
   font-size: 14px;
   padding: 5px 10px;
-  color: #4A2C59;
-  text-decoration: none;
   border-radius: 3px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-#sidebar .language-selector a:hover {
+.language-selector a:hover {
   background-color: #4A2C59;
   color: #FFFFFF;
 }
-#sidebar .language-selector a.active {
+.language-selector a.active {
   background-color: #4A2C59;
   color: #FFFFFF;
 }
-  @media (max-width: 768px) {
-    .header {
-      display: block;
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 120;
-    }
+
+@media (max-width: 768px) {
+  .language-selector {
+    display: none; /* Hide the top-level language selector to prevent middle display */
+  }
+  /* If you decide to re-add language selector to mobile sidebar later, you can add styles here */
+  #sidebar {
+    padding-bottom: 80px; /* Extra padding to ensure content doesn't overlap footer */
+  }
+}
+
+@media (min-width: 769px) {
+  .language-selector {
+    display: flex; /* Ensure it's visible and vertical on desktop */
+    flex-direction: column;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+  }
+  .language-selector a {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
     .logo { max-width: 100px; }
     .hamburger { display: block; z-index: 110; }
     #sidebar {
@@ -760,10 +757,10 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/vinos/vos-malbec-de-malbec-2021.html" class="" aria-label="Español">ES 🇪🇸</a>
-    <a href="/en/vinos/vos-malbec-de-malbec-2021.html" class="" aria-label="Inglés">EN 🇬🇧</a>
-    <a href="/de/vinos/vos-malbec-de-malbec-2021.html" class="active" aria-label="Alemán">DE 🇩🇪</a>
-  </div>
+  <a href="/vinos/vos-malbec-de-malbec-2021.html" class="" aria-label="Español">ES 🇪🇸</a>
+  <a href="/en/vinos/vos-malbec-de-malbec-2021.html" class="" aria-label="Inglés">EN 🇬🇧</a>
+  <a href="/de/vinos/vos-malbec-de-malbec-2021.html" class="active" aria-label="Alemán">DE 🇩🇪</a>
+</div>
   <header class="header">
     <a href="/de/index.html" title="1000 Malbecs - ">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
@@ -771,87 +768,79 @@
   </header>
   <button class="hamburger">☰</button>
   <nav id="sidebar">
- <div class="language-selector">
-  
-    <a href="/vinos/index.html" class="">ES 🇪🇸</a>
-    <a href="/en/vinos/index.html" class="">EN 🇬🇧</a>
-    <a href="/de/vinos/index.html" class="active">DE 🇩🇪</a>
-  
-</div>
-    
-  
-    <div class="logo-container">
-      <a href="/de/index.html" title="1000 Malbecs - ">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Kategorien</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
-      <ul>
-        
-        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/de/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
-      <ul>
-        
-        <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/de/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
-      <ul>
-        <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
-      </ul>
-    </details>
+  <div class="logo-container">
+    <a href="/de/index.html" title="1000 Malbecs - ">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </div>
+  <h2>Kategorien</h2>
+  <details>
+    <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
+    <ul>
+      
+      <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+      
+      <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+      
+      <li><a href="/de/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
+      
+      <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
+      
+    </ul>
+  </details>
+  <details>
+    <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
+    <ul>
+      
+      <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
+      
+      <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+      
+      <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+      
+      <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+      
+      <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+      
+      <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
+      
+      <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+      
+      <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+      
+      <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+      
+      <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+      
+      <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+      
+      <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+      
+      <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+      
+      <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+      
+      <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+      
+      <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+      
+      <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+      
+      <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+      
+      <li><a href="/de/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
+      
+      <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+      
+    </ul>
+  </details>
+  <details open>
+    <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
+    <ul>
+      <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
+    </ul>
+  </details>
+</nav>
   </nav>
   <div class="main-content">
     <div class="product-details">
