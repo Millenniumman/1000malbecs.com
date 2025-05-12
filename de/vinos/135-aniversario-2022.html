@@ -583,17 +583,17 @@
     }
     .language-selector {
       position: fixed;
-      top: 60px;
+      top: 10px; /* Alineado con el logo y hamburguesa */
       left: 50%;
       transform: translateX(-50%);
       z-index: 130;
       display: flex;
       flex-direction: row;
-      gap: 3px; /* Reduced gap */
+      gap: 3px;
       justify-content: center;
       background-color: rgba(255, 255, 255, 0.9);
-      padding: 3px 6px; /* Reduced padding */
-      border-radius: 4px; /* Slightly smaller border-radius */
+      padding: 2px 4px; /* Reducido para mayor compacidad */
+      border-radius: 4px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: opacity 0.3s ease;
     }
@@ -602,11 +602,11 @@
       pointer-events: none;
     }
     .language-selector a {
-      font-size: 10px; /* Smaller font-size */
-      padding: 3px 6px; /* Reduced padding */
+      font-size: 10px;
+      padding: 3px 6px;
       color: #4A2C59;
       text-decoration: none;
-      border-radius: 2px; /* Smaller border-radius */
+      border-radius: 2px;
       transition: all 0.3s ease;
     }
     .language-selector a:hover {
