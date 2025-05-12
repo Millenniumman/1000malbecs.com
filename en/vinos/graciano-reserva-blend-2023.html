@@ -249,6 +249,13 @@
     font-size: 1.4em;
     margin: 20px 0 15px;
   }
+  .recommended-section .region-title {
+    color: #6B1D49; /* Slightly different shade for distinction */
+    font-size: 1.4em;
+    margin: 30px 0 15px; /* Extra margin-top for separation */
+    border-bottom: 2px solid #6B1D49; /* Underline for emphasis */
+    padding-bottom: 5px;
+  }
   .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -507,6 +514,12 @@
       font-size: 1.2em;
       margin: 15px 0 10px;
     }
+    .recommended-section .region-title {
+      font-size: 1.2em;
+      margin: 20px 0 10px;
+      border-bottom: 2px solid #6B1D49;
+      padding-bottom: 5px;
+    }
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -671,6 +684,12 @@
     }
     .recommended-section h2 { font-size: 1.8em; }
     .recommended-section h3 { font-size: 1.4em; }
+    .recommended-section .region-title {
+      font-size: 1.4em;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #6B1D49;
+      padding-bottom: 5px;
+    }
     .product-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
@@ -851,7 +870,7 @@
         <h1>Graciano Reserva Blend - 2023</h1>
         <p class="info"><strong>Winery:</strong> Casa Araujo</p>
         <p class="info"><strong>Province:</strong> Mendoza</p>
-        <p class="info"><strong>Region:</strong> San Rafael</p>
+        <p class="info"><strong>Region:</strong> san rafael</p>
         <p class="info"><strong>Altitude:</strong> 520</p>
         <p class="info"><strong>Price:</strong> €13.59</p>
         <div class="info-box">
@@ -863,10 +882,9 @@
           <p>In view it shows us its intense and deep Ruby red hue.In the nose it offers us an elegant encounter with complex aromas to red and spices, it also lets us appreciate delicate notes of its passage through French oak barrel.Finally, in the mouth</p>
         </div>
         
-        <!-- Fixed: PDF Download Button with Fallback Text -->
         
-        <a href="fichas/ficha-graciano.pdf" class="pdf-button" target="_blank">
-          Descargar Ficha Técnica
+        <a href="/fichas/ficha-graciano.pdf" class="pdf-button" target="_blank">
+          Download Technical Sheet
         </a>
         
       </div>
@@ -882,11 +900,10 @@
           <h3>Casa Araujo Mimi 2023</h3>
           <div class="price">€11.19</div>
           <a href="/en/vinos/casa-araujo-mimi-2023.html" class="buy-button">Buy Now</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
           <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-casa-araujo-mimi-2023.html"></i>
           <div class="overlay">
             <p><strong>Winery:</strong> Casa Araujo</p>
-            <p><strong>Region:</strong> San Rafael</p>
+            <p><strong>Region:</strong> san rafael</p>
             <p><strong>Altitude:</strong> 520</p>
           </div>
         </div>
@@ -897,11 +914,10 @@
           <h3>Casa Araujo Roble 2023</h3>
           <div class="price">€10.19</div>
           <a href="/en/vinos/casa-araujo-roble-2023.html" class="buy-button">Buy Now</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
           <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-casa-araujo-roble-2023.html"></i>
           <div class="overlay">
             <p><strong>Winery:</strong> Casa Araujo</p>
-            <p><strong>Region:</strong> San Rafael</p>
+            <p><strong>Region:</strong> san rafael</p>
             <p><strong>Altitude:</strong> 520</p>
           </div>
         </div>
@@ -912,20 +928,19 @@
           <h3>Casa Araujo Varietal 2023</h3>
           <div class="price">€7.99</div>
           <a href="/en/vinos/casa-araujo-varietal-2023.html" class="buy-button">Buy Now</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
           <i class="fas fa-wine-glass info-icon" data-overlay-id="bodega-casa-araujo-varietal-2023.html"></i>
           <div class="overlay">
             <p><strong>Winery:</strong> Casa Araujo</p>
-            <p><strong>Region:</strong> San Rafael</p>
+            <p><strong>Region:</strong> san rafael</p>
             <p><strong>Altitude:</strong> 520</p>
           </div>
         </div>
         
       </div>
       
-      <!-- Fixed: Ensure Other Wines from Region Title Displays -->
+      <!-- Fixed: Distinct Region Title with Region Name -->
       
-      <h3></h3>
+      <h3 class="region-title"> san rafael</h3>
       <div class="product-grid same-region">
         
         <div class="product-card">
@@ -934,11 +949,10 @@
           <h3>135 Aniversario 2022</h3>
           <div class="price">€39.99</div>
           <a href="/en/vinos/135-aniversario-2022.html" class="buy-button">Buy Now</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
           <i class="fas fa-wine-glass info-icon" data-overlay-id="region-135-aniversario-2022.html"></i>
           <div class="overlay">
             <p><strong>Winery:</strong> Bodega Goyenechea</p>
-            <p><strong>Region:</strong> San Rafael</p>
+            <p><strong>Region:</strong> san rafael</p>
             <p><strong>Altitude:</strong> 520</p>
           </div>
         </div>
@@ -949,11 +963,10 @@
           <h3>Goye Malbec 2022</h3>
           <div class="price">€9.49</div>
           <a href="/en/vinos/goye-malbec-2022.html" class="buy-button">Buy Now</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
           <i class="fas fa-wine-glass info-icon" data-overlay-id="region-goye-malbec-2022.html"></i>
           <div class="overlay">
             <p><strong>Winery:</strong> Bodega Goyenechea</p>
-            <p><strong>Region:</strong> San Rafael</p>
+            <p><strong>Region:</strong> san rafael</p>
             <p><strong>Altitude:</strong> 520</p>
           </div>
         </div>
@@ -964,11 +977,10 @@
           <h3>Quinta Generación Malbec 2022</h3>
           <div class="price">€19.99</div>
           <a href="/en/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Buy Now</a>
-          <!-- Fixed: Wine Glass Icon (fas fa-wine-glass) -->
           <i class="fas fa-wine-glass info-icon" data-overlay-id="region-quinta-generacin-malbec-2022.html"></i>
           <div class="overlay">
             <p><strong>Winery:</strong> Bodega Goyenechea</p>
-            <p><strong>Region:</strong> San Rafael</p>
+            <p><strong>Region:</strong> san rafael</p>
             <p><strong>Altitude:</strong> 520</p>
           </div>
         </div>
@@ -1081,6 +1093,10 @@
         } else {
           console.error('Language selector not found');
         }
+
+        // Debug: Confirm region title
+        const regionTitle = document.querySelector('.region-title');
+        console.log(`Region title found: ${regionTitle ? regionTitle.textContent : 'Not found'}`);
       } catch (error) {
         console.error('Error in DOMContentLoaded handler:', error);
       }
