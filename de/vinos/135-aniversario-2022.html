@@ -575,137 +575,163 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .language-selector {
-      position: fixed;
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 130;
-      display: flex;
-      flex-direction: row;
-      gap: 5px;
-      justify-content: center;
-    }
-    .language-selector a {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
+   .language-selector {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 130;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
+  .language-selector a {
+    font-size: 12px;
+    padding: 4px 8px;
+    color: #4A2C59;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .language-selector a:hover {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
+  .language-selector a.active {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
+}
   @media (max-width: 480px) {
     footer p { font-size: 0.7em; }
     footer a { margin: 0 3px; }
     footer span.separator { margin: 0 3px; }
   }
-  @media (min-width: 769px) {
-    .header { display: none; }
-    .hamburger { display: none; }
-    #sidebar {
-      transform: translateX(0);
-      position: fixed;
-      width: 250px;
-      height: 100vh;
-      top: 0;
-      left: 0;
-    }
-    .logo-container { display: block; }
-    .main-content {
-      margin-left: 290px;
-      width: calc(100% - 290px);
-      padding: 20px;
-      margin-top: 0;
-    }
-    .product-details {
-      flex-direction: row;
-      flex-wrap: nowrap;
-      padding: 20px;
-    }
-    .product-image {
-      flex: 0 0 40%;
-      max-width: 350px;
-      max-height: 500px;
-    }
-    .product-image img {
-      max-height: 500px;
-      width: 100%;
-      height: auto;
-    }
-    .product-info { flex: 0 0 60%; }
-    .product-details h1 { font-size: 1.8em; }
-    .product-details .info-box { padding: 15px; }
-    .product-details .info-box h2 { font-size: 1.3em; }
-    .main-buy-button, .buy-button, .pdf-button {
-      width: 100%;
-      max-width: 200px;
-      padding: 10px 20px;
-      margin: 10px auto 0;
-    }
-    .recommended-section {
-      margin: 40px auto 0;
-      padding: 20px;
-    }
-    .recommended-section h2 { font-size: 1.8em; }
-    .recommended-section h3 { font-size: 1.4em; }
-    .product-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-    }
-    .product-grid.same-bodega .product-card,
-    .product-grid.same-region .product-card {
-      max-width: 250px;
-      min-height: 380px;
-      width: 100%;
-      height: auto;
-    }
-    .product-grid.same-bodega .product-card img,
-    .product-grid.same-region .product-card img {
-      width: 200px;
-      height: 200px;
-    }
-    .product-grid.same-bodega .product-card nth-child(n+3) {
-      display: block;
-    }
-    .product-card {
-      pointer-events: auto;
-      max-width: 250px;
-      min-height: 380px;
-      width: 100%;
-      align-items: center;
-      padding-bottom: 20px;
-    }
-    .product-card img {
-      width: 200px;
-      height: 200px;
-      display: block;
-      margin: 0 auto;
-      float: none;
-    }
-    .product-card h3 {
-      font-size: 16px;
-      min-height: 40px;
-      white-space: normal;
-      text-align: center;
-    }
-    .product-card .price {
-      font-size: 16px;
-      margin: 10px 0;
-      text-align: center;
-    }
-    .product-card .buy-button {
-      margin-bottom: 15px;
-      padding: 8px 16px;
-      font-size: 14px;
-    }
-    .product-card img, .product-card h3, .product-card .price {
-      pointer-events: none;
-    }
-    .info-icon { display: none; }
-    .overlay {
-      max-height: 150px;
-      pointer-events: none;
-      z-index: 6;
-    }
-    .product-card:hover .overlay { display: block; }
+ @media (min-width: 769px) {
+  .header { display: none; }
+  .hamburger { display: none; }
+  #sidebar {
+    transform: translateX(0);
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    top: 0;
+    left: 0;
   }
+  .logo-container { display: block; }
+  .main-content {
+    margin-left: 290px;
+    width: calc(100% - 290px);
+    padding: 20px;
+    margin-top: 0;
+  }
+  .product-details {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 20px;
+  }
+  .product-image {
+    flex: 0 0 40%;
+    max-width: 350px;
+    max-height: 500px;
+  }
+  .product-image img {
+    max-height: 500px;
+    width: 100%;
+    height: auto;
+  }
+  .product-info { flex: 0 0 60%; }
+  .product-details h1 { font-size: 1.8em; }
+  .product-details .info-box { padding: 15px; }
+  .product-details .info-box h2 { font-size: 1.3em; }
+  .main-buy-button, .buy-button, .pdf-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 20px;
+    margin: 10px auto 0;
+  }
+  .recommended-section {
+    margin: 40px auto 0;
+    padding: 20px;
+  }
+  .recommended-section h2 { font-size: 1.8em; }
+  .recommended-section h3 { font-size: 1.4em; }
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .product-grid.same-bodega .product-card,
+  .product-grid.same-region .product-card {
+    max-width: 250px;
+    min-height: 360px;
+    width: 100%;
+    height: auto;
+  }
+  .product-grid.same-bodega .product-card img,
+  .product-grid.same-region .product-card img {
+    width: 200px;
+    height: 200px;
+  }
+  .product-grid.same-bodega .product-card:nth-child(n+3) {
+    display: block;
+  }
+  .product-card {
+    pointer-events: auto;
+    max-width: 250px;
+    min-height: 360px;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .product-card img {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    float: none;
+  }
+  .product-card h3 {
+    font-size: 16px;
+    min-height: 40px;
+    white-space: normal;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .product-card .price {
+    font-size: 16px;
+    margin: 5px 0;
+    text-align: center;
+  }
+  .product-card .buy-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 180px;
+    box-sizing: border-box;
+  }
+  .product-card img, .product-card h3, .product-card .price {
+    pointer-events: none;
+  }
+  .info-icon { display: none; }
+  .overlay {
+    max-height: 150px;
+    pointer-events: none;
+    z-index: 6;
+  }
+  .product-card:hover .overlay { display: block; }
+}
 </style>
 </head>
 <body>
@@ -721,6 +747,8 @@
   </header>
   <button class="hamburger">☰</button>
   <nav id="sidebar">
+  
+  
     <div class="logo-container">
       <a href="/de/index.html" title="1000 Malbecs - ">
         <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
