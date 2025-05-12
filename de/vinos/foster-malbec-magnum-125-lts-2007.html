@@ -31,7 +31,7 @@
   
   <title>1000 Malbecs - Foster  Malbec Magnum 1.25 lts 2007</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
+ <style>
   body {
     font-family: Arial, sans-serif;
     background-color: #fdfdfd;
@@ -395,61 +395,45 @@
     margin: 0 5px;
   }
   .language-selector {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 130;
-  display: flex;
-  flex-direction: column; /* Vertical on desktop */
-  gap: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-.language-selector a {
-  text-decoration: none;
-  color: #4A2C59;
-  font-size: 14px;
-  padding: 5px 10px;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.language-selector a:hover {
-  background-color: #4A2C59;
-  color: #FFFFFF;
-}
-.language-selector a.active {
-  background-color: #4A2C59;
-  color: #FFFFFF;
-}
-
-@media (max-width: 768px) {
-  .language-selector {
-    display: none; /* Hide the top-level language selector to prevent middle display */
-  }
-  /* If you decide to re-add language selector to mobile sidebar later, you can add styles here */
-  #sidebar {
-    padding-bottom: 80px; /* Extra padding to ensure content doesn't overlap footer */
-  }
-}
-
-@media (min-width: 769px) {
-  .language-selector {
-    display: flex; /* Ensure it's visible and vertical on desktop */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 130;
+    display: flex;
     flex-direction: column;
-    top: 20px;
-    right: 20px;
-    padding: 15px;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   .language-selector a {
-    font-size: 16px;
-    padding: 8px 12px;
+    text-decoration: none;
+    color: #4A2C59;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
-}
+  .language-selector a:hover {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
+  .language-selector a.active {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
+  @media (max-width: 768px) {
+    .header {
+      display: block;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 120;
+    }
     .logo { max-width: 100px; }
     .hamburger { display: block; z-index: 110; }
     #sidebar {
@@ -464,6 +448,7 @@
       border-bottom: 1px solid #E0E0E0;
       padding: 20px;
       padding-top: 50px;
+      padding-bottom: 80px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
@@ -515,6 +500,7 @@
     }
     .recommended-section h2 {
       font-size: 1.5em;
+      reservespace: nowrap;
       margin-bottom: 15px;
     }
     .recommended-section h3 {
@@ -596,167 +582,150 @@
     .product-card:hover .overlay {
       display: none;
     }
-  .language-selector {
-  display: none;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 130;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    .language-selector {
+      display: none;
+    }
   }
-  .language-selector a {
-    font-size: 12px;
-    padding: 4px 8px;
-    color: #4A2C59;
-    text-decoration: none;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-  .language-selector a:hover {
-    background-color: #4A2C59;
-    color: #FFFFFF;
-  }
-  .language-selector a.active {
-    background-color: #4A2C59;
-    color: #FFFFFF;
-  }
-}
   @media (max-width: 480px) {
     footer p { font-size: 0.7em; }
     footer a { margin: 0 3px; }
     footer span.separator { margin: 0 3px; }
   }
- @media (min-width: 769px) {
-  .header { display: none; }
-  .hamburger { display: none; }
-  #sidebar {
-    transform: translateX(0);
-    position: fixed;
-    width: 250px;
-    height: 100vh;
-    top: 0;
-    left: 0;
+  @media (min-width: 769px) {
+    .header { display: none; }
+    .hamburger { display: none; }
+    #sidebar {
+      transform: translateX(0);
+      position: fixed;
+      width: 250px;
+      height: 100vh;
+      top: 0;
+      left: 0;
+    }
+    .logo-container { display: block; }
+    .main-content {
+      margin-left: 290px;
+      width: calc(100% - 290px);
+      padding: 20px;
+      margin-top: 0;
+    }
+    .product-details {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      padding: 20px;
+    }
+    .product-image {
+      flex: 0 0 40%;
+      max-width: 350px;
+      max-height: 500px;
+    }
+    .product-image img {
+      max-height: 500px;
+      width: 100%;
+      height: auto;
+    }
+    .product-info { flex: 0 0 60%; }
+    .product-details h1 { font-size: 1.8em; }
+    .product-details .info-box { padding: 15px; }
+    .product-details .info-box h2 { font-size: 1.3em; }
+    .main-buy-button, .buy-button, .pdf-button {
+      width: 100%;
+      max-width: 200px;
+      padding: 10px 20px;
+      margin: 10px auto 0;
+    }
+    .recommended-section {
+      margin: 40px auto 0;
+      padding: 20px;
+    }
+    .recommended-section h2 { font-size: 1.8em; }
+    .recommended-section h3 { font-size: 1.4em; }
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    .product-grid.same-bodega .product-card,
+    .product-grid.same-region .product-card {
+      max-width: 250px;
+      min-height: 360px;
+      width: 100%;
+      height: auto;
+    }
+    .product-grid.same-bodega .product-card img,
+    .product-grid.same-region .product-card img {
+      width: 200px;
+      height: 200px;
+    }
+    .product-grid.same-bodega .product-card:nth-child(n+3) {
+      display: block;
+    }
+    .product-card {
+      pointer-events: auto;
+      max-width: 250px;
+      min-height: 360px;
+      width: 100%;
+      align-items: center;
+      padding: 15px;
+      padding-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+    .product-card img {
+      width: 200px;
+      height: 200px;
+      display: block;
+      margin: 0 auto;
+      float: none;
+    }
+    .product-card h3 {
+      font-size: 16px;
+      min-height: 40px;
+      white-space: normal;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .product-card .price {
+      font-size: 16px;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .product-card .buy-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 180px;
+      box-sizing: border-box;
+    }
+    .product-card img, .product-card h3, .product-card .price {
+      pointer-events: none;
+    }
+    .info-icon { display: none; }
+    .overlay {
+      max-height: 150px;
+      pointer-events: none;
+      z-index: 6;
+    }
+    .product-card:hover .overlay { display: block; }
+    .language-selector {
+      display: flex;
+      flex-direction: column;
+      top: 20px;
+      right: 20px;
+      padding: 15px;
+    }
+    .language-selector a {
+      font-size: 16px;
+      padding: 8px 12px;
+    }
   }
-  .logo-container { display: block; }
-  .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
-    padding: 20px;
-    margin-top: 0;
-  }
-  .product-details {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding: 20px;
-  }
-  .product-image {
-    flex: 0 0 40%;
-    max-width: 350px;
-    max-height: 500px;
-  }
-  .product-image img {
-    max-height: 500px;
-    width: 100%;
-    height: auto;
-  }
-  .product-info { flex: 0 0 60%; }
-  .product-details h1 { font-size: 1.8em; }
-  .product-details .info-box { padding: 15px; }
-  .product-details .info-box h2 { font-size: 1.3em; }
-  .main-buy-button, .buy-button, .pdf-button {
-    width: 100%;
-    max-width: 200px;
-    padding: 10px 20px;
-    margin: 10px auto 0;
-  }
-  .recommended-section {
-    margin: 40px auto 0;
-    padding: 20px;
-  }
-  .recommended-section h2 { font-size: 1.8em; }
-  .recommended-section h3 { font-size: 1.4em; }
-  .product-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-  }
-  .product-grid.same-bodega .product-card,
-  .product-grid.same-region .product-card {
-    max-width: 250px;
-    min-height: 360px;
-    width: 100%;
-    height: auto;
-  }
-  .product-grid.same-bodega .product-card img,
-  .product-grid.same-region .product-card img {
-    width: 200px;
-    height: 200px;
-  }
-  .product-grid.same-bodega .product-card:nth-child(n+3) {
-    display: block;
-  }
-  .product-card {
-    pointer-events: auto;
-    max-width: 250px;
-    min-height: 360px;
-    width: 100%;
-    align-items: center;
-    padding: 15px;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
-  }
-  .product-card img {
-    width: 200px;
-    height: 200px;
-    display: block;
-    margin: 0 auto;
-    float: none;
-  }
-  .product-card h3 {
-    font-size: 16px;
-    min-height: 40px;
-    white-space: normal;
-    text-align: center;
-    margin: 10px 0;
-  }
-  .product-card .price {
-    font-size: 16px;
-    margin: 5px 0;
-    text-align: center;
-  }
-  .product-card .buy-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 180px;
-    box-sizing: border-box;
-  }
-  .product-card img, .product-card h3, .product-card .price {
-    pointer-events: none;
-  }
-  .info-icon { display: none; }
-  .overlay {
-    max-height: 150px;
-    pointer-events: none;
-    z-index: 6;
-  }
-  .product-card:hover .overlay { display: block; }
-}
 </style>
 </head>
 <body>
-  <div class="language-selector">
+<div class="language-selector">
   <a href="/vinos/foster-malbec-magnum-125-lts-2007.html" class="" aria-label="Español">ES 🇪🇸</a>
   <a href="/en/vinos/foster-malbec-magnum-125-lts-2007.html" class="" aria-label="Inglés">EN 🇬🇧</a>
   <a href="/de/vinos/foster-malbec-magnum-125-lts-2007.html" class="active" aria-label="Alemán">DE 🇩🇪</a>
@@ -768,79 +737,78 @@
   </header>
   <button class="hamburger">☰</button>
   <nav id="sidebar">
-  <div class="logo-container">
-    <a href="/de/index.html" title="1000 Malbecs - ">
-      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-    </a>
-  </div>
-  <h2>Kategorien</h2>
-  <details>
-    <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
-    <ul>
-      
-      <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-      
-      <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-      
-      <li><a href="/de/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-      
-      <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
-      
-    </ul>
-  </details>
-  <details>
-    <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
-    <ul>
-      
-      <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-      
-      <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-      
-      <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-      
-      <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-      
-      <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-      
-      <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
-      
-      <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-      
-      <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-      
-      <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-      
-      <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-      
-      <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-      
-      <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-      
-      <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-      
-      <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-      
-      <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-      
-      <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-      
-      <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-      
-      <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-      
-      <li><a href="/de/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
-      
-      <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-      
-    </ul>
-  </details>
-  <details open>
-    <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
-    <ul>
-      <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
-    </ul>
-  </details>
-</nav>
+    <div class="logo-container">
+      <a href="/de/index.html" title="1000 Malbecs - ">
+        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+      </a>
+    </div>
+    <h2>Kategorien</h2>
+    <details>
+      <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
+      <ul>
+        
+        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+        
+        <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+        
+        <li><a href="/de/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
+        
+        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
+        
+      </ul>
+    </details>
+    <details>
+      <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
+      <ul>
+        
+        <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
+        
+        <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        
+        <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+        
+        <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+        
+        <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+        
+        <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
+        
+        <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+        
+        <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+        
+        <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+        
+        <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+        
+        <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+        
+        <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+        
+        <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+        
+        <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+        
+        <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+        
+        <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+        
+        <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+        
+        <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+        
+        <li><a href="/de/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
+        
+        <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+        
+      </ul>
+    </details>
+    <details open>
+      <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
+      <ul>
+        <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
+      </ul>
+    </details>
   </nav>
   <div class="main-content">
     <div class="product-details">
@@ -872,140 +840,139 @@
       
       <h3>Weitere Weine von Bodega Foster Lorca</h3>
       <div class="product-grid same-bodega">
-  
-  <div class="product-card" data-overlay-id="foster-malbec-2020.html">
-    <img src="/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-2020.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-2020.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 1050 msnm</p>
-      <p><strong>Jahrgang:</strong> 2020</p>
-    </div>
-    <h3>Foster  Malbec 2020</h3>
-    <p class="price">€25.49</p>
-    <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Kaufen</a>
-  </div>
-  
-  <div class="product-card" data-overlay-id="foster-malbec-2018.html">
-    <img src="/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-2018.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-2018.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 1050 msnm</p>
-      <p><strong>Jahrgang:</strong> 2018</p>
-    </div>
-    <h3>Foster  Malbec 2018</h3>
-    <p class="price">€26.49</p>
-    <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Kaufen</a>
-  </div>
-  
-  <div class="product-card" data-overlay-id="foster-malbec-2015.html">
-    <img src="/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-2015.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-2015.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 1050 msnm</p>
-      <p><strong>Jahrgang:</strong> 2015</p>
-    </div>
-    <h3>Foster  Malbec 2015</h3>
-    <p class="price">€27.49</p>
-    <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Kaufen</a>
-  </div>
-  
-  <div class="product-card" data-overlay-id="foster-malbec-magnum-125-lts-2015.html">
-    <img src="/images/small/foster-malbec-magnum-125-lts-2015.jpg" alt="Botella de Foster  Malbec Magnum 1.25 lts 2015"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-magnum-125-lts-2015.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-magnum-125-lts-2015.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 950 msnm</p>
-      <p><strong>Jahrgang:</strong> 2015</p>
-    </div>
-    <h3>Foster  Malbec Magnum 1.25 lts 2015</h3>
-    <p class="price">€51.99</p>
-    <a href="/de/vinos/foster-malbec-magnum-125-lts-2015.html" class="buy-button">Kaufen</a>
-  </div>
-  
-</div>
-
-<div class="product-grid same-region">
-  
-  <div class="product-card" data-overlay-id="foster-malbec-los-altepes-2021.html">
-    <img src="/images/small/foster-malbec-los-altepes-2021.jpg" alt="Botella de Foster  Malbec 'Los Altepes' 2021"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-los-altepes-2021.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-los-altepes-2021.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 1250 msnm</p>
-      <p><strong>Jahrgang:</strong> 2021</p>
-    </div>
-    <h3>Foster  Malbec 'Los Altepes' 2021</h3>
-    <p class="price">€25.49</p>
-    <a href="/de/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Kaufen</a>
-  </div>
-  
-  <div class="product-card" data-overlay-id="foster-malbec-los-altepes-2015.html">
-    <img src="/images/small/foster-malbec-los-altepes-2015.jpg" alt="Botella de Foster  Malbec 'Los Altepes' 2015"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-los-altepes-2015.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-los-altepes-2015.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 1250 msnm</p>
-      <p><strong>Jahrgang:</strong> 2015</p>
-    </div>
-    <h3>Foster  Malbec 'Los Altepes' 2015</h3>
-    <p class="price">€27.49</p>
-    <a href="/de/vinos/foster-malbec-los-altepes-2015.html" class="buy-button">Kaufen</a>
-  </div>
-  
-  <div class="product-card" data-overlay-id="foster-malbec-los-barrancos-2021.html">
-    <img src="/images/small/foster-malbec-los-barrancos-2021.jpg" alt="Botella de Foster  Malbec 'Los Barrancos' 2021"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-los-barrancos-2021.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-los-barrancos-2021.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 1050 msnm</p>
-      <p><strong>Jahrgang:</strong> 2021</p>
-    </div>
-    <h3>Foster  Malbec 'Los Barrancos' 2021</h3>
-    <p class="price">€25.49</p>
-    <a href="/de/vinos/foster-malbec-los-barrancos-2021.html" class="buy-button">Kaufen</a>
-  </div>
-  
-  <div class="product-card" data-overlay-id="foster-malbec-los-barrancos-2015.html">
-    <img src="/images/small/foster-malbec-los-barrancos-2015.jpg" alt="Botella de Foster  Malbec 'Los Barrancos' 2015"
-         onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-    <div class="info-icon" data-overlay-id="foster-malbec-los-barrancos-2015.html">🍷</div>
-    <div class="overlay" data-overlay-id="foster-malbec-los-barrancos-2015.html">
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Provinz:</strong> Mendoza</p>
-      <p><strong>Region:</strong> Valle de Uco</p>
-      <p><strong>Höhe:</strong> 1050 msnm</p>
-      <p><strong>Jahrgang:</strong> 2015</p>
-    </div>
-    <h3>Foster  Malbec 'Los Barrancos' 2015</h3>
-    <p class="price">€27.49</p>
-    <a href="/de/vinos/foster-malbec-los-barrancos-2015.html" class="buy-button">Kaufen</a>
-  </div>
-  
-</div>
+        
+        <div class="product-card" data-overlay-id="foster-malbec-2020.html">
+          <img src="/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-2020.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-2020.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 1050 msnm</p>
+            <p><strong>Jahrgang:</strong> 2020</p>
+          </div>
+          <h3>Foster  Malbec 2020</h3>
+          <p class="price">€25.49</p>
+          <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Kaufen</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="foster-malbec-2018.html">
+          <img src="/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-2018.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-2018.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 1050 msnm</p>
+            <p><strong>Jahrgang:</strong> 2018</p>
+          </div>
+          <h3>Foster  Malbec 2018</h3>
+          <p class="price">€26.49</p>
+          <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Kaufen</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="foster-malbec-2015.html">
+          <img src="/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-2015.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-2015.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 1050 msnm</p>
+            <p><strong>Jahrgang:</strong> 2015</p>
+          </div>
+          <h3>Foster  Malbec 2015</h3>
+          <p class="price">€27.49</p>
+          <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Kaufen</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="foster-malbec-magnum-125-lts-2015.html">
+          <img src="/images/small/foster-malbec-magnum-125-lts-2015.jpg" alt="Botella de Foster  Malbec Magnum 1.25 lts 2015"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-magnum-125-lts-2015.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-magnum-125-lts-2015.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 950 msnm</p>
+            <p><strong>Jahrgang:</strong> 2015</p>
+          </div>
+          <h3>Foster  Malbec Magnum 1.25 lts 2015</h3>
+          <p class="price">€51.99</p>
+          <a href="/de/vinos/foster-malbec-magnum-125-lts-2015.html" class="buy-button">Kaufen</a>
+        </div>
+        
+      </div>
+      <div class="product-grid same-region">
+        
+        <div class="product-card" data-overlay-id="foster-malbec-los-altepes-2021.html">
+          <img src="/images/small/foster-malbec-los-altepes-2021.jpg" alt="Botella de Foster  Malbec 'Los Altepes' 2021"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-los-altepes-2021.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-los-altepes-2021.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 1250 msnm</p>
+            <p><strong>Jahrgang:</strong> 2021</p>
+          </div>
+          <h3>Foster  Malbec 'Los Altepes' 2021</h3>
+          <p class="price">€25.49</p>
+          <a href="/de/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Kaufen</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="foster-malbec-los-altepes-2015.html">
+          <img src="/images/small/foster-malbec-los-altepes-2015.jpg" alt="Botella de Foster  Malbec 'Los Altepes' 2015"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-los-altepes-2015.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-los-altepes-2015.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 1250 msnm</p>
+            <p><strong>Jahrgang:</strong> 2015</p>
+          </div>
+          <h3>Foster  Malbec 'Los Altepes' 2015</h3>
+          <p class="price">€27.49</p>
+          <a href="/de/vinos/foster-malbec-los-altepes-2015.html" class="buy-button">Kaufen</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="foster-malbec-los-barrancos-2021.html">
+          <img src="/images/small/foster-malbec-los-barrancos-2021.jpg" alt="Botella de Foster  Malbec 'Los Barrancos' 2021"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-los-barrancos-2021.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-los-barrancos-2021.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 1050 msnm</p>
+            <p><strong>Jahrgang:</strong> 2021</p>
+          </div>
+          <h3>Foster  Malbec 'Los Barrancos' 2021</h3>
+          <p class="price">€25.49</p>
+          <a href="/de/vinos/foster-malbec-los-barrancos-2021.html" class="buy-button">Kaufen</a>
+        </div>
+        
+        <div class="product-card" data-overlay-id="foster-malbec-los-barrancos-2015.html">
+          <img src="/images/small/foster-malbec-los-barrancos-2015.jpg" alt="Botella de Foster  Malbec 'Los Barrancos' 2015"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="foster-malbec-los-barrancos-2015.html">🍷</div>
+          <div class="overlay" data-overlay-id="foster-malbec-los-barrancos-2015.html">
+            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Höhe:</strong> 1050 msnm</p>
+            <p><strong>Jahrgang:</strong> 2015</p>
+          </div>
+          <h3>Foster  Malbec 'Los Barrancos' 2015</h3>
+          <p class="price">€27.49</p>
+          <a href="/de/vinos/foster-malbec-los-barrancos-2015.html" class="buy-button">Kaufen</a>
+        </div>
+        
+      </div>
       
     </section>
   </div>
@@ -1018,76 +985,76 @@
       <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon"><a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Auf Instagram folgen">@1000malbecs</a>
     </p>
   </footer>
- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    try {
-      const hamburger = document.querySelector('.hamburger');
-      const sidebar = document.querySelector('#sidebar');
-      let isSidebarOpen = false;
-      if (hamburger && sidebar) {
-        hamburger.addEventListener('click', (e) => {
-          e.stopPropagation();
-          isSidebarOpen = !isSidebarOpen;
-          sidebar.classList.toggle('open', isSidebarOpen);
-          console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
-        });
-      } else {
-        console.error('Hamburger or sidebar not found');
-      }
-      document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.stopPropagation();
-        });
-      });
-      const navLinks = document.querySelectorAll('.nav-link');
-      const currentPath = window.location.pathname;
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-          link.classList.add('active');
-          const details = link.closest('details');
-          if (details) {
-            details.setAttribute('open', '');
-          }
-        }
-      });
-      const infoIcons = document.querySelectorAll('.info-icon');
-      console.log(`Found ${infoIcons.length} info-icon elements`);
-      infoIcons.forEach(icon => {
-        ['click', 'touchstart'].forEach(eventType => {
-          icon.addEventListener(eventType, (e) => {
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('#sidebar');
+        let isSidebarOpen = false;
+        if (hamburger && sidebar) {
+          hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
-            e.preventDefault();
-            const overlayId = icon.getAttribute('data-overlay-id');
-            console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+            isSidebarOpen = !isSidebarOpen;
+            sidebar.classList.toggle('open', isSidebarOpen);
+            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
+          });
+        } else {
+          console.error('Hamburger or sidebar not found');
+        }
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.stopPropagation();
+          });
+        });
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname;
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+            const details = link.closest('details');
+            if (details) {
+              details.setAttribute('open', '');
+            }
+          }
+        });
+        const infoIcons = document.querySelectorAll('.info-icon');
+        console.log(`Found ${infoIcons.length} info-icon elements`);
+        infoIcons.forEach(icon => {
+          ['click', 'touchstart'].forEach(eventType => {
+            icon.addEventListener(eventType, (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              const overlayId = icon.getAttribute('data-overlay-id');
+              console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
+              document.query CAMPUS querySelectorAll('.overlay.active').forEach(overlay => {
+                overlay.classList.remove('active');
+              });
+              const productCard = icon.closest('.product-card');
+              if (!productCard) {
+                console.error(`No product-card found for info-icon: ${overlayId}`);
+                return;
+              }
+              const overlay = productCard.querySelector('.overlay');
+              if (overlay) {
+                overlay.classList.toggle('active');
+                console.log(`Overlay toggled for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}, Active: ${overlay.classList.contains('active')}`);
+              } else {
+                console.error(`No overlay found for card: ${overlayId}`);
+              }
+            }, { passive: false });
+          });
+        });
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.product-card')) {
             document.querySelectorAll('.overlay.active').forEach(overlay => {
               overlay.classList.remove('active');
             });
-            const productCard = icon.closest('.product-card');
-            if (!productCard) {
-              console.error(`No product-card found for info-icon: ${overlayId}`);
-              return;
-            }
-            const overlay = productCard.querySelector('.overlay');
-            if (overlay) {
-              overlay.classList.toggle('active');
-              console.log(`Overlay toggled for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}, Active: ${overlay.classList.contains('active')}`);
-            } else {
-              console.error(`No overlay found for card: ${overlayId}`);
-            }
-          }, { passive: false });
+          }
         });
-      });
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.product-card')) {
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
-          });
-        }
-      });
-    } catch (error) {
-      console.error('Error in DOMContentLoaded handler:', error);
-    }
-  });
-</script>
+      } catch (error) {
+        console.error('Error in DOMContentLoaded handler:', error);
+      }
+    });
+  </script>
 </body>
 </html>
