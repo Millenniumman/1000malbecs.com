@@ -31,7 +31,7 @@
   
   <title>1000 Malbecs - 135 Aniversario 2022</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
+<style>
   body {
     font-family: Arial, sans-serif;
     background-color: #fdfdfd;
@@ -250,8 +250,8 @@
   }
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
-    gap: 30px; /* Reduced gap for better fit */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     margin-bottom: 30px;
     width: 100%;
     justify-items: center;
@@ -401,11 +401,11 @@
     z-index: 130;
     display: flex;
     gap: 10px;
-    transition: opacity 0.3s ease; /* Added for smooth hide/show */
+    transition: opacity 0.3s ease;
   }
   .language-selector.hidden {
     opacity: 0;
-    pointer-events: none; /* Prevent interaction when hidden */
+    pointer-events: none;
   }
   .language-selector a {
     text-decoration: none;
@@ -523,7 +523,7 @@
     }
     .product-grid.same-bodega .product-card:nth-child(n+3),
     .product-grid.same-region .product-card:nth-child(n+3) {
-      display: none; /* Hide extra cards beyond 2 in mobile */
+      display: none;
     }
     .product-card {
       width: 100%;
@@ -589,24 +589,24 @@
       z-index: 130;
       display: flex;
       flex-direction: row;
-      gap: 5px;
+      gap: 3px; /* Reduced gap */
       justify-content: center;
       background-color: rgba(255, 255, 255, 0.9);
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: 3px 6px; /* Reduced padding */
+      border-radius: 4px; /* Slightly smaller border-radius */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: opacity 0.3s ease; /* Smooth transition for hide/show */
+      transition: opacity 0.3s ease;
     }
     .language-selector.hidden {
       opacity: 0;
       pointer-events: none;
     }
     .language-selector a {
-      font-size: 12px;
-      padding: 4px 8px;
+      font-size: 10px; /* Smaller font-size */
+      padding: 3px 6px; /* Reduced padding */
       color: #4A2C59;
       text-decoration: none;
-      border-radius: 3px;
+      border-radius: 2px; /* Smaller border-radius */
       transition: all 0.3s ease;
     }
     .language-selector a:hover {
@@ -673,9 +673,9 @@
     .recommended-section h2 { font-size: 1.8em; }
     .recommended-section h3 { font-size: 1.4em; }
     .product-grid {
-      grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
-      gap: 30px; /* Adjusted gap */
-      max-width: 800px; /* Consistent with product-details */
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -693,7 +693,7 @@
     }
     .product-grid.same-bodega .product-card:nth-child(n+4),
     .product-grid.same-region .product-card:nth-child(n+4) {
-      display: none; /* Hide cards beyond 3 per section */
+      display: none;
     }
     .product-card {
       pointer-events: auto;
@@ -747,7 +747,7 @@
     }
     .product-card:hover .overlay { display: block; }
     .language-selector {
-      transition: opacity 0.3s ease; /* Ensure smooth transition in desktop too */
+      transition: opacity 0.3s ease;
     }
     .language-selector.hidden {
       opacity: 0;
@@ -1048,23 +1048,21 @@
         }
       });
 
-      // Hide language selector on scroll down in mobile
+      // Hide language selector on scroll down
       const languageSelector = document.querySelector('.language-selector');
       let lastScrollY = window.scrollY;
       let scrollThreshold = 50; // Pixels before hiding
       if (languageSelector) {
         window.addEventListener('scroll', () => {
-          if (window.innerWidth <= 768) { // Only apply in mobile
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-              // Scrolling down and past threshold
-              languageSelector.classList.add('hidden');
-            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-              // Scrolling up or near top
-              languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            // Scrolling down and past threshold
+            languageSelector.classList.add('hidden');
+          } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            // Scrolling up or near top
+            languageSelector.classList.remove('hidden');
           }
+          lastScrollY = currentScrollY;
         });
       } else {
         console.error('Language selector not found');
