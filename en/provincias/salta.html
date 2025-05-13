@@ -61,7 +61,9 @@
       z-index: 100;
       transition: transform 0.3s ease;
     }
-    .logo-container { text-align: center; margin-bottom: 20px; display: block; }
+    .logo-container { text-align: center; margin
+
+-bottom: 20px; display: block; }
     #sidebar h2 {
       font-size: 18px;
       font-weight: 600;
@@ -141,11 +143,12 @@
     }
     .product-grid, .wineries-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 30px;
       margin-bottom: 30px;
       width: 100%;
       justify-items: center;
+      justify-content: center;
     }
     .product-card {
       background-color: #FFFFFF;
@@ -507,11 +510,12 @@
         margin-top: 0;
       }
       .product-grid, .wineries-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 30px;
-        max-width: 800px;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
+        justify-content: center;
       }
       .product-card {
         pointer-events: auto;
@@ -599,13 +603,13 @@
       <summary><i class="fas fa-map-marker-alt"></i> Provinces</summary>
       <ul>
         
-        <li><a href="/en/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+        <li><a href="/en/provincias/la-rioja.html" class="nav-link">La Rioja</li>
         
-        <li><a href="/en/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+        <li><a href="/en/provincias/mendoza.html" class="nav-link">Mendoza</li>
         
-        <li><a href="/en/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
+        <li><a href="/en/provincias/neuquen.html" class="nav-link">Neuquén</li>
         
-        <li><a href="/en/provincias/salta.html" class="nav-link active">Salta</a></li>
+        <li><a href="/en/provincias/salta.html" class="nav-link active">Salta</li>
         
       </ul>
     </details>
@@ -672,7 +676,6 @@
     <section class="products-section">
       <h2>Featured Wines from Salta</h2>
       
-      
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="amar-vivir-malbec">
@@ -684,6 +687,7 @@
             <p><strong>Province:</strong> Salta</p>
             <p><strong>Region:</strong> Cafayate</p>
             <p><strong>Altitude:</strong> 1600 msnm</p>
+            <p><strong>Vintage:</strong> 2020</p>
           </div>
           <h3>Amar Vivir Malbec</h3>
           <p class="price">€112.99</p>
@@ -699,6 +703,7 @@
             <p><strong>Province:</strong> Salta</p>
             <p><strong>Region:</strong> Valle de Calchaquí</p>
             <p><strong>Altitude:</strong> 1900 msnm</p>
+            <p><strong>Vintage:</strong> 2017</p>
           </div>
           <h3>Tukma Gran Corte</h3>
           <p class="price">€41.29</p>
@@ -714,6 +719,7 @@
             <p><strong>Province:</strong> Salta</p>
             <p><strong>Region:</strong> Valle de Calchaquí</p>
             <p><strong>Altitude:</strong> 2200 msnm</p>
+            <p><strong>Vintage:</strong> 2020</p>
           </div>
           <h3>Sunal Ilogico Malbec</h3>
           <p class="price">€25.49</p>
@@ -721,7 +727,6 @@
         </div>
         
       </div>
-      
       
     </section>
     <section class="wineries-section">
