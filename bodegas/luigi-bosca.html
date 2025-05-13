@@ -5,364 +5,600 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Luigi Bosca</title>
-  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - Luigi Bosca">
   <meta property="og:description" content="Conectando el pasado, el presente y el futuro, cuatro generaciones de Arizu expresamos 120 años de excelencia mientras nos proyectamos hacia el futuro respet...">
   <meta property="og:image" content="/images/bodegas/luigi-bosca-1.jpg">
   <meta property="og:url" content="https://1000malbecs.com/bodegas/luigi-bosca.html">
   <meta property="og:type" content="website">
+  
+  <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/luigi-bosca.html">
+  
+  <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/bodegas/luigi-bosca.html">
+  
+  <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/bodegas/luigi-bosca.html">
+  
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .header { display: none; }
-    .logo { max-width: 150px; height: auto; }
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: #4A2C59;
-      cursor: pointer;
-      padding: 10px;
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 110;
-    }
-    #sidebar {
-      width: 250px;
-      background-color: #F8F8F8;
-      padding: 20px;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      overflow-y: auto;
-      border-right: 1px solid #E0E0E0;
-      z-index: 100;
-      transition: transform 0.3s ease;
-    }
-    .logo-container { text-align: center; margin-bottom: 20px; }
-    #sidebar h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #4A2C59;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-    }
-    #sidebar details { margin-bottom: 15px; }
-    #sidebar details:first-of-type { margin-bottom: 25px; }
-    #sidebar summary {
-      font-size: 16px;
-      font-weight: 500;
-      color: #4A2C59;
-      cursor: pointer;
-      padding: 5px 0;
-      display: flex;
-      align-items: center;
-    }
-    #sidebar summary i { margin-right: 10px; color: #4A2C59; }
-    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
-    #sidebar li { margin: 5px 0; }
-    .nav-link {
-      font-size: 14px;
-      color: #4A2C59;
-      text-decoration: none;
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fdfdfd;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .header { display: none; }
+  .logo { max-width: 150px; height: auto; }
+  .hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #4A2C59;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 110;
+  }
+  #sidebar {
+    width: 250px;
+    background-color: #F8F8F8;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    border-right: 1px solid #E0E0E0;
+    z-index: 100;
+    transition: transform 0.3s ease;
+  }
+  .logo-container { text-align: left; margin-bottom: 20px; display: block; }
+  #sidebar h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4A2C59;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  #sidebar details { margin-bottom: 15px; }
+  #sidebar details:first-of-type { margin-bottom: 25px; }
+  #sidebar summary {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4A2C59;
+    cursor: pointer;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+  #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+  #sidebar li { margin: 5px 0; }
+  .nav-link {
+    font-size: 14px;
+    color: #4A2C59;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+  .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+  .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+  .main-content {
+    margin-left: 290px;
+    width: calc(100% - 290px);
+    z-index: 1;
+    flex: 1;
+    padding: 20px;
+    padding-bottom: 200px;
+    position: relative;
+    overflow: visible;
+  }
+  .main-content h1 {
+    font-size: 24px;
+    color: #4A2C59;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .banner {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .presentation {
+    max-width: 800px;
+    margin: 0 0 40px;
+    text-align: left;
+  }
+  .presentation h2 {
+    color: #4A2C59;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .presentation p {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .products-section {
+    max-width: 1200px;
+    margin: 0 0 40px;
+  }
+  .products-section h2 {
+    color: #4A2C59;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: start;
+  }
+  .product-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 15px;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: visible;
+    max-width: 250px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .product-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  .info-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+    color: #4A2C59;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    touch-action: manipulation;
+    pointer-events: auto;
+  }
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    background-color: rgba(74, 44, 89, 0.8) !important;
+    color: #FFFFFF;
+    padding: 40px 10px 10px 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    overflow-y: auto;
+    z-index: 6;
+    pointer-events: none;
+  }
+  .overlay p {
+    margin: 2px 0;
+    color: #FFFFFF !important;
+    visibility: visible !important;
+    text-align: left;
+  }
+  .product-card:hover .overlay {
+    display: block;
+  }
+  .product-card .overlay.active {
+    display: block !important;
+  }
+  .product-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #4A2C59;
+    min-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: center;
+    width: 100%;
+  }
+  .product-card .price {
+    font-size: 16px;
+    color: #4A2C59;
+    margin: 10px 0;
+    position: relative;
+    z-index: 7;
+    text-align: center;
+    width: 100%;
+  }
+  .product-card .buy-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 7;
+    text-align: center;
+    background-color: #4A2C59;
+    color: #f5e6ff;
+    text-decoration: none;
+    border-radius: 5px;
+    pointer-events: auto;
+    width: 100%;
+    max-width: 180px;
+    display: block;
+  }
+  .product-card .buy-button:hover {
+    background-color: #5A1D39;
+  }
+  footer {
+    background-color: #F8F8F8; /* Match sidebar for cohesion */
+    color: #1A1A1A;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    min-height: 60px;
+    box-sizing: border-box;
+    overflow: visible;
+    clear: both;
+  }
+  footer p {
+    margin: 0;
+    font-size: 1em;
+    display: inline;
+    color: #1A1A1A;
+  }
+  footer a {
+    color: #4A2C59;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  footer i {
+    margin-right: 5px;
+    font-size: 1em;
+    vertical-align: middle;
+  }
+  footer img.social-icon {
+    width: 1em;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  footer span.separator {
+    color: #1A1A1A;
+    margin: 0 5px;
+  }
+  .language-selector {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 50;
+    display: flex;
+    gap: 10px;
+    transition: opacity 0.3s ease;
+  }
+  .language-selector.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .language-selector a {
+    text-decoration: none;
+    color: #4A2C59;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .language-selector a:hover {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
+  .language-selector a.active {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
+  @media (max-width: 768px) {
+    .header {
       display: block;
-      padding: 5px 10px;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-    .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
-    .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-    main {
-      margin-left: 290px;
-      padding: 20px;
-      width: calc(100% - 290px);
-      flex: 1;
-    }
-    main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .product-card {
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 5px;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      width: 200px;
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-      z-index: 5;
-    }
-    .product-card img {
-      width: 180px;
-      height: 180px;
-      object-fit: contain;
-      margin: 0 auto;
-    }
-    .info-icon {
-      position: absolute;
+      position: fixed;
       top: 10px;
       right: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 10;
-      display: none;
+      z-index: 50;
     }
-    .overlay {
-      display: none;
-      position: absolute;
+    .logo { max-width: 100px; }
+    .hamburger { display: block; z-index: 110; }
+    #sidebar {
+      width: 100%;
+      height: 100vh;
+      max-height: 100vh;
+      position: fixed;
       top: 0;
       left: 0;
+      transform: translateX(-100%);
+      z-index: 100;
+      border-bottom: 1px solid #E0E0E0;
+      padding: 20px;
+      padding-top: 50px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #sidebar.open { transform: translateX(0); }
+    .logo-container { display: none; }
+    .main-content {
+      margin-left: 0;
       width: 100%;
-      max-height: 100px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
-      color: #FFFFFF;
+      padding: 10px;
+      padding-bottom: 250px;
+      margin-top: 80px; /* Reduced to prevent footer clipping */
+      position: relative;
+      overflow: visible;
+    }
+    .banner { height: 200px; }
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      justify-content: start;
+    }
+    .product-card {
+      width: 100%;
+      max-width: none;
+      height: 260px;
+      min-height: auto;
       padding: 10px;
       box-sizing: border-box;
-      font-size: 12px;
-      overflow-y: auto;
-      z-index: 6;
-      pointer-events: none;
+      overflow: hidden;
+      position: relative;
+      align-items: center;
     }
-    .overlay p {
-      margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+    .product-card img {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
     }
-    .product-card:hover .overlay { display: block; }
-    .product-card .overlay.active { display: block !important; }
     .product-card h3 {
       font-size: 14px;
+      min-height: 36px;
       margin: 5px 0;
-      color: #4A2C59;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      text-align: center;
+      width: 100%;
     }
-    .price { font-size: 14px; color: #4A2C59; margin: 5px 0; }
-    .buy-button {
-      display: inline-block;
-      background-color: #4A2C59;
-      color: #FFFFFF;
-      padding: 6px 12px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 12px;
-      z-index: 10;
-      position: relative;
-    }
-    .presentation {
-      margin: 20px 0;
-      padding: 20px;
-      background-color: #f8f8f8;
-      border-radius: 5px;
-    }
-    .presentation h2 {
-      font-size: 20px;
-      color: #4A2C59;
-      margin-bottom: 10px;
-    }
-    .presentation p {
+    .product-card .price {
       font-size: 14px;
-      color: #333;
-      line-height: 1.6;
+      margin: 5px 0;
+      text-align: center;
+      width: 100%;
     }
+    .product-card .buy-button {
+      padding: 6px 12px;
+      font-size: 12px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      pointer-events: auto;
+      width: 100%;
+      max-width: 140px;
+      display: block;
+    }
+    .info-icon {
+      display: block !important;
+      pointer-events: auto;
+      z-index: 10;
+    }
+    .overlay {
+      max-height: 150px;
+      pointer-events: auto;
+      width: 100%;
+      box-sizing: border-box;
+      top: 0;
+      padding: 40px 10px 10px 10px;
+      display: none;
+      z-index: 6;
+    }
+    .overlay.active {
+      display: block !important;
+      z-index: 6;
+    }
+    .product-card:hover .overlay {
+      display: none;
+    }
+    .presentation { margin: 10px 0; padding: 10px; }
     .gallery {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
+      flex-direction: row;
+      flex-wrap: nowrap;
     }
-    .gallery img {
-      width: 200px;
+    .gallery img:not(:first-child) {
+      display: none;
+    }
+    .gallery img:first-child {
+      width: 100%;
       height: 150px;
       object-fit: cover;
       border-radius: 5px;
     }
-    .banner-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-    footer {
-      background-color: #F8F8F8;
-      padding: 15px;
-      text-align: center;
-      border-top: 1px solid #E0E0E0;
-      width: 100%;
-    }
-    .footer-content {
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
       display: flex;
+      flex-direction: row;
+      gap: 2px;
       justify-content: center;
-      align-items: center;
-      gap: 20px;
-      font-size: 14px;
-      color: #4A2C59;
+      transition: opacity 0.3s ease;
     }
-    .footer-content a {
+    .language-selector a {
+      font-size: 9px;
+      padding: 2px 4px;
       color: #4A2C59;
       text-decoration: none;
-      transition: color 0.3s ease;
+      border-radius: 2px;
+      background-color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
     }
-    .footer-content a:hover {
-      color: #7B4F8C;
+    .language-selector a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
     }
-    .social-icon {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      margin-right: 5px;
+    .language-selector a.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
     }
-    .fa-whatsapp {
-      font-size: 20px;
-      color: #25D366;
-      margin-right: 5px;
+    footer {
+      background-color: #F8F8F8; /* Match sidebar */
+      padding: 15px;
+      text-align: center;
+      width: 100%;
+      position: relative;
+      min-height: 60px;
+      overflow: visible;
+      clear: both;
     }
-    @media (max-width: 768px) {
-      body { display: block; }
-      .header {
-        display: block;
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 120;
-      }
-      .logo { max-width: 100px; }
-      .hamburger { display: block; }
-      #sidebar {
-        width: 100%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
-        z-index: 100;
-        border-bottom: 1px solid #E0E0E0;
-        padding-top: 50px;
-        padding-bottom: 20px;
-        overflow-y: auto;
-        box-sizing: border-box;
-      }
-      #sidebar.open {
-        transform: translateX(0);
-      }
-      .logo-container { display: none; }
-      main {
-        margin-left: 0;
-        margin-top: 120px;
-        padding: 10px;
-        width: 100%;
-      }
-      main h1 {
-        font-size: 20px;
-        line-height: 1.4;
-        margin-bottom: 15px;
-      }
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-      .product-card {
-        width: 100%;
-        min-height: 320px;
-        height: auto;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 10px;
-        box-sizing: border-box;
-      }
-      .product-card img {
-        width: 160px;
-        height: 160px;
-        object-fit: contain;
-        margin: 0 auto;
-      }
-      .product-card h3 {
-        font-size: 14px;
-        margin: 5px 0;
-        color: #4A2C59;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: normal;
-        max-height: 40px;
-      }
-      .product-card .price {
-        font-size: 14px;
-        color: #4A2C59;
-        margin: 5px 0;
-      }
-      .product-card .buy-button {
-        margin-top: 5px;
-      }
-      .product-card:hover .overlay { display: none; }
-      .info-icon { display: block !important; }
-      .overlay {
-        max-height: 150px;
-        pointer-events: auto;
-        width: 100%;
-        box-sizing: border-box;
-        top: 0;
-        padding: 40px 10px 10px 10px;
-      }
-      .overlay.active { display: block !important; }
-      .presentation { margin: 10px 0; padding: 10px; }
-      .gallery { flex-direction: column; }
-      .desktop-only { display: none; }
-      .gallery img.banner-image {
-        width: 100%;
-        height: auto;
-        max-height: 150px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-      .footer-content {
-        flex-wrap: wrap;
-        gap: 15px;
-        font-size: 12px;
-      }
-      .social-icon, .fa-whatsapp {
-        width: 18px;
-        height: 18px;
-        font-size: 18px;
-      }
+  }
+  @media (min-width: 769px) {
+    .header { display: none; }
+    .hamburger { display: none; }
+    #sidebar {
+      transform: translateX(0);
+      position: fixed;
+      width: 250px;
+      height: 100vh;
+      top: 0;
+      left: 0;
     }
-    @media (min-width: 769px) {
-      .header { display: none; }
-      .logo-container { display: block; }
-      .info-icon { display: none; }
+    .logo-container { display: block; }
+    .main-content {
+      margin-left: 290px;
+      width: calc(100% - 290px);
+      padding: 20px;
+      padding-bottom: 200px;
+      margin-top: 0;
+      position: relative;
+      overflow: visible;
     }
-  </style>
+    .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      justify-content: start;
+    }
+    .product-card {
+      pointer-events: auto;
+      max-width: 250px;
+      min-height: 360px;
+      width: 100%;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .product-card img {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+    .product-card h3 {
+      font-size: 16px;
+      min-height: 40px;
+      white-space: normal;
+      text-align: center;
+      margin: 10px 0;
+      width: 100%;
+    }
+    .product-card .price {
+      font-size: 16px;
+      margin: 5px 0;
+      text-align: center;
+      width: 100%;
+    }
+    .product-card .buy-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 180px;
+      display: block;
+      box-sizing: border-box;
+    }
+    .info-icon { display: none; }
+    .overlay {
+      max-height: 150px;
+      pointer-events: none;
+      z-index: 6;
+    }
+    .product-card:hover .overlay { display: block; }
+  }
+</style>
 </head>
 <body>
+  <div class="language-selector">
+    <a href="/es/bodegas/luigi-bosca.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/de/bodegas/luigi-bosca.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
+    <a href="/en/bodegas/luigi-bosca.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+  </div>
   <header class="header">
-    <a href="/index.html" title="Volver al inicio">
+    <a href="/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
-      <a href="/index.html" title="Volver al inicio">
+      <a href="/" title="Volver al inicio">
         <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
@@ -371,13 +607,13 @@
       <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
       <ul>
         
-        <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+        <li><a href="/es/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
         
-        <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+        <li><a href="/es/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
         
-        <li><a href="/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
+        <li><a href="/es/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
         
-        <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
+        <li><a href="/es/provincias/salta.html" class="nav-link">Salta</a></li>
         
       </ul>
     </details>
@@ -385,121 +621,112 @@
       <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
       <ul>
         
-        <li><a href="/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
+        <li><a href="/es/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
         
-        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+        <li><a href="/es/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
         
-        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+        <li><a href="/es/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
-        <li><a href="/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+        <li><a href="/es/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
         
-        <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+        <li><a href="/es/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
         
-        <li><a href="/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
+        <li><a href="/es/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
         
-        <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+        <li><a href="/es/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
         
-        <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+        <li><a href="/es/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
         
-        <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+        <li><a href="/es/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
         
-        <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+        <li><a href="/es/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
         
-        <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+        <li><a href="/es/bodegas/chakana.html" class="nav-link">Chakana</a></li>
         
-        <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+        <li><a href="/es/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
         
-        <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+        <li><a href="/es/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
         
-        <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+        <li><a href="/es/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
-        <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+        <li><a href="/es/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
-        <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+        <li><a href="/es/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
-        <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+        <li><a href="/es/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
         
-        <li><a href="/bodegas/luigi-bosca.html" class="nav-link active">Luigi Bosca</a></li>
+        <li><a href="/es/bodegas/luigi-bosca.html" class="nav-link active">Luigi Bosca</a></li>
         
-        <li><a href="/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
+        <li><a href="/es/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
         
-        <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+        <li><a href="/es/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
         
       </ul>
     </details>
     <details open>
       <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
       <ul>
-        <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
+        <li><a href="/es/eventos" class="nav-link">Ver Eventos</a></li>
       </ul>
     </details>
   </nav>
-  <main>
+  <main class="main-content">
     <h1>Luigi Bosca</h1>
-    
     <section class="presentation">
       <h2>Acerca de Luigi Bosca</h2>
       <p>Conectando el pasado, el presente y el futuro, cuatro generaciones de Arizu expresamos 120 años de excelencia mientras nos proyectamos hacia el futuro respetando nuestras raíces y destacando la singularidad del terruño mendocino</p>
       <div class="gallery">
         
-        <img src="/images/bodegas/luigi-bosca-1.jpg" alt="Banner de Luigi Bosca" class="banner-image">
+        <img src="/images/bodegas/luigi-bosca-1.jpg" alt="Banner de Luigi Bosca">
         
-        <img src="/images/bodegas/luigi-bosca-2.jpg" alt="Imagen 2 de Luigi Bosca" class="desktop-only">
+        <img src="/images/bodegas/luigi-bosca-2.jpg" alt="Imagen 2 de Luigi Bosca">
         
-        <img src="/images/bodegas/luigi-bosca-3.jpg" alt="Imagen 3 de Luigi Bosca" class="desktop-only">
+        <img src="/images/bodegas/luigi-bosca-3.jpg" alt="Imagen 3 de Luigi Bosca">
         
-        <img src="/images/bodegas/luigi-bosca-4.jpg" alt="Imagen 4 de Luigi Bosca" class="desktop-only">
+        <img src="/images/bodegas/luigi-bosca-4.jpg" alt="Imagen 4 de Luigi Bosca">
         
       </div>
     </section>
-    
-    <div class="product-grid">
+    <section class="products-section">
+      <h2>Vinos destacados de Luigi Bosca</h2>
       
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="Luján de Cuyo"
-           data-bodega="Luigi Bosca"
-           data-tipo="Malbec"
-           data-anada="2022"
-           data-precio="28.45"
-           data-precio-rango="20+ EUR"
-           data-altura="900">
-        <img src="/images/small/luigi-bosca-malbec-2022.jpg" alt="Botella de LUIGI BOSCA Malbec">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Luigi Bosca</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
+      <div class="product-grid">
+        
+        <div class="product-card" data-overlay-id="luigi-bosca-malbec">
+          <img src="/images/small/luigi-bosca-malbec-2022.jpg" alt="Botella de LUIGI BOSCA Malbec"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="luigi-bosca-malbec">🍷</div>
+          <div class="overlay" data-overlay-id="luigi-bosca-malbec">
+            <p><strong>Bodega:</strong> Luigi Bosca</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 900 msnm</p>
+            <p><strong>Añada:</strong> 2022</p>
+          </div>
+          <h3>LUIGI BOSCA Malbec</h3>
+          <p class="price">€28.45</p>
+          <a href="/es/vinos/luigi-bosca-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
-        <h3>LUIGI BOSCA Malbec</h3>
-        <p class="price">€28.45</p>
-        <a href="/vinos/luigi-bosca-malbec-2022.html" class="buy-button">Comprar</a>
+        
+        <div class="product-card" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">
+          <img src="/images/small/luigi-bosca-de-sangre-malbec-doc-2021.jpg" alt="Botella de LUIGI BOSCA De SANGRE Malbec D.O.C"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <div class="info-icon" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">🍷</div>
+          <div class="overlay" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">
+            <p><strong>Bodega:</strong> Luigi Bosca</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 900 msnm</p>
+            <p><strong>Añada:</strong> 2021</p>
+          </div>
+          <h3>LUIGI BOSCA De SANGRE Malbec D.O.C</h3>
+          <p class="price">€36.45</p>
+          <a href="/es/vinos/luigi-bosca-de-sangre-malbec-doc-2021.html" class="buy-button">Comprar</a>
+        </div>
+        
       </div>
       
-      <div class="product-card"
-           data-provincia="Mendoza"
-           data-region="Luján de Cuyo"
-           data-bodega="Luigi Bosca"
-           data-tipo="Malbec"
-           data-anada="2021"
-           data-precio="36.45"
-           data-precio-rango="20+ EUR"
-           data-altura="900">
-        <img src="/images/small/luigi-bosca-de-sangre-malbec-doc-2021.jpg" alt="Botella de LUIGI BOSCA De SANGRE Malbec D.O.C">
-        <span class="info-icon">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Luigi Bosca</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> Luján de Cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-        </div>
-        <h3>LUIGI BOSCA De SANGRE Malbec D.O.C</h3>
-        <p class="price">€36.45</p>
-        <a href="/vinos/luigi-bosca-de-sangre-malbec-doc-2021.html" class="buy-button">Comprar</a>
-      </div>
-      
-    </div>
+    </section>
   </main>
   <footer>
     <div class="footer-content">
@@ -507,10 +734,12 @@
         <i class="fab fa-whatsapp"></i>
         <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
       </span>
+      <span class="separator">|</span>
       <span>
         <img src="/images/x-icon.png" alt="X" class="social-icon">
         <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
       </span>
+      <span class="separator">|</span>
       <span>
         <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
         <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
@@ -521,9 +750,15 @@
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
       const sidebar = document.querySelector('#sidebar');
-      hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
+      let isSidebarOpen = false;
+      if (hamburger && sidebar) {
+        hamburger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isSidebarOpen = !isSidebarOpen;
+          sidebar.classList.toggle('open', isSidebarOpen);
+        });
+      }
+
       const navLinks = document.querySelectorAll('.nav-link');
       const currentPath = window.location.pathname;
       navLinks.forEach(link => {
@@ -535,23 +770,70 @@
           }
         }
       });
-      const infoIcons = document.querySelectorAll('.info-icon');
-      infoIcons.forEach(icon => {
-        ['click', 'touchstart'].forEach(eventType => {
-          icon.addEventListener(eventType, (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+
+      // Mobile-only overlay toggle
+      if (window.innerWidth <= 768) {
+        const infoIcons = document.querySelectorAll('.info-icon');
+        infoIcons.forEach(icon => {
+          ['click', 'touchstart'].forEach(eventType => {
+            icon.addEventListener(eventType, (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              const overlayId = icon.getAttribute('data-overlay-id');
+              const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+              const isActive = overlay.classList.contains('active');
+              document.querySelectorAll('.overlay.active').forEach(ov => {
+                ov.classList.remove('active');
+              });
+              if (!isActive && overlay) {
+                overlay.classList.add('active');
+              }
+            }, { passive: false });
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
             document.querySelectorAll('.overlay.active').forEach(overlay => {
               overlay.classList.remove('active');
             });
-            const overlay = icon.closest('.product-card').querySelector('.overlay');
-            if (overlay) {
-              overlay.classList.toggle('active');
-              console.log(`Overlay toggled for card: ${icon.closest('.product-card').querySelector('h3').textContent}`);
+          }
+        });
+      }
+
+      const languageSelector = document.querySelector('.language-selector');
+      let lastScrollY = window.scrollY;
+      let scrollThreshold = 50;
+      if (languageSelector) {
+        window.addEventListener('scroll', () => {
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            languageSelector.classList.add('hidden');
+          } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            languageSelector.classList.remove('hidden');
+          }
+          lastScrollY = currentScrollY;
+        });
+
+        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+        langLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = link.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+            let newPath = currentPath;
+            if (targetLang === 'es') {
+              newPath = currentPath.replace(/\/(de|en)\/bodegas\//, '/es/bodegas/');
+            } else {
+              newPath = currentPath.replace(/\/(es|de|en)\/bodegas\//, `/${targetLang}/bodegas/`);
+            }
+            if (newPath !== currentPath) {
+              window.location.href = newPath;
             }
           });
         });
-      });
+      }
+
       const buyButtons = document.querySelectorAll('.buy-button');
       buyButtons.forEach(button => {
         button.addEventListener('click', (e) => {
