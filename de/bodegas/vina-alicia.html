@@ -100,7 +100,7 @@ Mit mehr als 25 Ja...">
       z-index: 1;
       flex: 1;
       padding: 20px;
-      padding-bottom: 100px; /* Space for footer */
+      padding-bottom: 150px; /* Increased for footer */
     }
     .main-content h1 {
       font-size: 24px;
@@ -243,7 +243,7 @@ Mit mehr als 25 Ja...">
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: normal;
-      text-align: left;
+      text-align: center;
     }
     .product-card .price {
       font-size: 16px;
@@ -251,7 +251,7 @@ Mit mehr als 25 Ja...">
       margin: 10px 0;
       position: relative;
       z-index: 7;
-      text-align: left;
+      text-align: center;
     }
     .product-card .buy-button {
       padding: 8px 16px;
@@ -279,8 +279,10 @@ Mit mehr als 25 Ja...">
       text-align: left;
       width: 100%;
       margin-top: auto;
-      z-index: 1;
+      z-index: 10; /* Higher to avoid overlap */
       position: relative;
+      min-height: 60px; /* Ensure footer has space */
+      box-sizing: border-box;
     }
     footer p {
       margin: 0;
@@ -373,7 +375,7 @@ Mit mehr als 25 Ja...">
         margin-left: 0;
         width: 100%;
         padding: 10px;
-        padding-bottom: 120px; /* Space for footer */
+        padding-bottom: 180px; /* Increased for footer */
         margin-top: 120px;
       }
       .banner { height: 200px; }
@@ -401,12 +403,12 @@ Mit mehr als 25 Ja...">
         font-size: 14px;
         min-height: 36px;
         margin: 5px 0;
-        text-align: left;
+        text-align: center;
       }
       .product-card .price {
         font-size: 14px;
         margin: 5px 0;
-        text-align: left;
+        text-align: center;
       }
       .product-card .buy-button {
         padding: 6px 12px;
@@ -483,7 +485,8 @@ Mit mehr als 25 Ja...">
       footer {
         padding: 20px;
         position: relative;
-        z-index: 1;
+        z-index: 10;
+        min-height: 60px;
       }
     }
     @media (min-width: 769px) {
@@ -502,7 +505,7 @@ Mit mehr als 25 Ja...">
         margin-left: 290px;
         width: calc(100% - 290px);
         padding: 20px;
-        padding-bottom: 100px; /* Space for footer */
+        padding-bottom: 150px; /* Increased for footer */
         margin-top: 0;
       }
       .product-grid {
@@ -532,13 +535,13 @@ Mit mehr als 25 Ja...">
         font-size: 16px;
         min-height: 40px;
         white-space: normal;
-        text-align: left;
+        text-align: center;
         margin: 10px 0;
       }
       .product-card .price {
         font-size: 16px;
         margin: 5px 0;
-        text-align: left;
+        text-align: center;
       }
       .product-card .buy-button {
         padding: 8px 16px;
