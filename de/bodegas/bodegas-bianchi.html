@@ -24,7 +24,7 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #fdfdfd;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -99,6 +99,7 @@
       z-index: 1;
       flex: 1;
       padding: 20px;
+      padding-bottom: 100px; /* Space for footer */
     }
     .main-content h1 {
       font-size: 24px;
@@ -273,10 +274,12 @@
     footer {
       background-color: #F5F5DC;
       color: #1A1A1A;
-      padding: 15px;
+      padding: 20px;
       text-align: left;
       width: 100%;
       margin-top: auto;
+      z-index: 1;
+      position: relative;
     }
     footer p {
       margin: 0;
@@ -369,6 +372,7 @@
         margin-left: 0;
         width: 100%;
         padding: 10px;
+        padding-bottom: 120px; /* Space for footer */
         margin-top: 120px;
       }
       .banner { height: 200px; }
@@ -475,6 +479,11 @@
         background-color: #4A2C59;
         color: #FFFFFF;
       }
+      footer {
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
     }
     @media (min-width: 769px) {
       .header { display: none; }
@@ -492,6 +501,7 @@
         margin-left: 290px;
         width: calc(100% - 290px);
         padding: 20px;
+        padding-bottom: 100px; /* Space for footer */
         margin-top: 0;
       }
       .product-grid {
@@ -669,7 +679,7 @@
           </div>
           <h3>Famiglia Bianchi Malbec</h3>
           <p class="price">€18.49</p>
-          <a href="/vinos/famiglia-bianchi-malbec-2021.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/famiglia-bianchi-malbec-2021.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="famiglia-bianchi-malbec">
@@ -685,7 +695,7 @@
           </div>
           <h3>Famiglia Bianchi Malbec</h3>
           <p class="price">€18.49</p>
-          <a href="/vinos/famiglia-bianchi-malbec-2023.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/famiglia-bianchi-malbec-2023.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="famiglia-bianchi-malbec">
@@ -701,7 +711,7 @@
           </div>
           <h3>Famiglia Bianchi Malbec</h3>
           <p class="price">€19.49</p>
-          <a href="/vinos/famiglia-bianchi-malbec-2020.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/famiglia-bianchi-malbec-2020.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="famiglia-bianchi-malbec">
@@ -717,7 +727,7 @@
           </div>
           <h3>Famiglia Bianchi Malbec</h3>
           <p class="price">€21.49</p>
-          <a href="/vinos/famiglia-bianchi-malbec-2014.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/famiglia-bianchi-malbec-2014.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="gran-famiglia-malbec">
@@ -733,7 +743,7 @@
           </div>
           <h3>Gran Famiglia  Malbec</h3>
           <p class="price">€25.49</p>
-          <a href="/vinos/gran-famiglia-malbec-2017.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/gran-famiglia-malbec-2017.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="particular-malbec-2020">
@@ -749,7 +759,7 @@
           </div>
           <h3>Particular Malbec 2020</h3>
           <p class="price">€27.99</p>
-          <a href="/vinos/particular-malbec-2020.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/particular-malbec-2020.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="particular-malbec">
@@ -765,7 +775,7 @@
           </div>
           <h3>Particular Malbec</h3>
           <p class="price">€28.99</p>
-          <a href="/vinos/particular-malbec-2018.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/particular-malbec-2018.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="particular-malbec">
@@ -781,7 +791,7 @@
           </div>
           <h3>Particular Malbec</h3>
           <p class="price">€29.99</p>
-          <a href="/vinos/particular-malbec-2019.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/particular-malbec-2019.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="enzo-bianchi-gran-malbec">
@@ -797,7 +807,7 @@
           </div>
           <h3>Enzo Bianchi Gran Malbec</h3>
           <p class="price">€62.99</p>
-          <a href="/vinos/enzo-bianchi-gran-malbec-2019.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/enzo-bianchi-gran-malbec-2019.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="particular-malbec-2019-magnum-15-lts">
@@ -813,7 +823,7 @@
           </div>
           <h3>Particular Malbec 2019 Magnum 1.5 Lts</h3>
           <p class="price">€67.99</p>
-          <a href="/vinos/particular-malbec-2019-magnum-15-lts-2019.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/particular-malbec-2019-magnum-15-lts-2019.html" class="buy-button">Kaufen</a>
         </div>
         
       </div>

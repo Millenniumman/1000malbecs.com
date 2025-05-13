@@ -24,7 +24,7 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #fdfdfd;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -99,6 +99,7 @@
       z-index: 1;
       flex: 1;
       padding: 20px;
+      padding-bottom: 100px; /* Space for footer */
     }
     .main-content h1 {
       font-size: 24px;
@@ -273,10 +274,12 @@
     footer {
       background-color: #F5F5DC;
       color: #1A1A1A;
-      padding: 15px;
+      padding: 20px;
       text-align: left;
       width: 100%;
       margin-top: auto;
+      z-index: 1;
+      position: relative;
     }
     footer p {
       margin: 0;
@@ -369,6 +372,7 @@
         margin-left: 0;
         width: 100%;
         padding: 10px;
+        padding-bottom: 120px; /* Space for footer */
         margin-top: 120px;
       }
       .banner { height: 200px; }
@@ -475,6 +479,11 @@
         background-color: #4A2C59;
         color: #FFFFFF;
       }
+      footer {
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
     }
     @media (min-width: 769px) {
       .header { display: none; }
@@ -492,6 +501,7 @@
         margin-left: 290px;
         width: calc(100% - 290px);
         padding: 20px;
+        padding-bottom: 100px; /* Space for footer */
         margin-top: 0;
       }
       .product-grid {
@@ -671,7 +681,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Temático Malbec</h3>
           <p class="price">€9.99</p>
-          <a href="/vinos/temtico-malbec-2023.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/temtico-malbec-2023.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="pink-malbec-rosado">
@@ -687,7 +697,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Pink Malbec Rosado</h3>
           <p class="price">€13.49</p>
-          <a href="/vinos/pink-malbec-rosado-2023.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/pink-malbec-rosado-2023.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="ique-malbec">
@@ -703,7 +713,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Ique Malbec</h3>
           <p class="price">€13.49</p>
-          <a href="/vinos/ique-malbec-2021.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/ique-malbec-2021.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="zapam-zucum-organic-malbec">
@@ -719,7 +729,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Zapam Zucum Organic Malbec</h3>
           <p class="price">€13.99</p>
-          <a href="/vinos/zapam-zucum-organic-malbec-2022.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/zapam-zucum-organic-malbec-2022.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="fantasia-malbec">
@@ -735,7 +745,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Fantasía Malbec</h3>
           <p class="price">€13.99</p>
-          <a href="/vinos/fantasa-malbec-2023.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/fantasa-malbec-2023.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="lois-sparkling-malbec">
@@ -751,7 +761,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Lois Sparkling Malbec</h3>
           <p class="price">€19.49</p>
-          <a href="/vinos/lois-sparkling-malbec-2021.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/lois-sparkling-malbec-2021.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-barrancos">
@@ -767,7 +777,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec 'Los Barrancos'</h3>
           <p class="price">€25.49</p>
-          <a href="/vinos/foster-malbec-los-barrancos-2021.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-los-barrancos-2021.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec">
@@ -783,7 +793,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec</h3>
           <p class="price">€25.49</p>
-          <a href="/vinos/foster-malbec-2020.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-altepes">
@@ -799,7 +809,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec 'Los Altepes'</h3>
           <p class="price">€25.49</p>
-          <a href="/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec">
@@ -815,7 +825,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec</h3>
           <p class="price">€26.49</p>
-          <a href="/vinos/foster-malbec-2018.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-barrancos">
@@ -831,7 +841,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec 'Los Barrancos'</h3>
           <p class="price">€27.49</p>
-          <a href="/vinos/foster-malbec-los-barrancos-2015.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-los-barrancos-2015.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec">
@@ -847,7 +857,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec</h3>
           <p class="price">€27.49</p>
-          <a href="/vinos/foster-malbec-2015.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-altepes">
@@ -863,7 +873,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec 'Los Altepes'</h3>
           <p class="price">€27.49</p>
-          <a href="/vinos/foster-malbec-los-altepes-2015.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-los-altepes-2015.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-magnum-125-lts">
@@ -879,7 +889,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec Magnum 1.25 lts</h3>
           <p class="price">€51.99</p>
-          <a href="/vinos/foster-malbec-magnum-125-lts-2015.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-magnum-125-lts-2015.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="gran-poetico-malbec">
@@ -895,7 +905,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Gran Poético Malbec</h3>
           <p class="price">€51.99</p>
-          <a href="/vinos/gran-potico-malbec-2013.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/gran-potico-malbec-2013.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-limited-edition">
@@ -911,7 +921,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec Limited Edition</h3>
           <p class="price">€51.99</p>
-          <a href="/vinos/foster-malbec-limited-edition-2019.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-limited-edition-2019.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-limited-edition">
@@ -927,7 +937,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec Limited Edition</h3>
           <p class="price">€55.99</p>
-          <a href="/vinos/foster-malbec-limited-edition-2013.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-limited-edition-2013.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-magnum-125-lts">
@@ -943,7 +953,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Foster  Malbec Magnum 1.25 lts</h3>
           <p class="price">€59.99</p>
-          <a href="/vinos/foster-malbec-magnum-125-lts-2007.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/foster-malbec-magnum-125-lts-2007.html" class="buy-button">Kaufen</a>
         </div>
         
         <div class="product-card" data-overlay-id="enrique-foster-malbec-firmado">
@@ -959,7 +969,7 @@ Wir glauben an Teamwork und Professionalität, Engagement und Verantwortung jede
           </div>
           <h3>Enrique Foster  Malbec Firmado</h3>
           <p class="price">€88.99</p>
-          <a href="/vinos/enrique-foster-malbec-firmado-2013.html" class="buy-button">Kaufen</a>
+          <a href="/de/vinos/enrique-foster-malbec-firmado-2013.html" class="buy-button">Kaufen</a>
         </div>
         
       </div>
