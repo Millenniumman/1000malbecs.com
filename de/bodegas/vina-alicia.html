@@ -58,13 +58,14 @@ Mit mehr als 25 Ja...">
       z-index: 100;
       transition: transform 0.3s ease;
     }
-    .logo-container { text-align: center; margin-bottom: 20px; display: block; }
+    .logo-container { text-align: left; margin-bottom: 20px; display: block; }
     #sidebar h2 {
       font-size: 18px;
       font-weight: 600;
       color: #4A2C59;
       margin-bottom: 15px;
       text-transform: uppercase;
+      text-align: left;
     }
     #sidebar details { margin-bottom: 15px; }
     #sidebar details:first-of-type { margin-bottom: 25px; }
@@ -76,6 +77,7 @@ Mit mehr als 25 Ja...">
       padding: 5px 0;
       display: flex;
       align-items: center;
+      text-align: left;
     }
     #sidebar summary i { margin-right: 10px; color: #4A2C59; }
     #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
@@ -88,6 +90,7 @@ Mit mehr als 25 Ja...">
       padding: 5px 10px;
       border-radius: 3px;
       transition: all 0.3s ease;
+      text-align: left;
     }
     .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
     .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
@@ -102,6 +105,7 @@ Mit mehr als 25 Ja...">
       font-size: 24px;
       color: #4A2C59;
       margin-bottom: 20px;
+      text-align: left;
     }
     .banner {
       width: 100%;
@@ -113,25 +117,27 @@ Mit mehr als 25 Ja...">
     }
     .presentation {
       max-width: 800px;
-      margin: 0 auto 40px;
-      text-align: center;
+      margin: 0 0 40px;
+      text-align: left;
     }
     .presentation h2 {
       color: #4A2C59;
       font-size: 1.8em;
       margin-bottom: 15px;
+      text-align: left;
     }
     .presentation p {
       font-size: 1.1em;
       color: #333;
       line-height: 1.6;
+      text-align: left;
     }
     .gallery {
       display: flex;
       gap: 10px;
       margin-top: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
     }
     .gallery img {
       width: 200px;
@@ -141,13 +147,13 @@ Mit mehr als 25 Ja...">
     }
     .products-section {
       max-width: 1200px;
-      margin: 0 auto 40px;
+      margin: 0 0 40px;
     }
     .products-section h2 {
       color: #4A2C59;
       font-size: 1.8em;
       margin-bottom: 20px;
-      text-align: center;
+      text-align: left;
     }
     .product-grid {
       display: grid;
@@ -155,8 +161,7 @@ Mit mehr als 25 Ja...">
       gap: 30px;
       margin-bottom: 30px;
       width: 100%;
-      justify-items: center;
-      justify-content: center;
+      justify-content: start;
     }
     .product-card {
       background-color: #FFFFFF;
@@ -164,7 +169,7 @@ Mit mehr als 25 Ja...">
       border-radius: 5px;
       padding: 15px;
       padding-bottom: 20px;
-      text-align: center;
+      text-align: left;
       position: relative;
       overflow: visible;
       max-width: 250px;
@@ -172,19 +177,16 @@ Mit mehr als 25 Ja...">
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      align-items: center;
       z-index: 5;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       box-sizing: border-box;
       width: 100%;
-      margin: 0 auto;
     }
     .product-card img {
       width: 200px;
       height: 200px;
       object-fit: contain;
-      margin: 0 auto;
-      display: block;
+      margin: 0;
     }
     .info-icon {
       position: absolute;
@@ -224,6 +226,7 @@ Mit mehr als 25 Ja...">
       margin: 2px 0;
       color: #FFFFFF !important;
       visibility: visible !important;
+      text-align: left;
     }
     .product-card:hover .overlay {
       display: block;
@@ -239,7 +242,7 @@ Mit mehr als 25 Ja...">
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: normal;
-      text-align: center;
+      text-align: left;
     }
     .product-card .price {
       font-size: 16px;
@@ -247,7 +250,7 @@ Mit mehr als 25 Ja...">
       margin: 10px 0;
       position: relative;
       z-index: 7;
-      text-align: center;
+      text-align: left;
     }
     .product-card .buy-button {
       padding: 8px 16px;
@@ -263,6 +266,7 @@ Mit mehr als 25 Ja...">
       text-decoration: none;
       border-radius: 5px;
       pointer-events: auto;
+      display: inline-block;
     }
     .product-card .buy-button:hover {
       background-color: #5A1D39;
@@ -271,7 +275,7 @@ Mit mehr als 25 Ja...">
       background-color: #F5F5DC;
       color: #1A1A1A;
       padding: 15px;
-      text-align: center;
+      text-align: left;
       width: 100%;
       margin-top: auto;
     }
@@ -372,6 +376,7 @@ Mit mehr als 25 Ja...">
       .product-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        justify-content: start;
       }
       .product-card {
         width: 100%;
@@ -386,18 +391,18 @@ Mit mehr als 25 Ja...">
       .product-card img {
         width: 140px;
         height: 140px;
-        margin: 0 auto;
-        display: block;
-        pointer-events: none;
+        margin: 0;
       }
       .product-card h3 {
         font-size: 14px;
         min-height: 36px;
         margin: 5px 0;
+        text-align: left;
       }
       .product-card .price {
         font-size: 14px;
         margin: 5px 0;
+        text-align: left;
       }
       .product-card .buy-button {
         padding: 6px 12px;
@@ -429,11 +434,18 @@ Mit mehr als 25 Ja...">
         display: none;
       }
       .presentation { margin: 10px 0; padding: 10px; }
-      .gallery { flex-direction: column; }
-      .gallery img {
+      .gallery {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      .gallery img:not(:first-child) {
+        display: none;
+      }
+      .gallery img:first-child {
         width: 100%;
-        height: auto;
-        max-height: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
       }
       .language-selector {
         position: fixed;
@@ -487,16 +499,14 @@ Mit mehr als 25 Ja...">
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 30px;
         max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
+        justify-content: start;
       }
       .product-card {
         pointer-events: auto;
         max-width: 250px;
         min-height: 360px;
         width: 100%;
-        align-items: center;
+        align-items: flex-start;
         padding: 15px;
         display: flex;
         flex-direction: column;
@@ -506,20 +516,19 @@ Mit mehr als 25 Ja...">
       .product-card img {
         width: 200px;
         height: 200px;
-        display: block;
-        margin: 0 auto;
+        margin: 0;
       }
       .product-card h3 {
         font-size: 16px;
         min-height: 40px;
         white-space: normal;
-        text-align: center;
+        text-align: left;
         margin: 10px 0;
       }
       .product-card .price {
         font-size: 16px;
         margin: 5px 0;
-        text-align: center;
+        text-align: left;
       }
       .product-card .buy-button {
         padding: 8px 16px;
@@ -637,13 +646,13 @@ Obwohl das Weingut eine Produktionskapazität von 50.000 Litern hat, vermarktet 
 "Viña Alicia" genießt heute das Prestige und die internationale Anerkennung der bekanntesten Persönlichkeiten in der Welt des Weins.</p>
       <div class="gallery">
         
-        <img src="/images/bodegas/vina-alicia-1.jpg" alt="Banner de Viña Alicia" class="banner-image">
+        <img src="/images/bodegas/vina-alicia-1.jpg" alt="Banner de Viña Alicia">
         
-        <img src="/images/bodegas/vina-alicia-2.jpg" alt="Imagen 2 de Viña Alicia" class="desktop-only">
+        <img src="/images/bodegas/vina-alicia-2.jpg" alt="Imagen 2 de Viña Alicia">
         
-        <img src="/images/bodegas/vina-alicia-3.jpg" alt="Imagen 3 de Viña Alicia" class="desktop-only">
+        <img src="/images/bodegas/vina-alicia-3.jpg" alt="Imagen 3 de Viña Alicia">
         
-        <img src="/images/bodegas/vina-alicia-4.jpg" alt="Imagen 4 de Viña Alicia" class="desktop-only">
+        <img src="/images/bodegas/vina-alicia-4.jpg" alt="Imagen 4 de Viña Alicia">
         
       </div>
     </section>
