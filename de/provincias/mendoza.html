@@ -15,6 +15,8 @@
   
   <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/provincias/mendoza.html">
   
+  <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/provincias/mendoza.html">
+  
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -187,12 +189,14 @@
       .info-icon { display: block; }
       .product-card:hover .overlay { display: none; }
       .overlay.active { display: block; }
+      .overlay { font-size: 10px; }
     }
     .overlay p { margin: 5px 0; }
     .product-card h3 {
       font-size: 1.2em;
       color: #4A2C59;
       margin: 10px 0;
+      min-height: 3em;
     }
     .product-card .price {
       font-size: 1.1em;
@@ -283,6 +287,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
+      cursor: pointer;
     }
     .language-selector a:hover {
       background-color: #4A2C59;
@@ -309,8 +314,9 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/provincias/mendoza.html" class="" aria-label="Español">ES 🇪🇸</a>
-    <a href="/de/provincias/mendoza.html" class="active" aria-label="Alemán">DE 🇩🇪</a>
+    <a href="/es/provincias/mendoza.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/de/provincias/mendoza.html" class="active" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
+    <a href="/en/provincias/mendoza.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
     <a href="/de/" title="Volver al inicio">
@@ -345,41 +351,41 @@
         
         <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
         
-        <li><a href="/de/bodegas/alicia-vineyard.html" class="nav-link">Alicia Vineyard</a></li>
-        
-        <li><a href="/de/bodegas/araujo-haus.html" class="nav-link">Araujo Haus</a></li>
+        <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
         
         <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
         
         <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
         
-        <li><a href="/de/bodegas/bodega-ich-werde-einen-tee-trinken.html" class="nav-link">Bodega, ich werde einen Tee trinken</a></li>
+        <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+        
+        <li><a href="/de/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
+        
+        <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+        
+        <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
         
         <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
         
-        <li><a href="/de/bodegas/budegas-bianchi.html" class="nav-link">Budegas Bianchi</a></li>
+        <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
         
-        <li><a href="/de/bodegas/einzelhandel.html" class="nav-link">Einzelhandel</a></li>
+        <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+        
+        <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
         
         <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
         
         <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
         
-        <li><a href="/de/bodegas/goyenechea-weingut.html" class="nav-link">Goyenechea Weingut</a></li>
+        <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
         
-        <li><a href="/de/bodegas/jasminmonet.html" class="nav-link">Jasminmonet</a></li>
+        <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
         
         <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
         
-        <li><a href="/de/bodegas/lagerhaus-eigentlich.html" class="nav-link">Lagerhaus eigentlich</a></li>
-        
         <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
         
-        <li><a href="/de/bodegas/loffel.html" class="nav-link">Löffel</a></li>
-        
-        <li><a href="/de/bodegas/siebter-weingut.html" class="nav-link">Siebter Weingut</a></li>
-        
-        <li><a href="/de/bodegas/vistalba-finca-und-winder.html" class="nav-link">Vistalba Finca und Winder</a></li>
+        <li><a href="/de/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
         
         <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
         
@@ -405,62 +411,62 @@
       
       <div class="product-grid">
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/enrique-foster-malbec-firmado-2013.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="enrique-foster-malbec-firmado">
+          <img src="/images/small/enrique-foster-malbec-firmado-2013.jpg" alt="Flasche von Enrique Foster  Malbec Firmado"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
+          <div class="info-icon" data-overlay-id="enrique-foster-malbec-firmado">🍷</div>
+          <div class="overlay" data-overlay-id="enrique-foster-malbec-firmado">
             <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
             <p><strong>Provinz:</strong> Mendoza</p>
-            <p><strong>Region:</strong> Uco Valley</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
             <p><strong>Höhe:</strong> 950 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Enrique Foster  Malbec Firmado</h3>
           <p class="price">€88.99</p>
           <a href="/vinos/enrique-foster-malbec-firmado-2013.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/particular-malbec-2019-magnum-15-lts-2019.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="particular-malbec-2019-magnum-15-lts">
+          <img src="/images/small/particular-malbec-2019-magnum-15-lts-2019.jpg" alt="Flasche von Particular Malbec 2019 Magnum 1.5 Lts"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Budegas Bianchi</p>
+          <div class="info-icon" data-overlay-id="particular-malbec-2019-magnum-15-lts">🍷</div>
+          <div class="overlay" data-overlay-id="particular-malbec-2019-magnum-15-lts">
+            <p><strong>Weingut:</strong> Bodegas Bianchi</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> San Rafael</p>
             <p><strong>Höhe:</strong> 800 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Particular Malbec 2019 Magnum 1.5 Lts</h3>
           <p class="price">€67.99</p>
           <a href="/vinos/particular-malbec-2019-magnum-15-lts-2019.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/tomero-cuartel-41-malbec-2016.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="tomero-cuartel-41-malbec">
+          <img src="/images/small/tomero-cuartel-41-malbec-2016.jpg" alt="Flasche von Tomero  Cuartel 41 Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Vistalba Finca und Winder</p>
+          <div class="info-icon" data-overlay-id="tomero-cuartel-41-malbec">🍷</div>
+          <div class="overlay" data-overlay-id="tomero-cuartel-41-malbec">
+            <p><strong>Weingut:</strong> Finca y Bodega Vistalba</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 1000 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Tomero  Cuartel 41 Malbec</h3>
           <p class="price">€67.99</p>
           <a href="/vinos/tomero-cuartel-41-malbec-2016.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/jorge-rubio-gran-reserva-malbec-magnum-2019.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="jorge-rubio-gran-reserva-malbec-magnum">
+          <img src="/images/small/jorge-rubio-gran-reserva-malbec-magnum-2019.jpg" alt="Flasche von JORGE RUBIO GRAN RESERVA Malbec Magnum"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
+          <div class="info-icon" data-overlay-id="jorge-rubio-gran-reserva-malbec-magnum">🍷</div>
+          <div class="overlay" data-overlay-id="jorge-rubio-gran-reserva-malbec-magnum">
             <p><strong>Weingut:</strong> Jorge Rubio</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> General Alvear</p>
             <p><strong>Höhe:</strong> 520 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>JORGE RUBIO GRAN RESERVA Malbec Magnum</h3>
           <p class="price">€66.99</p>
           <a href="/vinos/jorge-rubio-gran-reserva-malbec-magnum-2019.html" class="buy-button">Kaufen</a>
         </div>
@@ -469,62 +475,62 @@
       
       <div class="product-grid">
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/weinert-malbec-1995.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="weinert-malbec">
+          <img src="/images/small/weinert-malbec-1995.jpg" alt="Flasche von Weinert Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
+          <div class="info-icon" data-overlay-id="weinert-malbec">🍷</div>
+          <div class="overlay" data-overlay-id="weinert-malbec">
             <p><strong>Weingut:</strong> Weinert Bodega y Cavas</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 900 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Weinert Malbec</h3>
           <p class="price">€63.99</p>
           <a href="/vinos/weinert-malbec-1995.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/via-alicia-malbec-2010.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="vina-alicia-malbec">
+          <img src="/images/small/via-alicia-malbec-2010.jpg" alt="Flasche von Viña Alicia Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Alicia Vineyard</p>
+          <div class="info-icon" data-overlay-id="vina-alicia-malbec">🍷</div>
+          <div class="overlay" data-overlay-id="vina-alicia-malbec">
+            <p><strong>Weingut:</strong> Viña Alicia</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 1100 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Viña Alicia Malbec</h3>
           <p class="price">€61.99</p>
           <a href="/vinos/via-alicia-malbec-2010.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/135-aniversario-2022.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="135-aniversario">
+          <img src="/images/small/135-aniversario-2022.jpg" alt="Flasche von 135 Aniversario"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Goyenechea Weingut</p>
+          <div class="info-icon" data-overlay-id="135-aniversario">🍷</div>
+          <div class="overlay" data-overlay-id="135-aniversario">
+            <p><strong>Weingut:</strong> Bodega Goyenechea</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> San Rafael</p>
             <p><strong>Höhe:</strong> 520 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>135 Aniversario</h3>
           <p class="price">€39.99</p>
           <a href="/vinos/135-aniversario-2022.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/cicchitti-malbec-edicin-limitada-2016.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="cicchitti-malbec-edicion-limitada">
+          <img src="/images/small/cicchitti-malbec-edicin-limitada-2016.jpg" alt="Flasche von Cicchitti Malbec Edición Limitada"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Löffel</p>
+          <div class="info-icon" data-overlay-id="cicchitti-malbec-edicion-limitada">🍷</div>
+          <div class="overlay" data-overlay-id="cicchitti-malbec-edicion-limitada">
+            <p><strong>Weingut:</strong> Cicchitti</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Guaymallen</p>
             <p><strong>Höhe:</strong> 700 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Cicchitti Malbec Edición Limitada</h3>
           <p class="price">€37.59</p>
           <a href="/vinos/cicchitti-malbec-edicin-limitada-2016.html" class="buy-button">Kaufen</a>
         </div>
@@ -533,62 +539,62 @@
       
       <div class="product-grid">
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/luigi-bosca-de-sangre-malbec-doc-2021.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">
+          <img src="/images/small/luigi-bosca-de-sangre-malbec-doc-2021.jpg" alt="Flasche von LUIGI BOSCA De SANGRE Malbec D.O.C"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
+          <div class="info-icon" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">🍷</div>
+          <div class="overlay" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">
             <p><strong>Weingut:</strong> Luigi Bosca</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 900 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>LUIGI BOSCA De SANGRE Malbec D.O.C</h3>
           <p class="price">€36.45</p>
           <a href="/vinos/luigi-bosca-de-sangre-malbec-doc-2021.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/eral-bravo-malbec-2017.png" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="eral-bravo-malbec">
+          <img src="/images/small/eral-bravo-malbec-2017.png" alt="Flasche von Eral Bravo  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
+          <div class="info-icon" data-overlay-id="eral-bravo-malbec">🍷</div>
+          <div class="overlay" data-overlay-id="eral-bravo-malbec">
             <p><strong>Weingut:</strong> Eral Bravo</p>
             <p><strong>Provinz:</strong> Mendoza</p>
-            <p><strong>Region:</strong> Uco Valley</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
             <p><strong>Höhe:</strong> 1200 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Eral Bravo  Malbec</h3>
           <p class="price">€25.49</p>
           <a href="/vinos/eral-bravo-malbec-2017.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="chakana-nuna-malbec-bio">
+          <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Flasche von CHAKANA Nuna Malbec Bio"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Einzelhandel</p>
+          <div class="info-icon" data-overlay-id="chakana-nuna-malbec-bio">🍷</div>
+          <div class="overlay" data-overlay-id="chakana-nuna-malbec-bio">
+            <p><strong>Weingut:</strong> Chakana</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 1000 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>CHAKANA Nuna Malbec Bio</h3>
           <p class="price">€19.19</p>
           <a href="/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="caminante-de-los-mundos-malbec-bio">
+          <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Flasche von Caminante de los Mundos Malbec Bio"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Jasminmonet</p>
+          <div class="info-icon" data-overlay-id="caminante-de-los-mundos-malbec-bio">🍷</div>
+          <div class="overlay" data-overlay-id="caminante-de-los-mundos-malbec-bio">
+            <p><strong>Weingut:</strong> Jasmine Monet</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Tupungato</p>
             <p><strong>Höhe:</strong> 1000 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Caminante de los Mundos Malbec Bio</h3>
           <p class="price">€18.19</p>
           <a href="/vinos/caminante-de-los-mundos-malbec-bio-2021.html" class="buy-button">Kaufen</a>
         </div>
@@ -597,47 +603,47 @@
       
       <div class="product-grid">
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/la-grupa-syrah-malbec-125-2022.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="la-grupa-syrah-malbec-125">
+          <img src="/images/small/la-grupa-syrah-malbec-125-2022.jpg" alt="Flasche von LA Grupa Syrah Malbec 1.25"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
+          <div class="info-icon" data-overlay-id="la-grupa-syrah-malbec-125">🍷</div>
+          <div class="overlay" data-overlay-id="la-grupa-syrah-malbec-125">
             <p><strong>Weingut:</strong> Bodega Estancia Mendoza</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Tupungato</p>
             <p><strong>Höhe:</strong> 700 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>LA Grupa Syrah Malbec 1.25</h3>
           <p class="price">€15.99</p>
           <a href="/vinos/la-grupa-syrah-malbec-125-2022.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/sptima-malbec-2022.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="septima-malbec">
+          <img src="/images/small/sptima-malbec-2022.jpg" alt="Flasche von Septima Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Siebter Weingut</p>
+          <div class="info-icon" data-overlay-id="septima-malbec">🍷</div>
+          <div class="overlay" data-overlay-id="septima-malbec">
+            <p><strong>Weingut:</strong> Bodega Séptima</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 900 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Septima Malbec</h3>
           <p class="price">€15.49</p>
           <a href="/vinos/sptima-malbec-2022.html" class="buy-button">Kaufen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="nan.html">
-          <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Flasche von nan"
+        <div class="product-card" data-overlay-id="graciano-reserva-blend">
+          <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Flasche von Graciano Reserva Blend"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <div class="info-icon" data-overlay-id="nan.html">🍷</div>
-          <div class="overlay" data-overlay-id="nan.html">
-            <p><strong>Weingut:</strong> Araujo Haus</p>
+          <div class="info-icon" data-overlay-id="graciano-reserva-blend">🍷</div>
+          <div class="overlay" data-overlay-id="graciano-reserva-blend">
+            <p><strong>Weingut:</strong> Casa Araujo</p>
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> San Rafael</p>
             <p><strong>Höhe:</strong> 520 msnm</p>
           </div>
-          <h3>nan</h3>
+          <h3>Graciano Reserva Blend</h3>
           <p class="price">€13.59</p>
           <a href="/vinos/graciano-reserva-blend-2023.html" class="buy-button">Kaufen</a>
         </div>
@@ -666,10 +672,10 @@
       <div class="wineries-grid">
         
         <div class="winery-card">
-          <img src="/images/bodegas/loffel-1.jpg" alt="Löffel"
+          <img src="/images/bodegas/cicchitti-1.jpg" alt="Cicchitti"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Löffel</h4>
-          <a href="/de/bodegas/loffel.html">Weingut besuchen</a>
+          <h4>Cicchitti</h4>
+          <a href="/de/bodegas/cicchitti.html">Weingut besuchen</a>
         </div>
         
       </div>
@@ -678,17 +684,24 @@
       <div class="wineries-grid">
         
         <div class="winery-card">
-          <img src="/images/bodegas/alicia-vineyard-1.jpg" alt="Alicia Vineyard"
+          <img src="/images/bodegas/bodega-septima-1.jpg" alt="Bodega Séptima"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Alicia Vineyard</h4>
-          <a href="/de/bodegas/alicia-vineyard.html">Weingut besuchen</a>
+          <h4>Bodega Séptima</h4>
+          <a href="/de/bodegas/bodega-septima.html">Weingut besuchen</a>
         </div>
         
         <div class="winery-card">
-          <img src="/images/bodegas/einzelhandel-1.jpg" alt="Einzelhandel"
+          <img src="/images/bodegas/chakana-1.jpg" alt="Chakana"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Einzelhandel</h4>
-          <a href="/de/bodegas/einzelhandel.html">Weingut besuchen</a>
+          <h4>Chakana</h4>
+          <a href="/de/bodegas/chakana.html">Weingut besuchen</a>
+        </div>
+        
+        <div class="winery-card">
+          <img src="/images/bodegas/finca-y-bodega-vistalba-1.jpg" alt="Finca y Bodega Vistalba"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+          <h4>Finca y Bodega Vistalba</h4>
+          <a href="/de/bodegas/finca-y-bodega-vistalba.html">Weingut besuchen</a>
         </div>
         
         <div class="winery-card">
@@ -699,17 +712,10 @@
         </div>
         
         <div class="winery-card">
-          <img src="/images/bodegas/siebter-weingut-1.jpg" alt="Siebter Weingut"
+          <img src="/images/bodegas/vina-alicia-1.jpg" alt="Viña Alicia"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Siebter Weingut</h4>
-          <a href="/de/bodegas/siebter-weingut.html">Weingut besuchen</a>
-        </div>
-        
-        <div class="winery-card">
-          <img src="/images/bodegas/vistalba-finca-und-winder-1.jpg" alt="Vistalba Finca und Winder"
-               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Vistalba Finca und Winder</h4>
-          <a href="/de/bodegas/vistalba-finca-und-winder.html">Weingut besuchen</a>
+          <h4>Viña Alicia</h4>
+          <a href="/de/bodegas/vina-alicia.html">Weingut besuchen</a>
         </div>
         
         <div class="winery-card">
@@ -725,24 +731,24 @@
       <div class="wineries-grid">
         
         <div class="winery-card">
-          <img src="/images/bodegas/araujo-haus-1.jpg" alt="Araujo Haus"
+          <img src="/images/bodegas/bodega-goyenechea-1.jpg" alt="Bodega Goyenechea"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Araujo Haus</h4>
-          <a href="/de/bodegas/araujo-haus.html">Weingut besuchen</a>
+          <h4>Bodega Goyenechea</h4>
+          <a href="/de/bodegas/bodega-goyenechea.html">Weingut besuchen</a>
         </div>
         
         <div class="winery-card">
-          <img src="/images/bodegas/budegas-bianchi-1.jpg" alt="Budegas Bianchi"
+          <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Bodegas Bianchi"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Budegas Bianchi</h4>
-          <a href="/de/bodegas/budegas-bianchi.html">Weingut besuchen</a>
+          <h4>Bodegas Bianchi</h4>
+          <a href="/de/bodegas/bodegas-bianchi.html">Weingut besuchen</a>
         </div>
         
         <div class="winery-card">
-          <img src="/images/bodegas/goyenechea-weingut-1.jpg" alt="Goyenechea Weingut"
+          <img src="/images/bodegas/casa-araujo-1.jpg" alt="Casa Araujo"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Goyenechea Weingut</h4>
-          <a href="/de/bodegas/goyenechea-weingut.html">Weingut besuchen</a>
+          <h4>Casa Araujo</h4>
+          <a href="/de/bodegas/casa-araujo.html">Weingut besuchen</a>
         </div>
         
       </div>
@@ -758,15 +764,15 @@
         </div>
         
         <div class="winery-card">
-          <img src="/images/bodegas/jasminmonet-1.jpg" alt="Jasminmonet"
+          <img src="/images/bodegas/jasmine-monet-1.jpg" alt="Jasmine Monet"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
-          <h4>Jasminmonet</h4>
-          <a href="/de/bodegas/jasminmonet.html">Weingut besuchen</a>
+          <h4>Jasmine Monet</h4>
+          <a href="/de/bodegas/jasmine-monet.html">Weingut besuchen</a>
         </div>
         
       </div>
       
-      <h3>Uco Valley</h3>
+      <h3>Valle de Uco</h3>
       <div class="wineries-grid">
         
         <div class="winery-card">
@@ -838,7 +844,8 @@
             document.querySelectorAll('.overlay.active').forEach(overlay => {
               overlay.classList.remove('active');
             });
-            const overlay = icon.closest('.product-card').querySelector('.overlay');
+            const overlayId = icon.getAttribute('data-overlay-id');
+            const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
             if (overlay) {
               overlay.classList.toggle('active');
             }
@@ -847,7 +854,7 @@
       });
 
       document.addEventListener('click', (e) => {
-        if (!e.target.closest('.product-card')) {
+        if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
           document.querySelectorAll('.overlay.active').forEach(overlay => {
             overlay.classList.remove('active');
           });
@@ -866,6 +873,24 @@
             languageSelector.classList.remove('hidden');
           }
           lastScrollY = currentScrollY;
+        });
+
+        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+        langLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = link.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+            let newPath = currentPath;
+            if (targetLang === 'es') {
+              newPath = currentPath.replace(/\/(de|en)\/provincias\//, '/es/provincias/');
+            } else {
+              newPath = currentPath.replace(/\/(es|de|en)\/provincias\//, `/${targetLang}/provincias/`);
+            }
+            if (newPath !== currentPath) {
+              window.location.href = newPath;
+            }
+          });
         });
       }
 
