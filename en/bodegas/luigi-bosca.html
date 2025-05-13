@@ -24,7 +24,7 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #fdfdfd;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -99,6 +99,7 @@
       z-index: 1;
       flex: 1;
       padding: 20px;
+      padding-bottom: 100px; /* Space for footer */
     }
     .main-content h1 {
       font-size: 24px;
@@ -273,10 +274,12 @@
     footer {
       background-color: #F5F5DC;
       color: #1A1A1A;
-      padding: 15px;
+      padding: 20px;
       text-align: left;
       width: 100%;
       margin-top: auto;
+      z-index: 1;
+      position: relative;
     }
     footer p {
       margin: 0;
@@ -369,6 +372,7 @@
         margin-left: 0;
         width: 100%;
         padding: 10px;
+        padding-bottom: 120px; /* Space for footer */
         margin-top: 120px;
       }
       .banner { height: 200px; }
@@ -475,6 +479,11 @@
         background-color: #4A2C59;
         color: #FFFFFF;
       }
+      footer {
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
     }
     @media (min-width: 769px) {
       .header { display: none; }
@@ -492,6 +501,7 @@
         margin-left: 290px;
         width: calc(100% - 290px);
         padding: 20px;
+        padding-bottom: 100px; /* Space for footer */
         margin-top: 0;
       }
       .product-grid {
@@ -669,7 +679,7 @@
           </div>
           <h3>LUIGI BOSCA Malbec</h3>
           <p class="price">€28.45</p>
-          <a href="/vinos/luigi-bosca-malbec-2022.html" class="buy-button">Buy</a>
+          <a href="/en/vinos/luigi-bosca-malbec-2022.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">
@@ -685,7 +695,7 @@
           </div>
           <h3>LUIGI BOSCA De SANGRE Malbec D.O.C</h3>
           <p class="price">€36.45</p>
-          <a href="/vinos/luigi-bosca-de-sangre-malbec-doc-2021.html" class="buy-button">Buy</a>
+          <a href="/en/vinos/luigi-bosca-de-sangre-malbec-doc-2021.html" class="buy-button">Buy</a>
         </div>
         
       </div>
