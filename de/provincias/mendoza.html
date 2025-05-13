@@ -61,7 +61,9 @@
       z-index: 100;
       transition: transform 0.3s ease;
     }
-    .logo-container { text-align: center; margin-bottom: 20px; display: block; }
+    .logo-container { text-align: center; margin
+
+-bottom: 20px; display: block; }
     #sidebar h2 {
       font-size: 18px;
       font-weight: 600;
@@ -141,11 +143,12 @@
     }
     .product-grid, .wineries-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 30px;
       margin-bottom: 30px;
       width: 100%;
       justify-items: center;
+      justify-content: center;
     }
     .product-card {
       background-color: #FFFFFF;
@@ -507,11 +510,12 @@
         margin-top: 0;
       }
       .product-grid, .wineries-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 30px;
-        max-width: 800px;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
+        justify-content: center;
       }
       .product-card {
         pointer-events: auto;
@@ -599,13 +603,13 @@
       <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
       <ul>
         
-        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</li>
         
-        <li><a href="/de/provincias/mendoza.html" class="nav-link active">Mendoza</a></li>
+        <li><a href="/de/provincias/mendoza.html" class="nav-link active">Mendoza</li>
         
-        <li><a href="/de/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
+        <li><a href="/de/provincias/neuquen.html" class="nav-link">Neuquén</li>
         
-        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
+        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</li>
         
       </ul>
     </details>
@@ -672,7 +676,6 @@
     <section class="products-section">
       <h2>Hervorgehobene Weine aus Mendoza</h2>
       
-      
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="enrique-foster-malbec-firmado">
@@ -684,6 +687,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Valle de Uco</p>
             <p><strong>Höhe:</strong> 950 msnm</p>
+            <p><strong>Jahrgang:</strong> 2013</p>
           </div>
           <h3>Enrique Foster  Malbec Firmado</h3>
           <p class="price">€88.99</p>
@@ -699,6 +703,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> San Rafael</p>
             <p><strong>Höhe:</strong> 800 msnm</p>
+            <p><strong>Jahrgang:</strong> 2019</p>
           </div>
           <h3>Particular Malbec 2019 Magnum 1.5 Lts</h3>
           <p class="price">€67.99</p>
@@ -714,6 +719,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 1000 msnm</p>
+            <p><strong>Jahrgang:</strong> 2016</p>
           </div>
           <h3>Tomero  Cuartel 41 Malbec</h3>
           <p class="price">€67.99</p>
@@ -729,15 +735,12 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> General Alvear</p>
             <p><strong>Höhe:</strong> 520 msnm</p>
+            <p><strong>Jahrgang:</strong> 2019</p>
           </div>
           <h3>JORGE RUBIO GRAN RESERVA Malbec Magnum</h3>
           <p class="price">€66.99</p>
           <a href="/vinos/jorge-rubio-gran-reserva-malbec-magnum-2019.html" class="buy-button">Kaufen</a>
         </div>
-        
-      </div>
-      
-      <div class="product-grid">
         
         <div class="product-card" data-overlay-id="weinert-malbec">
           <img src="/images/small/weinert-malbec-1995.jpg" alt="Flasche von Weinert Malbec"
@@ -748,6 +751,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 900 msnm</p>
+            <p><strong>Jahrgang:</strong> 1995</p>
           </div>
           <h3>Weinert Malbec</h3>
           <p class="price">€63.99</p>
@@ -763,6 +767,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 1100 msnm</p>
+            <p><strong>Jahrgang:</strong> 2010</p>
           </div>
           <h3>Viña Alicia Malbec</h3>
           <p class="price">€61.99</p>
@@ -778,6 +783,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> San Rafael</p>
             <p><strong>Höhe:</strong> 520 msnm</p>
+            <p><strong>Jahrgang:</strong> 2022</p>
           </div>
           <h3>135 Aniversario</h3>
           <p class="price">€39.99</p>
@@ -793,15 +799,12 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Guaymallen</p>
             <p><strong>Höhe:</strong> 700 msnm</p>
+            <p><strong>Jahrgang:</strong> 2016</p>
           </div>
           <h3>Cicchitti Malbec Edición Limitada</h3>
           <p class="price">€37.59</p>
           <a href="/vinos/cicchitti-malbec-edicin-limitada-2016.html" class="buy-button">Kaufen</a>
         </div>
-        
-      </div>
-      
-      <div class="product-grid">
         
         <div class="product-card" data-overlay-id="luigi-bosca-de-sangre-malbec-doc">
           <img src="/images/small/luigi-bosca-de-sangre-malbec-doc-2021.jpg" alt="Flasche von LUIGI BOSCA De SANGRE Malbec D.O.C"
@@ -812,6 +815,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 900 msnm</p>
+            <p><strong>Jahrgang:</strong> 2021</p>
           </div>
           <h3>LUIGI BOSCA De SANGRE Malbec D.O.C</h3>
           <p class="price">€36.45</p>
@@ -827,6 +831,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Valle de Uco</p>
             <p><strong>Höhe:</strong> 1200 msnm</p>
+            <p><strong>Jahrgang:</strong> 2017</p>
           </div>
           <h3>Eral Bravo  Malbec</h3>
           <p class="price">€25.49</p>
@@ -842,6 +847,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 1000 msnm</p>
+            <p><strong>Jahrgang:</strong> 2022</p>
           </div>
           <h3>CHAKANA Nuna Malbec Bio</h3>
           <p class="price">€19.19</p>
@@ -857,15 +863,12 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Tupungato</p>
             <p><strong>Höhe:</strong> 1000 msnm</p>
+            <p><strong>Jahrgang:</strong> 2021</p>
           </div>
           <h3>Caminante de los Mundos Malbec Bio</h3>
           <p class="price">€18.19</p>
           <a href="/vinos/caminante-de-los-mundos-malbec-bio-2021.html" class="buy-button">Kaufen</a>
         </div>
-        
-      </div>
-      
-      <div class="product-grid">
         
         <div class="product-card" data-overlay-id="la-grupa-syrah-malbec-125">
           <img src="/images/small/la-grupa-syrah-malbec-125-2022.jpg" alt="Flasche von LA Grupa Syrah Malbec 1.25"
@@ -876,6 +879,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Tupungato</p>
             <p><strong>Höhe:</strong> 700 msnm</p>
+            <p><strong>Jahrgang:</strong> 2022</p>
           </div>
           <h3>LA Grupa Syrah Malbec 1.25</h3>
           <p class="price">€15.99</p>
@@ -891,6 +895,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> Luján de Cuyo</p>
             <p><strong>Höhe:</strong> 900 msnm</p>
+            <p><strong>Jahrgang:</strong> 2022</p>
           </div>
           <h3>Septima Malbec</h3>
           <p class="price">€15.49</p>
@@ -906,6 +911,7 @@
             <p><strong>Provinz:</strong> Mendoza</p>
             <p><strong>Region:</strong> San Rafael</p>
             <p><strong>Höhe:</strong> 520 msnm</p>
+            <p><strong>Jahrgang:</strong> 2023</p>
           </div>
           <h3>Graciano Reserva Blend</h3>
           <p class="price">€13.59</p>
@@ -913,7 +919,6 @@
         </div>
         
       </div>
-      
       
     </section>
     <section class="wineries-section">
