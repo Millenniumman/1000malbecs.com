@@ -22,9 +22,12 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
       background-color: #fdfdfd;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     .header {
       display: none;
@@ -67,6 +70,7 @@
       text-transform: uppercase;
     }
     #sidebar details { margin-bottom: 15px; }
+    #sidebar details:first-of-type { margin-bottom: 25px; }
     #sidebar summary {
       font-size: 16px;
       font-weight: 500;
@@ -90,10 +94,12 @@
     }
     .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
     .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-    main {
+    .main-content {
       margin-left: 290px;
-      padding: 20px;
       width: calc(100% - 290px);
+      z-index: 1;
+      flex: 1;
+      padding: 20px;
     }
     .banner {
       width: 100%;
@@ -135,35 +141,50 @@
     }
     .product-grid, .wineries-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 30px;
+      width: 100%;
+      justify-items: center;
     }
     .product-card {
-      background-color: #fff;
+      background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
       border-radius: 5px;
       padding: 15px;
+      padding-bottom: 20px;
       text-align: center;
       position: relative;
+      overflow: visible;
+      max-width: 250px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 5;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      pointer-events: none;
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0 auto;
     }
     .product-card img {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       object-fit: contain;
-      margin-bottom: 10px;
-      pointer-events: none;
+      margin: 0 auto;
+      display: block;
+      float: none;
+      justify-self: center;
     }
     .info-icon {
-      display: block !important;
-      pointer-events: auto;
-      z-index: 10;
       position: absolute;
       top: 10px;
       right: 10px;
       font-size: 20px;
       cursor: pointer;
+      z-index: 10;
+      display: none;
       color: #4A2C59;
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 50%;
@@ -171,53 +192,72 @@
       height: 40px;
       line-height: 40px;
       text-align: center;
+      touch-action: manipulation;
+      pointer-events: auto;
     }
     .overlay {
-      max-height: 150px;
-      pointer-events: auto;
-      width: 100%;
-      box-sizing: border-box;
-      top: 0;
-      padding: 40px 10px 10px 10px;
       display: none;
-      z-index: 6;
-      background-color: rgba(74, 44, 89, 0.8);
-      color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-height: 150px;
+      background-color: rgba(74, 44, 89, 0.8) !important;
+      color: #FFFFFF;
+      padding: 40px 10px 10px 10px;
+      box-sizing: border-box;
       font-size: 12px;
       overflow-y: auto;
-    }
-    .overlay.active {
-      display: block !important;
       z-index: 6;
+      pointer-events: none;
+    }
+    .overlay p {
+      margin: 2px 0;
+      color: #FFFFFF !important;
+      visibility: visible !important;
     }
     .product-card:hover .overlay {
-      display: none;
+      display: block;
     }
-    .overlay p { margin: 5px 0; }
+    .product-card .overlay.active {
+      display: block !important;
+    }
     .product-card h3 {
-      font-size: 1.2em;
-      color: #4A2C59;
+      font-size: 16px;
       margin: 10px 0;
-      min-height: 3em;
-      pointer-events: none;
+      color: #4A2C59;
+      min-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      text-align: center;
     }
     .product-card .price {
-      font-size: 1.1em;
+      font-size: 16px;
       color: #4A2C59;
       margin: 10px 0;
-      pointer-events: none;
+      position: relative;
+      z-index: 7;
+      text-align: center;
     }
-    .buy-button {
-      display: inline-block;
-      padding: 10px 20px;
+    .product-card .buy-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      max-width: none;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 7;
+      text-align: center;
       background-color: #4A2C59;
-      color: #fff;
+      color: #f5e6ff;
       text-decoration: none;
       border-radius: 5px;
-      font-size: 1em;
       pointer-events: auto;
     }
-    .buy-button:hover { background-color: #5A1D39; }
+    .product-card .buy-button:hover {
+      background-color: #5A1D39;
+    }
     .winery-card {
       background-color: #fff;
       border: 1px solid #E0E0E0;
@@ -228,8 +268,8 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .winery-card img {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       object-fit: contain;
       margin-bottom: 10px;
     }
@@ -251,39 +291,39 @@
     }
     footer {
       background-color: #F5F5DC;
+      color: #1A1A1A;
       padding: 15px;
       text-align: center;
+      width: 100%;
+      margin-top: auto;
     }
-    .footer-content span {
-      margin: 0 10px;
+    footer p {
+      margin: 0;
       font-size: 1em;
+      display: inline;
+      color: #1A1A1A;
     }
-    .footer-content a {
+    footer a {
       color: #4A2C59;
       text-decoration: none;
+      margin: 0 5px;
     }
-    .footer-content a:hover { text-decoration: underline; }
-    .social-icon { width: 1em; vertical-align: middle; margin-right: 5px; }
-    @media (max-width: 768px) {
-      .header { display: block; position: fixed; top: 10px; right: 10px; z-index: 120; }
-      .logo { max-width: 100px; }
-      .hamburger { display: block; }
-      #sidebar {
-        width: 100%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
-      }
-      #sidebar.open { transform: translateX(0); }
-      main { margin-left: 0; width: 100%; padding: 10px; margin-top: 120px; }
-      .banner { height: 200px; }
-      .product-grid, .wineries-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-      .product-card img, .winery-card img { width: 120px; height: 120px; }
-      .product-card h3 { font-size: 1em; }
-      .product-card .price, .buy-button { font-size: 0.9em; }
-      .overlay { font-size: 10px; max-height: 120px; }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer i {
+      margin-right: 5px;
+      font-size: 1em;
+      vertical-align: middle;
+    }
+    footer img.social-icon {
+      width: 1em;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    footer span.separator {
+      color: #1A1A1A;
+      margin: 0 5px;
     }
     .language-selector {
       position: fixed;
@@ -308,7 +348,6 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      cursor: pointer;
     }
     .language-selector a:hover {
       background-color: #4A2C59;
@@ -319,16 +358,220 @@
       color: #FFFFFF;
     }
     @media (max-width: 768px) {
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 120;
+      }
+      .logo { max-width: 100px; }
+      .hamburger { display: block; z-index: 110; }
+      #sidebar {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        border-bottom: 1px solid #E0E0E0;
+        padding: 20px;
+        padding-top: 50px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #sidebar.open { transform: translateX(0); }
+      #sidebar ul { max-height: none; padding-bottom: 20px; }
+      #sidebar li { margin: 8px 0; }
+      .logo-container { display: none; }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+        margin-top: 120px;
+      }
+      .banner { height: 200px; }
+      .product-grid, .wineries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .product-card {
+        width: 100%;
+        max-width: none;
+        height: 260px;
+        min-height: auto;
+        padding: 10px;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+      }
+      .product-card img {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+        display: block;
+        pointer-events: none;
+      }
+      .product-card h3 {
+        font-size: 14px;
+        min-height: 36px;
+        margin: 5px 0;
+      }
+      .product-card .price {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      .product-card .buy-button {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        pointer-events: auto;
+      }
+      .info-icon {
+        display: block !important;
+        pointer-events: auto;
+        z-index: 10;
+      }
+      .overlay {
+        max-height: 150px;
+        pointer-events: auto;
+        width: 100%;
+        box-sizing: border-box;
+        top: 0;
+        padding: 40px 10px 10px 10px;
+        display: none;
+        z-index: 6;
+      }
+      .overlay.active {
+        display: block !important;
+        z-index: 6;
+      }
+      .product-card:hover .overlay {
+        display: none;
+      }
       .language-selector {
+        position: fixed;
         top: 10px;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 130;
+        display: flex;
+        flex-direction: row;
         gap: 2px;
+        justify-content: center;
+        transition: opacity 0.3s ease;
       }
       .language-selector a {
         font-size: 9px;
         padding: 2px 4px;
+        color: #4A2C59;
+        text-decoration: none;
+        border-radius: 2px;
         background-color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+      }
+      .language-selector a:hover {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+      }
+      .language-selector a.active {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+      }
+    }
+    @media (max-width: 480px) {
+      footer p { font-size: 0.8em; }
+      footer a { margin: 0 3px; }
+      footer span.separator { margin: 0 3px; }
+    }
+    @media (min-width: 769px) {
+      .header { display: none; }
+      .hamburger { display: none; }
+      #sidebar {
+        transform: translateX(0);
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        top: 0;
+        left: 0;
+      }
+      .logo-container { display: block; }
+      .main-content {
+        margin-left: 290px;
+        width: calc(100% - 290px);
+        padding: 20px;
+        margin-top: 0;
+      }
+      .product-grid, .wineries-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .product-card {
+        pointer-events: auto;
+        max-width: 250px;
+        min-height: 360px;
+        width: 100%;
+        align-items: center;
+        padding: 15px;
+        padding-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+      }
+      .product-card img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+        float: none;
+      }
+      .product-card h3 {
+        font-size: 16px;
+        min-height: 40px;
+        white-space: normal;
+        text-align: center;
+        margin: 10px 0;
+      }
+      .product-card .price {
+        font-size: 16px;
+        margin: 5px 0;
+        text-align: center;
+      }
+      .product-card .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+        box-sizing: border-box;
+      }
+      .product-card img, .product-card h3, .product-card .price {
+        pointer-events: none;
+      }
+      .info-icon { display: none; }
+      .overlay {
+        max-height: 150px;
+        pointer-events: none;
+        z-index: 6;
+      }
+      .product-card:hover .overlay { display: block; }
+      .language-selector {
+        transition: opacity 0.3s ease;
+      }
+      footer {
+        padding: 15px;
+      }
+      footer p {
+        font-size: 1em;
       }
     }
   </style>
@@ -419,7 +662,7 @@
       </ul>
     </details>
   </nav>
-  <main>
+  <main class="main-content">
     <div class="banner" style="background-image: url('/images/provincia/mendoza-1.jpg');">
     </div>
     <section class="presentation">
@@ -821,10 +1064,12 @@
         <i class="fab fa-whatsapp"></i>
         <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Kontakt über WhatsApp">+49 151 5822 4728</a>
       </span>
+      <span class="separator">|</span>
       <span>
         <img src="/images/x-icon.png" alt="X" class="social-icon">
         <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folge uns auf X">@1000malbecs</a>
       </span>
+      <span class="separator">|</span>
       <span>
         <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
         <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folge uns auf Instagram">@1000malbecs</a>
@@ -856,32 +1101,35 @@
         }
       });
 
-      const infoIcons = document.querySelectorAll('.info-icon');
-      infoIcons.forEach(icon => {
-        ['click', 'touchstart'].forEach(eventType => {
-          icon.addEventListener(eventType, (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            const overlayId = icon.getAttribute('data-overlay-id');
-            const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
-            const isActive = overlay.classList.contains('active');
-            document.querySelectorAll('.overlay.active').forEach(ov => {
-              ov.classList.remove('active');
-            });
-            if (!isActive && overlay) {
-              overlay.classList.add('active');
-            }
-          }, { passive: false });
-        });
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
-          document.querySelectorAll('.overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
+      // Mobile-only overlay toggle
+      if (window.innerWidth <= 768) {
+        const infoIcons = document.querySelectorAll('.info-icon');
+        infoIcons.forEach(icon => {
+          ['click', 'touchstart'].forEach(eventType => {
+            icon.addEventListener(eventType, (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              const overlayId = icon.getAttribute('data-overlay-id');
+              const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+              const isActive = overlay.classList.contains('active');
+              document.querySelectorAll('.overlay.active').forEach(ov => {
+                ov.classList.remove('active');
+              });
+              if (!isActive && overlay) {
+                overlay.classList.add('active');
+              }
+            }, { passive: false });
           });
-        }
-      });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
+            document.querySelectorAll('.overlay.active').forEach(overlay => {
+              overlay.classList.remove('active');
+            });
+          }
+        });
+      }
 
       const languageSelector = document.querySelector('.language-selector');
       let lastScrollY = window.scrollY;
