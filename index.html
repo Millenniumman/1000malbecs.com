@@ -751,7 +751,7 @@
 </head>
 <body>
     <div class="language-selector">
-    <a href="index.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/es/index.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
     <a href="/de/index.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
     <a href="/en/index.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
@@ -1053,40 +1053,72 @@
                 e.stopPropagation();
             });
         });
-        const languageSelector = document.querySelector('.language-selector');
-if (languageSelector) {
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-            languageSelector.classList.add('hidden');
-        } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-            languageSelector.classList.remove('hidden');
+       try {
+    const languageSelector = document.querySelector('.language-selector');
+    let lastScrollY = window.scrollY; // Definir variable
+    let scrollThreshold = 50; // Definir variable
+
+    if (languageSelector) {
+        // Redirigir /index.html o / a /es/index.html por defecto
+        const currentPath = window.location.pathname;
+        if (!currentPath.match(/\/(es|de|en)\//) && (currentPath === '/' || currentPath === '/index.html')) {
+            window.location.href = '/es/index.html';
+            return;
         }
-        lastScrollY = currentScrollY;
-    });
-    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-    langLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetLang = link.getAttribute('data-lang');
-            const currentPath = window.location.pathname;
-            let newPath = currentPath;
-            if (targetLang === 'en') {
-                newPath = currentPath.replace(/\/(es|de)\//, '/en/');
+
+        // Manejo del desplazamiento
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                languageSelector.classList.add('hidden');
             } else {
-                newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
+                languageSelector.classList.remove('hidden');
             }
-            if (newPath !== currentPath) {
-                window.location.href = newPath;
+            lastScrollY = currentScrollY;
+        });
+
+        // Manejo de clics en enlaces de idioma
+        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+        langLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Clic en idioma:', link.getAttribute('data-lang')); // Depuración
+                const targetLang = link.getAttribute('data-lang');
+                const currentPath = window.location.pathname;
+                let newPath;
+
+                if (currentPath.match(/\/(es|de|en)\//)) {
+                    // URL con prefijo de idioma (por ejemplo, /es/index.html)
+                    newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
+                } else {
+                    // URL sin prefijo de idioma (por ejemplo, /index.html o /)
+                    const basePath = currentPath === '/' ? '/index.html' : currentPath;
+                    newPath = `/${targetLang}${basePath}`;
+                }
+
+                console.log('Redirigiendo a:', newPath); // Depuración
+                if (newPath !== currentPath) {
+                    window.location.href = newPath;
+                } else {
+                    console.warn('No se requiere redirección, misma ruta.');
+                }
+            });
+        });
+
+        // Establecer idioma activo
+        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || null;
+        langLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
-    });
-    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'en';
-    langLinks.forEach(link => {
-        if (link.getAttribute('data-lang') === currentLang) {
-            link.classList.add('active');
-        }
-    });
+    } else {
+        console.error('No se encontró el selector de idiomas (.language-selector).');
+    }
+} catch (error) {
+    console.error('Error en el selector de idiomas:', error);
 }
         const searchInput = document.querySelector('.search-input');
         const suggestionsList = document.querySelector('.search-suggestions');
