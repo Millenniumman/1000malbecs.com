@@ -1054,42 +1054,40 @@
             });
         });
         const languageSelector = document.querySelector('.language-selector');
-        let lastScrollY = window.scrollY;
-        let scrollThreshold = 50;
-        if (languageSelector) {
-            window.addEventListener('scroll', () => {
-                const currentScrollY = window.scrollY;
-                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                    languageSelector.classList.add('hidden');
-                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                    languageSelector.classList.remove('hidden');
-                }
-                lastScrollY = currentScrollY;
-            });
-            const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-            langLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetLang = link.getAttribute('data-lang');
-                    const currentPath = window.location.pathname;
-                    let newPath = currentPath;
-                    if (targetLang === 'es') {
-                        newPath = currentPath.replace(/\/(de|en)\//, '/es/');
-                    } else {
-                        newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
-                    }
-                    if (newPath !== currentPath) {
-                        window.location.href = newPath;
-                    }
-                });
-            });
-            const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-            langLinks.forEach(link => {
-                if (link.getAttribute('data-lang') === currentLang) {
-                    link.classList.add('active');
-                }
-            });
+if (languageSelector) {
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            languageSelector.classList.add('hidden');
+        } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            languageSelector.classList.remove('hidden');
         }
+        lastScrollY = currentScrollY;
+    });
+    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+    langLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = link.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+            let newPath = currentPath;
+            if (targetLang === 'en') {
+                newPath = currentPath.replace(/\/(es|de)\//, '/en/');
+            } else {
+                newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
+            }
+            if (newPath !== currentPath) {
+                window.location.href = newPath;
+            }
+        });
+    });
+    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'en';
+    langLinks.forEach(link => {
+        if (link.getAttribute('data-lang') === currentLang) {
+            link.classList.add('active');
+        }
+    });
+}
         const searchInput = document.querySelector('.search-input');
         const suggestionsList = document.querySelector('.search-suggestions');
         const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
