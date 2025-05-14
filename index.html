@@ -402,41 +402,76 @@
             margin-right: 5px;
         }
         /* Language selector styles */
-        .language-selector {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 10px;
-            z-index: 200;
-            background: rgba(248, 248, 248, 0.9);
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: opacity 0.3s ease;
-        }
-        .language-selector.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .language-selector a {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border-radius: 3px;
-            overflow: hidden;
-            transition: transform 0.2s ease;
-        }
-        .language-selector a:hover {
-            transform: scale(1.1);
-        }
-        .language-selector .flag-icon {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-        }
-        .header {
-            top: 50px;
-        }
+.language-selector {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 200;
+    background: rgba(248, 248, 248, 0.9);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+.language-selector.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.language-selector a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 3px;
+    transition: transform 0.2s ease;
+    color: #4A2C59;
+    text-decoration: none;
+}
+.language-selector a:hover {
+    transform: scale(1.1);
+    background: #4A2C59;
+    color: #FFFFFF;
+}
+/* Flag icon styles (using Font Awesome with flag-like appearance) */
+.lang-de::before {
+    content: "\f024"; /* fa-flag */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); /* German flag colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.lang-es::before {
+    content: "\f024";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); /* Spanish flag colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.lang-en::before {
+    content: "\f024";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); /* UK flag approximation */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Adjust header to avoid overlap */
+.header {
+    top: 50px;
+}
+@media (max-width: 768px) {
+    .language-selector {
+        top: 50px;
+        right: 10px;
+    }
+    .header {
+        top: 90px;
+    }
+}
         @media (max-width: 768px) {
             body { display: block; }
             .header {
@@ -654,18 +689,12 @@
     </style>
 </head>
 <body>
-    <!-- Language Selector -->
-    <div class="language-selector">
-        <a href="/es/" title="Español" aria-label="Cambiar a Español">
-            <span class="flag-icon flag-icon-es"></span>
-        </a>
-        <a href="/en/" title="English" aria-label="Switch to English">
-            <span class="flag-icon flag-icon-gb"></span>
-        </a>
-        <a href="/pt/" title="Português" aria-label="Mudar para Português">
-            <span class="flag-icon flag-icon-br"></span>
-        </a>
-    </div>
+<!-- Language Selector -->
+<div class="language-selector">
+    <a href="/de/" title="Deutsch" aria-label="Wechseln zu Deutsch" class="lang-de"></a>
+    <a href="/es/" title="Español" aria-label="Cambiar a Español" class="lang-es"></a>
+    <a href="/en/" title="English" aria-label="Switch to English" class="lang-en"></a>
+</div>
 
     <header class="header">
         <a href="/index.html" title="Volver al inicio">
