@@ -402,7 +402,7 @@
             margin-right: 5px;
         }
         /* Language selector styles */
- .language-selector {
+.language-selector {
     position: fixed;
     top: 10px;
     right: 10px;
@@ -410,12 +410,12 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
-  }
-  .language-selector.hidden {
+}
+.language-selector.hidden {
     opacity: 0;
     pointer-events: none;
-  }
-  .language-selector a {
+}
+.language-selector a {
     text-decoration: none;
     color: #4A2C59;
     font-size: 14px;
@@ -425,21 +425,47 @@
     display: flex;
     align-items: center;
     gap: 5px;
-  }
-  .language-selector a:hover {
+}
+.language-selector a:hover {
     background-color: #4A2C59;
     color: #FFFFFF;
-  }
-  .language-selector a.active {
+}
+.language-selector a.active {
     background-color: #4A2C59;
     color: #FFFFFF;
-  }
- @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
     .language-selector {
-        top: 50px;
-        right: 10px;
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 50;
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        justify-content: center;
+        transition: opacity 0.3s ease;
     }
-    .header {
+    .language-selector a {
+        font-size: 9px;
+        padding: 2px 4px;
+        color: #4A2C59;
+        text-decoration: none;
+        border-radius: 2px;
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+    }
+    .language-selector a:hover {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    .language-selector a.active {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+}
+        .header {
         top: 90px;
     }
 }
@@ -661,10 +687,10 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/provincias/la-rioja.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
-    <a href="/de/provincias/la-rioja.html" class="active" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/provincias/la-rioja.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
-  </div>
+    <a href="/es/bodegas/casa-araujo.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/de/bodegas/casa-araujo.html" class="active" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
+    <a href="/en/bodegas/casa-araujo.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+</div>
 
     <header class="header">
         <a href="/index.html" title="Volver al inicio">
@@ -1125,18 +1151,37 @@
         }
 
         // Language selector scroll behavior
-        const languageSelector = document.querySelector('.language-selector');
-        let lastScrollTop = 0;
-
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > 100) {
-                languageSelector.classList.add('hidden');
+       const languageSelector = document.querySelector('.language-selector');
+let lastScrollY = window.scrollY;
+let scrollThreshold = 50;
+if (languageSelector) {
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            languageSelector.classList.add('hidden');
+        } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            languageSelector.classList.remove('hidden');
+        }
+        lastScrollY = currentScrollY;
+    });
+    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+    langLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = link.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+            let newPath = currentPath;
+            if (targetLang === 'es') {
+                newPath = currentPath.replace(/\/(de|en)\/bodegas\//, '/es/bodegas/');
             } else {
-                languageSelector.classList.remove('hidden');
+                newPath = currentPath.replace(/\/(es|de|en)\/bodegas\//, `/${targetLang}/bodegas/`);
             }
-            lastScrollTop = scrollTop;
+            if (newPath !== currentPath) {
+                window.location.href = newPath;
+            }
         });
+    });
+}
     </script>
 </body>
 </html>
