@@ -27,7 +27,10 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        .header { top: 50px; }
+        .header {
+            top: 50px;
+            z-index: 120;
+        }
         .logo { max-width: 150px; height: auto; }
         .hamburger {
             display: none;
@@ -479,7 +482,14 @@
         }
         @media (max-width: 768px) {
             body { display: block; }
-            .header { top: 90px; }
+            .header {
+                top: 10px;
+                left: auto;
+                right: 10px;
+                display: flex;
+                justify-content: flex-end;
+                z-index: 120;
+            }
             .logo {
                 max-width: 80px !important;
                 height: auto !important;
@@ -509,7 +519,7 @@
             .logo-container { display: none; }
             main {
                 margin-left: 0;
-                margin-top: 100px;
+                margin-top: 60px;
                 padding: 10px;
                 width: 100%;
             }
@@ -826,7 +836,7 @@
         <div class="product-grid">
             <div class="product-card" data-overlay-id="casa-araujo-varietal">
                 <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                     onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+ disponible';">
                 <div class="info-icon" data-overlay-id="casa-araujo-varietal">🍷</div>
                 <div class="overlay" data-overlay-id="casa-araujo-varietal">
                     <p><strong>Bodega:</strong> Casa Araujo</p>
