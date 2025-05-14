@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -22,8 +22,9 @@
     <meta name="twitter:description" content="Descubre nuestra selección de Malbecs argentinos, desde la Patagonia hasta la Puna.">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
 
-    <!-- <link rel="stylesheet" href="/styles.css"> COMENTADO PARA EVITAR CONFLICTOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Add flag-icons CSS for flag icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -183,7 +184,6 @@
             z-index: 10;
             position: relative;
         }
-        /* Banner carousel */
         .banner-carousel {
             position: relative;
             width: 100%;
@@ -226,7 +226,6 @@
         .banner-nav button:hover {
             background: #4A2C59;
         }
-        /* Search bar */
         .search-container {
             position: relative;
             max-width: 600px;
@@ -283,7 +282,6 @@
             background: #4A2C59;
             color: #FFFFFF;
         }
-        /* Section titles */
         .section-title {
             font-size: 22px;
             color: #4A2C59;
@@ -291,13 +289,12 @@
             text-align: center;
             text-transform: uppercase;
         }
-        /* Province and winery grids */
         .province-grid, .winery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin-bottom: 40px;
-            position: relative; /* Para flechas de navegación */
+            position: relative;
         }
         .province-card, .winery-card {
             position: relative;
@@ -333,7 +330,7 @@
             opacity: 1;
         }
         .province-card .province-name {
-            display: none; /* Oculto en desktop */
+            display: none;
         }
         .winery-card img.logo {
             width: 100%;
@@ -404,12 +401,48 @@
             color: #25D366;
             margin-right: 5px;
         }
+        /* Language selector styles */
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 200;
+            background: rgba(248, 248, 248, 0.9);
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .language-selector a {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 3px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        .language-selector a:hover {
+            transform: scale(1.1);
+        }
+        .language-selector .flag-icon {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+        .header {
+            top: 50px;
+        }
         @media (max-width: 768px) {
             body { display: block; }
             .header {
                 display: block;
                 position: fixed;
-                top: 10px;
+                top: 90px;
                 right: 10px;
                 z-index: 120;
                 width: auto;
@@ -603,6 +636,10 @@
             .winery-nav {
                 display: flex;
             }
+            .language-selector {
+                top: 50px;
+                right: 10px;
+            }
         }
         @media (min-width: 769px) {
             .header { display: none; }
@@ -614,66 +651,28 @@
                 box-shadow: none;
             }
         }
-       /* Language selector styles */
-        .language-selector {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 10px;
-            z-index: 200; /* Above sidebar (z-index: 100) and hamburger (z-index: 130) */
-            background: rgba(248, 248, 248, 0.9);
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: opacity 0.3s ease;
-        }
-        .language-selector.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .language-selector a {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border-radius: 3px;
-            overflow: hidden;
-            transition: transform 0.2s ease;
-        }
-        .language-selector a:hover {
-            transform: scale(1.1);
-        }
-        .language-selector .flag-icon {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-        }
-        /* Adjust header to avoid overlap with language selector */
-        .header {
-            top: 50px; /* Move header down to avoid overlap */
-        }
-        @media (max-width: 768px) {
-            .language-selector {
-                top: 50px; /* Below hamburger */
-                right: 10px;
-            }
-            .header {
-                top: 90px; /* Adjust for mobile */
-            }
-        }
-
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <a href="/es/" title="Español" aria-label="Cambiar a Español">
+            <span class="flag-icon flag-icon-es"></span>
+        </a>
+        <a href="/en/" title="English" aria-label="Switch to English">
+            <span class="flag-icon flag-icon-gb"></span>
+        </a>
+        <a href="/pt/" title="Português" aria-label="Mudar para Português">
+            <span class="flag-icon flag-icon-br"></span>
+        </a>
+    </div>
+
     <header class="header">
         <a href="/index.html" title="Volver al inicio">
             <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
         </a>
     </header>
     <button class="hamburger">☰</button>
-    <nav id="sidebar">
-        <!-- Sidebar content unchanged -->
-    </nav>
-    <main>    <button class="hamburger">☰</button>
     <nav id="sidebar">
         <div class="logo-container">
             <a href="/index.html" title="Volver al inicio">
@@ -715,27 +714,14 @@
                 <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
             </ul>
         </details>
-<details>
-        <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
-        <ul>
-            <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
-        </ul>
-    </details>
+        <details>
+            <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
+            <ul>
+                <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
+            </ul>
+        </details>
     </nav>
-  <!-- Language Selector -->
-    <div class="language-selector">
-        <a href="/es/" title="Español" aria-label="Cambiar a Español">
-            <span class="flag-icon flag-icon-es"></span>
-        </a>
-        <a href="/en/" title="English" aria-label="Switch to English">
-            <span class="flag-icon flag-icon-gb"></span>
-        </a>
-        <a href="/pt/" title="Português" aria-label="Mudar para Português">
-            <span class="flag-icon flag-icon-br"></span>
-        </a>
-    </div>
     <main>
-        <!-- Banner Carousel -->
         <div class="banner-carousel">
             <div class="banner-container">
                 <div class="banner-item">
@@ -753,18 +739,13 @@
                 <button onclick="moveBanner(1)">❯</button>
             </div>
         </div>
-
-        <!-- Search Bar -->
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Busca tu vino favorito...">
             <i class="fas fa-search search-icon"></i>
             <ul class="search-suggestions"></ul>
         </div>
-
-        <!-- Vinos destacados de Mayo -->
         <h3 class="section-title">Vinos destacados de Mayo</h3>
         <div class="product-grid">
-            <!-- Casa Araujo Varietal 2023 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
@@ -787,7 +768,6 @@
                 <p class="price">€7.99</p>
                 <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Casa Araujo Roble 2023 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
@@ -810,7 +790,6 @@
                 <p class="price">€10.19</p>
                 <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Goyenechea Quinta Generación 2022 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
@@ -833,7 +812,6 @@
                 <p class="price">€19.99</p>
                 <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Jorge Rubio Privado Malbec 2021 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="Maipú"
@@ -856,9 +834,6 @@
                 <p class="price">€15.99</p>
                 <a href="https://www.1000malbecs.com/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Comprar</a>
             </div>
-        </div>
-        <div class="product-grid">
-            <!-- Casa Araujo Mimi 2023 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
@@ -881,7 +856,6 @@
                 <p class="price">€11.79</p>
                 <a href="/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Casa Araujo Nucha 2023 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
@@ -904,7 +878,6 @@
                 <p class="price">€12.99</p>
                 <a href="/vinos/nucha-2023.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Goyenechea Goye 2022 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="San Rafael"
@@ -927,7 +900,6 @@
                 <p class="price">€9.49</p>
                 <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
             </div>
-            <!-- Jorge Rubio Premiado Malbec 2018 -->
             <div class="product-card"
                  data-provincia="Mendoza"
                  data-region="Maipú"
@@ -951,8 +923,6 @@
                 <a href="https://www.1000malbecs.com/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Comprar</a>
             </div>
         </div>
-
-        <!-- Visitá nuestras bodegas -->
         <h3 class="section-title">Visitá nuestras bodegas</h3>
         <div class="winery-grid">
             <a href="/bodegas/bodega-foster-lorca.html" class="winery-card">
@@ -972,8 +942,6 @@
                 <button class="winery-next">❯</button>
             </div>
         </div>
-
-        <!-- Conocé nuestras provincias -->
         <h3 class="section-title">Conocé nuestras provincias</h3>
         <div class="province-grid">
             <a href="/provincias/mendoza.html" class="province-card">
@@ -999,22 +967,21 @@
         </div>
     </main>
     <footer>
-    <div class="footer-content">
-      <span>
-        <i class="fab fa-whatsapp"></i>
-        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
-      </span>
-      <span>
-        <img src="/images/x-icon.png" alt="X" class="social-icon">
-        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
-      </span>
-      <span>
-        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
-      </span>
-    </div>
-  </footer>
-      
+        <div class="footer-content">
+            <span>
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
+            </span>
+            <span>
+                <img src="/images/x-icon.png" alt="X" class="social-icon">
+                <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
+            </span>
+            <span>
+                <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
+                <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
+            </span>
+        </div>
+    </footer>
     <script>
         // Sidebar toggle for mobile
         document.querySelector('.hamburger').addEventListener('click', function() {
@@ -1033,7 +1000,6 @@
             bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
         }
 
-        // Auto-slide every 5 seconds
         setInterval(() => moveBanner(1), 5000);
 
         // Overlay toggle for mobile (wine glass icon)
@@ -1135,11 +1101,9 @@
             const scrollWidth = wineryGrid.scrollWidth;
             const clientWidth = wineryGrid.clientWidth;
 
-            // Update shadow classes
             wineryGrid.classList.toggle('has-left', scrollLeft > 0);
             wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
 
-            // Update button visibility
             if (wineryPrev && wineryNext) {
                 wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
                 wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
@@ -1149,7 +1113,7 @@
         if (wineryGrid) {
             wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
             window.addEventListener('resize', updateWineryScrollIndicators);
-            updateWineryScrollIndicators(); // Initial check
+            updateWineryScrollIndicators();
         }
 
         if (wineryPrev && wineryNext) {
@@ -1160,12 +1124,14 @@
                 wineryGrid.scrollBy({ left: 150, behavior: 'smooth' });
             });
         }
-       const languageSelector = document.querySelector('.language-selector');
+
+        // Language selector scroll behavior
+        const languageSelector = document.querySelector('.language-selector');
         let lastScrollTop = 0;
 
         window.addEventListener('scroll', function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > 100) { // Hide after scrolling 100px
+            if (scrollTop > 100) {
                 languageSelector.classList.add('hidden');
             } else {
                 languageSelector.classList.remove('hidden');
