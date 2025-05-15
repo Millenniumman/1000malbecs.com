@@ -98,28 +98,73 @@
             flex: 1;
         }
         main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
-        .banner-carousel {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            overflow: hidden;
-        }
-        .banner-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .banner-item {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 300px;
-        }
-        .banner-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
-        }
+.banner-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto 40px;
+    overflow: hidden;
+}
+.banner-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    overflow: hidden;
+}
+.banner-item {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+}
+main {
+    margin-left: 290px;
+    padding: 20px;
+    width: calc(100% - 290px);
+    flex: 1;
+}
+@media (min-width: 769px) {
+    .banner-carousel {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 768px) {
+    main {
+        margin-left: 0;
+        margin-top: 30px; /* Tighter spacing */
+        padding: 10px;
+        width: 100%;
+    }
+    .banner-carousel {
+        margin: -10px auto 20px; /* Pull banner up */
+    }
+    .banner-item {
+        height: 200px;
+        background-color: #f8f8f8;
+    }
+    .banner-item img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+}
+  
         .banner-nav {
             position: absolute;
             top: 50%;
@@ -805,28 +850,37 @@
         <details>
             <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
             <ul>
-                <li><a href="/es/eventos/events.html" class="nav-link">Ver eventos</a></li>
+                <li><a href="/es/eventos/eventos.html" class="nav-link">Ver eventos</a></li>
             </ul>
         </details>
     </nav>
     <main>
-        <div class="banner-carousel">
-            <div class="banner-container">
-                <div class="banner-item">
-                    <img src="/images/banners/banner-1.jpg" alt="Banner 1">
-                </div>
-                <div class="banner-item">
-                    <img src="/images/banners/banner-2.jpg" alt="Banner 2">
-                </div>
-                <div class="banner-item">
-                    <img src="/images/banners/banner-3.jpg" alt="Banner 3">
-                </div>
-            </div>
-            <div class="banner-nav">
-                <button onclick="moveBanner(-1)">❮</button>
-                <button onclick="moveBanner(1)">❯</button>
-            </div>
+       <div class="banner-carousel">
+    <div class="banner-container">
+        <div class="banner-item">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile.jpg">
+                <img src="/images/banners/banner-1.jpg" alt="Banner 1" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Not+Available';">
+            </picture>
         </div>
+        <div class="banner-item">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile.jpg">
+                <img src="/images/banners/banner-2.jpg" alt="Banner 2" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Not+Available';">
+            </picture>
+        </div>
+        <div class="banner-item">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile.jpg">
+                <img src="/images/banners/banner-3.jpg" alt="Banner 3" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Not+Available';">
+            </picture>
+        </div>
+    </div>
+    <div class="banner-nav">
+        <button onclick="moveBanner(-1)">❮</button>
+        <button onclick="moveBanner(1)">❯</button>
+    </div>
+</div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Busca tu vino favorito...">
             <i class="fas fa-search search-icon"></i>
@@ -1010,16 +1064,18 @@
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('open');
         });
-        let currentBanner = 0;
-        const banners = document.querySelectorAll('.banner-item');
-        const bannerContainer = document.querySelector('.banner-container');
-        function moveBanner(direction) {
-            currentBanner += direction;
-            if (currentBanner < 0) currentBanner = banners.length - 1;
-            if (currentBanner >= banners.length) currentBanner = 0;
-            bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
-        }
-        setInterval(() => moveBanner(1), 5000);
+       let currentBanner = 0;
+const banners = document.querySelectorAll('.banner-item');
+const bannerContainer = document.querySelector('.banner-container');
+console.log('Number of banners:', banners.length);
+function moveBanner(direction) {
+    currentBanner += direction;
+    if (currentBanner < 0) currentBanner = banners.length - 1;
+    if (currentBanner >= banners.length) currentBanner = 0;
+    bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
+    console.log('Current banner:', currentBanner);
+}
+setInterval(() => moveBanner(1), 5000);
         if (window.innerWidth <= 768) {
             const infoIcons = document.querySelectorAll('.info-icon');
             infoIcons.forEach(icon => {
