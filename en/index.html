@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the best Malbecs from Argentina, from Patagonia to Puna.">
+    <meta name="description" content="Discover the best Argentine Malbecs, from Patagonia to Puna.">
     <title>1000malbecs - The 1000 Best Malbecs</title>
     <meta property="og:title" content="1000 Malbecs - The 1000 Best Argentine Malbecs">
     <meta property="og:description" content="Explore our selection of Argentine Malbecs, from Patagonia to Puna.">
@@ -18,7 +18,8 @@
     <meta name="twitter:description" content="Explore our selection of Argentine Malbecs, from Patagonia to Puna.">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-      <style>
+    <style>
+        /* CSS identical to /es/index.html, including mobile banner fixes */
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -91,95 +92,90 @@
         }
         .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
         .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto 40px;
+            overflow: hidden;
+        }
+        .banner-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            min-height: 300px;
+        }
+        .banner-item {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 300px;
+            background-color: #f8f8f8;
+        }
+        .banner-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            display: block;
+        }
+        .banner-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .banner-nav button {
+            background: rgba(74, 44, 89, 0.7);
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .banner-nav button:hover {
+            background: #4A2C59;
+        }
         main {
             margin-left: 290px;
             padding: 20px;
             width: calc(100% - 290px);
             flex: 1;
         }
-        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
-      .banner-carousel {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 50px auto 40px;
-    overflow: hidden;
-}
-.banner-container {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
-    min-height: 300px; /* Prevent layout shift */
-}
-.banner-item {
-    flex: 0 0 100%;
-    width: 100%;
-    height: 300px;
-    background-color: #f8f8f8;
-}
-.banner-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 5px;
-    display: block;
-}
-.banner-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-.banner-nav button {
-    background: rgba(74, 44, 89, 0.7);
-    color: #FFFFFF;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-}
-.banner-nav button:hover {
-    background: #4A2C59;
-}
-main {
-    margin-left: 290px;
-    padding: 20px;
-    width: calc(100% - 290px);
-    flex: 1;
-}
-@media (min-width: 769px) {
-    .banner-carousel {
-        margin-top: 50px;
-    }
-}
-@media (max-width: 768px) {
-    main {
-        margin-left: 0;
-        margin-top: 20px;
-        padding: 10px;
-        width: 100%;
-    }
-    .banner-carousel {
-        margin: -15px auto 20px;
-    }
-    .banner-container {
-        min-height: 200px;
-    }
-    .banner-item {
-        height: 200px;
-        background-color: #f8f8f8;
-    }
-    .banner-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-    }
-}
- 
+        @media (min-width: 769px) {
+            .banner-carousel {
+                margin-top: 50px;
+            }
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-left: 0;
+                margin-top: 15px;
+                padding: 10px;
+                width: 100%;
+            }
+            .banner-carousel {
+                margin: -15px auto 20px;
+                aspect-ratio: 4 / 1;
+                max-width: 768px;
+            }
+            .banner-container {
+                min-height: 192px;
+            }
+            .banner-item {
+                height: 192px;
+                background-color: #f8f8f8;
+            }
+            .banner-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
         .search-container {
             position: relative;
             max-width: 600px;
@@ -638,7 +634,7 @@ main {
                 margin-bottom: 20px;
             }
             .banner-item {
-                height: 200px;
+                height: 192px;
             }
             .province-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -721,7 +717,7 @@ main {
                 gap: 15px;
                 font-size: 12px;
             }
-            .social-icon, .fa-whatsapp {
+            .social-icon, .fa-whatsapp/obj/ {
                 width: 18px;
                 height: 18px;
                 font-size: 18px;
@@ -761,7 +757,7 @@ main {
             .hamburger { display: none; }
             .winery-nav { display: none; }
             .winery-grid.has-left, .winery-grid.has-right {
-                box-shadow: none;
+                box or-shadow: none;
             }
             .product-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -796,14 +792,14 @@ main {
         <a href="/en/index.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
     </div>
     <header class="header">
-        <a href="/en/" title="Back to home">
+        <a href="/en/" title="Return to homepage">
             <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
         </a>
     </header>
     <button class="hamburger">☰</button>
     <nav id="sidebar">
         <div class="logo-container">
-            <a href="/en/" title="Back to home">
+            <a href="/en/" title="Return to homepage">
                 <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
             </a>
         </div>
@@ -849,33 +845,34 @@ main {
             </ul>
         </details>
     </nav>
-      <div class="banner-carousel">
-    <div class="banner-container">
-        <div class="banner-item">
-            <picture>
-                <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-en.jpg">
-                <img src="/images/banners/banner-1-en.jpg" alt="Banner 1" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Not+Available';">
-            </picture>
+    <main>
+        <div class="banner-carousel">
+            <div class="banner-container">
+                <div class="banner-item">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile.jpg">
+                        <img src="/images/banners/banner-1.jpg" alt="Banner 1" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Not+Available';">
+                    </picture>
+                </div>
+                <div class="banner-item">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile.jpg">
+                        <img src="/images/banners/banner-2.jpg" alt="Banner 2" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Not+Available';">
+                    </picture>
+                </div>
+                <div class="banner-item">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile.jpg">
+                        <img src="/images/banners/banner-3.jpg" alt="Banner 3" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Not+Available';">
+                    </picture>
+                </div>
+            </div>
+            <div class="banner-nav">
+                <button onclick="moveBanner(-1)">❮</button>
+                <button onclick="moveBanner(1)">❯</button>
+            </div>
         </div>
-        <div class="banner-item">
-            <picture>
-                <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-en.jpg">
-                <img src="/images/banners/banner-2-en.jpg" alt="Banner 2" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Not+Available';">
-            </picture>
-        </div>
-        <div class="banner-item">
-            <picture>
-                <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-en.jpg">
-                <img src="/images/banners/banner-3-en.jpg" alt="Banner 3" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Not+Available';">
-            </picture>
-        </div>
-    </div>
-    <div class="banner-nav">
-        <button onclick="moveBanner(-1)">❮</button>
-        <button onclick="moveBanner(1)">❯</button>
-    </div>
-</div> 
-    <div class="search-container">
+        <div class="search-container">
             <input type="text" class="search-input" placeholder="Search for your favorite wine...">
             <i class="fas fa-search search-icon"></i>
             <ul class="search-suggestions"></ul>
@@ -894,7 +891,7 @@ main {
                 </div>
                 <h3>Casa Araujo Varietal - 2023</h3>
                 <p class="price">€7.99</p>
-                <a href="/en/vinos/casa-araujo-varietal-2023.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/casa-araujo-varietal-2023.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="casa-araujo-roble">
                 <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Bottle of Casa Araujo Roble 2023"
@@ -908,7 +905,7 @@ main {
                 </div>
                 <h3>Casa Araujo Roble - 2023</h3>
                 <p class="price">€10.19</p>
-                <a href="/en/vinos/casa-araujo-roble-2023.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/casa-araujo-roble-2023.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="quinta-generacion">
                 <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Bottle of Quinta Generación Malbec 2022"
@@ -922,7 +919,7 @@ main {
                 </div>
                 <h3>Quinta Generación - 2022</h3>
                 <p class="price">€19.99</p>
-                <a href="/en/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="jorge-rubio-privado">
                 <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Bottle of Jorge Rubio Privado Malbec 2021"
@@ -936,7 +933,7 @@ main {
                 </div>
                 <h3>Privado Malbec - 2021</h3>
                 <p class="price">€15.99</p>
-                <a href="https://www.1000malbecs.com/en/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="casa-araujo-mimi">
                 <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Bottle of Casa Araujo Mimi 2023"
@@ -950,7 +947,7 @@ main {
                 </div>
                 <h3>Mimi - Malbec Bivarietal - 2023</h3>
                 <p class="price">€11.79</p>
-                <a href="/en/vinos/casa-araujo-mimi-2023.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/casa-araujo-mimi-2023.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="nucha">
                 <img src="/images/small/nucha-2023.jpg" alt="Bottle of Nucha 2023"
@@ -964,7 +961,7 @@ main {
                 </div>
                 <h3>Nucha Organic Malbec - 2023</h3>
                 <p class="price">€12.99</p>
-                <a href="/en/vinos/nucha-2023.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/nucha-2023.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="goye-malbec">
                 <img src="/images/small/goye-malbec-2022.jpg" alt="Bottle of Goye Malbec 2022"
@@ -978,7 +975,7 @@ main {
                 </div>
                 <h3>Goye - Malbec - 2022</h3>
                 <p class="price">€9.49</p>
-                <a href="/en/vinos/goye-malbec-2022.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/goye-malbec-2022.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="jorge-rubio-premiado">
                 <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Bottle of Jorge Rubio Premiado Malbec 2018"
@@ -992,22 +989,22 @@ main {
                 </div>
                 <h3>Premiado Malbec - 2018</h3>
                 <p class="price">€22.99</p>
-                <a href="https://www.1000malbecs.com/en/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Buy</a>
+                <a href="/en/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Buy Now</a>
             </div>
         </div>
         <h3 class="section-title">Visit Our Wineries</h3>
         <div class="winery-grid">
             <a href="/en/bodegas/bodega-foster-lorca.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Bodega Foster Lorca Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+                <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo of Bodega Foster Lorca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
             </a>
             <a href="/en/bodegas/bodegas-bianchi.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Bodegas Bianchi Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+                <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo of Bodegas Bianchi" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
             </a>
             <a href="/en/bodegas/luigi-bosca.html" class="winery-card">
-                <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Luigi Bosca Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+                <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo of Luigi Bosca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
             </a>
             <a href="/en/bodegas/bodegas-etchart.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Bodegas Etchart Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+                <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Logo of Bodegas Etchart" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
             </a>
             <div class="winery-nav">
                 <button class="winery-prev hidden">❮</button>
@@ -1017,22 +1014,22 @@ main {
         <h3 class="section-title">Discover Our Provinces</h3>
         <div class="province-grid">
             <a href="/en/provincias/mendoza.html" class="province-card">
-                <img src="/images/provincia/mendoza-1.jpg" alt="Mendoza Vineyards">
+                <img src="/images/provincia/mendoza-1.jpg" alt="Vineyards of Mendoza">
                 <span class="province-name">Mendoza</span>
                 <div class="province-overlay">Mendoza</div>
             </a>
             <a href="/en/provincias/salta.html" class="province-card">
-                <img src="/images/provincia/salta-1.jpg" alt="Salta Vineyards">
+                <img src="/images/provincia/salta-1.jpg" alt="Vineyards of Salta">
                 <span class="province-name">Salta</span>
                 <div class="province-overlay">Salta</div>
             </a>
             <a href="/en/provincias/la-rioja.html" class="province-card">
-                <img src="/images/provincia/la-rioja-1.jpg" alt="La Rioja Vineyards">
+                <img src="/images/provincia/la-rioja-1.jpg" alt="Vineyards of La Rioja">
                 <span class="province-name">La Rioja</span>
                 <div class="province-overlay">La Rioja</div>
             </a>
             <a href="/en/provincias/neuquen.html" class="province-card">
-                <img src="/images/provincia/neuquén-1.jpg" alt="Neuquén Vineyards">
+                <img src="/images/provincia/neuquén-1.jpg" alt="Vineyards of Neuquén">
                 <span class="province-name">Neuquén</span>
                 <div class="province-overlay">Neuquén</div>
             </a>
@@ -1061,11 +1058,13 @@ main {
         let currentBanner = 0;
         const banners = document.querySelectorAll('.banner-item');
         const bannerContainer = document.querySelector('.banner-container');
+        console.log('Number of banners:', banners.length);
         function moveBanner(direction) {
             currentBanner += direction;
             if (currentBanner < 0) currentBanner = banners.length - 1;
             if (currentBanner >= banners.length) currentBanner = 0;
             bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
+            console.log('Current banner:', currentBanner);
         }
         setInterval(() => moveBanner(1), 5000);
         if (window.innerWidth <= 768) {
@@ -1121,10 +1120,12 @@ main {
                     const targetLang = link.getAttribute('data-lang');
                     const currentPath = window.location.pathname;
                     let newPath = currentPath;
-                    if (targetLang === 'en') {
-                        newPath = currentPath.replace(/\/(es|de)\//, '/en/');
+                    if (targetLang === 'es') {
+                        newPath = currentPath.replace(/\/(en|de)\//, '/es/');
+                    } else if (targetLang === 'de') {
+                        newPath = currentPath.replace(/\/(es|en)\//, '/de/');
                     } else {
-                        newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
+                        newPath = currentPath.replace(/\/(es|de)\//, '/en/');
                     }
                     if (newPath !== currentPath) {
                         window.location.href = newPath;
