@@ -18,8 +18,7 @@
     <meta name="twitter:description" content="Explore our selection of Argentine Malbecs, from Patagonia to Puna.">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* CSS identical to /es/index.html, including mobile banner fixes */
+  <style>
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -92,90 +91,89 @@
         }
         .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
         .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+     
         main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
-        .banner-carousel {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 50px auto 40px;
-            overflow: hidden;
-        }
-        .banner-container {
-            display: flex;
-            transition: transform 0.5s ease;
-            width: 100%;
-            min-height: 300px;
-        }
-        .banner-item {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 300px;
-            background-color: #f8f8f8;
-        }
-        .banner-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
-            display: block;
-        }
-        .banner-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-        .banner-nav button {
-            background: rgba(74, 44, 89, 0.7);
-            color: #FFFFFF;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 5px;
-        }
-        .banner-nav button:hover {
-            background: #4A2C59;
-        }
-        main {
-            margin-left: 290px;
-            padding: 20px;
-            width: calc(100% - 290px);
-            flex: 1;
-        }
-        @media (min-width: 769px) {
-            .banner-carousel {
-                margin-top: 50px;
-            }
-        }
-        @media (max-width: 768px) {
-            main {
-                margin-left: 0;
-                margin-top: 15px;
-                padding: 10px;
-                width: 100%;
-            }
-            .banner-carousel {
-                margin: -15px auto 20px;
-                aspect-ratio: 4 / 1;
-                max-width: 768px;
-            }
-            .banner-container {
-                min-height: 192px;
-            }
-            .banner-item {
-                height: 192px;
-                background-color: #f8f8f8;
-            }
-            .banner-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            }
-        }
+.banner-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto 40px;
+    overflow: hidden;
+}
+.banner-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    min-height: 300px; /* Prevent layout shift */
+}
+.banner-item {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 300px;
+    background-color: #f8f8f8;
+}
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+}
+.banner-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+.banner-nav button {
+    background: rgba(74, 44, 89, 0.7);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.banner-nav button:hover {
+    background: #4A2C59;
+}
+main {
+    margin-left: 290px;
+    padding: 20px;
+    width: calc(100% - 290px);
+    flex: 1;
+}
+@media (min-width: 769px) {
+    .banner-carousel {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 768px) {
+    main {
+        margin-left: 0;
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+    .banner-carousel {
+        margin: -15px auto 20px;
+    }
+    .banner-container {
+        min-height: 200px;
+    }
+    .banner-item {
+        height: 200px;
+        background-color: #f8f8f8;
+    }
+    .banner-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+}
         .search-container {
             position: relative;
             max-width: 600px;
@@ -634,7 +632,7 @@
                 margin-bottom: 20px;
             }
             .banner-item {
-                height: 192px;
+                height: 200px;
             }
             .province-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -717,7 +715,7 @@
                 gap: 15px;
                 font-size: 12px;
             }
-            .social-icon, .fa-whatsapp/obj/ {
+            .social-icon, .fa-whatsapp {
                 width: 18px;
                 height: 18px;
                 font-size: 18px;
@@ -757,7 +755,7 @@
             .hamburger { display: none; }
             .winery-nav { display: none; }
             .winery-grid.has-left, .winery-grid.has-right {
-                box or-shadow: none;
+                box-shadow: none;
             }
             .product-grid {
                 grid-template-columns: repeat(4, 1fr);
