@@ -168,6 +168,40 @@
             object-fit: contain;
             margin: 0 auto;
         }
+        /* Add a wrapper for images to control size and positioning */
+.winery-card .image-container, .product-card .image-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #f8f8f8; /* Optional: Background for empty space */
+}
+
+/* Style the images inside the container */
+.winery-card .image-container img, .product-card .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop images to fill the container */
+    object-position: center; /* Center the image */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .winery-card .image-container, .product-card .image-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    .winery-card .image-container img, .product-card .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
         .info-icon {
             position: absolute;
             top: 10px;
