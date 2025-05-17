@@ -1,12 +1,12 @@
-# Serve index.html for the root path without redirecting
-/ /index.html 200
+# Redirect root to default language
+/ /es/index.html 302
 
 # Serve language-specific index pages
 /es/ /es/index.html 200
 /en/ /en/index.html 200
 /de/ /de/index.html 200
 
-# Handle deeper paths for language-specific routes
+# Handle deeper paths
 /es/* /es/:splat 200
 /en/* /en/:splat 200
 /de/* /de/:splat 200
