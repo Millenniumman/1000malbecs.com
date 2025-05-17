@@ -843,26 +843,31 @@ main {
             </ul>
         </details>
     </nav>
-    <main>
-        <div class="banner-carousel">
+    <main>   <div class="banner-carousel">
             <div class="banner-container">
                 <div class="banner-item">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-en.jpg">
-                        <img src="/images/banners/banner-1-en.jpg" alt="Banner 1" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Not+Available';">
-                    </picture>
+                    <a href="/en/eventos/eventos.html" title="Explorar Eventos">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="/images/banners/banner-1-en-mobile.jpg">
+                            <img src="/images/banners/banner-1-en.jpg" alt="Eventos de 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
+                        </picture>
+                    </a>
                 </div>
                 <div class="banner-item">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-en.jpg">
-                        <img src="/images/banners/banner-2-en.jpg" alt="Banner 2" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Not+Available';">
-                    </picture>
+                    <a href="/en/bodegas.html" title="Explorar Bodegas">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="/images/banners/banner-2-en-mobile.jpg">
+                            <img src="/images/banners/banner-2-en.jpg" alt="Bodegas de Argentina" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+No+Disponible';">
+                        </picture>
+                    </a>
                 </div>
                 <div class="banner-item">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-en.jpg">
-                        <img src="/images/banners/banner-3-en.jpg" alt="Banner 3" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Not+Available';">
-                    </picture>
+                    <a href="/en/provincias.html" title="Explorar Provincias">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="/images/banners/banner-3-en-mobile.jpg">
+                            <img src="/images/banners/banner-3-en.jpg" alt="Provincias Vitivinícolas" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+No+Disponible';">
+                        </picture>
+                    </a>
                 </div>
             </div>
             <div class="banner-nav">
@@ -870,6 +875,7 @@ main {
                 <button onclick="moveBanner(1)">❯</button>
             </div>
         </div>
+
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search for your favorite wine...">
             <i class="fas fa-search search-icon"></i>
