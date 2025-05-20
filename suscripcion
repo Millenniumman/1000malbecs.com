@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Recibe gratis nuestra Guía de Cata de Vinos y descubre los secretos del mundo del vino con 1000 Malbecs.">
+    <meta name="description" content="Regístrate para recibir gratis nuestra Guía de Cata de Vinos y descubre los secretos del mundo del vino con 1000 Malbecs.">
     <title>Guía Gratis de Cata de Vinos - 1000 Malbecs</title>
     <style>
         body {
@@ -72,7 +72,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .form-section input[type="email"] {
+        .form-section input {
             width: 80%;
             padding: 10px;
             margin: 10px 0;
@@ -129,7 +129,7 @@
             .banner h1 {
                 font-size: 1.8em;
             }
-            .form-section input[type="email"] {
+            .form-section input {
                 width: 90%;
             }
             .logo img {
@@ -154,13 +154,16 @@
     <div class="container">
         <div class="banner">
             <h1>¡Descubre el Arte de la Cata de Vinos!</h1>
-            <p>Regístrate ahora y recibe nuestra <strong>Guía Gratis de Cata de Vinos</strong> directamente en tu correo.</p>
+            <p>Regístrate ahora y recibe un enlace para descargar nuestra <strong>Guía Gratis de Cata de Vinos</strong> en tu correo.</p>
         </div>
         <div class="form-section">
-            <form id="form" action="/submit" method="POST">
-                <input type="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+            <form id="form" action="/submit.php" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellido" placeholder="Apellido" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
                 <br>
-                <input type="submit" value="¡Descarga tu Guía Gratis!">
+                <input type="submit" value="Enviar y Obtener mi Guía">
             </form>
         </div>
     </div>
