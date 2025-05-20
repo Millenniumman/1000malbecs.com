@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Regístrate para recibir gratis nuestra Guía de Cata de Vinos y descubre los secretos del mundo del vino con 1000 Malbecs.">
+    <title>Guía Gratis de Cata de Vinos - 1000 Malbecs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #6B2D5C;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .logo img {
+            width: 80px;
+            height: auto;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        .sidebar {
+            display: flex;
+            gap: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background-image: url('/images/wine-tasting-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            border-radius: 10px;
+        }
+        .banner h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .banner p {
+            font-size: 1.2em;
+        }
+        .form-section {
+            background-color: white;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .form-section input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .form-section input[type="submit"] {
+            background-color: #6B2D5C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .form-section input[type="submit"]:hover {
+            background-color: #4A1F3E;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        footer a {
+            color: #6B2D5C;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .sidebar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #6B2D5C;
+                width: 100%;
+                padding: 20px;
+            }
+            .sidebar.active {
+                display: flex;
+            }
+            .banner h1 {
+                font-size: 1.8em;
+            }
+            .form-section input {
+                width: 90%;
+            }
+            .logo img {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hamburger">☰</div>
+        <div class="logo">
+            <a href="/es/index.html"><img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs Logo"></a>
+        </div>
+        <nav class="sidebar">
+            <a href="/es/vinos.html">Vinos</a>
+            <a href="/es/bodegas.html">Bodegas</a>
+            <a href="/es/provincias.html">Provincias</a>
+            <a href="/es/eventos/eventos.html">Eventos</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="banner">
+            <h1>¡Descubre el Arte de la Cata de Vinos!</h1>
+            <p>Completa el formulario y te enviaremos un enlace para descargar nuestra <strong>Guía Gratis de Cata de Vinos</strong>.</p>
+        </div>
+        <div class="form-section">
+            <form id="form" action="/submit.php" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellido" placeholder="Apellido" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
+                <br>
+                <input type="submit" value="Enviar y Obtener mi Guía">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>¿Aún no te has anotado? <a href="#form">¡Deseo recibir la Guía de Cata Gratis!</a></p>
+        <p>
+            <a href="https://wa.me/1234567890">WhatsApp</a> |
+            <a href="https://x.com/1000malbecs">X</a> |
+            <a href="https://instagram.com/1000malbecs">Instagram</a>
+        </p>
+        <p>© 2025 1000 Malbecs - Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
