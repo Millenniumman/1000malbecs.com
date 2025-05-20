@@ -154,7 +154,7 @@
     <div class="container">
         <div class="banner">
             <h1>¡Descubre el Arte de la Cata de Vinos!</h1>
-            <p>Regístrate ahora y recibe un enlace para descargar nuestra <strong>Guía Gratis de Cata de Vinos</strong> en tu correo.</p>
+            <p>Completa el formulario y te enviaremos un enlace para descargar nuestra <strong>Guía Gratis de Cata de Vinos</strong>.</p>
         </div>
         <div class="form-section">
             <form id="form" action="/submit.php" method="POST">
