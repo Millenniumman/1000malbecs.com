@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -18,9 +18,8 @@
             margin: 0 auto;
             padding: 20px;
         }
-        /* Header con logo y menú hamburguesa */
         header {
-            background-color: #6B2D5C; /* Color burdeos para temática de vino */
+            background-color: #6B2D5C;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
@@ -28,7 +27,7 @@
             position: relative;
         }
         .logo img {
-            width: 80px; /* Tamaño ajustado según memorias previas */
+            width: 80px;
             height: auto;
         }
         .hamburger {
@@ -49,9 +48,8 @@
         .sidebar a:hover {
             text-decoration: underline;
         }
-        /* Banner */
         .banner {
-            background-image: url('/images/wine-tasting-banner.jpg'); /* Ajusta la ruta según tu estructura */
+            background-image: url('/images/wine-tasting-banner.jpg');
             background-size: cover;
             background-position: center;
             padding: 60px 20px;
@@ -66,7 +64,6 @@
         .banner p {
             font-size: 1.2em;
         }
-        /* Formulario */
         .form-section {
             background-color: white;
             padding: 30px;
@@ -95,7 +92,6 @@
         .form-section input[type="submit"]:hover {
             background-color: #4A1F3E;
         }
-        /* Footer */
         footer {
             margin-top: 20px;
             text-align: center;
@@ -103,7 +99,7 @@
             color: #666;
             padding: 20px;
             position: relative;
-            z-index: 10; /* Evita que se corte, según memorias previas */
+            z-index: 10;
         }
         footer a {
             color: #6B2D5C;
@@ -113,7 +109,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-        /* Responsive */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
@@ -138,7 +133,7 @@
                 width: 90%;
             }
             .logo img {
-                width: 60px; /* Tamaño más pequeño en móvil */
+                width: 60px;
             }
         }
     </style>
@@ -165,7 +160,7 @@
             <form id="form" action="/submit" method="POST">
                 <input type="email" name="email" placeholder="Ingresa tu correo electrónico" required>
                 <br>
-                <input type="submit" value="¡Quiero mi Guía Gratis!">
+                <input type="submit" value="¡Descarga tu Guía Gratis!">
             </form>
         </div>
     </div>
@@ -179,7 +174,6 @@
         <p>© 2025 1000 Malbecs - Todos los derechos reservados.</p>
     </footer>
     <script>
-        // JavaScript para el menú hamburguesa
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.sidebar').classList.toggle('active');
         });
