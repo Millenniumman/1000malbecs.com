@@ -31,7 +31,7 @@
   <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/vinos/famiglia-bianchi-malbec-2023.html">
   
   <title>1000 Malbecs - Famiglia Bianchi Malbec 2023</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
   body {
     font-family: Arial, sans-serif;
@@ -113,6 +113,7 @@
     z-index: 1;
     flex: 1;
     padding: 20px;
+    min-height: calc(100vh - 100px); /* Ensure content pushes footer down */
   }
   .product-details {
     max-width: 800px;
@@ -372,34 +373,31 @@
     text-align: center;
     width: 100%;
     margin-top: auto;
-  }
-  footer p {
-    margin: 0;
     font-size: 1em;
-    display: inline;
-    color: #1A1A1A;
+    line-height: 1.5;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 150; /* Ensure footer is above nav elements */
   }
-  footer a {
-    color: #4A2C59;
+  footer a, footer span, footer strong {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 6px;
+    color: #1A1A1A;
     text-decoration: none;
-    margin: 0 5px;
   }
   footer a:hover {
+    color: #6B1D49;
     text-decoration: underline;
   }
   footer i {
     margin-right: 5px;
-    font-size: 1em;
-    vertical-align: middle;
-  }
-  footer img.social-icon {
-    width: 1em;
-    margin-right: 5px;
+    font-size: 1.1em;
     vertical-align: middle;
   }
   footer span.separator {
     color: #1A1A1A;
-    margin: 0 5px;
+    font-weight: bold;
   }
   .language-selector {
     position: fixed;
@@ -467,6 +465,7 @@
       width: 100%;
       padding: 10px;
       margin-top: 120px;
+      min-height: calc(100vh - 150px); /* Extra space for footer */
     }
     .product-details {
       flex-direction: column;
@@ -632,15 +631,26 @@
     }
     footer {
       padding: 12px;
+      padding-bottom: 20px; /* Extra space to avoid overlap */
+      font-size: 0.9em;
+      z-index: 150;
     }
-    footer p {
+    footer a, footer span, footer strong {
+      margin: 0 4px;
       font-size: 0.9em;
     }
   }
   @media (max-width: 480px) {
-    footer p { font-size: 0.8em; }
-    footer a { margin: 0 3px; }
-    footer span.separator { margin: 0 3px; }
+    footer {
+      padding: 10px;
+      padding-bottom: 25px; /* More space on smaller screens */
+      font-size: 0.8em;
+      z-index: 150;
+    }
+    footer a, footer span, footer strong {
+      margin: 0 3px;
+      font-size: 0.8em;
+    }
   }
   @media (min-width: 769px) {
     .header { display: none; }
@@ -659,6 +669,7 @@
       width: calc(100% - 290px);
       padding: 20px;
       margin-top: 0;
+      min-height: calc(100vh - 80px);
     }
     .product-details {
       flex-direction: row;
@@ -778,8 +789,11 @@
     }
     footer {
       padding: 15px;
+      font-size: 1em;
+      z-index: 150;
     }
-    footer p {
+    footer a, footer span, footer strong {
+      margin: 0 6px;
       font-size: 1em;
     }
   }
@@ -996,15 +1010,15 @@
     </div>
   </div>
   <footer>
-    <p></p>
+    <strong>Consultas:</strong>
+    <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
     <span class="separator">|</span>
-    <a href="/contacto.html"></a>
+    <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
     <span class="separator">|</span>
-    <a href="/politica-privacidad.html"></a>
+    <strong>Síguenos:</strong>
+    <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
     <span class="separator">|</span>
-    <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <span class="separator">|</span>
-    <a href="https://www.facebook.com/1000malbecs/" target="_blank"><img src="/images/facebook-icon.png" alt="Facebook" class="social-icon"></a>
+    <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1082,22 +1096,25 @@
           }
         });
 
-        // Hide language selector on scroll down
+        // Hide language selector on scroll down or when footer is in view
         const languageSelector = document.querySelector('.language-selector');
+        const footer = document.querySelector('footer');
         let lastScrollY = window.scrollY;
         let scrollThreshold = 50;
-        if (languageSelector) {
+        if (languageSelector && footer) {
           window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            const footerRect = footer.getBoundingClientRect();
+            const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+            if ((currentScrollY > lastScrollY && currentScrollY > scrollThreshold) || isFooterInView) {
               languageSelector.classList.add('hidden');
-            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            } else {
               languageSelector.classList.remove('hidden');
             }
             lastScrollY = currentScrollY;
           });
         } else {
-          console.error('Language selector not found');
+          console.error('Language selector or footer not found');
         }
 
         // Debug: Confirm emoji and titles
