@@ -156,16 +156,17 @@
             <h1>¡Descubre el Arte de la Cata de Vinos!</h1>
             <p>Completa el formulario y te enviaremos un enlace para descargar nuestra <strong>Guía Gratis de Cata de Vinos</strong>.</p>
         </div>
-        <div class="form-section">
-            <form id="form" action="/submit.php" method="POST">
-                <input type="text" name="nombre" placeholder="Nombre" required>
-                <input type="text" name="apellido" placeholder="Apellido" required>
-                <input type="email" name="email" placeholder="Correo electrónico" required>
-                <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
-                <br>
-                <input type="submit" value="Enviar y Obtener mi Guía">
-            </form>
-        </div>
+      div class="form-section">
+    <form id="form" action="/process.php" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellido" placeholder="Apellido" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
+        <input type="hidden" name="token" value="<?php echo bin2hex(random_bytes(16)); ?>">
+        <br>
+        <input type="submit" value="Enviar y Obtener mi Guía">
+    </form>
+</div>
     </div>
     <footer>
         <p>¿Aún no te has anotado? <a href="#form">¡Deseo recibir la Guía de Cata Gratis!</a></p>
