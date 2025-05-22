@@ -5,9 +5,9 @@ require 'vendor/autoload.php'; // Carga la biblioteca de Mailchimp si usas Compo
 use MailchimpMarketing\ApiClient;
 
 // Configuración de Mailchimp
-$apiKey = 'TU_API_KEY'; // Reemplaza con tu API Key de Mailchimp
-$audienceId = 'TU_AUDIENCE_ID'; // Reemplaza con el ID de tu audiencia
-$serverPrefix = 'usX'; // Reemplaza 'X' con el prefijo de tu servidor (ej: us20)
+$apiKey = 'ea23fbb007ef069c3fcba13fec5c67bc-us5'; // Reemplaza con tu API Key de Mailchimp
+$audienceId = 'e4e709eda9'; // Reemplaza con el ID de tu audiencia
+$serverPrefix = 'us5'; // Reemplaza 'X' con el prefijo de tu servidor (ej: us20)
 
 // Generar y almacenar token de seguridad
 $token = bin2hex(random_bytes(16));
