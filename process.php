@@ -47,7 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'PHONE' => $telefono ?: '' // Teléfono es opcional
             ]
         ]);
-
+header('Location: /thank-you.php');
+exit;
         // Si se añadió correctamente, proceder con la descarga
         $file = 'downloads/guia-cata-vinos.pdf'; // Reemplaza con la ruta al archivo PDF
         if (file_exists($file)) {
