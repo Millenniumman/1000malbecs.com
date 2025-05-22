@@ -3,181 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Melden Sie sich an, um unseren kostenlosen Weinkostführer zu erhalten und die Geheimnisse der Weinwelt mit 1000 Malbecs zu entdecken.">
-    <title>Kostenloser Weinkostführer - 1000 Malbecs</title>
+    <title>1000 Malbecs - Weinführer</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="description" content="Laden Sie unseren Weinführer von 1000 Malbecs herunter">
+    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/">
+    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en">
+    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background-color: #6B2D5C;
-            padding: 10px 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #F8F8F8;
         }
-        .logo img {
-            width: 80px;
-            height: auto;
+        .header {
+            top: 50px;
+            z-index: 120;
         }
+        .logo { max-width: 150px; height: auto; }
         .hamburger {
             display: none;
             font-size: 24px;
-            color: white;
+            background: none;
+            border: none;
+            color: #4A2C59;
             cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 15px;
+            left: 10px;
+            z-index: 130;
         }
-        .sidebar {
+        #sidebar {
+            width: 250px;
+            background-color: #F8F8F8;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            border-right: 1px solid #E0E0E0;
+            font-family: 'Montserrat', sans-serif;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .logo-container { text-align: center; margin-bottom: 20px; display: block; }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        #sidebar details { margin-bottom: 15px; }
+        #sidebar details:first-of-type { margin-bottom: 25px; }
+        #sidebar summary {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4A2C59;
+            cursor: pointer;
+            padding: 5px 0;
             display: flex;
-            gap: 20px;
+            align-items: center;
         }
-        .sidebar a {
-            color: white;
+        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+        #sidebar li { margin: 5px 0; }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
             text-decoration: none;
-            font-size: 1em;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
-        .sidebar a:hover {
-            text-decoration: underline;
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main {
+            margin-left: 290px;
+            padding: 20px;
+            width: calc(100% - 290px);
+            flex: 1;
+            min-height: calc(100vh - 100px);
         }
-        .banner {
-            background-image: url('/images/wine-tasting-banner.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
-            text-align: center;
-            color: white;
-            border-radius: 10px;
+        .banner-central {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto 40px;
+            overflow: hidden;
         }
-        .banner h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .banner p {
-            font-size: 1.2em;
+        .banner-central img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            display: block;
         }
         .form-section {
-            background-color: white;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            background-color: #FFFFFF;
             padding: 30px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
+        }
+        .form-section h1 {
+            font-size: 28px;
+            color: #4A2C59;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .form-section p {
+            font-size: 16px;
+            color: #4A2C59;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .form-section label {
+            display: block;
+            font-size: 14px;
+            color: #4A2C59;
+            margin: 10px 0 5px;
+            text-align: left;
         }
         .form-section input {
-            width: 80%;
+            width: 100%;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
+            margin: 5px 0;
+            border: 1px solid #E0E0E0;
+            border-radius: 3px;
+            font-size: 14px;
+            box-sizing: border-box;
         }
         .form-section input[type="submit"] {
-            background-color: #6B2D5C;
-            color: white;
+            background-color: #4A2C59;
+            color: #FFFFFF;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 3px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
         }
         .form-section input[type="submit"]:hover {
-            background-color: #4A1F3E;
+            background-color: #5A1D39;
+        }
+        .form-section .loading {
+            display: none;
+            font-size: 14px;
+            color: #4A2C59;
+            margin-top: 10px;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
         }
         footer {
-            margin-top: 20px;
+            background-color: #F5F5DC;
+            color: #1A1A1A;
+            padding: 15px;
             text-align: center;
-            font-size: 0.9em;
-            color: #666;
-            padding: 20px;
+            width: 100%;
+            margin-top: auto;
+            font-size: 1em;
+            line-height: 1.5;
+            box-sizing: border-box;
             position: relative;
-            z-index: 10;
+            z-index: 150;
         }
-        footer a {
-            color: #6B2D5C;
+        footer a, footer span, footer strong {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 6px;
+            color: #1A1A1A;
             text-decoration: none;
-            margin: 0 10px;
         }
         footer a:hover {
+            color: #6B1D49;
             text-decoration: underline;
         }
+        footer i {
+            margin-right: 5px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        footer span.separator {
+            color: #1A1A1A;
+            font-weight: bold;
+        }
         @media (max-width: 768px) {
-            .hamburger {
+            body { display: block; }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 120;
+            }
+            .logo {
+                max-width: 80px !important;
+                height: auto !important;
                 display: block;
             }
-            .sidebar {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                background-color: #6B2D5C;
+            .hamburger {
+                display: block !important;
+                z-index: 130;
+            }
+            #sidebar {
                 width: 100%;
-                padding: 20px;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(-100%);
+                z-index: 100;
+                border-bottom: 1px solid #E0E0E0;
+                padding-top: 50px;
+                padding-bottom: 20px;
+                overflow-y: auto;
+                box-sizing: border-box;
             }
-            .sidebar.active {
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            .logo-container { display: none; }
+            main {
+                margin-left: 0;
+                margin-top: 60px;
+                padding: 10px;
+                width: 100%;
+            }
+            .banner-central {
+                margin: -15px auto 20px;
+            }
+            .banner-central img {
+                height: 200px;
+            }
+            .form-section h1 {
+                font-size: 22px;
+            }
+            .form-section p {
+                font-size: 14px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
                 display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
             }
-            .banner h1 {
-                font-size: 1.8em;
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
             }
-            .form-section input {
-                width: 90%;
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
             }
-            .logo img {
-                width: 60px;
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="hamburger">☰</div>
-        <div class="logo">
-            <a href="/de/index.html"><img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs Logo"></a>
+    <div class="language-selector">
+        <a href="/" data-lang="es" aria-label="Spanisch">ES 🇪🇸</a>
+        <a href="/en" data-lang="en" aria-label="Englisch">EN 🇬🇧</a>
+        <a href="/de" data-lang="de" class="active" aria-label="Deutsch">DE 🇩🇪</a>
+    </div>
+    <button class="hamburger">☰</button>
+    <nav id="sidebar">
+        <div class="logo-container">
+            <a href="/de" title="Zurück zur Startseite">
+                <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo">
+            </a>
         </div>
-        <nav class="sidebar">
-            <a href="/de/weine.html">Weine</a>
-            <a href="/de/weingüter.html">Weingüter</a>
-            <a href="/de/provinzen.html">Provinzen</a>
-            <a href="/de/veranstaltungen/veranstaltungen.html">Veranstaltungen</a>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="banner">
-            <h1>Entdecken Sie die Kunst der Weinkost!</h1>
-            <p>Füllen Sie das Formular aus und wir senden Ihnen einen Link, um unseren <strong>kostenlosen Weinkostführer</strong> herunterzuladen.</p>
+        <h2>Kategorien</h2>
+        <details>
+            <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
+            <ul>
+                <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+                <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+                <li><a href="/de/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
+                <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
+            <ul>
+                <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustín Lanús</a></li>
+                <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
+                <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+                <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+                <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+                <li><a href="/de/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
+                <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+                <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+                <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
+                <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+                <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+                <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+                <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+                <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+                <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+                <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+                <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+                <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+                <li><a href="/de/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
+                <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
+            <ul>
+                <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
+            </ul>
+        </details>
+    </nav>
+    <main>
+        <div class="banner-central">
+            <img src="/images/banners/wine-tasting.jpg" alt="Weinführer">
         </div>
-       <div class="form-section">
+        <div class="form-section">
+            <h1>Entdecken Sie die Kunst der Weinverkostung!</h1>
+            <p>Füllen Sie das Formular aus, und wir senden Ihnen einen Link zum Herunterladen unseres <strong>kostenlosen Weinführers</strong>.</p>
             <form id="download-form" action="https://process-form1.federico-augspach.workers.dev/" method="POST">
                 <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
-                <input type="text" name="nombre" placeholder="Vorname" required>
-                <input type="text" name="apellido" placeholder="Nachname" required>
-                <input type="email" name="email" placeholder="E-Mail-Adresse" required>
-                <input type="tel" name="telefono" placeholder="Telefon (optional)">
+                <label for="nombre"></label>
+                <input type="text" id="nombre" name="nombre" placeholder="Vorname" required>
+                <label for="apellido"></label>
+                <input type="text" id="apellido" name="apellido" placeholder="Nachname" required>
+                <label for="email"></label>
+                <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
+                <label for="telefono"></label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Telefon (optional)">
                 <input type="submit" value="Führer herunterladen">
             </form>
-    </div>
+            <div class="loading" id="loading">Wird verarbeitet...</div>
+        </div>
+    </main>
     <footer>
-        <p>Noch nicht angemeldet? <a href="#form">Ich möchte den kostenlosen Weinkostführer!</a></p>
-        <p>
-            <a href="https://wa.me/1234567890">WhatsApp</a> |
-            <a href="https://x.com/1000malbecs">X</a> |
-            <a href="https://instagram.com/1000malbecs">Instagram</a>
-        </p>
-        <p>© 2025 1000 Malbecs - Alle Rechte vorbehalten.</p>
+        <strong>Anfragen:</strong>
+        <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
+        <span class="separator">|</span>
+        <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
+        <span class="separator">|</span>
+        <strong>Folgen Sie uns:</strong>
+        <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
+        <span class="separator">|</span>
+        <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
     </footer>
+    <script src="/js/scripts.js"></script>
     <script>
         document.querySelector('.hamburger').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.toggle('active');
+            const sidebar = document.querySelector('#sidebar');
+            sidebar.classList.toggle('open');
         });
     </script>
 </body>
