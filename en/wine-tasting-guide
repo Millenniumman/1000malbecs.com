@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sign up to receive our Free Wine Tasting Guide and discover the secrets of the wine world with 1000 Malbecs.">
-    <title>Free Wine Tasting Guide - 1000 Malbecs</title>
+    <title>1000 Malbecs - Wine Tasting Guide</title>
+    <link rel="stylesheet" href="/css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -156,16 +157,16 @@
             <h1>Discover the Art of Wine Tasting!</h1>
             <p>Fill out the form and we’ll send you a link to download our <strong>Free Wine Tasting Guide</strong>.</p>
         </div>
-        <div class="form-section">
-            <form id="form" action="/submit.php" method="POST">
-                <input type="hidden" name="lang" value="en">
+       <div class="form-section">
+            <form id="download-form" action="https://form-processor.1000malbecs.workers.dev" method="POST">
+                <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
                 <input type="text" name="nombre" placeholder="First Name" required>
                 <input type="text" name="apellido" placeholder="Last Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
-                <input type="tel" name="telefono" placeholder="Phone Number (optional)">
-                <br>
-                <input type="submit" value="Submit and Get My Guide">
+                <input type="tel" name="telefono" placeholder="Phone (optional)">
+                <input type="submit" value="Download Guide">
             </form>
+            <div class="loading" id="loading" style="display: none;">Processing...</div>
         </div>
     </div>
     <footer>
