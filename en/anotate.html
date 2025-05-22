@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1000 Malbecs - Wine Tasting Guide</title>
+    <title>1000 Malbecs - Sign Up for Events</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <meta name="description" content="Download our wine tasting guide from 1000 Malbecs">
-    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/">
-    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en">
-    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de">
+    <meta name="description" content="Sign up to receive our wine tasting guide from 1000 Malbecs and stay updated on our events">
+    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/eventos/anotate.html">
+    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/eventos/anotate.html">
+    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/eventos/anotate.html">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -308,7 +308,7 @@
 <body>
     <div class="language-selector">
         <a href="/" data-lang="es" aria-label="Spanish">ES 🇪🇸</a>
-        <a href="/en" data-lang="en" class="active" aria-label="English">EN 🇬🇧</a>
+        <a href="/en" data-lang="en" aria-label="English">EN 🇬🇧</a>
         <a href="/de" data-lang="de" aria-label="German">DE 🇩🇪</a>
     </div>
     <button class="hamburger">☰</button>
@@ -356,7 +356,7 @@
         <details>
             <summary><i class="fas fa-calendar-alt"></i> Events</summary>
             <ul>
-                <li><a href="/en/eventos/eventos.html" class="nav-link">View events</a></li>
+                <li><a href="/en/eventos/anotate.html" class="nav-link">Sign Up</a></li>
             </ul>
         </details>
     </nav>
@@ -365,8 +365,8 @@
             <img src="/images/banners/wine-tasting.jpg" alt="Wine Tasting Guide">
         </div>
         <div class="form-section">
-            <h1>Discover the Art of Wine Tasting!</h1>
-            <p>Fill out the form and we’ll send you a link to download our <strong>Free Wine Tasting Guide</strong>.</p>
+            <h1>Sign Up for Our Events!</h1>
+            <p>Fill out the form to receive our <strong>Free Wine Tasting Guide</strong> and stay updated on our events.</p>
             <form id="download-form" action="https://process-form1.federico-augspach.workers.dev/" method="POST">
                 <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
                 <label for="nombre"></label>
@@ -377,7 +377,7 @@
                 <input type="email" id="email" name="email" placeholder="Email Address" required>
                 <label for="telefono"></label>
                 <input type="tel" id="telefono" name="telefono" placeholder="Phone (optional)">
-                <input type="submit" value="Download Guide">
+                <input type="submit" value="Sign Up">
             </form>
             <div class="loading" id="loading">Processing...</div>
         </div>
