@@ -156,17 +156,15 @@
             <h1>Entdecken Sie die Kunst der Weinkost!</h1>
             <p>Füllen Sie das Formular aus und wir senden Ihnen einen Link, um unseren <strong>kostenlosen Weinkostführer</strong> herunterzuladen.</p>
         </div>
-        <div class="form-section">
-            <form id="form" action="/submit.php" method="POST">
-                <input type="hidden" name="lang" value="de">
+       <div class="form-section">
+            <form id="download-form" action="https://process-form1.federico-augspach.workers.dev/" method="POST">
+                <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
                 <input type="text" name="nombre" placeholder="Vorname" required>
                 <input type="text" name="apellido" placeholder="Nachname" required>
                 <input type="email" name="email" placeholder="E-Mail-Adresse" required>
-                <input type="tel" name="telefono" placeholder="Telefonnummer (optional)">
-                <br>
-                <input type="submit" value="Absenden und meinen Führer erhalten">
+                <input type="tel" name="telefono" placeholder="Telefon (optional)">
+                <input type="submit" value="Führer herunterladen">
             </form>
-        </div>
     </div>
     <footer>
         <p>Noch nicht angemeldet? <a href="#form">Ich möchte den kostenlosen Weinkostführer!</a></p>
