@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1000 Malbecs - Guía de Cata de Vinos</title>
+    <title>1000 Malbecs - Anotate a Eventos</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <meta name="description" content="Descarga nuestra guía de cata de vinos de 1000 Malbecs">
-    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/">
-    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en">
-    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de">
+    <meta name="description" content="Regístrate para recibir nuestra guía de cata de vinos de 1000 Malbecs">
+    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/eventos/anotate.html">
+    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/eventos/anotate.html">
+    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/eventos/anotate.html">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -93,7 +93,6 @@
             flex: 1;
             min-height: calc(100vh - 100px);
         }
-
         .banner-central {
             position: relative;
             width: 100%;
@@ -192,7 +191,7 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
-      footer {
+        footer {
             background-color: #F5F5DC;
             color: #1A1A1A;
             padding: 15px;
@@ -357,7 +356,7 @@
         <details>
             <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
             <ul>
-                <li><a href="/eventos/eventos.html" class="nav-link">Ver eventos</a></li>
+                <li><a href="/eventos/anotate.html" class="nav-link">Anotate</a></li>
             </ul>
         </details>
     </nav>
@@ -366,8 +365,8 @@
             <img src="/images/banners/wine-tasting.jpg" alt="Guía de Cata de Vinos">
         </div>
         <div class="form-section">
-            <h1>¡Descubre el arte de la cata de vinos!</h1>
-            <p>Completa el formulario y te enviaremos un enlace para descargar nuestra <strong>Guía de Cata de Vinos gratuita</strong>.</p>
+            <h1>¡Anotate a nuestros eventos!</h1>
+            <p>Completa el formulario para recibir nuestra <strong>Guía de Cata de Vinos gratuita</strong> y mantenerte informado sobre nuestros eventos.</p>
             <form id="download-form" action="https://process-form1.federico-augspach.workers.dev/" method="POST">
                 <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
                 <label for="nombre"></label>
@@ -378,22 +377,22 @@
                 <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
                 <label for="telefono"></label>
                 <input type="tel" id="telefono" name="telefono" placeholder="Teléfono (opcional)">
-                <input type="submit" value="Descargar Guía">
+                <input type="submit" value="Anotarme">
             </form>
             <div class="loading" id="loading">Procesando...</div>
         </div>
     </main>
-      <footer>
-    <strong>Consultas:</strong>
-    <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
-    <span class="separator">|</span>
-    <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
-    <span class="separator">|</span>
-    <strong>Síguenos:</strong>
-    <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
-    <span class="separator">|</span>
-    <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
-  </footer>
+    <footer>
+        <strong>Consultas:</strong>
+        <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
+        <span class="separator">|</span>
+        <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
+        <span class="separator">|</span>
+        <strong>Síguenos:</strong>
+        <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
+        <span class="separator">|</span>
+        <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
+    </footer>
     <script src="/js/scripts.js"></script>
     <script>
         document.querySelector('.hamburger').addEventListener('click', () => {
