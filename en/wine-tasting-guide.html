@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000 Malbecs - Wine Tasting Guide</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <meta name="description" content="Download our wine tasting guide from 1000 Malbecs">
+    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/">
+    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en">
+    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,33 +16,26 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background-color: #6B2D5C;
-            padding: 10px 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        .logo img {
-            width: 80px;
-            height: auto;
-        }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
+            min-height: 100vh;
         }
         .sidebar {
+            width: 200px;
+            background-color: #6B2D5C;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
             display: flex;
+            flex-direction: column;
             gap: 20px;
+            z-index: 100;
+        }
+        .sidebar .logo img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
         }
         .sidebar a {
             color: white;
@@ -47,6 +43,36 @@
             font-size: 1em;
         }
         .sidebar a:hover {
+            text-decoration: underline;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .content {
+            margin-left: 220px;
+            flex: 1;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .language-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .language-selector a {
+            margin: 0 10px;
+            color: #6B2D5C;
+            text-decoration: none;
+        }
+        .language-selector a:hover {
             text-decoration: underline;
         }
         .banner {
@@ -73,10 +99,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+        .form-section label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1em;
+            color: #333;
+        }
         .form-section input {
             width: 80%;
             padding: 10px;
-            margin: 10px 0;
+            margin: 5px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
@@ -115,17 +147,21 @@
                 display: block;
             }
             .sidebar {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                background-color: #6B2D5C;
                 width: 100%;
-                padding: 20px;
+                height: auto;
+                position: absolute;
+                top: 0;
+                left: -100%;
+                transition: left 0.3s ease;
             }
             .sidebar.active {
-                display: flex;
+                left: 0;
+            }
+            .sidebar .logo {
+                display: none;
+            }
+            .content {
+                margin-left: 0;
             }
             .banner h1 {
                 font-size: 1.8em;
@@ -133,51 +169,55 @@
             .form-section input {
                 width: 90%;
             }
-            .logo img {
-                width: 60px;
-            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="hamburger">☰</div>
+    <div class="hamburger">☰</div>
+    <nav class="sidebar">
         <div class="logo">
             <a href="/en/index.html"><img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs Logo"></a>
         </div>
-        <nav class="sidebar">
-            <a href="/en/wines.html">Wines</a>
-            <a href="/en/wineries.html">Wineries</a>
-            <a href="/en/provinces.html">Provinces</a>
-            <a href="/en/events/events.html">Events</a>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="banner">
-            <h1>Discover the Art of Wine Tasting!</h1>
-            <p>Fill out the form and we’ll send you a link to download our <strong>Free Wine Tasting Guide</strong>.</p>
+        <a href="/en/wines.html">Wines</a>
+        <a href="/en/wineries.html">Wineries</a>
+        <a href="/en/provinces.html">Provinces</a>
+        <a href="/en/events/events.html">Events</a>
+    </nav>
+    <div class="content">
+        <div class="language-selector">
+            <a href="/">ES</a> | <a href="/en">EN</a> | <a href="/de">DE</a>
         </div>
-       <div class="form-section">
-            <form id="download-form" action="https://process-form1.federico-augspach.workers.dev/" method="POST">
-                <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
-                <input type="text" name="nombre" placeholder="First Name" required>
-                <input type="text" name="apellido" placeholder="Last Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <input type="tel" name="telefono" placeholder="Phone (optional)">
-                <input type="submit" value="Download Guide">
-            </form>
-            <div class="loading" id="loading" style="display: none;">Processing...</div>
+        <div class="container">
+            <div class="banner">
+                <h1>Discover the Art of Wine Tasting!</h1>
+                <p>Fill out the form and we’ll send you a link to download our <strong>Free Wine Tasting Guide</strong>.</p>
+            </div>
+            <div class="form-section">
+                <form id="download-form" action="https://process-form1.federico-augspach.workers.dev/" method="POST">
+                    <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
+                    <label for="nombre">First Name</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="First Name" required>
+                    <label for="apellido">Last Name</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Last Name" required>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    <label for="telefono">Phone (optional)</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Phone (optional)">
+                    <input type="submit" value="Download Guide">
+                </form>
+                <div class="loading" id="loading" style="display: none;">Processing...</div>
+            </div>
         </div>
+        <footer>
+            <p>Haven’t signed up yet? <a href="#form">I want the Free Wine Tasting Guide!</a></p>
+            <p>
+                <a href="https://wa.me/1234567890">WhatsApp</a> |
+                <a href="https://x.com/1000malbecs">X</a> |
+                <a href="https://instagram.com/1000malbecs">Instagram</a>
+            </p>
+            <p>© 2025 1000 Malbecs - All rights reserved.</p>
+        </footer>
     </div>
-    <footer>
-        <p>Haven’t signed up yet? <a href="#form">I want the Free Wine Tasting Guide!</a></p>
-        <p>
-            <a href="https://wa.me/1234567890">WhatsApp</a> |
-            <a href="https://x.com/1000malbecs">X</a> |
-            <a href="https://instagram.com/1000malbecs">Instagram</a>
-        </p>
-        <p>© 2025 1000 Malbecs - All rights reserved.</p>
-    </footer>
     <script>
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.sidebar').classList.toggle('active');
