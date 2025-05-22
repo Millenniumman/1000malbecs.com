@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danke - 1000 Malbecs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            margin-left: 290px;
+            padding: 20px;
+            width: calc(100% - 290px);
+            flex: 1;
+            text-align: center;
+            min-height: calc(100vh - 100px);
+        }
+        .thank-you-section {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .thank-you-section h1 {
+            font-size: 28px;
+            color: #4A2C59;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .thank-you-section p {
+            font-size: 16px;
+            color: #4A2C59;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .thank-you-section a {
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            border: 1px solid #4A2C59;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .thank-you-section a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        footer {
+            background-color: #F5F5DC;
+            color: #1A1A1A;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+            font-size: 1em;
+            line-height: 1.5;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 150;
+        }
+        footer a, footer span, footer strong {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 6px;
+            color: #1A1A1A;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #6B1D49;
+            text-decoration: underline;
+        }
+        footer i {
+            margin-right: 5px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        footer span.separator {
+            color: #1A1A1A;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-left: 0;
+                margin-top: 120px;
+                padding: 10px;
+                width: 100%;
+                min-height: calc(100vh - 150px);
+            }
+            .thank-you-section h1 {
+                font-size: 22px;
+            }
+            .thank-you-section p {
+                font-size: 14px;
+            }
+            footer {
+                padding: 12px;
+                padding-bottom: 20px;
+                font-size: 0.9em;
+                z-index: 150;
+            }
+            footer a, footer span, footer strong {
+                margin: 0 4px;
+                font-size: 0.9em;
+            }
+        }
+        @media (max-width: 480px) {
+            footer {
+                padding: 10px;
+                padding-bottom: 25px;
+                font-size: 0.8em;
+                z-index: 150;
+            }
+            footer a, footer span, footer strong {
+                margin: 0 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="thank-you-section">
+            <h1>Vielen Dank für Ihr Interesse!</h1>
+            <p>Ihr Download des <strong>Weinführers</strong> hat begonnen. Sie werden in <span id="countdown">5</span> Sekunden zur Startseite weitergeleitet.</p>
+            <p>Wenn der Download nicht beginnt, <a href="/de/downloads/guia-cata-vinos.pdf" download>Klicken Sie hier</a>.</p>
+            <a href="/de">Jetzt zur Startseite zurückkehren</a>
+        </div>
+    </main>
+    <footer>
+        <a href="/de">Ich möchte den kostenlosen Weinführer!</a>
+        <span class="separator">|</span>
+        <a href="https://wa.me/+4915158224728"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+        <span class="separator">|</span>
+        <a href="https://x.com/1000malbecs"><i class="fab fa-x"></i>X</a>
+        <span class="separator">|</span>
+        <a href="https://instagram.com/1000malbecs"><i class="fab fa-instagram"></i>Instagram</a>
+        <span class="separator">|</span>
+        <strong>© 2025 1000 Malbecs - Alle Rechte vorbehalten.</strong>
+    </footer>
+    <script>
+        // Trigger PDF download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = '/de/downloads/guia-cata-vinos.pdf';
+        downloadLink.download = 'guia-cata-vinos.pdf';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
+        // Countdown and redirect
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            if (countdown <= 0) {
+                clearInterval(interval);
+                window.location.href = '/de';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
