@@ -49,10 +49,11 @@
             left: 0;
             overflow-y: auto;
             border-right: 1px solid #E0E0E0;
+            font-family: 'Montserrat', sans-serif;
             z-index: 100;
             transition: transform 0.3s ease;
         }
-        .logo-container { text-align: center; margin-bottom: 20px; }
+        .logo-container { text-align: center; margin-bottom: 20px; display: block; }
         #sidebar h2 {
             font-size: 18px;
             font-weight: 600;
@@ -90,7 +91,9 @@
             padding: 20px;
             width: calc(100% - 290px);
             flex: 1;
+            min-height: calc(100vh - 100px);
         }
+
         .banner-central {
             position: relative;
             width: 100%;
@@ -189,48 +192,46 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
-        footer {
-            background-color: #F8F8F8;
+      footer {
+            background-color: #F5F5DC;
+            color: #1A1A1A;
             padding: 15px;
             text-align: center;
-            border-top: 1px solid #E0E0E0;
             width: 100%;
+            margin-top: auto;
+            font-size: 1em;
+            line-height: 1.5;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 150;
         }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-            color: #4A2C59;
-        }
-        .footer-content a {
-            color: #4A2C59;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer-content a:hover {
-            color: #7B4F8C;
-        }
-        .social-icon {
-            width: 20px;
-            height: 20px;
+        footer a, footer span, footer strong {
+            display: inline-block;
             vertical-align: middle;
-            margin-right: 5px;
+            margin: 0 6px;
+            color: #1A1A1A;
+            text-decoration: none;
         }
-        .fa-whatsapp {
-            font-size: 20px;
-            color: #25D366;
+        footer a:hover {
+            color: #6B1D49;
+            text-decoration: underline;
+        }
+        footer i {
             margin-right: 5px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        footer span.separator {
+            color: #1A1A1A;
+            font-weight: bold;
         }
         @media (max-width: 768px) {
             body { display: block; }
             .header {
+                display: block;
+                position: fixed;
                 top: 10px;
-                left: auto;
                 right: 10px;
-                display: flex;
-                justify-content: flex-end;
                 z-index: 120;
             }
             .logo {
