@@ -156,13 +156,13 @@
             <h1>¡Descubre el Arte de la Cata de Vinos!</h1>
             <p>Completa el formulario y te enviaremos un enlace para descargar nuestra <strong>Guía Gratis de Cata de Vinos</strong>.</p>
         </div>
-      div class="form-section">
+     <div class="form-section">
     <form id="form" action="/process.php" method="POST">
         <input type="text" name="nombre" placeholder="Nombre" required>
         <input type="text" name="apellido" placeholder="Apellido" required>
         <input type="email" name="email" placeholder="Correo electrónico" required>
         <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
-        <input type="hidden" name="token" value="<?php echo bin2hex(random_bytes(16)); ?>">
+        <input type="hidden" name="token" id="token">
         <br>
         <input type="submit" value="Enviar y Obtener mi Guía">
     </form>
@@ -213,6 +213,30 @@
         } else if (!emailRegex.test(email)) {
             e.preventDefault();
             alert('Por favor, ingresa un correo válido.');
+        }
+    });
+</script>
+    <script>
+    // Generar token único
+    function generateToken() {
+        return [...Array(32)].map(() => Math.random().toString(36)[2]).join('');
+    }
+    document.getElementById('token').value = generateToken();
+
+    // Validación del formulario
+    document.querySelector('#form').addEventListener('submit', function(e) {
+        const nombre = document.querySelector('input[name="nombre"]').value;
+        const apellido = document.querySelector('input[name="apellido"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!nombre || !apellido) {
+            e.preventDefault();
+            alert('Por favor, completa los campos de nombre y apellido.');
+        } else if (!emailRegex.test(email)) {
+            e.preventDefault();
+            alert('Por favor, ingresa un correo válido.');
+        } else {
+            document.getElementById('loading').style.display = 'block'; // Mostrar mensaje de carga si lo tienes
         }
     });
 </script>
