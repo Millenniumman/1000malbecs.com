@@ -182,5 +182,24 @@
             document.querySelector('.sidebar').classList.toggle('active');
         });
     </script>
+    <style>
+    .loading {
+        display: none;
+        color: #6B2D5C;
+        font-size: 1em;
+        margin-top: 10px;
+    }
+</style>
+<div class="form-section">
+    <form id="form" action="/process.php" method="POST">
+        <!-- Campos existentes -->
+        <div class="loading" id="loading">Procesando...</div>
+    </form>
+</div>
+<script>
+    document.querySelector('#form').addEventListener('submit', function() {
+        document.getElementById('loading').style.display = 'block';
+    });
+</script>
 </body>
 </html>
