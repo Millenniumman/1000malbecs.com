@@ -333,7 +333,7 @@
                 z-index: 120;
             }
     footer {
-    background-color: #F8F8F8; /* Match sidebar for cohesion */
+    background-color: #F8F8F8;
     color: #1A1A1A;
     padding: 15px;
     text-align: center;
@@ -342,37 +342,58 @@
     position: relative;
     min-height: 60px;
     box-sizing: border-box;
-    overflow: visible;
-    clear: both;
-  }
-  footer p {
-    margin: 0;
+    z-index: 150;
+}
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     font-size: 1em;
-    display: inline;
+}
+footer p {
+    margin: 0;
     color: #1A1A1A;
-  }
-  footer a {
+}
+footer a {
     color: #4A2C59;
     text-decoration: none;
     margin: 0 5px;
-  }
-  footer a:hover {
+}
+footer a:hover {
     text-decoration: underline;
-  }
-  footer i {
+}
+footer i {
     margin-right: 5px;
     font-size: 1em;
     vertical-align: middle;
-  }
-  footer img.social-icon {
+}
+footer img.social-icon {
     width: 1em;
     margin-right: 5px;
     vertical-align: middle;
-  }
-  footer span.separator {
+}
+footer span.separator {
     color: #1A1A1A;
     margin: 0 5px;
-  }
+}
+@media (max-width: 768px) {
+    footer {
+        padding: 20px;
+        min-height: 100px;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 12px;
+    }
+    footer i, footer img.social-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+    }
+}
         @media (max-width: 768px) {
             body { display: block; }
             .header {
@@ -625,19 +646,21 @@
           <a href="/es/vinos/nucha-2023.html" class="buy-button">Comprar</a>
         </div>
          </div>
-        <img src="/images/eventos/evento 20-05.jpg" witdh=768 height=768>
+        <img src="/images/eventos/evento-20-05.jpg" width="768" height="768" alt="Evento 20-05-2025" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
     </main>
-     <footer>
-    <p>Consultas:<p>
-    <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
-    <span class="separator">|</span>
-    <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
-    <span class="separator">|</span>
-    <strong>Síguenos:</strong>
-    <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
-    <span class="separator">|</span>
-    <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
-  </footer>
+    <footer>
+    <div class="footer-content">
+        <p><strong>Consultas:</strong></p>
+        <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
+        <span class="separator">|</span>
+        <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
+        <span class="separator">|</span>
+        <p><strong>Síguenos:</strong></p>
+        <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
+        <span class="separator">|</span>
+        <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
+    </div>
+</footer>
     <script>
         // Sidebar toggle for mobile
         document.querySelector('.hamburger').addEventListener('click', function() {
