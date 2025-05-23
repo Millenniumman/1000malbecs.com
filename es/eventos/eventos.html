@@ -684,7 +684,22 @@
         </div>
         <img src="/images/eventos/evento-20-05.jpg" width="768" height="768" alt="Evento 20-05-2025" style="max-width: 100%; height: auto; display: block; margin: 0;">
     </main>
-    <div id="footer-container"></div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <p><strong>Consultas:</strong></p>
+                <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
+                <span class="separator">|</span>
+                <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
+            </div>
+            <div class="footer-social">
+                <p><strong>Síguenos:</strong></p>
+                <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
+                <span class="separator">|</span>
+                <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
+            </div>
+        </div>
+    </footer>
     <script>
         // Sidebar toggle for mobile
         document.querySelector('.hamburger').addEventListener('click', function() {
@@ -714,14 +729,6 @@
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
-
-        // Load footer dynamically
-        fetch('/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
     </script>
 </body>
 </html>
