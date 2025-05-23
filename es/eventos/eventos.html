@@ -22,7 +22,7 @@
     <meta name="twitter:description" content="Descubre los eventos de 1000malbecs y anótate para nuestra próxima experiencia.">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -551,6 +551,9 @@
             .header { display: none; }
             .hamburger { display: none; }
             .logo-container { display: block; }
+            .overlay p {
+                font-size: 9px;
+            }
         }
     </style>
 </head>
@@ -681,22 +684,7 @@
         </div>
         <img src="/images/eventos/evento-20-05.jpg" width="768" height="768" alt="Evento 20-05-2025" style="max-width: 100%; height: auto; display: block; margin: 0;">
     </main>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-contact">
-                <p><strong>Consultas:</strong></p>
-                <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
-                <span class="separator">|</span>
-                <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
-            </div>
-            <div class="footer-social">
-                <p><strong>Síguenos:</strong></p>
-                <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
-                <span class="separator">|</span>
-                <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-container"></div>
     <script>
         // Sidebar toggle for mobile
         document.querySelector('.hamburger').addEventListener('click', function() {
@@ -726,6 +714,14 @@
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        // Load footer dynamically
+        fetch('/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
     </script>
 </body>
 </html>
