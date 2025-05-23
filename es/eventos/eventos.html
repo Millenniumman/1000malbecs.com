@@ -227,7 +227,7 @@
             color: #FFFFFF;
             padding: 40px 10px 10px 10px;
             box-sizing: border-box;
-            font-size: 12px;
+            font-size: 10px;
             overflow-y: auto;
             z-index: 6;
             pointer-events: none;
@@ -294,7 +294,7 @@
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 0;
         }
         footer {
             background-color: #F8F8F8;
@@ -348,7 +348,7 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            z-index: 50;
+            z-index: 60;
             display: flex;
             gap: 10px;
             transition: opacity 0.3s ease;
@@ -387,7 +387,7 @@
             .logo { max-width: 80px; }
             .hamburger { display: block; top: 15px; left: 15px; z-index: 110; }
             #sidebar {
-                width: 100%;
+                width: 250px;
                 height: 100vh;
                 max-height: 100vh;
                 position: fixed;
@@ -437,11 +437,10 @@
             .product-card {
                 width: 100%;
                 max-width: none;
-                height: 260px;
-                min-height: auto;
+                min-height: 300px;
                 padding: 10px;
                 box-sizing: border-box;
-                overflow: hidden;
+                overflow: visible;
                 position: relative;
                 align-items: center;
             }
@@ -467,7 +466,7 @@
                 padding: 6px 12px;
                 font-size: 12px;
                 margin-top: 5px;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
                 pointer-events: auto;
                 width: 100%;
                 max-width: 140px;
@@ -487,6 +486,7 @@
                 padding: 40px 10px 10px 10px;
                 display: none;
                 z-index: 6;
+                font-size: 10px;
             }
             .overlay.active {
                 display: block !important;
@@ -509,6 +509,33 @@
             .event-description p {
                 font-size: 14px;
                 text-align: left;
+            }
+            .language-selector {
+                top: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 60;
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                justify-content: center;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                text-decoration: none;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+                transition: all 0.3s ease;
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
             }
             .footer-content {
                 flex-direction: column;
@@ -683,6 +710,21 @@
                 const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
                 overlay.classList.toggle('active');
             });
+        });
+
+        // Language selector hide on scroll
+        let lastScrollTop = 0;
+        const languageSelector = document.querySelector('.language-selector');
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scroll down
+                languageSelector.classList.add('hidden');
+            } else {
+                // Scroll up
+                languageSelector.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
     </script>
 </body>
