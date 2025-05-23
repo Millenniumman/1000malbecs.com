@@ -204,29 +204,39 @@
         .event-form button:hover {
             background-color: #7B4F8C;
         }
-        footer {
-            background-color: #F8F8F8;
-            padding: 15px;
-            text-align: center;
-            border-top: 1px solid #E0E0E0;
-            width: 100%;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-            color: #4A2C59;
-        }
-        .footer-content a {
-            color: #4A2C59;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer-content a:hover {
-            color: #7B4F8C;
-        }
+          footer {
+    background-color: #F5F5DC;
+    color: #1A1A1A;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    font-size: 1em;
+    line-height: 1.5;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 150; /* Ensure footer is above nav elements */
+  }
+  footer a, footer span, footer strong {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 6px;
+    color: #1A1A1A;
+    text-decoration: none;
+  }
+  footer a:hover {
+    color: #6B1D49;
+    text-decoration: underline;
+  }
+  footer i {
+    margin-right: 5px;
+    font-size: 1.1em;
+    vertical-align: middle;
+  }
+  footer span.separator {
+    color: #1A1A1A;
+    font-weight: bold;
+  }
         .social-icon {
             width: 20px;
             height: 20px;
