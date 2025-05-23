@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
 
         // Proceder con la descarga del archivo
-        $file = 'downloads/Malbec-History-by-Pablo-Lacoste.PDF'; // Ruta al archivo PDF
+        $file = 'downloads/Malbec-History-by-Pablo-Lacoste.pdf'; // Ruta al archivo PDF
         if (file_exists($file)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/pdf');
