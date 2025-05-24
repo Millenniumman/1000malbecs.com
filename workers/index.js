@@ -16,7 +16,7 @@ async function handleRequest(request) {
     if (url.pathname.endsWith('footer.html') || !url.pathname.endsWith('.html')) {
       const response = await fetch(targetUrl);
       if (!response.ok) {
-        return new Response(`Error fetching ${targetUrl}: ${response.status}`, { status: 500 });
+        return new Response(`Error fetching ${targetUrl}: ${response.status} ${response.statusText}`, { status: 500 });
       }
       return response;
     }
@@ -25,7 +25,7 @@ async function handleRequest(request) {
     if (url.pathname.includes('/anotate.html') || url.pathname.includes('/gracias.html')) {
       const response = await fetch(targetUrl);
       if (!response.ok) {
-        return new Response(`Error fetching ${targetUrl}: ${response.status}`, { status: 500 });
+        return new Response(`Error fetching ${targetUrl}: ${response.status} ${response.statusText}`, { status: 500 });
       }
       return response;
     }
@@ -33,14 +33,14 @@ async function handleRequest(request) {
     // Obtener la página
     let response = await fetch(targetUrl);
     if (!response.ok) {
-      return new Response(`Error fetching ${targetUrl}: ${response.status}`, { status: 500 });
+      return new Response(`Error fetching ${targetUrl}: ${response.status} ${response.statusText}`, { status: 500 });
     }
     let html = await response.text();
 
     // Obtener el footer
     const footerResponse = await fetch('https://1000malbecs.com/footer.html');
     if (!footerResponse.ok) {
-      return new Response(`Error fetching footer.html: ${footerResponse.status}`, { status: 500 });
+      return new Response(`Error fetching footer.html: ${footerResponse.status} ${response.statusText}`, { status: 500 });
     }
     const footerHtml = await footerResponse.text();
 
@@ -53,7 +53,7 @@ async function handleRequest(request) {
 
     return new Response(html, {
       status: response.status,
-      headers: response.headers
+      headers: { ...response.headers, 'Content-Type': 'text/html' }
     });
   } catch (error) {
     return new Response(`Worker error: ${error.message}`, { status: 500 });
