@@ -12,7 +12,7 @@ async function handleRequest(request) {
     }
 
     // Detectar idioma desde la URL
-    let lang = 'es'; // Idioma por defecto: español
+    let lang = 'es';
     if (path.startsWith('/en/')) {
         lang = 'en';
     } else if (path.startsWith('/de/')) {
@@ -26,7 +26,7 @@ async function handleRequest(request) {
         de: { inquiries: 'Anfragen', follow: 'Folge uns' }
     };
 
-    // Generar el HTML del footer según el idioma
+    // Generar el HTML del footer
     const footerHtml = `
         <footer>
             <div class="footer-content">
@@ -47,22 +47,30 @@ async function handleRequest(request) {
     `;
 
     // Obtener la página solicitada
-    const pageResponse = await fetch(request);
-    if (!pageResponse.ok) {
-        return pageResponse;
-    }
+    try {
+        const pageResponse = await fetch(request);
+        if (!pageResponse.ok) {
+            console.error(`Failed to fetch page: ${pageResponse.status}`);
+            return pageResponse;
+        }
 
-    // Procesar la página
-    let pageHtml = await pageResponse.text();
-    const footerRegex = /<footer>[\s\S]*?</footer>/i;
-    if (pageHtml.match(footerRegex)) {
-        pageHtml = pageHtml.replace(footerRegex, footerHtml);
-    } else {
-        pageHtml = pageHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
-    }
+        // Procesar la página
+        let pageHtml = await pageResponse.text();
+        const footerRegex = /<footer\b[^>]*>[\s\S]*?</footer>/i;
+        if (pageHtml.match(footerRegex)) {
+            pageHtml = pageHtml.replace(footerRegex, footerHtml);
+        } else if (pageHtml.includes('</body>')) {
+            pageHtml = pageHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
+        } else {
+            pageHtml = pageHtml + footerHtml; // Añade al final si no hay </body>
+        }
 
-    return new Response(pageHtml, {
-        headers: { 'Content-Type': 'text/html; charset=utf-8' },
-        status: pageResponse.status
-    });
+        return new Response(pageHtml, {
+            headers: { 'Content-Type': 'text/html; charset=utf-8' },
+            status: pageResponse.status
+        });
+    } catch (error) {
+        console.error(`Worker error: ${error.message}`);
+        return fetch(request); // Fallback a la página original
+    }
 }
