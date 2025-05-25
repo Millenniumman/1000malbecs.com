@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <meta name="description" content="Sign up to receive our wine tasting guide from 1000 Malbecs and stay updated on our events">
+    <meta name="description" content="Sign up to receive 'The History of Malbec - by Pablo Lacoste from Wines of Argentina'">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
     <link rel="alternate" hreflang="es" href="https://1000malbecs.com/eventos/anotate.html">
     <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/eventos/anotate.html">
     <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/eventos/anotate.html">
     <style>
+        /* Mismos estilos que en el archivo original */
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -307,15 +309,15 @@
 </head>
 <body>
     <div class="language-selector">
-        <a href="/" data-lang="es" aria-label="Spanish">ES 🇪🇸</a>
-        <a href="/en" data-lang="en" aria-label="English">EN 🇬🇧</a>
-        <a href="/de" data-lang="de" aria-label="German">DE 🇩🇪</a>
+        <a href="/eventos/anotate.html" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+        <a href="/en/eventos/anotate.html" data-lang="en" aria-label="English" class="active">EN 🇬🇧</a>
+        <a href="/de/eventos/anotate.html" data-lang="de" aria-label="Deutsch">DE 🇩🇪</a>
     </div>
     <button class="hamburger">☰</button>
     <nav id="sidebar">
         <div class="logo-container">
-            <a href="/en" title="Return to homepage">
-                <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo">
+            <a href="/en/" title="Back to home">
+                <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
             </a>
         </div>
         <h2>Categories</h2>
@@ -356,7 +358,8 @@
         <details>
             <summary><i class="fas fa-calendar-alt"></i> Events</summary>
             <ul>
-                <li><a href="/en/eventos/anotate.html" class="nav-link">Sign Up</a></li>
+                <li><a href="/en/eventos/eventos.html" class="nav-link">View events</a></li>
+                <li><a href="/en/eventos/anotate.html" class="nav-link active">Sign Up</a></li>
             </ul>
         </details>
     </nav>
@@ -366,7 +369,7 @@
         </div>
         <div class="form-section">
             <h1>Sign Up for Our Events!</h1>
-            <p>Fill out the form to receive our <strong>Free Wine Tasting Guide</strong> and stay updated on our events.</p>
+            <p>Fill out the form to receive <strong>The History of Malbec by Pablo Lacoste from Wines of Argentina</strong> and stay informed about our events.</p>
             <form id="download-form" action="https://process-form1.federico-augspach.workers.dev/" method="POST">
                 <input type="hidden" name="token" value="bd1f97cb8b4598606a9b118e8ae87334">
                 <label for="nombre"></label>
@@ -374,7 +377,7 @@
                 <label for="apellido"></label>
                 <input type="text" id="apellido" name="apellido" placeholder="Last Name" required>
                 <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
                 <label for="telefono"></label>
                 <input type="tel" id="telefono" name="telefono" placeholder="Phone (optional)">
                 <input type="submit" value="Sign Up">
