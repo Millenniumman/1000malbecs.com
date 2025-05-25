@@ -30,7 +30,12 @@ footer {
 footer p { margin: 0; color: #1A1A1A; }
 footer a { color: #4A2C59; text-decoration: none; margin: 0 5px; }
 footer a:hover { text-decoration: underline; }
-footer i { margin-right: 5px; font-size: 1em; vertical-align: middle; }
+footer i {
+    margin-right: 5px;
+    font-size: 1em;
+    vertical-align: middle;
+    display: inline-block; /* Previene superposición */
+}
 footer span.separator { color: #1A1A1A; margin: 0 5px; }
 .footer-social a .fa-instagram { color: #C13584; }
 .footer-social a .fa-x-twitter { color: #000000; }
@@ -46,13 +51,18 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
         font-size: 12px;
     }
     .footer-contact {
-        gap: 5px; /* Reduce espacio entre Consultas y teléfono */
+        gap: 5px; /* Espacio reducido (Opción 1) */
     }
-    .footer-contact a[href*="wa.me"] {
-        font-size: 11px; /* Ligeramente más pequeño para ayudar */
-        white-space: nowrap; /* Evita salto de línea */
-    }
+    .footer-contact a[href*="wa.me"],
     .footer-contact a[href*="mailto"] {
-        font-size: 11px; /* Consistencia con el email */
+        font-size: 11px;
+        white-space: nowrap;
+        display: flex; /* Alinea ícono y texto */
+        align-items: center; /* Centra verticalmente */
+    }
+    .footer-contact a[href*="mailto"] i,
+    .footer-contact a[href*="wa.me"] i {
+        margin-right: 5px; /* Refuerza margen para íconos */
+        position: static; /* Evita posiciones conflictivas */
     }
 }
