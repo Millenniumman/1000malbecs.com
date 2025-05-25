@@ -66,3 +66,12 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
         position: static; /* Evita posiciones conflictivas */
     }
 }
+@media (max-width: 768px) {
+    .footer-contact a[href*="mailto"] {
+        flex-direction: row; /* Fuerza dirección horizontal */
+        gap: 5px; /* Espacio entre ícono y texto */
+    }
+    .footer-contact a[href*="mailto"] i {
+        order: -1; /* Asegura que el ícono esté primero */
+    }
+}
