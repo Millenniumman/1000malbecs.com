@@ -45,8 +45,14 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
         gap: 12px;
         font-size: 12px;
     }
+    .footer-contact {
+        gap: 5px; /* Reduce espacio entre Consultas y teléfono */
+    }
     .footer-contact a[href*="wa.me"] {
-        font-size: 10px; /* Reduce tamaño del número de teléfono */
+        font-size: 11px; /* Ligeramente más pequeño para ayudar */
         white-space: nowrap; /* Evita salto de línea */
+    }
+    .footer-contact a[href*="mailto"] {
+        font-size: 11px; /* Consistencia con el email */
     }
 }
