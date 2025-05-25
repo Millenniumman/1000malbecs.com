@@ -74,3 +74,7 @@ async function handleRequest(request) {
         return fetch(request); // Fallback a la página original
     }
 }
+// Excluir ciertas páginas y archivos no HTML, pero permitir home
+if (path.includes('/footer.html') || path.includes('/anotate.html') || path.includes('/gracias.html') || (!path.endsWith('.html') && !path.match(/^\/(es|en|de)?\/?$/))) {
+    return fetch(request);
+}
