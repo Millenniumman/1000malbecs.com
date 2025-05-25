@@ -6,12 +6,11 @@ async function handleRequest(request) {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // Excluir ciertas páginas y archivos no HTML, pero permitir la página principal
+    // Excluir páginas específicas y archivos no HTML
+    const excludedPaths = ['/footer.html', '/anotate.html', '/gracias.html'];
     if (
-        path.includes('/footer.html') ||
-        path.includes('/anotate.html') ||
-        path.includes('/gracias.html') ||
-        (!path.endsWith('.html') && !path.match(/^\/(es|en|de)?\/?$/))
+        excludedPaths.some(excluded => path.includes(excluded)) ||
+        (!path.endsWith('.html') && path !== '/' && !path.startsWith('/es/') && !path.startsWith('/en/') && !path.startsWith('/de/'))
     ) {
         return fetch(request);
     }
@@ -22,6 +21,12 @@ async function handleRequest(request) {
         lang = 'en';
     } else if (path.startsWith('/de/')) {
         lang = 'de';
+    }
+
+    // Soporte para parámetro ?lang= (para pruebas)
+    const langParam = url.searchParams.get('lang');
+    if (langParam && ['es', 'en', 'de'].includes(langParam)) {
+        lang = langParam;
     }
 
     // Definir traducciones
@@ -80,15 +85,21 @@ async function handleRequest(request) {
             return pageResponse;
         }
 
+        // Verificar que la respuesta es HTML
+        const contentType = pageResponse.headers.get('content-type') || '';
+        if (!contentType.includes('text/html')) {
+            return pageResponse;
+        }
+
         // Procesar la página
         let pageHtml = await pageResponse.text();
-        const footerRegex = /<footer\b[^>]*>[\s\S]*?<\/footer>/i;
+        const footerRegex = /<footer\b[^>]*>[\s\S]*?</footer>/i;
         if (pageHtml.match(footerRegex)) {
             pageHtml = pageHtml.replace(footerRegex, footerHtml);
         } else if (pageHtml.includes('</body>')) {
             pageHtml = pageHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
         } else {
-            pageHtml += footerHtml; // Añade al final si no hay </body>
+            pageHtml += footerHtml; // Añadir al final si no hay </body>
         }
 
         return new Response(pageHtml, {
