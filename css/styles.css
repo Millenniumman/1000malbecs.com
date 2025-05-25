@@ -81,3 +81,87 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
         font-size: 11px; /* Reduce ligeramente si es necesario */
     }
 }
+/* Estilos para la navbar */
+#sidebar {
+    background-color: #F8F8F8;
+    padding: 20px;
+    width: 250px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #1A1A1A;
+}
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.logo {
+    max-width: 150px;
+}
+#sidebar h2 {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+    color: #1A1A1A;
+}
+#sidebar details {
+    margin-bottom: 10px;
+}
+#sidebar summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #4A2C59;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+}
+#sidebar summary i {
+    margin-right: 5px;
+    font-size: 1em;
+    color: #4A2C59;
+}
+#sidebar ul {
+    list-style: none;
+    padding-left: 20px;
+    margin: 0;
+}
+#sidebar .nav-link {
+    text-decoration: none;
+    color: #1A1A1A;
+    display: block;
+    padding: 5px 0;
+    font-size: 1em;
+}
+#sidebar .nav-link:hover {
+    text-decoration: underline;
+    color: #4A2C59;
+}
+#sidebar .nav-link.active {
+    font-weight: bold;
+    color: #4A2C59;
+}
+
+/* Estilos responsivos para la navbar */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+    .logo {
+        max-width: 120px;
+    }
+    #sidebar h2 {
+        font-size: 1em;
+    }
+    #sidebar .nav-link {
+        font-size: 0.9em;
+    }
+    #sidebar summary {
+        font-size: 0.9em;
+    }
+}
+
+/* Asegurar que el footer no se superponga con la navbar */
+@media (max-width: 768px) {
+    footer {
+        margin-top: 30px; /* Reducir el margen superior si la navbar es más compacta */
+    }
+}
