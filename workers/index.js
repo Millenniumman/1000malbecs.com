@@ -1,61 +1,68 @@
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
+    event.respondWith(handleRequest(event.request));
 });
 
 async function handleRequest(request) {
-  try {
     const url = new URL(request.url);
-    // Mapear la ruta del Worker al dominio real
-    let targetUrl = 'https://1000malbecs.com' + url.pathname;
-    // Ajustar rutas específicas
-    if (url.pathname === '/eventos' || url.pathname === '/eventos/') {
-      targetUrl = 'https://1000malbecs.com/es/eventos/eventos.html';
+    const path = url.pathname;
+
+    // Excluir ciertas páginas y archivos no HTML
+    if (path.includes('/footer.html') || path.includes('/anotate.html') || path.includes('/gracias.html') || !path.endsWith('.html')) {
+        return fetch(request);
     }
 
-    // Excluir footer.html y archivos no HTML
-    if (url.pathname.endsWith('footer.html') || !url.pathname.endsWith('.html')) {
-      const response = await fetch(targetUrl);
-      if (!response.ok) {
-        return new Response(`Error fetching ${targetUrl}: ${response.status} ${response.statusText}`, { status: 500 });
-      }
-      return response;
+    // Detectar idioma desde la URL
+    let lang = 'es'; // Idioma por defecto: español
+    if (path.startsWith('/en/')) {
+        lang = 'en';
+    } else if (path.startsWith('/de/')) {
+        lang = 'de';
     }
 
-    // Excluir rutas específicas (formularios)
-    if (url.pathname.includes('/anotate.html') || url.pathname.includes('/gracias.html')) {
-      const response = await fetch(targetUrl);
-      if (!response.ok) {
-        return new Response(`Error fetching ${targetUrl}: ${response.status} ${response.statusText}`, { status: 500 });
-      }
-      return response;
+    // Definir traducciones
+    const translations = {
+        es: { inquiries: 'Consultas', follow: 'Síguenos' },
+        en: { inquiries: 'Inquiries', follow: 'Follow us' },
+        de: { inquiries: 'Anfragen', follow: 'Folge uns' }
+    };
+
+    // Generar el HTML del footer según el idioma
+    const footerHtml = `
+        <footer>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <p><strong>${translations[lang].inquiries}:</strong></p>
+                    <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i> +49 151 5822 4728</a>
+                    <span class="separator">|</span>
+                    <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i> federico@1000malbecs.com</a>
+                </div>
+                <div class="footer-social">
+                    <p><strong>${translations[lang].follow}:</strong></p>
+                    <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i> @1000malbecs</a>
+                    <span class="separator">|</span>
+                    <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i> @1000malbecs</a>
+                </div>
+            </div>
+        </footer>
+    `;
+
+    // Obtener la página solicitada
+    const pageResponse = await fetch(request);
+    if (!pageResponse.ok) {
+        return pageResponse;
     }
 
-    // Obtener la página
-    let response = await fetch(targetUrl);
-    if (!response.ok) {
-      return new Response(`Error fetching ${targetUrl}: ${response.status} ${response.statusText}`, { status: 500 });
-    }
-    let html = await response.text();
-
-    // Obtener el footer
-    const footerResponse = await fetch('https://1000malbecs.com/footer.html');
-    if (!footerResponse.ok) {
-      return new Response(`Error fetching footer.html: ${footerResponse.status} ${response.statusText}`, { status: 500 });
-    }
-    const footerHtml = await footerResponse.text();
-
-    // Inyectar el footer
-    if (html.includes('</footer>')) {
-      html = html.replace(/<footer>[\s\S]*<\/footer>/, footerHtml);
+    // Procesar la página
+    let pageHtml = await pageResponse.text();
+    const footerRegex = /<footer>[\s\S]*?<\/footer>/i;
+    if (pageHtml.match(footerRegex)) {
+        pageHtml = pageHtml.replace(footerRegex, footerHtml);
     } else {
-      html = html.replace('</body>', `${footerHtml}</body>`);
+        pageHtml = pageHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
     }
 
-    return new Response(html, {
-      status: response.status,
-      headers: { ...response.headers, 'Content-Type': 'text/html' }
+    return new Response(pageHtml, {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+        status: pageResponse.status
     });
-  } catch (error) {
-    return new Response(`Worker error: ${error.message}`, { status: 500 });
-  }
 }
