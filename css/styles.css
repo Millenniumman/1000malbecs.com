@@ -34,7 +34,7 @@ footer i {
     margin-right: 5px;
     font-size: 1em;
     vertical-align: middle;
-    display: inline-block; /* Previene superposición */
+    display: inline-block;
 }
 footer span.separator { color: #1A1A1A; margin: 0 5px; }
 .footer-social a .fa-instagram { color: #C13584; }
@@ -51,19 +51,19 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
         font-size: 12px;
     }
     .footer-contact {
-        gap: 5px; /* Espacio reducido (Opción 1) */
+        gap: 5px;
     }
     .footer-contact a[href*="wa.me"],
     .footer-contact a[href*="mailto"] {
         font-size: 11px;
         white-space: nowrap;
-        display: flex; /* Alinea ícono y texto */
-        align-items: center; /* Centra verticalmente */
+        display: flex;
+        align-items: center;
     }
     .footer-contact a[href*="mailto"] i,
     .footer-contact a[href*="wa.me"] i {
-        margin-right: 5px; /* Refuerza margen para íconos */
-        position: static; /* Evita posiciones conflictivas */
+        margin-right: 5px;
+        position: static;
     }
 }
 @media (max-width: 768px) {
