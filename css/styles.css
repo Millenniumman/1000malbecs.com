@@ -1,11 +1,15 @@
 footer {
     background-color: #F8F8F8;
     padding: 20px;
-    text-align: center;
     width: 100%;
-    position: relative;
     min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente */
+    position: relative;
     z-index: 150;
+    margin-top: 60px; /* Espacio para evitar solapamiento con la barra de navegación */
+    box-sizing: border-box;
 }
 .footer-content {
     display: flex;
@@ -14,6 +18,9 @@ footer {
     flex-wrap: wrap;
     gap: 10px;
     font-size: 1em;
+    max-width: 1200px; /* Limita el ancho para mejor centrado */
+    width: 100%;
+    text-align: center;
 }
 .footer-contact, .footer-social {
     display: flex;
@@ -25,17 +32,17 @@ footer a { color: #4A2C59; text-decoration: none; margin: 0 5px; }
 footer a:hover { text-decoration: underline; }
 footer i { margin-right: 5px; font-size: 1em; vertical-align: middle; }
 footer span.separator { color: #1A1A1A; margin: 0 5px; }
-@media (max-width: 768px) {
-    .footer-content { flex-direction: column; gap: 12px; font-size: 12px; }
-}
-/* Nuevos estilos para Instagram y X */
-.footer-social a .fa-instagram {
-    color: #C13584; /* Morado de Instagram; alterna con #E4405F si prefieres */
-}
-.footer-social a .fa-x-twitter {
-    color: #000000; /* Negro para el logo de X */
-}
+.footer-social a .fa-instagram { color: #C13584; }
+.footer-social a .fa-x-twitter { color: #000000; }
 .footer-social a:hover .fa-instagram,
-.footer-social a:hover .fa-x-twitter {
-    opacity: 0.8; /* Efecto hover */
+.footer-social a:hover .fa-x-twitter { opacity: 0.8; }
+@media (max-width: 768px) {
+    footer {
+        margin-top: 50px; /* Menos espacio en mobile si la barra es más pequeña */
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+        font-size: 12px;
+    }
 }
