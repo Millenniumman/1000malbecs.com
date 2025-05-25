@@ -28,3 +28,14 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
 @media (max-width: 768px) {
     .footer-content { flex-direction: column; gap: 12px; font-size: 12px; }
 }
+/* Nuevos estilos para Instagram y X */
+.footer-social a .fa-instagram {
+    color: #C13584; /* Morado de Instagram; alterna con #E4405F si prefieres */
+}
+.footer-social a .fa-x-twitter {
+    color: #000000; /* Negro para el logo de X */
+}
+.footer-social a:hover .fa-instagram,
+.footer-social a:hover .fa-x-twitter {
+    opacity: 0.8; /* Efecto hover */
+}
