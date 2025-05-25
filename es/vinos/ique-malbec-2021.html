@@ -372,38 +372,53 @@ partido. Enrique Foster proyectó en IQUE la intención de conservar ...">
     text-align: center;
   }
   footer {
-    background-color: #F5F5DC;
-    color: #1A1A1A;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    font-size: 1em;
-    line-height: 1.5;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 150; /* Ensure footer is above nav elements */
-  }
-  footer a, footer span, footer strong {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 6px;
-    color: #1A1A1A;
-    text-decoration: none;
-  }
-  footer a:hover {
-    color: #6B1D49;
-    text-decoration: underline;
-  }
-  footer i {
-    margin-right: 5px;
-    font-size: 1.1em;
-    vertical-align: middle;
-  }
-  footer span.separator {
-    color: #1A1A1A;
-    font-weight: bold;
-  }
+            background-color: #F8F8F8;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            min-height: 80px;
+            z-index: 150;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 1em;
+        }
+        .footer-contact, .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        footer p {
+            margin: 0;
+            color: #1A1A1A;
+        }
+        footer a {
+            color: #4A2C59;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer i {
+            margin-right: 5px;
+            font-size: 1em;
+            vertical-align: middle;
+        }
+        footer img.social-icon {
+            width: 1em;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        footer span.separator {
+            color: #1A1A1A;
+            margin: 0 5px;
+        }
   .language-selector {
     position: fixed;
     top: 10px;
