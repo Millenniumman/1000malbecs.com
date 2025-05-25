@@ -32,6 +32,8 @@
   
   <title>1000 Malbecs - Amar Vivir Malbec 2020</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/styles.css">
   <style>
   body {
     font-family: Arial, sans-serif;
@@ -367,38 +369,53 @@
     text-align: center;
   }
   footer {
-    background-color: #F5F5DC;
-    color: #1A1A1A;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    font-size: 1em;
-    line-height: 1.5;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 150; /* Ensure footer is above nav elements */
-  }
-  footer a, footer span, footer strong {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 6px;
-    color: #1A1A1A;
-    text-decoration: none;
-  }
-  footer a:hover {
-    color: #6B1D49;
-    text-decoration: underline;
-  }
-  footer i {
-    margin-right: 5px;
-    font-size: 1.1em;
-    vertical-align: middle;
-  }
-  footer span.separator {
-    color: #1A1A1A;
-    font-weight: bold;
-  }
+            background-color: #F8F8F8;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            min-height: 80px;
+            z-index: 150;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 1em;
+        }
+        .footer-contact, .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        footer p {
+            margin: 0;
+            color: #1A1A1A;
+        }
+        footer a {
+            color: #4A2C59;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer i {
+            margin-right: 5px;
+            font-size: 1em;
+            vertical-align: middle;
+        }
+        footer img.social-icon {
+            width: 1em;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        footer span.separator {
+            color: #1A1A1A;
+            margin: 0 5px;
+        }
   .language-selector {
     position: fixed;
     top: 10px;
@@ -934,17 +951,6 @@
       
     </div>
   </div>
- <footer>
-  <strong>Inquiries:</strong>
-  <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i>+49 151 5822 4728</a>
-  <span class="separator">|</span>
-  <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i>federico@1000malbecs.com</a>
-  <span class="separator">|</span>
-  <strong>Follow Us:</strong>
-  <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i>@1000malbecs</a>
-  <span class="separator">|</span>
-  <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i>@1000malbecs</a>
-</footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {
