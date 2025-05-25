@@ -75,3 +75,9 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
         order: -1; /* Asegura que el ícono esté primero */
     }
 }
+@media (max-width: 768px) {
+    .footer-contact p,
+    .footer-social p {
+        font-size: 11px; /* Reduce ligeramente si es necesario */
+    }
+}
