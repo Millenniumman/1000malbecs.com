@@ -93,7 +93,8 @@ async function handleRequest(request) {
 
         // Procesar la página
         let pageHtml = await pageResponse.text();
-        const footerRegex = /<footer\b[^>]*>[\s\S]*?</footer>/i;
+        // Simplificar el regex para evitar errores
+        const footerRegex = /<footer\b[^>]*>.*?</footer>/is;
         if (pageHtml.match(footerRegex)) {
             pageHtml = pageHtml.replace(footerRegex, footerHtml);
         } else if (pageHtml.includes('</body>')) {
