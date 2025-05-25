@@ -164,6 +164,9 @@ async function handleRequest(request) {
                 <ul>
                     <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}</a></li>
                 </ul>
+                 <ul>
+                <li><a href="/eventos/anotate.html" class="nav-link">Anótate y participa</a></li>
+            </ul>
             </details>
         </nav>
     `;
