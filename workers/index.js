@@ -93,11 +93,7 @@ async function handleRequest(request) {
 
         // Procesar la página
         let pageHtml = await pageResponse.text();
-        // Simplificar el regex para evitar errores
-        const footerRegex = /<footer\b[^>]*>.*?</footer>/is;
-        if (pageHtml.match(footerRegex)) {
-            pageHtml = pageHtml.replace(footerRegex, footerHtml);
-        } else if (pageHtml.includes('</body>')) {
+        if (pageHtml.includes('</body>')) {
             pageHtml = pageHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
         } else {
             pageHtml += footerHtml; // Añadir al final si no hay </body>
