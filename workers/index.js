@@ -54,7 +54,7 @@ async function handleRequest(request) {
 
     // Procesar la página
     let pageHtml = await pageResponse.text();
-    const footerRegex = /<footer>[\s\S]*?<\/footer>/i;
+    const footerRegex = /<footer>[\s\S]*?</footer>/i;
     if (pageHtml.match(footerRegex)) {
         pageHtml = pageHtml.replace(footerRegex, footerHtml);
     } else {
