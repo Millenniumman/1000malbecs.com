@@ -5,10 +5,10 @@ footer {
     min-height: 80px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centra verticalmente */
+    align-items: center;
     position: relative;
     z-index: 150;
-    margin-top: 60px; /* Espacio para evitar solapamiento con la barra de navegación */
+    margin-top: 60px;
     box-sizing: border-box;
 }
 .footer-content {
@@ -18,7 +18,7 @@ footer {
     flex-wrap: wrap;
     gap: 10px;
     font-size: 1em;
-    max-width: 1200px; /* Limita el ancho para mejor centrado */
+    max-width: 1200px;
     width: 100%;
     text-align: center;
 }
@@ -38,11 +38,15 @@ footer span.separator { color: #1A1A1A; margin: 0 5px; }
 .footer-social a:hover .fa-x-twitter { opacity: 0.8; }
 @media (max-width: 768px) {
     footer {
-        margin-top: 50px; /* Menos espacio en mobile si la barra es más pequeña */
+        margin-top: 50px;
     }
     .footer-content {
         flex-direction: column;
         gap: 12px;
         font-size: 12px;
+    }
+    .footer-contact a[href*="wa.me"] {
+        font-size: 10px; /* Reduce tamaño del número de teléfono */
+        white-space: nowrap; /* Evita salto de línea */
     }
 }
