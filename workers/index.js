@@ -7,7 +7,7 @@ async function handleRequest(request) {
     const path = url.pathname;
 
     // Excluir páginas específicas y archivos no HTML
-    const excludedPaths = ['/footer.html', '/anotate.html', '/gracias.html'];
+    const excludedPaths = ['/footer.html', '/anotate.html', '/gracias.html', '/data/navigation.json'];
     if (
         excludedPaths.some(excluded => path.includes(excluded)) ||
         (!path.endsWith('.html') && path !== '/' && !path.startsWith('/es/') && !path.startsWith('/en/') && !path.startsWith('/de/'))
@@ -16,10 +16,10 @@ async function handleRequest(request) {
     }
 
     // Detectar idioma desde la URL
- let lang = 'es';
-if (path.startsWith('/en/')) lang = 'en';
-else if (path.startsWith('/de/')) lang = 'de';
-else if (path.startsWith('/es/')) lang = 'es';
+    let lang = 'es';
+    if (path.startsWith('/en/')) lang = 'en';
+    else if (path.startsWith('/de/')) lang = 'de';
+    else if (path.startsWith('/es/')) lang = 'es';
 
     // Soporte para parámetro ?lang= (para pruebas)
     const langParam = url.searchParams.get('lang');
@@ -77,7 +77,7 @@ else if (path.startsWith('/es/')) lang = 'es';
             footer: {
                 inquiries: 'Inquiries',
                 follow: 'Follow us',
-                whatsapp: '+49 151 5822 4728',
+                whatsapp: '+49 151 508',
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -104,7 +104,7 @@ else if (path.startsWith('/es/')) lang = 'es';
             footer: {
                 inquiries: 'Anfragen',
                 follow: 'Folge uns',
-                whatsapp: '+49 151 5822 4728',
+                whatsapp: '+49 151 508',
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -112,62 +112,98 @@ else if (path.startsWith('/es/')) lang = 'es';
         }
     };
 
-    // Lista de bodegas (sin traducción, nombres en español para todos los idiomas)
-    const wineries = [
-        { key: 'agustin-lanus', name: 'Agustín Lanús' },
-        { key: 'bodega-chanarmuyo', name: 'Bodega Chañarmuyo' },
-        { key: 'bodega-estancia-mendoza', name: 'Bodega Estancia Mendoza' },
-        { key: 'bodega-foster-lorca', name: 'Bodega Foster Lorca' },
-        { key: 'bodega-goyenechea', name: 'Bodega Goyenechea' },
-        { key: 'bodega-septima', name: 'Bodega Séptima' },
-        { key: 'bodega-tukma', name: 'Bodega Tukma' },
-        { key: 'bodegas-bianchi', name: 'Bodegas Bianchi' },
-        { key: 'bodegas-etchart', name: 'Bodegas Etchart' },
-        { key: 'casa-araujo', name: 'Casa Araujo' },
-        { key: 'chakana', name: 'Chakana' },
-        { key: 'cicchitti', name: 'Cicchitti' },
-        { key: 'eral-bravo', name: 'Eral Bravo' },
-        { key: 'familia-schroeder', name: 'Familia Schroeder' },
-        { key: 'finca-y-bodega-vistalba', name: 'Finca y Bodega Vistalba' },
-        { key: 'jasmine-monet', name: 'Jasmine Monet' },
-        { key: 'jorge-rubio', name: 'Jorge Rubio' },
-        { key: 'luigi-bosca', name: 'Luigi Bosca' },
-        { key: 'vina-alicia', name: 'Viña Alicia' },
-        { key: 'weinert-bodega-y-cavas', name: 'Weinert Bodega y Cavas' }
-    ];
+    // Obtener datos de navegación desde navigation.json
+    let provincias = [];
+    let bodegas = [];
+    try {
+        // Replace with your GitHub raw URL or use 'https://1000malbecs.com/data/navigation.json' if served via Cloudflare Pages
+        const navResponse = await fetch('https://raw.githubusercontent.com/faugspach/1000malbecs/main/data/navigation.json');
+        if (navResponse.ok) {
+            const navData = await navResponse.json();
+            provincias = navData.provincias || [];
+            bodegas = navData.bodegas || [];
+        } else {
+            console.error('Error fetching navigation.json:', navResponse.status);
+        }
+    } catch (error) {
+        console.error('Error loading navigation data:', error);
+    }
+
+    // Fallback data if navigation.json fails
+    if (provincias.length === 0) {
+        provincias = [
+            'La Rioja',
+            'Mendoza',
+            'Neuquén',
+            'Salta'
+        ];
+    }
+    if (bodegas.length === 0) {
+        bodegas = [
+            { name: 'Agustín Lanús', slug: 'agustin-lanus' },
+            { name: 'Bodega Chañarmuyo', slug: 'bodega-chanarmuyo' },
+            { name: 'Bodega Estancia Mendoza', slug: 'bodega-estancia-mendoza' },
+            { name: 'Bodega Foster Lorca', slug: 'bodega-foster-lorca' },
+            { name: 'Bodega Goyenechea', slug: 'bodega-goyenechea' },
+            { name: 'Bodega Séptima', slug: 'bodegas-septima' },
+            { name: 'Bodega Tukma', slug: 'bodega-tukma' },
+            { name: 'Bodegas Bianchi', slug: 'bodegas-bianchi' },
+            { name: 'Bodegas Etchart', slug: 'bodegas-etchart' },
+            { name: 'Casa Araujo', slug: 'casa-araujo' },
+            { name: 'Chakana', slug: 'chakana' },
+            { name: 'Cicchitti', slug: 'cicchitti' },
+            { name: 'Eral Bravo', slug: 'eral-bravo' },
+            { name: 'Familia Schroeder', slug: 'familia-schroeder' },
+            { name: 'Finca y Bodega Vistalba', slug: 'finca-y-bodega-vistalba' },
+            { name: 'Jasmine Monet', slug: 'jasmine-monet' },
+            { name: 'Jorge Rubio', slug: 'jorge-rubio' },
+            { name: 'Luigi Bosca', slug: 'luigi-bosca' },
+            { name: 'Viña Alicia', slug: 'vina-alicia' },
+            { name: 'Weinert Bodega y Cavas', slug: 'weinert-bodega-y-cavas' },
+        ];
+    }
+
+    // Generar enlaces de provincias
+    const provinciaLinks = provincias.map(prov => {
+        const slug = prov.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-').replace(/^-+|-+$/g, '') || 'unnamed';
+        const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, '_')] || prov;
+        return `<li><a href="/${lang}/provincias/${slug}.html" class="nav-link">${displayName}</a></li>`;
+    }).join('');
+
+    // Generar enlaces de bodegas
+    const bodegaLinks = bodegas.map(bodega => {
+        return `<li><a href="/${lang}/bodegas/${bodega.slug}.html" class="nav-link">${bodega.name}</a></li>`;
+    }).join('');
 
     // Generar el HTML de la navbar
-   const navbarHtml = `
-    <nav id="sidebar">
-        <div class="logo-container">
-            <a href="/${lang}/" title="${translations[lang].navbar.home}">
-                <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
-            </a>
-        </div>
-        <h2>${translations[lang].navbar.categories}</h2>
-        <details>
-            <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
-            <ul>
-                <li><a href="/${lang}/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-                <li><a href="/${lang}/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-                <!-- Agrega más provincias según sea necesario -->
-            </ul>
-        </details>
-        <details>
-            <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
-            <ul>
-                <li><a href="/${lang}/bodegas/agustin-lanus.html" class="nav-link">Agustín Lanús</a></li>
-                <!-- Agrega más bodegas según sea necesario -->
-            </ul>
-        </details>
-        <details>
-            <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
-            <ul>
-                <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}</a></li>
-                <li><a href="/${lang}/eventos/anotate.html" class="nav-link">${translations[lang].navbar.events_list.sign_up}</a></li>
-            </ul>
-        </details>
-    </nav>
+    const navbarHtml = `
+        <nav id="sidebar">
+            <div class="logo-container">
+                <a href="/${lang}/" title="${translations[lang].navbar.home}">
+                    <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
+                </a>
+                </div>
+            <h2>${translations[lang].navbar.categories}</h2>
+            <details>
+                <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
+                <ul>
+                    ${provinciaLinks}
+                </ul>
+            </details>
+            <details>
+                <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
+                <ul>
+                    ${bodegaLinks}
+                </ul>
+            </details>
+            <details>
+                <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
+                <ul>
+                    <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}}</a></li>
+                    <li><a href="/${lang}/eventos/anotate.html" class="nav-link">${translations[lang].navbar.events_list.sign_up}</a></li>
+                </ul>
+            </details>
+        </nav>
     `;
 
     // Generar el HTML del footer
@@ -175,13 +211,13 @@ else if (path.startsWith('/es/')) lang = 'es';
         <footer>
             <div class="footer-content">
                 <div class="footer-contact">
-                    <p><strong>${translations[lang].footer.inquiries}:</strong></p>
+                    <p><strong>${translations[lang].footer.inquiries}</strong></p>
                     <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i> ${translations[lang].footer.whatsapp}</a>
                     <span class="separator">|</span>
                     <a href="mailto:${translations[lang].footer.email}"><i class="fas fa-envelope"></i> ${translations[lang].footer.email}</a>
                 </div>
                 <div class="footer-social">
-                    <p><strong>${translations[lang].footer.follow}:</strong></p>
+                    <p><strong>${translations[lang].footer.follow}</strong></p>
                     <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i> ${translations[lang].footer.instagram}</a>
                     <span class="separator">|</span>
                     <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i> ${translations[lang].footer.twitter}</a>
