@@ -67,12 +67,13 @@ footer {
 .footer-content {
     display: flex;
     flex-direction: row; /* Single line on desktop */
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 6px; /* Space between contact and social */
+    gap: 3px; /* Space between contact and social */
     max-width: 1200px;
     margin: 0 auto;
     white-space: nowrap;
-    flex-wrap: nowrap;
+    
 }
 .footer-contact, .footer-social {
     display: inline-flex;
@@ -87,7 +88,7 @@ footer {
 .icon-text {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     color: #1A1A1A;
     text-decoration: none;
     font-size: 0.9em;
