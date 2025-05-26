@@ -368,54 +368,7 @@
     z-index: 7;
     text-align: center;
   }
-  footer {
-            background-color: #F8F8F8;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            position: relative;
-            min-height: 80px;
-            z-index: 150;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 1em;
-        }
-        .footer-contact, .footer-social {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        footer p {
-            margin: 0;
-            color: #1A1A1A;
-        }
-        footer a {
-            color: #4A2C59;
-            text-decoration: none;
-            margin: 0 5px;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        footer i {
-            margin-right: 5px;
-            font-size: 1em;
-            vertical-align: middle;
-        }
-        footer img.social-icon {
-            width: 1em;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-        footer span.separator {
-            color: #1A1A1A;
-            margin: 0 5px;
-        }
+  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -817,295 +770,188 @@
 </style>
 </head>
 <body>
-  <div class="language-selector">
-    <a href="/vinos/eral-bravo-malbec-2017.html" class="" aria-label="Español">ES 🇪🇸</a>
-    <a href="/en/vinos/eral-bravo-malbec-2017.html" class="" aria-label="Inglés">EN 🇬🇧</a>
-    <a href="/de/vinos/eral-bravo-malbec-2017.html" class="active" aria-label="Alemán">DE 🇩🇪</a>
-  </div>
-  <header class="header">
+<div class="language-selector">
+    <a href="/es/vinos/eral-bravo-malbec-2017.html" class="" aria-label="Español">ES 🇪🇸</a>
+    <a href="/en/vinos/eral-bravo-malbec-2017.html" class="" aria-label="English">EN 🇬🇧</a>
+    <a href="/de/vinos/eral-bravo-malbec-2017.html" class="active" aria-label="Deutsch">DE 🇩🇪</a>
+</div>
+   <header class="header">
     <a href="/de/" title="1000 Malbecs - ">
-      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-    </a>
-  </header>
-  <button class="hamburger" aria-label="Toggle menu">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/de/" title="1000 Malbecs - ">
         <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
+    </a>
+    </header>
+    <button class="hamburger" aria-label="Toggle menu">☰</button>
+    <div class="main-content">
+        <div class="product-details">
+            <div class="product-image">
+                <img src="/images/large/eral-bravo-malbec-2017.jpg" alt="Botella de Eral Bravo  Malbec 2017"
+                     onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            </div>
+            <div class="product-info">
+                <h1>Eral Bravo  Malbec - 2017</h1>
+                <p class="info"><strong>Weingut:</strong> Eral Bravo</p>
+                <p class="info"><strong>Provinz:</strong> Mendoza</p>
+                <p class="info"><strong>Region:</strong> valle de uco</p>
+                <p class="info"><strong>Höhe:</strong> 1200</p>
+                <p class="info"><strong>Preis:</strong> €25.49</p>
+                <a href="https://wa.me/4915158224728?text=:%20Eral%20Bravo%20%20Malbec%202017" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+                <div class="info-box">
+                    <h2>Beschreibung</h2>
+                    <p>Eral Bravo - Malbec 2017 ist ein strukturierter und komplexer Wein aus Eral Bravo, aus Weinbergen in Tupungato, Uco Valley.Mit einer Erhöhung in Eiche, die seine Tiefe hervorhebt, ist dieser Malbec ideal für rotes Fleisch, Eintöpfer oder Semi -Joy.Der Jahrgang 2017 ist auf dem Höhepunkt mit einem 5-7-jährigen Wachpotential.</p>
+                </div>
+                <div class="info-box">
+                    <h2>Verkostungsnotizen und Speisenempfehlung</h2>
+                    <p>In der Nase bietet es Aromen für Pflaumen, Kassen und Veilchen mit Tabak- und Mineralitätsnoten.Im Mund ist es strukturiert, mit Aromen zu schwarzen Früchten, süßen Gewürzen und Schokolade.Die Tannine sind fest, aber poliert, mit einer ausgewogenen Säure.Das Ende ist lang, mit Eichen- und Graphitnuancen.Marida mit Tenderloin, Fleischtopf oder Duett.</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="recommended-section">
+            
+            <h3>Weitere Weine von Eral Bravo</h3>
+            <div class="product-grid same-bodega">
+                
+                <div class="product-card">
+                    <img src="/images/small/urano-malbec-2017.jpg" alt="Botella de Urano  Malbec 2017"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Urano  Malbec 2017</h3>
+                    <div class="price">€15.99</div>
+                    <a href="/de/vinos/urano-malbec-2017.html" class="buy-button">Jetzt kaufen</a>
+                    <span class="info-icon" data-overlay-id="bodega-urano-malbec-2017.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Weingut:</strong> Eral Bravo</p>
+                        <p><strong>Region:</strong> valle de uco</p>
+                        <p><strong>Höhe:</strong> 1200</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <h3 class="region-title">Weine aus valle de uco</h3>
+            <div class="product-grid same-region">
+                
+                <div class="product-card">
+                    <img src="/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Foster  Malbec 2020</h3>
+                    <div class="price">€25.49</div>
+                    <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Jetzt kaufen</a>
+                    <span class="info-icon" data-overlay-id="region-foster-malbec-2020.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+                        <p><strong>Region:</strong> valle de uco</p>
+                        <p><strong>Höhe:</strong> 1050</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Foster  Malbec 2018</h3>
+                    <div class="price">€26.49</div>
+                    <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Jetzt kaufen</a>
+                    <span class="info-icon" data-overlay-id="region-foster-malbec-2018.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+                        <p><strong>Region:</strong> valle de uco</p>
+                        <p><strong>Höhe:</strong> 1050</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Foster  Malbec 2015</h3>
+                    <div class="price">€27.49</div>
+                    <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Jetzt kaufen</a>
+                    <span class="info-icon" data-overlay-id="region-foster-malbec-2015.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+                        <p><strong>Region:</strong> valle de uco</p>
+                        <p><strong>Höhe:</strong> 1050</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
     </div>
-    <h2>Kategorien</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
-      <ul>
-        
-        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/de/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
-      <ul>
-        
-        <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/de/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/de/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
-      <ul>
-        <li><a href="/de/eventos/eventos.html" class="nav-link">Veranstaltungen ansehen</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div class="main-content">
-    <div class="product-details">
-      <div class="product-image">
-        <img src="/images/large/eral-bravo-malbec-2017.jpg" alt="Botella de Eral Bravo  Malbec 2017"
-             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-      </div>
-      <div class="product-info">
-        <h1>Eral Bravo  Malbec - 2017</h1>
-        <p class="info"><strong>Weingut:</strong> Eral Bravo</p>
-        <p class="info"><strong>Provinz:</strong> Mendoza</p>
-        <p class="info"><strong>Region:</strong> valle de uco</p>
-        <p class="info"><strong>Höhe:</strong> 1200</p>
-        <p class="info"><strong>Preis:</strong> €25.49</p>
-        <a href="https://wa.me/4915158224728?text=:%20Eral%20Bravo%20%20Malbec%202017" class="main-buy-button" target="_blank">Jetzt kaufen</a>
-        <div class="info-box">
-          <h2>Beschreibung</h2>
-          <p>Eral Bravo - Malbec 2017 ist ein strukturierter und komplexer Wein aus Eral Bravo, aus Weinbergen in Tupungato, Uco Valley.Mit einer Erhöhung in Eiche, die seine Tiefe hervorhebt, ist dieser Malbec ideal für rotes Fleisch, Eintöpfer oder Semi -Joy.Der Jahrgang 2017 ist auf dem Höhepunkt mit einem 5-7-jährigen Wachpotential.</p>
-        </div>
-        <div class="info-box">
-          <h2>Verkostungsnotizen und Speisenempfehlung</h2>
-          <p>In der Nase bietet es Aromen für Pflaumen, Kassen und Veilchen mit Tabak- und Mineralitätsnoten.Im Mund ist es strukturiert, mit Aromen zu schwarzen Früchten, süßen Gewürzen und Schokolade.Die Tannine sind fest, aber poliert, mit einer ausgewogenen Säure.Das Ende ist lang, mit Eichen- und Graphitnuancen.Marida mit Tenderloin, Fleischtopf oder Duett.</p>
-        </div>
-        
-      </div>
-    </div>
-    <div class="recommended-section">
-      
-      <h3>Weitere Weine von Eral Bravo</h3>
-      <div class="product-grid same-bodega">
-        
-        <div class="product-card">
-          <img src="/images/small/urano-malbec-2017.jpg" alt="Botella de Urano  Malbec 2017"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Urano  Malbec 2017</h3>
-          <div class="price">€15.99</div>
-          <a href="/de/vinos/urano-malbec-2017.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="bodega-urano-malbec-2017.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Eral Bravo</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1200</p>
-          </div>
-        </div>
-        
-      </div>
-      
-      
-      <h3 class="region-title">Weine aus valle de uco</h3>
-      <div class="product-grid same-region">
-        
-        <div class="product-card">
-          <img src="/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Foster  Malbec 2020</h3>
-          <div class="price">€25.49</div>
-          <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-foster-malbec-2020.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1050</p>
-          </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Foster  Malbec 2018</h3>
-          <div class="price">€26.49</div>
-          <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-foster-malbec-2018.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1050</p>
-          </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Foster  Malbec 2015</h3>
-          <div class="price">€27.49</div>
-          <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-foster-malbec-2015.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1050</p>
-          </div>
-        </div>
-        
-      </div>
-      
-    </div>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      try {
-        // Hamburger menu
-        const hamburger = document.querySelector('.hamburger');
-        const sidebar = document.querySelector('#sidebar');
-        let isSidebarOpen = false;
-        if (hamburger && sidebar) {
-          hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isSidebarOpen = !isSidebarOpen;
-            sidebar.classList.toggle('open', isSidebarOpen);
-            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
-          });
-        } else {
-          console.error('Hamburger or sidebar not found');
-        }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Hamburger menu
+                const hamburger = document.querySelector('.hamburger');
+                const sidebar = document.querySelector('#sidebar');
+                let isSidebarOpen = false;
+                if (hamburger && sidebar) {
+                    hamburger.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        isSidebarOpen = !isSidebarOpen;
+                        sidebar.classList.toggle('open', isSidebarOpen);
+                    });
+                }
 
-        // Prevent link clicks from closing sidebar
-        document.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.stopPropagation();
-          });
-        });
+                // Prevent link clicks from closing sidebar
+                document.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                    });
+                });
 
-        // Highlight active nav link
-        const navLinks = document.querySelectorAll('.nav-link');
-        const currentPath = window.location.pathname;
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-            const details = link.closest('details');
-            if (details) {
-              details.setAttribute('open', '');
+                // Info icon overlay toggle
+                const infoIcons = document.querySelectorAll('.info-icon');
+                infoIcons.forEach(icon => {
+                    ['click', 'touchstart'].forEach(eventType => {
+                        icon.addEventListener(eventType, (e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            const overlayId = icon.getAttribute('data-overlay-id');
+                            document.querySelectorAll('.overlay.active').forEach(overlay => {
+                                overlay.classList.remove('active');
+                            });
+                            const productCard = icon.closest('.product-card');
+                            if (productCard) {
+                                const overlay = productCard.querySelector('.overlay');
+                                if (overlay) {
+                                    overlay.classList.toggle('active');
+                                }
+                            }
+                        }, { passive: false });
+                    });
+                });
+
+                // Close overlays when clicking outside product cards
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.product-card')) {
+                        document.querySelectorAll('.overlay.active').forEach(overlay => {
+                            overlay.classList.remove('active');
+                        });
+                    }
+                });
+
+                // Hide language selector on scroll down or when footer is in view
+                const languageSelector = document.querySelector('.language-selector');
+                const footer = document.querySelector('footer');
+                let lastScrollY = window.scrollY;
+                let scrollThreshold = 50;
+                if (languageSelector && footer) {
+                    window.addEventListener('scroll', () => {
+                        const currentScrollY = window.scrollY;
+                        const footerRect = footer.getBoundingClientRect();
+                        const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+                        if ((currentScrollY > lastScrollY && currentScrollY > scrollThreshold) || isFooterInView) {
+                            languageSelector.classList.add('hidden');
+                        } else {
+                            languageSelector.classList.remove('hidden');
+                        }
+                        lastScrollY = currentScrollY;
+                    });
+                }
+            } catch (error) {
+                console.error('Error in DOMContentLoaded handler:', error);
             }
-          }
         });
-
-        // Info icon overlay toggle
-        const infoIcons = document.querySelectorAll('.info-icon');
-        console.log(`Found ${infoIcons.length} info-icon elements`);
-        infoIcons.forEach(icon => {
-          ['click', 'touchstart'].forEach(eventType => {
-            icon.addEventListener(eventType, (e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              const overlayId = icon.getAttribute('data-overlay-id');
-              console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
-              document.querySelectorAll('.overlay.active').forEach(overlay => {
-                overlay.classList.remove('active');
-              });
-              const productCard = icon.closest('.product-card');
-              if (!productCard) {
-                console.error(`No product-card found for info-icon: ${overlayId}`);
-                return;
-              }
-              const overlay = productCard.querySelector('.overlay');
-              if (overlay) {
-                overlay.classList.toggle('active');
-                console.log(`Overlay toggled for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}, Active: ${overlay.classList.contains('active')}`);
-              } else {
-                console.error(`No overlay found for card: ${overlayId}`);
-              }
-            }, { passive: false });
-          });
-        });
-
-        // Close overlays when clicking outside product cards
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('.product-card')) {
-            document.querySelectorAll('.overlay.active').forEach(overlay => {
-              overlay.classList.remove('active');
-            });
-          }
-        });
-
-        // Hide language selector on scroll down or when footer is in view
-        const languageSelector = document.querySelector('.language-selector');
-        const footer = document.querySelector('footer');
-        let lastScrollY = window.scrollY;
-        let scrollThreshold = 50;
-        if (languageSelector && footer) {
-          window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const footerRect = footer.getBoundingClientRect();
-            const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-            if ((currentScrollY > lastScrollY && currentScrollY > scrollThreshold) || isFooterInView) {
-              languageSelector.classList.add('hidden');
-            } else {
-              languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
-          });
-        } else {
-          console.error('Language selector or footer not found');
-        }
-
-        // Debug: Confirm emoji and titles
-        const wineGlassEmojis = document.querySelectorAll('.info-icon');
-        console.log(`Found ${wineGlassEmojis.length} wine glass emojis (🍷)`);
-        const bodegaTitle = document.querySelector('.recommended-section h3:not(.region-title)');
-        const regionTitle = document.querySelector('.region-title');
-        console.log(`Bodega title: ${bodegaTitle ? bodegaTitle.textContent : 'Not found'}`);
-        console.log(`Region title: ${regionTitle ? regionTitle.textContent : 'Not found'}`);
-      } catch (error) {
-        console.error('Error in DOMContentLoaded handler:', error);
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
