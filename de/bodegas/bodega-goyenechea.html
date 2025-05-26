@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Bodega Goyenechea</title>
   <meta property="og:title" content="1000 Malbecs - Bodega Goyenechea">
-  <meta property="og:description" content="Goyenechea, anerkannte Weingut und Weinberge mit Wurzeln in der spanischen Einwanderung von Santiago und Narciso Goyenechea.Sein Engagement für Exzellenz und...">
+  <meta property="og:description" content="Goyenechea, anerkannte Weingut und Weinberge mit Wurzeln in der spanischen Einwanderung von Santiago und Narciso Goyenechea im Jahr 1868. Sein Engagement für...">
   <meta property="og:image" content="/images/bodegas/bodega-goyenechea-1.jpg">
   <meta property="og:url" content="https://1000malbecs.com/de/bodegas/bodega-goyenechea.html">
   <meta property="og:type" content="website">
@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -276,47 +295,7 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  footer {
-    background-color: #F8F8F8; /* Match sidebar for cohesion */
-    color: #1A1A1A;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    position: relative;
-    min-height: 60px;
-    box-sizing: border-box;
-    overflow: visible;
-    clear: both;
-  }
-  footer p {
-    margin: 0;
-    font-size: 1em;
-    display: inline;
-    color: #1A1A1A;
-  }
-  footer a {
-    color: #4A2C59;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-  footer i {
-    margin-right: 5px;
-    font-size: 1em;
-    vertical-align: middle;
-  }
-  footer img.social-icon {
-    width: 1em;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-  footer span.separator {
-    color: #1A1A1A;
-    margin: 0 5px;
-  }
+  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -381,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -495,16 +474,6 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-    footer {
-      background-color: #F8F8F8; /* Match sidebar */
-      padding: 15px;
-      text-align: center;
-      width: 100%;
-      position: relative;
-      min-height: 60px;
-      overflow: visible;
-      clear: both;
-    }
   }
   @media (min-width: 769px) {
     .header { display: none; }
@@ -596,94 +565,14 @@
     </a>
   </header>
   <button class="hamburger">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/de/" title="Volver al inicio">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Kategorien</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
-      <ul>
-        
-        <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/de/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
-      <ul>
-        
-        <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link active">Bodega Goyenechea</a></li>
-        
-        <li><a href="/de/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/de/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
-      <ul>
-        <li><a href="/de/eventos" class="nav-link">Veranstaltungen ansehen</a></li>
-      </ul>
-    </details>
-  </nav>
   <main class="main-content">
     <h1>Bodega Goyenechea</h1>
     <section class="presentation">
       <h2>Über Bodega Goyenechea</h2>
-      <p>Goyenechea, anerkannte Weingut und Weinberge mit Wurzeln in der spanischen Einwanderung von Santiago und Narciso Goyenechea.Sein Engagement für Exzellenz und Familientradition positionieren es als einer der Hauptfestern in der Weinindustrie.</p>
-      <div class="gallery">
+      <p>Goyenechea, anerkannte Weingut und Weinberge mit Wurzeln in der spanischen Einwanderung von Santiago und Narciso Goyenechea im Jahr 1868. Sein Engagement für Exzellenz und Familientradition positionieren es als einer der Hauptfestern in der Weinindustrie.</p>
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-goyenechea-1.jpg" alt="Banner de Bodega Goyenechea">
-        
-        <img src="/images/bodegas/bodega-goyenechea-2.jpg" alt="Imagen 2 de Bodega Goyenechea">
-        
-        <img src="/images/bodegas/bodega-goyenechea-3.jpg" alt="Imagen 3 de Bodega Goyenechea">
-        
-        <img src="/images/bodegas/bodega-goyenechea-4.jpg" alt="Imagen 4 de Bodega Goyenechea">
         
       </div>
     </section>
@@ -744,24 +633,7 @@
       
     </section>
   </main>
-  <footer>
-    <div class="footer-content">
-      <span>
-        <i class="fab fa-whatsapp"></i>
-        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Kontakt über WhatsApp">+49 151 5822 4728</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/x-icon.png" alt="X" class="social-icon">
-        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folge uns auf X">@1000malbecs</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folge uns auf Instagram">@1000malbecs</a>
-      </span>
-    </div>
-  </footer>
+ 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
