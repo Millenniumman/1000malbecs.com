@@ -50,6 +50,7 @@
 
 /* Estilos para el footer (inyectado por el Worker) */
 footer {
+   footer {
     background-color: #F8F8F8;
     color: #1A1A1A;
     padding: 12px;
@@ -58,33 +59,32 @@ footer {
     width: 100%;
     margin-top: auto;
     font-size: 0.9em; /* From your CSS */
-    line-height: 1.4;
+    line-height: 1.2; /* Tightened for alignment */
     box-sizing: border-box;
     position: relative;
     z-index: 150; /* From your CSS */
 }
 .footer-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Single line on desktop */
     align-items: center;
-    gap: 8px; /* Desktop gap */
+    gap: 12px; /* Space between contact and social */
     max-width: 1200px;
     margin: 0 auto;
-}
-.footer-contact, .footer-social {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-.contact-links, .social-links {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     white-space: nowrap;
 }
+.footer-contact, .footer-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.contact-links, .social-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
 .icon-text {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 4px;
     color: #1A1A1A;
@@ -97,6 +97,8 @@ footer {
 }
 .icon-text i {
     font-size: 1.1em;
+    margin: 0; /* Remove stray margins */
+    line-height: 1; /* Prevent vertical offset */
 }
 .icon-text span {
     font-size: 0.9em;
@@ -110,7 +112,8 @@ footer .separator {
     margin: 0 4px; /* From your CSS */
 }
 footer p {
-    margin: 0 0 3px 0;
+    display: inline;
+    margin: 0 4px 0 0; /* Inline, minimal spacing */
     font-size: 0.9em;
     color: #1A1A1A;
 }
@@ -133,14 +136,17 @@ footer a {
         font-size: 0.85em;
     }
     .footer-content {
+        flex-direction: column; /* Two lines on mobile */
         gap: 0.25rem; /* 4px between contact and social */
     }
     .footer-contact, .footer-social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 3px;
     }
     .contact-links, .social-links {
         gap: 6px;
-        flex-direction: row;
     }
     .icon-text {
         gap: 3px;
@@ -148,18 +154,18 @@ footer a {
     }
     .icon-text i {
         font-size: 1em;
+        margin: 0;
+        line-height: 1;
     }
     .icon-text span {
         font-size: 0.85em;
-        white-space: nowrap !important;
-        overflow: visible !important;
     }
     footer .separator, footer strong, footer a {
-        margin: 0 3px; /* Adjusted for mobile */
+        margin: 0 3px;
         font-size: 0.85em;
     }
     footer p {
-        margin: 0; /* No margin for minimal spacing */
+        margin: 0;
         font-size: 0.85em;
     }
 }
@@ -178,7 +184,6 @@ footer a {
     }
     .contact-links, .social-links {
         gap: 4px;
-        flex-direction: row;
     }
     .icon-text {
         gap: 2px;
@@ -189,30 +194,13 @@ footer a {
     }
     .icon-text span {
         font-size: 0.8em;
-        white-space: nowrap !important;
-        overflow: visible !important;
     }
     footer .separator, footer strong, footer a {
         margin: 0 3px; /* From your CSS */
         font-size: 0.8em; /* From your CSS */
     }
     footer p {
-        margin: 0; /* No margin */
+        margin: 0;
         font-size: 0.8em;
-    }
-}
-#sidebar.open { transform: translateX(0); }
-    .logo-container { display: none; }
-    footer {
-        padding: 12px;
-        font-size: 0.9em;
-    }
-    .footer-content {
-        flex-direction: column;
-        gap: 12px;
-    }
-    footer a, footer span, footer strong {
-        margin: 0 4px;
-        font-size: 0.9em;
     }
 }
