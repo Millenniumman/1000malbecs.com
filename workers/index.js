@@ -206,25 +206,23 @@ async function handleRequest(request) {
         </nav>
     `;
 
-    const footerHtml = `
-   const footerHtml = `
-const footerHtml = `
+  const footerHtml = `
     <footer>
         <div class="footer-content">
             <div class="footer-contact">
                 <p><strong>${translations[lang].footer.inquiries}:</strong></p>
                 <div class="contact-links">
-                    <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i> ${translations[lang].footer.whatsapp}</a>
+                    <a href="https://wa.me/4915158224728" target="_blank" class="icon-text"><i class="fab fa-whatsapp"></i><span>${translations[lang].footer.whatsapp}</span></a>
                     <span class="separator">|</span>
-                    <a href="mailto:${translations[lang].footer.email}"><i class="fas fa-envelope"></i> ${translations[lang].footer.email}</a>
+                    <a href="mailto:${translations[lang].footer.email}" class="icon-text"><i class="fas fa-envelope"></i><span>${translations[lang].footer.email}</span></a>
                 </div>
             </div>
             <div class="footer-social">
                 <p><strong>${translations[lang].footer.follow}:</strong></p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i> ${translations[lang].footer.instagram}</a>
+                    <a href="https://www.instagram.com/1000malbecs/" target="_blank" class="icon-text"><i class="fab fa-instagram"></i><span>${translations[lang].footer.instagram}</span></a>
                     <span class="separator">|</span>
-                    <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i> ${translations[lang].footer.twitter}</a>
+                    <a href="https://x.com/1000malbecs" target="_blank" class="icon-text"><i class="fab fa-x-twitter"></i><span>${translations[lang].footer.twitter}</span></a>
                 </div>
             </div>
         </div>
