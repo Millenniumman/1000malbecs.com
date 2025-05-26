@@ -57,14 +57,14 @@ footer {
     width: 100%;
     margin-top: auto;
     font-size: 1em;
-    line-height: 1.4; /* Reduced for tighter alignment */
+    line-height: 1.4;
     box-sizing: border-box;
     position: relative;
     z-index: 150;
 }
 .footer-content {
     display: flex;
-    flex-direction: column; /* Stack contact and social sections */
+    flex-direction: column;
     align-items: center;
     gap: 8px;
     max-width: 1200px;
@@ -80,9 +80,9 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    white-space: nowrap; /* Prevent wrapping */
+    white-space: nowrap;
 }
-footer a {
+.icon-text {
     display: flex;
     align-items: center;
     gap: 4px; /* Space between icon and text */
@@ -90,15 +90,17 @@ footer a {
     text-decoration: none;
     font-size: 0.9em;
 }
-footer a:hover {
+.icon-text:hover {
     color: #6B1D49;
     text-decoration: underline;
 }
-footer i {
+.icon-text i {
     font-size: 1.1em;
-    vertical-align: middle;
 }
-footer span.separator {
+.icon-text span {
+    font-size: 0.9em;
+}
+footer .separator {
     color: #1A1A1A;
     font-weight: bold;
     font-size: 0.9em;
@@ -121,15 +123,19 @@ footer strong {
     }
     .contact-links, .social-links {
         gap: 6px;
+        flex-direction: row; /* Ensure single line per section */
     }
-    footer a {
-        font-size: 0.85em;
+    .icon-text {
         gap: 3px;
+        font-size: 0.85em;
     }
-    footer i {
+    .icon-text i {
         font-size: 1em;
     }
-    footer span.separator, footer p, footer strong {
+    .icon-text span {
+        font-size: 0.85em;
+    }
+    footer .separator, footer p, footer strong {
         font-size: 0.85em;
     }
 }
@@ -142,15 +148,19 @@ footer strong {
     }
     .contact-links, .social-links {
         gap: 4px;
+        flex-direction: row;
     }
-    footer a {
-        font-size: 0.8em;
+    .icon-text {
         gap: 2px;
+        font-size: 0.8em;
     }
-    footer i {
+    .icon-text i {
         font-size: 0.95em;
     }
-    footer span.separator, footer p, footer strong {
+    .icon-text span {
+        font-size: 0.8em;
+    }
+    footer .separator, footer p, footer strong {
         font-size: 0.8em;
     }
 }
