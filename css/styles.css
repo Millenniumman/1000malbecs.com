@@ -50,30 +50,28 @@
 
 /* Estilos para el footer (inyectado por el Worker) */
 footer {
-   footer {
     background-color: #F8F8F8;
     color: #1A1A1A;
     padding: 12px;
-    padding-bottom: 20px; /* From your CSS */
+    padding-bottom: 20px;
     text-align: center;
     width: 100%;
     margin-top: auto;
-    font-size: 0.9em; /* From your CSS */
-    line-height: 1.2; /* Tightened for alignment */
+    font-size: 0.9em;
+    line-height: 1.2;
     box-sizing: border-box;
     position: relative;
-    z-index: 150; /* From your CSS */
+    z-index: 150;
 }
 .footer-content {
     display: flex;
-    flex-direction: row; /* Single line on desktop */
-    flex-wrap: nowrap;
+    flex-direction: row !important; /* Enforce single line on desktop */
+    flex-wrap: nowrap !important; /* Prevent wrapping */
     align-items: center;
-    gap: 3px; /* Space between contact and social */
+    gap: 12px;
     max-width: 1200px;
     margin: 0 auto;
-    white-space: nowrap;
-    
+    white-space: nowrap !important;
 }
 .footer-contact, .footer-social {
     display: inline-flex;
@@ -88,7 +86,7 @@ footer {
 .icon-text {
     display: inline-flex;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     color: #1A1A1A;
     text-decoration: none;
     font-size: 0.9em;
@@ -99,8 +97,9 @@ footer {
 }
 .icon-text i {
     font-size: 1.1em;
-    margin: 0; /* Remove stray margins */
-    line-height: 1; /* Prevent vertical offset */
+    margin: 0 !important;
+    line-height: 1 !important;
+    vertical-align: middle;
 }
 .icon-text span {
     font-size: 0.9em;
@@ -111,21 +110,21 @@ footer .separator {
     color: #1A1A1A;
     font-weight: bold;
     font-size: 0.9em;
-    margin: 0 4px; /* From your CSS */
+    margin: 0 4px;
 }
 footer p {
-    display: inline;
-    margin: 0 4px 0 0; /* Inline, minimal spacing */
+    display: inline !important;
+    margin: 0 4px 0 0;
     font-size: 0.9em;
     color: #1A1A1A;
 }
 footer strong {
     font-size: 0.9em;
     color: #1A1A1A;
-    margin: 0 4px; /* From your CSS */
+    margin: 0 4px;
 }
 footer a {
-    margin: 0 4px; /* From your CSS */
+    margin: 0 4px;
     font-size: 0.9em;
     color: #1A1A1A;
     text-decoration: none;
@@ -138,8 +137,9 @@ footer a {
         font-size: 0.85em;
     }
     .footer-content {
-        flex-direction: column; /* Two lines on mobile */
-        gap: 0.25rem; /* 4px between contact and social */
+        flex-direction: column !important; /* Two lines on mobile */
+        flex-wrap: nowrap !important;
+        gap: 0.25rem !important; /* 4px */
     }
     .footer-contact, .footer-social {
         display: flex;
@@ -156,8 +156,8 @@ footer a {
     }
     .icon-text i {
         font-size: 1em;
-        margin: 0;
-        line-height: 1;
+        margin: 0 !important;
+        line-height: 1 !important;
     }
     .icon-text span {
         font-size: 0.85em;
@@ -167,7 +167,7 @@ footer a {
         font-size: 0.85em;
     }
     footer p {
-        margin: 0;
+        margin: 0 !important;
         font-size: 0.85em;
     }
 }
@@ -175,11 +175,11 @@ footer a {
 @media (max-width: 480px) {
     footer {
         padding: 10px;
-        padding-bottom: 25px; /* From your CSS */
-        font-size: 0.8em; /* From your CSS */
+        padding-bottom: 25px;
+        font-size: 0.8em;
     }
     .footer-content {
-        gap: 0.25rem; /* 4px */
+        gap: 0.25rem !important;
     }
     .footer-contact, .footer-social {
         gap: 2px;
@@ -198,11 +198,11 @@ footer a {
         font-size: 0.8em;
     }
     footer .separator, footer strong, footer a {
-        margin: 0 3px; /* From your CSS */
-        font-size: 0.8em; /* From your CSS */
+        margin: 0 3px;
+        font-size: 0.8em;
     }
     footer p {
-        margin: 0;
+        margin: 0 !important;
         font-size: 0.8em;
     }
 }
