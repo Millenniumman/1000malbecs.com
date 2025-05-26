@@ -137,37 +137,37 @@ else if (path.startsWith('/es/')) lang = 'es';
     ];
 
     // Generar el HTML de la navbar
-    const navbarHtml = `
-        <nav id="sidebar">
-            <div class="logo-container">
-                <a href="/${lang}/" title="${translations[lang].navbar.home}">
-                    <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
-                </a>
-            </div>
-            <h2>${translations[lang].navbar.categories}</h2>
-            <details>
-                <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
-                <ul>
-                    <li><a href="/${lang}/provincias/la-rioja.html" class="nav-link">${translations[lang].navbar.provinces_list.la_rioja}</a></li>
-                    <li><a href="/${lang}/provincias/mendoza.html" class="nav-link">${translations[lang].navbar.provinces_list.mendoza}</a></li>
-                    <li><a href="/${lang}/provincias/neuquen.html" class="nav-link">${translations[lang].navbar.provinces_list.neuquen}</a></li>
-                    <li><a href="/${lang}/provincias/salta.html" class="nav-link">${translations[lang].navbar.provinces_list.salta}</a></li>
-                </ul>
-            </details>
-            <details>
-                <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
-                <ul>
-                    ${wineries.map(winery => `<li><a href="/${lang}/bodegas/${winery.key}.html" class="nav-link">${winery.name}</a></li>`).join('')}
-                </ul>
-            </details>
-            <details>
-                <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
-                <ul>
-                    <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}</a></li>
-                    <li><a href="/${lang}/eventos/anotate.html" class="nav-link">${translations[lang].navbar.events_list.sign_up}</a></li>
-                </ul>
-            </details>
-        </nav>
+   const navbarHtml = `
+    <nav id="sidebar">
+        <div class="logo-container">
+            <a href="/${lang}/" title="${translations[lang].navbar.home}">
+                <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
+            </a>
+        </div>
+        <h2>${translations[lang].navbar.categories}</h2>
+        <details>
+            <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
+            <ul>
+                <li><a href="/${lang}/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
+                <li><a href="/${lang}/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+                <!-- Agrega más provincias según sea necesario -->
+            </ul>
+        </details>
+        <details>
+            <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
+            <ul>
+                <li><a href="/${lang}/bodegas/agustin-lanus.html" class="nav-link">Agustín Lanús</a></li>
+                <!-- Agrega más bodegas según sea necesario -->
+            </ul>
+        </details>
+        <details>
+            <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
+            <ul>
+                <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}</a></li>
+                <li><a href="/${lang}/eventos/anotate.html" class="nav-link">${translations[lang].navbar.events_list.sign_up}</a></li>
+            </ul>
+        </details>
+    </nav>
     `;
 
     // Generar el HTML del footer
