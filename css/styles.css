@@ -66,7 +66,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 8px; /* Desktop gap between contact and social */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -74,7 +74,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 4px; /* Reduced from 5px for tighter mobile layout */
 }
 .contact-links, .social-links {
     display: flex;
@@ -85,7 +85,7 @@ footer {
 .icon-text {
     display: flex;
     align-items: center;
-    gap: 4px; /* Space between icon and text */
+    gap: 4px;
     color: #1A1A1A;
     text-decoration: none;
     font-size: 0.9em;
@@ -99,6 +99,8 @@ footer {
 }
 .icon-text span {
     font-size: 0.9em;
+    white-space: nowrap !important;
+    overflow: visible !important;
 }
 footer .separator {
     color: #1A1A1A;
@@ -106,7 +108,7 @@ footer .separator {
     font-size: 0.9em;
 }
 footer p {
-    margin: 0 0 5px 0;
+    margin: 0 0 3px 0; /* Reduced from 5px for mobile compactness */
     font-size: 0.9em;
     color: #1A1A1A;
 }
@@ -121,9 +123,15 @@ footer strong {
         padding-bottom: 20px;
         font-size: 0.85em;
     }
+    .footer-content {
+        gap: 0.5rem; /* 8px between contact and social sections */
+    }
+    .footer-contact, .footer-social {
+        gap: 3px; /* Tighter within section */
+    }
     .contact-links, .social-links {
         gap: 6px;
-        flex-direction: row; /* Ensure single line per section */
+        flex-direction: row;
     }
     .icon-text {
         gap: 3px;
@@ -134,9 +142,14 @@ footer strong {
     }
     .icon-text span {
         font-size: 0.85em;
+        white-space: nowrap !important;
+        overflow: visible !important;
     }
     footer .separator, footer p, footer strong {
         font-size: 0.85em;
+    }
+    footer p {
+        margin: 0 0 2px 0; /* Further reduced for mobile */
     }
 }
 
@@ -145,6 +158,12 @@ footer strong {
         padding: 8px;
         padding-bottom: 25px;
         font-size: 0.8em;
+    }
+    .footer-content {
+        gap: 0.5rem; /* Maintain 8px */
+    }
+    .footer-contact, .footer-social {
+        gap: 2px;
     }
     .contact-links, .social-links {
         gap: 4px;
@@ -159,9 +178,14 @@ footer strong {
     }
     .icon-text span {
         font-size: 0.8em;
+        white-space: nowrap !important;
+        overflow: visible !important;
     }
     footer .separator, footer p, footer strong {
         font-size: 0.8em;
+    }
+    footer p {
+        margin: 0 0 1px 0; /* Minimal margin */
     }
 }
 #sidebar.open { transform: translateX(0); }
