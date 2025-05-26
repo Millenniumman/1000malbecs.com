@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -555,15 +574,9 @@
 La larga historia de la familia Pulenta, sus históricos viñedos junto a modernas técnicas vitícolas, se aunaron en el objetivo de elaborar vinos elegantes, a la altura de los grandes vinos del mundo.
 
 Paula Pulenta, cuarta generación de la familia Pulenta, está hoy al frente de la Bodega y junto a un equipo de profesionales sostienen una fuerte presencia en el mercado interno y externo. Exportan sus vinos a países de todos los continentes.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/finca-y-bodega-vistalba-1.jpg" alt="Banner de Finca y Bodega Vistalba">
-        
-        <img src="/images/bodegas/finca-y-bodega-vistalba-2.jpg" alt="Imagen 2 de Finca y Bodega Vistalba">
-        
-        <img src="/images/bodegas/finca-y-bodega-vistalba-3.jpg" alt="Imagen 3 de Finca y Bodega Vistalba">
-        
-        <img src="/images/bodegas/finca-y-bodega-vistalba-4.jpg" alt="Imagen 4 de Finca y Bodega Vistalba">
         
       </div>
     </section>

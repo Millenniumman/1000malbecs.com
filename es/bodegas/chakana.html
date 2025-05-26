@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Chakana</h2>
       <p>Chakana es una bodega que tiene como filosofía y práctica la biodinámica, la cual parte de los conceptos fundamentales de la agricultura orgánica y amplía sus alcances convirtiéndose en una agricultura regenerativa, que promueve la biodiversidad y un modelo de bienestar que incluye a las plantas, las personas que producen los alimentos y las personas que los consumen. Transformándose en prácticas que se conectan con la Tierra desde su concepción, en un vínculo de reciprocidad.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/chakana-1.jpg" alt="Banner de Chakana">
-        
-        <img src="/images/bodegas/chakana-2.jpg" alt="Imagen 2 de Chakana">
-        
-        <img src="/images/bodegas/chakana-3.jpg" alt="Imagen 3 de Chakana">
-        
-        <img src="/images/bodegas/chakana-4.jpg" alt="Imagen 4 de Chakana">
         
       </div>
     </section>

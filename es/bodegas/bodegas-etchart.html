@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Bodegas Etchart</h2>
       <p>Nuestra historia y la del valle están unidas desde hace más de 165 años. En 1850, una década después de la fundación de Cafayate, Flavio Niño y Plazaola decidió iniciar la actividad vitivinícola en este recóndito punto del mapa. En aquel entonces, cuando la región no era siquiera un proyecto de lo que llegaría a ser, este visionario implantó allí sus primeras vides blancas. Entrado el siglo XX, más precisamente en 1938, Arnaldo Benito Etchart adquirió esta bodega que pertenecía a la familia de su mujer, Carmen Rosa, e inició el proceso de desarrollo que la ha llevado a convertirse en lo que es hoy: una de las más prestigiosas de la Argentina.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodegas-etchart-1.jpg" alt="Banner de Bodegas Etchart">
-        
-        <img src="/images/bodegas/bodegas-etchart-2.jpg" alt="Imagen 2 de Bodegas Etchart">
-        
-        <img src="/images/bodegas/bodegas-etchart-3.jpg" alt="Imagen 3 de Bodegas Etchart">
-        
-        <img src="/images/bodegas/bodegas-etchart-4.jpg" alt="Imagen 4 de Bodegas Etchart">
         
       </div>
     </section>

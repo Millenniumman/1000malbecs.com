@@ -148,6 +148,25 @@ Con más de 25 añ...">
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -342,7 +361,7 @@ Con más de 25 añ...">
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -456,7 +475,7 @@ Con más de 25 añ...">
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -556,15 +575,9 @@ Con más de 25 años de investigación y estudio para lograr "vinos de excelenci
 Con características "chateau", la bodega "Viña Alicia" se encuentra rodeada por un viñedo de 10 hectáreas de uvas Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot y algunas cepas difícilmente hallables en la Argentina, como Nebbiolo, Grenache Noir, Carignan, Albariño y Savagnin.
 Si bien la bodega tiene una capacidad de producción de 50.000 litros, sólo comercializa 25.000 botellas de Viña Alicia, y 80.000 botellas de ambos Paso de Piedra, al año, que se exportan en su totalidad a 14 países.
 "Viña Alicia" goza hoy del prestigio y el reconocimiento internacional de las más destacadas personalidades del mundo del vino.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/vina-alicia-1.jpg" alt="Banner de Viña Alicia">
-        
-        <img src="/images/bodegas/vina-alicia-2.jpg" alt="Imagen 2 de Viña Alicia">
-        
-        <img src="/images/bodegas/vina-alicia-3.jpg" alt="Imagen 3 de Viña Alicia">
-        
-        <img src="/images/bodegas/vina-alicia-4.jpg" alt="Imagen 4 de Viña Alicia">
         
       </div>
     </section>

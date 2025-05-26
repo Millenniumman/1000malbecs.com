@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Jorge Rubio</h2>
       <p>Nuestra bodega, fundada en 2003 por Jorge Alberto Rubio, fusiona la innovación con la rica tradición vinícola de toda una vida dedicada a la enología. Desde sus inicios, bajo el concepto de Vinos de Autor, hemos ampliado nuestra infraestructura y talento humano para crear productos distintivos. Trabajamos desde el viñedo a la copa, cuidando cada detalle, respetando la naturaleza y nuestra comunidad. El resultado: vinos inimitables que reflejan la región y transmiten nuestra cultura, conquistando mercados nacionales e internacionales.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/jorge-rubio-1.jpg" alt="Banner de Jorge Rubio">
-        
-        <img src="/images/bodegas/jorge-rubio-2.jpg" alt="Imagen 2 de Jorge Rubio">
-        
-        <img src="/images/bodegas/jorge-rubio-3.jpg" alt="Imagen 3 de Jorge Rubio">
-        
-        <img src="/images/bodegas/jorge-rubio-4.jpg" alt="Imagen 4 de Jorge Rubio">
         
       </div>
     </section>

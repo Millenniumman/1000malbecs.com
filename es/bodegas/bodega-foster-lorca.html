@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -553,15 +572,9 @@
       <p>La historia se remonta al año 2002, cuando Enrique Foster, maravillado por el Malbec, convoca a Mauricio Lorca para comenzar a caminar juntos. El enólogo entonces, se hace cargo de la producción entera bajo ambas marcas desde la bodega ubicada en Perdriel, departamento de Luján de Cuyo. Desde ese momento, Mauricio Lorca lleva la innovación como bandera, apostando por nuevas formas de vivir y hacer vitivinicultura. Desde los vinos premium sin madera, nuestra bodega se posiciona como representante de la vanguardia, siguiendo cada vez más el camino de la sustentabilidad y siendo fieles a la expresión del terruño. 
 
 Creemos en el trabajo en equipo y en el profesionalismo, el compromiso y la responsabilidad de cada persona que forma parte de la bodega. La confianza es crucial, la libertad es menester, cada quien es artista en su área, acoplándose al objetivo mayor de llevar nuestra forma de hacer vino al mundo. La trazabilidad del proceso de vinificación permite a Bodega Foster Lorca asegurar la calidad en cada uno de sus productos, desde la uva hasta la botella. Nuestra bodega es prueba de que siempre se puede ir más allá de un objetivo, innovando, soñando, conociendo, manteniéndose en constante movimiento.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-foster-lorca-1.jpg" alt="Banner de Bodega Foster Lorca">
-        
-        <img src="/images/bodegas/bodega-foster-lorca-2.jpg" alt="Imagen 2 de Bodega Foster Lorca">
-        
-        <img src="/images/bodegas/bodega-foster-lorca-3.jpg" alt="Imagen 3 de Bodega Foster Lorca">
-        
-        <img src="/images/bodegas/bodega-foster-lorca-4.jpg" alt="Imagen 4 de Bodega Foster Lorca">
         
       </div>
     </section>

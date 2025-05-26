@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Bodega Séptima</h2>
       <p>Raventós Codorníu es una de las familias de tradición vitivinícola más antigua de España. Dedicada a la vitivinicultura desde 1551, suma más de 465 años haciendo vinos y cavas que se disfrutan en todo el mundo. Actualmente, Raventós Codorníu cuenta con 14 bodegas centenarias, la mayoría en sus territorios vitivinícolas, entre las que se encuentra Bodega Séptima, en Mendoza, Argentina. Así Raventós Codorníu ofrece vinos que ponen en valor la tradición vitivinícola, la de cada territorio en que se erigen, vinos que brotan de un terroir característico; potenciando la identidad y autonomía de cada una de las bodegas que lo integran.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-septima-1.jpg" alt="Banner de Bodega Séptima">
-        
-        <img src="/images/bodegas/bodega-septima-2.jpg" alt="Imagen 2 de Bodega Séptima">
-        
-        <img src="/images/bodegas/bodega-septima-3.jpg" alt="Imagen 3 de Bodega Séptima">
-        
-        <img src="/images/bodegas/bodega-septima-4.jpg" alt="Imagen 4 de Bodega Séptima">
         
       </div>
     </section>

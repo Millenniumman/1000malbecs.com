@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Familia Schroeder</h2>
       <p>Bodega Familia Schroeder es el fruto del esfuerzo de una familia de emprendedores que hizo realidad su sueño. En 2001, Herman Heinz Teodoro Schroeder, hijo de inmigrantes alemanes pioneros en la Patagonia, decide invertir junto a sus hijos en viñedos. Una de las zonas vitivinícolas más australes del mundo en la que con esfuerzo el hombre transformó un desierto en verdes viñedos y una zona productiva.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/familia-schroeder-1.jpg" alt="Banner de Familia Schroeder">
-        
-        <img src="/images/bodegas/familia-schroeder-2.jpg" alt="Imagen 2 de Familia Schroeder">
-        
-        <img src="/images/bodegas/familia-schroeder-3.jpg" alt="Imagen 3 de Familia Schroeder">
-        
-        <img src="/images/bodegas/familia-schroeder-4.jpg" alt="Imagen 4 de Familia Schroeder">
         
       </div>
     </section>

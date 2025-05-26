@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Bodegas Bianchi</h2>
       <p>Nuestra visión es convertirnos en una de las Bodegas Argentinas ​​​​​​​más reconocidas como marca global, honrando su identidad familiar y calidad enológica, construyendo su futuro con la pasión y compromiso de sus colaboradores para entregar valor de forma continua a sus consumidores y a todo el ecosistema de la compañía, de manera sustentable e impulsados por la innovación continua.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Banner de Bodegas Bianchi">
-        
-        <img src="/images/bodegas/bodegas-bianchi-2.jpg" alt="Imagen 2 de Bodegas Bianchi">
-        
-        <img src="/images/bodegas/bodegas-bianchi-3.jpg" alt="Imagen 3 de Bodegas Bianchi">
-        
-        <img src="/images/bodegas/bodegas-bianchi-4.jpg" alt="Imagen 4 de Bodegas Bianchi">
         
       </div>
     </section>

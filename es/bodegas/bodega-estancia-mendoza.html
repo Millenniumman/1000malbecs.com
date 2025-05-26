@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Bodega Estancia Mendoza</h2>
       <p>Descubre los mejores vinos de Bodega Estancia Mendoza en 1000 Malbecs. Explora nuestra selección de Malbecs y otros varietales.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-estancia-mendoza-1.jpg" alt="Banner de Bodega Estancia Mendoza">
-        
-        <img src="/images/bodegas/bodega-estancia-mendoza-2.jpg" alt="Imagen 2 de Bodega Estancia Mendoza">
-        
-        <img src="/images/bodegas/bodega-estancia-mendoza-3.jpg" alt="Imagen 3 de Bodega Estancia Mendoza">
-        
-        <img src="/images/bodegas/bodega-estancia-mendoza-4.jpg" alt="Imagen 4 de Bodega Estancia Mendoza">
         
       </div>
     </section>

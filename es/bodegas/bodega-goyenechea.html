@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Bodega Goyenechea</h2>
       <p>Goyenechea, reconocida bodega y viñedo con raíces en la inmigración española de Santiago y Narciso Goyenechea en 1868. Su legado creció con la adquisición de un viñedo en Villa Atuel, Mendoza, convirtiéndose en el más grande del mundo entre 1930 y 1940. Actualmente, bajo la guía de la tercera, cuarta y quinta generación, Goyenechea produce vinos de alta calidad distribuidos a nivel nacional. Su compromiso con la excelencia y la tradición familiar la posicionan como una de las principales en la industria vinícola.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-goyenechea-1.jpg" alt="Banner de Bodega Goyenechea">
-        
-        <img src="/images/bodegas/bodega-goyenechea-2.jpg" alt="Imagen 2 de Bodega Goyenechea">
-        
-        <img src="/images/bodegas/bodega-goyenechea-3.jpg" alt="Imagen 3 de Bodega Goyenechea">
-        
-        <img src="/images/bodegas/bodega-goyenechea-4.jpg" alt="Imagen 4 de Bodega Goyenechea">
         
       </div>
     </section>

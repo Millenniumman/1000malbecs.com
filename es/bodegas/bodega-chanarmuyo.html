@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -341,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -455,7 +474,7 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-
+  }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
@@ -551,15 +570,9 @@
     <section class="presentation">
       <h2>Acerca de Bodega Chanarmuyo</h2>
       <p>Arrancamos a finales de 2001. Siempre creímos, soñamos, apostamos. Aunque a veces nos sentimos vencidos nunca bajamos los brazos. Hoy somos una “compañía”, sin pensar por un momento en abandonar nuestra filosofía de sentirnos parte de la comunidad y protagonistas de un sueño. Tenemos muy buenos vinos, algunos piensan que son de los mejores en su segmento. Y estamos en muchos mercados del mundo desde Chañarmuyo. Desde hace menos de 20 años. Desde cero, vinos de alta gama.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-chanarmuyo-1.jpg" alt="Banner de Bodega Chanarmuyo">
-        
-        <img src="/images/bodegas/bodega-chanarmuyo-2.jpg" alt="Imagen 2 de Bodega Chanarmuyo">
-        
-        <img src="/images/bodegas/bodega-chanarmuyo-3.jpg" alt="Imagen 3 de Bodega Chanarmuyo">
-        
-        <img src="/images/bodegas/bodega-chanarmuyo-4.jpg" alt="Imagen 4 de Bodega Chanarmuyo">
         
       </div>
     </section>
