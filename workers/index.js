@@ -77,7 +77,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Inquiries',
                 follow: 'Follow us',
-                whatsapp: '+49 151 508',
+                whatsapp: '+49 151 5822 4728',
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -104,7 +104,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Anfragen',
                 follow: 'Folge uns',
-                whatsapp: '+49 151 508',
+                whatsapp: '+49 151 5822 4728',
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
