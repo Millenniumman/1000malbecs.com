@@ -52,21 +52,22 @@
 footer {
     background-color: #F8F8F8;
     color: #1A1A1A;
-    padding: 15px;
+    padding: 12px;
+    padding-bottom: 20px; /* From your CSS */
     text-align: center;
     width: 100%;
     margin-top: auto;
-    font-size: 1em;
+    font-size: 0.9em; /* From your CSS */
     line-height: 1.4;
     box-sizing: border-box;
     position: relative;
-    z-index: 150;
+    z-index: 150; /* From your CSS */
 }
 .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* Desktop gap between contact and social */
+    gap: 8px; /* Desktop gap */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -74,7 +75,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px; /* Reduced from 5px for tighter mobile layout */
+    gap: 4px;
 }
 .contact-links, .social-links {
     display: flex;
@@ -106,15 +107,23 @@ footer .separator {
     color: #1A1A1A;
     font-weight: bold;
     font-size: 0.9em;
+    margin: 0 4px; /* From your CSS */
 }
 footer p {
-    margin: 0 0 3px 0; /* Reduced from 5px for mobile compactness */
+    margin: 0 0 3px 0;
     font-size: 0.9em;
     color: #1A1A1A;
 }
 footer strong {
     font-size: 0.9em;
     color: #1A1A1A;
+    margin: 0 4px; /* From your CSS */
+}
+footer a {
+    margin: 0 4px; /* From your CSS */
+    font-size: 0.9em;
+    color: #1A1A1A;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -124,10 +133,10 @@ footer strong {
         font-size: 0.85em;
     }
     .footer-content {
-        gap: 0.5rem; /* 8px between contact and social sections */
+        gap: 0.25rem; /* 4px between contact and social */
     }
     .footer-contact, .footer-social {
-        gap: 3px; /* Tighter within section */
+        gap: 3px;
     }
     .contact-links, .social-links {
         gap: 6px;
@@ -145,22 +154,24 @@ footer strong {
         white-space: nowrap !important;
         overflow: visible !important;
     }
-    footer .separator, footer p, footer strong {
+    footer .separator, footer strong, footer a {
+        margin: 0 3px; /* Adjusted for mobile */
         font-size: 0.85em;
     }
     footer p {
-        margin: 0 0 2px 0; /* Further reduced for mobile */
+        margin: 0; /* No margin for minimal spacing */
+        font-size: 0.85em;
     }
 }
 
 @media (max-width: 480px) {
     footer {
-        padding: 8px;
-        padding-bottom: 25px;
-        font-size: 0.8em;
+        padding: 10px;
+        padding-bottom: 25px; /* From your CSS */
+        font-size: 0.8em; /* From your CSS */
     }
     .footer-content {
-        gap: 0.5rem; /* Maintain 8px */
+        gap: 0.25rem; /* 4px */
     }
     .footer-contact, .footer-social {
         gap: 2px;
@@ -181,11 +192,13 @@ footer strong {
         white-space: nowrap !important;
         overflow: visible !important;
     }
-    footer .separator, footer p, footer strong {
-        font-size: 0.8em;
+    footer .separator, footer strong, footer a {
+        margin: 0 3px; /* From your CSS */
+        font-size: 0.8em; /* From your CSS */
     }
     footer p {
-        margin: 0 0 1px 0; /* Minimal margin */
+        margin: 0; /* No margin */
+        font-size: 0.8em;
     }
 }
 #sidebar.open { transform: translateX(0); }
