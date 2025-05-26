@@ -208,6 +208,7 @@ async function handleRequest(request) {
 
     const footerHtml = `
    const footerHtml = `
+const footerHtml = `
     <footer>
         <div class="footer-content">
             <div class="footer-contact">
