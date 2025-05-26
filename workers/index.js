@@ -16,12 +16,10 @@ async function handleRequest(request) {
     }
 
     // Detectar idioma desde la URL
-    let lang = 'es';
-    if (path.startsWith('/en/')) {
-        lang = 'en';
-    } else if (path.startsWith('/de/')) {
-        lang = 'de';
-    }
+ let lang = 'es';
+if (path.startsWith('/en/')) lang = 'en';
+else if (path.startsWith('/de/')) lang = 'de';
+else if (path.startsWith('/es/')) lang = 'es';
 
     // Soporte para parámetro ?lang= (para pruebas)
     const langParam = url.searchParams.get('lang');
