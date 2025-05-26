@@ -117,7 +117,7 @@ async function handleRequest(request) {
     let bodegas = [];
     try {
         // Replace with your GitHub raw URL or use 'https://1000malbecs.com/data/navigation.json' if served via Cloudflare Pages
-        const navResponse = await fetch('https://raw.githubusercontent.com/faugspach/1000malbecs/main/data/navigation.json');
+        const navResponse = await fetch('https://raw.githubusercontent.com/millenniumman/1000malbecs.com/data/navigation.json');
         if (navResponse.ok) {
             const navData = await navResponse.json();
             provincias = navData.provincias || [];
