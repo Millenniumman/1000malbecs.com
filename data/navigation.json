@@ -1,0 +1,90 @@
+{
+  "provincias": [
+    "La Rioja",
+    "Mendoza",
+    "Neuquén",
+    "Salta"
+  ],
+  "bodegas": [
+    {
+      "name": "Agustin Lanus",
+      "slug": "agustin-lanus"
+    },
+    {
+      "name": "Bodega Chanarmuyo",
+      "slug": "bodega-chanarmuyo"
+    },
+    {
+      "name": "Bodega Estancia Mendoza",
+      "slug": "bodega-estancia-mendoza"
+    },
+    {
+      "name": "Bodega Foster Lorca",
+      "slug": "bodega-foster-lorca"
+    },
+    {
+      "name": "Bodega Goyenechea",
+      "slug": "bodega-goyenechea"
+    },
+    {
+      "name": "Bodega Séptima",
+      "slug": "bodega-sptima"
+    },
+    {
+      "name": "Bodega Tukma",
+      "slug": "bodega-tukma"
+    },
+    {
+      "name": "Bodegas Bianchi",
+      "slug": "bodegas-bianchi"
+    },
+    {
+      "name": "Bodegas Etchart",
+      "slug": "bodegas-etchart"
+    },
+    {
+      "name": "Casa Araujo",
+      "slug": "casa-araujo"
+    },
+    {
+      "name": "Chakana",
+      "slug": "chakana"
+    },
+    {
+      "name": "Cicchitti",
+      "slug": "cicchitti"
+    },
+    {
+      "name": "Eral Bravo",
+      "slug": "eral-bravo"
+    },
+    {
+      "name": "Familia Schroeder",
+      "slug": "familia-schroeder"
+    },
+    {
+      "name": "Finca y Bodega Vistalba",
+      "slug": "finca-y-bodega-vistalba"
+    },
+    {
+      "name": "Jasmine Monet",
+      "slug": "jasmine-monet"
+    },
+    {
+      "name": "Jorge Rubio",
+      "slug": "jorge-rubio"
+    },
+    {
+      "name": "Luigi Bosca",
+      "slug": "luigi-bosca"
+    },
+    {
+      "name": "Viña Alicia",
+      "slug": "via-alicia"
+    },
+    {
+      "name": "Weinert Bodega y Cavas",
+      "slug": "weinert-bodega-y-cavas"
+    }
+  ]
+}
