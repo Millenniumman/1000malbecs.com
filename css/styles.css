@@ -1,15 +1,66 @@
-footer {
+/* Estilos para la navbar inyectada por el Worker */
+#sidebar {
+    width: 250px;
     background-color: #F8F8F8;
     padding: 20px;
-    width: 100%;
-    min-height: 80px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    border-right: 1px solid #E0E0E0;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+.logo-container { text-align: center; margin-bottom: 20px; display: block; }
+.logo { max-width: 150px; height: auto; }
+#sidebar h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4A2C59;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+#sidebar details { margin-bottom: 15px; }
+#sidebar details:first-of-type { margin-bottom: 25px; }
+#sidebar summary {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4A2C59;
+    cursor: pointer;
+    padding: 5px 0;
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+#sidebar summary i { margin-right: 10px; color: #4A2C59; }
+#sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+#sidebar li { margin: 5px 0; }
+.nav-link {
+    font-size: 14px;
+    color: #4A2C59;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+.nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+
+/* Estilos para el footer (inyectado por el Worker) */
+footer {
+    background-color: #F8F8F8;
+    color: #1A1A1A;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    font-size: 1em;
+    line-height: 1.5;
+    box-sizing: border-box;
     position: relative;
     z-index: 150;
-    margin-top: 60px;
-    box-sizing: border-box;
 }
 .footer-content {
     display: flex;
@@ -17,151 +68,59 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    font-size: 1em;
     max-width: 1200px;
-    width: 100%;
-    text-align: center;
+    margin: 0 auto;
 }
 .footer-contact, .footer-social {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-footer p { margin: 0; color: #1A1A1A; }
-footer a { color: #4A2C59; text-decoration: none; margin: 0 5px; }
-footer a:hover { text-decoration: underline; }
+footer a, footer span, footer strong {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 6px;
+    color: #1A1A1A;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #6B1D49;
+    text-decoration: underline;
+}
 footer i {
     margin-right: 5px;
-    font-size: 1em;
+    font-size: 1.1em;
     vertical-align: middle;
-    display: inline-block;
 }
-footer span.separator { color: #1A1A1A; margin: 0 5px; }
-.footer-social a .fa-instagram { color: #C13584; }
-.footer-social a .fa-x-twitter { color: #000000; }
-.footer-social a:hover .fa-instagram,
-.footer-social a:hover .fa-x-twitter { opacity: 0.8; }
+footer span.separator { color: #1A1A1A; font-weight: bold; }
+
+/* Estilos responsivos */
 @media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        border-bottom: 1px solid #E0E0E0;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    #sidebar.open { transform: translateX(0); }
+    .logo-container { display: none; }
     footer {
-        margin-top: 50px;
+        padding: 12px;
+        font-size: 0.9em;
     }
     .footer-content {
         flex-direction: column;
         gap: 12px;
-        font-size: 12px;
     }
-    .footer-contact {
-        gap: 5px;
-    }
-    .footer-contact a[href*="wa.me"],
-    .footer-contact a[href*="mailto"] {
-        font-size: 11px;
-        white-space: nowrap;
-        display: flex;
-        align-items: center;
-    }
-    .footer-contact a[href*="mailto"] i,
-    .footer-contact a[href*="wa.me"] i {
-        margin-right: 5px;
-        position: static;
-    }
-}
-@media (max-width: 768px) {
-    .footer-contact a[href*="mailto"] {
-        flex-direction: row; /* Fuerza dirección horizontal */
-        gap: 5px; /* Espacio entre ícono y texto */
-    }
-    .footer-contact a[href*="mailto"] i {
-        order: -1; /* Asegura que el ícono esté primero */
-    }
-}
-@media (max-width: 768px) {
-    .footer-contact p,
-    .footer-social p {
-        font-size: 11px; /* Reduce ligeramente si es necesario */
-    }
-}
-/* Estilos para la navbar */
-#sidebar {
-    background-color: #F8F8F8;
-    padding: 20px;
-    width: 250px;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    color: #1A1A1A;
-}
-.logo-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.logo {
-    max-width: 150px;
-}
-#sidebar h2 {
-    font-size: 1.2em;
-    margin: 0 0 10px;
-    color: #1A1A1A;
-}
-#sidebar details {
-    margin-bottom: 10px;
-}
-#sidebar summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: #4A2C59;
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-}
-#sidebar summary i {
-    margin-right: 5px;
-    font-size: 1em;
-    color: #4A2C59;
-}
-#sidebar ul {
-    list-style: none;
-    padding-left: 20px;
-    margin: 0;
-}
-#sidebar .nav-link {
-    text-decoration: none;
-    color: #1A1A1A;
-    display: block;
-    padding: 5px 0;
-    font-size: 1em;
-}
-#sidebar .nav-link:hover {
-    text-decoration: underline;
-    color: #4A2C59;
-}
-#sidebar .nav-link.active {
-    font-weight: bold;
-    color: #4A2C59;
-}
-
-/* Estilos responsivos para la navbar */
-@media (max-width: 768px) {
-    #sidebar {
-        width: 100%;
-        padding: 15px;
-    }
-    .logo {
-        max-width: 120px;
-    }
-    #sidebar h2 {
-        font-size: 1em;
-    }
-    #sidebar .nav-link {
+    footer a, footer span, footer strong {
+        margin: 0 4px;
         font-size: 0.9em;
-    }
-    #sidebar summary {
-        font-size: 0.9em;
-    }
-}
-
-/* Asegurar que el footer no se superponga con la navbar */
-@media (max-width: 768px) {
-    footer {
-        margin-top: 30px; /* Reducir el margen superior si la navbar es más compacta */
     }
 }
