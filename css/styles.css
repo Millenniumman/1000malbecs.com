@@ -65,14 +65,106 @@ footer {
 }
 .footer-content {
     display: flex;
-    flex-direction: row !important; /* Enforce single line on desktop */
-    flex-wrap: nowrap !important; /* Prevent wrapping */
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 12px;
     max-width: 1200px;
     margin: 0 auto;
-    white-space: nowrap !important;
+    white-space: nowrap;
 }
+@media (min-width: 769px) {
+    .footer-content {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+    }
+    .footer-contact, .footer-social {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    .contact-links, .social-links {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    footer p {
+        display: inline !important;
+        margin: 0 4px 0 0 !important;
+    }
+}
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        gap: 0.25rem !important;
+    }
+    .footer-contact, .footer-social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+    }
+    .contact-links, .social-links {
+        gap: 6px;
+    }
+    .icon-text {
+        gap: 3px;
+        font-size: 0.85em;
+    }
+    .icon-text i {
+        font-size: 1em;
+        margin: 0 !important;
+        line-height: 1 !important;
+    }
+    .icon-text span {
+        font-size: 0.85em;
+    }
+    footer .separator, footer strong, footer a {
+        margin: 0 3px;
+        font-size: 0.85em;
+    }
+    footer p {
+        margin: 0 !important;
+        font-size: 0.85em;
+    }
+}
+@media (max-width: 480px) {
+    footer {
+        padding: 10px;
+        padding-bottom: 25px;
+        font-size: 0.8em;
+    }
+    .footer-content {
+        gap: 0.25rem !important;
+    }
+    .footer-contact, .footer-social {
+        gap: 2px;
+    }
+    .contact-links, .social-links {
+        gap: 4px;
+    }
+    .icon-text {
+        gap: 2px;
+        font-size: 0.8em;
+    }
+    .icon-text i {
+        font-size: 0.95em;
+    }
+    .icon-text span {
+        font-size: 0.8em;
+    }
+    footer .separator, footer strong, footer a {
+        margin: 0 3px;
+        font-size: 0.8em;
+    }
+    footer p {
+        margin: 0 !important;
+        font-size: 0.8em;
+    }
+}
+/* Rest of the footer CSS remains the same */
 .footer-contact, .footer-social {
     display: inline-flex;
     align-items: center;
@@ -113,7 +205,7 @@ footer .separator {
     margin: 0 4px;
 }
 footer p {
-    display: inline !important;
+    display: inline;
     margin: 0 4px 0 0;
     font-size: 0.9em;
     color: #1A1A1A;
@@ -128,81 +220,4 @@ footer a {
     font-size: 0.9em;
     color: #1A1A1A;
     text-decoration: none;
-}
-
-@media (max-width: 768px) {
-    footer {
-        padding: 10px;
-        padding-bottom: 20px;
-        font-size: 0.85em;
-    }
-    .footer-content {
-        flex-direction: column !important; /* Two lines on mobile */
-        flex-wrap: nowrap !important;
-        gap: 0.25rem !important; /* 4px */
-    }
-    .footer-contact, .footer-social {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3px;
-    }
-    .contact-links, .social-links {
-        gap: 6px;
-    }
-    .icon-text {
-        gap: 3px;
-        font-size: 0.85em;
-    }
-    .icon-text i {
-        font-size: 1em;
-        margin: 0 !important;
-        line-height: 1 !important;
-    }
-    .icon-text span {
-        font-size: 0.85em;
-    }
-    footer .separator, footer strong, footer a {
-        margin: 0 3px;
-        font-size: 0.85em;
-    }
-    footer p {
-        margin: 0 !important;
-        font-size: 0.85em;
-    }
-}
-
-@media (max-width: 480px) {
-    footer {
-        padding: 10px;
-        padding-bottom: 25px;
-        font-size: 0.8em;
-    }
-    .footer-content {
-        gap: 0.25rem !important;
-    }
-    .footer-contact, .footer-social {
-        gap: 2px;
-    }
-    .contact-links, .social-links {
-        gap: 4px;
-    }
-    .icon-text {
-        gap: 2px;
-        font-size: 0.8em;
-    }
-    .icon-text i {
-        font-size: 0.95em;
-    }
-    .icon-text span {
-        font-size: 0.8em;
-    }
-    footer .separator, footer strong, footer a {
-        margin: 0 3px;
-        font-size: 0.8em;
-    }
-    footer p {
-        margin: 0 !important;
-        font-size: 0.8em;
-    }
 }
