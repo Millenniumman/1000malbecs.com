@@ -368,54 +368,7 @@
     z-index: 7;
     text-align: center;
   }
-  footer {
-            background-color: #F8F8F8;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            position: relative;
-            min-height: 80px;
-            z-index: 150;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 1em;
-        }
-        .footer-contact, .footer-social {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        footer p {
-            margin: 0;
-            color: #1A1A1A;
-        }
-        footer a {
-            color: #4A2C59;
-            text-decoration: none;
-            margin: 0 5px;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        footer i {
-            margin-right: 5px;
-            font-size: 1em;
-            vertical-align: middle;
-        }
-        footer img.social-icon {
-            width: 1em;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-        footer span.separator {
-            color: #1A1A1A;
-            margin: 0 5px;
-        }
+  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -817,309 +770,202 @@
 </style>
 </head>
 <body>
-  <div class="language-selector">
-    <a href="vinos/135-aniversario-2022.html" class="active" aria-label="Español">ES 🇪🇸</a>
-    <a href="/en/vinos/135-aniversario-2022.html" class="" aria-label="Inglés">EN 🇬🇧</a>
-    <a href="/de/vinos/135-aniversario-2022.html" class="" aria-label="Alemán">DE 🇩🇪</a>
-  </div>
-  <header class="header">
-    <a href="/" title="1000 Malbecs - ">
-      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-    </a>
-  </header>
-  <button class="hamburger" aria-label="Toggle menu">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/" title="1000 Malbecs - ">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
+    <div class="language-selector">
+        <a href="/vinos/135-aniversario-2022.html" class="active" aria-label="Español">ES 🇪🇸</a>
+        <a href="/en/vinos/135-aniversario-2022.html" class="" aria-label="English">EN 🇬🇧</a>
+        <a href="/de/vinos/135-aniversario-2022.html" class="" aria-label="Deutsch">DE 🇩🇪</a>
     </div>
-    <h2>Categorías</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
-      <ul>
-        
-        <li><a href="/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
-      <ul>
-        
-        <li><a href="/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/bodegas/bodega-sptima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/bodegas/via-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
-      <ul>
-        <li><a href="/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div class="main-content">
-    <div class="product-details">
-      <div class="product-image">
-        <img src="/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
-             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-      </div>
-      <div class="product-info">
-        <h1>135 Aniversario - 2022</h1>
-        <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
-        <p class="info"><strong>Provincia:</strong> Mendoza</p>
-        <p class="info"><strong>Región:</strong> san rafael</p>
-        <p class="info"><strong>Altitud:</strong> 520</p>
-        <p class="info"><strong>Precio:</strong> €39.99</p>
-        <a href="https://wa.me/4915158224728?text=:%20135%20Aniversario%202022" class="main-buy-button" target="_blank">Comprar ahora</a>
-        <div class="info-box">
-          <h2>Descripción</h2>
-          <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
+    <header class="header">
+        <a href="/" title="1000 Malbecs - ">
+            <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+        </a>
+    </header>
+    <button class="hamburger" aria-label="Toggle menu">☰</button>
+    <div class="main-content">
+        <div class="product-details">
+            <div class="product-image">
+                <img src="/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
+                     onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            </div>
+            <div class="product-info">
+                <h1>135 Aniversario - 2022</h1>
+                <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
+                <p class="info"><strong>Provincia:</strong> Mendoza</p>
+                <p class="info"><strong>Región:</strong> san rafael</p>
+                <p class="info"><strong>Altitud:</strong> 520</p>
+                <p class="info"><strong>Precio:</strong> €39.99</p>
+                <a href="https://wa.me/4915158224728?text=:%20135%20Aniversario%202022" class="main-buy-button" target="_blank">Comprar ahora</a>
+                <div class="info-box">
+                    <h2>Descripción</h2>
+                    <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
+                </div>
+                <div class="info-box">
+                    <h2>Notas de Cata y Maridaje</h2>
+                    <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
+                </div>
+                
+            </div>
         </div>
-        <div class="info-box">
-          <h2>Notas de Cata y Maridaje</h2>
-          <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
+        <div class="recommended-section">
+            
+            <h3>Más vinos de Bodega Goyenechea</h3>
+            <div class="product-grid same-bodega">
+                
+                <div class="product-card">
+                    <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Goye Malbec 2022</h3>
+                    <div class="price">€9.49</div>
+                    <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar ahora</a>
+                    <span class="info-icon" data-overlay-id="bodega-goye-malbec-2022.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                        <p><strong>Región:</strong> san rafael</p>
+                        <p><strong>Altitud:</strong> 520</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Quinta Generación Malbec 2022</h3>
+                    <div class="price">€19.99</div>
+                    <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar ahora</a>
+                    <span class="info-icon" data-overlay-id="bodega-quinta-generacin-malbec-2022.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                        <p><strong>Región:</strong> san rafael</p>
+                        <p><strong>Altitud:</strong> 520</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <h3 class="region-title">Vinos de san rafael</h3>
+            <div class="product-grid same-region">
+                
+                <div class="product-card">
+                    <img src="/images/small/enzo-bianchi-gran-malbec-2019.jpg" alt="Botella de Enzo Bianchi Gran Malbec 2019"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Enzo Bianchi Gran Malbec 2019</h3>
+                    <div class="price">€62.99</div>
+                    <a href="/vinos/enzo-bianchi-gran-malbec-2019.html" class="buy-button">Comprar ahora</a>
+                    <span class="info-icon" data-overlay-id="region-enzo-bianchi-gran-malbec-2019.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+                        <p><strong>Región:</strong> san rafael</p>
+                        <p><strong>Altitud:</strong> 800</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Botella de Famiglia Bianchi Malbec 2014"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Famiglia Bianchi Malbec 2014</h3>
+                    <div class="price">€21.49</div>
+                    <a href="/vinos/famiglia-bianchi-malbec-2014.html" class="buy-button">Comprar ahora</a>
+                    <span class="info-icon" data-overlay-id="region-famiglia-bianchi-malbec-2014.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+                        <p><strong>Región:</strong> san rafael</p>
+                        <p><strong>Altitud:</strong> 800</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Botella de Famiglia Bianchi Malbec 2020"
+                         onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+                    <h3>Famiglia Bianchi Malbec 2020</h3>
+                    <div class="price">€19.49</div>
+                    <a href="/vinos/famiglia-bianchi-malbec-2020.html" class="buy-button">Comprar ahora</a>
+                    <span class="info-icon" data-overlay-id="region-famiglia-bianchi-malbec-2020.html">🍷</span>
+                    <div class="overlay">
+                        <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+                        <p><strong>Región:</strong> san rafael</p>
+                        <p><strong>Altitud:</strong> 800</p>
+                    </div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-      </div>
     </div>
-    <div class="recommended-section">
-      
-      <h3>Más vinos de Bodega Goyenechea</h3>
-      <div class="product-grid same-bodega">
-        
-        <div class="product-card">
-          <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Goye Malbec 2022</h3>
-          <div class="price">€9.49</div>
-          <a href="/vinos/goye-malbec-2022.html" class="buy-button">Comprar ahora</a>
-          <span class="info-icon" data-overlay-id="bodega-goye-malbec-2022.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-            <p><strong>Región:</strong> san rafael</p>
-            <p><strong>Altitud:</strong> 520</p>
-          </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Quinta Generación Malbec 2022</h3>
-          <div class="price">€19.99</div>
-          <a href="/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar ahora</a>
-          <span class="info-icon" data-overlay-id="bodega-quinta-generacin-malbec-2022.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-            <p><strong>Región:</strong> san rafael</p>
-            <p><strong>Altitud:</strong> 520</p>
-          </div>
-        </div>
-        
-      </div>
-      
-      
-      <h3 class="region-title">Vinos de san rafael</h3>
-      <div class="product-grid same-region">
-        
-        <div class="product-card">
-          <img src="/images/small/enzo-bianchi-gran-malbec-2019.jpg" alt="Botella de Enzo Bianchi Gran Malbec 2019"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Enzo Bianchi Gran Malbec 2019</h3>
-          <div class="price">€62.99</div>
-          <a href="/vinos/enzo-bianchi-gran-malbec-2019.html" class="buy-button">Comprar ahora</a>
-          <span class="info-icon" data-overlay-id="region-enzo-bianchi-gran-malbec-2019.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> Bodegas Bianchi</p>
-            <p><strong>Región:</strong> san rafael</p>
-            <p><strong>Altitud:</strong> 800</p>
-          </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Botella de Famiglia Bianchi Malbec 2014"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Famiglia Bianchi Malbec 2014</h3>
-          <div class="price">€21.49</div>
-          <a href="/vinos/famiglia-bianchi-malbec-2014.html" class="buy-button">Comprar ahora</a>
-          <span class="info-icon" data-overlay-id="region-famiglia-bianchi-malbec-2014.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> Bodegas Bianchi</p>
-            <p><strong>Región:</strong> san rafael</p>
-            <p><strong>Altitud:</strong> 800</p>
-          </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Botella de Famiglia Bianchi Malbec 2020"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Famiglia Bianchi Malbec 2020</h3>
-          <div class="price">€19.49</div>
-          <a href="/vinos/famiglia-bianchi-malbec-2020.html" class="buy-button">Comprar ahora</a>
-          <span class="info-icon" data-overlay-id="region-famiglia-bianchi-malbec-2020.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> Bodegas Bianchi</p>
-            <p><strong>Región:</strong> san rafael</p>
-            <p><strong>Altitud:</strong> 800</p>
-          </div>
-        </div>
-        
-      </div>
-      
-    </div>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      try {
-        // Hamburger menu
-        const hamburger = document.querySelector('.hamburger');
-        const sidebar = document.querySelector('#sidebar');
-        let isSidebarOpen = false;
-        if (hamburger && sidebar) {
-          hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isSidebarOpen = !isSidebarOpen;
-            sidebar.classList.toggle('open', isSidebarOpen);
-            console.log('Hamburger clicked, sidebar open:', isSidebarOpen);
-          });
-        } else {
-          console.error('Hamburger or sidebar not found');
-        }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Hamburger menu
+                const hamburger = document.querySelector('.hamburger');
+                const sidebar = document.querySelector('#sidebar');
+                let isSidebarOpen = false;
+                if (hamburger && sidebar) {
+                    hamburger.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        isSidebarOpen = !isSidebarOpen;
+                        sidebar.classList.toggle('open', isSidebarOpen);
+                    });
+                }
 
-        // Prevent link clicks from closing sidebar
-        document.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.stopPropagation();
-          });
-        });
+                // Prevent link clicks from closing sidebar
+                document.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                    });
+                });
 
-        // Highlight active nav link
-        const navLinks = document.querySelectorAll('.nav-link');
-        const currentPath = window.location.pathname;
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-            const details = link.closest('details');
-            if (details) {
-              details.setAttribute('open', '');
+                // Info icon overlay toggle
+                const infoIcons = document.querySelectorAll('.info-icon');
+                infoIcons.forEach(icon => {
+                    ['click', 'touchstart'].forEach(eventType => {
+                        icon.addEventListener(eventType, (e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            const overlayId = icon.getAttribute('data-overlay-id');
+                            document.querySelectorAll('.overlay.active').forEach(overlay => {
+                                overlay.classList.remove('active');
+                            });
+                            const productCard = icon.closest('.product-card');
+                            if (productCard) {
+                                const overlay = productCard.querySelector('.overlay');
+                                if (overlay) {
+                                    overlay.classList.toggle('active');
+                                }
+                            }
+                        }, { passive: false });
+                    });
+                });
+
+                // Close overlays when clicking outside product cards
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.product-card')) {
+                        document.querySelectorAll('.overlay.active').forEach(overlay => {
+                            overlay.classList.remove('active');
+                        });
+                    }
+                });
+
+                // Hide language selector on scroll down or when footer is in view
+                const languageSelector = document.querySelector('.language-selector');
+                const footer = document.querySelector('footer');
+                let lastScrollY = window.scrollY;
+                let scrollThreshold = 50;
+                if (languageSelector && footer) {
+                    window.addEventListener('scroll', () => {
+                        const currentScrollY = window.scrollY;
+                        const footerRect = footer.getBoundingClientRect();
+                        const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+                        if ((currentScrollY > lastScrollY && currentScrollY > scrollThreshold) || isFooterInView) {
+                            languageSelector.classList.add('hidden');
+                        } else {
+                            languageSelector.classList.remove('hidden');
+                        }
+                        lastScrollY = currentScrollY;
+                    });
+                }
+            } catch (error) {
+                console.error('Error in DOMContentLoaded handler:', error);
             }
-          }
         });
-
-        // Info icon overlay toggle
-        const infoIcons = document.querySelectorAll('.info-icon');
-        console.log(`Found ${infoIcons.length} info-icon elements`);
-        infoIcons.forEach(icon => {
-          ['click', 'touchstart'].forEach(eventType => {
-            icon.addEventListener(eventType, (e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              const overlayId = icon.getAttribute('data-overlay-id');
-              console.log(`Triggered ${eventType} on info-icon for overlayId: ${overlayId}`);
-              document.querySelectorAll('.overlay.active').forEach(overlay => {
-                overlay.classList.remove('active');
-              });
-              const productCard = icon.closest('.product-card');
-              if (!productCard) {
-                console.error(`No product-card found for info-icon: ${overlayId}`);
-                return;
-              }
-              const overlay = productCard.querySelector('.overlay');
-              if (overlay) {
-                overlay.classList.toggle('active');
-                console.log(`Overlay toggled for card: ${overlayId}, Name: ${productCard.querySelector('h3').textContent}, Active: ${overlay.classList.contains('active')}`);
-              } else {
-                console.error(`No overlay found for card: ${overlayId}`);
-              }
-            }, { passive: false });
-          });
-        });
-
-        // Close overlays when clicking outside product cards
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('.product-card')) {
-            document.querySelectorAll('.overlay.active').forEach(overlay => {
-              overlay.classList.remove('active');
-            });
-          }
-        });
-
-        // Hide language selector on scroll down or when footer is in view
-        const languageSelector = document.querySelector('.language-selector');
-        const footer = document.querySelector('footer');
-        let lastScrollY = window.scrollY;
-        let scrollThreshold = 50;
-        if (languageSelector && footer) {
-          window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const footerRect = footer.getBoundingClientRect();
-            const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-            if ((currentScrollY > lastScrollY && currentScrollY > scrollThreshold) || isFooterInView) {
-              languageSelector.classList.add('hidden');
-            } else {
-              languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
-          });
-        } else {
-          console.error('Language selector or footer not found');
-        }
-
-        // Debug: Confirm emoji and titles
-        const wineGlassEmojis = document.querySelectorAll('.info-icon');
-        console.log(`Found ${wineGlassEmojis.length} wine glass emojis (🍷)`);
-        const bodegaTitle = document.querySelector('.recommended-section h3:not(.region-title)');
-        const regionTitle = document.querySelector('.region-title');
-        console.log(`Bodega title: ${bodegaTitle ? bodegaTitle.textContent : 'Not found'}`);
-        console.log(`Region title: ${regionTitle ? regionTitle.textContent : 'Not found'}`);
-      } catch (error) {
-        console.error('Error in DOMContentLoaded handler:', error);
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
