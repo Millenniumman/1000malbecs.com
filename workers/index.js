@@ -50,7 +50,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Consultas',
                 follow: 'Síguenos',
-                whatsapp: '+49 151 5822 4728',
+                whatsapp: '+49 151 5822 4728', // Updated to match corrected number
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -77,7 +77,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Inquiries',
                 follow: 'Follow us',
-                whatsapp: '+49 151 5822 4728',
+                whatsapp: '+49 151 5822 4728', // Updated
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -104,7 +104,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Anfragen',
                 follow: 'Folge uns',
-                whatsapp: '+49 151 5822 4728',
+                whatsapp: '+49 151 5822 4728', // Updated
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -116,7 +116,6 @@ async function handleRequest(request) {
     let provincias = [];
     let bodegas = [];
     try {
-        // Replace with your GitHub raw URL or use 'https://1000malbecs.com/data/navigation.json' if served via Cloudflare Pages
         const navResponse = await fetch('https://raw.githubusercontent.com/millenniumman/1000malbecs.com/data/navigation.json');
         if (navResponse.ok) {
             const navData = await navResponse.json();
@@ -182,7 +181,7 @@ async function handleRequest(request) {
                 <a href="/${lang}/" title="${translations[lang].navbar.home}">
                     <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
                 </a>
-                </div>
+            </div>
             <h2>${translations[lang].navbar.categories}</h2>
             <details>
                 <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
@@ -199,35 +198,36 @@ async function handleRequest(request) {
             <details>
                 <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
                 <ul>
-                    <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}}</a></li>
+                    <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}</a></li>
                     <li><a href="/${lang}/eventos/anotate.html" class="nav-link">${translations[lang].navbar.events_list.sign_up}</a></li>
                 </ul>
             </details>
         </nav>
     `;
 
-  const footerHtml = `
-    <footer>
-        <div class="footer-content">
-            <div class="footer-contact">
-                <p><strong>${translations[lang].footer.inquiries}:</strong></p>
-                <div class="contact-links">
-                    <a href="https://wa.me/4915158224728" target="_blank" class="icon-text"><i class="fab fa-whatsapp"></i><span>${translations[lang].footer.whatsapp}</span></a>
-                    <span class="separator">|</span>
-                    <a href="mailto:${translations[lang].footer.email}" class="icon-text"><i class="fas fa-envelope"></i><span>${translations[lang].footer.email}</span></a>
+    const footerHtml = `
+        <footer>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <p><strong>${translations[lang].footer.inquiries}:</strong></p>
+                    <div class="contact-links">
+                        <a href="https://wa.me/4915158224728" target="_blank" class="icon-text"><i class="fab fa-whatsapp"></i><span>${translations[lang].footer.whatsapp}</span></a>
+                        <span class="separator">|</span>
+                        <a href="mailto:${translations[lang].footer.email}" class="icon-text"><i class="fas fa-envelope"></i><span>${translations[lang].footer.email}</span></a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <p><strong>${translations[lang].footer.follow}:</strong></p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/1000malbecs/" target="_blank" class="icon-text"><i class="fab fa-instagram"></i><span>${translations[lang].footer.instagram}</span></a>
+                        <span class="separator">|</span>
+                        <a href="https://x.com/1000malbecs" target="_blank" class="icon-text"><i class="fab fa-x-twitter"></i><span>${translations[lang].footer.twitter}</span></a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-social">
-                <p><strong>${translations[lang].footer.follow}:</strong></p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/1000malbecs/" target="_blank" class="icon-text"><i class="fab fa-instagram"></i><span>${translations[lang].footer.instagram}</span></a>
-                    <span class="separator">|</span>
-                    <a href="https://x.com/1000malbecs" target="_blank" class="icon-text"><i class="fab fa-x-twitter"></i><span>${translations[lang].footer.twitter}</span></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-`;
+        </footer>
+    `;
+
     // Obtener la página solicitada
     try {
         const pageResponse = await fetch(request);
@@ -244,20 +244,30 @@ async function handleRequest(request) {
 
         // Procesar la página
         let pageHtml = await pageResponse.text();
-        // Inyectar la navbar después de <body>
-        if (pageHtml.includes('<body>')) {
-            pageHtml = pageHtml.replace(/<body>/i, `<body>${navbarHtml}`);
-        } else {
-            pageHtml = navbarHtml + pageHtml; // Añadir al inicio si no hay <body>
-        }
-        // Inyectar el footer antes de </body>
-        if (pageHtml.includes('</body>')) {
-            pageHtml = pageHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
-        } else {
-            pageHtml += footerHtml; // Añadir al final si no hay </body>
-        }
 
-        return new Response(pageHtml, {
+        // Construir la estructura HTML completa con meta viewport
+        const html = `
+            <!DOCTYPE html>
+            <html lang="${lang}">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="/css/styles.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+                <!-- Extract and preserve original head content if needed -->
+                ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ''}
+            </head>
+            <body>
+                ${navbarHtml}
+                <div class="main-content">
+                    ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
+                </div>
+                ${footerHtml}
+            </body>
+            </html>
+        `;
+
+        return new Response(html, {
             headers: { 'Content-Type': 'text/html; charset=utf-8' },
             status: pageResponse.status
         });
