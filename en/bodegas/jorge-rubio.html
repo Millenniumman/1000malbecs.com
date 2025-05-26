@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Jorge Rubio</title>
   <meta property="og:title" content="1000 Malbecs - Jorge Rubio">
-  <meta property="og:description" content="Our winery, founded in 2003 by Jorge Alberto Rubio, fuses innovation with the rich wine tradition of a lifetime dedicated to oenology.Since its inception, un...">
+  <meta property="og:description" content="Nuestra bodega, fundada en 2003 por Jorge Alberto Rubio, fusiona la innovación con la rica tradición vinícola de toda una vida dedicada a la enología. Desde ...">
   <meta property="og:image" content="/images/bodegas/jorge-rubio-1.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/en/bodegas/jorge-rubio.html">
+  <meta property="og:url" content="https://1000malbecs.com/bodegas/jorge-rubio.html">
   <meta property="og:type" content="website">
   
   <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/jorge-rubio.html">
@@ -147,6 +147,25 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -276,47 +295,7 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  footer {
-    background-color: #F8F8F8; /* Match sidebar for cohesion */
-    color: #1A1A1A;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    position: relative;
-    min-height: 60px;
-    box-sizing: border-box;
-    overflow: visible;
-    clear: both;
-  }
-  footer p {
-    margin: 0;
-    font-size: 1em;
-    display: inline;
-    color: #1A1A1A;
-  }
-  footer a {
-    color: #4A2C59;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-  footer i {
-    margin-right: 5px;
-    font-size: 1em;
-    vertical-align: middle;
-  }
-  footer img.social-icon {
-    width: 1em;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-  footer span.separator {
-    color: #1A1A1A;
-    margin: 0 5px;
-  }
+  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -381,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -495,16 +474,6 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-    footer {
-      background-color: #F8F8F8; /* Match sidebar */
-      padding: 15px;
-      text-align: center;
-      width: 100%;
-      position: relative;
-      min-height: 60px;
-      overflow: visible;
-      clear: both;
-    }
   }
   @media (min-width: 769px) {
     .header { display: none; }
@@ -586,246 +555,149 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/bodegas/jorge-rubio.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/es/bodegas/jorge-rubio.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
     <a href="/de/bodegas/jorge-rubio.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/bodegas/jorge-rubio.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
+    <a href="/en/bodegas/jorge-rubio.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
-    <a href="/en/" title="Volver al inicio">
+    <a href="/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
   <button class="hamburger">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/en/" title="Volver al inicio">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Categories</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provinces</summary>
-      <ul>
-        
-        <li><a href="/en/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/en/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/en/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/en/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Wineries</summary>
-      <ul>
-        
-        <li><a href="/en/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/en/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/en/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/en/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/en/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/en/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/en/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/en/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/en/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/en/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/en/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/en/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/en/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/en/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/en/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/en/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/en/bodegas/jorge-rubio.html" class="nav-link active">Jorge Rubio</a></li>
-        
-        <li><a href="/en/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/en/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/en/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Events</summary>
-      <ul>
-        <li><a href="/en/eventos" class="nav-link">View Events</a></li>
-      </ul>
-    </details>
-  </nav>
   <main class="main-content">
     <h1>Jorge Rubio</h1>
     <section class="presentation">
-      <h2>About Jorge Rubio</h2>
-      <p>Our winery, founded in 2003 by Jorge Alberto Rubio, fuses innovation with the rich wine tradition of a lifetime dedicated to oenology.Since its inception, under the concept of author wines, we have expanded our human infrastructure and talent to create distinctive products.We work from the vineyard to the cup, taking care of every detail, respecting nature and our community.The result: inimitable wines that reflect the region and transmit our culture, conquering national and international markets.</p>
-      <div class="gallery">
+      <h2>Acerca de Jorge Rubio</h2>
+      <p>Nuestra bodega, fundada en 2003 por Jorge Alberto Rubio, fusiona la innovación con la rica tradición vinícola de toda una vida dedicada a la enología. Desde sus inicios, bajo el concepto de Vinos de Autor, hemos ampliado nuestra infraestructura y talento humano para crear productos distintivos. Trabajamos desde el viñedo a la copa, cuidando cada detalle, respetando la naturaleza y nuestra comunidad. El resultado: vinos inimitables que reflejan la región y transmiten nuestra cultura, conquistando mercados nacionales e internacionales.</p>
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/jorge-rubio-1.jpg" alt="Banner de Jorge Rubio">
-        
-        <img src="/images/bodegas/jorge-rubio-2.jpg" alt="Imagen 2 de Jorge Rubio">
-        
-        <img src="/images/bodegas/jorge-rubio-3.jpg" alt="Imagen 3 de Jorge Rubio">
-        
-        <img src="/images/bodegas/jorge-rubio-4.jpg" alt="Imagen 4 de Jorge Rubio">
         
       </div>
     </section>
     <section class="products-section">
-      <h2>Featured Wines from Jorge Rubio</h2>
+      <h2>Vinos destacados de Jorge Rubio</h2>
       
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="finca-gabriel-malbec">
-          <img src="/images/small/finca-gabriel-malbec-2021.jpg" alt="Bottle of FINCA GABRIEL Malbec"
+          <img src="/images/small/finca-gabriel-malbec-2021.jpg" alt="Botella de FINCA GABRIEL Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="finca-gabriel-malbec">🍷</div>
           <div class="overlay" data-overlay-id="finca-gabriel-malbec">
-            <p><strong>Winery:</strong> Jorge Rubio</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> General Alvear</p>
-            <p><strong>Altitude:</strong> 500 msnm</p>
-            <p><strong>Vintage:</strong> 2021</p>
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 500 msnm</p>
+            <p><strong>Añada:</strong> 2021</p>
           </div>
           <h3>FINCA GABRIEL Malbec</h3>
           <p class="price">€18.19</p>
-          <a href="/en/vinos/finca-gabriel-malbec-2021.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/finca-gabriel-malbec-2021.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="finca-gabriel-edicion-especial-malbec">
-          <img src="/images/small/finca-gabriel-edicin-especial-malbec-2022.jpg" alt="Bottle of FINCA GABRIEL Edición Especial Malbec"
+          <img src="/images/small/finca-gabriel-edicin-especial-malbec-2022.jpg" alt="Botella de FINCA GABRIEL Edición Especial Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="finca-gabriel-edicion-especial-malbec">🍷</div>
           <div class="overlay" data-overlay-id="finca-gabriel-edicion-especial-malbec">
-            <p><strong>Winery:</strong> Jorge Rubio</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> General Alvear</p>
-            <p><strong>Altitude:</strong> 500 msnm</p>
-            <p><strong>Vintage:</strong> 2022</p>
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 500 msnm</p>
+            <p><strong>Añada:</strong> 2022</p>
           </div>
           <h3>FINCA GABRIEL Edición Especial Malbec</h3>
           <p class="price">€18.99</p>
-          <a href="/en/vinos/finca-gabriel-edicin-especial-malbec-2022.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/finca-gabriel-edicin-especial-malbec-2022.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="a-contramano-malbec">
-          <img src="/images/small/a-contramano-malbec-2021.jpg" alt="Bottle of A CONTRAMANO Malbec"
+          <img src="/images/small/a-contramano-malbec-2021.jpg" alt="Botella de A CONTRAMANO Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="a-contramano-malbec">🍷</div>
           <div class="overlay" data-overlay-id="a-contramano-malbec">
-            <p><strong>Winery:</strong> Jorge Rubio</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> General Alvear</p>
-            <p><strong>Altitude:</strong> 500 msnm</p>
-            <p><strong>Vintage:</strong> 2021</p>
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 500 msnm</p>
+            <p><strong>Añada:</strong> 2021</p>
           </div>
           <h3>A CONTRAMANO Malbec</h3>
           <p class="price">€23.19</p>
-          <a href="/en/vinos/a-contramano-malbec-2021.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/a-contramano-malbec-2021.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="jorge-rubio-privado-malbec">
-          <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Bottle of JORGE RUBIO PRIVADO Malbec"
+          <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Botella de JORGE RUBIO PRIVADO Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="jorge-rubio-privado-malbec">🍷</div>
           <div class="overlay" data-overlay-id="jorge-rubio-privado-malbec">
-            <p><strong>Winery:</strong> Jorge Rubio</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> General Alvear</p>
-            <p><strong>Altitude:</strong> 500 msnm</p>
-            <p><strong>Vintage:</strong> 2021</p>
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 500 msnm</p>
+            <p><strong>Añada:</strong> 2021</p>
           </div>
           <h3>JORGE RUBIO PRIVADO Malbec</h3>
           <p class="price">€23.19</p>
-          <a href="/en/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot">
-          <img src="/images/small/jorge-rubio-gran-reserva-malbecmerlot-2020.jpg" alt="Bottle of JORGE RUBIO GRAN RESERVA Malbec/Merlot"
+          <img src="/images/small/jorge-rubio-gran-reserva-malbecmerlot-2020.jpg" alt="Botella de JORGE RUBIO GRAN RESERVA Malbec/Merlot"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot">🍷</div>
           <div class="overlay" data-overlay-id="jorge-rubio-gran-reserva-malbecmerlot">
-            <p><strong>Winery:</strong> Jorge Rubio</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> General Alvear</p>
-            <p><strong>Altitude:</strong> 500 msnm</p>
-            <p><strong>Vintage:</strong> 2020</p>
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 500 msnm</p>
+            <p><strong>Añada:</strong> 2020</p>
           </div>
           <h3>JORGE RUBIO GRAN RESERVA Malbec/Merlot</h3>
           <p class="price">€33.39</p>
-          <a href="/en/vinos/jorge-rubio-gran-reserva-malbecmerlot-2020.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/jorge-rubio-gran-reserva-malbecmerlot-2020.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="jorge-rubio-premiado-malbec">
-          <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Bottle of JORGE RUBIO PREMIADO Malbec"
+          <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Botella de JORGE RUBIO PREMIADO Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="jorge-rubio-premiado-malbec">🍷</div>
           <div class="overlay" data-overlay-id="jorge-rubio-premiado-malbec">
-            <p><strong>Winery:</strong> Jorge Rubio</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> General Alvear</p>
-            <p><strong>Altitude:</strong> 500 msnm</p>
-            <p><strong>Vintage:</strong> 2018</p>
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 500 msnm</p>
+            <p><strong>Añada:</strong> 2018</p>
           </div>
           <h3>JORGE RUBIO PREMIADO Malbec</h3>
           <p class="price">€58.99</p>
-          <a href="/en/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="jorge-rubio-gran-reserva-malbec-magnum">
-          <img src="/images/small/jorge-rubio-gran-reserva-malbec-magnum-2019.jpg" alt="Bottle of JORGE RUBIO GRAN RESERVA Malbec Magnum"
+          <img src="/images/small/jorge-rubio-gran-reserva-malbec-magnum-2019.jpg" alt="Botella de JORGE RUBIO GRAN RESERVA Malbec Magnum"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="jorge-rubio-gran-reserva-malbec-magnum">🍷</div>
           <div class="overlay" data-overlay-id="jorge-rubio-gran-reserva-malbec-magnum">
-            <p><strong>Winery:</strong> Jorge Rubio</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> General Alvear</p>
-            <p><strong>Altitude:</strong> 520 msnm</p>
-            <p><strong>Vintage:</strong> 2019</p>
+            <p><strong>Bodega:</strong> Jorge Rubio</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> General Alvear</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            <p><strong>Añada:</strong> 2019</p>
           </div>
           <h3>JORGE RUBIO GRAN RESERVA Malbec Magnum</h3>
           <p class="price">€66.99</p>
-          <a href="/en/vinos/jorge-rubio-gran-reserva-malbec-magnum-2019.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/jorge-rubio-gran-reserva-malbec-magnum-2019.html" class="buy-button">Comprar</a>
         </div>
         
       </div>
       
     </section>
   </main>
-  <footer>
-    <div class="footer-content">
-      <span>
-        <i class="fab fa-whatsapp"></i>
-        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">+49 151 5822 4728</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/x-icon.png" alt="X" class="social-icon">
-        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Follow us on X">@1000malbecs</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Follow us on Instagram">@1000malbecs</a>
-      </span>
-    </div>
-  </footer>
+ 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');

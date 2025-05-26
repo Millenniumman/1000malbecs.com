@@ -1,15 +1,15 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Viña Alicia</title>
   <meta property="og:title" content="1000 Malbecs - Viña Alicia">
-  <meta property="og:description" content="Viña Alicia is a winery that combines the winemaker tradition of her makers, with a privileged location to achieve collection wines.
-With more than 25 years ...">
+  <meta property="og:description" content="Viña Alicia es una bodega que conjuga tradición viticultora de sus hacedores, con una ubicación privilegiada para lograr vinos de colección.
+Con más de 25 añ...">
   <meta property="og:image" content="/images/bodegas/vina-alicia-1.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/en/bodegas/vina-alicia.html">
+  <meta property="og:url" content="https://1000malbecs.com/bodegas/vina-alicia.html">
   <meta property="og:type" content="website">
   
   <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/vina-alicia.html">
@@ -148,6 +148,25 @@ With more than 25 years ...">
     object-fit: cover;
     border-radius: 5px;
   }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
     margin: 0 0 40px;
@@ -277,47 +296,7 @@ With more than 25 years ...">
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  footer {
-    background-color: #F8F8F8; /* Match sidebar for cohesion */
-    color: #1A1A1A;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    position: relative;
-    min-height: 60px;
-    box-sizing: border-box;
-    overflow: visible;
-    clear: both;
-  }
-  footer p {
-    margin: 0;
-    font-size: 1em;
-    display: inline;
-    color: #1A1A1A;
-  }
-  footer a {
-    color: #4A2C59;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-  footer i {
-    margin-right: 5px;
-    font-size: 1em;
-    vertical-align: middle;
-  }
-  footer img.social-icon {
-    width: 1em;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-  footer span.separator {
-    color: #1A1A1A;
-    margin: 0 5px;
-  }
+  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -382,7 +361,7 @@ With more than 25 years ...">
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -496,16 +475,6 @@ With more than 25 years ...">
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-    footer {
-      background-color: #F8F8F8; /* Match sidebar */
-      padding: 15px;
-      text-align: center;
-      width: 100%;
-      position: relative;
-      min-height: 60px;
-      overflow: visible;
-      clear: both;
-    }
   }
   @media (min-width: 769px) {
     .header { display: none; }
@@ -587,213 +556,121 @@ With more than 25 years ...">
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/bodegas/vina-alicia.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/es/bodegas/vina-alicia.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
     <a href="/de/bodegas/vina-alicia.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/bodegas/vina-alicia.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
+    <a href="/en/bodegas/vina-alicia.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
-    <a href="/en/" title="Volver al inicio">
+    <a href="/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
   <button class="hamburger">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/en/" title="Volver al inicio">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Categories</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provinces</summary>
-      <ul>
-        
-        <li><a href="/en/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/en/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/en/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/en/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Wineries</summary>
-      <ul>
-        
-        <li><a href="/en/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/en/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/en/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/en/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/en/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/en/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/en/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/en/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/en/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/en/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/en/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/en/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/en/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/en/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/en/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/en/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/en/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/en/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/en/bodegas/vina-alicia.html" class="nav-link active">Viña Alicia</a></li>
-        
-        <li><a href="/en/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Events</summary>
-      <ul>
-        <li><a href="/en/eventos" class="nav-link">View Events</a></li>
-      </ul>
-    </details>
-  </nav>
   <main class="main-content">
     <h1>Viña Alicia</h1>
     <section class="presentation">
-      <h2>About Viña Alicia</h2>
-      <p>Viña Alicia is a winery that combines the winemaker tradition of her makers, with a privileged location to achieve collection wines.
-With more than 25 years of research and study to achieve "wines of excellence", in 1998 Alicia Mateu Arizu, wife of the renowned "Winemaker" Alberto Arizu (Alma Mater de Luigi Bosca), together with the youngest of his three children, Rodrigo Arizu, began the commercialization of the wines that bear his name.
-With "Chateau" characteristics, the Winery "Viña Alicia" is surrounded by a vineyard of 10 hectares of Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot and some strains hardly found in Argentina, such as Nebbiolo, Grenache Noir, Carignan, Albariño and Savagnin.
-Although the winery has a production capacity of 50,000 liters, it only markets 25,000 bottles of Viña Alicia, and 80,000 bottles of both stone passage, a year, which are exported in its entirety to 14 countries.
-"Viña Alicia" today enjoys the prestige and international recognition of the most prominent personalities in the world of wine.</p>
-      <div class="gallery">
+      <h2>Acerca de Viña Alicia</h2>
+      <p>Viña Alicia es una bodega que conjuga tradición viticultora de sus hacedores, con una ubicación privilegiada para lograr vinos de colección.
+Con más de 25 años de investigación y estudio para lograr "vinos de excelencia", en 1998 Alicia Mateu Arizu, esposa del reconocido "winemaker" Alberto Arizu (alma mater de Luigi Bosca), junto con el menor de sus tres hijos, Rodrigo Arizu, inició la comercialización de los vinos que llevan su nombre.
+Con características "chateau", la bodega "Viña Alicia" se encuentra rodeada por un viñedo de 10 hectáreas de uvas Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot y algunas cepas difícilmente hallables en la Argentina, como Nebbiolo, Grenache Noir, Carignan, Albariño y Savagnin.
+Si bien la bodega tiene una capacidad de producción de 50.000 litros, sólo comercializa 25.000 botellas de Viña Alicia, y 80.000 botellas de ambos Paso de Piedra, al año, que se exportan en su totalidad a 14 países.
+"Viña Alicia" goza hoy del prestigio y el reconocimiento internacional de las más destacadas personalidades del mundo del vino.</p>
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/vina-alicia-1.jpg" alt="Banner de Viña Alicia">
         
-      
       </div>
     </section>
     <section class="products-section">
-      <h2>Featured Wines from Viña Alicia</h2>
+      <h2>Vinos destacados de Viña Alicia</h2>
       
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="paso-de-piedra-malbec">
-          <img src="/images/small/paso-de-piedra-malbec-2019.jpg" alt="Bottle of Paso de Piedra Malbec"
+          <img src="/images/small/paso-de-piedra-malbec-2019.jpg" alt="Botella de Paso de Piedra Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="paso-de-piedra-malbec">🍷</div>
           <div class="overlay" data-overlay-id="paso-de-piedra-malbec">
-            <p><strong>Winery:</strong> Viña Alicia</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> Luján de Cuyo</p>
-            <p><strong>Altitude:</strong> 1100 msnm</p>
-            <p><strong>Vintage:</strong> 2019</p>
+            <p><strong>Bodega:</strong> Viña Alicia</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1100 msnm</p>
+            <p><strong>Añada:</strong> 2019</p>
           </div>
           <h3>Paso de Piedra Malbec</h3>
           <p class="price">€25.49</p>
-          <a href="/en/vinos/paso-de-piedra-malbec-2019.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/paso-de-piedra-malbec-2019.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="vina-alicia-malbec">
-          <img src="/images/small/via-alicia-malbec-2016.jpg" alt="Bottle of Viña Alicia Malbec"
+          <img src="/images/small/via-alicia-malbec-2016.jpg" alt="Botella de Viña Alicia Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="vina-alicia-malbec">🍷</div>
           <div class="overlay" data-overlay-id="vina-alicia-malbec">
-            <p><strong>Winery:</strong> Viña Alicia</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> Luján de Cuyo</p>
-            <p><strong>Altitude:</strong> 1100 msnm</p>
-            <p><strong>Vintage:</strong> 2016</p>
+            <p><strong>Bodega:</strong> Viña Alicia</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1100 msnm</p>
+            <p><strong>Añada:</strong> 2016</p>
           </div>
           <h3>Viña Alicia Malbec</h3>
           <p class="price">€51.99</p>
-          <a href="/en/vinos/via-alicia-malbec-2016.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/via-alicia-malbec-2016.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="vina-alicia-malbec">
-          <img src="/images/small/via-alicia-malbec-2013.jpg" alt="Bottle of Viña Alicia Malbec"
+          <img src="/images/small/via-alicia-malbec-2013.jpg" alt="Botella de Viña Alicia Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="vina-alicia-malbec">🍷</div>
           <div class="overlay" data-overlay-id="vina-alicia-malbec">
-            <p><strong>Winery:</strong> Viña Alicia</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> Luján de Cuyo</p>
-            <p><strong>Altitude:</strong> 1100 msnm</p>
-            <p><strong>Vintage:</strong> 2013</p>
+            <p><strong>Bodega:</strong> Viña Alicia</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1100 msnm</p>
+            <p><strong>Añada:</strong> 2013</p>
           </div>
           <h3>Viña Alicia Malbec</h3>
           <p class="price">€55.99</p>
-          <a href="/en/vinos/via-alicia-malbec-2013.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/via-alicia-malbec-2013.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="vina-alicia-malbec">
-          <img src="/images/small/via-alicia-malbec-2012.jpg" alt="Bottle of Viña Alicia Malbec"
+          <img src="/images/small/via-alicia-malbec-2012.jpg" alt="Botella de Viña Alicia Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="vina-alicia-malbec">🍷</div>
           <div class="overlay" data-overlay-id="vina-alicia-malbec">
-            <p><strong>Winery:</strong> Viña Alicia</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> Luján de Cuyo</p>
-            <p><strong>Altitude:</strong> 1100 msnm</p>
-            <p><strong>Vintage:</strong> 2012</p>
+            <p><strong>Bodega:</strong> Viña Alicia</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1100 msnm</p>
+            <p><strong>Añada:</strong> 2012</p>
           </div>
           <h3>Viña Alicia Malbec</h3>
           <p class="price">€57.99</p>
-          <a href="/en/vinos/via-alicia-malbec-2012.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/via-alicia-malbec-2012.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="vina-alicia-malbec">
-          <img src="/images/small/via-alicia-malbec-2010.jpg" alt="Bottle of Viña Alicia Malbec"
+          <img src="/images/small/via-alicia-malbec-2010.jpg" alt="Botella de Viña Alicia Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="vina-alicia-malbec">🍷</div>
           <div class="overlay" data-overlay-id="vina-alicia-malbec">
-            <p><strong>Winery:</strong> Viña Alicia</p>
-            <p><strong>Province:</strong> Mendoza</p>
-            <p><strong>Region:</strong> Luján de Cuyo</p>
-            <p><strong>Altitude:</strong> 1100 msnm</p>
-            <p><strong>Vintage:</strong> 2010</p>
+            <p><strong>Bodega:</strong> Viña Alicia</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Altura:</strong> 1100 msnm</p>
+            <p><strong>Añada:</strong> 2010</p>
           </div>
           <h3>Viña Alicia Malbec</h3>
           <p class="price">€61.99</p>
-          <a href="/en/vinos/via-alicia-malbec-2010.html" class="buy-button">Buy</a>
+          <a href="/es/vinos/via-alicia-malbec-2010.html" class="buy-button">Comprar</a>
         </div>
         
       </div>
       
     </section>
   </main>
-  <footer>
-    <div class="footer-content">
-      <span>
-        <i class="fab fa-whatsapp"></i>
-        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">+49 151 5822 4728</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/x-icon.png" alt="X" class="social-icon">
-        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Follow us on X">@1000malbecs</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Follow us on Instagram">@1000malbecs</a>
-      </span>
-    </div>
-  </footer>
+ 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
