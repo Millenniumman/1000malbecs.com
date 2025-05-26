@@ -68,10 +68,11 @@ footer {
     display: flex;
     flex-direction: row; /* Single line on desktop */
     align-items: center;
-    gap: 12px; /* Space between contact and social */
+    gap: 6px; /* Space between contact and social */
     max-width: 1200px;
     margin: 0 auto;
     white-space: nowrap;
+    flex-wrap: nowrap;
 }
 .footer-contact, .footer-social {
     display: inline-flex;
