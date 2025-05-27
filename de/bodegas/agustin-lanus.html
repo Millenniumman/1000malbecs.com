@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
   * {
-    box-sizing: border-box; /* Ensure padding/borders are included in width */
+    box-sizing: border-box;
   }
   body {
     font-family: 'Montserrat', sans-serif;
@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
   }
   .header { display: none; }
   .logo { max-width: 150px; height: auto; }
@@ -46,7 +46,7 @@
     position: fixed;
     top: 10px;
     left: 10px;
-    z-index: 110; /* Above sidebar */
+    z-index: 110;
   }
   #sidebar {
     width: 250px;
@@ -98,13 +98,13 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 200px; /* Reduced from 210px */
-    width: calc(100% - 200px); /* Adjusted */
-    max-width: 1200px; /* Center and limit width */
-    margin-right: auto; /* Center horizontally */
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    max-width: 1200px;
+    margin-right: auto;
     z-index: 1;
     flex: 1;
-    padding: 10px 20px 200px 20px; /* Reduced top padding */
+    padding: 20px 20px 200px 20px; /* Increased top padding for larger banner */
     position: relative;
     overflow: visible;
   }
@@ -116,7 +116,7 @@
   }
   .banner {
     width: 100%;
-    height: 100px; /* Reduced from 120px */
+    height: 150px; /* Restored to previous size */
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -124,7 +124,7 @@
   }
   .presentation {
     max-width: 800px;
-    margin: 0 auto 20px; /* Centered */
+    margin: 0 auto 20px;
     text-align: left;
   }
   .presentation h2 {
@@ -145,7 +145,7 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    width: 100%; /* Ensure fits container */
+    width: 100%;
   }
   .gallery img {
     width: 200px;
@@ -155,7 +155,7 @@
   }
   .gallery.single-image img {
     width: 100%;
-    height: 100px; /* Match banner */
+    height: 150px; /* Match banner */
     object-fit: cover;
     border-radius: 10px;
   }
@@ -173,8 +173,8 @@
   }
   .products-section {
     max-width: 1200px;
-    margin: 0 auto 40px; /* Centered */
-    width: 100%; /* Ensure fits container */
+    margin: 0 auto 40px;
+    width: 100%;
   }
   .products-section h2 {
     color: #4A2C59;
@@ -187,7 +187,7 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
     margin-bottom: 30px;
-    width: 100%; /* Ensure fits container */
+    width: 100%;
     justify-content: start;
   }
   .product-card {
@@ -309,7 +309,7 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
-    max-width: 100%; /* Prevent overflow */
+    max-width: 100%;
   }
   .language-selector.hidden {
     opacity: 0;
@@ -345,16 +345,16 @@
     .logo { max-width: 100px; }
     .hamburger {
       display: block;
-      z-index: 110; /* Above sidebar */
+      z-index: 110;
     }
     #sidebar {
-      width: 80%; /* Narrower for usability */
+      width: 80%;
       height: 100vh;
       max-height: 100vh;
       position: fixed;
       top: 0;
-      left: 0; /* Left-to-right slide */
-      transform: translateX(-100%); /* Slide from left */
+      left: 0;
+      transform: translateX(-100%);
       z-index: 100;
       border-right: 1px solid #E0E0E0;
       padding: 20px;
@@ -368,13 +368,13 @@
     .main-content {
       margin-left: 0;
       width: 100%;
-      max-width: 100%; /* Fit viewport */
-      margin: 10px auto 0; /* Reduced from 20px */
+      max-width: 100%;
+      margin: 10px auto 0;
       padding: 10px 10px 250px 10px;
       position: relative;
       overflow: visible;
     }
-    .banner { height: 80px; /* Reduced from 100px */ }
+    .banner { height: 80px; }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
@@ -453,7 +453,7 @@
     }
     .gallery img:first-child {
       width: 100%;
-      height: 80px; /* Match banner */
+      height: 80px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -501,11 +501,11 @@
     }
     .logo-container { display: block; }
     .main-content {
-      margin-left: 200px; /* Reduced */
+      margin-left: 200px;
       width: calc(100% - 200px);
       max-width: 1200px;
       margin-right: auto;
-      padding: 10px 20px 200px 20px;
+      padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
     }
@@ -641,10 +641,9 @@
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
           sidebar.classList.toggle('open', isSidebarOpen);
-          hamburger.textContent = isSidebarOpen ? '✕' : '☰'; /* Toggle icon */
-          hamburger.style.display = 'block'; /* Ensure visibility */
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+          hamburger.style.display = 'block';
         });
-        // Close sidebar when clicking outside
         document.addEventListener('click', (e) => {
           if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
             isSidebarOpen = false;
@@ -667,7 +666,6 @@
         }
       });
 
-      // Mobile-only overlay toggle
       if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {
