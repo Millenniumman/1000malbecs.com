@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+  * {
+    box-sizing: border-box; /* Ensure padding/borders are included in width */
+  }
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #fdfdfd;
@@ -28,6 +31,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
   .header { display: none; }
   .logo { max-width: 150px; height: auto; }
@@ -94,32 +98,33 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 100px;
+    margin-left: 290px;
     width: calc(100% - 290px);
+    max-width: 1200px; /* Center and limit width */
+    margin-right: auto; /* Center horizontally */
     z-index: 1;
     flex: 1;
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 10px 20px 200px 20px; /* Reduced top padding from 20px */
     position: relative;
     overflow: visible;
   }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced from 20px */
     text-align: left;
   }
   .banner {
     width: 100%;
-    height: 300px;
+    height: 200px; /* Reduced from 300px */
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced from 20px */
   }
   .presentation {
     max-width: 800px;
-    margin: 0 0 20px;
+    margin: 0 auto 20px; /* Centered and reduced from 40px */
     text-align: left;
   }
   .presentation h2 {
@@ -140,6 +145,7 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%; /* Ensure gallery fits container */
   }
   .gallery img {
     width: 200px;
@@ -147,10 +153,9 @@
     object-fit: cover;
     border-radius: 5px;
   }
-  /* Dynamic gallery styling based on number of images */
   .gallery.single-image img {
     width: 100%;
-    height: 300px;
+    height: 200px; /* Match banner height */
     object-fit: cover;
     border-radius: 10px;
   }
@@ -168,7 +173,8 @@
   }
   .products-section {
     max-width: 1200px;
-    margin: 0 0 40px;
+    margin: 0 auto 40px; /* Centered */
+    width: 100%; /* Ensure it fits container */
   }
   .products-section h2 {
     color: #4A2C59;
@@ -181,7 +187,7 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
     margin-bottom: 30px;
-    width: 100%;
+    width: 100%; /* Ensure grid fits container */
     justify-content: start;
   }
   .product-card {
@@ -295,7 +301,6 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -304,6 +309,7 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
+    max-width: 100%; /* Prevent overflow */
   }
   .language-selector.hidden {
     opacity: 0;
@@ -358,17 +364,18 @@
     .main-content {
       margin-left: 0;
       width: 100%;
-      padding: 10px;
-      padding-bottom: 250px;
-      margin-top: 80px;
+      max-width: 100%; /* Fit viewport */
+      margin: 40px auto 0; /* Reduced from 80px and centered */
+      padding: 10px 10px 250px 10px; /* Reduced top padding */
       position: relative;
       overflow: visible;
     }
-    .banner { height: 200px; }
+    .banner { height: 150px; /* Reduced from 200px */ }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       justify-content: start;
+      width: 100%; /* Fit container */
     }
     .product-card {
       width: 100%;
@@ -431,17 +438,18 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .presentation { margin: 10px 0; padding: 10px; }
+    .presentation { margin: 0 auto 20px; padding: 10px; } /* Centered and reduced margin */
     .gallery {
       flex-direction: row;
       flex-wrap: nowrap;
+      width: 100%; /* Fit container */
     }
     .gallery img:not(:first-child) {
       display: none;
     }
     .gallery img:first-child {
       width: 100%;
-      height: 150px;
+      height: 150px; /* Match banner height */
       object-fit: cover;
       border-radius: 5px;
     }
@@ -456,6 +464,7 @@
       gap: 2px;
       justify-content: center;
       transition: opacity 0.3s ease;
+      max-width: 90%; /* Prevent overflow */
     }
     .language-selector a {
       font-size: 9px;
@@ -490,9 +499,9 @@
     .main-content {
       margin-left: 290px;
       width: calc(100% - 290px);
-      padding: 20px;
-      padding-bottom: 200px;
-      margin-top: 0;
+      max-width: 1200px; /* Center and limit width */
+      margin-right: auto; /* Center horizontally */
+      padding: 10px 20px 200px 20px; /* Reduced top padding */
       position: relative;
       overflow: visible;
     }
@@ -501,6 +510,7 @@
       gap: 30px;
       max-width: 1200px;
       justify-content: start;
+      width: 100%; /* Fit container */
     }
     .product-card {
       pointer-events: auto;
@@ -552,6 +562,7 @@
     .product-card:hover .overlay { display: block; }
   }
 </style>
+
 </head>
 <body>
   <div class="language-selector">
