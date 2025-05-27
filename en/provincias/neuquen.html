@@ -172,7 +172,7 @@
             position: relative;
             overflow: visible;
             max-width: 250px;
-            min-height: 360px;
+            height: 360px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -183,9 +183,10 @@
             width: 100%;
         }
         .product-card img {
+            height: 190px;
             max-width: 200px;
             object-fit: contain;
-            margin: 0 auto 10px;
+            margin: 10px auto;
             background-color: #FFFFFF;
         }
         .info-icon {
@@ -236,7 +237,7 @@
         }
         .product-card h3 {
             font-size: 16px;
-            margin: 10px 0;
+            margin: 5px 0;
             color: #4A2C59;
             min-height: 40px;
             overflow: hidden;
@@ -248,7 +249,7 @@
         .product-card .price {
             font-size: 16px;
             color: #4A2C59;
-            margin: 10px 0;
+            margin: 5px 0;
             position: relative;
             z-index: 7;
             text-align: center;
@@ -257,8 +258,8 @@
         .product-card .buy-button {
             padding: 8px 16px;
             font-size: 14px;
-            margin-top: 10px;
-            margin-bottom: 15px;
+            margin-top: 5px;
+            margin-bottom: 10px;
             position: relative;
             z-index: 7;
             text-align: center;
@@ -416,7 +417,7 @@
                 width: 100%;
             }
             .product-card {
-                min-height: 260px;
+                height: 280px;
                 padding: 10px;
                 box-sizing: border-box;
                 overflow: hidden;
@@ -424,9 +425,10 @@
                 align-items: center;
             }
             .product-card img {
+                height: 140px;
                 max-width: 140px;
                 object-fit: contain;
-                margin: 0 auto 5px;
+                margin: 5px auto;
                 background-color: #FFFFFF;
             }
             .winery-card {
@@ -552,7 +554,7 @@
             .product-card {
                 pointer-events: auto;
                 max-width: 250px;
-                min-height: 360px;
+                height: 360px;
                 width: 100%;
                 padding: 15px;
                 display: flex;
@@ -562,9 +564,10 @@
                 box-sizing: border-box;
             }
             .product-card img {
+                height: 190px;
                 max-width: 200px;
                 object-fit: contain;
-                margin: 0 auto 10px;
+                margin: 10px auto;
                 background-color: #FFFFFF;
             }
             .winery-card {
@@ -591,7 +594,7 @@
                 min-height: 40px;
                 white-space: normal;
                 text-align: center;
-                margin: 10px 0;
+                margin: 5px 0;
                 width: 100%;
             }
             .product-card .price {
@@ -770,7 +773,7 @@
                         if (targetLang === 'es') {
                             newPath = currentPath.replace(/\/(de|en)\/provincias\//, '/es/provincias/');
                         } else {
-                            newPath = newPath.replace(/\/(es|de|en)\/provincias\//, `/${targetLang}/provincias/`);
+                            newPath = currentPath.replace(/\/(es|de|en)\/provincias\//, `/${targetLang}/provincias/`);
                         }
                         if (newPath !== currentPath) {
                             window.location.href = newPath;
