@@ -103,24 +103,10 @@
     position: relative;
     overflow: visible;
   }
- .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
-    z-index: 1;
-    flex: 1;
-    padding: 10px 20px 200px 20px; /* Modified: Reduced top padding from 20px to 10px */
-    position: relative;
-    overflow: visible;
-  }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 10px; /* Modified: Reduced from 20px to 10px */
-    text-align: left;
-  }
-  .presentation {
-    max-width: 800px;
-    margin: 0 0 20px; /* Modified: Reduced from 40px to 20px */
+    margin-bottom: 20px;
     text-align: left;
   }
   .banner {
@@ -131,7 +117,11 @@
     border-radius: 10px;
     margin-bottom: 20px;
   }
-
+  .presentation {
+    max-width: 800px;
+    margin: 0 0 40px;
+    text-align: left;
+  }
   .presentation h2 {
     color: #4A2C59;
     font-size: 1.8em;
@@ -152,6 +142,25 @@
     justify-content: flex-start;
   }
   .gallery img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  /* Dynamic gallery styling based on number of images */
+  .gallery.single-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
     width: 200px;
     height: 150px;
     object-fit: cover;
@@ -286,47 +295,7 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  footer {
-    background-color: #F8F8F8; /* Match sidebar for cohesion */
-    color: #1A1A1A;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    position: relative;
-    min-height: 60px;
-    box-sizing: border-box;
-    overflow: visible;
-    clear: both;
-  }
-  footer p {
-    margin: 0;
-    font-size: 1em;
-    display: inline;
-    color: #1A1A1A;
-  }
-  footer a {
-    color: #4A2C59;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-  footer i {
-    margin-right: 5px;
-    font-size: 1em;
-    vertical-align: middle;
-  }
-  footer img.social-icon {
-    width: 1em;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-  footer span.separator {
-    color: #1A1A1A;
-    margin: 0 5px;
-  }
+  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -391,7 +360,7 @@
       width: 100%;
       padding: 10px;
       padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      margin-top: 80px;
       position: relative;
       overflow: visible;
     }
@@ -505,16 +474,6 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-    footer {
-      background-color: #F8F8F8; /* Match sidebar */
-      padding: 15px;
-      text-align: center;
-      width: 100%;
-      position: relative;
-      min-height: 60px;
-      overflow: visible;
-      clear: both;
-    }
   }
   @media (min-width: 769px) {
     .header { display: none; }
@@ -606,90 +565,15 @@
     </a>
   </header>
   <button class="hamburger">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/" title="Volver al inicio">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Categorías</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
-      <ul>
-        
-        <li><a href="/es/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/es/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/es/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/es/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
-      <ul>
-        
-        <li><a href="/es/bodegas/agustin-lanus.html" class="nav-link active">Agustin Lanus</a></li>
-        
-        <li><a href="/es/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/es/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/es/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/es/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/es/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/es/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-        
-        <li><a href="/es/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/es/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/es/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/es/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/es/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/es/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/es/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/es/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/es/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/es/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/es/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/es/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/es/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
-      <ul>
-        <li><a href="/es/eventos" class="nav-link">Ver Eventos</a></li>
-      </ul>
-    </details>
-  </nav>
   <main class="main-content">
     <h1>Agustin Lanus</h1>
     <section class="presentation">
       <h2>Acerca de Agustin Lanus</h2>
       <p>Actualmente un pequeño puñado de enólogos del Valle Calchaquí produce vinos en el límite de donde se pueden cultivar uvas. Estos viñedos están ubicados en lugares extremadamente aislados, lo que hace que el tiempo, los recursos y los costos de mantenimiento de los viñedos sean un desafío incluso para el enólogo más apasionado.Sin embargo, la calidad superior de los vinos producidos justifica el esfuerzo, ya que las variaciones extremas de temperatura, los niveles más altos de radiación solar y el largo período de maduración dan como resultado vinos altamente concentrados y complejos. ​</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/agustin-lanus-1.jpg" alt="Banner de Agustin Lanus">
         
-      
       </div>
     </section>
     <section class="products-section">
@@ -733,24 +617,7 @@
       
     </section>
   </main>
-  <footer>
-    <div class="footer-content">
-      <span>
-        <i class="fab fa-whatsapp"></i>
-        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/x-icon.png" alt="X" class="social-icon">
-        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
-      </span>
-    </div>
-  </footer>
+ 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
