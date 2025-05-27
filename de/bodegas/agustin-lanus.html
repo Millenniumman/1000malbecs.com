@@ -98,13 +98,13 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 200px;
-    width: calc(100% - 200px);
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px);
     max-width: 1200px;
-    margin-right: auto;
+    margin: 0 auto; /* Center within remaining space */
     z-index: 1;
     flex: 1;
-    padding: 20px 20px 200px 20px; /* Increased top padding for larger banner */
+    padding: 20px 20px 200px 20px;
     position: relative;
     overflow: visible;
   }
@@ -116,15 +116,15 @@
   }
   .banner {
     width: 100%;
-    height: 150px; /* Restored to previous size */
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
   }
   .presentation {
     max-width: 800px;
-    margin: 0 auto 20px;
+    margin: 0 0 20px 0;
     text-align: left;
   }
   .presentation h2 {
@@ -155,7 +155,7 @@
   }
   .gallery.single-image img {
     width: 100%;
-    height: 150px; /* Match banner */
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -173,7 +173,7 @@
   }
   .products-section {
     max-width: 1200px;
-    margin: 0 auto 40px;
+    margin: 0 0 40px 0;
     width: 100%;
   }
   .products-section h2 {
@@ -374,7 +374,7 @@
       position: relative;
       overflow: visible;
     }
-    .banner { height: 80px; }
+    .banner { height: 80px; margin: 0 0 10px 0; }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
@@ -442,7 +442,7 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .presentation { margin: 0 auto 20px; padding: 10px; }
+    .presentation { margin: 0 0 20px 0; padding: 10px; }
     .gallery {
       flex-direction: row;
       flex-wrap: nowrap;
@@ -501,10 +501,10 @@
     }
     .logo-container { display: block; }
     .main-content {
-      margin-left: 200px;
-      width: calc(100% - 200px);
+      margin-left: 250px;
+      width: calc(100% - 250px);
       max-width: 1200px;
-      margin-right: auto;
+      margin: 0 auto;
       padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
