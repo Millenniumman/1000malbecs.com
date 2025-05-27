@@ -103,10 +103,24 @@
     position: relative;
     overflow: visible;
   }
+ .main-content {
+    margin-left: 290px;
+    width: calc(100% - 290px);
+    z-index: 1;
+    flex: 1;
+    padding: 10px 20px 200px 20px; /* Modified: Reduced top padding from 20px to 10px */
+    position: relative;
+    overflow: visible;
+  }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Modified: Reduced from 20px to 10px */
+    text-align: left;
+  }
+  .presentation {
+    max-width: 800px;
+    margin: 0 0 20px; /* Modified: Reduced from 40px to 20px */
     text-align: left;
   }
   .banner {
@@ -117,11 +131,7 @@
     border-radius: 10px;
     margin-bottom: 20px;
   }
-  .presentation {
-    max-width: 800px;
-    margin: 0 0 40px;
-    text-align: left;
-  }
+
   .presentation h2 {
     color: #4A2C59;
     font-size: 1.8em;
