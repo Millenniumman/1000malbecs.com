@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Bodega Foster Lorca</title>
   <meta property="og:title" content="1000 Malbecs - Bodega Foster Lorca">
-  <meta property="og:description" content="La historia se remonta al año 2002, cuando Enrique Foster, maravillado por el Malbec, convoca a Mauricio Lorca para comenzar a caminar juntos. El enólogo ent...">
+  <meta property="og:description" content="The story goes back to 2002, when Enrique Foster, amazed by Malbec, summons Mauricio Lorca to start walking together.The winemaker then takes care of the ent...">
   <meta property="og:image" content="/images/bodegas/bodega-foster-lorca-1.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/bodegas/bodega-foster-lorca.html">
+  <meta property="og:url" content="https://1000malbecs.com/en/bodegas/bodega-foster-lorca.html">
   <meta property="og:type" content="website">
   
   <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/bodega-foster-lorca.html">
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+  * {
+    box-sizing: border-box;
+  }
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #fdfdfd;
@@ -28,6 +31,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .header { display: none; }
   .logo { max-width: 150px; height: auto; }
@@ -94,32 +98,33 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px);
+    max-width: 1200px;
+    margin: 0 auto; /* Center within remaining space */
     z-index: 1;
     flex: 1;
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 20px 20px 200px 20px;
     position: relative;
     overflow: visible;
   }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: left;
   }
   .banner {
     width: 100%;
-    height: 300px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
   }
   .presentation {
     max-width: 800px;
-    margin: 0 0 40px;
+    margin: 0 0 20px 0;
     text-align: left;
   }
   .presentation h2 {
@@ -140,6 +145,7 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%;
   }
   .gallery img {
     width: 200px;
@@ -147,10 +153,9 @@
     object-fit: cover;
     border-radius: 5px;
   }
-  /* Dynamic gallery styling based on number of images */
   .gallery.single-image img {
     width: 100%;
-    height: 300px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -168,7 +173,8 @@
   }
   .products-section {
     max-width: 1200px;
-    margin: 0 0 40px;
+    margin: 0 0 40px 0;
+    width: 100%;
   }
   .products-section h2 {
     color: #4A2C59;
@@ -295,7 +301,6 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -304,6 +309,7 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
+    max-width: 100%;
   }
   .language-selector.hidden {
     opacity: 0;
@@ -337,9 +343,12 @@
       z-index: 50;
     }
     .logo { max-width: 100px; }
-    .hamburger { display: block; z-index: 110; }
+    .hamburger {
+      display: block;
+      z-index: 110;
+    }
     #sidebar {
-      width: 100%;
+      width: 80%;
       height: 100vh;
       max-height: 100vh;
       position: fixed;
@@ -347,28 +356,30 @@
       left: 0;
       transform: translateX(-100%);
       z-index: 100;
-      border-bottom: 1px solid #E0E0E0;
+      border-right: 1px solid #E0E0E0;
       padding: 20px;
       padding-top: 50px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      background-color: #F8F8F8;
     }
     #sidebar.open { transform: translateX(0); }
     .logo-container { display: none; }
     .main-content {
       margin-left: 0;
       width: 100%;
-      padding: 10px;
-      padding-bottom: 250px;
-      margin-top: 80px;
+      max-width: 100%;
+      margin: 10px auto 0;
+      padding: 10px 10px 250px 10px;
       position: relative;
       overflow: visible;
     }
-    .banner { height: 200px; }
+    .banner { height: 80px; margin: 0 0 10px 0; }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       width: 100%;
@@ -431,17 +442,18 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .presentation { margin: 10px 0; padding: 10px; }
+    .presentation { margin: 0 0 20px 0; padding: 10px; }
     .gallery {
       flex-direction: row;
       flex-wrap: nowrap;
+      width: 100%;
     }
     .gallery img:not(:first-child) {
       display: none;
     }
     .gallery img:first-child {
       width: 100%;
-      height: 150px;
+      height: 80px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -456,6 +468,7 @@
       gap: 2px;
       justify-content: center;
       transition: opacity 0.3s ease;
+      max-width: 90%;
     }
     .language-selector a {
       font-size: 9px;
@@ -488,11 +501,11 @@
     }
     .logo-container { display: block; }
     .main-content {
-      margin-left: 290px;
-      width: calc(100% - 290px);
-      padding: 20px;
-      padding-bottom: 200px;
-      margin-top: 0;
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
     }
@@ -501,6 +514,7 @@
       gap: 30px;
       max-width: 1200px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       pointer-events: auto;
@@ -555,12 +569,12 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/bodegas/bodega-foster-lorca.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/es/bodegas/bodega-foster-lorca.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
     <a href="/de/bodegas/bodega-foster-lorca.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/bodegas/bodega-foster-lorca.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+    <a href="/en/bodegas/bodega-foster-lorca.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
-    <a href="/" title="Volver al inicio">
+    <a href="/en/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
@@ -568,10 +582,10 @@
   <main class="main-content">
     <h1>Bodega Foster Lorca</h1>
     <section class="presentation">
-      <h2>Acerca de Bodega Foster Lorca</h2>
-      <p>La historia se remonta al año 2002, cuando Enrique Foster, maravillado por el Malbec, convoca a Mauricio Lorca para comenzar a caminar juntos. El enólogo entonces, se hace cargo de la producción entera bajo ambas marcas desde la bodega ubicada en Perdriel, departamento de Luján de Cuyo. Desde ese momento, Mauricio Lorca lleva la innovación como bandera, apostando por nuevas formas de vivir y hacer vitivinicultura. Desde los vinos premium sin madera, nuestra bodega se posiciona como representante de la vanguardia, siguiendo cada vez más el camino de la sustentabilidad y siendo fieles a la expresión del terruño. 
+      <h2>About Bodega Foster Lorca</h2>
+      <p>The story goes back to 2002, when Enrique Foster, amazed by Malbec, summons Mauricio Lorca to start walking together.The winemaker then takes care of the entire production under both brands from the winery located in Perdriel, department of Luján de Cuyo.From that moment, Mauricio Lorca has innovation as a flag, betting on new ways of living and doing viticulture.From premium wines without wood, our winery is positioned as a representative of the avant -garde, increasingly following the path of sustainability and being faithful to the expression of the terroir.
 
-Creemos en el trabajo en equipo y en el profesionalismo, el compromiso y la responsabilidad de cada persona que forma parte de la bodega. La confianza es crucial, la libertad es menester, cada quien es artista en su área, acoplándose al objetivo mayor de llevar nuestra forma de hacer vino al mundo. La trazabilidad del proceso de vinificación permite a Bodega Foster Lorca asegurar la calidad en cada uno de sus productos, desde la uva hasta la botella. Nuestra bodega es prueba de que siempre se puede ir más allá de un objetivo, innovando, soñando, conociendo, manteniéndose en constante movimiento.</p>
+We believe in teamwork and professionalism, commitment and responsibility of each person who is part of the winery.Trust is crucial, freedom is necessary, everyone is an artist in their area, coupling to the eldest objective of carrying our way of making wine to the world.The traceability of the vinification process allows Bodega Foster Lorca to ensure quality in each of its products, from grapes to the bottle.Our winery is proof that you can always go beyond a goal, innovating, dreaming, knowing, keeping in constant movement.</p>
       <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-foster-lorca-1.jpg" alt="Banner de Bodega Foster Lorca">
@@ -579,319 +593,318 @@ Creemos en el trabajo en equipo y en el profesionalismo, el compromiso y la resp
       </div>
     </section>
     <section class="products-section">
-      <h2>Vinos destacados de Bodega Foster Lorca</h2>
+      <h2>Featured Wines from Bodega Foster Lorca</h2>
       
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="tematico-malbec">
-          <img src="/images/small/temtico-malbec-2023.jpg" alt="Botella de Temático Malbec"
+          <img src="/images/small/temtico-malbec-2023.jpg" alt="Bottle of Temático Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="tematico-malbec">🍷</div>
           <div class="overlay" data-overlay-id="tematico-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1100 msnm</p>
-            <p><strong>Añada:</strong> 2023</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1100 msnm</p>
+            <p><strong>Vintage:</strong> 2023</p>
           </div>
           <h3>Temático Malbec</h3>
           <p class="price">€9.99</p>
-          <a href="/es/vinos/temtico-malbec-2023.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/temtico-malbec-2023.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="pink-malbec-rosado">
-          <img src="/images/small/pink-malbec-rosado-2023.jpg" alt="Botella de Pink Malbec Rosado"
+          <img src="/images/small/pink-malbec-rosado-2023.jpg" alt="Bottle of Pink Malbec Rosado"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="pink-malbec-rosado">🍷</div>
           <div class="overlay" data-overlay-id="pink-malbec-rosado">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2023</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2023</p>
           </div>
           <h3>Pink Malbec Rosado</h3>
           <p class="price">€13.49</p>
-          <a href="/es/vinos/pink-malbec-rosado-2023.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/pink-malbec-rosado-2023.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="ique-malbec">
-          <img src="/images/small/ique-malbec-2021.jpg" alt="Botella de Ique Malbec"
+          <img src="/images/small/ique-malbec-2021.jpg" alt="Bottle of Ique Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="ique-malbec">🍷</div>
           <div class="overlay" data-overlay-id="ique-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2021</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2021</p>
           </div>
           <h3>Ique Malbec</h3>
           <p class="price">€13.49</p>
-          <a href="/es/vinos/ique-malbec-2021.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/ique-malbec-2021.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="zapam-zucum-organic-malbec">
-          <img src="/images/small/zapam-zucum-organic-malbec-2022.jpg" alt="Botella de Zapam Zucum Organic Malbec"
+          <img src="/images/small/zapam-zucum-organic-malbec-2022.jpg" alt="Bottle of Zapam Zucum Organic Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="zapam-zucum-organic-malbec">🍷</div>
           <div class="overlay" data-overlay-id="zapam-zucum-organic-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1100 msnm</p>
-            <p><strong>Añada:</strong> 2022</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1100 msnm</p>
+            <p><strong>Vintage:</strong> 2022</p>
           </div>
           <h3>Zapam Zucum Organic Malbec</h3>
           <p class="price">€13.99</p>
-          <a href="/es/vinos/zapam-zucum-organic-malbec-2022.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/zapam-zucum-organic-malbec-2022.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="fantasia-malbec">
-          <img src="/images/small/fantasa-malbec-2023.jpg" alt="Botella de Fantasía Malbec"
+          <img src="/images/small/fantasa-malbec-2023.jpg" alt="Bottle of Fantasía Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="fantasia-malbec">🍷</div>
           <div class="overlay" data-overlay-id="fantasia-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1100 msnm</p>
-            <p><strong>Añada:</strong> 2023</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1100 msnm</p>
+            <p><strong>Vintage:</strong> 2023</p>
           </div>
           <h3>Fantasía Malbec</h3>
           <p class="price">€13.99</p>
-          <a href="/es/vinos/fantasa-malbec-2023.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/fantasa-malbec-2023.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="lois-sparkling-malbec">
-          <img src="/images/small/lois-sparkling-malbec-2021.jpg" alt="Botella de Lois Sparkling Malbec"
+          <img src="/images/small/lois-sparkling-malbec-2021.jpg" alt="Bottle of Lois Sparkling Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="lois-sparkling-malbec">🍷</div>
           <div class="overlay" data-overlay-id="lois-sparkling-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2021</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2021</p>
           </div>
           <h3>Lois Sparkling Malbec</h3>
           <p class="price">€19.49</p>
-          <a href="/es/vinos/lois-sparkling-malbec-2021.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/lois-sparkling-malbec-2021.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-barrancos">
-          <img src="/images/small/foster-malbec-los-barrancos-2021.jpg" alt="Botella de Foster  Malbec 'Los Barrancos'"
+          <img src="/images/small/foster-malbec-los-barrancos-2021.jpg" alt="Bottle of Foster  Malbec 'Los Barrancos'"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-los-barrancos">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-los-barrancos">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1050 msnm</p>
-            <p><strong>Añada:</strong> 2021</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1050 msnm</p>
+            <p><strong>Vintage:</strong> 2021</p>
           </div>
           <h3>Foster  Malbec 'Los Barrancos'</h3>
           <p class="price">€25.49</p>
-          <a href="/es/vinos/foster-malbec-los-barrancos-2021.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-los-barrancos-2021.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec">
-          <img src="/images/small/foster-malbec-2023.jpg" alt="Botella de Foster  Malbec"
+          <img src="/images/small/foster-malbec-2023.jpg" alt="Bottle of Foster  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1050 msnm</p>
-            <p><strong>Añada:</strong> 2020</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1050 msnm</p>
+            <p><strong>Vintage:</strong> 2020</p>
           </div>
           <h3>Foster  Malbec</h3>
           <p class="price">€25.49</p>
-          <a href="/es/vinos/foster-malbec-2020.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-2020.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-altepes">
-          <img src="/images/small/foster-malbec-los-altepes-2021.jpg" alt="Botella de Foster  Malbec 'Los Altepes'"
+          <img src="/images/small/foster-malbec-los-altepes-2021.jpg" alt="Bottle of Foster  Malbec 'Los Altepes'"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-los-altepes">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-los-altepes">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1250 msnm</p>
-            <p><strong>Añada:</strong> 2021</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1250 msnm</p>
+            <p><strong>Vintage:</strong> 2021</p>
           </div>
           <h3>Foster  Malbec 'Los Altepes'</h3>
           <p class="price">€25.49</p>
-          <a href="/es/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec">
-          <img src="/images/small/foster-malbec-2023.jpg" alt="Botella de Foster  Malbec"
+          <img src="/images/small/foster-malbec-2023.jpg" alt="Bottle of Foster  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1050 msnm</p>
-            <p><strong>Añada:</strong> 2018</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1050 msnm</p>
+            <p><strong>Vintage:</strong> 2018</p>
           </div>
           <h3>Foster  Malbec</h3>
           <p class="price">€26.49</p>
-          <a href="/es/vinos/foster-malbec-2018.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-2018.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-barrancos">
-          <img src="/images/small/foster-malbec-los-barrancos-2015.jpg" alt="Botella de Foster  Malbec 'Los Barrancos'"
+          <img src="/images/small/foster-malbec-los-barrancos-2015.jpg" alt="Bottle of Foster  Malbec 'Los Barrancos'"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-los-barrancos">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-los-barrancos">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1050 msnm</p>
-            <p><strong>Añada:</strong> 2015</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1050 msnm</p>
+            <p><strong>Vintage:</strong> 2015</p>
           </div>
           <h3>Foster  Malbec 'Los Barrancos'</h3>
           <p class="price">€27.49</p>
-          <a href="/es/vinos/foster-malbec-los-barrancos-2015.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-los-barrancos-2015.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec">
-          <img src="/images/small/foster-malbec-2023.jpg" alt="Botella de Foster  Malbec"
+          <img src="/images/small/foster-malbec-2023.jpg" alt="Bottle of Foster  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1050 msnm</p>
-            <p><strong>Añada:</strong> 2015</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1050 msnm</p>
+            <p><strong>Vintage:</strong> 2015</p>
           </div>
           <h3>Foster  Malbec</h3>
           <p class="price">€27.49</p>
-          <a href="/es/vinos/foster-malbec-2015.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-2015.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-los-altepes">
-          <img src="/images/small/foster-malbec-los-altepes-2015.jpg" alt="Botella de Foster  Malbec 'Los Altepes'"
+          <img src="/images/small/foster-malbec-los-altepes-2015.jpg" alt="Bottle of Foster  Malbec 'Los Altepes'"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-los-altepes">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-los-altepes">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1250 msnm</p>
-            <p><strong>Añada:</strong> 2015</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1250 msnm</p>
+            <p><strong>Vintage:</strong> 2015</p>
           </div>
           <h3>Foster  Malbec 'Los Altepes'</h3>
           <p class="price">€27.49</p>
-          <a href="/es/vinos/foster-malbec-los-altepes-2015.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-los-altepes-2015.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-magnum-125-lts">
-          <img src="/images/small/foster-malbec-2023.jpg" alt="Botella de Foster  Malbec Magnum 1.25 lts"
+          <img src="/images/small/foster-malbec-2023.jpg" alt="Bottle of Foster  Malbec Magnum 1.25 lts"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-magnum-125-lts">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-magnum-125-lts">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2015</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2015</p>
           </div>
           <h3>Foster  Malbec Magnum 1.25 lts</h3>
           <p class="price">€51.99</p>
-          <a href="/es/vinos/foster-malbec-magnum-125-lts-2015.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-magnum-125-lts-2015.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="gran-poetico-malbec">
-          <img src="/images/small/gran-potico-malbec-2013.jpg" alt="Botella de Gran Poético Malbec"
+          <img src="/images/small/gran-potico-malbec-2013.jpg" alt="Bottle of Gran Poético Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="gran-poetico-malbec">🍷</div>
           <div class="overlay" data-overlay-id="gran-poetico-malbec">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 1100 msnm</p>
-            <p><strong>Añada:</strong> 2013</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 1100 msnm</p>
+            <p><strong>Vintage:</strong> 2013</p>
           </div>
           <h3>Gran Poético Malbec</h3>
           <p class="price">€51.99</p>
-          <a href="/es/vinos/gran-potico-malbec-2013.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/gran-potico-malbec-2013.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-limited-edition">
-          <img src="/images/small/foster-malbec-limited-edition-2019.jpg" alt="Botella de Foster  Malbec Limited Edition"
+          <img src="/images/small/foster-malbec-limited-edition-2019.jpg" alt="Bottle of Foster  Malbec Limited Edition"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-limited-edition">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-limited-edition">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2019</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2019</p>
           </div>
           <h3>Foster  Malbec Limited Edition</h3>
           <p class="price">€51.99</p>
-          <a href="/es/vinos/foster-malbec-limited-edition-2019.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-limited-edition-2019.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-limited-edition">
-          <img src="/images/small/foster-malbec-limited-edition-2013.jpg" alt="Botella de Foster  Malbec Limited Edition"
+          <img src="/images/small/foster-malbec-limited-edition-2013.jpg" alt="Bottle of Foster  Malbec Limited Edition"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-limited-edition">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-limited-edition">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2013</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2013</p>
           </div>
           <h3>Foster  Malbec Limited Edition</h3>
           <p class="price">€55.99</p>
-          <a href="/es/vinos/foster-malbec-limited-edition-2013.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-limited-edition-2013.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="foster-malbec-magnum-125-lts">
-          <img src="/images/small/foster-malbec-2023.jpg" alt="Botella de Foster  Malbec Magnum 1.25 lts"
+          <img src="/images/small/foster-malbec-2023.jpg" alt="Bottle of Foster  Malbec Magnum 1.25 lts"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="foster-malbec-magnum-125-lts">🍷</div>
           <div class="overlay" data-overlay-id="foster-malbec-magnum-125-lts">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2007</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2007</p>
           </div>
           <h3>Foster  Malbec Magnum 1.25 lts</h3>
           <p class="price">€59.99</p>
-          <a href="/es/vinos/foster-malbec-magnum-125-lts-2007.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/foster-malbec-magnum-125-lts-2007.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="enrique-foster-malbec-firmado">
-          <img src="/images/small/enrique-foster-malbec-firmado-2013.jpg" alt="Botella de Enrique Foster  Malbec Firmado"
+          <img src="/images/small/enrique-foster-malbec-firmado-2013.jpg" alt="Bottle of Enrique Foster  Malbec Firmado"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="enrique-foster-malbec-firmado">🍷</div>
           <div class="overlay" data-overlay-id="enrique-foster-malbec-firmado">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
-            <p><strong>Añada:</strong> 2013</p>
+            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+            <p><strong>Altitude:</strong> 950 msnm</p>
+            <p><strong>Vintage:</strong> 2013</p>
           </div>
           <h3>Enrique Foster  Malbec Firmado</h3>
           <p class="price">€88.99</p>
-          <a href="/es/vinos/enrique-foster-malbec-firmado-2013.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/enrique-foster-malbec-firmado-2013.html" class="buy-button">Buy</a>
         </div>
         
       </div>
       
     </section>
   </main>
- 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
@@ -902,6 +915,16 @@ Creemos en el trabajo en equipo y en el profesionalismo, el compromiso y la resp
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
           sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+          hamburger.style.display = 'block';
+        });
+        document.addEventListener('click', (e) => {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = '☰';
+            hamburger.style.display = 'block';
+          }
         });
       }
 
@@ -917,7 +940,6 @@ Creemos en el trabajo en equipo y en el profesionalismo, el compromiso y la resp
         }
       });
 
-      // Mobile-only overlay toggle
       if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {

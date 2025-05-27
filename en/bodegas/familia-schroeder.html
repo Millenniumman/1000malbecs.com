@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Familia Schroeder</title>
   <meta property="og:title" content="1000 Malbecs - Familia Schroeder">
-  <meta property="og:description" content="Bodega Familia Schroeder es el fruto del esfuerzo de una familia de emprendedores que hizo realidad su sueño. En 2001, Herman Heinz Teodoro Schroeder, hijo d...">
+  <meta property="og:description" content="Bodega Familia Schroeder is the fruit of the effort of a family of entrepreneurs who made her dream come true.In 2001, Herman Heinz Teodoro Schroeder, son of...">
   <meta property="og:image" content="/images/bodegas/familia-schroeder-1.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/bodegas/familia-schroeder.html">
+  <meta property="og:url" content="https://1000malbecs.com/en/bodegas/familia-schroeder.html">
   <meta property="og:type" content="website">
   
   <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/familia-schroeder.html">
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+  * {
+    box-sizing: border-box;
+  }
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #fdfdfd;
@@ -28,6 +31,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .header { display: none; }
   .logo { max-width: 150px; height: auto; }
@@ -94,32 +98,33 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px);
+    max-width: 1200px;
+    margin: 0 auto; /* Center within remaining space */
     z-index: 1;
     flex: 1;
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 20px 20px 200px 20px;
     position: relative;
     overflow: visible;
   }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: left;
   }
   .banner {
     width: 100%;
-    height: 300px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
   }
   .presentation {
     max-width: 800px;
-    margin: 0 0 40px;
+    margin: 0 0 20px 0;
     text-align: left;
   }
   .presentation h2 {
@@ -140,6 +145,7 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%;
   }
   .gallery img {
     width: 200px;
@@ -147,10 +153,9 @@
     object-fit: cover;
     border-radius: 5px;
   }
-  /* Dynamic gallery styling based on number of images */
   .gallery.single-image img {
     width: 100%;
-    height: 300px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -168,7 +173,8 @@
   }
   .products-section {
     max-width: 1200px;
-    margin: 0 0 40px;
+    margin: 0 0 40px 0;
+    width: 100%;
   }
   .products-section h2 {
     color: #4A2C59;
@@ -295,7 +301,6 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -304,6 +309,7 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
+    max-width: 100%;
   }
   .language-selector.hidden {
     opacity: 0;
@@ -337,9 +343,12 @@
       z-index: 50;
     }
     .logo { max-width: 100px; }
-    .hamburger { display: block; z-index: 110; }
+    .hamburger {
+      display: block;
+      z-index: 110;
+    }
     #sidebar {
-      width: 100%;
+      width: 80%;
       height: 100vh;
       max-height: 100vh;
       position: fixed;
@@ -347,28 +356,30 @@
       left: 0;
       transform: translateX(-100%);
       z-index: 100;
-      border-bottom: 1px solid #E0E0E0;
+      border-right: 1px solid #E0E0E0;
       padding: 20px;
       padding-top: 50px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      background-color: #F8F8F8;
     }
     #sidebar.open { transform: translateX(0); }
     .logo-container { display: none; }
     .main-content {
       margin-left: 0;
       width: 100%;
-      padding: 10px;
-      padding-bottom: 250px;
-      margin-top: 80px;
+      max-width: 100%;
+      margin: 10px auto 0;
+      padding: 10px 10px 250px 10px;
       position: relative;
       overflow: visible;
     }
-    .banner { height: 200px; }
+    .banner { height: 80px; margin: 0 0 10px 0; }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       width: 100%;
@@ -431,17 +442,18 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .presentation { margin: 10px 0; padding: 10px; }
+    .presentation { margin: 0 0 20px 0; padding: 10px; }
     .gallery {
       flex-direction: row;
       flex-wrap: nowrap;
+      width: 100%;
     }
     .gallery img:not(:first-child) {
       display: none;
     }
     .gallery img:first-child {
       width: 100%;
-      height: 150px;
+      height: 80px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -456,6 +468,7 @@
       gap: 2px;
       justify-content: center;
       transition: opacity 0.3s ease;
+      max-width: 90%;
     }
     .language-selector a {
       font-size: 9px;
@@ -488,11 +501,11 @@
     }
     .logo-container { display: block; }
     .main-content {
-      margin-left: 290px;
-      width: calc(100% - 290px);
-      padding: 20px;
-      padding-bottom: 200px;
-      margin-top: 0;
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
     }
@@ -501,6 +514,7 @@
       gap: 30px;
       max-width: 1200px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       pointer-events: auto;
@@ -555,12 +569,12 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/bodegas/familia-schroeder.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/es/bodegas/familia-schroeder.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
     <a href="/de/bodegas/familia-schroeder.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/bodegas/familia-schroeder.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+    <a href="/en/bodegas/familia-schroeder.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
-    <a href="/" title="Volver al inicio">
+    <a href="/en/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
@@ -568,8 +582,8 @@
   <main class="main-content">
     <h1>Familia Schroeder</h1>
     <section class="presentation">
-      <h2>Acerca de Familia Schroeder</h2>
-      <p>Bodega Familia Schroeder es el fruto del esfuerzo de una familia de emprendedores que hizo realidad su sueño. En 2001, Herman Heinz Teodoro Schroeder, hijo de inmigrantes alemanes pioneros en la Patagonia, decide invertir junto a sus hijos en viñedos. Una de las zonas vitivinícolas más australes del mundo en la que con esfuerzo el hombre transformó un desierto en verdes viñedos y una zona productiva.</p>
+      <h2>About Familia Schroeder</h2>
+      <p>Bodega Familia Schroeder is the fruit of the effort of a family of entrepreneurs who made her dream come true.In 2001, Herman Heinz Teodoro Schroeder, son of German immigrants in Patagonia, decides to invest with their children in vineyards.One of the most southern wine areas in the world in which man transformed a desert into effort into green vineyards and a productive area.</p>
       <div class="gallery single-image">
         
         <img src="/images/bodegas/familia-schroeder-1.jpg" alt="Banner de Familia Schroeder">
@@ -577,79 +591,78 @@
       </div>
     </section>
     <section class="products-section">
-      <h2>Vinos destacados de Familia Schroeder</h2>
+      <h2>Featured Wines from Familia Schroeder</h2>
       
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="saurus-malbec">
-          <img src="/images/small/saurus-malbec-2023.jpg" alt="Botella de Saurus  Malbec"
+          <img src="/images/small/saurus-malbec-2023.jpg" alt="Bottle of Saurus  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="saurus-malbec">🍷</div>
           <div class="overlay" data-overlay-id="saurus-malbec">
-            <p><strong>Bodega:</strong> Familia Schroeder</p>
-            <p><strong>Provincia:</strong> Neuquén</p>
-            <p><strong>Región:</strong> San Patricio del Chañar</p>
-            <p><strong>Altura:</strong> 400 msnm</p>
-            <p><strong>Añada:</strong> 2023</p>
+            <p><strong>Winery:</strong> Familia Schroeder</p>
+            <p><strong>Province:</strong> Neuquén</p>
+            <p><strong>Region:</strong> San Patricio del Chañar</p>
+            <p><strong>Altitude:</strong> 400 msnm</p>
+            <p><strong>Vintage:</strong> 2023</p>
           </div>
           <h3>Saurus  Malbec</h3>
           <p class="price">€14.49</p>
-          <a href="/es/vinos/saurus-malbec-2023.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/saurus-malbec-2023.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="saurus-patagonia-select-malbec">
-          <img src="/images/small/saurus-patagonia-select-malbec-2022.jpg" alt="Botella de Saurus Patagonia Select  Malbec"
+          <img src="/images/small/saurus-patagonia-select-malbec-2022.jpg" alt="Bottle of Saurus Patagonia Select  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="saurus-patagonia-select-malbec">🍷</div>
           <div class="overlay" data-overlay-id="saurus-patagonia-select-malbec">
-            <p><strong>Bodega:</strong> Familia Schroeder</p>
-            <p><strong>Provincia:</strong> Neuquén</p>
-            <p><strong>Región:</strong> San Patricio del Chañar</p>
-            <p><strong>Altura:</strong> 400 msnm</p>
-            <p><strong>Añada:</strong> 2022</p>
+            <p><strong>Winery:</strong> Familia Schroeder</p>
+            <p><strong>Province:</strong> Neuquén</p>
+            <p><strong>Region:</strong> San Patricio del Chañar</p>
+            <p><strong>Altitude:</strong> 400 msnm</p>
+            <p><strong>Vintage:</strong> 2022</p>
           </div>
           <h3>Saurus Patagonia Select  Malbec</h3>
           <p class="price">€18.99</p>
-          <a href="/es/vinos/saurus-patagonia-select-malbec-2022.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/saurus-patagonia-select-malbec-2022.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="saurus-barrel-fermented-malbec">
-          <img src="/images/small/saurus-barrel-fermented-malbec-2022.jpg" alt="Botella de Saurus Barrel Fermented  Malbec"
+          <img src="/images/small/saurus-barrel-fermented-malbec-2022.jpg" alt="Bottle of Saurus Barrel Fermented  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="saurus-barrel-fermented-malbec">🍷</div>
           <div class="overlay" data-overlay-id="saurus-barrel-fermented-malbec">
-            <p><strong>Bodega:</strong> Familia Schroeder</p>
-            <p><strong>Provincia:</strong> Neuquén</p>
-            <p><strong>Región:</strong> San Patricio del Chañar</p>
-            <p><strong>Altura:</strong> 400 msnm</p>
-            <p><strong>Añada:</strong> 2022</p>
+            <p><strong>Winery:</strong> Familia Schroeder</p>
+            <p><strong>Province:</strong> Neuquén</p>
+            <p><strong>Region:</strong> San Patricio del Chañar</p>
+            <p><strong>Altitude:</strong> 400 msnm</p>
+            <p><strong>Vintage:</strong> 2022</p>
           </div>
           <h3>Saurus Barrel Fermented  Malbec</h3>
           <p class="price">€25.49</p>
-          <a href="/es/vinos/saurus-barrel-fermented-malbec-2022.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/saurus-barrel-fermented-malbec-2022.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="familia-schroeder-malbec">
-          <img src="/images/small/familia-schroeder-malbec-2019.jpg" alt="Botella de Familia Schroeder  Malbec"
+          <img src="/images/small/familia-schroeder-malbec-2019.jpg" alt="Bottle of Familia Schroeder  Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="familia-schroeder-malbec">🍷</div>
           <div class="overlay" data-overlay-id="familia-schroeder-malbec">
-            <p><strong>Bodega:</strong> Familia Schroeder</p>
-            <p><strong>Provincia:</strong> Neuquén</p>
-            <p><strong>Región:</strong> San Patricio del Chañar</p>
-            <p><strong>Altura:</strong> 400 msnm</p>
-            <p><strong>Añada:</strong> 2019</p>
+            <p><strong>Winery:</strong> Familia Schroeder</p>
+            <p><strong>Province:</strong> Neuquén</p>
+            <p><strong>Region:</strong> San Patricio del Chañar</p>
+            <p><strong>Altitude:</strong> 400 msnm</p>
+            <p><strong>Vintage:</strong> 2019</p>
           </div>
           <h3>Familia Schroeder  Malbec</h3>
           <p class="price">€62.99</p>
-          <a href="/es/vinos/familia-schroeder-malbec-2019.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/familia-schroeder-malbec-2019.html" class="buy-button">Buy</a>
         </div>
         
       </div>
       
     </section>
   </main>
- 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
@@ -660,6 +673,16 @@
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
           sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+          hamburger.style.display = 'block';
+        });
+        document.addEventListener('click', (e) => {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = '☰';
+            hamburger.style.display = 'block';
+          }
         });
       }
 
@@ -675,7 +698,6 @@
         }
       });
 
-      // Mobile-only overlay toggle
       if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {

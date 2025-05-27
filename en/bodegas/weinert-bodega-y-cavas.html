@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Weinert Bodega y Cavas</title>
   <meta property="og:title" content="1000 Malbecs - Weinert Bodega y Cavas">
-  <meta property="og:description" content="​Bodega & Cavas de Weinert fue fundada en 1975 en Luján de Cuyo, Mendoza por el brasilero de origen alemán Don Bernardo Weinert, quien fascinado por el mundo...">
+  <meta property="og:description" content="Bodega & Cavas de Weinert was founded in 1975 in Luján de Cuyo, Mendoza by the Brazilian of German origin Don Bernardo Weinert, who fascinated by the world o...">
   <meta property="og:image" content="/images/bodegas/weinert-bodega-y-cavas-1.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/bodegas/weinert-bodega-y-cavas.html">
+  <meta property="og:url" content="https://1000malbecs.com/en/bodegas/weinert-bodega-y-cavas.html">
   <meta property="og:type" content="website">
   
   <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/weinert-bodega-y-cavas.html">
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+  * {
+    box-sizing: border-box;
+  }
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #fdfdfd;
@@ -28,6 +31,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .header { display: none; }
   .logo { max-width: 150px; height: auto; }
@@ -94,32 +98,33 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px);
+    max-width: 1200px;
+    margin: 0 auto; /* Center within remaining space */
     z-index: 1;
     flex: 1;
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 20px 20px 200px 20px;
     position: relative;
     overflow: visible;
   }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: left;
   }
   .banner {
     width: 100%;
-    height: 300px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
   }
   .presentation {
     max-width: 800px;
-    margin: 0 0 40px;
+    margin: 0 0 20px 0;
     text-align: left;
   }
   .presentation h2 {
@@ -140,6 +145,7 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%;
   }
   .gallery img {
     width: 200px;
@@ -147,10 +153,9 @@
     object-fit: cover;
     border-radius: 5px;
   }
-  /* Dynamic gallery styling based on number of images */
   .gallery.single-image img {
     width: 100%;
-    height: 300px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -168,7 +173,8 @@
   }
   .products-section {
     max-width: 1200px;
-    margin: 0 0 40px;
+    margin: 0 0 40px 0;
+    width: 100%;
   }
   .products-section h2 {
     color: #4A2C59;
@@ -295,7 +301,6 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -304,6 +309,7 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
+    max-width: 100%;
   }
   .language-selector.hidden {
     opacity: 0;
@@ -337,9 +343,12 @@
       z-index: 50;
     }
     .logo { max-width: 100px; }
-    .hamburger { display: block; z-index: 110; }
+    .hamburger {
+      display: block;
+      z-index: 110;
+    }
     #sidebar {
-      width: 100%;
+      width: 80%;
       height: 100vh;
       max-height: 100vh;
       position: fixed;
@@ -347,28 +356,30 @@
       left: 0;
       transform: translateX(-100%);
       z-index: 100;
-      border-bottom: 1px solid #E0E0E0;
+      border-right: 1px solid #E0E0E0;
       padding: 20px;
       padding-top: 50px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      background-color: #F8F8F8;
     }
     #sidebar.open { transform: translateX(0); }
     .logo-container { display: none; }
     .main-content {
       margin-left: 0;
       width: 100%;
-      padding: 10px;
-      padding-bottom: 250px;
-      margin-top: 80px;
+      max-width: 100%;
+      margin: 10px auto 0;
+      padding: 10px 10px 250px 10px;
       position: relative;
       overflow: visible;
     }
-    .banner { height: 200px; }
+    .banner { height: 80px; margin: 0 0 10px 0; }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       width: 100%;
@@ -431,17 +442,18 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .presentation { margin: 10px 0; padding: 10px; }
+    .presentation { margin: 0 0 20px 0; padding: 10px; }
     .gallery {
       flex-direction: row;
       flex-wrap: nowrap;
+      width: 100%;
     }
     .gallery img:not(:first-child) {
       display: none;
     }
     .gallery img:first-child {
       width: 100%;
-      height: 150px;
+      height: 80px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -456,6 +468,7 @@
       gap: 2px;
       justify-content: center;
       transition: opacity 0.3s ease;
+      max-width: 90%;
     }
     .language-selector a {
       font-size: 9px;
@@ -488,11 +501,11 @@
     }
     .logo-container { display: block; }
     .main-content {
-      margin-left: 290px;
-      width: calc(100% - 290px);
-      padding: 20px;
-      padding-bottom: 200px;
-      margin-top: 0;
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
     }
@@ -501,6 +514,7 @@
       gap: 30px;
       max-width: 1200px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       pointer-events: auto;
@@ -555,12 +569,12 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/bodegas/weinert-bodega-y-cavas.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/es/bodegas/weinert-bodega-y-cavas.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
     <a href="/de/bodegas/weinert-bodega-y-cavas.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/bodegas/weinert-bodega-y-cavas.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+    <a href="/en/bodegas/weinert-bodega-y-cavas.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
-    <a href="/" title="Volver al inicio">
+    <a href="/en/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
@@ -568,14 +582,14 @@
   <main class="main-content">
     <h1>Weinert Bodega y Cavas</h1>
     <section class="presentation">
-      <h2>Acerca de Weinert Bodega y Cavas</h2>
-      <p>​Bodega & Cavas de Weinert fue fundada en 1975 en Luján de Cuyo, Mendoza por el brasilero de origen alemán Don Bernardo Weinert, quien fascinado por el mundo de los vinos, decidió montar su propia bodega en Argentina con una filosofía incondicional: producir vinos de alta calidad.
+      <h2>About Weinert Bodega y Cavas</h2>
+      <p>Bodega & Cavas de Weinert was founded in 1975 in Luján de Cuyo, Mendoza by the Brazilian of German origin Don Bernardo Weinert, who fascinated by the world of wines, decided to mount his own winery in Argentina with an unconditional philosophy: produce high quality wines.
 
-Antes de embarcarse en tal tarea, hizo un extenso estudio sobre Mendoza: su clima, suelo y vides; y encontró en Luján de Cuyo el lugar ideal para su emprendimiento. Después de un arduo proceso de restauración en el edificio adquirido en 1974, trajo la última tecnología en vinificación de aquella época y se unió con Raúl de la Mota, conocido mundialmente como el padre de la vitivinicultura moderna y también nombrado mejor enólogo del siglo XX en la Argentina.
+Before embarking on such a task, he did an extensive study on Mendoza: his climate, soil and vines;and found in Luján de Cuyo the ideal place for his entrepreneurship.After an arduous restoration process in the building acquired in 1974, he brought the latest technology in vinification of that time and joined Raúl de la Mota, known worldwide as the father of modern viticulture and also appointed best winemaker of the twentieth century in Argentina.
 
-En 1996, se incorporó a la bodega el enólogo de origen Suizo Hubert Weber, quien con tan solo 27 se convirtió en el principal enólogo de Bodega & Cavas de Weinert hasta el presente.
+In 1996, the winemaker of Swiss origin Hubert Weber joined the winery, who with only 27 became the main winemaker of Warea & Cavas de Weinert until now.
 
-Don Bernardo Weinert es un hombre cuya filosofía de negocios es muy simple: "mientras tengas tu propia filosofía y la mantengas durante los años, estarás en buen camino."</p>
+Don Bernardo Weinert is a man whose business philosophy is very simple: "As long as you have your own philosophy and keep it over the years, you will be on the right track."</p>
       <div class="gallery single-image">
         
         <img src="/images/bodegas/weinert-bodega-y-cavas-1.jpg" alt="Banner de Weinert Bodega y Cavas">
@@ -583,95 +597,94 @@ Don Bernardo Weinert es un hombre cuya filosofía de negocios es muy simple: "mi
       </div>
     </section>
     <section class="products-section">
-      <h2>Vinos destacados de Weinert Bodega y Cavas</h2>
+      <h2>Featured Wines from Weinert Bodega y Cavas</h2>
       
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="carrascal-malbec">
-          <img src="/images/small/carrascal-malbec-2021.jpg" alt="Botella de Carrascal Malbec"
+          <img src="/images/small/carrascal-malbec-2021.jpg" alt="Bottle of Carrascal Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="carrascal-malbec">🍷</div>
           <div class="overlay" data-overlay-id="carrascal-malbec">
-            <p><strong>Bodega:</strong> Weinert Bodega y Cavas</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altura:</strong> 900 msnm</p>
-            <p><strong>Añada:</strong> 2021</p>
+            <p><strong>Winery:</strong> Weinert Bodega y Cavas</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Altitude:</strong> 900 msnm</p>
+            <p><strong>Vintage:</strong> 2021</p>
           </div>
           <h3>Carrascal Malbec</h3>
           <p class="price">€16.49</p>
-          <a href="/es/vinos/carrascal-malbec-2021.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/carrascal-malbec-2021.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="carrascal-malbec">
-          <img src="/images/small/carrascal-malbec-2015.jpg" alt="Botella de Carrascal Malbec"
+          <img src="/images/small/carrascal-malbec-2015.jpg" alt="Bottle of Carrascal Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="carrascal-malbec">🍷</div>
           <div class="overlay" data-overlay-id="carrascal-malbec">
-            <p><strong>Bodega:</strong> Weinert Bodega y Cavas</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altura:</strong> 900 msnm</p>
-            <p><strong>Añada:</strong> 2015</p>
+            <p><strong>Winery:</strong> Weinert Bodega y Cavas</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Altitude:</strong> 900 msnm</p>
+            <p><strong>Vintage:</strong> 2015</p>
           </div>
           <h3>Carrascal Malbec</h3>
           <p class="price">€17.49</p>
-          <a href="/es/vinos/carrascal-malbec-2015.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/carrascal-malbec-2015.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="weinert-malbec">
-          <img src="/images/small/weinert-malbec-2018.jpg" alt="Botella de Weinert Malbec"
+          <img src="/images/small/weinert-malbec-2018.jpg" alt="Bottle of Weinert Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="weinert-malbec">🍷</div>
           <div class="overlay" data-overlay-id="weinert-malbec">
-            <p><strong>Bodega:</strong> Weinert Bodega y Cavas</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altura:</strong> 900 msnm</p>
-            <p><strong>Añada:</strong> 2018</p>
+            <p><strong>Winery:</strong> Weinert Bodega y Cavas</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Altitude:</strong> 900 msnm</p>
+            <p><strong>Vintage:</strong> 2018</p>
           </div>
           <h3>Weinert Malbec</h3>
           <p class="price">€38.49</p>
-          <a href="/es/vinos/weinert-malbec-2018.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/weinert-malbec-2018.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="weinert-malbec">
-          <img src="/images/small/weinert-malbec-2010.jpg" alt="Botella de Weinert Malbec"
+          <img src="/images/small/weinert-malbec-2010.jpg" alt="Bottle of Weinert Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="weinert-malbec">🍷</div>
           <div class="overlay" data-overlay-id="weinert-malbec">
-            <p><strong>Bodega:</strong> Weinert Bodega y Cavas</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altura:</strong> 900 msnm</p>
-            <p><strong>Añada:</strong> 2010</p>
+            <p><strong>Winery:</strong> Weinert Bodega y Cavas</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Altitude:</strong> 900 msnm</p>
+            <p><strong>Vintage:</strong> 2010</p>
           </div>
           <h3>Weinert Malbec</h3>
           <p class="price">€42.49</p>
-          <a href="/es/vinos/weinert-malbec-2010.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/weinert-malbec-2010.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="weinert-malbec">
-          <img src="/images/small/weinert-malbec-1995.jpg" alt="Botella de Weinert Malbec"
+          <img src="/images/small/weinert-malbec-1995.jpg" alt="Bottle of Weinert Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="weinert-malbec">🍷</div>
           <div class="overlay" data-overlay-id="weinert-malbec">
-            <p><strong>Bodega:</strong> Weinert Bodega y Cavas</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altura:</strong> 900 msnm</p>
-            <p><strong>Añada:</strong> 1995</p>
+            <p><strong>Winery:</strong> Weinert Bodega y Cavas</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Altitude:</strong> 900 msnm</p>
+            <p><strong>Vintage:</strong> 1995</p>
           </div>
           <h3>Weinert Malbec</h3>
           <p class="price">€63.99</p>
-          <a href="/es/vinos/weinert-malbec-1995.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/weinert-malbec-1995.html" class="buy-button">Buy</a>
         </div>
         
       </div>
       
     </section>
   </main>
- 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
@@ -682,6 +695,16 @@ Don Bernardo Weinert es un hombre cuya filosofía de negocios es muy simple: "mi
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
           sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+          hamburger.style.display = 'block';
+        });
+        document.addEventListener('click', (e) => {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = '☰';
+            hamburger.style.display = 'block';
+          }
         });
       }
 
@@ -697,7 +720,6 @@ Don Bernardo Weinert es un hombre cuya filosofía de negocios es muy simple: "mi
         }
       });
 
-      // Mobile-only overlay toggle
       if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {

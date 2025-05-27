@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Bodega Séptima</title>
   <meta property="og:title" content="1000 Malbecs - Bodega Séptima">
-  <meta property="og:description" content="Raventós Codorníu es una de las familias de tradición vitivinícola más antigua de España. Dedicada a la vitivinicultura desde 1551, suma más de 465 años haci...">
+  <meta property="og:description" content="Raventós Codorníu is one of the families of the oldest wine tradition in Spain.Dedicated to viticulture since 1551, it has more than 465 years doing wines an...">
   <meta property="og:image" content="/images/bodegas/bodega-septima-1.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/bodegas/bodega-septima.html">
+  <meta property="og:url" content="https://1000malbecs.com/en/bodegas/bodega-septima.html">
   <meta property="og:type" content="website">
   
   <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/bodega-septima.html">
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+  * {
+    box-sizing: border-box;
+  }
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #fdfdfd;
@@ -28,6 +31,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .header { display: none; }
   .logo { max-width: 150px; height: auto; }
@@ -94,32 +98,33 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px);
+    max-width: 1200px;
+    margin: 0 auto; /* Center within remaining space */
     z-index: 1;
     flex: 1;
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 20px 20px 200px 20px;
     position: relative;
     overflow: visible;
   }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: left;
   }
   .banner {
     width: 100%;
-    height: 300px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
   }
   .presentation {
     max-width: 800px;
-    margin: 0 0 40px;
+    margin: 0 0 20px 0;
     text-align: left;
   }
   .presentation h2 {
@@ -140,6 +145,7 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%;
   }
   .gallery img {
     width: 200px;
@@ -147,10 +153,9 @@
     object-fit: cover;
     border-radius: 5px;
   }
-  /* Dynamic gallery styling based on number of images */
   .gallery.single-image img {
     width: 100%;
-    height: 300px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -168,7 +173,8 @@
   }
   .products-section {
     max-width: 1200px;
-    margin: 0 0 40px;
+    margin: 0 0 40px 0;
+    width: 100%;
   }
   .products-section h2 {
     color: #4A2C59;
@@ -295,7 +301,6 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  
   .language-selector {
     position: fixed;
     top: 10px;
@@ -304,6 +309,7 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
+    max-width: 100%;
   }
   .language-selector.hidden {
     opacity: 0;
@@ -337,9 +343,12 @@
       z-index: 50;
     }
     .logo { max-width: 100px; }
-    .hamburger { display: block; z-index: 110; }
+    .hamburger {
+      display: block;
+      z-index: 110;
+    }
     #sidebar {
-      width: 100%;
+      width: 80%;
       height: 100vh;
       max-height: 100vh;
       position: fixed;
@@ -347,28 +356,30 @@
       left: 0;
       transform: translateX(-100%);
       z-index: 100;
-      border-bottom: 1px solid #E0E0E0;
+      border-right: 1px solid #E0E0E0;
       padding: 20px;
       padding-top: 50px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      background-color: #F8F8F8;
     }
     #sidebar.open { transform: translateX(0); }
     .logo-container { display: none; }
     .main-content {
       margin-left: 0;
       width: 100%;
-      padding: 10px;
-      padding-bottom: 250px;
-      margin-top: 80px;
+      max-width: 100%;
+      margin: 10px auto 0;
+      padding: 10px 10px 250px 10px;
       position: relative;
       overflow: visible;
     }
-    .banner { height: 200px; }
+    .banner { height: 80px; margin: 0 0 10px 0; }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       width: 100%;
@@ -431,17 +442,18 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .presentation { margin: 10px 0; padding: 10px; }
+    .presentation { margin: 0 0 20px 0; padding: 10px; }
     .gallery {
       flex-direction: row;
       flex-wrap: nowrap;
+      width: 100%;
     }
     .gallery img:not(:first-child) {
       display: none;
     }
     .gallery img:first-child {
       width: 100%;
-      height: 150px;
+      height: 80px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -456,6 +468,7 @@
       gap: 2px;
       justify-content: center;
       transition: opacity 0.3s ease;
+      max-width: 90%;
     }
     .language-selector a {
       font-size: 9px;
@@ -488,11 +501,11 @@
     }
     .logo-container { display: block; }
     .main-content {
-      margin-left: 290px;
-      width: calc(100% - 290px);
-      padding: 20px;
-      padding-bottom: 200px;
-      margin-top: 0;
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
     }
@@ -501,6 +514,7 @@
       gap: 30px;
       max-width: 1200px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       pointer-events: auto;
@@ -555,12 +569,12 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/bodegas/bodega-septima.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/es/bodegas/bodega-septima.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
     <a href="/de/bodegas/bodega-septima.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/bodegas/bodega-septima.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+    <a href="/en/bodegas/bodega-septima.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
-    <a href="/" title="Volver al inicio">
+    <a href="/en/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
@@ -568,8 +582,8 @@
   <main class="main-content">
     <h1>Bodega Séptima</h1>
     <section class="presentation">
-      <h2>Acerca de Bodega Séptima</h2>
-      <p>Raventós Codorníu es una de las familias de tradición vitivinícola más antigua de España. Dedicada a la vitivinicultura desde 1551, suma más de 465 años haciendo vinos y cavas que se disfrutan en todo el mundo. Actualmente, Raventós Codorníu cuenta con 14 bodegas centenarias, la mayoría en sus territorios vitivinícolas, entre las que se encuentra Bodega Séptima, en Mendoza, Argentina. Así Raventós Codorníu ofrece vinos que ponen en valor la tradición vitivinícola, la de cada territorio en que se erigen, vinos que brotan de un terroir característico; potenciando la identidad y autonomía de cada una de las bodegas que lo integran.</p>
+      <h2>About Bodega Séptima</h2>
+      <p>Raventós Codorníu is one of the families of the oldest wine tradition in Spain.Dedicated to viticulture since 1551, it has more than 465 years doing wines and cavas that are enjoyed worldwide.Currently, Raventós Codorníu has 14 centennial wineries, most of them in its wine territories, among which is a seventh winery, in Mendoza, Argentina.Thus Raventós Codorníu offers wines that value the wine tradition, that of each territory in which they stand, wines that sprout from a characteristic terroir;enhancing the identity and autonomy of each of the wineries that integrate it.</p>
       <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-septima-1.jpg" alt="Banner de Bodega Séptima">
@@ -577,47 +591,46 @@
       </div>
     </section>
     <section class="products-section">
-      <h2>Vinos destacados de Bodega Séptima</h2>
+      <h2>Featured Wines from Bodega Séptima</h2>
       
       <div class="product-grid">
         
         <div class="product-card" data-overlay-id="septima-rose-de-malbec">
-          <img src="/images/small/sptima-ros-de-malbec-2023.jpg" alt="Botella de Septima Rose de Malbec"
+          <img src="/images/small/sptima-ros-de-malbec-2023.jpg" alt="Bottle of Septima Rose de Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="septima-rose-de-malbec">🍷</div>
           <div class="overlay" data-overlay-id="septima-rose-de-malbec">
-            <p><strong>Bodega:</strong> Bodega Séptima</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altura:</strong> 900 msnm</p>
-            <p><strong>Añada:</strong> 2023</p>
+            <p><strong>Winery:</strong> Bodega Séptima</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Altitude:</strong> 900 msnm</p>
+            <p><strong>Vintage:</strong> 2023</p>
           </div>
           <h3>Septima Rose de Malbec</h3>
           <p class="price">€14.99</p>
-          <a href="/es/vinos/sptima-ros-de-malbec-2023.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/sptima-ros-de-malbec-2023.html" class="buy-button">Buy</a>
         </div>
         
         <div class="product-card" data-overlay-id="septima-malbec">
-          <img src="/images/small/sptima-malbec-2022.jpg" alt="Botella de Septima Malbec"
+          <img src="/images/small/sptima-malbec-2022.jpg" alt="Bottle of Septima Malbec"
                onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="septima-malbec">🍷</div>
           <div class="overlay" data-overlay-id="septima-malbec">
-            <p><strong>Bodega:</strong> Bodega Séptima</p>
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altura:</strong> 900 msnm</p>
-            <p><strong>Añada:</strong> 2022</p>
+            <p><strong>Winery:</strong> Bodega Séptima</p>
+            <p><strong>Province:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Altitude:</strong> 900 msnm</p>
+            <p><strong>Vintage:</strong> 2022</p>
           </div>
           <h3>Septima Malbec</h3>
           <p class="price">€15.49</p>
-          <a href="/es/vinos/sptima-malbec-2022.html" class="buy-button">Comprar</a>
+          <a href="/en/vinos/sptima-malbec-2022.html" class="buy-button">Buy</a>
         </div>
         
       </div>
       
     </section>
   </main>
- 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
@@ -628,6 +641,16 @@
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
           sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+          hamburger.style.display = 'block';
+        });
+        document.addEventListener('click', (e) => {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = '☰';
+            hamburger.style.display = 'block';
+          }
         });
       }
 
@@ -643,7 +666,6 @@
         }
       });
 
-      // Mobile-only overlay toggle
       if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {
