@@ -565,7 +565,6 @@
     .product-card:hover .overlay { display: block; }
   }
 </style>
-
 </head>
 <body>
   <div class="language-selector">
@@ -631,7 +630,6 @@
       
     </section>
   </main>
- 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
@@ -642,6 +640,8 @@
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
           sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰'; /* Toggle icon */
+          hamburger.style.display = 'block'; /* Ensure hamburger stays visible */
         });
       }
 
