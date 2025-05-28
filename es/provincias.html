@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/argentina.html">
     <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/argentina.html">
     <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/argentina.html">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQov1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/styles.css">
     <style>
         body {
@@ -33,10 +33,14 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+        #sidebar {
+            width: 220px !important;
+            padding: 5px !important;
+        }
         main {
-            margin-left: 280px !important;
-            padding: 20px 20px 20px 10px;
-            width: calc(100% - 280px) !important;
+            margin-left: 240px !important;
+            padding: 20px 20px 20px 20px !important;
+            width: calc(100% - 240px) !important;
             flex: 1;
             text-align: left;
         }
@@ -229,7 +233,6 @@
             color: #f5e6ff;
             text-decoration: none;
             border-radius: 5px;
-            pointer-events: auto;
             width: 100%;
             max-width: 180px;
             display: block;
@@ -241,7 +244,7 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            z-index: 1000;
+            z-index: 10;
             display: flex;
             gap: 10px;
             transition: opacity 0.3s ease;
@@ -273,7 +276,7 @@
             body { display: block; }
             main {
                 margin-left: 0 !important;
-                padding: 10px;
+                padding: 10px !important;
                 width: 100% !important;
                 margin-top: 120px;
             }
@@ -288,7 +291,7 @@
                 padding: 0 10px;
             }
             .country-text h1 {
-                font-size: 22px;
+                font-size: 24px;
                 text-align: left;
             }
             .section-title {
@@ -315,7 +318,7 @@
                 color: #FFFFFF;
                 font-size: 16px;
                 font-weight: 600;
-                background: rgba(74, 44, 89, 0.7);
+                background: rgba(74, 2, 89, 0.7);
                 padding: 5px 10px;
                 border-radius: 3px;
                 z-index: 10;
@@ -339,7 +342,7 @@
             .product-card img {
                 width: 140px;
                 height: 140px;
-                margin: 0 auto;
+                margin-right: auto;
             }
             .product-card h3 {
                 font-size: 14px;
@@ -352,11 +355,11 @@
                 font-size: 14px;
                 margin: 5px 0;
                 text-align: center;
-                width: 100%;
+                width: auto 100%;
             }
             .product-card .buy-button {
                 padding: 6px 12px;
-                font-size: 12px;
+                font-size: 14px;
                 margin-top: 5px;
                 margin-bottom: 5px;
                 pointer-events: auto;
