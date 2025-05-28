@@ -355,7 +355,7 @@
             gap: 5px;
         }
         .language-selector a:hover {
-            background-color: #4A2c59;
+            background-color: #4A2C59;
             color: #FFFFFF;
         }
         .language-selector a.active {
@@ -390,7 +390,7 @@
                 z-index: 100;
                 border-right: 1px solid #E0E0E0;
                 padding: 20px;
-                padding-top: 40px;
+                padding-top: 50px;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
                 background-color: #F8F8F8;
@@ -403,12 +403,12 @@
                 margin-left: 0;
                 width: 100%;
                 max-width: 100%;
-                margin: 10px auto 0;
+                margin: 60px auto 0; /* Adjusted to avoid banner/logo collision */
                 padding: 10px 10px 250px 10px;
                 position: relative;
                 overflow: visible;
             }
-            .banner { height: 80px; margin: 0 0 10px; }
+            .banner { height: 80px; margin: 0 0 10px 0; }
             .wineries-grid, .product-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
@@ -566,7 +566,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="/es/home.html"><img class="logo" src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" width="100" height="40" onerror="this.src='https://via.placeholder.com/100x40?text=1000+Malbecs';"></a>
+        <a href="/es/home.html"><img class="logo" src="/images/logo.png" alt="1000 Malbecs" width="100" height="40" onerror="this.src='https://via.placeholder.com/100x40?text=1000+Malbecs';"></a>
     </div>
     <button class="hamburger"><i class="fas fa-bars"></i></button>
     <div class="language-selector">
@@ -621,7 +621,97 @@
                     <p class="price">€58.99</p>
                     <a href="/es/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Comprar</a>
                 </div>
-                <!-- Other product cards remain unchanged -->
+                <div class="product-card" data-overlay-id="quinta-generacion">
+                    <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+                    <div class="info-icon" data-overlay-id="quinta-generacion"><i class="fas fa-info-circle"></i></div>
+                    <div class="overlay" data-overlay-id="quinta-generacion">
+                        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altitud:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Quinta Generación - 2022</h3>
+                    <p class="price">€19.99</p>
+                    <a href="/es/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card" data-overlay-id="tukma-reserva">
+                    <img src="/images/small/tukma-malbec-2019.jpg" alt="Botella de Tukma Reserva Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+                    <div class="info-icon" data-overlay-id="tukma-reserva"><i class="fas fa-info-circle"></i></div>
+                    <div class="overlay" data-overlay-id="tukma-reserva">
+                        <p><strong>Bodega:</strong> Bodega Tukma</p>
+                        <p><strong>Provincia:</strong> Salta</p>
+                        <p><strong>Región:</strong> Calchaquí</p>
+                        <p><strong>Altitud:</strong> 1700 msnm</p>
+                    </div>
+                    <h3>Tukma Reserva Malbec - 2021</h3>
+                    <p class="price">€19.29</p>
+                    <a href="/es/vinos/tukma-malbec-2019.html" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card" data-overlay-id="jorge-rubio-privado">
+                    <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Botella de Jorge Rubio Privado Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+                    <div class="info-icon" data-overlay-id="jorge-rubio-privado"><i class="fas fa-info-circle"></i></div>
+                    <div class="overlay" data-overlay-id="jorge-rubio-privado">
+                        <p><strong>Bodega:</strong> Jorge Rubio</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> Maipú</p>
+                        <p><strong>Altitud:</strong> 800 msnm</p>
+                    </div>
+                    <h3>Privado Malbec - 2021</h3>
+                    <p class="price">€23.19</p>
+                    <a href="/es/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card" data-overlay-id="nucha">
+                    <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+                    <div class="info-icon" data-overlay-id="nucha"><i class="fas fa-info-circle"></i></div>
+                    <div class="overlay" data-overlay-id="nucha">
+                        <p><strong>Bodega:</strong> Casa Araujo</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altitud:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Nucha Malbec Orgánico - 2023</h3>
+                    <p class="price">€12.99</p>
+                    <a href="/es/vinos/nucha-2023.html" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card" data-overlay-id="familia-schroeder">
+                    <img src="/images/small/saurus-malbec-2023.jpg" alt="Botella de Saurus Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+                    <div class="info-icon" data-overlay-id="familia-schroeder"><i class="fas fa-info-circle"></i></div>
+                    <div class="overlay" data-overlay-id="familia-schroeder">
+                        <p><strong>Bodega:</strong> Familia Schroeder</p>
+                        <p><strong>Provincia:</strong> Neuquén</p>
+                        <p><strong>Región:</strong> Patagonia</p>
+                        <p><strong>Altitud:</strong> 300 msnm</p>
+                    </div>
+                    <h3>Saurus Malbec - 2023</h3>
+                    <p class="price">€14.49</p>
+                    <a href="/es/vinos/saurus-malbec-2023.html" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card" data-overlay-id="chanarmuyo-reserva">
+                    <img src="/images/small/chanarmuyo-estate-malbec-2021.jpg" alt="Botella de Chañarmuyo Estate Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+                    <div class="info-icon" data-overlay-id="chanarmuyo-reserva"><i class="fas fa-info-circle"></i></div>
+                    <div class="overlay" data-overlay-id="chanarmuyo-reserva">
+                        <p><strong>Bodega:</strong> Bodega Chañarmuyo</p>
+                        <p><strong>Provincia:</strong> La Rioja</p>
+                        <p><strong>Región:</strong> Valle de Chañarmuyo</p>
+                        <p><strong>Altitud:</strong> 1700 msnm</p>
+                    </div>
+                    <h3>Chañarmuyo Reserva Malbec - 2022</h3>
+                    <p class="price">€19.99</p>
+                    <a href="/es/vinos/chanarmuyo-estate-malbec-2021.html" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card" data-overlay-id="goye-malbec">
+                    <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+                    <div class="info-icon" data-overlay-id="goye-malbec"><i class="fas fa-info-circle"></i></div>
+                    <div class="overlay" data-overlay-id="goye-malbec">
+                        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> San Rafael</p>
+                        <p><strong>Altitud:</strong> 520 msnm</p>
+                    </div>
+                    <h3>Goye - Malbec - 2022</h3>
+                    <p class="price">€9.49</p>
+                    <a href="/es/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
+                </div>
             </div>
         </div>
     </div>
@@ -638,6 +728,17 @@
                             sidebar.classList.toggle('open');
                         }, { passive: false });
                     });
+                    // Close sidebar on outside click
+                    document.addEventListener('click', (e) => {
+                        if (!sidebar.contains(e.target) && !hamburger.contains(e.target) && sidebar.classList.contains('open')) {
+                            sidebar.classList.remove('open');
+                        }
+                    });
+                    document.addEventListener('touchstart', (e) => {
+                        if (!sidebar.contains(e.target) && !hamburger.contains(e.target) && sidebar.classList.contains('open')) {
+                            sidebar.classList.remove('open');
+                        }
+                    }, { passive: false });
                 }
                 // Language selector
                 const languageSelector = document.querySelector('.language-selector');
@@ -693,17 +794,17 @@
                             }, { passive: false });
                         });
                     });
-                    document.addEventListener('click', (e) => {
+                    docment.addEventListener('click', (e) => {
                         if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
                             document.querySelectorAll('.overlay.active').forEach(overlay => {
                                 overlay.classList.remove('active');
                             });
-                        }
+                        });
                     });
                 }
                 // Buy buttons
-                const buyButtons = document.querySelectorAll('.buy-button');
-                buyButtons.forEach(button => {
+                const buyButton = document.querySelectorAll('.buy-button');
+                buyButton.forEach(button => {
                     button.addEventListener('click', (e) => {
                         e.stopPropagation();
                     });
@@ -715,3 +816,9 @@
     </script>
 </body>
 </html>
+### Testing Instructions
+
+1. **Update File**:
+   - Save as `/es/arg...
+
+Algo salió mal. Actualiza para reconectarte o inténtalo de nuevo.
