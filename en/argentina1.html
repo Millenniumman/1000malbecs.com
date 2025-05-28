@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Entdecken Sie Argentinien, das Herz des Malbec, mit seinen weinproduzierenden Provinzen: La Rioja, Mendoza, Neuquén und Salta.">
-    <title>1000malbecs - Argentinien, Land des Malbec</title>
-    <meta property="og:title" content="1000 Malbecs - Argentinien, Land des Malbec">
-    <meta property="og:description" content="Erleben Sie den Reichtum der argentinischen Weinkultur, von Mendoza bis Salta, mit den besten Malbecs.">
+    <meta name="description" content="Explore Argentina, the heart of Malbec, with its wine-producing provinces: La Rioja, Mendoza, Neuquén, and Salta.">
+    <title>1000malbecs - Argentina, Land of Malbec</title>
+    <meta property="og:title" content="1000 Malbecs - Argentina, Land of Malbec">
+    <meta property="og:description" content="Discover the viticultural richness of Argentina, from Mendoza to Salta, with the finest Malbecs.">
     <meta property="og:image" content="https://www.1000malbecs.com/images/argentina-banner.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://www.1000malbecs.com/de/argentina.html">
+    <meta property="og:url" content="https://www.1000malbecs.com/en/argentina.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="1000 Malbecs - Argentinien, Land des Malbec">
-    <meta name="twitter:description" content="Erleben Sie den Reichtum der argentinischen Weinkultur, von Mendoza bis Salta.">
+    <meta name="twitter:title" content="1000 Malbecs - Argentina, Land of Malbec">
+    <meta name="twitter:description" content="Discover the viticultural richness of Argentina, from Mendoza to Salta.">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/argentina-banner.jpg">
-    <link rel="canonical" href="https://www.1000malbecs.com/de/argentina.html">
+    <link rel="canonical" href="https://www.1000malbecs.com/en/argentina.html">
     <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/argentina.html">
     <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/argentina.html">
     <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/argentina.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Same styles as /es/argentina.html, adding banner link styles */
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -32,75 +31,11 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        .header {
-            top: 50px;
-            z-index: 120;
-        }
-        .logo { max-width: 150px; height: auto; }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: #4A2C59;
-            cursor: pointer;
-            padding: 10px;
-            position: fixed;
-            top: 15px;
-            left: 10px;
-            z-index: 130;
-        }
-        #sidebar {
-            width: 250px;
-            background-color: #F8F8F8;
-            padding: 20px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-            border-right: 1px solid #E0E0E0;
-            z-index: 100;
-            transition: transform 0.3s ease;
-        }
-        .logo-container { text-align: center; margin-bottom: 20px; }
-        #sidebar h2 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #4A2C59;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        #sidebar details { margin-bottom: 15px; }
-        #sidebar details:first-of-type { margin-bottom: 25px; }
-        #sidebar summary {
-            font-size: 16px;
-            font-weight: 500;
-            color: #4A2C59;
-            cursor: pointer;
-            padding: 5px 0;
-            display: flex;
-            align-items: center;
-        }
-        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
-        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
-        #sidebar li { margin: 5px 0; }
-        .nav-link {
-            font-size: 14px;
-            color: #4A2C59;
-            text-decoration: none;
-            display: block;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
-        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
         main {
-            margin-left: 290px;
             padding: 20px;
-            width: calc(100% - 290px);
+            width: 100%;
             flex: 1;
+            box-sizing: border-box;
         }
         .banner-central {
             position: relative;
@@ -337,36 +272,9 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
-        
-            .logo {
-                max-width: 80px !important;
-                height: auto !important;
-                display: block;
-            }
-            .hamburger {
-                display: block !important;
-                z-index: 130;
-            }
-            #sidebar {
-                width: 100%;
-                height: 100vh;
-                position: fixed;
-                top: 0;
-                left: 0;
-                transform: translateX(-100%);
-                z-index: 100;
-                border-bottom: 1px solid #E0E0E0;
-                padding-top: 50px;
-                padding-bottom: 20px;
-                overflow-y: auto;
-                box-sizing: border-box;
-            }
-            #sidebar.open {
-                transform: translateX(0);
-            }
-            .logo-container { display: none; }
+        @media (max-width: 768px) {
+            body { display: block; }
             main {
-                margin-left: 0;
                 margin-top: 60px;
                 padding: 10px;
                 width: 100%;
@@ -500,10 +408,7 @@
             }
         }
         @media (min-width: 769px) {
-            .header { display: none; }
-            .logo-container { display: block; }
             .info-icon { display: none; }
-            .hamburger { display: none; }
             .product-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
@@ -532,168 +437,157 @@
 </head>
 <body>
     <div class="language-selector">
-        <a href="/es/argentina.html" data-lang="es" aria-label="Spanisch">ES 🇪🇸</a>
-        <a href="/de/argentina.html" class="active" data-lang="de" aria-label="Deutsch">DE 🇩🇪</a>
-        <a href="/en/argentina.html" data-lang="en" aria-label="Englisch">EN 🇬🇧</a>
+        <a href="/es/argentina.html" data-lang="es" aria-label="Spanish">ES 🇪🇸</a>
+        <a href="/de/argentina.html" data-lang="de" aria-label="German">DE 🇩🇪</a>
+        <a href="/en/argentina.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
     </div>
-    <header class="header">
-        <a href="/de/" title="Zur Startseite zurückkehren">
-            <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Nicht+Verfügbar';">
-        </a>
-    </header>
-    <button class="hamburger">☰</button>
-    
     <main>
         <div class="banner-central">
-            <a href="/de/provincias.html" title="Weinprovinzen entdecken">
+            <a href="/en/provincias.html" title="Explore Wine Provinces">
                 <picture>
                     <source media="(max-width: 768px)" srcset="/images/banners/banner-argentina-mobile.jpg">
-                    <img src="/images/banners/banner-argentina.jpg" alt="Argentinische Weinberge Banner" onerror="this.src='https://via.placeholder.com/1200x300?text=Argentina+Banner+Nicht+Verfügbar';">
+                    <img src="/images/banners/banner-argentina.jpg" alt="Argentina Vineyards Banner" onerror="this.src='https://via.placeholder.com/1200x300?text=Argentina+Banner+Not+Available';">
                 </picture>
             </a>
         </div>
         <div class="country-text">
-            <h1>Argentinien, Land des Malbec</h1>
-            <p>Argentinien steht für Malbec, ein Land, in dem die Leidenschaft für Wein mit seiner reichen Geschichte und einzigartigen Landschaften verschmilzt. Von den sonnenverwöhnten Weinbergen Mendozas bis zu den Extremen Saltas bringt jede Region ihren unverwechselbaren Charakter in diese ikonische Rebsorte ein. Mit Höhenlagen, die Grenzen überschreiten, und vielfältigen Böden produziert Argentinien Malbecs, die Gaumen weltweit erobern. Entdecken Sie die Provinzen, die diesen außergewöhnlichen Weinen Leben einhauchen, und lassen Sie sich von ihrer Magie mitreißen.</p>
+            <h1>Argentina, Land of Malbec</h1>
+            <p>Argentina is synonymous with Malbec, a country where the passion for wine intertwines with its rich history and unique landscapes. From the sun-drenched vineyards of Mendoza to the extremes of Salta, each region brings its distinctive character to this iconic grape. With altitudes that push boundaries and diverse soils, Argentina produces Malbecs that captivate palates worldwide. Discover the provinces that give life to these exceptional wines and let their magic sweep you away.</p>
         </div>
-        <h3 class="section-title">Unsere weinproduzierenden Provinzen</h3>
+        <h3 class="section-title">Our Wine-Producing Provinces</h3>
         <div class="province-grid">
-            <a href="/de/provincias/mendoza.html" class="province-card">
-                <img src="/images/provincia/mendoza-1.jpg" alt="Weinberge von Mendoza" onerror="this.src='https://via.placeholder.com/200x200?text=Mendoza+Nicht+Verfügbar';">
+            <a href="/en/provincias/mendoza.html" class="province-card">
+                <img src="/images/provincia/mendoza-1.jpg" alt="Mendoza Vineyards" onerror="this.src='https://via.placeholder.com/200x200?text=Mendoza+Not+Available';">
                 <span class="province-name">Mendoza</span>
                 <div class="province-overlay">Mendoza</div>
             </a>
-            <a href="/de/provincias/salta.html" class="province-card">
-                <img src="/images/provincia/salta-1.jpg" alt="Weinberge von Salta" onerror="this.src='https://via.placeholder.com/200x200?text=Salta+Nicht+Verfügbar';">
+            <a href="/en/provincias/salta.html" class="province-card">
+                <img src="/images/provincia/salta-1.jpg" alt="Salta Vineyards" onerror="this.src='https://via.placeholder.com/200x200?text=Salta+Not+Available';">
                 <span class="province-name">Salta</span>
                 <div class="province-overlay">Salta</div>
             </a>
-            <a href="/de/provincias/la-rioja.html" class="province-card">
-                <img src="/images/provincia/la-rioja-1.jpg" alt="Weinberge von La Rioja" onerror="this.src='https://via.placeholder.com/200x200?text=La+Rioja+Nicht+Verfügbar';">
+            <a href="/en/provincias/la-rioja.html" class="province-card">
+                <img src="/images/provincia/la-rioja-1.jpg" alt="La Rioja Vineyards" onerror="this.src='https://via.placeholder.com/200x200?text=La+Rioja+Not+Available';">
                 <span class="province-name">La Rioja</span>
                 <div class="province-overlay">La Rioja</div>
             </a>
-            <a href="/de/provincias/neuquen.html" class="province-card">
-                <img src="/images/provincia/neuquén-1.jpg" alt="Weinberge von Neuquén" onerror="this.src='https://via.placeholder.com/200x200?text=Neuquén+Nicht+Verfügbar';">
+            <a href="/en/provincias/neuquen.html" class="province-card">
+                <img src="/images/provincia/neuquén-1.jpg" alt="Neuquén Vineyards" onerror="this.src='https://via.placeholder.com/200x200?text=Neuquén+Not+Available';">
                 <span class="province-name">Neuquén</span>
                 <div class="province-overlay">Neuquén</div>
             </a>
         </div>
-        <h3 class="section-title">Ausgewählte Weine Argentiniens</h3>
+        <h3 class="section-title">Featured Wines of Argentina</h3>
         <div class="product-grid">
             <div class="product-card" data-overlay-id="jorge-rubio-premiado">
-                <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Flasche Jorge Rubio Premiado Malbec 2018" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Bottle of Jorge Rubio Premiado Malbec 2018" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="jorge-rubio-premiado">🍷</div>
                 <div class="overlay" data-overlay-id="jorge-rubio-premiado">
-                    <p><strong>Weingut:</strong> Jorge Rubio</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
+                    <p><strong>Winery:</strong> Jorge Rubio</p>
+                    <p><strong>Province:</strong> Mendoza</p>
                     <p><strong>Region:</strong> Maipú</p>
-                    <p><strong>Höhe:</strong> 800 m ü.M.</p>
+                    <p><strong>Altitude:</strong> 800 m.a.s.l.</p>
                 </div>
                 <h3>Premiado Malbec - 2018</h3>
                 <p class="price">€58.99</p>
-                <a href="/de/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="quinta-generacion">
-                <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Flasche Quinta Generación Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Bottle of Quinta Generación Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="quinta-generacion">🍷</div>
                 <div class="overlay" data-overlay-id="quinta-generacion">
-                    <p><strong>Weingut:</strong> Bodega Goyenechea</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
+                    <p><strong>Winery:</strong> Bodega Goyenechea</p>
+                    <p><strong>Province:</strong> Mendoza</p>
                     <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü.M.</p>
+                    <p><strong>Altitude:</strong> 520 m.a.s.l.</p>
                 </div>
                 <h3>Quinta Generación - 2022</h3>
                 <p class="price">€19.99</p>
-                <a href="/de/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/quinta-generacin-malbec-2022.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="tukma-reserva">
-                <img src="/images/small/tukma-malbec-2019.jpg" alt="Flasche Tukma Reserva Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/tukma-malbec-2019.jpg" alt="Bottle of Tukma Reserva Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="tukma-reserva">🍷</div>
                 <div class="overlay" data-overlay-id="tukma-reserva">
-                    <p><strong>Weingut:</strong> Bodega Tukma</p>
-                    <p><strong>Provinz:</strong> Salta</p>
+                    <p><strong>Winery:</strong> Bodega Tukma</p>
+                    <p><strong>Province:</strong> Salta</p>
                     <p><strong>Region:</strong> Calchaquí</p>
-                    <p><strong>Höhe:</strong> 1700 m ü.M.</p>
+                    <p><strong>Altitude:</strong> 1700 m.a.s.l.</p>
                 </div>
                 <h3>Tukma Reserva Malbec - 2021</h3>
                 <p class="price">€19.29</p>
-                <a href="/de/vinos/tukma-malbec-2019.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/tukma-malbec-2019.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="jorge-rubio-privado">
-                <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Flasche Jorge Rubio Privado Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Bottle of Jorge Rubio Privado Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="jorge-rubio-privado">🍷</div>
                 <div class="overlay" data-overlay-id="jorge-rubio-privado">
-                    <p><strong>Weingut:</strong> Jorge Rubio</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
+                    <p><strong>Winery:</strong> Jorge Rubio</p>
+                    <p><strong>Province:</strong> Mendoza</p>
                     <p><strong>Region:</strong> Maipú</p>
-                    <p><strong>Höhe:</strong> 800 m ü.M.</p>
+                    <p><strong>Altitude:</strong> 800 m.a.s.l.</p>
                 </div>
                 <h3>Privado Malbec - 2021</h3>
                 <p class="price">€23.19</p>
-                <a href="/de/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Buy Now</a>
             </div>
         </div>
         <div class="product-grid">
             <div class="product-card" data-overlay-id="nucha">
-                <img src="/images/small/nucha-2023.jpg" alt="Flasche Nucha 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/nucha-2023.jpg" alt="Bottle of Nucha 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="nucha">🍷</div>
                 <div class="overlay" data-overlay-id="nucha">
-                    <p><strong>Weingut:</strong> Casa Araujo</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
+                    <p><strong>Winery:</strong> Casa Araujo</p>
+                    <p><strong>Province:</strong> Mendoza</p>
                     <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü.M.</p>
+                    <p><strong>Altitude:</strong> 520 m.a.s.l.</p>
                 </div>
-                <h3>Nucha Bio-Malbec - 2023</h3>
+                <h3>Nucha Organic Malbec - 2023</h3>
                 <p class="price">€12.99</p>
-                <a href="/de/vinos/nucha-2023.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/nucha-2023.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="familia-schroeder">
-                <img src="/images/small/saurus-malbec-2023.jpg" alt="Flasche Saurus Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/saurus-malbec-2023.jpg" alt="Bottle of Saurus Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="familia-schroeder">🍷</div>
                 <div class="overlay" data-overlay-id="familia-schroeder">
-                    <p><strong>Weingut:</strong> Familia Schroeder</p>
-                    <p><strong>Provinz:</strong> Neuquén</p>
-                    <p><strong>Region:</strong> Patagonien</p>
-                    <p><strong>Höhe:</strong> 300 m ü.M.</p>
+                    <p><strong>Winery:</strong> Familia Schroeder</p>
+                    <p><strong>Province:</strong> Neuquén</p>
+                    <p><strong>Region:</strong> Patagonia</p>
+                    <p><strong>Altitude:</strong> 300 m.a.s.l.</p>
                 </div>
                 <h3>Saurus Malbec - 2023</h3>
                 <p class="price">€14.49</p>
-                <a href="/de/vinos/saurus-malbec-2023.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/saurus-malbec-2023.html" class="buy-button">Buy Now</a>
             </div>
             <div class="product-card" data-overlay-id="chanarmuyo-reserva">
-                <img src="/images/small/chanarmuyo-estate-malbec-2021.jpg" alt="Flasche Chañarmuyo Estate Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/chanarmuyo-estate-malbec-2021.jpg" alt="Bottle of Chañarmuyo Estate Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="chanarmuyo-reserva">🍷</div>
                 <div class="overlay" data-overlay-id="chanarmuyo-reserva">
-                    <p><strong>Weingut:</strong> Bodega Chañarmuyo</p>
-                    <p><strong>Provinz:</strong> La Rioja</p>
+                    <p><strong>Winery:</strong> Bodega Chañarmuyo</p>
+                    <p><strong>Province:</strong> La Rioja</p>
                     <p><strong>Region:</strong> Valle de Chañarmuyo</p>
-                    <p><strong>Höhe:</strong> 1700 m ü.M.</p>
+                    <p><strong>Altitude:</strong> 1700 m.a.s.l.</p>
                 </div>
                 <h3>Chañarmuyo Reserva Malbec - 2022</h3>
                 <p class="price">€19.99</p>
-                <a href="/de/vinos/chanarmuyo-estate-malbec-2021.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/chanarmuyo-estate-malbec-2021.html" class="buy-button">Buy Now</短>
             </div>
             <div class="product-card" data-overlay-id="goye-malbec">
-                <img src="/images/small/goye-malbec-2022.jpg" alt="Flasche Goye Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+                <img src="/images/small/goye-malbec-2022.jpg" alt="Bottle of Goye Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                 <div class="info-icon" data-overlay-id="goye-malbec">🍷</div>
                 <div class="overlay" data-overlay-id="goye-malbec">
-                    <p><strong>Weingut:</strong> Bodega Goyenechea</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
+                    <p><strong>Winery:</strong> Bodega Goyenechea</p>
+                    <p><strong>Province:</strong> Mendoza</p>
                     <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü.M.</p>
+                    <p><strong>Altitude:</strong> 520 m.a.s.l.</p>
                 </div>
                 <h3>Goye Malbec - 2022</h3>
                 <p class="price">€9.49</p>
-                <a href="/de/vinos/goye-malbec-2022.html" class="buy-button">Jetzt kaufen</a>
+                <a href="/en/vinos/goye-malbec-2022.html" class="buy-button">Buy Now</a>
             </div>
         </div>
     </main>
-
     <script>
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('open');
-        });
         const languageSelector = document.querySelector('.language-selector');
         if (languageSelector) {
             let lastScrollY = window.scrollY;
@@ -728,7 +622,7 @@
                     }
                 });
             });
-            const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
+            const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'en';
             langLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('data-lang') === currentLang) {
