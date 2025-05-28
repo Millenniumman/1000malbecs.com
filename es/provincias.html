@@ -33,9 +33,47 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            background: #4A2C59;
+            color: #FFFFFF;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .logo-link {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+        }
+        .logo {
+            max-width: 100px;
+            height: auto;
+        }
         #sidebar {
             width: 220px !important;
             padding: 5px !important;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            transition: transform 0.3s ease;
         }
         main {
             margin-left: 240px !important;
@@ -244,7 +282,7 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            z-index: 10;
+            z-index: 1000;
             display: flex;
             gap: 10px;
             transition: opacity 0.3s ease;
@@ -274,11 +312,23 @@
         }
         @media (max-width: 768px) {
             body { display: block; }
+            #sidebar {
+                transform: translateX(-100%);
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            .hamburger {
+                display: block;
+            }
+            .logo-link {
+                display: block;
+            }
             main {
                 margin-left: 0 !important;
                 padding: 10px !important;
                 width: 100% !important;
-                margin-top: 120px;
+                margin-top: 60px !important;
             }
             .banner-central {
                 margin: -15px 0 20px;
@@ -415,6 +465,7 @@
             }
         }
         @media (min-width: 769px) {
+            .hamburger, .logo-link { display: none; }
             .info-icon { display: none; }
             .product-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -443,11 +494,15 @@
     </style>
 </head>
 <body>
-    <div class="language-selector">
-        <a href="/es/argentina.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
-        <a href="/de/argentina.html" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-        <a href="/en/argentina.html" data-lang="en" aria-label="Inglés">EN 🇬🇧</a>
-    </div>
+    <header>
+        <div class="hamburger">☰</div>
+        <div class="language-selector">
+            <a href="/es/argentina.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+            <a href="/de/argentina.html" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
+            <a href="/en/argentina.html" data-lang="en" aria-label="Inglés">EN 🇬🇧</a>
+        </div>
+        <a class="logo-link" href="/es/home.html"><img class="logo" src="/images/logo.png" alt="1000 Malbecs" onerror="this.src='https://via.placeholder.com/100x40?text=Logo';"></a>
+    </header>
     <main>
         <div class="banner-central">
             <picture>
@@ -534,7 +589,7 @@
                 </div>
                 <h3>Privado Malbec - 2021</h3>
                 <p class="price">€23.19</p>
-                <a href="/es/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Comprar</a>
+                <a href="/es/vinos/jorge-rubio-privado-malbec-2018.html" class="buy-button">Comprar</a>
             </div>
         </div>
         <div class="product-grid">
@@ -595,6 +650,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             try {
+                // Hamburger menu toggle
+                const hamburger = document.querySelector('.hamburger');
+                const sidebar = document.querySelector('#sidebar');
+                if (hamburger && sidebar) {
+                    ['click', 'touchstart'].forEach(eventType => {
+                        hamburger.addEventListener(eventType, (e) => {
+                            e.preventDefault();
+                            sidebar.classList.toggle('open');
+                        }, { passive: false });
+                    });
+                }
                 // Language selector
                 const languageSelector = document.querySelector('.language-selector');
                 if (languageSelector) {
