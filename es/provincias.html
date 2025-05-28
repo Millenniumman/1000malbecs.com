@@ -34,9 +34,9 @@
             overflow-x: hidden;
         }
         main {
-            margin-left: 270px !important;
+            margin-left: 280px !important;
             padding: 20px 20px 20px 10px;
-            width: calc(100% - 270px) !important;
+            width: calc(100% - 280px) !important;
             flex: 1;
             text-align: left;
         }
@@ -274,7 +274,7 @@
             main {
                 margin-left: 0 !important;
                 padding: 10px;
-                width: 100%;
+                width: 100% !important;
                 margin-top: 120px;
             }
             .banner-central {
@@ -637,13 +637,13 @@
                                 const overlayId = icon.getAttribute('data-overlay-id');
                                 const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
                                 const isActive = overlay.classList.contains('active');
-                                document.querySelectorAll('.overlay.active').forEach(el => {
-                                    el.classList.remove('active');
+                                document.querySelectorAll('.overlay.active').forEach(ov => {
+                                    ov.classList.remove('active');
                                 });
                                 if (!isActive && overlay) {
                                     overlay.classList.add('active');
                                 }
-                            }, { passive: true });
+                            }, { passive: false });
                         });
                     });
                     document.addEventListener('click', (e) => {
