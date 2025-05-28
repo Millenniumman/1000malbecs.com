@@ -23,7 +23,6 @@
     <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/argentina.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Same styles as /es/argentina.html, adding banner link styles */
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -33,10 +32,13 @@
             min-height: 100vh;
         }
         .header {
-            top: 50px;
+            top: 10px;
             z-index: 120;
+            position: fixed;
+            right: 10px;
+            display: none;
         }
-        .logo { max-width: 150px; height: auto; }
+        .logo { max-width: 80px; height: auto; }
         .hamburger {
             display: none;
             font-size: 24px;
@@ -101,6 +103,7 @@
             padding: 20px;
             width: calc(100% - 290px);
             flex: 1;
+            box-sizing: border-box;
         }
         .banner-central {
             position: relative;
@@ -337,54 +340,14 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
-        footer {
-            background-color: #F8F8F8;
-            padding: 15px;
-            text-align: center;
-            border-top: 1px solid #E0E0E0;
-            width: 100%;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-            color: #4A2C59;
-        }
-        .footer-content a {
-            color: #4A2C59;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer-content a:hover {
-            color: #7B4F8C;
-        }
-        .social-icon {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-        .fa-whatsapp {
-            font-size: 20px;
-            color: #25D366;
-            margin-right: 5px;
-        }
         @media (max-width: 768px) {
             body { display: block; }
             .header {
-                top: 10px;
-                left: auto;
-                right: 10px;
                 display: flex;
                 justify-content: flex-end;
+                top: 10px;
+                right: 10px;
                 z-index: 120;
-            }
-            .logo {
-                max-width: 80px !important;
-                height: auto !important;
-                display: block;
             }
             .hamburger {
                 display: block !important;
@@ -415,7 +378,7 @@
                 width: 100%;
             }
             .banner-central {
-                margin: -15px auto 20px;
+                margin: 50px auto 20px;
             }
             .banner-central img {
                 height: 200px;
@@ -544,9 +507,9 @@
         }
         @media (min-width: 769px) {
             .header { display: none; }
+            .hamburger { display: none; }
             .logo-container { display: block; }
             .info-icon { display: none; }
-            .hamburger { display: none; }
             .product-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
@@ -785,22 +748,6 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer-content">
-            <span>
-                <i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">+49 151 5822 4728</a>
-            </span>
-            <span>
-                <img src="/images/x-icon.png" alt="X" class="social-icon">
-                <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Follow us on X">@1000malbecs</a>
-            </span>
-            <span>
-                <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-                <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Follow us on Instagram">@1000malbecs</a>
-            </span>
-        </div>
-    </footer>
     <script>
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('open');
