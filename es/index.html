@@ -771,202 +771,298 @@ main {
     <button class="hamburger">☰</button>
 
     <main>
-     <div class="banner-carousel">
-            <div class="banner-container">
-                <div class="banner-item">
-                    <a href="/es/eventos/eventos.html" title="Explorar Eventos">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile.jpg">
-                            <img src="/images/banners/banner-1.jpg" alt="Eventos de 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
-                        </picture>
-                    </a>
-                </div>
-                <div class="banner-item">
-                    <a href="/es/bodegas.html" title="Explorar Bodegas">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile.jpg">
-                            <img src="/images/banners/banner-2.jpg" alt="Bodegas de Argentina" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+No+Disponible';">
-                        </picture>
-                    </a>
-                </div>
-                <div class="banner-item">
-                    <a href="/es/provincias.html" title="Explorar Provincias">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile.jpg">
-                            <img src="/images/banners/banner-3.jpg" alt="Provincias Vitivinícolas" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+No+Disponible';">
-                        </picture>
-                    </a>
-                </div>
+    <!-- Banner Carousel (unchanged) -->
+    <div class="banner-carousel">
+        <div class="banner-container">
+            <div class="banner-item">
+                <a href="/es/eventos/eventos.html" title="Explorar Eventos">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile.jpg">
+                        <img src="/images/banners/banner-1.jpg" alt="Eventos de 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
+                    </picture>
+                </a>
             </div>
-            <div class="banner-nav">
-                <button onclick="moveBanner(-1)">❮</button>
-                <button onclick="moveBanner(1)">❯</button>
+            <div class="banner-item">
+                <a href="/es/bodegas.html" title="Explorar Bodegas">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile.jpg">
+                        <img src="/images/banners/banner-2.jpg" alt="Bodegas de Argentina" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+No+Disponible';">
+                    </picture>
+                </a>
+            </div>
+            <div class="banner-item">
+                <a href="/es/provincias.html" title="Explorar Provincias">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile.jpg">
+                        <img src="/images/banners/banner-3.jpg" alt="Provincias Vitivinícolas" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+No+Disponible';">
+                    </picture>
+                </a>
             </div>
         </div>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Busca tu vino favorito...">
-            <i class="fas fa-search search-icon"></i>
-            <ul class="search-suggestions"></ul>
+        <div class="banner-nav">
+            <button onclick="moveBanner(-1)">❮</button>
+            <button onclick="moveBanner(1)">❯</button>
         </div>
-        <h3 class="section-title">Vinos destacados de mayo</h3>
-        <div class="product-grid">
-            <div class="product-card" data-overlay-id="casa-araujo-varietal">
-                <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="casa-araujo-varietal">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-varietal">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 msnm</p>
-                </div>
-                <h3>Casa Araujo Varietal - 2023</h3>
-                <p class="price">€7.99</p>
-                <a href="/es/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
+    </div>
+    <!-- Search Container (unchanged) -->
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Busca tu vino favorito...">
+        <i class="fas fa-search search-icon"></i>
+        <ul class="search-suggestions"></ul>
+    </div>
+    <!-- Updated Section Title -->
+    <h3 class="section-title">Vinos destacados de junio</h3>
+    <!-- Updated Product Grid -->
+    <div class="product-grid">
+        <!-- Casa Araujo Wines (unchanged) -->
+        <div class="product-card" data-overlay-id="casa-araujo-varietal">
+            <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="casa-araujo-varietal">🍷</div>
+            <div class="overlay" data-overlay-id="casa-araujo-varietal">
+                <p><strong>Bodega:</strong> Casa Araujo</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> San Rafael</p>
+                <p><strong>Altitud:</strong> 520 msnm</p>
             </div>
-            <div class="product-card" data-overlay-id="casa-araujo-roble">
-                <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="casa-araujo-roble">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-roble">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 msnm</p>
-                </div>
-                <h3>Casa Araujo Roble - 2023</h3>
-                <p class="price">€10.19</p>
-                <a href="/es/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
-            </div>
-            <div class="product-card" data-overlay-id="quinta-generacion">
-                <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="quinta-generacion">🍷</div>
-                <div class="overlay" data-overlay-id="quinta-generacion">
-                    <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 msnm</p>
-                </div>
-                <h3>Quinta Generación - 2022</h3>
-                <p class="price">€19.99</p>
-                <a href="/es/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Comprar</a>
-            </div>
-            <div class="product-card" data-overlay-id="jorge-rubio-privado">
-                <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Botella de Jorge Rubio Privado Malbec 2021"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="jorge-rubio-privado">🍷</div>
-                <div class="overlay" data-overlay-id="jorge-rubio-privado">
-                    <p><strong>Bodega:</strong> Jorge Rubio</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Maipú</p>
-                    <p><strong>Altitud:</strong> 800 msnm</p>
-                </div>
-                <h3>Privado Malbec - 2021</h3>
-                <p class="price">€23.19</p>
-                <a href="https://www.1000malbecs.com/es/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Comprar</a>
-            </div>
-            <div class="product-card" data-overlay-id="casa-araujo-mimi">
-                <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="casa-araujo-mimi">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-mimi">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 msnm</p>
-                </div>
-                <h3>Mimi - Malbec Bivarietal - 2023</h3>
-                <p class="price">€11.79</p>
-                <a href="/es/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
-            </div>
-            <div class="product-card" data-overlay-id="nucha">
-                <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="nucha">🍷</div>
-                <div class="overlay" data-overlay-id="nucha">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 msnm</p>
-                </div>
-                <h3>Nucha Malbec Orgánico - 2023</h3>
-                <p class="price">€12.99</p>
-                <a href="/es/vinos/nucha-2023.html" class="buy-button">Comprar</a>
-            </div>
-            <div class="product-card" data-overlay-id="goye-malbec">
-                <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="goye-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="goye-malbec">
-                    <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 msnm</p>
-                </div>
-                <h3>Goye - Malbec - 2022</h3>
-                <p class="price">€9.49</p>
-                <a href="/es/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
-            </div>
-            <div class="product-card" data-overlay-id="jorge-rubio-premiado">
-                <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Botella de Jorge Rubio Premiado Malbec 2018"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="jorge-rubio-premiado">🍷</div>
-                <div class="overlay" data-overlay-id="jorge-rubio-premiado">
-                    <p><strong>Bodega:</strong> Jorge Rubio</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Maipú</p>
-                    <p><strong>Altitud:</strong> 800 msnm</p>
-                </div>
-                <h3>Premiado Malbec - 2018</h3>
-                <p class="price">€58.99</p>
-                <a href="https://www.1000malbecs.com/es/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Comprar</a>
-            </div>
+            <h3>Casa Araujo Varietal - 2023</h3>
+            <p class="price">€7.99</p>
+            <a href="/es/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
         </div>
-        <h3 class="section-title">Visita nuestras bodegas</h3>
-        <div class="winery-grid">
-            <a href="/es/bodegas/bodega-foster-lorca.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo de Bodega Foster Lorca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <a href="/es/bodegas/bodegas-bianchi.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo de Bodegas Bianchi" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <a href="/es/bodegas/luigi-bosca.html" class="winery-card">
-                <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo de Luigi Bosca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <a href="/es/bodegas/bodegas-etchart.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Logo de Bodegas Etchart" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <div class="winery-nav">
-                <button class="winery-prev hidden">❮</button>
-                <button class="winery-next">❯</button>
+        <div class="product-card" data-overlay-id="casa-araujo-roble">
+            <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="casa-araujo-roble">🍷</div>
+            <div class="overlay" data-overlay-id="casa-araujo-roble">
+                <p><strong>Bodega:</strong> Casa Araujo</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> San Rafael</p>
+                <p><strong>Altitud:</strong> 520 msnm</p>
             </div>
+            <h3>Casa Araujo Roble - 2023</h3>
+            <p class="price">€10.19</p>
+            <a href="/es/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
         </div>
-        <h3 class="section-title">Descubre nuestras provincias</h3>
-        <div class="province-grid">
-            <a href="/es/provincias/mendoza.html" class="province-card">
-                <img src="/images/provincia/mendoza-1.jpg" alt="Viñedos de Mendoza">
-                <span class="province-name">Mendoza</span>
-                <div class="province-overlay">Mendoza</div>
-            </a>
-            <a href="/es/provincias/salta.html" class="province-card">
-                <img src="/images/provincia/salta-1.jpg" alt="Viñedos de Salta">
-                <span class="province-name">Salta</span>
-                <div class="province-overlay">Salta</div>
-            </a>
-            <a href="/es/provincias/la-rioja.html" class="province-card">
-                <img src="/images/provincia/la-rioja-1.jpg" alt="Viñedos de La Rioja">
-                <span class="province-name">La Rioja</span>
-                <div class="province-overlay">La Rioja</div>
-            </a>
-            <a href="/es/provincias/neuquen.html" class="province-card">
-                <img src="/images/provincia/neuquén-1.jpg" alt="Viñedos de Neuquén">
-                <span class="province-name">Neuquén</span>
-                <div class="province-overlay">Neuquén</div>
-            </a>
+        <div class="product-card" data-overlay-id="casa-araujo-mimi">
+            <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="casa-araujo-mimi">🍷</div>
+            <div class="overlay" data-overlay-id="casa-araujo-mimi">
+                <p><strong>Bodega:</strong> Casa Araujo</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> San Rafael</p>
+                <p><strong>Altitud:</strong> 520 msnm</p>
+            </div>
+            <h3>Mimi - Malbec Bivarietal - 2023</h3>
+            <p class="price">€11.79</p>
+            <a href="/es/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
         </div>
-    </main>
+        <div class="product-card" data-overlay-id="nucha">
+            <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="nucha">🍷</div>
+            <div class="overlay" data-overlay-id="nucha">
+                <p><strong>Bodega:</strong> Casa Araujo</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> San Rafael</p>
+                <p><strong>Altitud:</strong> 520 msnm</p>
+            </div>
+            <h3>Nucha Malbec Orgánico - 2023</h3>
+            <p class="price">€12.99</p>
+            <a href="/es/vinos/nucha-2023.html" class="buy-button">Comprar</a>
+        </div>
+        <!-- Goyenechea Wines (unchanged) -->
+        <div class="product-card" data-overlay-id="quinta-generacion">
+            <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="quinta-generacion">🍷</div>
+            <div class="overlay" data-overlay-id="quinta-generacion">
+                <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> San Rafael</p>
+                <p><strong>Altitud:</strong> 520 msnm</p>
+            </div>
+            <h3>Quinta Generación - 2022</h3>
+            <p class="price">€19.99</p>
+            <a href="/es/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Comprar</a>
+        </div>
+        <div class="product-card" data-overlay-id="goye-malbec">
+            <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="goye-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="goye-malbec">
+                <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> San Rafael</p>
+                <p><strong>Altitud:</strong> 520 msnm</p>
+            </div>
+            <h3>Goye - Malbec - 2022</h3>
+            <p class="price">€9.49</p>
+            <a href="/es/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
+        </div>
+       <div class="product-grid">
+    <!-- Casa Araujo Wines (unchanged) -->
+    <div class="product-card" data-overlay-id="casa-araujo-varietal">
+        <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="casa-araujo-varietal">🍷</div>
+        <div class="overlay" data-overlay-id="casa-araujo-varietal">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altitud:</strong> 520 msnm</p>
+        </div>
+        <h3>Casa Araujo Varietal - 2023</h3>
+        <p class="price">€7.99</p>
+        <a href="/es/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar</a>
+    </div>
+    <div class="product-card" data-overlay-id="casa-araujo-roble">
+        <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="casa-araujo-roble">🍷</div>
+        <div class="overlay" data-overlay-id="casa-araujo-roble">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altitud:</strong> 520 msnm</p>
+        </div>
+        <h3>Casa Araujo Roble - 2023</h3>
+        <p class="price">€10.19</p>
+        <a href="/es/vinos/casa-araujo-roble-2023.html" class="buy-button">Comprar</a>
+    </div>
+    <div class="product-card" data-overlay-id="casa-araujo-mimi">
+        <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Botella de Casa Araujo Mimi 2023"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="casa-araujo-mimi">🍷</div>
+        <div class="overlay" data-overlay-id="casa-araujo-mimi">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altitud:</strong> 520 msnm</p>
+        </div>
+        <h3>Mimi - Malbec Bivarietal - 2023</h3>
+        <p class="price">€11.79</p>
+        <a href="/es/vinos/casa-araujo-mimi-2023.html" class="buy-button">Comprar</a>
+    </div>
+    <div class="product-card" data-overlay-id="nucha">
+        <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="nucha">🍷</div>
+        <div class="overlay" data-overlay-id="nucha">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altitud:</strong> 520 msnm</p>
+        </div>
+        <h3>Nucha Malbec Orgánico - 2023</h3>
+        <p class="price">€12.99</p>
+        <a href="/es/vinos/nucha-2023.html" class="buy-button">Comprar</a>
+    </div>
+    <!-- Goyenechea Wines (unchanged) -->
+    <div class="product-card" data-overlay-id="quinta-generacion">
+        <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="quinta-generacion">🍷</div>
+        <div class="overlay" data-overlay-id="quinta-generacion">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altitud:</strong> 520 msnm</p>
+        </div>
+        <h3>Quinta Generación - 2022</h3>
+        <p class="price">€19.99</p>
+        <a href="/es/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Comprar</a>
+    </div>
+    <div class="product-card" data-overlay-id="goye-malbec">
+        <img src="/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="goye-malbec">🍷</div>
+        <div class="overlay" data-overlay-id="goye-malbec">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Provincia:</strong> Mendoza</p>
+            <p><strong>Región:</strong> San Rafael</p>
+            <p><strong>Altitud:</strong> 520 msnm</p>
+        </div>
+        <h3>Goye - Malbec - 2022</h3>
+        <p class="price">€9.49</p>
+        <a href="/es/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
+    </div>
+    <!-- Bodega Etchart Wines (updated with provided data) -->
+    <div class="product-card" data-overlay-id="amar-vivir-2020">
+        <img src="/images/small/imaginate_f_BODEGAS_ETCHART_2020.jpg" alt="Botella de Amar Vivir Malbec 2020"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="amar-vivir-2020">🍷</div>
+        <div class="overlay" data-overlay-id="amar-vivir-2020">
+            <p><strong>Bodega:</strong> Bodegas Etchart</p>
+            <p><strong>Provincia:</strong> Salta</p>
+            <p><strong>Región:</strong> Cafayate</p>
+            <p><strong>Altitud:</strong> 1600 msnm</p>
+        </div>
+        <h3>Amar Vivir Malbec - 2020</h3>
+        <p class="price">€112.99</p>
+        <a href="/es/vinos/amar-vivir-2020.html" class="buy-button">Comprar</a>
+    </div>
+    <div class="product-card" data-overlay-id="amar-vivir-2019">
+        <img src="/images/small/imaginate_f_BODEGAS_ETCHART_2019.jpg" alt="Botella de Amar Vivir Malbec 2019"
+             onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+        <div class="info-icon" data-overlay-id="amar-vivir-2019">🍷</div>
+        <div class="overlay" data-overlay-id="amar-vivir-2019">
+            <p><strong>Bodega:</strong> Bodegas Etchart</p>
+            <p><strong>Provincia:</strong> Salta</p>
+            <p><strong>Región:</strong> Cafayate</p>
+            <p><strong>Altitud:</strong> 1600 msnm</p>
+        </div>
+        <h3>Amar Vivir Malbec - 2019</h3>
+        <p class="price">€56.99</p>
+        <a href="/es/vinos/amar-vivir-2019.html" class="buy-button">Comprar</a>
+    </div>
+</div>
 
+    <!-- Winery Grid (unchanged) -->
+    <h3 class="section-title">Visita nuestras bodegas</h3>
+    <div class="winery-grid">
+        <a href="/es/bodegas/bodega-foster-lorca.html" class="winery-card">
+            <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo de Bodega Foster Lorca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a href="/es/bodegas/bodegas-bianchi.html" class="winery-card">
+            <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo de Bodegas Bianchi" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a href="/es/bodegas/luigi-bosca.html" class="winery-card">
+            <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo de Luigi Bosca" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a href="/es/bodegas/bodegas-etchart.html" class="winery-card">
+            <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Logo de Bodegas Etchart" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <div class="winery-nav">
+            <button class="winery-prev hidden">❮</button>
+            <button class="winery-next">❯</button>
+        </div>
+    </div>
+    <!-- Province Grid (unchanged) -->
+    <h3 class="section-title">Descubre nuestras provincias</h3>
+    <div class="province-grid">
+        <a href="/es/provincias/mendoza.html" class="province-card">
+            <img src="/images/provincia/mendoza-1.jpg" alt="Viñedos de Mendoza">
+            <span class="province-name">Mendoza</span>
+            <div class="province-overlay">Mendoza</div>
+        </a>
+        <a href="/es/provincias/salta.html" class="province-card">
+            <img src="/images/provincia/salta-1.jpg" alt="Viñedos de Salta">
+            <span class="province-name">Salta</span>
+            <div class="province-overlay">Salta</div>
+        </a>
+        <a href="/es/provincias/la-rioja.html" class="province-card">
+            <img src="/images/provincia/la-rioja-1.jpg" alt="Viñedos de La Rioja">
+            <span class="province-name">La Rioja</span>
+            <div class="province-overlay">La Rioja</div>
+        </a>
+        <a href="/es/provincias/neuquen.html" class="province-card">
+            <img src="/images/provincia/neuquén-1.jpg" alt="Viñedos de Neuquén">
+            <span class="province-name">Neuquén</span>
+            <div class="province-overlay">Neuquén</div>
+        </a>
+    </div>
+</main>
     <script>
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('open');
