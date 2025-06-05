@@ -147,7 +147,7 @@ async function handleRequest(request) {
             { name: 'Bodega Séptima', slug: 'bodegas-septima' },
             { name: 'Bodega Tukma', slug: 'bodega-tukma' },
             { name: 'Bodegas Bianchi', slug: 'bodegas-bianchi' },
-            { name: 'Bodegas Etchart', slug: 'bodegas-etchart' },
+            { name: 'Finca & Bodega Arca Yaco', slug: 'finca-bodega-arca-yaco' },
             { name: 'Casa Araujo', slug: 'casa-araujo' },
             { name: 'Chakana', slug: 'chakana' },
             { name: 'Cicchitti', slug: 'cicchitti' },
