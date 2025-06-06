@@ -148,6 +148,7 @@ async function handleRequest(request) {
             { name: 'Bodega Tukma', slug: 'bodega-tukma' },
             { name: 'Bodegas Bianchi', slug: 'bodegas-bianchi' },
             { name: 'Finca & Bodega Arca Yaco', slug: 'finca-bodega-arca-yaco' },
+            { name: 'Finca Las Nubes', slug: 'finca-las-nubes' },
             { name: 'Casa Araujo', slug: 'casa-araujo' },
             { name: 'Chakana', slug: 'chakana' },
             { name: 'Cicchitti', slug: 'cicchitti' },
