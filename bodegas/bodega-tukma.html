@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+  * {
+    box-sizing: border-box;
+  }
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #fdfdfd;
@@ -28,6 +31,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .header { display: none; }
   .logo { max-width: 150px; height: auto; }
@@ -94,32 +98,33 @@
   .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
   .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    margin-left: 290px;
-    width: calc(100% - 290px);
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px);
+    max-width: 1200px;
+    margin: 0 auto; /* Center within remaining space */
     z-index: 1;
     flex: 1;
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 20px 20px 200px 20px;
     position: relative;
     overflow: visible;
   }
   .main-content h1 {
     font-size: 24px;
     color: #4A2C59;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: left;
   }
   .banner {
     width: 100%;
-    height: 300px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
   }
   .presentation {
     max-width: 800px;
-    margin: 0 0 40px;
+    margin: 0 0 20px 0;
     text-align: left;
   }
   .presentation h2 {
@@ -140,6 +145,7 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%;
   }
   .gallery img {
     width: 200px;
@@ -147,9 +153,28 @@
     object-fit: cover;
     border-radius: 5px;
   }
+  .gallery.single-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .gallery.multiple-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .gallery.multiple-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .products-section {
     max-width: 1200px;
-    margin: 0 0 40px;
+    margin: 0 0 40px 0;
+    width: 100%;
   }
   .products-section h2 {
     color: #4A2C59;
@@ -276,47 +301,6 @@
   .product-card .buy-button:hover {
     background-color: #5A1D39;
   }
-  footer {
-    background-color: #F8F8F8; /* Match sidebar for cohesion */
-    color: #1A1A1A;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    position: relative;
-    min-height: 60px;
-    box-sizing: border-box;
-    overflow: visible;
-    clear: both;
-  }
-  footer p {
-    margin: 0;
-    font-size: 1em;
-    display: inline;
-    color: #1A1A1A;
-  }
-  footer a {
-    color: #4A2C59;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-  footer i {
-    margin-right: 5px;
-    font-size: 1em;
-    vertical-align: middle;
-  }
-  footer img.social-icon {
-    width: 1em;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-  footer span.separator {
-    color: #1A1A1A;
-    margin: 0 5px;
-  }
   .language-selector {
     position: fixed;
     top: 10px;
@@ -325,6 +309,7 @@
     display: flex;
     gap: 10px;
     transition: opacity 0.3s ease;
+    max-width: 100%;
   }
   .language-selector.hidden {
     opacity: 0;
@@ -358,9 +343,12 @@
       z-index: 50;
     }
     .logo { max-width: 100px; }
-    .hamburger { display: block; z-index: 110; }
+    .hamburger {
+      display: block;
+      z-index: 110;
+    }
     #sidebar {
-      width: 100%;
+      width: 80%;
       height: 100vh;
       max-height: 100vh;
       position: fixed;
@@ -368,28 +356,30 @@
       left: 0;
       transform: translateX(-100%);
       z-index: 100;
-      border-bottom: 1px solid #E0E0E0;
+      border-right: 1px solid #E0E0E0;
       padding: 20px;
       padding-top: 50px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      background-color: #F8F8F8;
     }
     #sidebar.open { transform: translateX(0); }
     .logo-container { display: none; }
     .main-content {
       margin-left: 0;
       width: 100%;
-      padding: 10px;
-      padding-bottom: 250px;
-      margin-top: 80px; /* Reduced to prevent footer clipping */
+      max-width: 100%;
+      margin: 10px auto 0;
+      padding: 10px 10px 250px 10px;
       position: relative;
       overflow: visible;
     }
-    .banner { height: 200px; }
+    .banner { height: 80px; margin: 0 0 10px 0; }
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       width: 100%;
@@ -452,17 +442,18 @@
     .product-card:hover .overlay {
       display: none;
     }
-    .presentation { margin: 10px 0; padding: 10px; }
+    .presentation { margin: 0 0 20px 0; padding: 10px; }
     .gallery {
       flex-direction: row;
       flex-wrap: nowrap;
+      width: 100%;
     }
     .gallery img:not(:first-child) {
       display: none;
     }
     .gallery img:first-child {
       width: 100%;
-      height: 150px;
+      height: 80px;
       object-fit: cover;
       border-radius: 5px;
     }
@@ -477,6 +468,7 @@
       gap: 2px;
       justify-content: center;
       transition: opacity 0.3s ease;
+      max-width: 90%;
     }
     .language-selector a {
       font-size: 9px;
@@ -495,16 +487,6 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-    footer {
-      background-color: #F8F8F8; /* Match sidebar */
-      padding: 15px;
-      text-align: center;
-      width: 100%;
-      position: relative;
-      min-height: 60px;
-      overflow: visible;
-      clear: both;
-    }
   }
   @media (min-width: 769px) {
     .header { display: none; }
@@ -519,11 +501,11 @@
     }
     .logo-container { display: block; }
     .main-content {
-      margin-left: 290px;
-      width: calc(100% - 290px);
-      padding: 20px;
-      padding-bottom: 200px;
-      margin-top: 0;
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
     }
@@ -532,6 +514,7 @@
       gap: 30px;
       max-width: 1200px;
       justify-content: start;
+      width: 100%;
     }
     .product-card {
       pointer-events: auto;
@@ -596,94 +579,14 @@
     </a>
   </header>
   <button class="hamburger">☰</button>
-  <nav id="sidebar">
-    <div class="logo-container">
-      <a href="/" title="Volver al inicio">
-        <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-      </a>
-    </div>
-    <h2>Categorías</h2>
-    <details>
-      <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
-      <ul>
-        
-        <li><a href="/es/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-        
-        <li><a href="/es/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-        
-        <li><a href="/es/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
-        
-        <li><a href="/es/provincias/salta.html" class="nav-link">Salta</a></li>
-        
-      </ul>
-    </details>
-    <details>
-      <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
-      <ul>
-        
-        <li><a href="/es/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
-        
-        <li><a href="/es/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
-        
-        <li><a href="/es/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-        
-        <li><a href="/es/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-        
-        <li><a href="/es/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-        
-        <li><a href="/es/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
-        
-        <li><a href="/es/bodegas/bodega-tukma.html" class="nav-link active">Bodega Tukma</a></li>
-        
-        <li><a href="/es/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-        
-        <li><a href="/es/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-        
-        <li><a href="/es/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-        
-        <li><a href="/es/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-        
-        <li><a href="/es/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-        
-        <li><a href="/es/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-        
-        <li><a href="/es/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-        
-        <li><a href="/es/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-        
-        <li><a href="/es/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-        
-        <li><a href="/es/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-        
-        <li><a href="/es/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-        
-        <li><a href="/es/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
-        
-        <li><a href="/es/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-        
-      </ul>
-    </details>
-    <details open>
-      <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
-      <ul>
-        <li><a href="/es/eventos" class="nav-link">Ver Eventos</a></li>
-      </ul>
-    </details>
-  </nav>
   <main class="main-content">
     <h1>Bodega Tukma</h1>
     <section class="presentation">
       <h2>Acerca de Bodega Tukma</h2>
       <p>Siglos atrás, los Diaguitas denominaban Tukma a su Cacique y Tukmanao al territorio bajo su influencia, que abarcaba gran parte del Noroeste argentino. Esa forma de llamar al líder dió inspiración al nombre de la bodega.</p>
-      <div class="gallery">
+      <div class="gallery single-image">
         
         <img src="/images/bodegas/bodega-tukma-1.jpg" alt="Banner de Bodega Tukma">
-        
-        <img src="/images/bodegas/bodega-tukma-2.jpg" alt="Imagen 2 de Bodega Tukma">
-        
-        <img src="/images/bodegas/bodega-tukma-3.jpg" alt="Imagen 3 de Bodega Tukma">
-        
-        <img src="/images/bodegas/bodega-tukma-4.jpg" alt="Imagen 4 de Bodega Tukma">
         
       </div>
     </section>
@@ -716,7 +619,7 @@
             <p><strong>Bodega:</strong> Bodega Tukma</p>
             <p><strong>Provincia:</strong> Salta</p>
             <p><strong>Región:</strong> Valle de Calchaquí</p>
-            <p><strong>Altura:</strong> 1900 msnm</p>
+            <p><strong>Altura:</strong> 1700 msnm</p>
             <p><strong>Añada:</strong> 2017</p>
           </div>
           <h3>Tukma Gran Corte</h3>
@@ -728,24 +631,6 @@
       
     </section>
   </main>
-  <footer>
-    <div class="footer-content">
-      <span>
-        <i class="fab fa-whatsapp"></i>
-        <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+49 151 5822 4728</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/x-icon.png" alt="X" class="social-icon">
-        <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
-      </span>
-      <span class="separator">|</span>
-      <span>
-        <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-        <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
-      </span>
-    </div>
-  </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
@@ -756,6 +641,16 @@
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
           sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+          hamburger.style.display = 'block';
+        });
+        document.addEventListener('click', (e) => {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = '☰';
+            hamburger.style.display = 'block';
+          }
         });
       }
 
@@ -771,7 +666,6 @@
         }
       });
 
-      // Mobile-only overlay toggle
       if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {
