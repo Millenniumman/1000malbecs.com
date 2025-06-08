@@ -8,10 +8,10 @@
   <meta property="og:title" content="1000 Malbecs - Rutini Wines">
   <meta property="og:description" content="En el año 1885 Felipe Rutini funda Bodega La Rural en Coquimbito, Maipú, y marca el devenir de la bodega hasta convertir sus vinos en sinónimo de la más alta...">
   <meta property="og:image" content="/images/bodegas/rutini-wines-1.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/es/bodegas/rutini-wines.html">
+  <meta property="og:url" content="https://1000malbecs.com/bodegas/rutini-wines.html">
   <meta property="og:type" content="website">
   
-  <link rel="alternate" hreflang="es" href="https://1000malbecs.com/es/bodegas/rutini-wines.html">
+  <link rel="alternate" hreflang="es" href="https://1000malbecs.com/bodegas/rutini-wines.html">
   
   <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/bodegas/rutini-wines.html">
   
@@ -48,13 +48,63 @@
     left: 10px;
     z-index: 110;
   }
+  #sidebar {
+    width: 250px;
+    background-color: #F8F8F8;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    border-right: 1px solid #E0E0E0;
+    z-index: 100;
+    transition: transform 0.3s ease;
+  }
+  .logo-container { text-align: left; margin-bottom: 20px; display: block; }
+  #sidebar h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4A2C59;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  #sidebar details { margin-bottom: 15px; }
+  #sidebar details:first-of-type { margin-bottom: 25px; }
+  #sidebar summary {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4A2C59;
+    cursor: pointer;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+  #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+  #sidebar li { margin: 5px 0; }
+  .nav-link {
+    font-size: 14px;
+    color: #4A2C59;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+  .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+  .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
   .main-content {
-    width: 100%;
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px);
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center within remaining space */
     z-index: 1;
     flex: 1;
-    padding: 20px;
+    padding: 20px 20px 200px 20px;
     position: relative;
     overflow: visible;
   }
@@ -190,7 +240,7 @@
     left: 0;
     width: 100%;
     max-height: 150px;
-    background-color: rgba(74, 44, 89, 0.8);
+    background-color: rgba(74, 44, 89, 0.8) !important;
     color: #FFFFFF;
     padding: 40px 10px 10px 10px;
     box-sizing: border-box;
@@ -297,12 +347,30 @@
       display: block;
       z-index: 110;
     }
+    #sidebar {
+      width: 80%;
+      height: 100vh;
+      max-height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      z-index: 100;
+      border-right: 1px solid #E0E0E0;
+      padding: 20px;
+      padding-top: 50px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background-color: #F8F8F8;
+    }
+    #sidebar.open { transform: translateX(0); }
+    .logo-container { display: none; }
     .main-content {
       margin-left: 0;
       width: 100%;
       max-width: 100%;
       margin: 10px auto 0;
-      padding: 10px;
+      padding: 10px 10px 250px 10px;
       position: relative;
       overflow: visible;
     }
@@ -423,11 +491,21 @@
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
+    #sidebar {
+      transform: translateX(0);
+      position: fixed;
+      width: 250px;
+      height: 100vh;
+      top: 0;
+      left: 0;
+    }
+    .logo-container { display: block; }
     .main-content {
-      width: 100%;
+      margin-left: 250px;
+      width: calc(100% - 250px);
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 20px 20px 200px 20px;
       position: relative;
       overflow: visible;
     }
@@ -496,7 +574,7 @@
     <a href="/en/bodegas/rutini-wines.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
   <header class="header">
-    <a href="/es/" title="Volver al inicio">
+    <a href="/" title="Volver al inicio">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
@@ -508,7 +586,7 @@
       <p>En el año 1885 Felipe Rutini funda Bodega La Rural en Coquimbito, Maipú, y marca el devenir de la bodega hasta convertir sus vinos en sinónimo de la más alta calidad. Siguiendo su espíritu innovador, hacia 1924 la bodega comienza a plantar viñedos en el Valle de Uco. A partir de esas plantaciones pioneras la región se ha ido consolidando como uno de los principales centros vitivinícolas de Mendoza. Rutini Wines se convierte en 1924 en la primera bodega en plantar viñedos en el Valle de Uco, reconocido hoy en el mundo como una de las principales regiones vitivinícolas de Mendoza y de toda Argentina.</p>
       <div class="gallery single-image">
         
-        <img src="/images/bodegas/rutini-wines-1.jpg" alt="Banner de Rutini Wines" onerror="this.src='https://via.placeholder.com/200x150?text=Imagen+No+Disponible';">
+        <img src="/images/bodegas/rutini-wines-1.jpg" alt="Banner de Rutini Wines">
         
       </div>
     </section>
@@ -519,7 +597,7 @@
         
         <div class="product-card" data-overlay-id="trumpeter-malbec-segunda-entrada">
           <img src="/images/placeholder.jpg" alt="Botella de Trumpeter Malbec (segunda entrada)"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="trumpeter-malbec-segunda-entrada">🍷</div>
           <div class="overlay" data-overlay-id="trumpeter-malbec-segunda-entrada">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -535,7 +613,7 @@
         
         <div class="product-card" data-overlay-id="trumpeter-malbec-syrah">
           <img src="/images/placeholder.jpg" alt="Botella de Trumpeter Malbec Syrah"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="trumpeter-malbec-syrah">🍷</div>
           <div class="overlay" data-overlay-id="trumpeter-malbec-syrah">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -551,7 +629,7 @@
         
         <div class="product-card" data-overlay-id="trumpeter-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Trumpeter Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="trumpeter-malbec">🍷</div>
           <div class="overlay" data-overlay-id="trumpeter-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -567,7 +645,7 @@
         
         <div class="product-card" data-overlay-id="trumpeter-reserve-rose-de-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Trumpeter Reserve Rose de Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="trumpeter-reserve-rose-de-malbec">🍷</div>
           <div class="overlay" data-overlay-id="trumpeter-reserve-rose-de-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -583,7 +661,7 @@
         
         <div class="product-card" data-overlay-id="trumpeter-reserve-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Trumpeter Reserve Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="trumpeter-reserve-malbec">🍷</div>
           <div class="overlay" data-overlay-id="trumpeter-reserve-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -599,7 +677,7 @@
         
         <div class="product-card" data-overlay-id="trumpeter-reserve-blend">
           <img src="/images/placeholder.jpg" alt="Botella de Trumpeter Reserve Blend"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="trumpeter-reserve-blend">🍷</div>
           <div class="overlay" data-overlay-id="trumpeter-reserve-blend">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -615,7 +693,7 @@
         
         <div class="product-card" data-overlay-id="trumpeter-espumante-rose-de-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Trumpeter Espumante Rose de Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="trumpeter-espumante-rose-de-malbec">🍷</div>
           <div class="overlay" data-overlay-id="trumpeter-espumante-rose-de-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -631,7 +709,7 @@
         
         <div class="product-card" data-overlay-id="rutini-encuentro-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Encuentro Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-encuentro-malbec">🍷</div>
           <div class="overlay" data-overlay-id="rutini-encuentro-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -647,7 +725,7 @@
         
         <div class="product-card" data-overlay-id="rutini-coleccion-cabernet-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Colección Cabernet Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-coleccion-cabernet-malbec">🍷</div>
           <div class="overlay" data-overlay-id="rutini-coleccion-cabernet-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -663,7 +741,7 @@
         
         <div class="product-card" data-overlay-id="rutini-dominio-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Dominio Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-dominio-malbec">🍷</div>
           <div class="overlay" data-overlay-id="rutini-dominio-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -679,7 +757,7 @@
         
         <div class="product-card" data-overlay-id="rutini-dominio-malbec-cabernet-franc">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Dominio Malbec - Cabernet Franc"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-dominio-malbec-cabernet-franc">🍷</div>
           <div class="overlay" data-overlay-id="rutini-dominio-malbec-cabernet-franc">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -695,7 +773,7 @@
         
         <div class="product-card" data-overlay-id="rutini-coleccion-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Colección Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-coleccion-malbec">🍷</div>
           <div class="overlay" data-overlay-id="rutini-coleccion-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -711,7 +789,7 @@
         
         <div class="product-card" data-overlay-id="rutini-dominio-gran-blend">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Dominio Gran Blend"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-dominio-gran-blend">🍷</div>
           <div class="overlay" data-overlay-id="rutini-dominio-gran-blend">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -727,7 +805,7 @@
         
         <div class="product-card" data-overlay-id="rutini-encuentro-barrel-blend">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Encuentro Barrel Blend"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-encuentro-barrel-blend">🍷</div>
           <div class="overlay" data-overlay-id="rutini-encuentro-barrel-blend">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -743,7 +821,7 @@
         
         <div class="product-card" data-overlay-id="rutini-single-vineyard-malbec-gualtallary">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Single Vineyard Malbec Gualtallary"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-single-vineyard-malbec-gualtallary">🍷</div>
           <div class="overlay" data-overlay-id="rutini-single-vineyard-malbec-gualtallary">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -759,7 +837,7 @@
         
         <div class="product-card" data-overlay-id="rutini-antologia-xxxviii">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Antología XXXVIII"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-antologia-xxxviii">🍷</div>
           <div class="overlay" data-overlay-id="rutini-antologia-xxxviii">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -775,7 +853,7 @@
         
         <div class="product-card" data-overlay-id="rutini-apartado-gran-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Apartado Gran Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-apartado-gran-malbec">🍷</div>
           <div class="overlay" data-overlay-id="rutini-apartado-gran-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -791,7 +869,7 @@
         
         <div class="product-card" data-overlay-id="rutini-single-vineyard-malbec-gualtallary">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Single Vineyard Malbec Gualtallary"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-single-vineyard-malbec-gualtallary">🍷</div>
           <div class="overlay" data-overlay-id="rutini-single-vineyard-malbec-gualtallary">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -807,7 +885,7 @@
         
         <div class="product-card" data-overlay-id="felipe-rutini">
           <img src="/images/placeholder.jpg" alt="Botella de Felipe Rutini"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="felipe-rutini">🍷</div>
           <div class="overlay" data-overlay-id="felipe-rutini">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -823,7 +901,7 @@
         
         <div class="product-card" data-overlay-id="rutini-coleccion-malbec">
           <img src="/images/placeholder.jpg" alt="Botella de Rutini Colección Malbec"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+               onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
           <div class="info-icon" data-overlay-id="rutini-coleccion-malbec">🍷</div>
           <div class="overlay" data-overlay-id="rutini-coleccion-malbec">
             <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -925,7 +1003,12 @@
             e.preventDefault();
             const targetLang = link.getAttribute('data-lang');
             const currentPath = window.location.pathname;
-            let newPath = currentPath.replace(/\/(es|de|en)\/bodegas\//, `/${targetLang}/bodegas/`);
+            let newPath = currentPath;
+            if (targetLang === 'es') {
+              newPath = currentPath.replace(/\/(de|en)\/bodegas\//, '/es/bodegas/');
+            } else {
+              newPath = currentPath.replace(/\/(es|de|en)\/bodegas\//, `/${targetLang}/bodegas/`);
+            }
             if (newPath !== currentPath) {
               window.location.href = newPath;
             }
