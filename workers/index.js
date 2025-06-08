@@ -157,7 +157,9 @@ async function handleRequest(request) {
             { name: 'Finca y Bodega Vistalba', slug: 'finca-y-bodega-vistalba' },
             { name: 'Jasmine Monet', slug: 'jasmine-monet' },
             { name: 'Jorge Rubio', slug: 'jorge-rubio' },
+            { name: 'La Rural', slug: 'la-rural' },
             { name: 'Luigi Bosca', slug: 'luigi-bosca' },
+            { name: 'Rutini Wines', slug: 'rutini-wines' },
             { name: 'Viña Alicia', slug: 'vina-alicia' },
             { name: 'Weinert Bodega y Cavas', slug: 'weinert-bodega-y-cavas' },
         ];
