@@ -160,6 +160,7 @@ async function handleRequest(request) {
             { name: 'La Rural', slug: 'la-rural' },
             { name: 'Luigi Bosca', slug: 'luigi-bosca' },
             { name: 'Rutini Wines', slug: 'rutini-wines' },
+            { name: 'Trapiche', slug: 'trapiche' },
             { name: 'Viña Alicia', slug: 'vina-alicia' },
             { name: 'Weinert Bodega y Cavas', slug: 'weinert-bodega-y-cavas' },
         ];
