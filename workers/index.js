@@ -152,6 +152,7 @@ async function handleRequest(request) {
             { name: 'Casa Araujo', slug: 'casa-araujo' },
             { name: 'Chakana', slug: 'chakana' },
             { name: 'Cicchitti', slug: 'cicchitti' },
+            { name: 'El Esteco', slug: 'el-esteco' },
             { name: 'Eral Bravo', slug: 'eral-bravo' },
             { name: 'Familia Schroeder', slug: 'familia-schroeder' },
             { name: 'Finca y Bodega Vistalba', slug: 'finca-y-bodega-vistalba' },
