@@ -161,6 +161,7 @@ async function handleRequest(request) {
             { name: 'Jorge Rubio', slug: 'jorge-rubio' },
             { name: 'La Rural', slug: 'la-rural' },
             { name: 'Luigi Bosca', slug: 'luigi-bosca' },
+            { name: 'Mascota Vine Yards', slug: 'mascota-vine-yards' },
             { name: 'Rutini Wines', slug: 'rutini-wines' },
             { name: 'San Telmo', slug: 'san-telmo' },
             { name: 'Trapiche', slug: 'trapiche' },
