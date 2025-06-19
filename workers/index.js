@@ -140,6 +140,7 @@ async function handleRequest(request) {
     if (bodegas.length === 0) {
         bodegas = [
             { name: 'Agustín Lanús', slug: 'agustin-lanus' },
+            { name: 'Bemberg State Wines', slug: 'bemberg-state-wines' },
             { name: 'Bodega Chañarmuyo', slug: 'bodega-chanarmuyo' },
             { name: 'Bodega Estancia Mendoza', slug: 'bodega-estancia-mendoza' },
             { name: 'Bodega Foster Lorca', slug: 'bodega-foster-lorca' },
