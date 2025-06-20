@@ -192,7 +192,7 @@ async function handleRequest(request) {
         <nav id="sidebar">
             <div class="logo-container">
                 <a href="/${lang}/" title="${translations[lang].navbar.home}">
-                    <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
+                    <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
                 </a>
             </div>
             <h2>${translations[lang].navbar.categories}</h2>
