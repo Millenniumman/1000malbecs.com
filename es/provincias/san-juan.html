@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000 Malbecs - San Juan</title>
     <meta property="og:title" content="1000 Malbecs - San Juan">
-    <meta property="og:description" content="Ancient Dinosaur Earth, Second Argentine Province Producer de Vinos, in San Juan Life is celebrated with a taste of varietals such as Malbec, Syrah, C...">
+    <meta property="og:description" content="Desértica antigua tierra de dinosaurios, segunda provincia argentina productora de vinos, en San Juan la vida se celebra con sabor de varietales tales...">
     <meta property="og:image" content="https://1000malbecs.com/images/provincia/san-juan-image.jpg">
-    <meta property="og:url" content="https://1000malbecs.com/en/provincias/san-juan.html">
+    <meta property="og:url" content="https://1000malbecs.com/es/provincias/san-juan.html">
     <meta property="og:type" content="website">
     
     <link rel="alternate" hreflang="es" href="https://1000malbecs.com/es/provincias/san-juan.html">
@@ -29,13 +29,78 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+        .header {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 50;
+        }
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #4A2C59;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 110;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #F8F8F8;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            border-right: 1px solid #E0E0E0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .logo-container { text-align: left; margin-bottom: 20px; display: block; }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        #sidebar li { margin: 5px 0; }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
         .main-content {
+            margin-left: 250px; /* Match sidebar width */
+            width: calc(100% - 250px);
             max-width: 1200px;
-            margin-left: 300px; /* Ajustado para evitar conflicto con la barra de navegación */
-            margin-right: 0;
+            margin: 0 auto;
             z-index: 1;
             flex: 1;
-            padding: 20px;
+            padding: 20px 20px 200px 10px; /* 10px de padding para el espacio de 1 cm */
             position: relative;
             overflow: visible;
         }
@@ -302,10 +367,39 @@
             color: #FFFFFF;
         }
         @media (max-width: 768px) {
+            .header {
+                display: block;
+            }
+            .logo { max-width: 100px; }
+            .hamburger {
+                display: block;
+            }
+            #sidebar {
+                width: 80%;
+                height: 100vh;
+                max-height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(-100%);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                background-color: #F8F8F8;
+            }
+            #sidebar.open { transform: translateX(0); }
+            .logo-container { display: none; }
             .main-content {
-                margin-left: 0; /* Sin margen en móviles */
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%;
                 margin: 10px auto 0;
-                padding: 10px;
+                padding: 10px 10px 250px 10px;
+                position: relative;
+                overflow: visible;
             }
             .banner { height: 80px; }
             .product-grid, .wineries-grid {
@@ -370,9 +464,23 @@
             }
         }
         @media (min-width: 769px) {
+            .header { display: none; }
+            .hamburger { display: none; }
+            #sidebar {
+                transform: translateX(0);
+                position: fixed;
+                width: 250px;
+                height: 100vh;
+                top: 0;
+                left: 0;
+            }
+            .logo-container { display: block; }
             .main-content {
-                margin-left: 300px; /* Ajustado para escritorio */
-                padding: 20px 20px 200px 20px;
+                margin-left: 250px;
+                width: calc(100% - 250px);
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px 20px 200px 10px; /* 10px de padding para el espacio de 1 cm */
             }
             .product-grid, .wineries-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -418,15 +526,34 @@
 </head>
 <body>
     <div class="language-selector">
-        <a href="https://1000malbecs.com/es/provincias/san-juan.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+        <a href="https://1000malbecs.com/es/provincias/san-juan.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
         <a href="https://1000malbecs.com/de/provincias/san-juan.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-        <a href="https://1000malbecs.com/en/provincias/san-juan.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
+        <a href="https://1000malbecs.com/en/provincias/san-juan.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
     </div>
+    <header class="header">
+        <a href="https://1000malbecs.com/es/" title="Volver al inicio">
+            <img src="https://1000malbecs.com/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+        </a>
+    </header>
+    <button class="hamburger">☰</button>
+    <aside id="sidebar">
+        <div class="logo-container">
+            <a href="https://1000malbecs.com/es/">
+                <img src="https://1000malbecs.com/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+            </a>
+        </div>
+        <h2>Categorías</h2>
+        <ul>
+            <li><a href="https://1000malbecs.com/es/provincias/" class="nav-link ">Provincias</a></li>
+            <li><a href="https://1000malbecs.com/es/bodegas/" class="nav-link ">Bodegas</a></li>
+            <li><a href="https://1000malbecs.com/es/eventos/" class="nav-link ">Eventos</a></li>
+        </ul>
+    </aside>
     <main class="main-content">
         <h1>San Juan</h1>
         <section class="presentation">
             <h2>Acerca de San Juan</h2>
-            <p>Ancient Dinosaur Earth, Second Argentine Province Producer de Vinos, in San Juan Life is celebrated with a taste of varietals such as Malbec, Syrah, Cabernet Sauvignon, Torrontés, among others</p>
+            <p>Desértica antigua tierra de dinosaurios, segunda provincia argentina productora de vinos, en San Juan la vida se celebra con sabor de varietales tales como el malbec, syrah,  cabernet sauvignon, torrontés, entre otros</p>
             <div class="banner"></div>
         </section>
         <section class="products-section">
@@ -446,7 +573,7 @@
                     </div>
                     <h3>Finca Las Moras Mora Negra Malbec-Bonarda</h3>
                     <p class="price">€32.0</p>
-                    <a href="https://1000malbecs.com/en/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="buy-button">Comprar</a>
+                    <a href="https://1000malbecs.com/es/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="buy-button">Comprar</a>
                 </div>
                 
                 <div class="product-card" data-overlay-id="finca-las-moras-sagrado-pedernal-malbec">
@@ -462,7 +589,7 @@
                     </div>
                     <h3>Finca Las Moras Sagrado Pedernal Malbec</h3>
                     <p class="price">€39.9</p>
-                    <a href="https://1000malbecs.com/en/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="buy-button">Comprar</a>
+                    <a href="https://1000malbecs.com/es/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="buy-button">Comprar</a>
                 </div>
                 
                 
@@ -478,14 +605,14 @@
                     <img src="https://1000malbecs.com/images/bodegas//images/small/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg" alt="Finca Las Moras"
                          onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
                     <h4>Finca Las Moras</h4>
-                    <a href="https://1000malbecs.com/en/bodegas/finca-las-moras.html">Visitar Bodega</a>
+                    <a href="https://1000malbecs.com/es/bodegas/finca-las-moras.html">Visitar Bodega</a>
                 </div>
                 
                 <div class="winery-card">
                     <img src="https://1000malbecs.com/images/bodegas//images/small/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Finca Las Moras"
                          onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
                     <h4>Finca Las Moras</h4>
-                    <a href="https://1000malbecs.com/en/bodegas/finca-las-moras.html">Visitar Bodega</a>
+                    <a href="https://1000malbecs.com/es/bodegas/finca-las-moras.html">Visitar Bodega</a>
                 </div>
                 
             </div>
@@ -494,72 +621,93 @@
         </section>
     </main>
     <script>
-        if (window.innerWidth <= 768) {
-            const infoIcons = document.querySelectorAll('.info-icon');
-            infoIcons.forEach(icon => {
-                ['click', 'touchstart'].forEach(eventType => {
-                    icon.addEventListener(eventType, (e) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        const overlayId = icon.getAttribute('data-overlay-id');
-                        const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
-                        const isActive = overlay.classList.contains('active');
-                        document.querySelectorAll('.overlay.active').forEach(ov => {
-                            ov.classList.remove('active');
-                        });
-                        if (!isActive && overlay) {
-                            overlay.classList.add('active');
-                        }
-                    }, { passive: false });
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            let isSidebarOpen = false;
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    isSidebarOpen = !isSidebarOpen;
+                    sidebar.classList.toggle('open', isSidebarOpen);
+                    hamburger.textContent = isSidebarOpen ? '✕' : '☰';
                 });
-            });
+                document.addEventListener('click', (e) => {
+                    if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+                        isSidebarOpen = false;
+                        sidebar.classList.remove('open');
+                        hamburger.textContent = '☰';
+                    }
+                });
+            }
 
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
-                    document.querySelectorAll('.overlay.active').forEach(overlay => {
-                        overlay.classList.remove('active');
+            if (window.innerWidth <= 768) {
+                const infoIcons = document.querySelectorAll('.info-icon');
+                infoIcons.forEach(icon => {
+                    ['click', 'touchstart'].forEach(eventType => {
+                        icon.addEventListener(eventType, (e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            const overlayId = icon.getAttribute('data-overlay-id');
+                            const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+                            const isActive = overlay.classList.contains('active');
+                            document.querySelectorAll('.overlay.active').forEach(ov => {
+                                ov.classList.remove('active');
+                            });
+                            if (!isActive && overlay) {
+                                overlay.classList.add('active');
+                            }
+                        }, { passive: false });
                     });
-                }
-            });
-        }
+                });
 
-        const languageSelector = document.querySelector('.language-selector');
-        let lastScrollY = window.scrollY;
-        let scrollThreshold = 50;
-        if (languageSelector) {
-            window.addEventListener('scroll', () => {
-                const currentScrollY = window.scrollY;
-                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                    languageSelector.classList.add('hidden');
-                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                    languageSelector.classList.remove('hidden');
-                }
-                lastScrollY = currentScrollY;
-            });
-
-            const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-            langLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetLang = link.getAttribute('data-lang');
-                    const currentPath = window.location.pathname;
-                    let newPath = currentPath;
-                    if (targetLang === 'es') {
-                        newPath = currentPath.replace(/\/(de|en)\/provincias\//, '/es/provincias/');
-                    } else {
-                        newPath = currentPath.replace(/\/(es|de|en)\/provincias\//, `/${targetLang}/provincias/`);
-                    }
-                    if (newPath !== currentPath) {
-                        window.location.href = newPath;
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
+                        document.querySelectorAll('.overlay.active').forEach(overlay => {
+                            overlay.classList.remove('active');
+                        });
                     }
                 });
-            });
-        }
+            }
 
-        const buyButtons = document.querySelectorAll('.buy-button');
-        buyButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.stopPropagation();
+            const languageSelector = document.querySelector('.language-selector');
+            let lastScrollY = window.scrollY;
+            let scrollThreshold = 50;
+            if (languageSelector) {
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                        languageSelector.classList.add('hidden');
+                    } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollY = currentScrollY;
+                });
+
+                const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+                langLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetLang = link.getAttribute('data-lang');
+                        const currentPath = window.location.pathname;
+                        let newPath = currentPath;
+                        if (targetLang === 'es') {
+                            newPath = currentPath.replace(/\/(de|en)\/provincias\//, '/es/provincias/');
+                        } else {
+                            newPath = currentPath.replace(/\/(es|de|en)\/provincias\//, `/${targetLang}/provincias/`);
+                        }
+                        if (newPath !== currentPath) {
+                            window.location.href = newPath;
+                        }
+                    });
+                });
+            }
+
+            const buyButtons = document.querySelectorAll('.buy-button');
+            buyButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
             });
         });
     </script>
