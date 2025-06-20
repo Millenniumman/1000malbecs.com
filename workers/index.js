@@ -41,6 +41,7 @@ async function handleRequest(request) {
                     mendoza: 'Mendoza',
                     neuquen: 'Neuquén',
                     salta: 'Salta'
+                    san_juan: 'San Juan'
                 },
                 events_list: {
                     view_events: 'Ver eventos',
@@ -68,6 +69,7 @@ async function handleRequest(request) {
                     mendoza: 'Mendoza',
                     neuquen: 'Neuquén',
                     salta: 'Salta'
+                    san_juan: 'San Juan'
                 },
                 events_list: {
                     view_events: 'View events',
@@ -95,6 +97,7 @@ async function handleRequest(request) {
                     mendoza: 'Mendoza',
                     neuquen: 'Neuquén',
                     salta: 'Salta'
+                    san_juan: 'San Juan'
                 },
                 events_list: {
                     view_events: 'Veranstaltungen ansehen',
@@ -135,6 +138,7 @@ async function handleRequest(request) {
             'Mendoza',
             'Neuquén',
             'Salta'
+           'San Juan'
         ];
     }
     if (bodegas.length === 0) {
