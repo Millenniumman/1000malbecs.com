@@ -40,8 +40,8 @@ async function handleRequest(request) {
                     la_rioja: 'La Rioja',
                     mendoza: 'Mendoza',
                     neuquen: 'Neuquén',
-                    salta: 'Salta'
-                    san_juan: 'San Juan'
+                    salta: 'Salta',
+                    san_juan: 'San Juan' // Añadido correctamente con coma
                 },
                 events_list: {
                     view_events: 'Ver eventos',
@@ -51,7 +51,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Consultas',
                 follow: 'Síguenos',
-                whatsapp: '+49 151 5822 4728', // Updated to match corrected number
+                whatsapp: '+49 151 5822 4728',
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -68,8 +68,8 @@ async function handleRequest(request) {
                     la_rioja: 'La Rioja',
                     mendoza: 'Mendoza',
                     neuquen: 'Neuquén',
-                    salta: 'Salta'
-                    san_juan: 'San Juan'
+                    salta: 'Salta',
+                    san_juan: 'San Juan' // Añadido correctamente con coma
                 },
                 events_list: {
                     view_events: 'View events',
@@ -79,7 +79,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Inquiries',
                 follow: 'Follow us',
-                whatsapp: '+49 151 5822 4728', // Updated
+                whatsapp: '+49 151 5822 4728',
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -96,8 +96,8 @@ async function handleRequest(request) {
                     la_rioja: 'La Rioja',
                     mendoza: 'Mendoza',
                     neuquen: 'Neuquén',
-                    salta: 'Salta'
-                    san_juan: 'San Juan'
+                    salta: 'Salta',
+                    san_juan: 'San Juan' // Añadido correctamente con coma
                 },
                 events_list: {
                     view_events: 'Veranstaltungen ansehen',
@@ -107,7 +107,7 @@ async function handleRequest(request) {
             footer: {
                 inquiries: 'Anfragen',
                 follow: 'Folge uns',
-                whatsapp: '+49 151 5822 4728', // Updated
+                whatsapp: '+49 151 5822 4728',
                 email: 'federico@1000malbecs.com',
                 instagram: '@1000malbecs',
                 twitter: '@1000malbecs'
@@ -137,8 +137,8 @@ async function handleRequest(request) {
             'La Rioja',
             'Mendoza',
             'Neuquén',
-            'Salta'
-           'San Juan'
+            'Salta',
+            'San Juan' // Añadido correctamente con coma
         ];
     }
     if (bodegas.length === 0) {
