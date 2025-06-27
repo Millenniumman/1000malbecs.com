@@ -163,6 +163,7 @@ async function handleRequest(request) {
             { name: 'Finca y Bodega Vistalba', slug: 'finca-y-bodega-vistalba' },
             { name: 'Finca Las Moras', slug: 'finca-las-moras' },
             { name: 'Finca Las Nubes', slug: 'finca-las-nubes' },
+            { name: 'Humberto Canale', slug: 'humberto-canale' },
             { name: 'Jasmine Monet', slug: 'jasmine-monet' },
             { name: 'Jorge Rubio', slug: 'jorge-rubio' },
             { name: 'La Rural', slug: 'la-rural' },
