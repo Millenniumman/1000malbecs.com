@@ -143,8 +143,10 @@ async function handleRequest(request) {
     }
     if (bodegas.length === 0) {
         bodegas = [
+            { name: 'A Corazón Abierto', slug: 'a-corazon-abierto' },
             { name: 'Agustín Lanús', slug: 'agustin-lanus' },
             { name: 'Bemberg Estate Wines', slug: 'bemberg-estate-wines' },
+            { name: 'Bodega Bressia', slug: 'bodega-bressia' },
             { name: 'Bodega Chañarmuyo', slug: 'bodega-chanarmuyo' },
             { name: 'Bodega Estancia Mendoza', slug: 'bodega-estancia-mendoza' },
             { name: 'Bodega Foster Lorca', slug: 'bodega-foster-lorca' },
@@ -159,6 +161,7 @@ async function handleRequest(request) {
             { name: 'Eral Bravo', slug: 'eral-bravo' },
             { name: 'Falasco Wines', slug: 'falasco-wines' },
             { name: 'Familia Schroeder', slug: 'familia-schroeder' },
+            { name: 'Finca La Anita', slug: 'finca-la-anita' },
             { name: 'Finca & Bodega Arca Yaco', slug: 'finca-bodega-arca-yaco' },
             { name: 'Finca y Bodega Vistalba', slug: 'finca-y-bodega-vistalba' },
             { name: 'Finca Las Moras', slug: 'finca-las-moras' },
