@@ -8,8 +8,16 @@
   ],
   "bodegas": [
     {
+      "name": "A Corazón Abierto",
+      "slug": "a-corazon-abierto"
+    },
+    {
       "name": "Agustin Lanus",
       "slug": "agustin-lanus"
+    },
+    {
+      "name": "Bodega Bressia",
+      "slug": "bodega-bressia"
     },
         {
       "name": "Bemberg Estate Wines",
@@ -42,6 +50,10 @@
     {
       "name": "Bodegas Bianchi",
       "slug": "bodegas-bianchi"
+    },
+    {
+      "name": "Finca La Anita",
+      "slug": "finca-la-anita"
     },
     {
       "name": "Finca & Bodea Arca Yaco",
