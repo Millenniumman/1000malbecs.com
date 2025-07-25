@@ -173,6 +173,7 @@ async function handleRequest(request) {
             { name: 'Los Haroldos', slug: 'los-haroldos' },
             { name: 'Luigi Bosca', slug: 'luigi-bosca' },
             { name: 'Mascota Vine Yards', slug: 'mascota-vine-yards' },
+            { name: 'Piattelli Vineyards', slug: 'Piattelli-vineyards' },
             { name: 'Rutini Wines', slug: 'rutini-wines' },
             { name: 'San Telmo', slug: 'san-telmo' },
             { name: 'Trapiche', slug: 'trapiche' },
