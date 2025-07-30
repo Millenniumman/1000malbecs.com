@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Der 1 stop shop für die berühmtesten Malbecs Argentiniens. Entdecken Sie die besten Malbecs aus Argentinien, von Patagonien bis Puna.">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Entdecken Sie die besten Malbecs aus Argentinien, von Patagonien bis Puna." name="description"/>
     <title>1000malbecs - Die 1000 besten Malbecs</title>
-    <meta property="og:title" content="1000 Malbecs - Die 1000 besten argentinischen Malbecs von Patagonien bis Puna">
-    <meta property="og:description" content="Erkunden Sie unsere Auswahl an argentinischen Malbecs, von Patagonien bis Puna.">
-    <meta property="og:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://www.1000malbecs.com/de/">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="1000 Malbecs - Weinkatalog">
-    <meta name="twitter:description" content="Erkunden Sie unsere Auswahl an argentinischen Malbecs, von Patagonien bis Puna.">
-    <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta content="Der One-Stop-Shop für den Online-Kauf der ikonischsten Malbecs aus Argentinien. Die 1000 besten argentinischen Malbecs, von Patagonien bis Puna" property="og:title"/>
+    <meta content="Entdecken Sie unsere Auswahl an argentinischen Malbecs, von Patagonien bis Puna." property="og:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" property="og:image"/>
+    <meta content="image/png" property="og:image:type"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="https://www.1000malbecs.com/de/" property="og:url"/>
+    <meta content="website" property="og:type"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="1000 Malbecs - Weinkatalog" name="twitter:title"/>
+    <meta content="Entdecken Sie unsere Auswahl an argentinischen Malbecs, von Patagonien bis Puna." name="twitter:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -98,88 +99,81 @@
             flex: 1;
         }
         main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
-      .banner-carousel {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 50px auto 40px;
-    overflow: hidden;
-}
-.banner-container {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
-    min-height: 300px; /* Prevent layout shift */
-}
-.banner-item {
-    flex: 0 0 100%;
-    width: 100%;
-    height: 300px;
-    background-color: #f8f8f8;
-}
-.banner-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 5px;
-    display: block;
-}
-.banner-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-.banner-nav button {
-    background: rgba(74, 44, 89, 0.7);
-    color: #FFFFFF;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-}
-.banner-nav button:hover {
-    background: #4A2C59;
-}
-main {
-    margin-left: 290px;
-    padding: 20px;
-    width: calc(100% - 290px);
-    flex: 1;
-}
-@media (min-width: 769px) {
-    .banner-carousel {
-        margin-top: 50px;
-    }
-}
-@media (max-width: 768px) {
-    main {
-        margin-left: 0;
-        margin-top: 20px;
-        padding: 10px;
-        width: 100%;
-    }
-    .banner-carousel {
-        margin: -15px auto 20px;
-    }
-    .banner-container {
-        min-height: 200px;
-    }
-    .banner-item {
-        height: 200px;
-        background-color: #f8f8f8;
-    }
-    .banner-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-    }
-}
- 
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto 40px;
+            overflow: hidden;
+        }
+        .banner-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            min-height: 300px;
+        }
+        .banner-item {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 300px;
+            background-color: #f8f8f8;
+        }
+        .banner-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+            display: block;
+        }
+        .banner-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .banner-nav button {
+            background: rgba(74, 44, 89, 0.7);
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .banner-nav button:hover {
+            background: #4A2C59;
+        }
+        @media (min-width: 769px) {
+            .banner-carousel {
+                margin-top: 50px;
+            }
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-left: 0;
+                margin-top: 20px;
+                padding: 10px;
+                width: 100%;
+            }
+            .banner-carousel {
+                margin: -15px auto 20px;
+            }
+            .banner-container {
+                min-height: 200px;
+            }
+            .banner-item {
+                height: 200px;
+                background-color: #f8f8f8;
+            }
+            .banner-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+        }
         .search-container {
             position: relative;
             max-width: 600px;
@@ -320,40 +314,6 @@ main {
         }
         .winery-nav button.hidden {
             display: none;
-        }
-        footer {
-            background-color: #F8F8F8;
-            padding: 15px;
-            text-align: center;
-            border-top: 1px solid #E0E0E0;
-            width: 100%;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-            color: #4A2C59;
-        }
-        .footer-content a {
-            color: #4A2C59;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer-content a:hover {
-            color: #7B4F8C;
-        }
-        .social-icon {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-        .fa-whatsapp {
-            font-size: 20px;
-            color: #25D366;
-            margin-right: 5px;
         }
         .language-selector {
             position: fixed;
@@ -519,6 +479,99 @@ main {
         }
         .product-card .buy-button:hover {
             background-color: #5A1D39;
+        }
+        .twitter-box {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+        .twitter-box .section-title {
+            font-size: 22px;
+            color: #4A2C59;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+        .tweet-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .tweet-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            min-height: 150px;
+        }
+        .tweet-item {
+            flex: 0 0 100%;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        .tweet-item p {
+            margin: 5px 0;
+            color: #4A2C59;
+            font-size: 14px;
+        }
+        .tweet-item a {
+            color: #1DA1F2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .tweet-item a:hover {
+            text-decoration: underline;
+        }
+        .tweet-item .fallback {
+            font-size: 14px;
+            color: #4A2C59;
+            margin: 10px 0;
+        }
+        .tweet-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .tweet-nav button {
+            background: rgba(74, 44, 89, 0.7);
+            color: #FFFFFF;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .tweet-nav button:hover {
+            background: #4A2C59;
+        }
+        @media (max-width: 768px) {
+            .twitter-box {
+                max-width: 100%;
+                padding: 10px;
+            }
+            .twitter-box .section-title {
+                font-size: 18px;
+            }
+            .tweet-item p, .tweet-item .fallback {
+                font-size: 12px;
+            }
+            .tweet-item a {
+                font-size: 12px;
+            }
+            .tweet-container {
+                min-height: 120px;
+            }
+            .tweet-nav button {
+                padding: 6px;
+                font-size: 14px;
+            }
         }
         @media (max-width: 768px) {
             body { display: block; }
@@ -716,19 +769,6 @@ main {
             .search-suggestions li {
                 padding: 8px 12px;
             }
-            .footer-content {
-                flex-wrap: wrap;
-                gap: 15px;
-                font-size: 12px;
-            }
-            .social-icon, .fa-whatsapp {
-                width: 18px;
-                height: 18px;
-                font-size: 18px;
-            }
-            .winery-nav {
-                display: flex;
-            }
             .language-selector {
                 top: 10px;
                 left: 50%;
@@ -790,449 +830,426 @@ main {
     </style>
 </head>
 <body>
-    <div class="language-selector">
-        <a href="/es/index.html" data-lang="es" aria-label="Spanisch">ES 🇪🇸</a>
-        <a href="/de/index.html" class="active" data-lang="de" aria-label="Deutsch">DE 🇩🇪</a>
-        <a href="/en/index.html" data-lang="en" aria-label="Englisch">EN 🇬🇧</a>
+<div class="language-selector">
+    <a aria-label="Spanisch"  data-lang="es" href="/es/index.html">ES 🇪🇸</a>
+    <a aria-label="Deutsch" class="active" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
+    <a aria-label="Englisch"  data-lang="en" href="/en/index.html">EN 🇬🇧</a>
+</div>
+<header class="header">
+    <a href="/de/" title="Zurück zur Startseite">
+        <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+    </a>
+</header>
+<button class="hamburger">☰</button>
+<main>
+    <div class="banner-carousel">
+        <div class="banner-container">
+            <div class="banner-item">
+                <a href="/de/ereignisse/ereignisse.html" title="Explorar Eventos">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile.jpg"/>
+                        <img src="/images/banners/banner-1.jpg" alt="Eventos de 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
+                    </picture>
+                </a>
+            </div>
+            <div class="banner-item">
+                <a href="/de/weinguter.html" title="Explorar Bodegas">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile.jpg"/>
+                        <img src="/images/banners/banner-2.jpg" alt="Bodegas de Argentina" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+No+Disponible';">
+                    </picture>
+                </a>
+            </div>
+            <div class="banner-item">
+                <a href="/de/provinzen.html" title="Explorar Provincias">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile.jpg"/>
+                        <img src="/images/banners/banner-3.jpg" alt="Provincias Vitivinícolas" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+No+Disponible';">
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <div class="banner-nav">
+            <button onclick="moveBanner(-1)">❮</button>
+            <button onclick="moveBanner(1)">❯</button>
+        </div>
     </div>
-    <header class="header">
-        <a href="/de/" title="Zurück zur Startseite">
-            <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+    <div class="search-container">
+        <input class="search-input" type="text" placeholder="Busca tu vino favorito...">
+        <i class="fas fa-search search-icon"></i>
+        <ul class="search-suggestions"></ul>
+    </div>
+    <h3 class="section-title">Ausgewählte Weine des Juli</h3>
+    <div class="product-grid">
+        <div class="product-card" data-overlay-id="rutini-colección-malbec-2020">
+            <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Botella de Rutini Colección Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="rutini-colección-malbec-2020">🍷</div>
+            <div class="overlay" data-overlay-id="rutini-colección-malbec-2020">
+                <p><strong>Bodega:</strong> Rutini Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+                <p><strong>Altitud:</strong> 1200 msnm</p>
+                <p><strong>Añada:</strong> 2020</p>
+            </div>
+            <h3>Rutini Colección Malbec</h3>
+            <p class="price">€169.04</p>
+            <a class="buy-button" href="/weine/de/rutini-coleccion-malbec-2020.html">Kaufen</a>
+        </div>
+        <div class="product-card" data-overlay-id="felipe-rutini-2017">
+            <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="felipe-rutini-2017">🍷</div>
+            <div class="overlay" data-overlay-id="felipe-rutini-2017">
+                <p><strong>Bodega:</strong> Rutini Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Gualtallary, Valle de Uco</p>
+                <p><strong>Altitud:</strong> 1180 msnm</p>
+                <p><strong>Añada:</strong> 2017</p>
+            </div>
+            <h3>Felipe Rutini</h3>
+            <p class="price">€168.99</p>
+            <a class="buy-button" href="/weine/de/felipe-rutini-2017.html">Kaufen</a>
+        </div>
+        <div class="product-card" data-overlay-id="rutini-single-vineyard-malbec-gualtallary-2017">
+            <img src="/images/small/rutini-single-vineyard-malbec-gualtallary-2017.jpg" alt="Botella de Rutini Single Vineyard Malbec Gualtallary 2017" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="rutini-single-vineyard-malbec-gualtallary-2017">🍷</div>
+            <div class="overlay" data-overlay-id="rutini-single-vineyard-malbec-gualtallary-2017">
+                <p><strong>Bodega:</strong> Rutini Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Gualtallary, Valle de Uco</p>
+                <p><strong>Altitud:</strong> 1180 msnm</p>
+                <p><strong>Añada:</strong> 2017</p>
+            </div>
+            <h3>Rutini Single Vineyard Malbec Gualtallary</h3>
+            <p class="price">€134.00</p>
+            <a class="buy-button" href="/weine/de/rutini-single-vineyard-malbec-gualtallary-2017.html">Kaufen</a>
+        </div>
+        <div class="product-card" data-overlay-id="amar-vivir-malbec-2020">
+            <img src="/images/small/amar-vivir-malbec-2020.jpg" alt="Botella de Amar Vivir Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="amar-vivir-malbec-2020">🍷</div>
+            <div class="overlay" data-overlay-id="amar-vivir-malbec-2020">
+                <p><strong>Bodega:</strong> Finca &amp; Bodega Arca Yaco</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Cafayate</p>
+                <p><strong>Altitud:</strong> 1600 msnm</p>
+                <p><strong>Añada:</strong> 2020</p>
+            </div>
+            <h3>Amar Vivir Malbec</h3>
+            <p class="price">€112.99</p>
+            <a class="buy-button" href="/weine/de/amar-vivir-malbec-2020.html">Kaufen</a>
+        </div>
+        <div class="product-card" data-overlay-id="bemberg-estate-la-linterna-malbec-2016">
+            <img src="/images/small/bemberg-estate-la-linterna-malbec-2016.jpg" alt="Botella de Bemberg Estate La Linterna Malbec 2016" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="bemberg-estate-la-linterna-malbec-2016">🍷</div>
+            <div class="overlay" data-overlay-id="bemberg-estate-la-linterna-malbec-2016">
+                <p><strong>Bodega:</strong> Bemberg Estate Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Gualtallary, Valle de Uco</p>
+                <p><strong>Altitud:</strong> 2000 msnm</p>
+                <p><strong>Añada:</strong> 2016</p>
+            </div>
+            <h3>Bemberg Estate La Linterna Malbec</h3>
+            <p class="price">€89.34</p>
+            <a class="buy-button" href="/weine/de/bemberg-estate-la-linterna-malbec-2016.html">Kaufen</a>
+        </div>
+        <div class="product-card" data-overlay-id="imaginate-malbec-2019">
+            <img src="/images/small/imaginate-malbec-2019.jpg" alt="Botella de Imaginate Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="imaginate-malbec-2019">🍷</div>
+            <div class="overlay" data-overlay-id="imaginate-malbec-2019">
+                <p><strong>Bodega:</strong> Finca &amp; Bodega Arca Yaco</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Cafayate</p>
+                <p><strong>Altitud:</strong> 1600 msnm</p>
+                <p><strong>Añada:</strong> 2019</p>
+            </div>
+            <h3>Imaginate Malbec</h3>
+            <p class="price">€56.99</p>
+            <a class="buy-button" href="/weine/de/imaginate-malbec-2019.html">Kaufen</a>
+        </div>
+        <div class="product-card" data-overlay-id="sunal-ilogico-malbec--2020">
+            <img src="/images/small/sunal-ilgico-malbec-2020.jpg" alt="Botella de Sunal Ilogico Malbec  2020" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="sunal-ilogico-malbec--2020">🍷</div>
+            <div class="overlay" data-overlay-id="sunal-ilogico-malbec--2020">
+                <p><strong>Bodega:</strong> Agustin Lanus</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Valle de Calchaquí</p>
+                <p><strong>Altitud:</strong> 2200 msnm</p>
+                <p><strong>Añada:</strong> 2020</p>
+            </div>
+            <h3>Sunal Ilogico Malbec </h3>
+            <p class="price">€25.49</p>
+            <a class="buy-button" href="/weine/de/sunal-ilogico-malbec-2020.html">Kaufen</a>
+        </div>
+        <div class="product-card" data-overlay-id="bad-brothers-malbec-premium-2020">
+            <img src="/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Botella de Bad Brothers Malbec Premium 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
+            <div class="info-icon" data-overlay-id="bad-brothers-malbec-premium-2020">🍷</div>
+            <div class="overlay" data-overlay-id="bad-brothers-malbec-premium-2020">
+                <p><strong>Bodega:</strong> Agustin Lanus</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Valle de Calchaquí</p>
+                <p><strong>Altitud:</strong> 2100 msnm</p>
+                <p><strong>Añada:</strong> 2020</p>
+            </div>
+            <h3>Bad Brothers Malbec Premium</h3>
+            <p class="price">€17.49</p>
+            <a class="buy-button" href="/weine/de/bad-brothers-malbec-premium-2020.html">Kaufen</a>
+        </div>
+    </div>
+    <h3 class="section-title">Besuchen Sie unsere Weingüter</h3>
+    <div class="winery-grid">
+        <a class="winery-card" href="/de/weinguter/bodega-foster-lorca.html">
+            <img class="logo" src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo de Bodega Foster Lorca" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
         </a>
-    </header>
-    <button class="hamburger">☰</button>
-    <nav id="sidebar">
-        <div class="logo-container">
-            <a href="/de/" title="Zurück zur Startseite">
-                <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
-            </a>
+        <a class="winery-card" href="/de/weinguter/bodegas-bianchi.html">
+            <img class="logo" src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo de Bodegas Bianchi" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/de/weinguter/luigi-bosca.html">
+            <img class="logo" src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo de Luigi Bosca" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/de/weinguter/bodega-tukma.html">
+            <img class="logo" src="/images/bodegas/logo-bodega-tukma.jpg" alt="Logo de Bodega Tukma" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/de/weinguter/bemberg-estate-wines.html">
+            <img class="logo" src="/images/bodegas/logo-bemberg-estate-wines.jpg" alt="Logo de Bemberg Estate Wines" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/de/weinguter/agustin-lanus.html">
+            <img class="logo" src="/images/bodegas/logo-agustin-lanus.jpg" alt="Logo de Agustín Lanús" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/de/weinguter/rutini-wines.html">
+            <img class="logo" src="/images/bodegas/logo-rutini-wines.jpg" alt="Logo de Rutini Wines" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/de/weinguter/finca-las-moras.html">
+            <img class="logo" src="/images/bodegas/logo-finca-las-moras.jpg" alt="Logo de Finca Las Moras" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <div class="winery-nav">
+            <button class="winery-prev hidden">❮</button>
+            <button class="winery-next">❯</button>
         </div>
-        <h2>Kategorien</h2>
-        <details>
-            <summary><i class="fas fa-map-marker-alt"></i> Provinzen</summary>
-            <ul>
-                <li><a href="/de/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-                <li><a href="/de/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-                <li><a href="/de/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
-                <li><a href="/de/provincias/salta.html" class="nav-link">Salta</a></li>
-            </ul>
-        </details>
-        <details>
-            <summary><i class="fas fa-wine-bottle"></i> Weingüter</summary>
-            <ul>
-                <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link active">Agustín Lanús</a></li>
-                <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
-                <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-                <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-                <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-                <li><a href="/de/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
-                <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-                <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-                <li><a href="/de/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-                <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-                <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-                <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-                <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-                <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-                <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-                <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-                <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-                <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-                <li><a href="/de/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
-                <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-            </ul>
-        </details>
-        <details>
-            <summary><i class="fas fa-calendar-alt"></i> Veranstaltungen</summary>
-            <ul>
-                <li><a href="/de/eventos/events.html" class="nav-link">Veranstaltungen ansehen</a></li>
-            </ul>
-        </details>
-    </nav>
-    <main>
-         <div class="banner-carousel">
-            <div class="banner-container">
-                <div class="banner-item">
-                    <a href="/de/eventos/eventos.html" title="Explorar Eventos">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-de.jpg">
-                            <img src="/images/banners/banner-1-de.jpg" alt="Eventos de 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
-                        </picture>
-                    </a>
-                </div>
-                <div class="banner-item">
-                    <a href="/de/bodegas.html" title="Explorar Bodegas">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-de.jpg">
-                            <img src="/images/banners/banner-2-de.jpg" alt="Bodegas de Argentina" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+No+Disponible';">
-                        </picture>
-                    </a>
-                </div>
-                <div class="banner-item">
-                    <a href="/de/argentina.html" title="Explorar Provincias">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-de.jpg">
-                            <img src="/images/banners/banner-3-de.jpg" alt="Provincias Vitivinícolas" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+No+Disponible';">
-                        </picture>
-                    </a>
-                </div>
-            </div>
-            <div class="banner-nav">
-                <button onclick="moveBanner(-1)">❮</button>
-                <button onclick="moveBanner(1)">❯</button>
-            </div>
+    </div>
+    <h3 class="section-title">Entdecken Sie unsere Provinzen</h3>
+    <div class="province-grid">
+        <a class="province-card" href="/de/provinzen/mendoza.html">
+            <img src="/images/provincia/mendoza-image.jpg" alt="Viñedos de Mendoza">
+            <span class="province-name">Mendoza</span>
+            <div class="province-overlay">Mendoza</div>
+        </a>
+        <a class="province-card" href="/de/provinzen/salta.html">
+            <img src="/images/provincia/salta-image.jpg" alt="Viñedos de Salta">
+            <span class="province-name">Salta</span>
+            <div class="province-overlay">Salta</div>
+        </a>
+        <a class="province-card" href="/de/provinzen/la-rioja.html">
+            <img src="/images/provincia/la-rioja-image.jpg" alt="Viñedos de La Rioja">
+            <span class="province-name">La Rioja</span>
+            <div class="province-overlay">La Rioja</div>
+        </a>
+        <a class="province-card" href="/de/provinzen/neuquen.html">
+            <img src="/images/provincia/neuquén-image.jpg" alt="Viñedos de Neuquén">
+            <span class="province-name">Neuquén</span>
+            <div class="province-overlay">Neuquén</div>
+        </a>
+    </div>
+    <div class="twitter-box">
+    <h2 class="section-title">Tweets über Malbec</h2>
+    <div class="tweet-carousel">
+        <div class="tweet-container">
+            <div class="tweet-item"><p class="fallback">Kein aktuelle Tweets gefunden</p></div>
         </div>
-
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Suchen Sie nach Ihrem Lieblingswein...">
-            <i class="fas fa-search search-icon"></i>
-            <ul class="search-suggestions"></ul>
+        <div class="tweet-nav">
+            <button onclick="moveTweet(-1)">❮</button>
+            <button onclick="moveTweet(1)">❯</button>
         </div>
-        <h3 class="section-title">Ausgewählte Weine des Monats Mai</h3>
-        <div class="product-grid">
-            <div class="product-card" data-overlay-id="casa-araujo-varietal">
-                <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Flasche Casa Araujo Varietal 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="casa-araujo-varietal">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-varietal">
-                    <p><strong>Weingut:</strong> Casa Araujo</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü. M.</p>
-                </div>
-                <h3>Casa Araujo Varietal - 2023</h3>
-                <p class="price">€7.99</p>
-                <a href="/de/vinos/casa-araujo-varietal-2023.html" class="buy-button">Kaufen</a>
-            </div>
-            <div class="product-card" data-overlay-id="casa-araujo-roble">
-                <img src="/images/small/casa-araujo-roble-2023.jpg" alt="Flasche Casa Araujo Roble 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="casa-araujo-roble">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-roble">
-                    <p><strong>Weingut:</strong> Casa Araujo</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü. M.</p>
-                </div>
-                <h3>Casa Araujo Roble - 2023</h3>
-                <p class="price">€10.19</p>
-                <a href="/de/vinos/casa-araujo-roble-2023.html" class="buy-button">Kaufen</a>
-            </div>
-            <div class="product-card" data-overlay-id="quinta-generacion">
-                <img src="/images/small/quinta-generacin-malbec-2022.jpg" alt="Flasche Quinta Generación Malbec 2022"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="quinta-generacion">🍷</div>
-                <div class="overlay" data-overlay-id="quinta-generacion">
-                    <p><strong>Weingut:</strong> Bodega Goyenechea</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü. M.</p>
-                </div>
-                <h3>Quinta Generación - 2022</h3>
-                <p class="price">€23.19</p>
-                <a href="/de/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Kaufen</a>
-            </div>
-            <div class="product-card" data-overlay-id="jorge-rubio-privado">
-                <img src="/images/small/jorge-rubio-privado-malbec-2021.jpg" alt="Flasche Jorge Rubio Privado Malbec 2021"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="jorge-rubio-privado">🍷</div>
-                <div class="overlay" data-overlay-id="jorge-rubio-privado">
-                    <p><strong>Weingut:</strong> Jorge Rubio</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> Maipú</p>
-                    <p><strong>Höhe:</strong> 800 m ü. M.</p>
-                </div>
-                <h3>Privado Malbec - 2021</h3>
-                <p class="price">€15.99</p>
-                <a href="https://www.1000malbecs.com/de/vinos/jorge-rubio-privado-malbec-2021.html" class="buy-button">Kaufen</a>
-            </div>
-            <div class="product-card" data-overlay-id="casa-araujo-mimi">
-                <img src="/images/small/casa-araujo-mimi-2023.jpg" alt="Flasche Casa Araujo Mimi 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="casa-araujo-mimi">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-mimi">
-                    <p><strong>Weingut:</strong> Casa Araujo</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü. M.</p>
-                </div>
-                <h3>Mimi - Malbec Bivarietal - 2023</h3>
-                <p class="price">€11.79</p>
-                <a href="/de/vinos/casa-araujo-mimi-2023.html" class="buy-button">Kaufen</a>
-            </div>
-            <div class="product-card" data-overlay-id="nucha">
-                <img src="/images/small/nucha-2023.jpg" alt="Flasche Nucha 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="nucha">🍷</div>
-                <div class="overlay" data-overlay-id="nucha">
-                    <p><strong>Weingut:</strong> Casa Araujo</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü. M.</p>
-                </div>
-                <h3>Nucha Bio-Malbec - 2023</h3>
-                <p class="price">€12.99</p>
-                <a href="/de/vinos/nucha-2023.html" class="buy-button">Kaufen</a>
-            </div>
-            <div class="product-card" data-overlay-id="goye-malbec">
-                <img src="/images/small/goye-malbec-2022.jpg" alt="Flasche Goye Malbec 2022"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="goye-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="goye-malbec">
-                    <p><strong>Weingut:</strong> Bodega Goyenechea</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> San Rafael</p>
-                    <p><strong>Höhe:</strong> 520 m ü. M.</p>
-                </div>
-                <h3>Goye - Malbec - 2022</h3>
-                <p class="price">€9.49</p>
-                <a href="/de/vinos/goye-malbec-2022.html" class="buy-button">Kaufen</a>
-            </div>
-            <div class="product-card" data-overlay-id="jorge-rubio-premiado">
-                <img src="/images/small/jorge-rubio-premiado-malbec-2018.jpg" alt="Flasche Jorge Rubio Premiado Malbec 2018"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="jorge-rubio-premiado">🍷</div>
-                <div class="overlay" data-overlay-id="jorge-rubio-premiado">
-                    <p><strong>Weingut:</strong> Jorge Rubio</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> Maipú</p>
-                    <p><strong>Höhe:</strong> 800 m ü. M.</p>
-                </div>
-                <h3>Premiado Malbec - 2018</h3>
-                <p class="price">€58.99</p>
-                <a href="https://www.1000malbecs.com/de/vinos/jorge-rubio-premiado-malbec-2018.html" class="buy-button">Kaufen</a>
-            </div>
-        </div>
-        <h3 class="section-title">Besuchen Sie unsere Weingüter</h3>
-        <div class="winery-grid">
-            <a href="/de/bodegas/bodega-foster-lorca.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Bodega Foster Lorca Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <a href="/de/bodegas/bodegas-bianchi.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Bodegas Bianchi Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <a href="/de/bodegas/luigi-bosca.html" class="winery-card">
-                <img src="/images/bodegas/logo-luigi-bosca.jpg" alt="Luigi Bosca Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <a href="/de/bodegas/bodegas-etchart.html" class="winery-card">
-                <img src="/images/bodegas/logo-bodegas-etchart.jpg" alt="Bodegas Etchart Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-            </a>
-            <div class="winery-nav">
-                <button class="winery-prev hidden">❮</button>
-                <button class="winery-next">❯</button>
-            </div>
-        </div>
-        <h3 class="section-title">Entdecken Sie unsere Provinzen</h3>
-        <div class="province-grid">
-            <a href="/de/provincias/mendoza.html" class="province-card">
-                <img src="/images/provincia/mendoza-1.jpg" alt="Mendoza Weinberge">
-                <span class="province-name">Mendoza</span>
-                <div class="province-overlay">Mendoza</div>
-            </a>
-            <a href="/de/provincias/salta.html" class="province-card">
-                <img src="/images/provincia/salta-1.jpg" alt="Salta Weinberge">
-                <span class="province-name">Salta</span>
-                <div class="province-overlay">Salta</div>
-            </a>
-            <a href="/de/provincias/la-rioja.html" class="province-card">
-                <img src="/images/provincia/la-rioja-1.jpg" alt="La Rioja Weinberge">
-                <span class="province-name">La Rioja</span>
-                <div class="province-overlay">La Rioja</div>
-            </a>
-            <a href="/de/provincias/neuquen.html" class="province-card">
-                <img src="/images/provincia/neuquén-1.jpg" alt="Neuquén Weinberge">
-                <span class="province-name">Neuquén</span>
-                <div class="province-overlay">Neuquén</div>
-            </a>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <span>
-                <i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Kontakt über WhatsApp">+49 151 5822 4728</a>
-            </span>
-            <span>
-                <img src="/images/x-icon.png" alt="X" class="social-icon">
-                <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folgen Sie uns auf X">@1000malbecs</a>
-            </span>
-            <span>
-                <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-                <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Folgen Sie uns auf Instagram">@1000malbecs</a>
-            </span>
-        </div>
-    </footer>
-    <script>
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('open');
-        });
-        let currentBanner = 0;
-        const banners = document.querySelectorAll('.banner-item');
-        const bannerContainer = document.querySelector('.banner-container');
-        function moveBanner(direction) {
-            currentBanner += direction;
-            if (currentBanner < 0) currentBanner = banners.length - 1;
-            if (currentBanner >= banners.length) currentBanner = 0;
-            bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
-        }
-        setInterval(() => moveBanner(1), 5000);
-        if (window.innerWidth <= 768) {
-            const infoIcons = document.querySelectorAll('.info-icon');
-            infoIcons.forEach(icon => {
-                ['click', 'touchstart'].forEach(eventType => {
-                    icon.addEventListener(eventType, (e) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        const overlayId = icon.getAttribute('data-overlay-id');
-                        const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
-                        const isActive = overlay.classList.contains('active');
-                        document.querySelectorAll('.overlay.active').forEach(ov => {
-                            ov.classList.remove('active');
-                        });
-                        if (!isActive && overlay) {
-                            overlay.classList.add('active');
-                        }
-                    }, { passive: false });
-                });
-            });
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
-                    document.querySelectorAll('.overlay.active').forEach(overlay => {
-                        overlay.classList.remove('active');
-                    });
-                }
-            });
-        }
-        const buyButtons = document.querySelectorAll('.buy-button');
-        buyButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-        });
-        const languageSelector = document.querySelector('.language-selector');
-        let lastScrollY = window.scrollY;
-        let scrollThreshold = 50;
-        if (languageSelector) {
-            window.addEventListener('scroll', () => {
-                const currentScrollY = window.scrollY;
-                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                    languageSelector.classList.add('hidden');
-                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                    languageSelector.classList.remove('hidden');
-                }
-                lastScrollY = currentScrollY;
-            });
-            const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-            langLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
+    </div>
+</div>
+</main>
+<script>
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('open');
+    });
+    let currentBanner = 0;
+    const banners = document.querySelectorAll('.banner-item');
+    const bannerContainer = document.querySelector('.banner-container');
+    console.log('Number of banners:', banners.length);
+    function moveBanner(direction) {
+        currentBanner += direction;
+        if (currentBanner < 0) currentBanner = banners.length - 1;
+        if (currentBanner >= banners.length) currentBanner = 0;
+        bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
+        console.log('Current banner:', currentBanner);
+    }
+    setInterval(() => moveBanner(1), 5000);
+    let currentTweet = 0;
+    const tweetItems = document.querySelectorAll('.tweet-item');
+    const tweetContainer = document.querySelector('.tweet-container');
+    console.log('Number of tweets:', tweetItems.length);
+    function moveTweet(direction) {
+        currentTweet += direction;
+        if (currentTweet < 0) currentTweet = tweetItems.length - 1;
+        if (currentTweet >= tweetItems.length) currentTweet = 0;
+        tweetContainer.style.transform = `translateX(-${currentTweet * 100}%)`;
+        console.log('Current tweet:', currentTweet);
+    }
+    if (tweetItems.length > 1) {
+        setInterval(() => moveTweet(1), 5000);
+    }
+    if (window.innerWidth <= 768) {
+        const infoIcons = document.querySelectorAll('.info-icon');
+        infoIcons.forEach(icon => {
+            ['click', 'touchstart'].forEach(eventType => {
+                icon.addEventListener(eventType, (e) => {
+                    e.stopPropagation();
                     e.preventDefault();
-                    const targetLang = link.getAttribute('data-lang');
-                    const currentPath = window.location.pathname;
-                    let newPath = currentPath;
-                    if (targetLang === 'en') {
-                        newPath = currentPath.replace(/\/(es|de)\//, '/en/');
-                    } else {
-                        newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
-                    }
-                    if (newPath !== currentPath) {
-                        window.location.href = newPath;
-                    }
-                });
-            });
-            const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
-            langLinks.forEach(link => {
-                if (link.getAttribute('data-lang') === currentLang) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        const searchInput = document.querySelector('.search-input');
-        const suggestionsList = document.querySelector('.search-suggestions');
-        const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
-            name: card.querySelector('h3').textContent.trim(),
-            url: card.querySelector('.buy-button').href
-        }));
-        searchInput.addEventListener('input', function() {
-            const query = this.value.trim().toLowerCase();
-            suggestionsList.innerHTML = '';
-            suggestionsList.style.display = 'none';
-            if (query.length >= 3) {
-                const matches = wines.filter(wine => wine.name.toLowerCase().includes(query)).slice(0, 5);
-                if (matches.length > 0) {
-                    matches.forEach(wine => {
-                        const li = document.createElement('li');
-                        li.textContent = wine.name;
-                        li.dataset.url = wine.url;
-                        suggestionsList.appendChild(li);
+                    const overlayId = icon.getAttribute('data-overlay-id');
+                    const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+                    const isActive = overlay.classList.contains('active');
+                    document.querySelectorAll('.overlay.active').forEach(ov => {
+                        ov.classList.remove('active');
                     });
-                    suggestionsList.style.display = 'block';
+                    if (!isActive && overlay) {
+                        overlay.classList.add('active');
+                    }
+                }, { passive: false });
+            });
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
+                document.querySelectorAll('.overlay.active').forEach(overlay => {
+                    overlay.classList.remove('active');
+                });
+            }
+        });
+    }
+    const buyButtons = document.querySelectorAll('.buy-button');
+    buyButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+    const languageSelector = document.querySelector('.language-selector');
+    let lastScrollY = window.scrollY;
+    let scrollThreshold = 50;
+    if (languageSelector) {
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                languageSelector.classList.add('hidden');
+            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                languageSelector.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+        langLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLang = link.getAttribute('data-lang');
+                const currentPath = window.location.pathname;
+                let newPath = currentPath;
+                if (targetLang === 'en') {
+                    newPath = currentPath.replace(/\/(es|de)\//, '/en/');
+                } else if (targetLang === 'de') {
+                    newPath = currentPath.replace(/\/(es|en)\//, '/de/');
+                } else {
+                    newPath = currentPath.replace(/\/(en|de)\//, '/es/');
                 }
-            }
-        });
-        suggestionsList.addEventListener('click', function(e) {
-            const li = e.target.closest('li');
-            if (li && li.dataset.url) {
-                window.location.href = li.dataset.url;
-            }
-        });
-        let focusedSuggestion = -1;
-        searchInput.addEventListener('keydown', function(e) {
-            const suggestions = suggestionsList.querySelectorAll('li');
-            if (suggestions.length === 0) return;
-            if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
-                updateFocus(suggestions);
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
-                updateFocus(suggestions);
-            } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
-                e.preventDefault();
-                window.location.href = suggestions[focusedSuggestion].dataset.url;
-            }
-        });
-        function updateFocus(suggestions) {
-            suggestions.forEach((suggestion, index) => {
-                suggestion.classList.toggle('focused', index === focusedSuggestion);
+                if (newPath !== currentPath) {
+                    window.location.href = newPath;
+                }
             });
-            if (focusedSuggestion >= 0) {
-                suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
-            }
-        }
-        document.addEventListener('click', function(e) {
-            if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
-                suggestionsList.style.display = 'none';
-                focusedSuggestion = -1;
+        });
+        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+        langLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('active');
             }
         });
-        const wineryGrid = document.querySelector('.winery-grid');
-        const wineryPrev = document.querySelector('.winery-prev');
-        const wineryNext = document.querySelector('.winery-next');
-        function updateWineryScrollIndicators() {
-            const scrollLeft = wineryGrid.scrollLeft;
-            const scrollWidth = wineryGrid.scrollWidth;
-            const clientWidth = wineryGrid.clientWidth;
-            wineryGrid.classList.toggle('has-left', scrollLeft > 0);
-            wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
-            if (wineryPrev && wineryNext) {
-                wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
-                wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
+    }
+    const searchInput = document.querySelector('.search-input');
+    const suggestionsList = document.querySelector('.search-suggestions');
+    const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
+        name: card.querySelector('h3').textContent.trim(),
+        url: card.querySelector('.buy-button').href
+    }));
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        suggestionsList.innerHTML = '';
+        suggestionsList.style.display = 'none';
+        if (query.length >= 3) {
+            const matches = wines.filter(wine => wine.name.toLowerCase().includes(query)).slice(0, 5);
+            if (matches.length > 0) {
+                matches.forEach(wine => {
+                    const li = document.createElement('li');
+                    li.textContent = wine.name;
+                    li.dataset.url = wine.url;
+                    suggestionsList.appendChild(li);
+                });
+                suggestionsList.style.display = 'block';
             }
         }
-        if (wineryGrid) {
-            wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
-            window.addEventListener('resize', updateWineryScrollIndicators);
-            updateWineryScrollIndicators();
+    });
+    suggestionsList.addEventListener('click', function(e) {
+        const li = e.target.closest('li');
+        if (li && li.dataset.url) {
+            window.location.href = li.dataset.url;
         }
+    });
+    let focusedSuggestion = -1;
+    searchInput.addEventListener('keydown', function(e) {
+        const suggestions = suggestionsList.querySelectorAll('li');
+        if (suggestions.length === 0) return;
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
+            updateFocus(suggestions);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
+            updateFocus(suggestions);
+        } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
+            e.preventDefault();
+            window.location.href = suggestions[focusedSuggestion].dataset.url;
+        }
+    });
+    function updateFocus(suggestions) {
+        suggestions.forEach((suggestion, index) => {
+            suggestion.classList.toggle('focused', index === focusedSuggestion);
+        });
+        if (focusedSuggestion >= 0) {
+            suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
+        }
+    }
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+            suggestionsList.style.display = 'none';
+            focusedSuggestion = -1;
+        }
+    });
+    const wineryGrid = document.querySelector('.winery-grid');
+    const wineryPrev = document.querySelector('.winery-prev');
+    const wineryNext = document.querySelector('.winery-next');
+    function updateWineryScrollIndicators() {
+        const scrollLeft = wineryGrid.scrollLeft;
+        const scrollWidth = wineryGrid.scrollWidth;
+        const clientWidth = wineryGrid.clientWidth;
+        wineryGrid.classList.toggle('has-left', scrollLeft > 0);
+        wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
         if (wineryPrev && wineryNext) {
-            wineryPrev.addEventListener('click', () => {
-                wineryGrid.scrollBy({ left: -150, behavior: 'smooth' });
-            });
-            wineryNext.addEventListener('click', () => {
-                wineryGrid.scrollBy({ left: 150, behavior: 'smooth' });
-            });
+            wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
+            wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
         }
-    </script>
+    }
+    if (wineryGrid) {
+        wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
+        window.addEventListener('resize', updateWineryScrollIndicators);
+        updateWineryScrollIndicators();
+    }
+    if (wineryPrev && wineryNext) {
+        wineryPrev.addEventListener('click', () => {
+            wineryGrid.scrollBy({ left: -150, behavior: 'smooth' });
+        });
+        wineryNext.addEventListener('click', () => {
+            wineryGrid.scrollBy({ left: 150, behavior: 'smooth' });
+        });
+    }
+</script>
 </body>
 </html>
