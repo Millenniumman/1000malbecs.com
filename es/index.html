@@ -480,6 +480,99 @@
         .product-card .buy-button:hover {
             background-color: #5A1D39;
         }
+        .twitter-box {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+        .twitter-box .section-title {
+            font-size: 22px;
+            color: #4A2C59;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+        .tweet-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .tweet-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            min-height: 150px;
+        }
+        .tweet-item {
+            flex: 0 0 100%;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        .tweet-item p {
+            margin: 5px 0;
+            color: #4A2C59;
+            font-size: 14px;
+        }
+        .tweet-item a {
+            color: #1DA1F2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .tweet-item a:hover {
+            text-decoration: underline;
+        }
+        .tweet-item .fallback {
+            font-size: 14px;
+            color: #4A2C59;
+            margin: 10px 0;
+        }
+        .tweet-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .tweet-nav button {
+            background: rgba(74, 44, 89, 0.7);
+            color: #FFFFFF;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .tweet-nav button:hover {
+            background: #4A2C59;
+        }
+        @media (max-width: 768px) {
+            .twitter-box {
+                max-width: 100%;
+                padding: 10px;
+            }
+            .twitter-box .section-title {
+                font-size: 18px;
+            }
+            .tweet-item p, .tweet-item .fallback {
+                font-size: 12px;
+            }
+            .tweet-item a {
+                font-size: 12px;
+            }
+            .tweet-container {
+                min-height: 120px;
+            }
+            .tweet-nav button {
+                padding: 6px;
+                font-size: 14px;
+            }
+        }
         @media (max-width: 768px) {
             body { display: block; }
             .header {
@@ -734,58 +827,6 @@
                 margin: 0 auto;
             }
         }
-        .twitter-box {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #E0E0E0;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-            text-align: center;
-        }
-        .twitter-box .section-title {
-            font-size: 22px;
-            color: #4A2C59;
-            margin: 0 0 10px;
-            text-transform: uppercase;
-        }
-        .tweet {
-            border-bottom: 1px solid #E0E0E0;
-            padding: 10px 0;
-        }
-        .tweet p {
-            margin: 5px 0;
-            color: #4A2C59;
-            font-size: 14px;
-        }
-        .tweet a {
-            color: #1DA1F2;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .tweet a:hover {
-            text-decoration: underline;
-        }
-        .twitter-box .fallback {
-            font-size: 14px;
-            color: #4A2C59;
-            margin: 10px 0;
-        }
-        @media (max-width: 768px) {
-            .twitter-box {
-                max-width: 100%;
-                padding: 10px;
-            }
-            .twitter-box .section-title {
-                font-size: 18px;
-            }
-            .tweet p, .twitter-box .fallback {
-                font-size: 12px;
-            }
-            .tweet a {
-                font-size: 12px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1009,35 +1050,43 @@
     </div>
     <div class="twitter-box">
     <h2 class="section-title">Tweets sobre Malbec</h2>
-    <div class="tweet">
-        <p><strong>@ALHmalbec</strong> (2025-07-28 13:00)</p>
-        <p>🥇 Nuestro nuevo Malbec Visión Sur fue premiado con 96 puntos por Robert Parker, the Wine Advocate 🙌🏻
+    <div class="tweet-carousel">
+        <div class="tweet-container">
+            <div class="tweet-item">
+                <p><strong>@ALHmalbec</strong> (2025-07-28 13:00)</p>
+                <p>🥇 Nuestro nuevo Malbec Visión Sur fue premiado con 96 puntos por Robert Parker, the Wine Advocate 🙌🏻
 
 #VisionSur #Malbec #LujandeCuyo https://t.co/B9pMcDngCf</p>
-        <a href="https://x.com/ALHmalbec/status/1949817116418293915" target="_blank">View on X</a>
-    </div>
-    <div class="tweet">
-        <p><strong>@VittoalDente_</strong> (2025-07-26 01:41)</p>
-        <p>🔥 “Le puse fuego al barrio… y al locro también.
+                <a href="https://x.com/ALHmalbec/status/1949817116418293915" target="_blank">View on X</a>
+            </div>
+            <div class="tweet-item">
+                <p><strong>@VittoalDente_</strong> (2025-07-26 01:41)</p>
+                <p>🔥 “Le puse fuego al barrio… y al locro también.
 Un plato que te abraza y un beat que explota.
  ¿Listos para el #Locro Power con #Malbec en mano?” 🍷
 ‘Locro Power (feat. Malbec Vibes)’ de Vitto Al Dente está en https://t.co/oqiBU7eVHH</p>
-        <a href="https://x.com/VittoalDente_/status/1948921581947822371" target="_blank">View on X</a>
-    </div>
-    <div class="tweet">
-        <p><strong>@ALHmalbec</strong> (2025-07-25 14:29)</p>
-        <p>Terminamos la serie sobre Visión Sur revelando el secreto: ¿Qué nos cuenta la etiqueta de este nuevo vino?
+                <a href="https://x.com/VittoalDente_/status/1948921581947822371" target="_blank">View on X</a>
+            </div>
+            <div class="tweet-item">
+                <p><strong>@ALHmalbec</strong> (2025-07-25 14:29)</p>
+                <p>Terminamos la serie sobre Visión Sur revelando el secreto: ¿Qué nos cuenta la etiqueta de este nuevo vino?
 
 #VisionSur #Malbec #LujandeCuyo https://t.co/Y8PHJgf1J3</p>
-        <a href="https://x.com/ALHmalbec/status/1948752462011097436" target="_blank">View on X</a>
-    </div>
-    <div class="tweet">
-        <p><strong>@ALHmalbec</strong> (2025-07-23 14:29)</p>
-        <p>🍷​Visión Sur es un Malbec orgánico que fue elaborado con uvas provenientes de 2 cuarteles de nuestra Finca El Hormiguero en Luján de Cuyo.
+                <a href="https://x.com/ALHmalbec/status/1948752462011097436" target="_blank">View on X</a>
+            </div>
+            <div class="tweet-item">
+                <p><strong>@ALHmalbec</strong> (2025-07-23 14:29)</p>
+                <p>🍷​Visión Sur es un Malbec orgánico que fue elaborado con uvas provenientes de 2 cuarteles de nuestra Finca El Hormiguero en Luján de Cuyo.
 ✨ Los invitamos a disfrutar de este viaje en vino, con su pureza y su precisión.
 
 #VisionSur #Malbec #LujandeCuyo https://t.co/IPorCTSGZo</p>
-        <a href="https://x.com/ALHmalbec/status/1948027596308197412" target="_blank">View on X</a>
+                <a href="https://x.com/ALHmalbec/status/1948027596308197412" target="_blank">View on X</a>
+            </div>
+        </div>
+        <div class="tweet-nav">
+            <button onclick="moveTweet(-1)">❮</button>
+            <button onclick="moveTweet(1)">❯</button>
+        </div>
     </div>
 </div>
 </main>
@@ -1057,6 +1106,20 @@ Un plato que te abraza y un beat que explota.
         console.log('Current banner:', currentBanner);
     }
     setInterval(() => moveBanner(1), 5000);
+    let currentTweet = 0;
+    const tweetItems = document.querySelectorAll('.tweet-item');
+    const tweetContainer = document.querySelector('.tweet-container');
+    console.log('Number of tweets:', tweetItems.length);
+    function moveTweet(direction) {
+        currentTweet += direction;
+        if (currentTweet < 0) currentTweet = tweetItems.length - 1;
+        if (currentTweet >= tweetItems.length) currentTweet = 0;
+        tweetContainer.style.transform = `translateX(-${currentTweet * 100}%)`;
+        console.log('Current tweet:', currentTweet);
+    }
+    if (tweetItems.length > 1) {
+        setInterval(() => moveTweet(1), 5000);
+    }
     if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {
