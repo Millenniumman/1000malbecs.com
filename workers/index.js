@@ -151,6 +151,7 @@ async function handleRequest(request) {
             { name: 'Bodega Estancia Mendoza', slug: 'bodega-estancia-mendoza' },
             { name: 'Bodega Foster Lorca', slug: 'bodega-foster-lorca' },
             { name: 'Bodega Goyenechea', slug: 'bodega-goyenechea' },
+            { name: 'Bodega Noemía Patagonia', slug: 'bodega-noemia-patagonia' },
             { name: 'Bodega Séptima', slug: 'bodegas-septima' },
             { name: 'Bodega Tukma', slug: 'bodega-tukma' },
             { name: 'Bodegas Bianchi', slug: 'bodegas-bianchi' },
