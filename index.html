@@ -487,37 +487,57 @@ Un plato que te abraza y un beat que explota.
     buyButtons.forEach(button => {
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
-    const languageSelector = document.querySelector('.language-selector');
+   const languageSelector = document.querySelector('.language-selector');
+if (languageSelector) {
+    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+    
+    // Detect current language from URL
+    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+    
+    // Set active class based on current language
+    langLinks.forEach(link => {
+        if (link.getAttribute('data-lang') === currentLang) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // Handle language switch
+    langLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = link.getAttribute('data-lang');
+            let newPath = window.location.pathname;
+
+            // If current path has a language prefix, replace it
+            if (currentLang) {
+                newPath = newPath.replace(`/${currentLang}/`, `/${targetLang}/`);
+            } else {
+                // If no language prefix, add it (e.g., for root path '/')
+                newPath = `/${targetLang}${newPath === '/' ? '' : newPath}`;
+            }
+
+            // Preserve query parameters and hash
+            const query = window.location.search;
+            const hash = window.location.hash;
+            window.location.href = newPath + query + hash;
+        });
+    });
+
+    // Show/hide language selector on scroll (unchanged)
     let lastScrollY = window.scrollY;
     let scrollThreshold = 50;
-    if (languageSelector) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                languageSelector.classList.add('hidden');
-            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
-        });
-        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetLang = link.getAttribute('data-lang');
-                const currentPath = window.location.pathname;
-                let newPath = currentPath;
-                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
-                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
-                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
-                if (newPath !== currentPath) { window.location.href = newPath; }
-            });
-        });
-        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-        langLinks.forEach(link => {
-            if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
-        });
-    }
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            languageSelector.classList.add('hidden');
+        } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            languageSelector.classList.remove('hidden');
+        }
+        lastScrollY = currentScrollY;
+    });
+}
     const searchInput = document.querySelector('.search-input');
     const suggestionsList = document.querySelector('.search-suggestions');
     const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
