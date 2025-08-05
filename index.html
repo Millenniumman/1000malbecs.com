@@ -487,7 +487,7 @@ Un plato que te abraza y un beat que explota.
     buyButtons.forEach(button => {
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
-   const languageSelector = document.querySelector('.language-selector');
+  const languageSelector = document.querySelector('.language-selector');
 if (languageSelector) {
     const langLinks = languageSelector.querySelectorAll('a[data-lang]');
     
@@ -496,11 +496,7 @@ if (languageSelector) {
     
     // Set active class based on current language
     langLinks.forEach(link => {
-        if (link.getAttribute('data-lang') === currentLang) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+        link.classList.toggle('active', link.getAttribute('data-lang') === currentLang);
     });
 
     // Handle language switch
@@ -514,8 +510,8 @@ if (languageSelector) {
             if (currentLang) {
                 newPath = newPath.replace(`/${currentLang}/`, `/${targetLang}/`);
             } else {
-                // If no language prefix, add it (e.g., for root path '/')
-                newPath = `/${targetLang}${newPath === '/' ? '' : newPath}`;
+                // If no language prefix (e.g., '/index.html' or '/'), redirect to language root
+                newPath = `/${targetLang}/`;
             }
 
             // Preserve query parameters and hash
