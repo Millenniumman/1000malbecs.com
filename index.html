@@ -487,43 +487,57 @@ Un plato que te abraza y un beat que explota.
     buyButtons.forEach(button => {
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
-  const languageSelector = document.querySelector('.language-selector');
+ const languageSelector = document.querySelector('.language-selector');
 if (languageSelector) {
     const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-    
+
     // Detect current language from URL
-    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-    
+    const currentPath = window.location.pathname;
+    const langMatch = currentPath.match(/\/(es|de|en)(\/|$)/); // Match /es, /de, /en at start or followed by /
+    const currentLang = langMatch ? langMatch[1] : 'es'; // Default to 'es' if no match
+
     // Set active class based on current language
     langLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('data-lang') === currentLang);
+        const linkLang = link.getAttribute('data-lang');
+        link.classList.toggle('active', linkLang === currentLang);
     });
 
     // Handle language switch
     langLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default link behavior
             const targetLang = link.getAttribute('data-lang');
-            let newPath = window.location.pathname;
+            let newPath;
 
-            // If current path has a language prefix, replace it
-            if (currentLang) {
-                newPath = newPath.replace(`/${currentLang}/`, `/${targetLang}/`);
-            } else {
-                // If no language prefix (e.g., '/index.html' or '/'), redirect to language root
+            if (currentLang && currentPath.includes(`/${currentLang}/`)) {
+                // Replace existing language prefix
+                newPath = currentPath.replace(`/${currentLang}/`, `/${targetLang}/`);
+            } else if (currentLang && currentPath === `/${currentLang}`) {
+                // Handle case where path is just the language (e.g., /es)
                 newPath = `/${targetLang}/`;
+            } else {
+                // No language prefix, append target language
+                newPath = `/${targetLang}${currentPath === '/' ? '' : currentPath}`;
+            }
+
+            // Ensure trailing slash for consistency
+            if (!newPath.endsWith('/')) {
+                newPath += '/';
             }
 
             // Preserve query parameters and hash
             const query = window.location.search;
             const hash = window.location.hash;
-            window.location.href = newPath + query + hash;
+            const newUrl = `${window.location.origin}${newPath}${query}${hash}`;
+
+            console.log('Redirecting to:', newUrl); // Debug log
+            window.location.href = newUrl; // Perform redirect
         });
     });
 
-    // Show/hide language selector on scroll (unchanged)
+    // Show/hide language selector on scroll
     let lastScrollY = window.scrollY;
-    let scrollThreshold = 50;
+    const scrollThreshold = 50;
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
         if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
@@ -533,7 +547,7 @@ if (languageSelector) {
         }
         lastScrollY = currentScrollY;
     });
-}
+} 
     const searchInput = document.querySelector('.search-input');
     const suggestionsList = document.querySelector('.search-suggestions');
     const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
