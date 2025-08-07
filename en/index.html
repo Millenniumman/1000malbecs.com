@@ -2,132 +2,207 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Discover the best Malbecs from Argentina, from Patagonia to Puna."/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Discover the best Malbecs from Argentina, from Patagonia to Puna." name="description"/>
     <title>1000malbecs - The 1000 Best Malbecs</title>
-    <meta property="og:title" content="The one-stop shop for buying the most iconic Argentine Malbecs online."/>
-    <meta property="og:description" content="Explore our selection of Argentine Malbecs, from Patagonia to Puna."/>
-    <meta property="og:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png"/>
-    <meta property="og:image:type" content="image/png"/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="630"/>
-    <meta property="og:url" content="https://www.1000malbecs.com/en/"/>
-    <meta property="og:type" content="website"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="1000 Malbecs - Wine Catalog"/>
-    <meta name="twitter:description" content="Explore our selection of Argentine Malbecs, from Patagonia to Puna."/>
-    <meta name="twitter:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    <link rel="stylesheet" href="/css/styles.css"/>
+    <meta content="The one-stop shop for buying the most iconic Argentine Malbecs online." property="og:title"/>
+    <meta content="Explore our selection of Argentine Malbecs, from Patagonia to Puna." property="og:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" property="og:image"/>
+    <meta content="image/png" property="og:image:type"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="https://www.1000malbecs.com/en/" property="og:url"/>
+    <meta content="website" property="og:type"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="1000 Malbecs - Wine Catalog" name="twitter:title"/>
+    <meta content="Explore our selection of Argentine Malbecs, from Patagonia to Puna." name="twitter:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; }
-        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 1000; }
-        .language-selector a { margin: 0 5px; text-decoration: none; color: #007bff; }
-        .language-selector a.active { font-weight: bold; }
-        .header { text-align: center; padding: 20px; background: #f8f8f8; }
-        .logo { max-width: 80px; height: auto; }
-        .hamburger { display: none; position: fixed; top: 10px; left: 10px; z-index: 1000; font-size: 24px; cursor: pointer; }
-        .banner-carousel { width: 100%; overflow: hidden; }
-        .banner-container { display: flex; transition: transform 0.5s ease; }
-        .banner-item { flex: 0 0 100%; }
-        .banner-item img { width: 100%; height: auto; display: block; }
-        .banner-nav { text-align: center; margin: 10px 0; }
-        .banner-nav button { padding: 5px 10px; cursor: pointer; }
-        .search-container { padding: 20px; text-align: center; position: relative; }
-        .search-input { padding: 10px; width: 80%; max-width: 500px; border: 1px solid #ddd; border-radius: 5px; }
-        .search-icon { position: absolute; right: 25%; top: 30px; color: #666; }
-        .search-suggestions { list-style: none; padding: 0; margin: 0; position: absolute; background: white; width: 80%; max-width: 500px; left: 50%; transform: translateX(-50%); box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: none; z-index: 1000; }
-        .search-suggestions li { padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; }
-        .search-suggestions li:hover, .search-suggestions li.focused { background: #f0f0f0; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
-        .product-card { border: 1px solid #ddd; padding: 15px; text-align: center; position: relative; background: #fff; border-radius: 5px; }
-        .product-card img { max-width: 100%; height: auto; max-height: 200px; object-fit: cover; }
-        .info-icon { position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px; }
-        .overlay { display: none; position: absolute; background: rgba(0,0,0,0.8); color: white; padding: 10px; top: 0; left: 0; right: 0; bottom: 0; z-index: 10; overflow: auto; }
-        .overlay.active { display: block; }
-        .buy-button { display: inline-block; padding: 10px 15px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .winery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px; overflow-x: auto; white-space: nowrap; }
-        .winery-card { display: inline-block; }
-        .winery-card img { max-width: 100%; height: auto; max-height: 100px; object-fit: contain; }
-        .winery-nav { text-align: center; margin: 10px 0; }
-        .winery-nav button { padding: 5px 10px; cursor: pointer; }
-        .winery-nav button.hidden { display: none; }
-        .province-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
-        .province-card { position: relative; }
-        .province-card img { max-width: 100%; height: auto; max-height: 150px; object-fit: cover; display: block; }
-        .province-overlay { position: absolute; bottom: 0; background: rgba(0,0,0,0.5); color: white; width: 100%; padding: 10px; text-align: center; }
-        .twitter-box { padding: 20px; background: #f8f8f8; }
-        .tweet-carousel { width: 100%; overflow: hidden; }
-        .tweet-container { display: flex; transition: transform 0.5s ease; }
-        .tweet-item { flex: 0 0 100%; padding: 15px; border: 1px solid #ddd; margin: 5px; background: #fff; border-radius: 5px; }
-        .tweet-nav { text-align: center; margin: 10px 0; }
-        .tweet-nav button { padding: 5px 10px; cursor: pointer; }
-        .section-title { text-align: center; margin: 20px 0; font-size: 24px; color: #333; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        .header { top: 50px; z-index: 120; }
+        .logo { max-width: 150px; height: auto; }
+        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
+        main { padding: 20px; width: 100%; flex: 1; }
+        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
+        .banner-carousel { position: relative; width: 100%; max-width: 1200px; margin: 50px auto 40px; overflow: hidden; }
+        .banner-container { display: flex; transition: transform 0.5s ease; width: 100%; min-height: 300px; }
+        .banner-item { flex: 0 0 100%; width: 100%; height: 300px; background-color: #f8f8f8; }
+        .banner-item img { width: 100%; height: 100%; object-fit: contain; border-radius: 5px; display: block; }
+        .banner-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
+        .banner-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
+        .banner-nav button:hover { background: #4A2C59; }
+        @media (min-width: 769px) { .banner-carousel { margin-top: 50px; } }
         @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .winery-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
-            .search-input { width: 90%; }
-            .search-icon { right: 15%; }
-            .search-suggestions { width: 90%; }
-            .product-card img { max-height: 150px; }
-            .province-card img { max-height: 120px; }
+            main { margin-top: 20px; padding: 10px; width: 100%; }
+            .banner-carousel { margin: -15px auto 20px; }
+            .banner-container { min-height: 200px; }
+            .banner-item { height: 200px; background-color: #f8f8f8; }
+            .banner-item img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        }
+        .search-container { position: relative; max-width: 600px; margin: 20px auto; }
+        .search-input { width: 100%; padding: 10px 40px 10px 15px; font-size: 16px; font-family: 'Montserrat', sans-serif; border: 1px solid #E0E0E0; border-radius: 5px; outline: none; color: #4A2C59; box-sizing: border-box; }
+        .search-input::placeholder { color: #7B4F8C; }
+        .search-icon { position: absolute; top: 50%; right: 10px; transform: translateY(-50%); font-size: 18px; color: #4A2C59; }
+        .search-suggestions { position: absolute; top: 100%; left: 0; right: 0; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto; z-index: 150; display: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .search-suggestions li { padding: 10px 15px; font-size: 14px; color: #4A2C59; cursor: pointer; transition: all 0.3s ease; }
+        .search-suggestions li:hover, .search-suggestions li.focused { background: #4A2C59; color: #FFFFFF; }
+        .section-title { font-size: 22px; color: #4A2C59; margin: 20px 0 10px; text-align: center; text-transform: uppercase; }
+        .province-grid, .winery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; position: relative; }
+        .province-card, .winery-card { position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 5px; display: block; }
+        .province-card img, .winery-card img { width: 100%; height: 100%; object-fit: cover; }
+        .province-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(74, 44, 89, 0.7); color: #FFFFFF; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 16px; font-weight: 500; opacity: 0; transition: opacity 0.3s ease; }
+        .province-card:hover .province-overlay { opacity: 1; }
+        .province-card .province-name { display: none; }
+        .winery-card img.logo { width: 100%; height: 100%; object-fit: contain; background: #FFFFFF; padding: 10px; box-sizing: border-box; }
+        .winery-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; }
+        .winery-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 8px; cursor: pointer; font-size: 16px; border-radius: 5px; opacity: 0.8; transition: opacity 0.3s ease; }
+        .winery-nav button:hover { background: #4A2C59; opacity: 1; }
+        .winery-nav button.hidden { display: none; }
+        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
+        .language-selector.hidden { opacity: 0; pointer-events: none; }
+        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
+        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
+        .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; max-width: 250px; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); box-sizing: border-box; width: 100%; }
+        .product-card img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
+        .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
+        .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
+        .overlay p { margin: 2px 0; color: #FFFFFF; text-align: left; }
+        .product-card:hover .overlay { display: block; }
+        .product-card .overlay.active { display: block !important; }
+        .product-card h3 { font-size: 16px; margin: 10px 0; color: #4A2C59; min-height: 40px; overflow: hidden; text-overflow: ellipsis; white-space: normal; text-align: center; width: 100%; }
+        .product-card .price { font-size: 16px; color: #4A2C59; margin: 10px 0; position: relative; z-index: 7; text-align: center; width: 100%; }
+        .product-card .buy-button { padding: 8px 16px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; position: relative; z-index: 7; text-align: center; background-color: #4A2C59; color: #f5e6ff; text-decoration: none; border-radius: 5px; pointer-events: auto; width: 100%; max-width: 180px; display: block; }
+        .product-card .buy-button:hover { background-color: #5A1D39; }
+        .twitter-box { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #E0E0E0; border-radius: 5px; font-family: 'Montserrat', sans-serif; text-align: center; }
+        .twitter-box .section-title { font-size: 22px; color: #4A2C59; margin: 0 0 10px; text-transform: uppercase; }
+        .tweet-carousel { position: relative; width: 100%; overflow: hidden; }
+        .tweet-container { display: flex; transition: transform 0.5s ease; width: 100%; min-height: 150px; }
+        .tweet-item { flex: 0 0 100%; width: 100%; padding: 10px; box-sizing: border-box; border-bottom: 1px solid #E0E0E0; }
+        .tweet-item p { margin: 5px 0; color: #4A2C59; font-size: 14px; }
+        .tweet-item a { color: #1DA1F2; text-decoration: none; font-size: 14px; }
+        .tweet-item a:hover { text-decoration: underline; }
+        .tweet-item .fallback { font-size: 14px; color: #4A2C59; margin: 10px 0; }
+        .tweet-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
+        .tweet-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 8px; cursor: pointer; font-size: 16px; border-radius: 5px; }
+        .tweet-nav button:hover { background: #4A2C59; }
+        @media (max-width: 768px) {
+            .twitter-box { max-width: 100%; padding: 10px; }
+            .twitter-box .section-title { font-size: 18px; }
+            .tweet-item p, .tweet-item .fallback { font-size: 12px; }
+            .tweet-item a { font-size: 12px; }
+            .tweet-container { min-height: 120px; }
+            .tweet-nav button { padding: 6px; font-size: 14px; }
+            body { display: block; }
+            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
+            .logo { max-width: 80px !important; height: auto !important; display: block; }
+            .hamburger { display: block !important; z-index: 130; }
+            main { margin-top: 60px; padding: 10px; width: 100%; }
+            main h1 { font-size: 20px; line-height: 1.4; margin-bottom: 15px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; justify-content: start; }
+            .product-card { width: 100%; max-width: none; height: 260px; min-height: auto; padding: 10px; box-sizing: border-box; overflow: hidden; position: relative; align-items: center; }
+            .product-card img { width: 140px; height: 140px; margin: 0 auto; }
+            .product-card h3 { font-size: 14px; min-height: 36px; margin: 5px 0; text-align: center; width: 100%; }
+            .product-card .price { font-size: 14px; margin: 5px 0; text-align: center; width: 100%; }
+            .product-card .buy-button { padding: 6px 12px; font-size: 12px; margin-top: 5px; margin-bottom: 5px; pointer-events: auto; width: 100%; max-width: 140px; display: block; }
+            .info-icon { display: block !important; pointer-events: auto; z-index: 10; }
+            .overlay { max-height: 150px; pointer-events: auto; width: 100%; box-sizing: border-box; top: 0; padding: 40px 10px 10px 10px; display: none; z-index: 6; }
+            .overlay.active { display: block !important; z-index: 6; }
+            .product-card:hover .overlay { display: none; }
+            .banner-carousel { margin-bottom: 20px; }
+            .banner-item { height: 200px; }
+            .province-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .winery-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 15px; padding: 0 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+            .winery-grid::-webkit-scrollbar { display: none; }
+            .winery-grid.has-right { box-shadow: 8px 0 8px -8px rgba(0,0,0,0.3); }
+            .winery-grid.has-left { box-shadow: -8px 0 8px -8px rgba(0,0,0,0.3); }
+            .province-card, .winery-card { width: 100%; height: 150px; }
+            .winery-card { flex: 0 0 150px; height: 150px; }
+            .province-card { position: relative; }
+            .province-card .province-overlay { display: none; }
+            .province-card .province-name { display: block; position: absolute; top: 10px; left: 10px; color: #FFFFFF; font-size: 16px; font-weight: 600; background: rgba(74, 44, 89, 0.7); padding: 5px 10px; border-radius: 3px; z-index: 10; }
+            .winery-card img.logo { width: 100%; height: 100%; object-fit: contain; background: #FFFFFF; padding: 5px; box-sizing: border-box; max-width: 100%; }
+            .search-container { max-width: 100%; padding: 0 10px; }
+            .search-input { font-size: 14px; padding: 8px 35px 8px 12px; }
+            .search-icon { font-size: 16px; right: 12px; }
+            .search-suggestions { font-size: 12px; }
+            .search-suggestions li { padding: 8px 12px; }
+            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
+            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
+            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        }
+        @media (min-width: 769px) {
+            .header { display: none; }
+            .info-icon { display: none; }
+            .hamburger { display: none; }
+            .winery-nav { display: none; }
+            .winery-grid.has-left, .winery-grid.has-right { box-shadow: none; }
+            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; justify-content: start; }
+            .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
+            .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
     </style>
 </head>
 <body>
-    <div class="language-selector">
-        <a aria-label="Spanish" data-lang="es" href="/es/index.html">ES 🇪🇸</a>
-        <a aria-label="German" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
-        <a aria-label="English" class="active" data-lang="en" href="/en/index.html">EN 🇬🇧</a>
+<div class="language-selector">
+    <a aria-label="Spanish" data-lang="es" href="/es/index.html">ES 🇪🇸</a>
+    <a aria-label="German" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
+    <a aria-label="English" class="active" data-lang="en" href="/en/index.html">EN 🇬🇧</a>
+</div>
+<header class="header">
+    <a href="/en/" title="Back to Home">
+        <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+    </a>
+</header>
+<button class="hamburger">☰</button>
+<main>
+    <div class="banner-carousel">
+        <div class="banner-container">
+            <div class="banner-item">
+                <a href="/en/events/events.html" title="Explore Events">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-en.jpg"/>
+                        <img src="/images/banners/banner-1-en.jpg" alt="1000malbecs Events" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Not+Available';">
+                    </picture>
+                </a>
+            </div>
+            <div class="banner-item">
+                <a href="/en/bodegas.html" title="Explore Wineries">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-en.jpg"/>
+                        <img src="/images/banners/banner-2-en.jpg" alt="Argentine Wineries" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Not+Available';">
+                    </picture>
+                </a>
+            </div>
+            <div class="banner-item">
+                <a href="/en/provincias.html" title="Explore Provinces">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-en.jpg"/>
+                        <img src="/images/banners/banner-3-en.jpg" alt="Winegrowing Provinces" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Not+Available';">
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <div class="banner-nav">
+            <button onclick="moveBanner(-1)">❮</button>
+            <button onclick="moveBanner(1)">❯</button>
+        </div>
     </div>
-    <header class="header">
-        <a href="/en/" title="Back to Home">
-            <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
-        </a>
-    </header>
-    <button class="hamburger">☰</button>
-    <main>
-        <section class="banner-carousel">
-            <div class="banner-container">
-                <div class="banner-item">
-                    <a href="/en/events/events.html" title="Explore Events">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-en.jpg"/>
-                            <img src="/images/banners/banner-1-en.jpg" alt="1000malbecs Events" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Not+Available';">
-                        </picture>
-                    </a>
-                </div>
-                <div class="banner-item">
-                    <a href="/en/bodegas.html" title="Explore Wineries">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-en.jpg"/>
-                            <img src="/images/banners/banner-2-en.jpg" alt="Argentine Wineries" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Not+Available';">
-                        </picture>
-                    </a>
-                </div>
-                <div class="banner-item">
-                    <a href="/en/provincias.html" title="Explore Provinces">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-en.jpg"/>
-                            <img src="/images/banners/banner-3-en.jpg" alt="Winegrowing Provinces" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Not+Available';">
-                        </picture>
-                    </a>
-                </div>
-            </div>
-            <div class="banner-nav">
-                <button onclick="moveBanner(-1)">❮</button>
-                <button onclick="moveBanner(1)">❯</button>
-            </div>
-        </section>
-        <section class="search-container">
-            <input class="search-input" type="text" placeholder="Search for your favorite wine...">
-            <i class="fas fa-search search-icon"></i>
-            <ul class="search-suggestions"></ul>
-        </section>
-        <section>
-            <h3 class="section-title">Recommended Wines</h3>
-            <div class="product-grid">
-                
+    <div class="search-container">
+        <input class="search-input" type="text" placeholder="Search for your favorite wine...">
+        <i class="fas fa-search search-icon"></i>
+        <ul class="search-suggestions"></ul>
+    </div>
+    <h3 class="section-title">Recommended Wines</h3>
+    <div class="product-grid">
+        
                 <div class="product-card" data-overlay-id="noem-a-malbec">
                     <img src="/images/small/noemia-malbec-2020.jpg" alt="Bottle of Noemía Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                     <div class="info-icon" data-overlay-id="noem-a-malbec">🍷</div>
@@ -248,68 +323,62 @@
                     <a class="buy-button" href="/en/vinos/enrique-foster-malbec-firmado.html">Buy Now</a>
                 </div>
             
-            </div>
-        </section>
-        <section>
-            <h3 class="section-title">Visit Our Wineries</h3>
-            <div class="winery-grid">
-                <a class="winery-card" href="/en/bodegas/bodega-foster-lorca.html">
-                    <img class="logo" src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Bodega Foster Lorca Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <a class="winery-card" href="/en/bodegas/bodegas-bianchi.html">
-                    <img class="logo" src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Bodegas Bianchi Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <a class="winery-card" href="/en/bodegas/luigi-bosca.html">
-                    <img class="logo" src="/images/bodegas/logo-luigi-bosca.jpg" alt="Luigi Bosca Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <a class="winery-card" href="/en/bodegas/bodega-tukma.html">
-                    <img class="logo" src="/images/bodegas/logo-bodega-tukma.jpg" alt="Bodega Tukma Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <a class="winery-card" href="/en/bodegas/bemberg-estate-wines.html">
-                    <img class="logo" src="/images/bodegas/logo-bemberg-estate-wines.jpg" alt="Bemberg Estate Wines Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <a class="winery-card" href="/en/bodegas/agustin-lanus.html">
-                    <img class="logo" src="/images/bodegas/logo-agustin-lanus.jpg" alt="Agustín Lanús Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <a class="winery-card" href="/en/bodegas/rutini-wines.html">
-                    <img class="logo" src="/images/bodegas/logo-rutini-wines.jpg" alt="Rutini Wines Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <a class="winery-card" href="/en/bodegas/finca-las-moras.html">
-                    <img class="logo" src="/images/bodegas/logo-finca-las-moras.jpg" alt="Finca Las Moras Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-                </a>
-                <div class="winery-nav">
-                    <button class="winery-prev hidden">❮</button>
-                    <button class="winery-next">❯</button>
-                </div>
-            </div>
-        </section>
-        <section>
-            <h3 class="section-title">Discover Our Provinces</h3>
-            <div class="province-grid">
-                <a class="province-card" href="/en/provincias/mendoza.html">
-                    <img src="/images/provincia/mendoza-image.jpg" alt="Mendoza Vineyards">
-                    <span class="province-name">Mendoza</span>
-                    <div class="province-overlay">Mendoza</div>
-                </a>
-                <a class="province-card" href="/en/provincias/salta.html">
-                    <img src="/images/provincia/salta-image.jpg" alt="Salta Vineyards">
-                    <span class="province-name">Salta</span>
-                    <div class="province-overlay">Salta</div>
-                </a>
-                <a class="province-card" href="/en/provincias/la-rioja.html">
-                    <img src="/images/provincia/la-rioja-image.jpg" alt="La Rioja Vineyards">
-                    <span class="province-name">La Rioja</span>
-                    <div class="province-overlay">La Rioja</div>
-                </a>
-                <a class="province-card" href="/en/provincias/neuquen.html">
-                    <img src="/images/provincia/neuquén-image.jpg" alt="Neuquén Vineyards">
-                    <span class="province-name">Neuquén</span>
-                    <div class="province-overlay">Neuquén</div>
-                </a>
-            </div>
-        </section>
-        <section>
-            <div class="twitter-box">
+    </div>
+    <h3 class="section-title">Visit Our Wineries</h3>
+    <div class="winery-grid">
+        <a class="winery-card" href="/en/bodegas/bodega-foster-lorca.html">
+            <img class="logo" src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Bodega Foster Lorca Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/en/bodegas/bodegas-bianchi.html">
+            <img class="logo" src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Bodegas Bianchi Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/en/bodegas/luigi-bosca.html">
+            <img class="logo" src="/images/bodegas/logo-luigi-bosca.jpg" alt="Luigi Bosca Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/en/bodegas/bodega-tukma.html">
+            <img class="logo" src="/images/bodegas/logo-bodega-tukma.jpg" alt="Bodega Tukma Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/en/bodegas/bemberg-estate-wines.html">
+            <img class="logo" src="/images/bodegas/logo-bemberg-estate-wines.jpg" alt="Bemberg Estate Wines Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/en/bodegas/agustin-lanus.html">
+            <img class="logo" src="/images/bodegas/logo-agustin-lanus.jpg" alt="Agustín Lanús Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/en/bodegas/rutini-wines.html">
+            <img class="logo" src="/images/bodegas/logo-rutini-wines.jpg" alt="Rutini Wines Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <a class="winery-card" href="/en/bodegas/finca-las-moras.html">
+            <img class="logo" src="/images/bodegas/logo-finca-las-moras.jpg" alt="Finca Las Moras Logo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
+        </a>
+        <div class="winery-nav">
+            <button class="winery-prev hidden">❮</button>
+            <button class="winery-next">❯</button>
+        </div>
+    </div>
+    <h3 class="section-title">Discover Our Provinces</h3>
+    <div class="province-grid">
+        <a class="province-card" href="/en/provincias/mendoza.html">
+            <img src="/images/provincia/mendoza-image.jpg" alt="Mendoza Vineyards">
+            <span class="province-name">Mendoza</span>
+            <div class="province-overlay">Mendoza</div>
+        </a>
+        <a class="province-card" href="/en/provincias/salta.html">
+            <img src="/images/provincia/salta-image.jpg" alt="Salta Vineyards">
+            <span class="province-name">Salta</span>
+            <div class="province-overlay">Salta</div>
+        </a>
+        <a class="province-card" href="/en/provincias/la-rioja.html">
+            <img src="/images/provincia/la-rioja-image.jpg" alt="La Rioja Vineyards">
+            <span class="province-name">La Rioja</span>
+            <div class="province-overlay">La Rioja</div>
+        </a>
+        <a class="province-card" href="/en/provincias/neuquen.html">
+            <img src="/images/provincia/neuquén-image.jpg" alt="Neuquén Vineyards">
+            <span class="province-name">Neuquén</span>
+            <div class="province-overlay">Neuquén</div>
+        </a>
+    </div>
+    <div class="twitter-box">
         <h2 class="section-title">Tweets about Malbec</h2>
         <div class="tweet-carousel">
             <div class="tweet-container">
@@ -377,264 +446,241 @@ No✋I am being good 😂</p>
             </div>
         </div>
     </div>
-        </section>
-    </main>
-    <script>
-        // Hamburger menu
-        var hamburger = document.querySelector('.hamburger');
-        if (hamburger) {
-            hamburger.addEventListener('click', function() {
-                console.log('Hamburger clicked');
-                // Add sidebar toggle logic if needed
-            });
-        }
-
-        // Banner carousel
-        var currentBanner = 0;
-        var banners = document.querySelectorAll('.banner-item');
-        var bannerContainer = document.querySelector('.banner-container');
-        console.log('Number of banners:', banners.length);
-        function moveBanner(direction) {
-            currentBanner += direction;
-            if (currentBanner < 0) currentBanner = banners.length - 1;
-            if (currentBanner >= banners.length) currentBanner = 0;
-            bannerContainer.style.transform = 'translateX(-' + (currentBanner * 100) + '%)';
-            console.log('Current banner:', currentBanner);
-        }
-        if (banners.length > 1) {
-            setInterval(function() { moveBanner(1); }, 5000);
-        }
-
-        // Tweet carousel
-        var currentTweet = 0;
-        var tweetItems = document.querySelectorAll('.tweet-item');
-        var tweetContainer = document.querySelector('.tweet-container');
-        console.log('Number of tweets:', tweetItems.length);
-        function moveTweet(direction) {
-            console.log('Moving tweet, direction:', direction);
-            currentTweet += direction;
-            if (currentTweet < 0) currentTweet = tweetItems.length - 1;
-            if (currentTweet >= tweetItems.length) currentTweet = 0;
-            tweetContainer.style.transform = 'translateX(-' + (currentTweet * 100) + '%)';
-            console.log('Current tweet:', currentTweet);
-        }
-        if (tweetItems.length > 1) {
-            setInterval(function() { moveTweet(1); }, 5000);
-        }
-
-        // Overlay for product cards
-        if (window.innerWidth <= 768) {
-            var infoIcons = document.querySelectorAll('.info-icon');
-            for (var i = 0; i < infoIcons.length; i++) {
-                ['click', 'touchstart'].forEach(function(eventType) {
-                    infoIcons[i].addEventListener(eventType, function(e) {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        var overlayId = this.getAttribute('data-overlay-id');
-                        var overlay = document.querySelector('.overlay[data-overlay-id="' + overlayId + '"]');
-                        var isActive = overlay.classList.contains('active');
-                        document.querySelectorAll('.overlay.active').forEach(function(ov) {
-                            ov.classList.remove('active');
-                        });
-                        if (!isActive && overlay) {
-                            overlay.classList.add('active');
-                        }
-                    }, { passive: false });
-                });
-            }
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
-                    document.querySelectorAll('.overlay.active').forEach(function(overlay) {
-                        overlay.classList.remove('active');
-                    });
-                }
-            });
-        }
-
-        // Buy buttons
-        var buyButtons = document.querySelectorAll('.buy-button');
-        for (var i = 0; i < buyButtons.length; i++) {
-            buyButtons[i].addEventListener('click', function(e) {
-                e.stopPropagation();
-                console.log('Buy button clicked:', this.href);
-            });
-        }
-
-        // Language selector
-        var languageSelector = document.querySelector('.language-selector');
-        var lastScrollY = window.scrollY;
-        var scrollThreshold = 50;
-        if (languageSelector) {
-            window.addEventListener('scroll', function() {
-                var currentScrollY = window.scrollY;
-                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                    languageSelector.classList.add('hidden');
-                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                    languageSelector.classList.remove('hidden');
-                }
-                lastScrollY = currentScrollY;
-            });
-            var langLinks = languageSelector.querySelectorAll('a[data-lang]');
-            for (var i = 0; i < langLinks.length; i++) {
-                langLinks[i].addEventListener('click', function(e) {
+</main>
+<script>
+    var hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            console.log('Hamburger clicked');
+            // Add sidebar toggle logic if needed
+        });
+    }
+    var currentBanner = 0;
+    var banners = document.querySelectorAll('.banner-item');
+    var bannerContainer = document.querySelector('.banner-container');
+    console.log('Number of banners:', banners.length);
+    function moveBanner(direction) {
+        currentBanner += direction;
+        if (currentBanner < 0) currentBanner = banners.length - 1;
+        if (currentBanner >= banners.length) currentBanner = 0;
+        bannerContainer.style.transform = 'translateX(-' + (currentBanner * 100) + '%)';
+        console.log('Current banner:', currentBanner);
+    }
+    if (banners.length > 1) {
+        setInterval(function() { moveBanner(1); }, 5000);
+    }
+    var currentTweet = 0;
+    var tweetItems = document.querySelectorAll('.tweet-item');
+    var tweetContainer = document.querySelector('.tweet-container');
+    console.log('Number of tweets:', tweetItems.length);
+    function moveTweet(direction) {
+        currentTweet += direction;
+        if (currentTweet < 0) currentTweet = tweetItems.length - 1;
+        if (currentTweet >= tweetItems.length) currentTweet = 0;
+        tweetContainer.style.transform = 'translateX(-' + (currentTweet * 100) + '%)';
+        console.log('Current tweet:', currentTweet);
+    }
+    if (tweetItems.length > 1) {
+        setInterval(function() { moveTweet(1); }, 5000);
+    }
+    if (window.innerWidth <= 768) {
+        var infoIcons = document.querySelectorAll('.info-icon');
+        for (var i = 0; i < infoIcons.length; i++) {
+            ['click', 'touchstart'].forEach(function(eventType) {
+                infoIcons[i].addEventListener(eventType, function(e) {
+                    e.stopPropagation();
                     e.preventDefault();
-                    var targetLang = this.getAttribute('data-lang');
-                    var currentPath = window.location.pathname;
-                    var newPath = currentPath;
-                    if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
-                    else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
-                    else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
-                    if (newPath !== currentPath) {
-                        console.log('Switching language to:', targetLang, newPath);
-                        window.location.href = newPath;
+                    var overlayId = this.getAttribute('data-overlay-id');
+                    var overlay = document.querySelector('.overlay[data-overlay-id="' + overlayId + '"]');
+                    var isActive = overlay.classList.contains('active');
+                    document.querySelectorAll('.overlay.active').forEach(function(ov) {
+                        ov.classList.remove('active');
+                    });
+                    if (!isActive && overlay) {
+                        overlay.classList.add('active');
                     }
+                }, { passive: false });
+            });
+        }
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
+                document.querySelectorAll('.overlay.active').forEach(function(overlay) {
+                    overlay.classList.remove('active');
                 });
             }
-            var currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'en';
-            for (var i = 0; i < langLinks.length; i++) {
-                if (langLinks[i].getAttribute('data-lang') === currentLang) {
-                    langLinks[i].classList.add('active');
+        });
+    }
+    var buyButtons = document.querySelectorAll('.buy-button');
+    for (var i = 0; i < buyButtons.length; i++) {
+        buyButtons[i].addEventListener('click', function(e) {
+            e.stopPropagation();
+            console.log('Buy button clicked:', this.href);
+        });
+    }
+    var languageSelector = document.querySelector('.language-selector');
+    var lastScrollY = window.scrollY;
+    var scrollThreshold = 50;
+    if (languageSelector) {
+        window.addEventListener('scroll', function() {
+            var currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                languageSelector.classList.add('hidden');
+            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                languageSelector.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+        var langLinks = languageSelector.querySelectorAll('a[data-lang]');
+        for (var i = 0; i < langLinks.length; i++) {
+            langLinks[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetLang = this.getAttribute('data-lang');
+                var currentPath = window.location.pathname;
+                var newPath = currentPath;
+                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
+                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
+                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
+                if (newPath !== currentPath) {
+                    console.log('Switching language to:', targetLang, newPath);
+                    window.location.href = newPath;
                 }
+            });
+        }
+        var currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'en';
+        for (var i = 0; i < langLinks.length; i++) {
+            if (langLinks[i].getAttribute('data-lang') === currentLang) {
+                langLinks[i].classList.add('active');
             }
         }
-
-        // Search bar
-        var searchInput = document.querySelector('.search-input');
-        var suggestionsList = document.querySelector('.search-suggestions');
-        var wines = [{"name": "Bad Brothers Malbec Premium", "bodega": "Agustin Lanus", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/bad-brothers-malbec-premium.html"}, {"name": "Sunal Ilogico Malbec ", "bodega": "Agustin Lanus", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/sunal-ilogico-malbec.html"}, {"name": "CHANARMUYO Estate Malbec", "bodega": "Bodega Chanarmuyo", "provincia": "La Rioja", "region": "Valle de Famatina", "url": "/en/vinos/chanarmuyo-estate-malbec.html"}, {"name": "135 Aniversario", "bodega": "Bodega Goyenechea", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/135-aniversario.html"}, {"name": "Goye Malbec", "bodega": "Bodega Goyenechea", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/goye-malbec.html"}, {"name": "Quinta Generación Malbec", "bodega": "Bodega Goyenechea", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/quinta-generaci-n-malbec.html"}, {"name": "Septima Malbec", "bodega": "Bodega Séptima", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/septima-malbec.html"}, {"name": "Septima Rose de Malbec", "bodega": "Bodega Séptima", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/septima-rose-de-malbec.html"}, {"name": "Tukma Malbec", "bodega": "Bodega Tukma", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/tukma-malbec.html"}, {"name": "Tukma Gran Corte", "bodega": "Bodega Tukma", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/tukma-gran-corte.html"}, {"name": "Enzo Bianchi Gran Malbec", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/enzo-bianchi-gran-malbec.html"}, {"name": "Famiglia Bianchi Malbec", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/famiglia-bianchi-malbec.html"}, {"name": "Famiglia Bianchi Malbec ", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/famiglia-bianchi-malbec.html"}, {"name": "Gran Famiglia  Malbec ", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/gran-famiglia-malbec.html"}, {"name": "Particular Malbec ", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/particular-malbec.html"}, {"name": "Particular Malbec 2019 Magnum 1.5 Lts", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/particular-malbec-2019-magnum-1-5-lts.html"}, {"name": "Particular Malbec", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/particular-malbec.html"}, {"name": "Amar Vivir Malbec", "bodega": "Finca &amp; Bodega Arca Yaco", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/amar-vivir-malbec.html"}, {"name": "Imaginate Malbec", "bodega": "Finca &amp; Bodega Arca Yaco", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/imaginate-malbec.html"}, {"name": "Casa Araujo Mimi", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/casa-araujo-mimi.html"}, {"name": "Casa Araujo Roble", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/casa-araujo-roble.html"}, {"name": "Casa Araujo Varietal", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/casa-araujo-varietal.html"}, {"name": "Graciano Reserva Blend", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/graciano-reserva-blend.html"}, {"name": "Nucha", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/nucha.html"}, {"name": "CHAKANA Nuna Malbec Bio", "bodega": "Chakana", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/chakana-nuna-malbec-bio.html"}, {"name": "CICCHITTI Gran Reserva Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-gran-reserva-malbec.html"}, {"name": "CICCHITTI Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-malbec.html"}, {"name": "Cicchitti Malbec Edición Limitada", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-malbec-edici-n-limitada.html"}, {"name": "CICCHITTI Primmo Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-primmo-malbec.html"}, {"name": "VOS Malbec de Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/vos-malbec-de-malbec.html"}, {"name": "Dilema Day Malbec", "bodega": "Bodega Estancia Mendoza", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/dilema-day-malbec.html"}, {"name": "Foster  Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec.html"}, {"name": "Foster  Malbec Magnum 1.25 lts", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-magnum-1-25-lts.html"}, {"name": "Foster  Malbec &#x27;Los Altepes&#x27;", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-x27-los-altepes-x27.html"}, {"name": "Foster  Malbec &#x27;Los Barrancos&#x27;", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-x27-los-barrancos-x27.html"}, {"name": "Foster  Malbec Limited Edition", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-limited-edition.html"}, {"name": "Enrique Foster  Malbec Firmado", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/enrique-foster-malbec-firmado.html"}, {"name": "Ique Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/ique-malbec.html"}, {"name": "Lois Sparkling Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/lois-sparkling-malbec.html"}, {"name": "Pink Malbec Rosado", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/pink-malbec-rosado.html"}, {"name": "Eral Bravo  Malbec", "bodega": "Eral Bravo", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/eral-bravo-malbec.html"}, {"name": "Urano  Malbec", "bodega": "Eral Bravo", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/urano-malbec.html"}, {"name": "Familia Schroeder  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/familia-schroeder-malbec.html"}, {"name": "Saurus  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/saurus-malbec.html"}, {"name": "Saurus Barrel Fermented  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/saurus-barrel-fermented-malbec.html"}, {"name": "Saurus Patagonia Select  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/saurus-patagonia-select-malbec.html"}, {"name": "Tomero  Cuartel 41 Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-cuartel-41-malbec.html"}, {"name": "Tomero Cuartel 41 Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-cuartel-41-malbec.html"}, {"name": "Tomero Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-malbec.html"}, {"name": "Tomero Single Vineyard Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-single-vineyard-malbec.html"}, {"name": "Vistalba  Gran Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/vistalba-gran-malbec.html"}, {"name": "Vistalba  Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/vistalba-malbec.html"}, {"name": "Caminante de los Mundos Malbec Bio", "bodega": "Jasmine Monet", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/caminante-de-los-mundos-malbec-bio.html"}, {"name": "A CONTRAMANO Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/a-contramano-malbec.html"}, {"name": "FINCA GABRIEL Edición Especial Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/finca-gabriel-edici-n-especial-malbec.html"}, {"name": "FINCA GABRIEL Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/finca-gabriel-malbec.html"}, {"name": "JORGE RUBIO GRAN RESERVA Malbec Magnum", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-gran-reserva-malbec-magnum.html"}, {"name": "JORGE RUBIO GRAN RESERVA Malbec/Merlot", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-gran-reserva-malbec-merlot.html"}, {"name": "JORGE RUBIO PREMIADO Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-premiado-malbec.html"}, {"name": "JORGE RUBIO PRIVADO Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-privado-malbec.html"}, {"name": "LA Grupa Syrah Malbec 0.75", "bodega": "Bodega Estancia Mendoza", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/la-grupa-syrah-malbec-0-75.html"}, {"name": "LA Grupa Syrah Malbec 1.25", "bodega": "Bodega Estancia Mendoza", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/la-grupa-syrah-malbec-1-25.html"}, {"name": "LUIGI BOSCA De SANGRE Malbec D.O.C", "bodega": "Luigi Bosca", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/luigi-bosca-de-sangre-malbec-d-o-c.html"}, {"name": "LUIGI BOSCA Malbec", "bodega": "Luigi Bosca", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/luigi-bosca-malbec.html"}, {"name": "Fantasía Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/fantas-a-malbec.html"}, {"name": "Gran Poético Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/gran-po-tico-malbec.html"}, {"name": "Temático Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/tem-tico-malbec.html"}, {"name": "Zapam Zucum Organic Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/zapam-zucum-organic-malbec.html"}, {"name": "Paso de Piedra Malbec", "bodega": "Viña Alicia", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/paso-de-piedra-malbec.html"}, {"name": "Viña Alicia Malbec", "bodega": "Viña Alicia", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/vi-a-alicia-malbec.html"}, {"name": "Carrascal Malbec", "bodega": "Weinert Bodega y Cavas", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/carrascal-malbec.html"}, {"name": "Weinert Malbec ", "bodega": "Weinert Bodega y Cavas", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/weinert-malbec.html"}, {"name": "Weinert Malbec", "bodega": "Weinert Bodega y Cavas", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/weinert-malbec.html"}, {"name": "Finca Las Nubes Malbec", "bodega": "Finca Las Nubes", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/finca-las-nubes-malbec.html"}, {"name": "San Felipe Varietal Malbec", "bodega": "La Rural", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/san-felipe-varietal-malbec.html"}, {"name": "San Felipe en Roble Malbec", "bodega": "La Rural", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/san-felipe-en-roble-malbec.html"}, {"name": "Trumpeter Malbec 375 ml", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-malbec-375-ml.html"}, {"name": "Trumpeter Malbec Syrah", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-malbec-syrah.html"}, {"name": "Trumpeter Reserve Rose de Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-reserve-rose-de-malbec.html"}, {"name": "Trumpeter Reserve Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-reserve-malbec.html"}, {"name": "Trumpeter Reserve Blend", "bodega": "Rutini Wines", "provincia": "nan", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-reserve-blend.html"}, {"name": "Trumpeter Espumante Rose de Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-espumante-rose-de-malbec.html"}, {"name": "Rutini Encuentro Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-encuentro-malbec.html"}, {"name": "Rutini Dominio Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-dominio-malbec.html"}, {"name": "Rutini Dominio Malbec Cabernet Franc", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-dominio-malbec-cabernet-franc.html"}, {"name": "Rutini Dominio Gran Blend", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-dominio-gran-blend.html"}, {"name": "Rutini Colección Cabernet Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-colecci-n-cabernet-malbec.html"}, {"name": "Rutini Colección Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-colecci-n-malbec.html"}, {"name": "Rutini Single Vineyard Malbec Gualtallary", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/rutini-single-vineyard-malbec-gualtallary.html"}, {"name": "Rutini Encuentro Barrel Blend", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/rutini-encuentro-barrel-blend.html"}, {"name": "Rutini Antología XXXVIII", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-antolog-a-xxxviii.html"}, {"name": "Felipe Rutini", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/felipe-rutini.html"}, {"name": "Rutini Apartado Gran Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-apartado-gran-malbec.html"}, {"name": "Trapiche Reserve Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-reserve-malbec.html"}, {"name": "Trapiche Medalla Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-medalla-malbec.html"}, {"name": "Trapiche Terroir Series Limited Edition Malbec Las Piedras", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-limited-edition-malbec-las-piedras.html"}, {"name": "Trapiche Terroir Series Limited Edition Malbec Finca El Milagro", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-limited-edition-malbec-finca-el-milagro.html"}, {"name": "Trapiche Terroir Series Malbec Suarez Lastra", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-malbec-suarez-lastra.html"}, {"name": "Trapiche Terroir Series Malbec Orellana", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-malbec-orellana.html"}, {"name": "Trapiche Terroir Series SV Malbec Ambrosia", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-sv-malbec-ambrosia.html"}, {"name": "Trapiche Iscay Malbec Cabernet Franc", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-iscay-malbec-cabernet-franc.html"}, {"name": "Trapiche Manos Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-manos-malbec.html"}, {"name": "Don David Reserve Malbec", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/don-david-reserve-malbec.html"}, {"name": "El Esteco Blend de Extremos Malbec", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/el-esteco-blend-de-extremos-malbec.html"}, {"name": "Finca Las Moras Mora Negra Malbec-Bonarda", "bodega": "Finca Las Moras", "provincia": "San Juan", "region": "Valle de Pedernal", "url": "/en/vinos/finca-las-moras-mora-negra-malbec-bonarda.html"}, {"name": "San Telmo Malbec", "bodega": "San Telmo", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/san-telmo-malbec.html"}, {"name": "Pequeña Vasija Malbec", "bodega": "La Rural", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/peque-a-vasija-malbec.html"}, {"name": "Trumpeter Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-malbec.html"}, {"name": "Trapiche Gran Medalla Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-gran-medalla-malbec.html"}, {"name": "El Esteco Malbec", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/el-esteco-malbec.html"}, {"name": "Finca Las Moras Sagrado Pedernal Malbec", "bodega": "Finca Las Moras", "provincia": "San Juan", "region": "Valle de Pedernal", "url": "/en/vinos/finca-las-moras-sagrado-pedernal-malbec.html"}, {"name": "La Mascota Malbec", "bodega": "Mascota Vineyards", "provincia": "Mendoza", "region": "Maipú", "url": "/en/vinos/la-mascota-malbec.html"}, {"name": "Bemberg Estate La Linterna Malbec", "bodega": "Bemberg Estate Wines", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/bemberg-estate-la-linterna-malbec.html"}, {"name": "nan", "bodega": "nan", "provincia": "nan", "region": "nan", "url": "/en/vinos/nan.html"}, {"name": "Noemía Malbec", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/noem-a-malbec.html"}, {"name": "Chañar Punco", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/cha-ar-punco.html"}, {"name": "Unánime Gran Vino Tinto", "bodega": "Mascota Vineyards", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/un-nime-gran-vino-tinto.html"}, {"name": "Oro Negro Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle Norte", "url": "/en/vinos/oro-negro-malbec.html"}, {"name": "Chacabuco Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle Norte", "url": "/en/vinos/chacabuco-malbec.html"}, {"name": "Los Haroldos Estate Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/los-haroldos-estate-malbec.html"}, {"name": "Los Haroldos Reserve Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/los-haroldos-reserve-malbec.html"}, {"name": "Los Haroldos Gran Corte Blend", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/los-haroldos-gran-corte-blend.html"}, {"name": "Hermandad Malbec", "bodega": "Falasco Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/hermandad-malbec.html"}, {"name": "Hermandad Blend", "bodega": "Falasco Wines", "provincia": "Mendoza", "region": "Valle Norte", "url": "/en/vinos/hermandad-blend.html"}, {"name": "Humberto Canale Old Vineyard Malbec  ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/humberto-canale-old-vineyard-malbec.html"}, {"name": "Humberto Canale Gran Reserva Malbec", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/humberto-canale-gran-reserva-malbec.html"}, {"name": "Humberto Canale Estate Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/humberto-canale-estate-malbec.html"}, {"name": "Intimo Blend: Cabernet, Merlot, Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/intimo-blend-cabernet-merlot-malbec.html"}, {"name": "Íntimo Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/ntimo-malbec.html"}, {"name": "Canale Black River Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/canale-black-river-malbec.html"}, {"name": "Monteagrelo Malbec", "bodega": "Bodega Bressia", "provincia": "Mendoza", "region": "Agrelo ", "url": "/en/vinos/monteagrelo-malbec.html"}, {"name": "Bressia Conjuro Blend", "bodega": "Bodega Bressia", "provincia": "Mendoza", "region": "Agrelo Tupungato", "url": "/en/vinos/bressia-conjuro-blend.html"}, {"name": "Bressia Profundo Blend", "bodega": "Bodega Bressia", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/bressia-profundo-blend.html"}, {"name": "A Corazón Abierto Malbec", "bodega": "A Corazon Abierto", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/a-coraz-n-abierto-malbec.html"}, {"name": "A Corazón Abierto Gran Corte", "bodega": "A Corazon Abierto", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/a-coraz-n-abierto-gran-corte.html"}, {"name": "Finca La Anita Malbec", "bodega": "Finca La Anita", "provincia": "Mendoza", "region": "Alto Agrelo", "url": "/en/vinos/finca-la-anita-malbec.html"}, {"name": "Magna Finca Malbec", "bodega": "Finca La Anita", "provincia": "Mendoza", "region": "Alto Agrelo", "url": "/en/vinos/magna-finca-malbec.html"}, {"name": "Finca La Anita Gran Corte", "bodega": "Finca La Anita", "provincia": "Mendoza", "region": "Alto Agrelo", "url": "/en/vinos/finca-la-anita-gran-corte.html"}, {"name": "Premium Reserva Malbec Mendoza", "bodega": "Piattelli Vineyards", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/premium-reserva-malbec-mendoza.html"}, {"name": "Reserva Malbec Salta", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/reserva-malbec-salta.html"}, {"name": "Reserva Malbec Tannat", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/reserva-malbec-tannat.html"}, {"name": "Gran Reserva Malbec Salta", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/gran-reserva-malbec-salta.html"}, {"name": "Gran Reserva Malbec Mendoza", "bodega": "Piattelli Vineyards", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/gran-reserva-malbec-mendoza.html"}, {"name": "Trinitá Gran Reserva Blend", "bodega": "Piattelli Vineyards", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/trinit-gran-reserva-blend.html"}, {"name": "Arlene Malbec y Cabernet Sauvignon", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/arlene-malbec-y-cabernet-sauvignon.html"}, {"name": "A Lisa Malbec", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/a-lisa-malbec.html"}, {"name": "J Alberto", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/j-alberto.html"}, {"name": "A Lisa Malbec Magnum 1500 cc", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/a-lisa-malbec-magnum-1500-cc.html"}];
-        console.log('Embedded wines:', wines.slice(0, 2));
-        console.log('Wines length:', wines.length);
-
-        if (wines.length === 0) {
-            console.log('No embedded wines, attempting to fetch /en/vinos.json');
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/en/vinos.json', true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        try {
-                            wines = JSON.parse(xhr.responseText);
-                            console.log('Fetched wines:', wines.slice(0, 2));
-                        } catch (e) {
-                            console.error('JSON parse error:', e);
-                            suggestionsList.innerHTML = '<li>Error loading wines. Please try again.</li>';
-                            suggestionsList.style.display = 'block';
-                        }
-                    } else {
-                        console.error('Fetch error:', xhr.status);
+    }
+    var searchInput = document.querySelector('.search-input');
+    var suggestionsList = document.querySelector('.search-suggestions');
+    var wines = [{"name": "Bad Brothers Malbec Premium", "bodega": "Agustin Lanus", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/bad-brothers-malbec-premium.html"}, {"name": "Sunal Ilogico Malbec ", "bodega": "Agustin Lanus", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/sunal-ilogico-malbec.html"}, {"name": "CHANARMUYO Estate Malbec", "bodega": "Bodega Chanarmuyo", "provincia": "La Rioja", "region": "Valle de Famatina", "url": "/en/vinos/chanarmuyo-estate-malbec.html"}, {"name": "135 Aniversario", "bodega": "Bodega Goyenechea", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/135-aniversario.html"}, {"name": "Goye Malbec", "bodega": "Bodega Goyenechea", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/goye-malbec.html"}, {"name": "Quinta Generación Malbec", "bodega": "Bodega Goyenechea", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/quinta-generaci-n-malbec.html"}, {"name": "Septima Malbec", "bodega": "Bodega Séptima", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/septima-malbec.html"}, {"name": "Septima Rose de Malbec", "bodega": "Bodega Séptima", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/septima-rose-de-malbec.html"}, {"name": "Tukma Malbec", "bodega": "Bodega Tukma", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/tukma-malbec.html"}, {"name": "Tukma Gran Corte", "bodega": "Bodega Tukma", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/tukma-gran-corte.html"}, {"name": "Enzo Bianchi Gran Malbec", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/enzo-bianchi-gran-malbec.html"}, {"name": "Famiglia Bianchi Malbec", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/famiglia-bianchi-malbec.html"}, {"name": "Famiglia Bianchi Malbec ", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/famiglia-bianchi-malbec.html"}, {"name": "Gran Famiglia  Malbec ", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/gran-famiglia-malbec.html"}, {"name": "Particular Malbec ", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/particular-malbec.html"}, {"name": "Particular Malbec 2019 Magnum 1.5 Lts", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/particular-malbec-2019-magnum-1-5-lts.html"}, {"name": "Particular Malbec", "bodega": "Bodegas Bianchi", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/particular-malbec.html"}, {"name": "Amar Vivir Malbec", "bodega": "Finca &amp; Bodega Arca Yaco", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/amar-vivir-malbec.html"}, {"name": "Imaginate Malbec", "bodega": "Finca &amp; Bodega Arca Yaco", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/imaginate-malbec.html"}, {"name": "Casa Araujo Mimi", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/casa-araujo-mimi.html"}, {"name": "Casa Araujo Roble", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/casa-araujo-roble.html"}, {"name": "Casa Araujo Varietal", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/casa-araujo-varietal.html"}, {"name": "Graciano Reserva Blend", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/graciano-reserva-blend.html"}, {"name": "Nucha", "bodega": "Casa Araujo", "provincia": "Mendoza", "region": "San Rafael", "url": "/en/vinos/nucha.html"}, {"name": "CHAKANA Nuna Malbec Bio", "bodega": "Chakana", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/chakana-nuna-malbec-bio.html"}, {"name": "CICCHITTI Gran Reserva Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-gran-reserva-malbec.html"}, {"name": "CICCHITTI Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-malbec.html"}, {"name": "Cicchitti Malbec Edición Limitada", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-malbec-edici-n-limitada.html"}, {"name": "CICCHITTI Primmo Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/cicchitti-primmo-malbec.html"}, {"name": "VOS Malbec de Malbec", "bodega": "Cicchitti", "provincia": "Mendoza", "region": "Guaymallen", "url": "/en/vinos/vos-malbec-de-malbec.html"}, {"name": "Dilema Day Malbec", "bodega": "Bodega Estancia Mendoza", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/dilema-day-malbec.html"}, {"name": "Foster  Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec.html"}, {"name": "Foster  Malbec Magnum 1.25 lts", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-magnum-1-25-lts.html"}, {"name": "Foster  Malbec &#x27;Los Altepes&#x27;", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-x27-los-altepes-x27.html"}, {"name": "Foster  Malbec &#x27;Los Barrancos&#x27;", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-x27-los-barrancos-x27.html"}, {"name": "Foster  Malbec Limited Edition", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/foster-malbec-limited-edition.html"}, {"name": "Enrique Foster  Malbec Firmado", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/enrique-foster-malbec-firmado.html"}, {"name": "Ique Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/ique-malbec.html"}, {"name": "Lois Sparkling Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/lois-sparkling-malbec.html"}, {"name": "Pink Malbec Rosado", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/pink-malbec-rosado.html"}, {"name": "Eral Bravo  Malbec", "bodega": "Eral Bravo", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/eral-bravo-malbec.html"}, {"name": "Urano  Malbec", "bodega": "Eral Bravo", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/urano-malbec.html"}, {"name": "Familia Schroeder  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/familia-schroeder-malbec.html"}, {"name": "Saurus  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/saurus-malbec.html"}, {"name": "Saurus Barrel Fermented  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/saurus-barrel-fermented-malbec.html"}, {"name": "Saurus Patagonia Select  Malbec", "bodega": "Familia Schroeder", "provincia": "Neuquén", "region": "San Patricio del Chañar", "url": "/en/vinos/saurus-patagonia-select-malbec.html"}, {"name": "Tomero  Cuartel 41 Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-cuartel-41-malbec.html"}, {"name": "Tomero Cuartel 41 Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-cuartel-41-malbec.html"}, {"name": "Tomero Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-malbec.html"}, {"name": "Tomero Single Vineyard Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/tomero-single-vineyard-malbec.html"}, {"name": "Vistalba  Gran Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/vistalba-gran-malbec.html"}, {"name": "Vistalba  Malbec", "bodega": "Finca y Bodega Vistalba", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/vistalba-malbec.html"}, {"name": "Caminante de los Mundos Malbec Bio", "bodega": "Jasmine Monet", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/caminante-de-los-mundos-malbec-bio.html"}, {"name": "A CONTRAMANO Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/a-contramano-malbec.html"}, {"name": "FINCA GABRIEL Edición Especial Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/finca-gabriel-edici-n-especial-malbec.html"}, {"name": "FINCA GABRIEL Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/finca-gabriel-malbec.html"}, {"name": "JORGE RUBIO GRAN RESERVA Malbec Magnum", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-gran-reserva-malbec-magnum.html"}, {"name": "JORGE RUBIO GRAN RESERVA Malbec/Merlot", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-gran-reserva-malbec-merlot.html"}, {"name": "JORGE RUBIO PREMIADO Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-premiado-malbec.html"}, {"name": "JORGE RUBIO PRIVADO Malbec", "bodega": "Jorge Rubio", "provincia": "Mendoza", "region": "General Alvear", "url": "/en/vinos/jorge-rubio-privado-malbec.html"}, {"name": "LA Grupa Syrah Malbec 0.75", "bodega": "Bodega Estancia Mendoza", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/la-grupa-syrah-malbec-0-75.html"}, {"name": "LA Grupa Syrah Malbec 1.25", "bodega": "Bodega Estancia Mendoza", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/la-grupa-syrah-malbec-1-25.html"}, {"name": "LUIGI BOSCA De SANGRE Malbec D.O.C", "bodega": "Luigi Bosca", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/luigi-bosca-de-sangre-malbec-d-o-c.html"}, {"name": "LUIGI BOSCA Malbec", "bodega": "Luigi Bosca", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/luigi-bosca-malbec.html"}, {"name": "Fantasía Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/fantas-a-malbec.html"}, {"name": "Gran Poético Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/gran-po-tico-malbec.html"}, {"name": "Temático Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/tem-tico-malbec.html"}, {"name": "Zapam Zucum Organic Malbec", "bodega": "Bodega Foster Lorca", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/zapam-zucum-organic-malbec.html"}, {"name": "Paso de Piedra Malbec", "bodega": "Viña Alicia", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/paso-de-piedra-malbec.html"}, {"name": "Viña Alicia Malbec", "bodega": "Viña Alicia", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/vi-a-alicia-malbec.html"}, {"name": "Carrascal Malbec", "bodega": "Weinert Bodega y Cavas", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/carrascal-malbec.html"}, {"name": "Weinert Malbec ", "bodega": "Weinert Bodega y Cavas", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/weinert-malbec.html"}, {"name": "Weinert Malbec", "bodega": "Weinert Bodega y Cavas", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/weinert-malbec.html"}, {"name": "Finca Las Nubes Malbec", "bodega": "Finca Las Nubes", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/finca-las-nubes-malbec.html"}, {"name": "San Felipe Varietal Malbec", "bodega": "La Rural", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/san-felipe-varietal-malbec.html"}, {"name": "San Felipe en Roble Malbec", "bodega": "La Rural", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/san-felipe-en-roble-malbec.html"}, {"name": "Trumpeter Malbec 375 ml", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-malbec-375-ml.html"}, {"name": "Trumpeter Malbec Syrah", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-malbec-syrah.html"}, {"name": "Trumpeter Reserve Rose de Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-reserve-rose-de-malbec.html"}, {"name": "Trumpeter Reserve Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-reserve-malbec.html"}, {"name": "Trumpeter Reserve Blend", "bodega": "Rutini Wines", "provincia": "nan", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-reserve-blend.html"}, {"name": "Trumpeter Espumante Rose de Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-espumante-rose-de-malbec.html"}, {"name": "Rutini Encuentro Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-encuentro-malbec.html"}, {"name": "Rutini Dominio Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-dominio-malbec.html"}, {"name": "Rutini Dominio Malbec Cabernet Franc", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-dominio-malbec-cabernet-franc.html"}, {"name": "Rutini Dominio Gran Blend", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-dominio-gran-blend.html"}, {"name": "Rutini Colección Cabernet Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-colecci-n-cabernet-malbec.html"}, {"name": "Rutini Colección Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-colecci-n-malbec.html"}, {"name": "Rutini Single Vineyard Malbec Gualtallary", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/rutini-single-vineyard-malbec-gualtallary.html"}, {"name": "Rutini Encuentro Barrel Blend", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Tupungato", "url": "/en/vinos/rutini-encuentro-barrel-blend.html"}, {"name": "Rutini Antología XXXVIII", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-antolog-a-xxxviii.html"}, {"name": "Felipe Rutini", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/felipe-rutini.html"}, {"name": "Rutini Apartado Gran Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/rutini-apartado-gran-malbec.html"}, {"name": "Trapiche Reserve Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-reserve-malbec.html"}, {"name": "Trapiche Medalla Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-medalla-malbec.html"}, {"name": "Trapiche Terroir Series Limited Edition Malbec Las Piedras", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-limited-edition-malbec-las-piedras.html"}, {"name": "Trapiche Terroir Series Limited Edition Malbec Finca El Milagro", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-limited-edition-malbec-finca-el-milagro.html"}, {"name": "Trapiche Terroir Series Malbec Suarez Lastra", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-malbec-suarez-lastra.html"}, {"name": "Trapiche Terroir Series Malbec Orellana", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-malbec-orellana.html"}, {"name": "Trapiche Terroir Series SV Malbec Ambrosia", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/trapiche-terroir-series-sv-malbec-ambrosia.html"}, {"name": "Trapiche Iscay Malbec Cabernet Franc", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-iscay-malbec-cabernet-franc.html"}, {"name": "Trapiche Manos Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-manos-malbec.html"}, {"name": "Don David Reserve Malbec", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/don-david-reserve-malbec.html"}, {"name": "El Esteco Blend de Extremos Malbec", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/el-esteco-blend-de-extremos-malbec.html"}, {"name": "Finca Las Moras Mora Negra Malbec-Bonarda", "bodega": "Finca Las Moras", "provincia": "San Juan", "region": "Valle de Pedernal", "url": "/en/vinos/finca-las-moras-mora-negra-malbec-bonarda.html"}, {"name": "San Telmo Malbec", "bodega": "San Telmo", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/san-telmo-malbec.html"}, {"name": "Pequeña Vasija Malbec", "bodega": "La Rural", "provincia": "Mendoza", "region": "Luján de Cuyo", "url": "/en/vinos/peque-a-vasija-malbec.html"}, {"name": "Trumpeter Malbec", "bodega": "Rutini Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trumpeter-malbec.html"}, {"name": "Trapiche Gran Medalla Malbec", "bodega": "Trapiche", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/trapiche-gran-medalla-malbec.html"}, {"name": "El Esteco Malbec", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle de Calchaquí", "url": "/en/vinos/el-esteco-malbec.html"}, {"name": "Finca Las Moras Sagrado Pedernal Malbec", "bodega": "Finca Las Moras", "provincia": "San Juan", "region": "Valle de Pedernal", "url": "/en/vinos/finca-las-moras-sagrado-pedernal-malbec.html"}, {"name": "La Mascota Malbec", "bodega": "Mascota Vineyards", "provincia": "Mendoza", "region": "Maipú", "url": "/en/vinos/la-mascota-malbec.html"}, {"name": "Bemberg Estate La Linterna Malbec", "bodega": "Bemberg Estate Wines", "provincia": "Mendoza", "region": "Gualtallary, Valle de Uco", "url": "/en/vinos/bemberg-estate-la-linterna-malbec.html"}, {"name": "nan", "bodega": "nan", "provincia": "nan", "region": "nan", "url": "/en/vinos/nan.html"}, {"name": "Noemía Malbec", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/noem-a-malbec.html"}, {"name": "Chañar Punco", "bodega": "El Esteco", "provincia": "Salta", "region": "Valle Calchaquí ", "url": "/en/vinos/cha-ar-punco.html"}, {"name": "Unánime Gran Vino Tinto", "bodega": "Mascota Vineyards", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/un-nime-gran-vino-tinto.html"}, {"name": "Oro Negro Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle Norte", "url": "/en/vinos/oro-negro-malbec.html"}, {"name": "Chacabuco Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle Norte", "url": "/en/vinos/chacabuco-malbec.html"}, {"name": "Los Haroldos Estate Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/los-haroldos-estate-malbec.html"}, {"name": "Los Haroldos Reserve Malbec", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/los-haroldos-reserve-malbec.html"}, {"name": "Los Haroldos Gran Corte Blend", "bodega": "Los Haroldos", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/los-haroldos-gran-corte-blend.html"}, {"name": "Hermandad Malbec", "bodega": "Falasco Wines", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/hermandad-malbec.html"}, {"name": "Hermandad Blend", "bodega": "Falasco Wines", "provincia": "Mendoza", "region": "Valle Norte", "url": "/en/vinos/hermandad-blend.html"}, {"name": "Humberto Canale Old Vineyard Malbec  ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/humberto-canale-old-vineyard-malbec.html"}, {"name": "Humberto Canale Gran Reserva Malbec", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/humberto-canale-gran-reserva-malbec.html"}, {"name": "Humberto Canale Estate Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/humberto-canale-estate-malbec.html"}, {"name": "Intimo Blend: Cabernet, Merlot, Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/intimo-blend-cabernet-merlot-malbec.html"}, {"name": "Íntimo Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/ntimo-malbec.html"}, {"name": "Canale Black River Malbec ", "bodega": "Humberto Canale", "provincia": "Río Negro", "region": "General Roca", "url": "/en/vinos/canale-black-river-malbec.html"}, {"name": "Monteagrelo Malbec", "bodega": "Bodega Bressia", "provincia": "Mendoza", "region": "Agrelo ", "url": "/en/vinos/monteagrelo-malbec.html"}, {"name": "Bressia Conjuro Blend", "bodega": "Bodega Bressia", "provincia": "Mendoza", "region": "Agrelo Tupungato", "url": "/en/vinos/bressia-conjuro-blend.html"}, {"name": "Bressia Profundo Blend", "bodega": "Bodega Bressia", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/bressia-profundo-blend.html"}, {"name": "A Corazón Abierto Malbec", "bodega": "A Corazon Abierto", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/a-coraz-n-abierto-malbec.html"}, {"name": "A Corazón Abierto Gran Corte", "bodega": "A Corazon Abierto", "provincia": "Mendoza", "region": "Valle de Uco", "url": "/en/vinos/a-coraz-n-abierto-gran-corte.html"}, {"name": "Finca La Anita Malbec", "bodega": "Finca La Anita", "provincia": "Mendoza", "region": "Alto Agrelo", "url": "/en/vinos/finca-la-anita-malbec.html"}, {"name": "Magna Finca Malbec", "bodega": "Finca La Anita", "provincia": "Mendoza", "region": "Alto Agrelo", "url": "/en/vinos/magna-finca-malbec.html"}, {"name": "Finca La Anita Gran Corte", "bodega": "Finca La Anita", "provincia": "Mendoza", "region": "Alto Agrelo", "url": "/en/vinos/finca-la-anita-gran-corte.html"}, {"name": "Premium Reserva Malbec Mendoza", "bodega": "Piattelli Vineyards", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/premium-reserva-malbec-mendoza.html"}, {"name": "Reserva Malbec Salta", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/reserva-malbec-salta.html"}, {"name": "Reserva Malbec Tannat", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/reserva-malbec-tannat.html"}, {"name": "Gran Reserva Malbec Salta", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/gran-reserva-malbec-salta.html"}, {"name": "Gran Reserva Malbec Mendoza", "bodega": "Piattelli Vineyards", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/gran-reserva-malbec-mendoza.html"}, {"name": "Trinitá Gran Reserva Blend", "bodega": "Piattelli Vineyards", "provincia": "Mendoza", "region": "Agrelo", "url": "/en/vinos/trinit-gran-reserva-blend.html"}, {"name": "Arlene Malbec y Cabernet Sauvignon", "bodega": "Piattelli Vineyards", "provincia": "Salta", "region": "Cafayate", "url": "/en/vinos/arlene-malbec-y-cabernet-sauvignon.html"}, {"name": "A Lisa Malbec", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/a-lisa-malbec.html"}, {"name": "J Alberto", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/j-alberto.html"}, {"name": "A Lisa Malbec Magnum 1500 cc", "bodega": "Bodega Noemía Patagonia", "provincia": "Rio Negro", "region": "Mainqué", "url": "/en/vinos/a-lisa-malbec-magnum-1500-cc.html"}];
+    console.log('Embedded wines:', wines.slice(0, 2));
+    console.log('Wines length:', wines.length);
+    if (wines.length === 0) {
+        console.log('No embedded wines, attempting to fetch /en/vinos.json');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/en/vinos.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        wines = JSON.parse(xhr.responseText);
+                        console.log('Fetched wines:', wines.slice(0, 2));
+                    } catch (e) {
+                        console.error('JSON parse error:', e);
                         suggestionsList.innerHTML = '<li>Error loading wines. Please try again.</li>';
                         suggestionsList.style.display = 'block';
                     }
+                } else {
+                    console.error('Fetch error:', xhr.status);
+                    suggestionsList.innerHTML = '<li>Error loading wines. Please try again.</li>';
+                    suggestionsList.style.display = 'block';
                 }
-            };
-            xhr.send();
-        }
-
-        if (searchInput && suggestionsList) {
-            searchInput.addEventListener('input', function() {
-                var query = this.value.trim().toLowerCase();
-                suggestionsList.innerHTML = '';
-                suggestionsList.style.display = 'none';
-                console.log('Search query:', query);
-                if (query.length >= 2) {
-                    var matches = wines.filter(function(wine) {
-                        var matchName = wine.name && wine.name.toLowerCase().includes(query);
-                        var matchBodega = wine.bodega && wine.bodega.toLowerCase().includes(query);
-                        var matchProvincia = wine.provincia && wine.provincia.toLowerCase().includes(query);
-                        var matchRegion = wine.region && wine.region.toLowerCase().includes(query);
-                        console.log('Wine: ' + (wine.name || 'Unknown') + ', Matches: name=' + matchName + ', bodega=' + matchBodega + ', provincia=' + matchProvincia + ', region=' + matchRegion);
-                        return matchName || matchBodega || matchProvincia || matchRegion;
-                    }).slice(0, 5);
-                    console.log('Search matches:', matches);
-                    if (matches.length > 0) {
-                        for (var i = 0; i < matches.length; i++) {
-                            var wine = matches[i];
-                            var li = document.createElement('li');
-                            li.textContent = (wine.name || 'Unknown') + ' - ' + (wine.bodega || 'Unknown') + ' (' + (wine.region || 'Unknown') + ', ' + (wine.provincia || 'Unknown') + ')';
-                            li.dataset.url = wine.url || '#';
-                            suggestionsList.appendChild(li);
-                        }
-                        suggestionsList.style.display = 'block';
-                    } else {
-                        suggestionsList.innerHTML = '<li>No results found</li>';
-                        suggestionsList.style.display = 'block';
+            }
+        };
+        xhr.send();
+    }
+    if (searchInput && suggestionsList) {
+        searchInput.addEventListener('input', function() {
+            var query = this.value.trim().toLowerCase();
+            suggestionsList.innerHTML = '';
+            suggestionsList.style.display = 'none';
+            console.log('Search query:', query);
+            if (query.length >= 2) {
+                var matches = wines.filter(function(wine) {
+                    var matchName = wine.name && wine.name.toLowerCase().includes(query);
+                    var matchBodega = wine.bodega && wine.bodega.toLowerCase().includes(query);
+                    var matchProvincia = wine.provincia && wine.provincia.toLowerCase().includes(query);
+                    var matchRegion = wine.region && wine.region.toLowerCase().includes(query);
+                    console.log('Wine: ' + (wine.name || 'Unknown') + ', Matches: name=' + matchName + ', bodega=' + matchBodega + ', provincia=' + matchProvincia + ', region=' + matchRegion);
+                    return matchName || matchBodega || matchProvincia || matchRegion;
+                }).slice(0, 5);
+                console.log('Search matches:', matches);
+                if (matches.length > 0) {
+                    for (var i = 0; i < matches.length; i++) {
+                        var wine = matches[i];
+                        var li = document.createElement('li');
+                        li.textContent = (wine.name || 'Unknown') + ' - ' + (wine.bodega || 'Unknown') + ' (' + (wine.region || 'Unknown') + ', ' + (wine.provincia || 'Unknown') + ')';
+                        li.dataset.url = wine.url || '#';
+                        suggestionsList.appendChild(li);
                     }
-                }
-            });
-
-            suggestionsList.addEventListener('click', function(e) {
-                var li = e.target.closest('li');
-                if (li && li.dataset.url) {
-                    console.log('Suggestion clicked:', li.dataset.url);
-                    window.location.href = li.dataset.url;
-                }
-            });
-
-            var focusedSuggestion = -1;
-            searchInput.addEventListener('keydown', function(e) {
-                var suggestions = suggestionsList.querySelectorAll('li');
-                if (suggestions.length === 0) return;
-                if (e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
-                    updateFocus(suggestions);
-                } else if (e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
-                    updateFocus(suggestions);
-                } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
-                    e.preventDefault();
-                    console.log('Enter pressed on suggestion:', suggestions[focusedSuggestion].dataset.url);
-                    window.location.href = suggestions[focusedSuggestion].dataset.url;
-                }
-            });
-
-            function updateFocus(suggestions) {
-                for (var i = 0; i < suggestions.length; i++) {
-                    suggestions[i].classList.toggle('focused', i === focusedSuggestion);
-                }
-                if (focusedSuggestion >= 0) {
-                    suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
+                    suggestionsList.style.display = 'block';
+                } else {
+                    suggestionsList.innerHTML = '<li>No results found</li>';
+                    suggestionsList.style.display = 'block';
                 }
             }
-
-            document.addEventListener('click', function(e) {
-                if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
-                    suggestionsList.style.display = 'none';
-                    focusedSuggestion = -1;
-                }
-            });
-        }
-
-        // Winery navigation
-        var wineryGrid = document.querySelector('.winery-grid');
-        var wineryPrev = document.querySelector('.winery-prev');
-        var wineryNext = document.querySelector('.winery-next');
-        function updateWineryScrollIndicators() {
-            if (!wineryGrid) return;
-            var scrollLeft = wineryGrid.scrollLeft;
-            var scrollWidth = wineryGrid.scrollWidth;
-            var clientWidth = wineryGrid.clientWidth;
-            wineryGrid.classList.toggle('has-left', scrollLeft > 0);
-            wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
-            if (wineryPrev && wineryNext) {
-                wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
-                wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
+        });
+        suggestionsList.addEventListener('click', function(e) {
+            var li = e.target.closest('li');
+            if (li && li.dataset.url) {
+                console.log('Suggestion clicked:', li.dataset.url);
+                window.location.href = li.dataset.url;
+            }
+        });
+        var focusedSuggestion = -1;
+        searchInput.addEventListener('keydown', function(e) {
+            var suggestions = suggestionsList.querySelectorAll('li');
+            if (suggestions.length === 0) return;
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
+                updateFocus(suggestions);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
+                updateFocus(suggestions);
+            } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
+                e.preventDefault();
+                console.log('Enter pressed on suggestion:', suggestions[focusedSuggestion].dataset.url);
+                window.location.href = suggestions[focusedSuggestion].dataset.url;
+            }
+        });
+        function updateFocus(suggestions) {
+            for (var i = 0; i < suggestions.length; i++) {
+                suggestions[i].classList.toggle('focused', i === focusedSuggestion);
+            }
+            if (focusedSuggestion >= 0) {
+                suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
             }
         }
-        if (wineryGrid) {
-            wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
-            window.addEventListener('resize', updateWineryScrollIndicators);
-            updateWineryScrollIndicators();
-        }
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+                suggestionsList.style.display = 'none';
+                focusedSuggestion = -1;
+            }
+        });
+    }
+    var wineryGrid = document.querySelector('.winery-grid');
+    var wineryPrev = document.querySelector('.winery-prev');
+    var wineryNext = document.querySelector('.winery-next');
+    function updateWineryScrollIndicators() {
+        if (!wineryGrid) return;
+        var scrollLeft = wineryGrid.scrollLeft;
+        var scrollWidth = wineryGrid.scrollWidth;
+        var clientWidth = wineryGrid.clientWidth;
+        wineryGrid.classList.toggle('has-left', scrollLeft > 0);
+        wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
         if (wineryPrev && wineryNext) {
-            wineryPrev.addEventListener('click', function() {
-                wineryGrid.scrollBy({ left: -150, behavior: 'smooth' });
-            });
-            wineryNext.addEventListener('click', function() {
-                wineryGrid.scrollBy({ left: 150, behavior: 'smooth' });
-            });
+            wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
+            wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
         }
-    </script>
+    }
+    if (wineryGrid) {
+        wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
+        window.addEventListener('resize', updateWineryScrollIndicators);
+        updateWineryScrollIndicators();
+    }
+    if (wineryPrev && wineryNext) {
+        wineryPrev.addEventListener('click', function() {
+            wineryGrid.scrollBy({ left: -150, behavior: 'smooth' });
+        });
+        wineryNext.addEventListener('click', function() {
+            wineryGrid.scrollBy({ left: 150, behavior: 'smooth' });
+        });
+    }
+</script>
 </body>
 </html>
