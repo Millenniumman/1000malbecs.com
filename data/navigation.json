@@ -11,6 +11,10 @@
       "name": "A Corazón Abierto",
       "slug": "a-corazon-abierto"
     },
+     {
+      "name": "Alamos",
+      "slug": "alamos"
+    },
     {
       "name": "Agustin Lanus",
       "slug": "agustin-lanus"
@@ -54,6 +58,14 @@
     {
       "name": "Bodegas Bianchi",
       "slug": "bodegas-bianchi"
+    },
+     {
+      "name": "Catena Zapata",
+      "slug": "catena-zapata"
+    },
+     {
+      "name": "Dieter Meier & Family Wines",
+      "slug": "dieter-meier-and-family-wines"
     },
     {
       "name": "Finca La Anita",
@@ -114,6 +126,10 @@
     {
       "name": "Jorge Rubio",
       "slug": "jorge-rubio"
+    },
+     {
+      "name": "Kaiken",
+      "slug": "kaiken"
     },
     {
       "name": "La Rural",
