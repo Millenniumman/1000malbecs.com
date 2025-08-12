@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Aviso legal de 1000Malbecs.com, información sobre los términos y condiciones del sitio." name="description"/>
+    <title>1000malbecs - Aviso Legal</title>
+    <meta content="1000 Malbecs - Aviso Legal" property="og:title"/>
+    <meta content="Conoce los términos y condiciones de uso de 1000Malbecs.com." property="og:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" property="og:image"/>
+    <meta content="image/png" property="og:image:type"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="https://www.1000malbecs.com/es/aviso-legal.html" property="og:url"/>
+    <meta content="website" property="og:type"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="1000 Malbecs - Aviso Legal" name="twitter:title"/>
+    <meta content="Conoce los términos y condiciones de uso de 1000Malbecs.com." name="twitter:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        .header { top: 50px; z-index: 120; }
+        .logo { max-width: 150px; height: auto; }
+        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
+        #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
+        .logo-container { text-align: center; margin-bottom: 20px; }
+        #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+        #sidebar details { margin-bottom: 15px; }
+        #sidebar details:first-of-type { margin-bottom: 25px; }
+        #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
+        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+        #sidebar li { margin: 5px 0; }
+        .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main { margin-left: 290px; padding: 20px; width: calc(100% - 290px); flex: 1; }
+        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; text-align: center; }
+        .legal-container { max-width: 800px; margin: 0 auto; }
+        .legal-container h2 { font-size: 20px; color: #4A2C59; margin: 20px 0 10px; }
+        .legal-container p { font-size: 16px; color: #4A2C59; line-height: 1.6; margin-bottom: 15px; }
+        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
+        .language-selector.hidden { opacity: 0; pointer-events: none; }
+        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
+        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) {
+            body { display: block; }
+            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
+            .logo { max-width: 80px !important; height: auto !important; display: block; }
+            .hamburger { display: block !important; z-index: 130; }
+            #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
+            #sidebar.open { transform: translateX(0); }
+            .logo-container { display: none; }
+            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; }
+            main h1 { font-size: 20px; line-height: 1.4; margin-bottom: 15px; }
+            .legal-container h2 { font-size: 18px; }
+            .legal-container p { font-size: 14px; }
+            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
+            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
+            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        }
+        @media (min-width: 769px) {
+            .header { display: none; }
+            .logo-container { display: block; }
+            .hamburger { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <a aria-label="Español" class="active" data-lang="es" href="/es/aviso-legal.html">ES 🇪🇸</a>
+        <a aria-label="Alemán" data-lang="de" href="/de/aviso-legal.html">DE 🇩🇪</a>
+        <a aria-label="Inglés" data-lang="en" href="/en/aviso-legal.html">EN 🇬🇧</a>
+    </div>
+    <header class="header">
+        <a href="/es/" title="Volver al inicio">
+            <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+        </a>
+    </header>
+    <button class="hamburger">☰</button>
+    <main>
+        <h1>Aviso Legal</h1>
+        <div class="legal-container">
+            <h2>Información General</h2>
+            <p>Este sitio web, 1000Malbecs.com, es operado por [Nombre de la Empresa o Entidad Legal], con domicilio en [Dirección, Ciudad, País]. Puedes contactarnos en <a href="mailto:info@1000malbecs.com">info@1000malbecs.com</a>.</p>
+            <h2>Propiedad Intelectual</h2>
+            <p>Todos los contenidos de este sitio, incluyendo textos, imágenes, logotipos y diseños, son propiedad de 1000Malbecs.com o de terceros que han autorizado su uso. Queda prohibida su reproducción sin autorización expresa.</p>
+            <h2>Uso del Sitio</h2>
+            <p>El acceso y uso de este sitio están sujetos a los presentes términos y condiciones. Nos reservamos el derecho de modificar estos términos en cualquier momento.</p>
+            <h2>Responsabilidad</h2>
+            <p>1000Malbecs.com no se responsabiliza por los daños derivados del uso de este sitio, incluyendo errores en el contenido o interrupciones del servicio.</p>
+            <h2>Legislación Aplicable</h2>
+            <p>Este aviso legal se rige por las leyes de [País, e.g., Alemania o Argentina]. Cualquier disputa será sometida a los tribunales competentes de [Ciudad].</p>
+        </div>
+    </main>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() { document.getElementById('sidebar').classList.toggle('open'); });
+        const languageSelector = document.querySelector('.language-selector');
+        let lastScrollY = window.scrollY;
+        let scrollThreshold = 50;
+        if (languageSelector) {
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                    languageSelector.classList.add('hidden');
+                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                    languageSelector.classList.remove('hidden');
+                }
+                lastScrollY = currentScrollY;
+            });
+            const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+            langLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetLang = link.getAttribute('data-lang');
+                    const currentPath = window.location.pathname;
+                    let newPath = currentPath;
+                    if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
+                    else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
+                    else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
+                    if (newPath !== currentPath) { window.location.href = newPath; }
+                });
+            });
+            const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+            langLinks.forEach(link => {
+                if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
+            });
+        }
+    </script>
+</body>
+</html>
