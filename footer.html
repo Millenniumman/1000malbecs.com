@@ -1,0 +1,76 @@
+<footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            <p><strong>Explora:</strong></p>
+            <a href="{lang}/quienes-somos.html">Quiénes Somos</a>
+            <span class="separator">|</span>
+            <a href="{lang}/cookie-policy.html">Política de Cookies</a>
+            <span class="separator">|</span>
+            <a href="{lang}/aviso-legal.html">Aviso Legal</a>
+        </div>
+        <div class="footer-contact">
+            <p>Consultas:</p>
+            <a href="https://wa.me/4915158224728" target="_blank"><i class="fab fa-whatsapp"></i> +49 151 58224728</a>
+            <span class="separator">|</span>
+            <a href="mailto:federico@1000malbecs.com"><i class="fas fa-envelope"></i> federico@1000malbecs.com</a>
+        </div>
+        <div class="footer-social">
+            <p><strong>Síguenos:</strong></p>
+            <a href="https://www.instagram.com/1000malbecs/" target="_blank"><i class="fab fa-instagram"></i> @1000malbecs</a>
+            <span class="separator">|</span>
+            <a href="https://x.com/1000malbecs" target="_blank"><i class="fab fa-x-twitter"></i> @1000malbecs</a>
+        </div>
+    </div>
+</footer>
+<style>
+    footer {
+        background-color: #F8F8F8;
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #E0E0E0;
+        font-family: 'Montserrat', sans-serif;
+        color: #4A2C59;
+        font-size: 14px;
+    }
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .footer-links, .footer-contact, .footer-social {
+        flex: 1;
+        min-width: 200px;
+    }
+    .footer-links p, .footer-contact p, .footer-social p {
+        margin: 0 0 10px;
+        font-weight: 600;
+    }
+    .footer-links a, .footer-contact a, .footer-social a {
+        color: #4A2C59;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: color 0.3s ease;
+    }
+    .footer-links a:hover, .footer-contact a:hover, .footer-social a:hover {
+        color: #6B4E7A;
+    }
+    .separator {
+        color: #4A2C59;
+        margin: 0 10px;
+    }
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footer-links, .footer-contact, .footer-social {
+            min-width: 100%;
+        }
+        footer {
+            font-size: 12px;
+        }
+    }
+</style>
