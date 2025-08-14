@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Cookie-Richtlinie von 1000Malbecs.com, Informationen zur Verwendung von Cookies auf unserer Website." name="description"/>
+    <title>1000malbecs - Cookie-Richtlinie</title>
+    <meta content="1000 Malbecs - Cookie-Richtlinie" property="og:title"/>
+    <meta content="Erfahren Sie, wie wir Cookies auf 1000Malbecs.com verwenden, um Ihr Erlebnis zu verbessern." property="og:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" property="og:image"/>
+    <meta content="image/png" property="og:image:type"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="https://www.1000malbecs.com/de/cookie-policy.html" property="og:url"/>
+    <meta content="website" property="og:type"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="1000 Malbecs - Cookie-Richtlinie" name="twitter:title"/>
+    <meta content="Erfahren Sie, wie wir Cookies auf 1000Malbecs.com verwenden." name="twitter:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="language-selector">
+        <a aria-label="Spanisch" data-lang="es" href="/es/cookie-policy.html">ES 🇪🇸</a>
+        <a aria-label="Deutsch" class="active" data-lang="de" href="/de/cookie-policy.html">DE 🇩🇪</a>
+        <a aria-label="Englisch" data-lang="en" href="/en/cookie-policy.html">EN 🇬🇧</a>
+    </div>
+    <header class="header">
+        <a href="/de/" title="Zurück zur Startseite">
+            <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+        </a>
+    </header>
+    <button class="hamburger">☰</button>
+    <main>
+        <h1>Cookie-Richtlinie</h1>
+        <div class="policy-container">
+            <h2>Was sind Cookies?</h2>
+            <p>Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden, wenn Sie unsere Website besuchen. Sie helfen uns, Ihr Surferlebnis zu verbessern, die Nutzung der Website zu analysieren und Inhalte zu personalisieren.</p>
+            <h2>Wie verwenden wir Cookies?</h2>
+            <p>Auf 1000Malbecs.com verwenden wir Cookies, um:</p>
+            <ul>
+                <li><strong>Notwendige Cookies:</strong> Ermöglichen grundlegende Funktionen der Website, wie Navigation und Zugriff auf sichere Bereiche.</li>
+                <li><strong>Analyse-Cookies:</strong> Helfen uns zu verstehen, wie Nutzer mit der Website interagieren, indem sie anonyme Daten über besuchte Seiten sammeln.</li>
+                <li><strong>Personalisierungs-Cookies:</strong> Speichern Ihre Präferenzen, wie Sprache oder Region, um ein maßgeschneidertes Erlebnis zu bieten.</li>
+                <li><strong>Werbe-Cookies:</strong> Zeigen relevante Anzeigen basierend auf Ihren Interessen an.</li>
+            </ul>
+            <h2>Wie können Sie Cookies verwalten?</h2>
+            <p>Sie können Cookies über das Einwilligungsbanner akzeptieren oder ablehnen, das beim Besuch unserer Website angezeigt wird. Sie können Ihren Browser auch so konfigurieren, dass er Cookies blockiert oder löscht, was jedoch die Funktionalität der Website beeinträchtigen kann.</p>
+            <h2>Kontakt</h2>
+            <p>Wenn Sie Fragen zu unserer Cookie-Richtlinie haben, kontaktieren Sie uns unter <a href="mailto:info@1000malbecs.com">info@1000malbecs.com</a>.</p>
+        </div>
+    </main>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+        const languageSelector = document.querySelector('.language-selector');
+        let lastScrollY = window.scrollY;
+        let scrollThreshold = 50;
+        if (languageSelector) {
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                    languageSelector.classList.add('hidden');
+                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                    languageSelector.classList.remove('hidden');
+                }
+                lastScrollY = currentScrollY;
+            });
+            const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+            langLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetLang = link.getAttribute('data-lang');
+                    const currentPath = window.location.pathname;
+                    let newPath = currentPath;
+                    if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
+                    else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
+                    else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
+                    if (newPath !== currentPath) { window.location.href = newPath; }
+                });
+            });
+            const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
+            langLinks.forEach(link => {
+                if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
+            });
+        }
+    </script>
+</body>
+</html>
