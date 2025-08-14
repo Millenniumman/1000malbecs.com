@@ -86,12 +86,13 @@
     </header>
     <button class="hamburger">☰</button>
     <main>
-        <h1>Quiénes Somos</h1>
-        <div class="about-container">
-            <img src="/images/fede-1.png" alt="Federico Augspach, socio fundador de 1000Malbecs" onerror="this.src='https://via.placeholder.com/300x300?text=Image+Not+Available';">
-            <p>Mi nombre es Federico Augspach, soy socio fundador de 1000malbecs.com y vivo desde hace 6 años en Alemania.<br> Me encantan los vinos, creo que permiten conectar historias. Es justamente lo que busco generar en este espacio, conectar mi pasado argentino con este presente en alemania, contribuyendo a la difusión de la cultura y las costumbres de nuestro hermoso país. </p>
-        </div>
-    </main>
+    <h1>Quiénes Somos</h1>
+    <div class="about-container">
+        <p>Conoce a nuestro equipo:</p>
+        <embed src="/pdf/1000malbecs.pdf" type="application/pdf" width="100%" height="600px"/>
+        <p><a href="/pdf/team.pdf" download>Descargar PDF del equipo</a></p>
+    </div>
+</main>
     <script>
         document.querySelector('.hamburger').addEventListener('click', function() { document.getElementById('sidebar').classList.toggle('open'); });
         const languageSelector = document.querySelector('.language-selector');
