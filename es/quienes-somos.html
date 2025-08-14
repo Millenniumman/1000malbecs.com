@@ -66,7 +66,33 @@
             .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
             .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
         }
-        
+        .team-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+}
+.team-image {
+    width: 100%;
+    max-width: 1200px; /* Cap at 1200px for performance, larger than Option 1 */
+    height: auto;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    margin: 0 auto; /* Center images */
+}
+.about-container {
+    max-width: 1400px; /* Increased to allow larger images */
+    margin: 0 auto;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .team-image {
+        max-width: 100%; /* Scale to viewport on mobile */
+    }
+    .about-container {
+        max-width: 100%;
+    }
+}
     </style>
 </head>
 <body>
