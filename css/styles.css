@@ -303,3 +303,11 @@ footer a {
         margin: 0 4px 0 0 !important;
     }
 }
+.main-content {
+    margin-left: 260px; /* Reduced from 270px to match previous tighter spacing */
+    padding: 20px;
+    width: calc(100% - 260px);
+    flex: 1;
+    box-sizing: border-box;
+    min-height: calc(100vh - 100px);
+}
