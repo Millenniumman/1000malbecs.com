@@ -303,3 +303,61 @@ footer a {
         margin: 0 4px 0 0 !important;
     }
 }
+/* Add to /css/styles.css after .about-container */
+.faq-container {
+    max-width: 1100px; /* Match .main-content */
+    margin: 0 auto;
+    text-align: left;
+}
+.faq-container h1 {
+    font-size: 24px;
+    color: #4A2C59;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.faq-container h2 {
+    font-size: 20px;
+    color: #4A2C59;
+    margin: 20px 0 10px;
+}
+.faq-container p {
+    font-size: 16px;
+    color: #4A2C59;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.faq-container ol {
+    font-size: 16px;
+    color: #4A2C59;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+.faq-container .whatsapp-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.faq-container .whatsapp-button:hover {
+    background-color: #20b358;
+}
+@media (max-width: 768px) {
+    .faq-container {
+        max-width: 100%;
+    }
+    .faq-container h1 {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 15px;
+    }
+    .faq-container h2 {
+        font-size: 18px;
+    }
+    .faq-container p, .faq-container ol {
+        font-size: 14px;
+    }
+}
