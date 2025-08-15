@@ -304,7 +304,7 @@ footer a {
     }
 }
 .main-content {
-    margin-left: 260px; /* Reduced from 270px to match previous tighter spacing */
+    margin-left: 180px; /* Reduced from 270px to match previous tighter spacing */
     padding: 20px;
     width: calc(100% - 260px);
     flex: 1;
