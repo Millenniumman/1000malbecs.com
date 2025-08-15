@@ -1,114 +1,53 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - 1000malbecs</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <style>
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        .header { top: 50px; z-index: 120; }
-        .logo { max-width: 150px; height: auto; }
-        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
-        #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
-        .logo-container { text-align: center; margin-bottom: 20px; }
-        #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
-        #sidebar details { margin-bottom: 15px; }
-        #sidebar details:first-of-type { margin-bottom: 25px; }
-        #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
-        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
-        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
-        #sidebar li { margin: 5px 0; }
-        .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
-        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
-        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-        main { margin-left: 290px; padding: 20px; width: calc(100% - 290px); flex: 1; }
-        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; text-align: center; }
-        .policy-container { max-width: 800px; margin: 0 auto; }
-        .policy-container h2 { font-size: 20px; color: #4A2C59; margin: 20px 0 10px; }
-        .policy-container p { font-size: 16px; color: #4A2C59; line-height: 1.6; margin-bottom: 15px; }
-        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
-        .language-selector.hidden { opacity: 0; pointer-events: none; }
-        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
-        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
-        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
-        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @media (max-width: 768px) {
-            body { display: block; }
-            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
-            .logo { max-width: 80px !important; height: auto !important; display: block; }
-            .hamburger { display: block !important; z-index: 130; }
-            #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
-            #sidebar.open { transform: translateX(0); }
-            .logo-container { display: none; }
-            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; }
-            main h1 { font-size: 20px; line-height: 1.4; margin-bottom: 15px; }
-            .policy-container h2 { font-size: 18px; }
-            .policy-container p { font-size: 14px; }
-            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
-            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
-            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
-            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
-        }
-        @media (min-width: 769px) {
-            .header { display: none; }
-            .logo-container { display: block; }
-            .hamburger { display: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <header class="header">
+        <a href="/en/" title="Back to home">
+            <img alt="1000malbecs Logo" class="logo" src="/images/1000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+        </a>
         <button class="hamburger"><i class="fas fa-bars"></i></button>
-    </header>  
+    </header>
     <div class="language-selector">
-    <a href="/es/bodegas/a-corazon-abierto.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
-    <a href="/de/bodegas/a-corazon-abierto.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-    <a href="/en/bodegas/a-corazon-abierto.html" class="active" data-lang="en" aria-label="English">EN 🇬🇧</a>
-  </div>
+        <a aria-label="Spanish" data-lang="es" href="/es/faq.html">ES 🇪🇸</a>
+        <a aria-label="German" data-lang="de" href="/de/faq.html">DE 🇩🇪</a>
+        <a aria-label="English" data-lang="en" href="/en/faq.html" class="active">EN 🇬🇧</a>
     </div>
     <div class="main-content">
-        <main class="main-content">
-            <div class="faq-container">   
-             <!-- English Version -->
-                <div class="lang-content lang-en" style="display: none;">
-                    <h1>Frequently Asked Questions</h1>
-                    <h2>How do I buy from 1000Malbecs?</h2>
-                    <p>Buying your favorite wine from 1000Malbecs is very simple:</p>
-                    <ol>
-                        <li><strong>Choose your wine</strong>: Browse our selection of wines and pick your favorite.</li>
-                        <li><strong>Click 'Buy'</strong>: On each wine’s page, you’ll find a 'Buy' button that redirects to WhatsApp.</li>
-                        <li><strong>Contact via WhatsApp</strong>: Send us your order via WhatsApp at <a href="https://wa.me/4915158224728" target="_blank">+49 151 5822 4728</a>.</li>
-                        <li><strong>Pay for your order</strong>: You can pay via PayPal or bank transfer. We’ll provide payment details upon order confirmation.</li>
-                    </ol>
-
-                    <h2>Why can’t I buy directly on 1000Malbecs?</h2>
-                    <p>Malbec wine is relatively new in Germany, and we believe it’s important for purchases to be assisted by specialists to enhance the experience. As a startup, we want to connect directly with our customers before launching an online solution. We aim for a <em>social commerce</em> experience, where qualified staff assist you before, during, and after your purchase to ensure you choose the wines that best suit your needs.</p>
-
-                    <h2>Will I be able to buy online in the future?</h2>
-                    <p>Absolutely! We’re working on an e-commerce solution and will soon offer our wines through various channels. In the meantime, WhatsApp orders function like online orders, with the added benefit of allowing us to get to know you and provide personalized advice before you decide.</p>
-
-                    <h2>Can I become a social seller for 1000Malbecs?</h2>
-                    <p>Of course! We’re looking for wine enthusiasts and experts to join us. Please contact us via WhatsApp to learn about our sales model and how you can become a social seller of our wines. <a href="https://wa.me/4915158224728?text=quiero%20vender" target="_blank" class="whatsapp-button">Contact us on WhatsApp</a></p>
-
-                    <h2>How can I sell wines through 1000Malbecs?</h2>
-                    <p>If you’re a wine importer in Germany and want us to list your wines, please send us a WhatsApp message, and we’ll get in touch promptly to discuss collaboration opportunities. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contact us on WhatsApp</a></p>
-
-                    <h2>Shipping Policy</h2>
-                    <p>At 1000Malbecs, we want you to enjoy our wines, so we keep our shipping policy simple. We charge <strong>€5.99</strong> per shipment, which allows us to verify age upon delivery. <strong>No alcohol is sold to individuals under 18.</strong></p>
-                    <p>There is no minimum purchase amount. You can order just one bottle and have it delivered to your door.</p>
-                    <p><strong>Orders of 12 or more bottles qualify for free shipping.</strong></p>
-                    <p>Orders are typically dispatched within 24 hours of payment receipt. If a product is out of stock, you’ll be notified upon order placement.</p>
-                    <p>Free pickup is available at our locations in <strong>Kaarst</strong> and <strong>Düsseldorf</strong>.</p>
-
-                    <h2>Bars and Restaurants</h2>
-                    <p>We aim to showcase our wines in bars and restaurants. Please send us a WhatsApp message to get in touch. We offer exclusive volume discounts and events like tastings to introduce your customers to authentic Argentine Malbec. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contact us on WhatsApp</a></p>
-
-                    <p>Enjoy the finest Argentine wines with 1000Malbecs!</p>
-                </div>
+        <main>
+            <div class="faq-container">
+                <h1>Frequently Asked Questions</h1>
+                <h2>How do I buy at 1000Malbecs?</h2>
+                <p>Buying your favorite wine at 1000Malbecs is very simple:</p>
+                <ol>
+                    <li><strong>Choose your wine</strong>: Browse our selection of wines and pick your favorite.</li>
+                    <li><strong>Click 'Buy'</strong>: On each wine’s page, you’ll find a 'Buy' button that directs you to WhatsApp.</li>
+                    <li><strong>Contact via WhatsApp</strong>: Send us your order through WhatsApp. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contact us on WhatsApp</a></li>
+                    <li><strong>Pay for your order</strong>: You can pay via PayPal or bank transfer. We’ll provide the details when confirming your order.</li>
+                </ol>
+                <h2>Why can’t I buy directly on 1000Malbecs?</h2>
+                <p>Malbec wine is relatively new in Germany, and we believe it’s important for purchases to be assisted by specialists to enhance the experience. As a startup, before launching an online solution, we’re keen to connect directly with our customers. We aim for a <em>social commerce</em> experience, where customers are supported by qualified staff before, during, and after the purchase to ensure you choose the wines that best suit your needs.</p>
+                <h2>Will I be able to buy online in the future?</h2>
+                <p>Absolutely! We’re working on an e-commerce solution and will soon offer wines through various channels. In the meantime, WhatsApp orders function like an online order, with the added benefit of allowing us to get to know you and provide personalized advice before you make your decision.</p>
+                <h2>Can I become a social seller for 1000Malbecs?</h2>
+                <p>Of course, we’re looking for wine enthusiasts and experts to join us in this mission. Please contact us via WhatsApp to learn about the sales model and how you can become a social seller of our wines. <a href="https://wa.me/4915158224728?text=I%20want%20to%20sell" target="_blank" class="whatsapp-button">Contact us on WhatsApp</a></p>
+                <h2>How can I sell wines on 1000Malbecs?</h2>
+                <p>If you’re a wine importer in Germany and want us to feature your wines, please send us a message via WhatsApp, and we’ll get in touch promptly to explore collaboration opportunities. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contact us on WhatsApp</a></p>
+                <h2>Shipping Policy</h2>
+                <p>At 1000Malbecs, we want you to enjoy our wines, so we keep our shipping policy simple. We charge <strong>5.99 EUR</strong> per shipment, which allows us to perform age verification upon delivery. <strong>No alcohol is sold to individuals under 18.</strong></p>
+                <p>There is no minimum purchase amount. You can buy just one bottle, and it will be delivered to your address.</p>
+                <p><strong>Orders of 12 or more bottles qualify for free shipping.</strong></p>
+                <p>Orders are typically dispatched within 24 hours of payment receipt. If a product is out of stock, you’ll be notified upon order confirmation.</p>
+                <p>You can pick up your order free of charge at our points of sale in <strong>Kaarst</strong> and <strong>Düsseldorf</strong>.</p>
+                <h2>Bars and Restaurants</h2>
+                <p>We want to introduce our wine offerings to bars and restaurants. Please send us a message via WhatsApp to connect. We offer exclusive volume discounts and events like tastings to help your customers discover authentic Argentine Malbec. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contact us on WhatsApp</a></p>
+                <p>Enjoy the finest Argentine wines with 1000Malbecs!</p>
             </div>
         </main>
     </div>
@@ -116,26 +55,6 @@
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('#sidebar').classList.toggle('open');
             document.querySelector('.language-selector').classList.toggle('hidden');
-        });
-
-        // Language switcher logic
-        const langLinks = document.querySelectorAll('.language-selector a');
-        const langContents = document.querySelectorAll('.lang-content');
-
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = link.getAttribute('href').split('=')[1];
-                
-                // Update active language link
-                langLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-
-                // Show selected language content
-                langContents.forEach(content => {
-                    content.style.display = content.classList.contains(`lang-${lang}`) ? 'block' : 'none';
-                });
-            });
         });
     </script>
 </body>
