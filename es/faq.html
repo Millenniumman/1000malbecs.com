@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - 1000malbecs</title>
-    <link rel="stylesheet" href="/css/styles.css">
+   <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
@@ -23,9 +23,9 @@
         .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
         .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
         .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-        main { margin-left: 270px; padding: 20px; width: calc(100% - 270px); flex: 1; max-width: 900px; margin-right: auto; } /* Adjusted for centering */
+        main { margin-left: 290px; padding: 20px; width: calc(100% - 290px); flex: 1; } /* Reverted to original values */
         main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; text-align: center; }
-        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-container { max-width: 800px; margin: 0 auto; } /* Matches .legal-container */
         .faq-container h2 { font-size: 20px; color: #4A2C59; margin: 20px 0 10px; }
         .faq-container p { font-size: 16px; color: #4A2C59; line-height: 1.6; margin-bottom: 15px; }
         .faq-container ol { margin-bottom: 20px; }
@@ -48,7 +48,7 @@
             #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
             #sidebar.open { transform: translateX(0); }
             .logo-container { display: none; }
-            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; max-width: 100%; } /* Adjusted for mobile */
+            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; } /* Matches original mobile styling */
             main h1 { font-size: 20px; line-height: 1.4; margin-bottom: 15px; }
             .faq-container h2 { font-size: 18px; }
             .faq-container p { font-size: 14px; }
@@ -64,6 +64,19 @@
             .hamburger { display: none; }
         }
     </style>
+</head>
+<body>
+    <header class="header">
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+    </header>
+    <div class="language-selector">
+        <a href="?lang=es" class="lang-es active"><i class="fas fa-flag"></i> ES</a>
+        <a href="?lang=en" class="lang-en"><i class="fas fa-flag"></i> EN</a>
+        <a href="?lang=de" class="lang-de"><i class="fas fa-flag"></i> DE</a>
+    </div>
+    <div class="main-content">
+        <main>
+            <div class="faq-container">
 </head>
 <body>
     <header class="header">
