@@ -4,37 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - 1000malbecs</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
     <style>
-        /* Override styles.css to reduce gap and ensure consistency */
+        /* Override styles.css to match homepage's left-aligned look */
         .main-content {
-            margin-left: 260px; /* Reduced from 270px to bring content closer to sidebar */
-            padding: 20px;
-            width: calc(100% - 260px);
+            margin-left: 250px; /* Matches homepage for tighter gap */
+            width: calc(100% - 250px);
+            max-width: 1200px; /* Matches homepage */
+            margin: 0 auto;
+            z-index: 1;
             flex: 1;
-            box-sizing: border-box;
-            min-height: calc(100vh - 100px);
+            padding: 20px 20px 200px 20px; /* Matches homepage */
+            position: relative;
+            overflow: visible;
         }
         main {
-            max-width: 900px; /* Slightly wider than 800px for better spacing */
-            margin: 0 auto;
+            width: 100%;
         }
         .faq-container {
-            max-width: 100%; /* Matches .policy-container from styles.css */
+            max-width: 100%;
             padding: 0;
             box-sizing: border-box;
+        }
+        .faq-container h1 {
+            font-size: 24px;
+            color: #4A2C59;
+            margin-bottom: 10px;
+            text-align: left; /* Matches homepage */
         }
         .faq-container h2 {
             font-size: 20px;
             color: #4A2C59;
             margin: 20px 0 10px;
+            text-align: left; /* Matches homepage */
         }
         .faq-container p, .faq-container ol {
             font-size: 16px;
             color: #4A2C59;
             line-height: 1.6;
             margin-bottom: 15px;
+            text-align: left; /* Matches homepage */
         }
         .faq-container ol {
             padding-left: 20px;
@@ -56,6 +66,38 @@
         }
         .whatsapp-button:hover {
             background-color: #20b358;
+        }
+        /* Ensure footer aligns with main content */
+        footer {
+            margin-left: 291px; /* Matches sidebar width (250px + 20px padding + 20px padding + 1px border) */
+            width: calc(100% - 291px);
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%;
+                margin: 10px auto 0;
+                padding: 10px 10px 250px 10px; /* Matches homepage */
+                position: relative;
+                overflow: visible;
+            }
+            .faq-container h1 {
+                font-size: 20px;
+                line-height: 1.4;
+                margin-bottom: 15px;
+            }
+            .faq-container h2 {
+                font-size: 18px;
+            }
+            .faq-container p, .faq-container ol {
+                font-size: 14px;
+            }
+            footer {
+                margin-left: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -83,29 +125,22 @@
                     <li><strong>Contacta por WhatsApp</strong>: Envíanos tu pedido a través de WhatsApp. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contáctanos por WhatsApp</a></li>
                     <li><strong>Paga tu pedido</strong>: Puedes pagar mediante PayPal o transferencia bancaria. Te proporcionaremos los detalles al confirmar tu pedido.</li>
                 </ol>
-
                 <h2>¿Por qué no puedo comprar directamente en 1000Malbecs?</h2>
                 <p>El vino Malbec es relativamente nuevo en Alemania y creemos que es importante que la compra sea asistida por especialistas para maximizar la experiencia. Somos un startup y antes de lanzar una solución online, nos interesa conocer directamente a nuestros clientes. Apuntamos a una experiencia de <em>social commerce</em>, donde los clientes son atendidos por personal calificado antes, durante y después de la compra para asegurar que elijas los vinos que mejor se adaptan a tus necesidades.</p>
-
                 <h2>¿Podré comprar online en el futuro?</h2>
                 <p>¡Claro que sí! Estamos trabajando en una solución de e-commerce y pronto ofreceremos los vinos en distintos canales. Mientras tanto, los pedidos por WhatsApp funcionan como un pedido online, con la ventaja de que nos permiten conocerte y asesorarte antes de que tomes tu decisión.</p>
-
                 <h2>¿Puedo ser vendedor social de 1000Malbecs?</h2>
                 <p>Por supuesto, estamos buscando entusiastas y conocedores del vino que nos ayuden en esta tarea. Por favor, contáctanos a través de WhatsApp para informarte sobre la modalidad de venta y cómo puedes ser un revendedor social de nuestros vinos. <a href="https://wa.me/4915158224728?text=quiero%20vender" target="_blank" class="whatsapp-button">Contáctanos por WhatsApp</a></p>
-
                 <h2>¿Cómo hago para vender vinos en 1000Malbecs?</h2>
                 <p>Si eres un importador de vinos en Alemania y quieres que publiquemos los vinos que traes, por favor, envíanos un mensaje por WhatsApp y nos pondremos en contacto a la brevedad para explorar posibilidades de colaboración. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contáctanos por WhatsApp</a></p>
-
                 <h2>Política de envíos</h2>
                 <p>En 1000Malbecs queremos que pruebes nuestros vinos, por eso mantenemos una política de envíos sencilla. Cobramos <strong>5,99 EUR</strong> por envío, lo que nos permite realizar control de edad al momento de la entrega. <strong>No se vende alcohol a menores de 18 años.</strong></p>
                 <p>No hay monto mínimo de compra. Puedes comprar tan solo una botella y la recibirás en tu domicilio.</p>
                 <p><strong>Compras mayores a 11 botellas cuentan con envío bonificado.</strong></p>
                 <p>Los pedidos se despachan generalmente 24 horas después de recibido el pago. Si algún producto no está en stock, se te informará al recibir la orden.</p>
                 <p>Se puede retirar sin cargo en nuestros puntos de venta en <strong>Kaarst</strong> y <strong>Düsseldorf</strong>.</p>
-
                 <h2>Bares y Restaurantes</h2>
                 <p>Queremos dar a conocer nuestra oferta de vinos en bares y restaurantes. Por favor, envíanos un mensaje por WhatsApp para contactarnos. Ofrecemos descuentos exclusivos por volumen y eventos como catas para que tus clientes descubran el verdadero Malbec argentino. <a href="https://wa.me/4915158224728" target="_blank" class="whatsapp-button">Contáctanos por WhatsApp</a></p>
-
                 <p>¡Disfruta de los mejores vinos argentinos con 1000Malbecs!</p>
             </div>
         </main>
