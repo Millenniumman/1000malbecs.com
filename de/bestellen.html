@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestellen - 1000malbecs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <header class="header">
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+    </header>
+    <div class="language-selector">
+        <a href="?lang=es" class="lang-es"><i class="fas fa-flag"></i> ES</a>
+        <a href="?lang=en" class="lang-en"><i class="fas fa-flag"></i> EN</a>
+        <a href="?lang=de" class="lang-de active"><i class="fas fa-flag"></i> DE</a>
+    </div>
+    <div class="main-content">
+        <main>
+            <div class="policy-container">
+                <h1>Bestellen</h1>
+                <p>Den Lieblingswein bei 1000malbecs zu kaufen ist ganz einfach:</p>
+                <ol>
+                    <li><strong>Wählen Sie Ihren Wein</strong>: Stöbern Sie in unserer Weinauswahl und wählen Sie Ihren Favoriten.</li>
+                    <li><strong>Klicken Sie auf 'Kaufen'</strong>: Auf der Seite jedes Weins finden Sie einen 'Kaufen'-Button, der Sie zu WhatsApp weiterleitet.</li>
+                    <li><strong>Kontaktieren Sie uns über WhatsApp</strong>: Senden Sie uns Ihre Bestellung über WhatsApp an <a href="https://wa.me/4915158224728" target="_blank">+49 151 5822 4728</a>.</li>
+                    <li><strong>Bezahlen Sie Ihre Bestellung</strong>: Sie können per PayPal oder Banküberweisung bezahlen. Die Zahlungsdetails erhalten Sie bei der Bestellbestätigung.</li>
+                </ol>
+                <p>Genießen Sie die besten argentinischen Weine mit 1000malbecs!</p>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('#sidebar').classList.toggle('open');
+            document.querySelector('.language-selector').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
