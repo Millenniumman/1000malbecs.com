@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -276,7 +282,7 @@
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -423,6 +429,26 @@
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -864,15 +911,20 @@
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Tomero Single Vineyard Malbec</h1>
+        <h1>Tomero Single Vineyard Malbec - 2019</h1>
         <p class="info"><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
         <p class="info"><strong>Provincia:</strong> Mendoza</p>
         <p class="info"><strong>Región:</strong> luján de cuyo</p>
         <p class="info"><strong>Altura:</strong> 1000 msnm</p>
-        <p class="info"><strong>Precio:</strong> €27.49</p>
+        <p class="info"><strong>Precio UVP:</strong> €27.49</p>
         
         
-        <a href="https://wa.me/4915158224728?text=Quiero%20comprar%20el%20vino:%20Tomero%20Single%20Vineyard%20Malbec%202019" class="main-buy-button" target="_blank">Comprar ahora</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20Tomero%20Single%20Vineyard%20Malbec%202019" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+          </a>
+          <p class="free-shipping">Costo de envío: EUR 5 - Envío bonificado comprando al menos 12 botellas de distintos vinos <a href="/es/faq">Más info</a></p>
+        </div>
         <div class="info-box">
           <h2>Descripción</h2>
           <p>Tomero Single Vineyard Malbec 2019 de Finca y Bodega Vistalba es un vino premium de parcela, elaborado en Vistalba, Luján de Cuyo. Con una crianza prolongada en roble, este Malbec combina intensidad y sofisticación, ideal para carnes de caza, platos trufados o quesos duros. La añada 2019 está en su apogeo, con un potencial de guarda de 8-12 años.</p>
@@ -884,149 +936,150 @@
         
       </div>
     </div>
-<div class="recommended-section">
-  
-    <h3>Más vinos de la bodega Finca y Bodega Vistalba</h3>
-    <div class="product-grid same-bodega">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/tomero-cuartel-41-malbec-2016.jpg" alt="Botella de Tomero  Cuartel 41 Malbec 2016"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Tomero  Cuartel 41 Malbec</h3>
-        <div class="price">€67.99</div>
-        <a href="/es/vinos/tomero-cuartel-41-malbec-2016.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="bodega-tomero-cuartel-41-malbec-2016.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> luján de cuyo</p>
+        <h3>Más vinos de Finca y Bodega Vistalba</h3>
+        <div class="product-grid same-bodega">
           
-            <p><strong>Altura:</strong> 1000 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/tomero-cuartel-41-malbec-2016.jpg" alt="Botella de Tomero  Cuartel 41 Malbec 2016"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Tomero  Cuartel 41 Malbec</h3>
+            <div class="price">€67.99</div>
+            <a href="/es/vinos/tomero-cuartel-41-malbec-2016.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="bodega-tomero-cuartel-41-malbec-2016.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
+              <p><strong>Provincia:</strong> Mendoza</p>
+              <p><strong>Región:</strong> luján de cuyo</p>
+              
+                <p><strong>Altura:</strong> 1000 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2016</p>
+              
+              
+            </div>
+          </div>
           
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/tomero-cuartel-41-malbec-2018.jpg" alt="Botella de Tomero  Cuartel 41 Malbec 2018"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Tomero  Cuartel 41 Malbec</h3>
+            <div class="price">€64.99</div>
+            <a href="/es/vinos/tomero-cuartel-41-malbec-2018.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="bodega-tomero-cuartel-41-malbec-2018.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
+              <p><strong>Provincia:</strong> Mendoza</p>
+              <p><strong>Región:</strong> luján de cuyo</p>
+              
+                <p><strong>Altura:</strong> 1000 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2018</p>
+              
+              
+            </div>
+          </div>
           
-            <p><strong>Añada:</strong> 2016</p>
-          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/tomero-cuartel-41-malbec-2019.jpg" alt="Botella de Tomero Cuartel 41 Malbec 2019"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Tomero Cuartel 41 Malbec</h3>
+            <div class="price">€62.99</div>
+            <a href="/es/vinos/tomero-cuartel-41-malbec-2019.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="bodega-tomero-cuartel-41-malbec-2019.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
+              <p><strong>Provincia:</strong> Mendoza</p>
+              <p><strong>Región:</strong> luján de cuyo</p>
+              
+                <p><strong>Altura:</strong> 1000 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2019</p>
+              
+              
+            </div>
+          </div>
           
         </div>
-      </div>
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/tomero-cuartel-41-malbec-2018.jpg" alt="Botella de Tomero  Cuartel 41 Malbec 2018"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Tomero  Cuartel 41 Malbec</h3>
-        <div class="price">€64.99</div>
-        <a href="/es/vinos/tomero-cuartel-41-malbec-2018.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="bodega-tomero-cuartel-41-malbec-2018.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> luján de cuyo</p>
+      
+        <h3 class="region-title">Vinos de luján de cuyo</h3>
+        <div class="product-grid same-region">
           
-            <p><strong>Altura:</strong> 1000 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Botella de Septima Malbec 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Septima Malbec</h3>
+            <div class="price">€15.49</div>
+            <a href="/es/vinos/septima-malbec-2022.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="region-septima-malbec-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Bodega Séptima</p>
+              
+                <p><strong>Provincia:</strong> Mendoza</p>
+              
+              
+                <p><strong>Altura:</strong> 900 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2022</p>
+              
+              
+            </div>
+          </div>
           
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Botella de Septima Rose de Malbec 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Septima Rose de Malbec</h3>
+            <div class="price">€14.99</div>
+            <a href="/es/vinos/septima-rose-de-malbec-2023.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="region-septima-rose-de-malbec-2023.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Bodega Séptima</p>
+              
+                <p><strong>Provincia:</strong> Mendoza</p>
+              
+              
+                <p><strong>Altura:</strong> 900 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2023</p>
+              
+              
+            </div>
+          </div>
           
-            <p><strong>Añada:</strong> 2018</p>
-          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Botella de CHAKANA Nuna Malbec Bio 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>CHAKANA Nuna Malbec Bio</h3>
+            <div class="price">€19.19</div>
+            <a href="/es/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="region-chakana-nuna-malbec-bio-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Chakana</p>
+              
+                <p><strong>Provincia:</strong> Mendoza</p>
+              
+              
+                <p><strong>Altura:</strong> 1000 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2022</p>
+              
+              
+            </div>
+          </div>
           
         </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/tomero-cuartel-41-malbec-2019.jpg" alt="Botella de Tomero Cuartel 41 Malbec 2019"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Tomero Cuartel 41 Malbec</h3>
-        <div class="price">€62.99</div>
-        <a href="/es/vinos/tomero-cuartel-41-malbec-2019.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="bodega-tomero-cuartel-41-malbec-2019.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
-          <p><strong>Provincia:</strong> Mendoza</p>
-          <p><strong>Región:</strong> luján de cuyo</p>
-          
-            <p><strong>Altura:</strong> 1000 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2019</p>
-          
-          
-        </div>
-      </div>
       
     </div>
-  
-  
-    <h3 class="region-title">Vinos de la región luján de cuyo</h3>
-    <div class="product-grid same-region">
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Botella de Septima Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Septima Malbec</h3>
-        <div class="price">€15.49</div>
-        <a href="/es/vinos/septima-malbec-2022.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="region-septima-malbec-2022.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Séptima</p>
-          
-            <p><strong>Provincia:</strong> Mendoza</p>
-          
-          
-            <p><strong>Altura:</strong> 900 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2022</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Botella de Septima Rose de Malbec 2023"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Septima Rose de Malbec</h3>
-        <div class="price">€14.99</div>
-        <a href="/es/vinos/septima-rose-de-malbec-2023.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="region-septima-rose-de-malbec-2023.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Séptima</p>
-          
-            <p><strong>Provincia:</strong> Mendoza</p>
-          
-          
-            <p><strong>Altura:</strong> 900 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2023</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Botella de CHAKANA Nuna Malbec Bio 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>CHAKANA Nuna Malbec Bio</h3>
-        <div class="price">€19.19</div>
-        <a href="/es/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="region-chakana-nuna-malbec-bio-2022.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Chakana</p>
-          
-            <p><strong>Provincia:</strong> Mendoza</p>
-          
-          
-            <p><strong>Altura:</strong> 1000 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2022</p>
-          
-          
-        </div>
-      </div>
-      
-    </div>
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {

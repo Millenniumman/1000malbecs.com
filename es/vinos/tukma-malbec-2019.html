@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -276,7 +282,7 @@
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -423,6 +429,26 @@
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -864,17 +911,22 @@
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Tukma Malbec</h1>
+        <h1>Tukma Malbec - 2019</h1>
         <p class="info"><strong>Bodega:</strong> Bodega Tukma</p>
         <p class="info"><strong>Provincia:</strong> Salta</p>
         <p class="info"><strong>Región:</strong> valle de calchaquí</p>
         <p class="info"><strong>Altura:</strong> 1700 msnm</p>
-        <p class="info"><strong>Precio:</strong> €19.29</p>
+        <p class="info"><strong>Precio UVP:</strong> €19.29</p>
         
         
         <p class="info"><strong>Guarda:</strong> 5  años</p>
         
-        <a href="https://wa.me/4915158224728?text=Quiero%20comprar%20el%20vino:%20Tukma%20Malbec%202019" class="main-buy-button" target="_blank">Comprar ahora</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20Tukma%20Malbec%202019" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+          </a>
+          <p class="free-shipping">Costo de envío: EUR 5 - Envío bonificado comprando al menos 12 botellas de distintos vinos <a href="/es/faq">Más info</a></p>
+        </div>
         <div class="info-box">
           <h2>Descripción</h2>
           <p>Tukma Malbec es un vino tinto de altura, elaborado en los viñedos de Cafayate por Bodega Tukma. Este Malbec refleja la intensidad y frescura del terroir salteño, con un estilo elegante y frutal, ideal para carnes asadas, empanadas o quesos duros. La añada 2022 ofrece un perfil concentrado con taninos suaves, perfecto para quienes buscan la esencia del norte argentino.</p>
@@ -891,109 +943,110 @@
         
       </div>
     </div>
-<div class="recommended-section">
-  
-    <h3>Más vinos de la bodega Bodega Tukma</h3>
-    <div class="product-grid same-bodega">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/tukma-gran-corte-2017.jpg" alt="Botella de Tukma Gran Corte 2017"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Tukma Gran Corte</h3>
-        <div class="price">€41.29</div>
-        <a href="/es/vinos/tukma-gran-corte-2017.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="bodega-tukma-gran-corte-2017.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Tukma</p>
-          <p><strong>Provincia:</strong> Salta</p>
-          <p><strong>Región:</strong> valle de calchaquí</p>
+        <h3>Más vinos de Bodega Tukma</h3>
+        <div class="product-grid same-bodega">
           
-            <p><strong>Altura:</strong> 1700 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2017</p>
-          
-          
-            <p><strong>Guarda:</strong> 10 años</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/tukma-gran-corte-2017.jpg" alt="Botella de Tukma Gran Corte 2017"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Tukma Gran Corte</h3>
+            <div class="price">€41.29</div>
+            <a href="/es/vinos/tukma-gran-corte-2017.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="bodega-tukma-gran-corte-2017.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Bodega Tukma</p>
+              <p><strong>Provincia:</strong> Salta</p>
+              <p><strong>Región:</strong> valle de calchaquí</p>
+              
+                <p><strong>Altura:</strong> 1700 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2017</p>
+              
+              
+                <p><strong>Guarda:</strong> 10 años</p>
+              
+            </div>
+          </div>
           
         </div>
-      </div>
+      
+      
+        <h3 class="region-title">Vinos de valle de calchaquí</h3>
+        <div class="product-grid same-region">
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Botella de Bad Brothers Malbec Premium 2020"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Bad Brothers Malbec Premium</h3>
+            <div class="price">€17.49</div>
+            <a href="/es/vinos/bad-brothers-malbec-premium-2020.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="region-bad-brothers-malbec-premium-2020.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Agustin Lanus</p>
+              
+                <p><strong>Provincia:</strong> Salta</p>
+              
+              
+                <p><strong>Altura:</strong> 2100 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2020</p>
+              
+              
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/sunal-ilogico-malbec-2020.jpg" alt="Botella de Sunal Ilogico Malbec 2020"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Sunal Ilogico Malbec</h3>
+            <div class="price">€25.49</div>
+            <a href="/es/vinos/sunal-ilogico-malbec-2020.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="region-sunal-ilogico-malbec-2020.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> Agustin Lanus</p>
+              
+                <p><strong>Provincia:</strong> Salta</p>
+              
+              
+                <p><strong>Altura:</strong> 2200 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2020</p>
+              
+              
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/el-esteco-malbec-2012.jpg" alt="Botella de El Esteco Malbec 2012"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>El Esteco Malbec</h3>
+            <div class="price">€21.00</div>
+            <a href="/es/vinos/el-esteco-malbec-2012.html" class="buy-button">Comprar</a>
+            <span class="info-icon" data-overlay-id="region-el-esteco-malbec-2012.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Bodega:</strong> El Esteco</p>
+              
+                <p><strong>Provincia:</strong> Salta</p>
+              
+              
+                <p><strong>Altura:</strong> 1700 msnm</p>
+              
+              
+                <p><strong>Añada:</strong> 2012</p>
+              
+              
+            </div>
+          </div>
+          
+        </div>
       
     </div>
-  
-  
-    <h3 class="region-title">Vinos de la región valle de calchaquí</h3>
-    <div class="product-grid same-region">
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Botella de Bad Brothers Malbec Premium 2020"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Bad Brothers Malbec Premium</h3>
-        <div class="price">€17.49</div>
-        <a href="/es/vinos/bad-brothers-malbec-premium-2020.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="region-bad-brothers-malbec-premium-2020.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Agustin Lanus</p>
-          
-            <p><strong>Provincia:</strong> Salta</p>
-          
-          
-            <p><strong>Altura:</strong> 2100 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2020</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/sunal-ilogico-malbec-2020.jpg" alt="Botella de Sunal Ilogico Malbec 2020"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Sunal Ilogico Malbec</h3>
-        <div class="price">€25.49</div>
-        <a href="/es/vinos/sunal-ilogico-malbec-2020.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="region-sunal-ilogico-malbec-2020.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> Agustin Lanus</p>
-          
-            <p><strong>Provincia:</strong> Salta</p>
-          
-          
-            <p><strong>Altura:</strong> 2200 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2020</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/el-esteco-malbec-2012.jpg" alt="Botella de El Esteco Malbec 2012"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>El Esteco Malbec</h3>
-        <div class="price">€21.00</div>
-        <a href="/es/vinos/el-esteco-malbec-2012.html" class="buy-button">Comprar ahora</a>
-        <span class="info-icon" data-overlay-id="region-el-esteco-malbec-2012.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Bodega:</strong> El Esteco</p>
-          
-            <p><strong>Provincia:</strong> Salta</p>
-          
-          
-            <p><strong>Altura:</strong> 1700 msnm</p>
-          
-          
-            <p><strong>Añada:</strong> 2012</p>
-          
-          
-        </div>
-      </div>
-      
-    </div>
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {
