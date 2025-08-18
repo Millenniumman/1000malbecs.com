@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="Expires" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="description" content="Ein junger und fruchtiger Malbec von La Rural, mit einem frischen und vielseitigen Profil für Tag für Tag. San Felipe Varietal Malbec von La Rural">
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="1000 Malbecs - San Felipe Varietal Malbec 2023">
   <meta property="og:description" content="Ein junger und fruchtiger Malbec von La Rural, mit einem frischen und vielseitigen Profil für Tag für Tag. San Felipe Varietal Malbec von La Rural">
-  <meta property="og:image" content="https://1000malbecs.com/images/large/san-felipe-varietal-malbec-2023.jpg">
-  <meta property="og:url" content="https://1000malbecs.com/de/vinos/san-felipe-varietal-malbec-2023.html">
+  <meta property="og:image" content="https://www.1000malbecs.com/images/large/san-felipe-varietal-malbec-2023.jpg">
+  <meta property="og:url" content="https://www.1000malbecs.com/de/vinos/san-felipe-varietal-malbec-2023.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
   <meta property="og:locale" content="de_ES">
@@ -20,19 +20,19 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - San Felipe Varietal Malbec 2023">
   <meta name="twitter:description" content="Ein junger und fruchtiger Malbec von La Rural, mit einem frischen und vielseitigen Profil für Tag für Tag. San Felipe Varietal Malbec von La Rural">
-  <meta name="twitter:image" content="https://1000malbecs.com/images/large/san-felipe-varietal-malbec-2023.jpg">
+  <meta name="twitter:image" content="https://www.1000malbecs.com/images/large/san-felipe-varietal-malbec-2023.jpg">
   <meta name="twitter:site" content="@1000malbecs">
   <!-- Hreflang for SEO -->
   
-  <link rel="alternate" hreflang="es" href="https://1000malbecs.com/vinos/san-felipe-varietal-malbec-2023.html">
+  <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/vinos/san-felipe-varietal-malbec-2023.html">
   
-  <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/vinos/san-felipe-varietal-malbec-2023.html">
+  <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/vinos/san-felipe-varietal-malbec-2023.html">
   
-  <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/vinos/san-felipe-varietal-malbec-2023.html">
+  <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/vinos/san-felipe-varietal-malbec-2023.html">
   
   <title>1000 Malbecs - San Felipe Varietal Malbec 2023</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous"anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="css/styles.css" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/css/styles.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -73,7 +73,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      overflow-y: auto;
+      overscroll-behavior: contain;
       border-right: 1px solid #E0E0E0;
       z-index: 100;
       transition: transform 0.3s ease;
@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -424,6 +430,26 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
+    }
     @media (max-width: 768px) {
       .header {
         display: block;
@@ -451,7 +477,7 @@
         border-bottom: 1px solid #E0E0E0;
         padding: 20px;
         padding-top: 50px;
-        overflow-y: auto;
+        overscroll-behavior: contain;
         -webkit-overflow-scrolling: touch;
       }
       #sidebar.open {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -860,7 +907,7 @@
   <div class="main-content">
     <div class="product-details">
       <div class="product-image">
-        <img src="/images/large/san-felipe-varietal-malbec-2023.jpg" alt="Botella de San Felipe Varietal Malbec 2023"
+        <img src="https://www.1000malbecs.com/images/large/san-felipe-varietal-malbec-2023.jpg" alt="Botella de San Felipe Varietal Malbec 2023"
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
@@ -868,9 +915,16 @@
         <p class="info"><strong>Weingut:</strong> La Rural</p>
         <p class="info"><strong>Provinz:</strong> Mendoza</p>
         <p class="info"><strong>Region:</strong> luján de cuyo</p>
-        <p class="info"><strong>Höhe:</strong> 800.0</p>
-        <p class="info"><strong>Preis:</strong> €11.52</p>
-        <a href="https://wa.me/4915158224728?text=:%20San%20Felipe%20Varietal%20Malbec%202023" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <p class="info"><strong>Höhe:</strong> 800 msnm</p>
+        <p class="info"><strong>UVP Preis:</strong> €11.52</p>
+        
+        
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20San%20Felipe%20Varietal%20Malbec%202023" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>Ein junger und fruchtiger Malbec von La Rural, mit einem frischen und vielseitigen Profil für Tag für Tag. San Felipe Varietal Malbec von La Rural</p>
@@ -886,90 +940,122 @@ Kombination: geröstete Impfstoffe, Barbecue, gebackenes Lamm, Ente mit Paprika,
     </div>
     <div class="recommended-section">
       
-      <h3>Weitere Weine von La Rural</h3>
-      <div class="product-grid same-bodega">
-        
-        <div class="product-card">
-          <img src="/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="Botella de San Felipe en Roble Malbec 2024"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>San Felipe en Roble Malbec 2024</h3>
-          <div class="price">€13.12</div>
-          <a href="/de/vinos/san-felipe-en-roble-malbec-2024.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="bodega-san-felipe-en-roble-malbec-2024.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> La Rural</p>
-            <p><strong>Provinz:</strong> Mendoza</p>
-            <p><strong>Region:</strong> luján de cuyo</p>
-            <p><strong>Höhe:</strong> 800.0</p>
-            <p><strong>:</strong> 2024</p>
+        <h3>Weitere Weine von La Rural</h3>
+        <div class="product-grid same-bodega">
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="Botella de San Felipe en Roble Malbec 2024"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>San Felipe en Roble Malbec</h3>
+            <div class="price">€13.12</div>
+            <a href="/de/vinos/san-felipe-en-roble-malbec-2024.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-san-felipe-en-roble-malbec-2024.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> La Rural</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> luján de cuyo</p>
+              
+                <p><strong>Höhe:</strong> 800 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2024</p>
+              
+              
+            </div>
           </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/pequea-vasija-malbec-2023.jpg" alt="Botella de Pequeña Vasija Malbec 2023"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Pequeña Vasija Malbec 2023</h3>
-          <div class="price">€8.38</div>
-          <a href="/de/vinos/pequea-vasija-malbec-2023.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="bodega-pequea-vasija-malbec-2023.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> La Rural</p>
-            <p><strong>Provinz:</strong> Mendoza</p>
-            <p><strong>Region:</strong> luján de cuyo</p>
-            <p><strong>Höhe:</strong> No disponible</p>
-            <p><strong>:</strong> 2023</p>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Botella de Pequeña Vasija Malbec 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Pequeña Vasija Malbec</h3>
+            <div class="price">€8.38</div>
+            <a href="/de/vinos/pequena-vasija-malbec-2023.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-pequena-vasija-malbec-2023.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> La Rural</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> luján de cuyo</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2023</p>
+              
+              
+            </div>
           </div>
+          
         </div>
-        
-      </div>
       
       
-      <h3 class="region-title">Weine aus luján de cuyo</h3>
-      <div class="product-grid same-region">
-        
-        <div class="product-card">
-          <img src="/images/small/septima-malbec-2022.jpg" alt="Botella de Septima Malbec 2022"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Septima Malbec 2022</h3>
-          <div class="price">€15.49</div>
-          <a href="/de/vinos/septima-malbec-2022.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-septima-malbec-2022.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Séptima</p>
-            <p><strong>Region:</strong> luján de cuyo</p>
-            <p><strong>Höhe:</strong> 900.0</p>
+        <h3 class="region-title">Weine aus luján de cuyo</h3>
+        <div class="product-grid same-region">
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Botella de Septima Malbec 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Septima Malbec</h3>
+            <div class="price">€15.49</div>
+            <a href="/de/vinos/septima-malbec-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-septima-malbec-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Séptima</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 900 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+            </div>
           </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/septima-rose-de-malbec-2023.jpg" alt="Botella de Septima Rose de Malbec 2023"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Septima Rose de Malbec 2023</h3>
-          <div class="price">€14.99</div>
-          <a href="/de/vinos/septima-rose-de-malbec-2023.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-septima-rose-de-malbec-2023.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Séptima</p>
-            <p><strong>Region:</strong> luján de cuyo</p>
-            <p><strong>Höhe:</strong> 900.0</p>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Botella de Septima Rose de Malbec 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Septima Rose de Malbec</h3>
+            <div class="price">€14.99</div>
+            <a href="/de/vinos/septima-rose-de-malbec-2023.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-septima-rose-de-malbec-2023.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Séptima</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 900 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2023</p>
+              
+              
+            </div>
           </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Botella de CHAKANA Nuna Malbec Bio 2022"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>CHAKANA Nuna Malbec Bio 2022</h3>
-          <div class="price">€19.19</div>
-          <a href="/de/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-chakana-nuna-malbec-bio-2022.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Chakana</p>
-            <p><strong>Region:</strong> luján de cuyo</p>
-            <p><strong>Höhe:</strong> 1000.0</p>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Botella de CHAKANA Nuna Malbec Bio 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>CHAKANA Nuna Malbec Bio</h3>
+            <div class="price">€19.19</div>
+            <a href="/de/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-chakana-nuna-malbec-bio-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Chakana</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1000 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+            </div>
           </div>
+          
         </div>
-        
-      </div>
       
     </div>
   </div>
