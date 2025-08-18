@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -276,7 +282,7 @@
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -423,6 +429,26 @@
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -864,25 +911,30 @@
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Enzo Bianchi Gran Malbec</h1>
+        <h1>Enzo Bianchi Gran Malbec - 2019</h1>
         <p class="info"><strong>Weingut:</strong> Bodegas Bianchi</p>
         <p class="info"><strong>Provinz:</strong> Mendoza</p>
         <p class="info"><strong>Region:</strong> san rafael</p>
         <p class="info"><strong>Höhe:</strong> 1100 msnm</p>
-        <p class="info"><strong>Preis:</strong> €62.99</p>
+        <p class="info"><strong>UVP Preis:</strong> €62.99</p>
         
-        <p class="info"><strong>Auszeichnungen:</strong> DWWA 2022 - 89 Puntos</p>
+        <p class="info"><strong>Auszeichnungen:</strong> DWWA 2022 - 89 pts</p>
         
         
-        <p class="info"><strong>Reifung:</strong> 20 años</p>
+        <p class="info"><strong>Lagerzeit:</strong> 20 años</p>
         
-        <a href="https://wa.me/4915158224728?text=Ich%20m%C3%B6chte%20den%20Wein%20kaufen:%20Enzo%20Bianchi%20Gran%20Malbec%202019" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20Enzo%20Bianchi%20Gran%20Malbec%202019" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>Enzo Bianchi - Gran Malbec 2019 DE Bodegas BianchiEs ist ein Ikonenwein, der in San Rafael, Mendoza, mit ausgewählten Trauben und einer ausgedehnten Zucht in französischer Eiche hergestellt wird. Dieses Malbec ist ideal für rotes Fleisch, Eintöpfer oder reife Käse und bietet Tiefe und Eleganz. Der Jahrgang 2019 hat ein 10-12-jähriges Wachpotential. Enzo Bianchi Gran Malbec von Bodegas Bianchi</p>
         </div>
         <div class="info-box">
-          <h2>Verkostungsnotizen und Speisenbegleitung</h2>
+          <h2>Verkostungsnotizen und Speisenempfehlung</h2>
           <p>Auf der Nase zeigt es Aromen zu Blackberry, Purla Pasa und schwarzem Trüffel mit Tabaknoten und süßen Gewürzen. Im Mund ist es opulent, mit Aromen von Cassis, bitterer Schokolade und Süßholz. Die Tannine sind seidig, mit einer ausgewogenen Säure. Das Ende ist tief, mit gerösteten Eichennuancen und Mineralität. Marida mit geröstetem Lamm, Fleischtopf oder Parmesan. Enzo Bianchi Gran Malbec von Bodegas Bianchi</p>
         </div>
         
@@ -893,153 +945,154 @@
         
       </div>
     </div>
-<div class="recommended-section">
-  
-    <h3>Weitere Weine vom Weingut Bodegas Bianchi</h3>
-    <div class="product-grid same-bodega">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Botella de Famiglia Bianchi Malbec 2014"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Famiglia Bianchi Malbec</h3>
-        <div class="price">€21.49</div>
-        <a href="/de/vinos/famiglia-bianchi-malbec-2014.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-famiglia-bianchi-malbec-2014.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodegas Bianchi</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> san rafael</p>
+        <h3>Weitere Weine von Bodegas Bianchi</h3>
+        <div class="product-grid same-bodega">
           
-            <p><strong>Höhe:</strong> 800 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Botella de Famiglia Bianchi Malbec 2014"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Famiglia Bianchi Malbec</h3>
+            <div class="price">€21.49</div>
+            <a href="/de/vinos/famiglia-bianchi-malbec-2014.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-famiglia-bianchi-malbec-2014.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodegas Bianchi</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> san rafael</p>
+              
+                <p><strong>Höhe:</strong> 800 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2014</p>
+              
+              
+            </div>
+          </div>
           
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Botella de Famiglia Bianchi Malbec 2020"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Famiglia Bianchi Malbec</h3>
+            <div class="price">€19.49</div>
+            <a href="/de/vinos/famiglia-bianchi-malbec-2020.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-famiglia-bianchi-malbec-2020.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodegas Bianchi</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> san rafael</p>
+              
+                <p><strong>Höhe:</strong> 800 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2020</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 5 años</p>
+              
+            </div>
+          </div>
           
-            <p><strong>Jahrgang:</strong> 2014</p>
-          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Botella de Famiglia Bianchi Malbec 2021"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Famiglia Bianchi Malbec</h3>
+            <div class="price">€18.49</div>
+            <a href="/de/vinos/famiglia-bianchi-malbec-2021.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-famiglia-bianchi-malbec-2021.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodegas Bianchi</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> san rafael</p>
+              
+                <p><strong>Höhe:</strong> 800 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2021</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 5 años</p>
+              
+            </div>
+          </div>
           
         </div>
-      </div>
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Botella de Famiglia Bianchi Malbec 2020"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Famiglia Bianchi Malbec</h3>
-        <div class="price">€19.49</div>
-        <a href="/de/vinos/famiglia-bianchi-malbec-2020.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-famiglia-bianchi-malbec-2020.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodegas Bianchi</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> san rafael</p>
+      
+        <h3 class="region-title">Weine aus san rafael</h3>
+        <div class="product-grid same-region">
           
-            <p><strong>Höhe:</strong> 800 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>135 Aniversario</h3>
+            <div class="price">€39.99</div>
+            <a href="/de/vinos/135-aniversario-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-135-aniversario-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Goyenechea</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 520 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+            </div>
+          </div>
           
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Goye Malbec</h3>
+            <div class="price">€9.49</div>
+            <a href="/de/vinos/goye-malbec-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-goye-malbec-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Goyenechea</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 520 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+            </div>
+          </div>
           
-            <p><strong>Jahrgang:</strong> 2020</p>
-          
-          
-            <p><strong>Reifung:</strong> 5 años</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Quinta Generación Malbec</h3>
+            <div class="price">€19.99</div>
+            <a href="/de/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-quinta-generacion-malbec-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Goyenechea</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 520 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+            </div>
+          </div>
           
         </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Botella de Famiglia Bianchi Malbec 2021"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Famiglia Bianchi Malbec</h3>
-        <div class="price">€18.49</div>
-        <a href="/de/vinos/famiglia-bianchi-malbec-2021.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-famiglia-bianchi-malbec-2021.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodegas Bianchi</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> san rafael</p>
-          
-            <p><strong>Höhe:</strong> 800 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2021</p>
-          
-          
-            <p><strong>Reifung:</strong> 5 años</p>
-          
-        </div>
-      </div>
       
     </div>
-  
-  
-    <h3 class="region-title">Weine aus der Region san rafael</h3>
-    <div class="product-grid same-region">
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>135 Aniversario</h3>
-        <div class="price">€39.99</div>
-        <a href="/de/vinos/135-aniversario-2022.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-135-aniversario-2022.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Goyenechea</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 520 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2022</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Goye Malbec</h3>
-        <div class="price">€9.49</div>
-        <a href="/de/vinos/goye-malbec-2022.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-goye-malbec-2022.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Goyenechea</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 520 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2022</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Quinta Generación Malbec</h3>
-        <div class="price">€19.99</div>
-        <a href="/de/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-quinta-generacion-malbec-2022.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Goyenechea</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 520 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2022</p>
-          
-          
-        </div>
-      </div>
-      
-    </div>
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {
