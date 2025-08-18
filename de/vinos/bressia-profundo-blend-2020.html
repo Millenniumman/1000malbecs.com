@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -276,7 +282,7 @@
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -423,6 +429,26 @@
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -864,25 +911,30 @@
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Bressia Profundo Blend</h1>
+        <h1>Bressia Profundo Blend - 2020</h1>
         <p class="info"><strong>Weingut:</strong> Bodega Bressia</p>
         <p class="info"><strong>Provinz:</strong> Mendoza</p>
         <p class="info"><strong>Region:</strong> agrelo</p>
         <p class="info"><strong>Höhe:</strong> 970 msnm</p>
-        <p class="info"><strong>Preis:</strong> €43.06</p>
+        <p class="info"><strong>UVP Preis:</strong> €43.06</p>
         
         
-        <p class="info"><strong>Reifung:</strong> 8 años</p>
+        <p class="info"><strong>Lagerzeit:</strong> 8 años</p>
         
-        <a href="https://wa.me/4915158224728?text=Ich%20m%C3%B6chte%20den%20Wein%20kaufen:%20Bressia%20Profundo%20Blend%202020" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20Bressia%20Profundo%20Blend%202020" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>Deep begann in Argentinien in der Ära der "Assemblagen", Weine aus verschiedenen Sorten, die in unterschiedlichen Proportionen kombiniert wurden und einen einzigartigen, vollständigen und großen Definitionswein erzielten. Die Sorten, die es bestehen, sind Malbec, Cabernet Sauvignon, Merlot und Syrah, die in der Abteilung Luján de Cuyo hergestellt werden und 10 Monate lang eine Zucht in französischen und amerikanischen Eichenfässern erfüllen. Deep wurde 12 Monate lang in Flaschen in unserer Cava aufbewahrt, um ihre Tannine zu modellieren und zu verfeinern, um einen eleganten, nicht zu sportlichen Wein mit einem sehr langen und unvergesslichen Ende im Mund zu genießen. Bressia Profundo Blend von Bodega Bressia</p>
         </div>
         <div class="info-box">
-          <h2>Verkostungsnotizen und Speisenbegleitung</h2>
+          <h2>Verkostungsnotizen und Speisenempfehlung</h2>
           <p>Intensive rubinrote Farbe mit lila Tönen und hellen Reflexen, die seine Konzentration und Vitalität widerspiegeln. Komplexe und elegante Aromen mit Noten von schwarzen und roten Früchten (Brombeeren, Pflaumen, Himbeeren), begleitet von würzigen Details (Pfeffer, Nagel), Blumen (Veilchen) und Erhöhung von Nuancen in Eiche wie Vanille, Schokolade, Kaffee und leicht geräuchertem Touch. Sie können auch Mineral- und Kräuternotizen vorstellen.
-Ausgeglichener und strukturierter Eingang mit weichen und gut integrierten Tanninen. Es bietet eine seidige Textur, eine gute Säure und einen mittleren bis hohen Körper. Obstaromen verbinden sich mit Eiche, Schokolade und einer langen, anhaltenden und harmonischen letzten Noten. ErBressia Profundo Blend Es ist ein vielseitiger und strukturierter Wein, der dank seiner Balance zwischen Obst, Tanninen und Säure ideal ist, um eine breite Palette von Gerichten zu begleiten. Zu den Paarempfehlungen gehören: Rotes Fleisch: Perfekt für Schnitte wie Lenden, Chorizo oder gerösteter Argentinier. Seine Struktur und Tannine ergänzen die Saftigkeit und den Geschmack von gegrilltem oder gebackenem Fleisch.
+Ausgeglichener und strukturierter Eingang mit weichen und gut integrierten Tanninen. Es bietet eine seidige Textur, eine gute Säure und einen mittleren bis hohen Körper. Obstaromen verbinden sich mit Eiche, Schokolade und einer langen, anhaltenden und harmonischen letzten Noten. ErBressia Profundo Blend Es ist ein vielseitiger und strukturierter Wein, der dank seiner Balance zwischen Obst, Tanninen und Säure ideal ist, um eine breite Palette von Gerichten zu begleiten. Zu den Paarempfehlungen gehören: Rotes Fleisch: Perfekt für Schnitte wie Lenden, Chorizo oder gerösteter Argentinier. Seine Struktur und Tannine ergänzen den Saft und den Geschmack von gegrilltem oder gebackenem Fleisch.
 Lamm: Harmonisiert geröstetes oder gedünstetes Lamm, insbesondere wenn sie mit Kräutern wie Rosmarin oder Saucen mit Weinreduzierung begleitet werden.
 Empanadas: ideal für Fleisch empanadas oder intensive Aromen, da ihre Obst und würzigen Noten die Gewürze ausgleichen.
 Reife Käse: Kombiniert sehr gut mit harten Käse wie Parmesan, Gouda Añejo oder Manchego, die seine Eichen- und Obstnoten hervorheben.
@@ -894,61 +946,135 @@ Desserts: Sie können dank seiner Obst- und Vanillenoten Desserts mit bitterer S
         
       </div>
     </div>
-<div class="recommended-section">
-  
-    <h3>Weitere Weine vom Weingut Bodega Bressia</h3>
-    <div class="product-grid same-bodega">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Botella de Monteagrelo Malbec 2020"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Monteagrelo Malbec</h3>
-        <div class="price">€29.36</div>
-        <a href="/de/vinos/monteagrelo-malbec-2020.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-monteagrelo-malbec-2020.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Bressia</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> agrelo</p>
+        <h3>Weitere Weine von Bodega Bressia</h3>
+        <div class="product-grid same-bodega">
           
-            <p><strong>Höhe:</strong> 940 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Botella de Monteagrelo Malbec 2020"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Monteagrelo Malbec</h3>
+            <div class="price">€29.36</div>
+            <a href="/de/vinos/monteagrelo-malbec-2020.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-monteagrelo-malbec-2020.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Bressia</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> agrelo</p>
+              
+                <p><strong>Höhe:</strong> 940 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2020</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 8 años</p>
+              
+            </div>
+          </div>
           
-          
-            <p><strong>Jahrgang:</strong> 2020</p>
-          
-          
-            <p><strong>Reifung:</strong> 8 años</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/bressia-conjuro-blend-2016.jpg" alt="Botella de Bressia Conjuro Blend 2016"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Bressia Conjuro Blend</h3>
+            <div class="price">€95.16</div>
+            <a href="/de/vinos/bressia-conjuro-blend-2016.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-bressia-conjuro-blend-2016.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Bressia</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> agrelo tupungato</p>
+              
+                <p><strong>Höhe:</strong> 1100 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2016</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 10 años</p>
+              
+            </div>
+          </div>
           
         </div>
-      </div>
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/bressia-conjuro-blend-2016.jpg" alt="Botella de Bressia Conjuro Blend 2016"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Bressia Conjuro Blend</h3>
-        <div class="price">€95.16</div>
-        <a href="/de/vinos/bressia-conjuro-blend-2016.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-bressia-conjuro-blend-2016.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Bressia</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> agrelo tupungato</p>
+      
+        <h3 class="region-title">Weine aus agrelo</h3>
+        <div class="product-grid same-region">
           
-            <p><strong>Höhe:</strong> 1100 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Botella de Premium Reserva Malbec Mendoza 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Premium Reserva Malbec Mendoza</h3>
+            <div class="price">€25.14</div>
+            <a href="/de/vinos/premium-reserva-malbec-mendoza-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-premium-reserva-malbec-mendoza-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Piattelli Vineyards</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 940 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 5 años</p>
+              
+            </div>
+          </div>
           
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Botella de Gran Reserva Malbec Mendoza 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Gran Reserva Malbec Mendoza</h3>
+            <div class="price">€36.70</div>
+            <a href="/de/vinos/gran-reserva-malbec-mendoza-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-gran-reserva-malbec-mendoza-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Piattelli Vineyards</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 975 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+            </div>
+          </div>
           
-            <p><strong>Jahrgang:</strong> 2016</p>
-          
-          
-            <p><strong>Reifung:</strong> 10 años</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Botella de Trinitá Gran Reserva Blend 2020"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Trinitá Gran Reserva Blend</h3>
+            <div class="price">€49.08</div>
+            <a href="/de/vinos/trinita-gran-reserva-blend-2020.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-trinita-gran-reserva-blend-2020.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Piattelli Vineyards</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1200 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2020</p>
+              
+              
+            </div>
+          </div>
           
         </div>
-      </div>
       
     </div>
-  
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {

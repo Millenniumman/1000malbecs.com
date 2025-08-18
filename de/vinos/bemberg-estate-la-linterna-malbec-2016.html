@@ -213,10 +213,12 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -228,7 +230,11 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -282,7 +288,7 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -350,7 +356,7 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -361,14 +367,14 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -429,6 +435,26 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -514,15 +540,24 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -601,7 +636,7 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -616,7 +651,7 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -733,8 +768,20 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -870,17 +917,22 @@ Die sorgfältige Suche nach Perfektion ist ein Wert, der von Generation zu Gener
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Bemberg Estate La Linterna Malbec</h1>
+        <h1>Bemberg Estate La Linterna Malbec - 2016</h1>
         <p class="info"><strong>Weingut:</strong> Bemberg Estate Wines</p>
         <p class="info"><strong>Provinz:</strong> Mendoza</p>
         <p class="info"><strong>Region:</strong> gualtallary, valle de uco</p>
         <p class="info"><strong>Höhe:</strong> 2000 msnm</p>
-        <p class="info"><strong>Preis:</strong> €89.34</p>
+        <p class="info"><strong>UVP Preis:</strong> €89.34</p>
         
-        <p class="info"><strong>Auszeichnungen:</strong> DWWA 2025 - 95 Points</p>
+        <p class="info"><strong>Auszeichnungen:</strong> DWWA 2025 - 95 pts</p>
         
         
-        <a href="https://wa.me/4915158224728?text=Ich%20m%C3%B6chte%20den%20Wein%20kaufen:%20Bemberg%20Estate%20La%20Linterna%20Malbec%202016" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20Bemberg%20Estate%20La%20Linterna%20Malbec%202016" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>Erkundung und Beleuchtung
@@ -892,7 +944,7 @@ Diese Reihe von Weinen stammt von einer Tour von Nord bis südlich von Argentini
 Unsere Winzer und Winzer untersuchten jeden der Terroir, um das perfekte Microterroir zu finden. Jede Abreise der Taschenlampe ist ohne Filterung gestartet, um ihren außergewöhnlichen Charakter intakt zu halten. Bemberg Estate La Linterna Malbec von Bemberg Estate Wines</p>
         </div>
         <div class="info-box">
-          <h2>Verkostungsnotizen und Speisenbegleitung</h2>
+          <h2>Verkostungsnotizen und Speisenempfehlung</h2>
           <p>Lebendig und kraftvoll von einer Intensität und Reinheit des Ausdrucks voller Charakter. Anhaltende Brombeeren und Blaubeeren, karamellisierte Kirschen, Himbeeren und getrocknete rote Blaubeeren. Sein Duft zu Veilchen und Rosen stellt sich elegant mit sezierten Gewürzen, Süßholz und Kräutern auf einen verführerischen Hintergrund irdischer, geräucherter und mineralischer Noten gegenüber. Lebendige Säure und fein strukturierte Tannine, bequem durch eine samtige Textur und kalkhaltige Leistung ausgeglichen. Ein junger und energischer Wein mit großem Charakter, der nach einem guten Wächter in Harmonie und Integration gewinnen wird. Bemberg Estate La Linterna Malbec von Bemberg Estate Wines</p>
         </div>
         
@@ -903,83 +955,84 @@ Unsere Winzer und Winzer untersuchten jeden der Terroir, um das perfekte Microte
         
       </div>
     </div>
-<div class="recommended-section">
-  
-  
-    <h3 class="region-title">Weine aus der Region gualtallary, valle de uco</h3>
-    <div class="product-grid same-region">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/rutini-single-vineyard-malbec-gualtallary-2017.jpg" alt="Botella de Rutini Single Vineyard Malbec Gualtallary 2017"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Rutini Single Vineyard Malbec Gualtallary</h3>
-        <div class="price">€134.00</div>
-        <a href="/de/vinos/rutini-single-vineyard-malbec-gualtallary-2017.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-rutini-single-vineyard-malbec-gualtallary-2017.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Rutini Wines</p>
+      
+        <h3 class="region-title">Weine aus gualtallary, valle de uco</h3>
+        <div class="product-grid same-region">
           
-            <p><strong>Provinz:</strong> Mendoza</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/rutini-single-vineyard-malbec-gualtallary-2017.jpg" alt="Botella de Rutini Single Vineyard Malbec Gualtallary 2017"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Rutini Single Vineyard Malbec Gualtallary</h3>
+            <div class="price">€134.00</div>
+            <a href="/de/vinos/rutini-single-vineyard-malbec-gualtallary-2017.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-rutini-single-vineyard-malbec-gualtallary-2017.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Rutini Wines</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1180 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2017</p>
+              
+              
+            </div>
+          </div>
           
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Felipe Rutini</h3>
+            <div class="price">€168.99</div>
+            <a href="/de/vinos/felipe-rutini-2017.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-felipe-rutini-2017.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Rutini Wines</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1180 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2017</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 20 años</p>
+              
+            </div>
+          </div>
           
-            <p><strong>Höhe:</strong> 1180 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2017</p>
-          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-sv-malbec-ambrosia-2018.jpg" alt="Botella de Trapiche Terroir Series SV Malbec Ambrosia 2018"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Trapiche Terroir Series SV Malbec Ambrosia</h3>
+            <div class="price">€62.22</div>
+            <a href="/de/vinos/trapiche-terroir-series-sv-malbec-ambrosia-2018.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-trapiche-terroir-series-sv-malbec-ambrosia-2018.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Trapiche</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1400 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2018</p>
+              
+              
+            </div>
+          </div>
           
         </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Felipe Rutini</h3>
-        <div class="price">€168.99</div>
-        <a href="/de/vinos/felipe-rutini-2017.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-felipe-rutini-2017.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Rutini Wines</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 1180 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2017</p>
-          
-          
-            <p><strong>Reifung:</strong> 20 años</p>
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-sv-malbec-ambrosia-2018.jpg" alt="Botella de Trapiche Terroir Series SV Malbec Ambrosia 2018"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Trapiche Terroir Series SV Malbec Ambrosia</h3>
-        <div class="price">€62.22</div>
-        <a href="/de/vinos/trapiche-terroir-series-sv-malbec-ambrosia-2018.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-trapiche-terroir-series-sv-malbec-ambrosia-2018.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Trapiche</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 1400 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2018</p>
-          
-          
-        </div>
-      </div>
       
     </div>
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {

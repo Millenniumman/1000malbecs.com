@@ -213,10 +213,12 @@ Farm des begehrten Gesamtgebiets...">
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -228,7 +230,11 @@ Farm des begehrten Gesamtgebiets...">
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -282,7 +288,7 @@ Farm des begehrten Gesamtgebiets...">
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -350,7 +356,7 @@ Farm des begehrten Gesamtgebiets...">
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -361,14 +367,14 @@ Farm des begehrten Gesamtgebiets...">
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -429,6 +435,26 @@ Farm des begehrten Gesamtgebiets...">
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -514,15 +540,24 @@ Farm des begehrten Gesamtgebiets...">
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -601,7 +636,7 @@ Farm des begehrten Gesamtgebiets...">
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -616,7 +651,7 @@ Farm des begehrten Gesamtgebiets...">
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -733,8 +768,20 @@ Farm des begehrten Gesamtgebiets...">
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -870,19 +917,24 @@ Farm des begehrten Gesamtgebiets...">
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Magna Finca Malbec</h1>
+        <h1>Magna Finca Malbec - 2019</h1>
         <p class="info"><strong>Weingut:</strong> Finca La Anita</p>
         <p class="info"><strong>Provinz:</strong> Mendoza</p>
         <p class="info"><strong>Region:</strong> alto agrelo</p>
         <p class="info"><strong>Höhe:</strong> 1100 msnm</p>
-        <p class="info"><strong>Preis:</strong> €50.58</p>
+        <p class="info"><strong>UVP Preis:</strong> €50.58</p>
         
-        <p class="info"><strong>Auszeichnungen:</strong> 93 Puntos Descorchados 2020</p>
+        <p class="info"><strong>Auszeichnungen:</strong> 93 pts Descorchados 2020</p>
         
         
-        <p class="info"><strong>Reifung:</strong> 10 años</p>
+        <p class="info"><strong>Lagerzeit:</strong> 10 años</p>
         
-        <a href="https://wa.me/4915158224728?text=Ich%20m%C3%B6chte%20den%20Wein%20kaufen:%20Magna%20Finca%20Malbec%202019" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20Magna%20Finca%20Malbec%202019" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>Magna finca drückt alle Exklusivität aus, die aus a entsteht
@@ -894,7 +946,7 @@ Integrieren Sie von den Weinbergen zu jeder Flasche, um sie zu übertragen
 Die ganze Identität unseres Terroirs in einzigartigen Weinen. Magna Finca Malbec von Finca La Anita</p>
         </div>
         <div class="info-box">
-          <h2>Verkostungsnotizen und Speisenbegleitung</h2>
+          <h2>Verkostungsnotizen und Speisenempfehlung</h2>
           <p>Rubinrot mit bläulichen Tönen; Der Boca -Eintrag ist exquisit, breit; Sehr gute Textur von Tanninen, rund und süß; Schwarze rote Früchte, reife rote Pflaume, Brombeeren und Kirschen. Ein breiter, süßer, aber frischer und trinkbarer Wein gleichzeitig. Erfecto zu saftigen Schnitten aus rotem Fleisch wie dem klassischen argentinischen Wurstdeich; Es passt sehr gut zu gealtertem Fleisch, Lamm- oder Kindertopf sowie gekochtem Fleisch bei schwacher Hitze und Gemüse an der Scheibe. Magna Finca Malbec von Finca La Anita</p>
         </div>
         
@@ -905,61 +957,62 @@ Die ganze Identität unseres Terroirs in einzigartigen Weinen. Magna Finca Malbe
         
       </div>
     </div>
-<div class="recommended-section">
-  
-    <h3>Weitere Weine vom Weingut Finca La Anita</h3>
-    <div class="product-grid same-bodega">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/finca-la-anita-malbec-2021.jpg" alt="Botella de Finca La Anita Malbec 2021"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Finca La Anita Malbec</h3>
-        <div class="price">€30.06</div>
-        <a href="/de/vinos/finca-la-anita-malbec-2021.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-finca-la-anita-malbec-2021.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Finca La Anita</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> alto agrelo</p>
+        <h3>Weitere Weine von Finca La Anita</h3>
+        <div class="product-grid same-bodega">
           
-            <p><strong>Höhe:</strong> 1100 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/finca-la-anita-malbec-2021.jpg" alt="Botella de Finca La Anita Malbec 2021"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Finca La Anita Malbec</h3>
+            <div class="price">€30.06</div>
+            <a href="/de/vinos/finca-la-anita-malbec-2021.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-finca-la-anita-malbec-2021.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Finca La Anita</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> alto agrelo</p>
+              
+                <p><strong>Höhe:</strong> 1100 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2021</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 5 años</p>
+              
+            </div>
+          </div>
           
-          
-            <p><strong>Jahrgang:</strong> 2021</p>
-          
-          
-            <p><strong>Reifung:</strong> 5 años</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/finca-la-anita-gran-corte-2021.jpg" alt="Botella de Finca La Anita Gran Corte 2021"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Finca La Anita Gran Corte</h3>
+            <div class="price">€30.06</div>
+            <a href="/de/vinos/finca-la-anita-gran-corte-2021.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-finca-la-anita-gran-corte-2021.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Finca La Anita</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> alto agrelo</p>
+              
+                <p><strong>Höhe:</strong> 1100 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2021</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 6 años</p>
+              
+            </div>
+          </div>
           
         </div>
-      </div>
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/finca-la-anita-gran-corte-2021.jpg" alt="Botella de Finca La Anita Gran Corte 2021"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Finca La Anita Gran Corte</h3>
-        <div class="price">€30.06</div>
-        <a href="/de/vinos/finca-la-anita-gran-corte-2021.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-finca-la-anita-gran-corte-2021.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Finca La Anita</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> alto agrelo</p>
-          
-            <p><strong>Höhe:</strong> 1100 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2021</p>
-          
-          
-            <p><strong>Reifung:</strong> 6 años</p>
-          
-        </div>
-      </div>
       
     </div>
-  
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {

@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -276,7 +282,7 @@
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -423,6 +429,26 @@
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -864,132 +911,138 @@
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>A Corazón Abierto Gran Corte</h1>
+        <h1>A Corazón Abierto Gran Corte - 2018</h1>
         <p class="info"><strong>Weingut:</strong> A Corazon Abierto</p>
         <p class="info"><strong>Provinz:</strong> Mendoza</p>
         <p class="info"><strong>Region:</strong> valle de uco</p>
         <p class="info"><strong>Höhe:</strong> 1280 msnm</p>
-        <p class="info"><strong>Preis:</strong> €49.18</p>
+        <p class="info"><strong>UVP Preis:</strong> €49.18</p>
         
         
-        <p class="info"><strong>Reifung:</strong> 25 años</p>
+        <p class="info"><strong>Lagerzeit:</strong> 25 años</p>
         
-        <a href="https://wa.me/4915158224728?text=Ich%20m%C3%B6chte%20den%20Wein%20kaufen:%20A%20Coraz%C3%B3n%20Abierto%20Gran%20Corte%202018" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20A%20Coraz%C3%B3n%20Abierto%20Gran%20Corte%202018" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>ErA Corazón Abierto Gran Corte 2018 ist ein Hoch -End -Wein für Lagerhaus A Corazon Abierto, gelegen in Los Chacayes, Uco Valley, Mendoza, Argentinien. Diese mit einem handwerklichen Ansatz vorbereitete Mischung spiegelt die Exzellenz des Terroirs der Region wider, der für ihre Höhe (1280 Meter) und alluviale Böden mit großer Mineralität bekannt ist. Es handelt</p>
         </div>
         <div class="info-box">
-          <h2>Verkostungsnotizen und Speisenbegleitung</h2>
+          <h2>Verkostungsnotizen und Speisenempfehlung</h2>
           <p>Tiefes Rubinrot mit lila Tönen und Granatreflexen, was auf Konzentration und elegante Evolution hinweist.
 Intensiv und komplex, mit Aromen von reifen schwarzen Früchten (Brombeeren, Pflaumen, CASIS), würzigen Noten (schwarzer Pfeffer, Nagel), Blumenrücklupen (Veilchen) und Erziehungsnuancen wie Tabak, Leder, Bitterschokolade und Vanille. Auch subtile Mineralnoten, die Frische und Raffinesse bieten, werden ebenfalls wahrgenommen. Breiter und strukturierter Eingang mit festen, aber samtigen Tanninen. Ausgeglichen, mit einer lebendigen Säure, die die Aromen von schwarzen Früchten, Gewürzen und gut integrierten Eichen hervorhebt. Sein Ende ist lang, anhaltend und verführerisch, mit einer Mineralrührin, die das Terroir der Chacayes widerspiegelt. A Corazón Abierto Gran Corte von A Corazon Abierto</p>
         </div>
         
       </div>
     </div>
-<div class="recommended-section">
-  
-    <h3>Weitere Weine vom Weingut A Corazon Abierto</h3>
-    <div class="product-grid same-bodega">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/a-corazon-abierto-malbec-2019.jpg" alt="Botella de A Corazón Abierto Malbec 2019"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>A Corazón Abierto Malbec</h3>
-        <div class="price">€36.06</div>
-        <a href="/de/vinos/a-corazon-abierto-malbec-2019.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-a-corazon-abierto-malbec-2019.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> A Corazon Abierto</p>
-          <p><strong>Provinz:</strong> Mendoza</p>
-          <p><strong>Region:</strong> valle de uco</p>
+        <h3>Weitere Weine von A Corazon Abierto</h3>
+        <div class="product-grid same-bodega">
           
-            <p><strong>Höhe:</strong> 1280 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2019</p>
-          
-          
-            <p><strong>Reifung:</strong> 10 años</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/a-corazon-abierto-malbec-2019.jpg" alt="Botella de A Corazón Abierto Malbec 2019"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>A Corazón Abierto Malbec</h3>
+            <div class="price">€36.06</div>
+            <a href="/de/vinos/a-corazon-abierto-malbec-2019.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-a-corazon-abierto-malbec-2019.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> A Corazon Abierto</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> valle de uco</p>
+              
+                <p><strong>Höhe:</strong> 1280 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2019</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 10 años</p>
+              
+            </div>
+          </div>
           
         </div>
-      </div>
+      
+      
+        <h3 class="region-title">Weine aus valle de uco</h3>
+        <div class="product-grid same-region">
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Foster  Malbec</h3>
+            <div class="price">€25.49</div>
+            <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-foster-malbec-2020.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1050 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2020</p>
+              
+              
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Foster  Malbec</h3>
+            <div class="price">€26.49</div>
+            <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-foster-malbec-2018.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1050 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2018</p>
+              
+              
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Foster  Malbec</h3>
+            <div class="price">€27.49</div>
+            <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-foster-malbec-2015.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1050 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2015</p>
+              
+              
+            </div>
+          </div>
+          
+        </div>
       
     </div>
-  
-  
-    <h3 class="region-title">Weine aus der Region valle de uco</h3>
-    <div class="product-grid same-region">
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Foster  Malbec</h3>
-        <div class="price">€25.49</div>
-        <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-foster-malbec-2020.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 1050 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2020</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Foster  Malbec</h3>
-        <div class="price">€26.49</div>
-        <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-foster-malbec-2018.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 1050 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2018</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>Foster  Malbec</h3>
-        <div class="price">€27.49</div>
-        <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="region-foster-malbec-2015.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-          
-            <p><strong>Provinz:</strong> Mendoza</p>
-          
-          
-            <p><strong>Höhe:</strong> 1050 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2015</p>
-          
-          
-        </div>
-      </div>
-      
-    </div>
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {

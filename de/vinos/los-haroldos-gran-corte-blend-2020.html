@@ -73,7 +73,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      overflow-y: auto;
+      overscroll-behavior: contain;
       border-right: 1px solid #E0E0E0;
       z-index: 100;
       transition: transform 0.3s ease;
@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -424,6 +430,26 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
+    }
     @media (max-width: 768px) {
       .header {
         display: block;
@@ -451,7 +477,7 @@
         border-bottom: 1px solid #E0E0E0;
         padding: 20px;
         padding-top: 50px;
-        overflow-y: auto;
+        overscroll-behavior: contain;
         -webkit-overflow-scrolling: touch;
       }
       #sidebar.open {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -868,9 +915,16 @@
         <p class="info"><strong>Weingut:</strong> Los Haroldos</p>
         <p class="info"><strong>Provinz:</strong> Mendoza</p>
         <p class="info"><strong>Region:</strong> valle de uco</p>
-        <p class="info"><strong>Höhe:</strong> 1100.0</p>
-        <p class="info"><strong>Preis:</strong> €27.50</p>
-        <a href="https://wa.me/4915158224728?text=:%20Los%20Haroldos%20Gran%20Corte%20Blend%202020" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <p class="info"><strong>Höhe:</strong> 1100 msnm</p>
+        <p class="info"><strong>UVP Preis:</strong> €27.50</p>
+        
+        
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20Los%20Haroldos%20Gran%20Corte%20Blend%202020" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>Anspruchsvolle Mischung, die Malbec mit anderen Sorten kombiniert und ein reichhaltiges und harmonisches Profil bietet. Los Haroldos Gran Corte Blend von Los Haroldos</p>
@@ -901,106 +955,145 @@ Lammfleisch, Jagdfleisch, Eintöpfer oder starker Käse Los Haroldos Gran Corte 
     </div>
     <div class="recommended-section">
       
-      <h3>Weitere Weine von Los Haroldos</h3>
-      <div class="product-grid same-bodega">
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/oro-negro-malbec-2024.jpg" alt="Botella de Oro Negro Malbec 2024"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Oro Negro Malbec 2024</h3>
-          <div class="price">€6.74</div>
-          <a href="/de/vinos/oro-negro-malbec-2024.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="bodega-oro-negro-malbec-2024.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Los Haroldos</p>
-            <p><strong>Provinz:</strong> Mendoza</p>
-            <p><strong>Region:</strong> valle norte</p>
-            <p><strong>Höhe:</strong> 750.0</p>
-            <p><strong>:</strong> 2024</p>
+        <h3>Weitere Weine von Los Haroldos</h3>
+        <div class="product-grid same-bodega">
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/oro-negro-malbec-2024.jpg" alt="Botella de Oro Negro Malbec 2024"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Oro Negro Malbec</h3>
+            <div class="price">€6.74</div>
+            <a href="/de/vinos/oro-negro-malbec-2024.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-oro-negro-malbec-2024.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Los Haroldos</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> valle norte</p>
+              
+                <p><strong>Höhe:</strong> 750 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2024</p>
+              
+              
+            </div>
           </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/chacabuco-malbec-2024.jpg" alt="Botella de Chacabuco Malbec 2024"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Chacabuco Malbec 2024</h3>
-          <div class="price">€7.90</div>
-          <a href="/de/vinos/chacabuco-malbec-2024.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="bodega-chacabuco-malbec-2024.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Los Haroldos</p>
-            <p><strong>Provinz:</strong> Mendoza</p>
-            <p><strong>Region:</strong> valle norte</p>
-            <p><strong>Höhe:</strong> 750.0</p>
-            <p><strong>:</strong> 2024</p>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/chacabuco-malbec-2024.jpg" alt="Botella de Chacabuco Malbec 2024"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Chacabuco Malbec</h3>
+            <div class="price">€7.90</div>
+            <a href="/de/vinos/chacabuco-malbec-2024.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-chacabuco-malbec-2024.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Los Haroldos</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> valle norte</p>
+              
+                <p><strong>Höhe:</strong> 750 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2024</p>
+              
+              
+            </div>
           </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Botella de Los Haroldos Estate Malbec 2022"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Los Haroldos Estate Malbec 2022</h3>
-          <div class="price">€11.90</div>
-          <a href="/de/vinos/los-haroldos-estate-malbec-2022.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="bodega-los-haroldos-estate-malbec-2022.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Los Haroldos</p>
-            <p><strong>Provinz:</strong> Mendoza</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1000.0</p>
-            <p><strong>:</strong> 2022</p>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Botella de Los Haroldos Estate Malbec 2022"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Los Haroldos Estate Malbec</h3>
+            <div class="price">€11.90</div>
+            <a href="/de/vinos/los-haroldos-estate-malbec-2022.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-los-haroldos-estate-malbec-2022.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Los Haroldos</p>
+              <p><strong>Provinz:</strong> Mendoza</p>
+              <p><strong>Region:</strong> valle de uco</p>
+              
+                <p><strong>Höhe:</strong> 1000 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2022</p>
+              
+              
+            </div>
           </div>
+          
         </div>
-        
-      </div>
       
       
-      <h3 class="region-title">Weine aus valle de uco</h3>
-      <div class="product-grid same-region">
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Foster  Malbec 2020</h3>
-          <div class="price">€25.49</div>
-          <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-foster-malbec-2020.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1050.0</p>
+        <h3 class="region-title">Weine aus valle de uco</h3>
+        <div class="product-grid same-region">
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/foster-malbec-2020.jpg" alt="Botella de Foster  Malbec 2020"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Foster  Malbec</h3>
+            <div class="price">€25.49</div>
+            <a href="/de/vinos/foster-malbec-2020.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-foster-malbec-2020.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1050 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2020</p>
+              
+              
+            </div>
           </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Foster  Malbec 2018</h3>
-          <div class="price">€26.49</div>
-          <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-foster-malbec-2018.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1050.0</p>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/foster-malbec-2018.jpg" alt="Botella de Foster  Malbec 2018"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Foster  Malbec</h3>
+            <div class="price">€26.49</div>
+            <a href="/de/vinos/foster-malbec-2018.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-foster-malbec-2018.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1050 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2018</p>
+              
+              
+            </div>
           </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
-               onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-          <h3>Foster  Malbec 2015</h3>
-          <div class="price">€27.49</div>
-          <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Jetzt kaufen</a>
-          <span class="info-icon" data-overlay-id="region-foster-malbec-2015.html">🍷</span>
-          <div class="overlay">
-            <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> valle de uco</p>
-            <p><strong>Höhe:</strong> 1050.0</p>
+          
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/foster-malbec-2015.jpg" alt="Botella de Foster  Malbec 2015"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>Foster  Malbec</h3>
+            <div class="price">€27.49</div>
+            <a href="/de/vinos/foster-malbec-2015.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="region-foster-malbec-2015.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+              
+                <p><strong>Provinz:</strong> Mendoza</p>
+              
+              
+                <p><strong>Höhe:</strong> 1050 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2015</p>
+              
+              
+            </div>
           </div>
+          
         </div>
-        
-      </div>
       
     </div>
   </div>

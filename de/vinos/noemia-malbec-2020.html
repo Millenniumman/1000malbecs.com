@@ -207,10 +207,12 @@
       color: #4A0D29;
     }
     .main-buy-button {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
-      background-color: #FF9900;
-      color: #000000;
+      background-color: #25D366; /* WhatsApp green */
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
@@ -222,7 +224,11 @@
       box-sizing: border-box;
     }
     .main-buy-button:hover {
-      background-color: #E68A00;
+      background-color: #20B858; /* Darker green for hover */
+    }
+    .main-buy-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     .buy-button {
       display: inline-block;
@@ -276,7 +282,7 @@
     }
     .recommended-section .region-title {
       color: #6B1D49;
-      personally: 1.4em;
+      font-size: 1.4em;
       margin: 30px 0 15px;
       border-bottom: 2px solid #6B1D49;
       padding-bottom: 5px;
@@ -344,7 +350,7 @@
       left: 0;
       width: 100%;
       max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
+      background-color: rgba(74, 44, 89, 0.8);
       color: #FFFFFF;
       padding: 40px 10px 10px 10px;
       box-sizing: border-box;
@@ -355,14 +361,14 @@
     }
     .overlay p {
       margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
+      color: #FFFFFF;
+      visibility: visible;
     }
     .product-card:hover .overlay {
       display: block;
     }
     .product-card .overlay.active {
-      display: block !important;
+      display: block;
     }
     .product-card h3 {
       font-size: 16px;
@@ -423,6 +429,26 @@
     .language-selector a.active {
       background-color: #4A2C59;
       color: #FFFFFF;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .free-shipping {
+      font-size: 0.9em;
+      color: #4A0D29;
+      margin: 5px 0;
+      text-align: center;
+    }
+    .free-shipping a {
+      color: #4A2C59;
+      text-decoration: underline;
+    }
+    .free-shipping a:hover {
+      color: #5A1D39;
     }
     @media (max-width: 768px) {
       .header {
@@ -508,15 +534,24 @@
       .product-details .info-box h2 {
         font-size: 1.2em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
-        width: 100%;
+      .main-buy-button {
         padding: 12px;
-        margin: 10px 0;
-        box-sizing: border-box;
+      }
+      .main-buy-button i {
+        font-size: 1em;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
       }
       .pdf-button {
         padding: 10px;
         margin: 10px 0;
+      }
+      .free-shipping {
+        font-size: 0.8em;
       }
       .recommended-section {
         margin: 30px 0 0;
@@ -595,7 +630,7 @@
         pointer-events: auto;
       }
       .info-icon {
-        display: block !important;
+        display: block;
         pointer-events: auto;
         z-index: 10;
       }
@@ -610,7 +645,7 @@
         z-index: 6;
       }
       .overlay.active {
-        display: block !important;
+        display: block;
         z-index: 6;
       }
       .product-card:hover .overlay {
@@ -727,8 +762,20 @@
       .product-details .info-box h2 {
         font-size: 1.3em;
       }
-      .main-buy-button, .buy-button, .pdf-button {
+      .main-buy-button {
         padding: 15px;
+        margin: 15px 0 0;
+      }
+      .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 180px;
+      }
+      .pdf-button {
+        padding: 10px;
         margin: 15px 0 0;
       }
       .recommended-section {
@@ -864,23 +911,28 @@
              onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
       </div>
       <div class="product-info">
-        <h1>Noemía Malbec</h1>
+        <h1>Noemía Malbec - 2020</h1>
         <p class="info"><strong>Weingut:</strong> Bodega Noemía Patagonia</p>
         <p class="info"><strong>Provinz:</strong> Rio Negro</p>
         <p class="info"><strong>Region:</strong> mainqué</p>
         <p class="info"><strong>Höhe:</strong> 250 msnm</p>
-        <p class="info"><strong>Preis:</strong> €190.82</p>
+        <p class="info"><strong>UVP Preis:</strong> €190.82</p>
         
         
-        <p class="info"><strong>Reifung:</strong> 15 años</p>
+        <p class="info"><strong>Lagerzeit:</strong> 15 años</p>
         
-        <a href="https://wa.me/4915158224728?text=Ich%20m%C3%B6chte%20den%20Wein%20kaufen:%20Noem%C3%ADa%20Malbec%202020" class="main-buy-button" target="_blank">Jetzt kaufen</a>
+        <div class="button-container">
+          <a href="https://wa.me/4915158224728?text=Hallo%2C%20ich%20bin%20interessiert%20an:%20Noem%C3%ADa%20Malbec%202020" class="main-buy-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Über WhatsApp bestellen
+          </a>
+          <p class="free-shipping">Versandkosten: EUR 5 - Kostenloser Versand beim Kauf von mindestens 12 Flaschen verschiedener Weine <a href="/de/faq">Mehr Infos</a></p>
+        </div>
         <div class="info-box">
           <h2>Beschreibung</h2>
           <p>Es ist der Ikonenwein des Weinguts, der aus Malbec aus vorfiloxischen Weinbergen hergestellt wurde, die 1932 von 1,5 Hektar in Valle Azul, Río Negro gepflanzt wurden. Es wird von Hand geerntet, mit spontaner Fermentation in offenen Eichen-Eichenabdeckungen und in Eichenfässern (15% neu) für 18-22 Monate. Dieser Wein spiegelt die Philosophie des Weinguts wider: Drücken Sie den patagonischen Terroir mit minimaler Intervention aus und heben Sie die Reinheit und Eleganz der Früchte hervor. Es ist eine limitierte Reduzierung, die als eines der besten Malbec in Argentinien gilt. Noemía Malbec von Bodega Noemía Patagonia</p>
         </div>
         <div class="info-box">
-          <h2>Verkostungsnotizen und Speisenbegleitung</h2>
+          <h2>Verkostungsnotizen und Speisenempfehlung</h2>
           <p>Farbe: Deep Rubyrot mit violetten Reflexionen.  
 Aroma: Intensiv und komplex, mit violetten Noten, schwarzen Kirschen, Brombeeren, süßen Gewürzen (Nelke, Zimt) und einer Mineralrührin, die den patagonischen Boden hervorruft. Das Holz ist gut integriert und bietet Vanille- und Kakao -Nuancen.  Kombination: Rotes Fleisch: ideal mit einem Chorizo oder einem gerösteten Patagonik -Lamm, da seine Struktur und Tannine die Intensität des Fleisches ergänzen.  
 Gerichte mit Trüffeln oder Pilzen: Das irdische und mineralische Profil harmoniert mit Pilz- oder Pasta -Risotto mit Trüffelsauce.  
@@ -894,80 +946,81 @@ Textur: konzentriert, aber respektvoll, mit einem raffinierten Gaumen, der nicht
         
       </div>
     </div>
-<div class="recommended-section">
-  
-    <h3>Weitere Weine vom Weingut Bodega Noemía Patagonia</h3>
-    <div class="product-grid same-bodega">
+    <div class="recommended-section">
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/a-lisa-malbec-2023.jpg" alt="Botella de A Lisa Malbec 2023"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>A Lisa Malbec</h3>
-        <div class="price">€33.72</div>
-        <a href="/de/vinos/a-lisa-malbec-2023.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-a-lisa-malbec-2023.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Noemía Patagonia</p>
-          <p><strong>Provinz:</strong> Rio Negro</p>
-          <p><strong>Region:</strong> mainqué</p>
+        <h3>Weitere Weine von Bodega Noemía Patagonia</h3>
+        <div class="product-grid same-bodega">
           
-            <p><strong>Höhe:</strong> 250 msnm</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/a-lisa-malbec-2023.jpg" alt="Botella de A Lisa Malbec 2023"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>A Lisa Malbec</h3>
+            <div class="price">€33.72</div>
+            <a href="/de/vinos/a-lisa-malbec-2023.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-a-lisa-malbec-2023.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Noemía Patagonia</p>
+              <p><strong>Provinz:</strong> Rio Negro</p>
+              <p><strong>Region:</strong> mainqué</p>
+              
+                <p><strong>Höhe:</strong> 250 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2023</p>
+              
+              
+                <p><strong>Lagerzeit:</strong> 6 años</p>
+              
+            </div>
+          </div>
           
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/j-alberto-2021.jpg" alt="Botella de J Alberto 2021"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>J Alberto</h3>
+            <div class="price">€69.06</div>
+            <a href="/de/vinos/j-alberto-2021.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-j-alberto-2021.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Noemía Patagonia</p>
+              <p><strong>Provinz:</strong> Rio Negro</p>
+              <p><strong>Region:</strong> mainqué</p>
+              
+                <p><strong>Höhe:</strong> 250 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2021</p>
+              
+              
+            </div>
+          </div>
           
-            <p><strong>Jahrgang:</strong> 2023</p>
-          
-          
-            <p><strong>Reifung:</strong> 6 años</p>
+          <div class="product-card">
+            <img src="https://www.1000malbecs.com/images/small/a-lisa-malbec-magnum-1500-cc-2021.jpg" alt="Botella de A Lisa Malbec Magnum 1500 cc 2021"
+                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+            <h3>A Lisa Malbec Magnum 1500 cc</h3>
+            <div class="price">€74.94</div>
+            <a href="/de/vinos/a-lisa-malbec-magnum-1500-cc-2021.html" class="buy-button">Kaufen</a>
+            <span class="info-icon" data-overlay-id="bodega-a-lisa-malbec-magnum-1500-cc-2021.html">🍷</span>
+            <div class="overlay">
+              <p><strong>Weingut:</strong> Bodega Noemía Patagonia</p>
+              <p><strong>Provinz:</strong> Rio Negro</p>
+              <p><strong>Region:</strong> mainqué</p>
+              
+                <p><strong>Höhe:</strong> 250 msnm</p>
+              
+              
+                <p><strong>Jahrgang:</strong> 2021</p>
+              
+              
+            </div>
+          </div>
           
         </div>
-      </div>
       
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/j-alberto-2021.jpg" alt="Botella de J Alberto 2021"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>J Alberto</h3>
-        <div class="price">€69.06</div>
-        <a href="/de/vinos/j-alberto-2021.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-j-alberto-2021.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Noemía Patagonia</p>
-          <p><strong>Provinz:</strong> Rio Negro</p>
-          <p><strong>Region:</strong> mainqué</p>
-          
-            <p><strong>Höhe:</strong> 250 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2021</p>
-          
-          
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://www.1000malbecs.com/images/small/a-lisa-malbec-magnum-1500-cc-2021.jpg" alt="Botella de A Lisa Malbec Magnum 1500 cc 2021"
-             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-        <h3>A Lisa Malbec Magnum 1500 cc</h3>
-        <div class="price">€74.94</div>
-        <a href="/de/vinos/a-lisa-malbec-magnum-1500-cc-2021.html" class="buy-button">Jetzt kaufen</a>
-        <span class="info-icon" data-overlay-id="bodega-a-lisa-malbec-magnum-1500-cc-2021.html">🍷</span>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Noemía Patagonia</p>
-          <p><strong>Provinz:</strong> Rio Negro</p>
-          <p><strong>Region:</strong> mainqué</p>
-          
-            <p><strong>Höhe:</strong> 250 msnm</p>
-          
-          
-            <p><strong>Jahrgang:</strong> 2021</p>
-          
-          
-        </div>
-      </div>
       
     </div>
-  
-  
-</div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {
