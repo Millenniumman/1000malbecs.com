@@ -6,23 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000 Malbecs - La Rioja</title>
     <meta property="og:title" content="1000 Malbecs - La Rioja">
-    <meta property="og:description" content="Entdecke die Weine von La Rioja, einer Region mit reicher Weinbautradition, die qualitativ hochwertige Malbecs und andere Rebsorten hervorbringt.">
+    <meta property="og:description" content="La Rioja, cradle of wines with character, combines tradition and modernity. Its vineyards, located in arid soils and under a sunny climate, produce in...">
     <meta property="og:image" content="https://1000malbecs.com/images/provincia/la-rioja-image.jpg">
     <meta property="og:url" content="https://1000malbecs.com/de/provincias/la-rioja.html">
     <meta property="og:type" content="website">
     
-    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/provincias/la-rioja.html">
-    
+    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/es/provincias/la-rioja.html">
     <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/provincias/la-rioja.html">
-    
     <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/provincias/la-rioja.html">
     
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #fdfdfd;
@@ -33,8 +29,17 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-        .header { display: none; }
-        .logo { max-width: 150px; height: auto; }
+        .header {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 50;
+        }
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
         .hamburger {
             display: none;
             font-size: 24px;
@@ -70,20 +75,11 @@
             text-transform: uppercase;
             text-align: left;
         }
-        #sidebar details { margin-bottom: 15px; }
-        #sidebar details:first-of-type { margin-bottom: 25px; }
-        #sidebar summary {
-            font-size: 16px;
-            font-weight: 500;
-            color: #4A2C59;
-            cursor: pointer;
-            padding: 5px 0;
-            display: flex;
-            align-items: center;
-            text-align: left;
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
         }
-        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
-        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
         #sidebar li { margin: 5px 0; }
         .nav-link {
             font-size: 14px;
@@ -98,13 +94,13 @@
         .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
         .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
         .main-content {
-            margin-left: 250px;
+            margin-left: 250px; /* Match sidebar width */
             width: calc(100% - 250px);
             max-width: 1200px;
             margin: 0 auto;
             z-index: 1;
             flex: 1;
-            padding: 20px 20px 200px 20px;
+            padding: 20px 20px 200px 10px; /* 10px de padding para el espacio de 1 cm */
             position: relative;
             overflow: visible;
         }
@@ -121,6 +117,7 @@
             background-position: center;
             border-radius: 10px;
             margin: 0 0 10px 0;
+            background-image: url('https://1000malbecs.com/images/provincia/la-rioja-image.jpg');
         }
         .presentation {
             max-width: 800px;
@@ -372,15 +369,10 @@
         @media (max-width: 768px) {
             .header {
                 display: block;
-                position: fixed;
-                top: 10px;
-                right: 10px;
-                z-index: 50;
             }
             .logo { max-width: 100px; }
             .hamburger {
                 display: block;
-                z-index: 110;
             }
             #sidebar {
                 width: 80%;
@@ -409,118 +401,66 @@
                 position: relative;
                 overflow: visible;
             }
-            .banner { height: 80px; margin: 0 0 10px 0; }
+            .banner { height: 80px; }
             .product-grid, .wineries-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
-                justify-content: start;
-                width: 100%;
             }
             .product-card {
                 height: 280px;
                 padding: 10px;
-                box-sizing: border-box;
-                overflow: hidden;
-                position: relative;
                 align-items: center;
             }
             .product-card img {
                 height: 140px;
                 max-width: 140px;
-                object-fit: contain;
                 margin: 5px auto;
-                background-color: #FFFFFF;
             }
             .winery-card {
                 height: 260px;
                 padding: 10px;
-                box-sizing: border-box;
-                overflow: hidden;
-                position: relative;
                 align-items: center;
             }
             .winery-card img {
                 width: 140px;
                 height: 140px;
-                object-fit: cover;
-                margin: 0 auto;
-                background-color: #FFFFFF;
             }
             .product-card h3, .winery-card h4 {
                 font-size: 14px;
                 min-height: 36px;
                 margin: 5px 0;
-                text-align: center;
-                width: 100%;
             }
             .product-card .price {
                 font-size: 14px;
                 margin: 5px 0;
-                text-align: center;
-                width: 100%;
             }
             .product-card .buy-button, .winery-card a {
                 padding: 6px 12px;
                 font-size: 12px;
                 margin-top: 5px;
                 margin-bottom: 5px;
-                pointer-events: auto;
-                width: 100%;
                 max-width: 140px;
-                display: block;
             }
-            .info-icon {
-                display: block !important;
-                pointer-events: auto;
-                z-index: 10;
-            }
+            .info-icon { display: block !important; }
             .overlay {
-                max-height: 150px;
                 pointer-events: auto;
-                width: 100%;
-                box-sizing: border-box;
-                top: 0;
                 padding: 40px 10px 10px 10px;
                 display: none;
-                z-index: 6;
             }
-            .overlay.active {
-                display: block !important;
-                z-index: 6;
-            }
-            .product-card:hover .overlay {
-                display: none;
-            }
-            .presentation { margin: 0 0 20px 0; padding: 10px; }
+            .overlay.active { display: block !important; }
+            .product-card:hover .overlay { display: none; }
+            .presentation { padding: 10px; }
             .language-selector {
-                position: fixed;
                 top: 10px;
                 left: 50%;
                 transform: translateX(-50%);
-                z-index: 50;
-                display: flex;
-                flex-direction: row;
                 gap: 2px;
-                justify-content: center;
-                transition: opacity 0.3s ease;
                 max-width: 90%;
             }
             .language-selector a {
                 font-size: 9px;
                 padding: 2px 4px;
-                color: #4A2C59;
-                text-decoration: none;
-                border-radius: 2px;
                 background-color: rgba(255, 255, 255, 0.7);
-                transition: all 0.3s ease;
-            }
-            .language-selector a:hover {
-                background-color: #4A2C59;
-                color: #FFFFFF;
-            }
-            .language-selector a.active {
-                background-color: #4A2C59;
-                color: #FFFFFF;
             }
         }
         @media (min-width: 769px) {
@@ -540,144 +480,116 @@
                 width: calc(100% - 250px);
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 20px 20px 200px 20px;
-                position: relative;
-                overflow: visible;
+                padding: 20px 20px 200px 10px; /* 10px de padding para el espacio de 1 cm */
             }
             .product-grid, .wineries-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
                 gap: 30px;
                 max-width: 1200px;
-                justify-content: start;
-                width: 100%;
             }
             .product-card {
-                pointer-events: auto;
-                max-width: 250px;
                 height: 360px;
-                width: 100%;
                 padding: 15px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                box-sizing: border-box;
             }
             .product-card img {
                 height: 190px;
                 max-width: 200px;
-                object-fit: contain;
                 margin: 10px auto;
-                background-color: #FFFFFF;
             }
             .winery-card {
-                pointer-events: auto;
-                max-width: 250px;
                 height: 360px;
-                width: 100%;
                 padding: 15px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                box-sizing: border-box;
             }
             .winery-card img {
                 width: 200px;
                 height: 200px;
-                object-fit: cover;
-                margin: 0 auto;
-                background-color: #FFFFFF;
             }
             .product-card h3, .winery-card h4 {
                 font-size: 16px;
                 min-height: 40px;
-                white-space: normal;
-                text-align: center;
-                margin: 5px 0;
-                width: 100%;
             }
             .product-card .price {
                 font-size: 16px;
-                margin: 5px 0;
-                text-align: center;
-                width: 100%;
             }
             .product-card .buy-button, .winery-card a {
                 padding: 8px 16px;
                 font-size: 14px;
                 margin-top: 5px;
                 margin-bottom: 10px;
-                width: 100%;
                 max-width: 180px;
-                display: block;
-                box-sizing: border-box;
             }
             .info-icon { display: none; }
-            .overlay {
-                max-height: 150px;
-                pointer-events: none;
-                z-index: 6;
-            }
+            .overlay { pointer-events: none; }
             .product-card:hover .overlay { display: block; }
         }
     </style>
 </head>
 <body>
     <div class="language-selector">
-        <a href="/es/provincias/la-rioja.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
-        <a href="/de/provincias/la-rioja.html" class="active" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
-        <a href="/en/provincias/la-rioja.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+        <a href="https://1000malbecs.com/es/provincias/la-rioja.html" class="" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+        <a href="https://1000malbecs.com/de/provincias/la-rioja.html" class="active" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
+        <a href="https://1000malbecs.com/en/provincias/la-rioja.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
     </div>
     <header class="header">
-        <a href="/de/" title="Volver al inicio">
-            <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+        <a href="https://1000malbecs.com/de/" title="Volver al inicio">
+            <img src="https://1000malbecs.com/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
         </a>
     </header>
     <button class="hamburger">☰</button>
+    <aside id="sidebar">
+        <div class="logo-container">
+            <a href="https://1000malbecs.com/de/">
+                <img src="https://1000malbecs.com/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+            </a>
+        </div>
+        <h2>Categorías</h2>
+        <ul>
+            <li><a href="https://1000malbecs.com/de/provincias/" class="nav-link ">Provincias</a></li>
+            <li><a href="https://1000malbecs.com/de/bodegas/" class="nav-link ">Bodegas</a></li>
+            <li><a href="https://1000malbecs.com/de/eventos/" class="nav-link ">Eventos</a></li>
+        </ul>
+    </aside>
     <main class="main-content">
         <h1>La Rioja</h1>
         <section class="presentation">
-            <h2>Über La Rioja</h2>
-            <p>La Rioja, Wiege charakterstarker Weine, vereint Tradition und Moderne. Die Weinberge auf kargen Böden unter sonnigem Klima produzieren intensive und aromatische Malbecs, die ihre reiche Weingeschichte widerspiegeln.</p>
-            <div class="banner" style="background-image: url('/images/provincia/la-rioja-image.jpg');"></div>
+            <h2>Acerca de La Rioja</h2>
+            <p>La Rioja, cradle of wines with character, combines tradition and modernity. Its vineyards, located in arid soils and under a sunny climate, produce intense and aromatic malbecs, a reflection of their rich wine history</p>
+            <div class="banner"></div>
         </section>
         <section class="products-section">
-            <h2>Hervorgehobene Weine aus La Rioja</h2>
-            
+            <h2>Vinos destacados de La Rioja</h2>
             <div class="product-grid">
                 
                 <div class="product-card" data-overlay-id="chanarmuyo-estate-malbec">
-                    <img src="/images/small/chanarmuyo-estate-malbec-2021.jpg" alt="Flasche von CHANARMUYO Estate Malbec"
+                    <img src="https://1000malbecs.com/images/small//images/small/chanarmuyo-estate-malbec-2021.jpg" alt="Botella de CHANARMUYO Estate Malbec"
                          onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
                     <div class="info-icon" data-overlay-id="chanarmuyo-estate-malbec">🍷</div>
                     <div class="overlay" data-overlay-id="chanarmuyo-estate-malbec">
-                        <p><strong>Weingut:</strong> Bodega Chanarmuyo</p>
-                        <p><strong>Provinz:</strong> La Rioja</p>
-                        <p><strong>Region:</strong> Valle de Famatina</p>
-                        <p><strong>Höhe:</strong> 1000 msnm</p>
-                        <p><strong>Jahrgang:</strong> 2021</p>
+                        <p><strong>Bodega:</strong> Bodega Chanarmuyo</p>
+                        <p><strong>Provincia:</strong> La Rioja</p>
+                        <p><strong>Región:</strong> Valle de Famatina</p>
+                        <p><strong>Altura:</strong> 1000.0</p>
+                        <p><strong>Añada:</strong> 2021</p>
                     </div>
                     <h3>CHANARMUYO Estate Malbec</h3>
                     <p class="price">€19.99</p>
-                    <a href="/de/vinos/chanarmuyo-estate-malbec-2021.html" class="buy-button">Kaufen</a>
+                    <a href="https://1000malbecs.com/de/vinos/chanarmuyo-estate-malbec-2021.html" class="buy-button">Comprar</a>
                 </div>
                 
+                
             </div>
-            
         </section>
         <section class="wineries-section">
-            <h2>Weingüter in La Rioja</h2>
-            
+            <h2>Bodegas de La Rioja</h2>
             
             <h3>Valle de Famatina</h3>
             <div class="wineries-grid">
                 
                 <div class="winery-card">
-                    <img src="/images/bodegas/bodega-chanarmuyo-1.jpg" alt="Bodega Chanarmuyo"
+                    <img src="https://1000malbecs.com/images/bodegas//images/small/chanarmuyo-estate-malbec-2021.jpg" alt="Bodega Chanarmuyo"
                          onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
                     <h4>Bodega Chanarmuyo</h4>
-                    <a href="/de/bodegas/bodega-chanarmuyo.html">Weingut besuchen</a>
+                    <a href="https://1000malbecs.com/de/bodegas/bodega-chanarmuyo.html">Visitar Bodega</a>
                 </div>
                 
             </div>
@@ -696,29 +608,15 @@
                     isSidebarOpen = !isSidebarOpen;
                     sidebar.classList.toggle('open', isSidebarOpen);
                     hamburger.textContent = isSidebarOpen ? '✕' : '☰';
-                    hamburger.style.display = 'block';
                 });
                 document.addEventListener('click', (e) => {
                     if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
                         isSidebarOpen = false;
                         sidebar.classList.remove('open');
                         hamburger.textContent = '☰';
-                        hamburger.style.display = 'block';
                     }
                 });
             }
-
-            const navLinks = document.querySelectorAll('.nav-link');
-            const currentPath = window.location.pathname;
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
-                    link.classList.add('active');
-                    const details = link.closest('details');
-                    if (details) {
-                        details.setAttribute('open', '');
-                    }
-                }
-            });
 
             if (window.innerWidth <= 768) {
                 const infoIcons = document.querySelectorAll('.info-icon');
