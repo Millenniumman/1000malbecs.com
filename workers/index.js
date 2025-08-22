@@ -184,6 +184,9 @@ async function handleRequest(request) {
             { name: 'Trapiche', slug: 'trapiche' },
             { name: 'Viña Alicia', slug: 'vina-alicia' },
             { name: 'Weinert Bodega y Cavas', slug: 'weinert-bodega-y-cavas' },
+            { name: 'Bodegas Caro', slug: 'bodegas-caro' },
+            { name: 'Bodega Colomé', slug: 'bodega-colome' },
+            { name: 'Bodega Amalaya', slug: 'bodega-amalaya' },
         ];
     }
 
