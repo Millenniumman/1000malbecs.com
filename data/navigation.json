@@ -19,6 +19,10 @@
       "name": "Agustin Lanus",
       "slug": "agustin-lanus"
     },
+     {
+      "name": "Bodega Amalaya",
+      "slug": "bodega-amalaya"
+    },
     {
       "name": "Bodega Bressia",
       "slug": "bodega-bressia"
@@ -30,6 +34,10 @@
     {
       "name": "Bodega Chanarmuyo",
       "slug": "bodega-chanarmuyo"
+    },
+     {
+      "name": "Bodega Colomé",
+      "slug": "bodega-colome"
     },
     {
       "name": "Bodega Estancia Mendoza",
@@ -58,6 +66,10 @@
     {
       "name": "Bodegas Bianchi",
       "slug": "bodegas-bianchi"
+    },
+      {
+      "name": "Bodegas Caro",
+      "slug": "bodegas-caro"
     },
      {
       "name": "Catena Zapata",
@@ -171,17 +183,5 @@
       "name": "Weinert Bodega y Cavas",
       "slug": "weinert-bodega-y-cavas"
     }
-      {
-      "name": "Bodegas Caro",
-      "slug": "bodegas-caro"
-    },
-      {
-      "name": "Bodega Colomé",
-      "slug": "bodega-colome"
-    },
-      {
-      "name": "Bodega Amalaya",
-      "slug": "bodega-amalaya"
-    },
   ]
 }
