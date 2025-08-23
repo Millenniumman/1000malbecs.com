@@ -391,193 +391,185 @@
       background-color: #4A2C59;
       color: #FFFFFF;
     }
-    @media (max-width: 768px) {
-      .header {
-        display: block;
-      }
-      .logo { max-width: 100px; }
-      .hamburger {
-        display: block;
-      }
-      {
+   @media (max-width: 768px) {
+  .header {
+    display: block;
+  }
+  .logo { max-width: 100px; }
+  .hamburger {
+    display: block;
+  }
   .product-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
     gap: 15px;
-    justify-content: start;
+    justify-content: center; /* Cambiado a center para mejor alineación */
     width: 100%;
   }
   .wineries-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    justify-content: start;
+    justify-content: center; /* Cambiado a center para mejor alineación */
     width: 100%;
   }
+  #sidebar {
+    width: 80%;
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 100;
+    border-right: 1px solid #E0E0E0;
+    padding: 20px;
+    padding-top: 50px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #F8F8F8;
+  }
+  #sidebar.open { transform: translateX(0); }
+  .logo-container { display: none; }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 10px auto 0;
+    padding: 10px 10px 250px 10px;
+    position: relative;
+    overflow: visible;
+    padding-top: 60px; /* Ajuste para móvil */
+  }
+  .banner { height: 80px; margin: 0 0 10px 0; }
+  .winery-card {
+    width: 100%;
+    max-width: none;
+    height: 260px;
+    min-height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+  }
+  .winery-card img {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    display: block; /* Asegura centrado */
+    align-self: center; /* Centra en el contenedor flex */
+  }
+  .winery-card h4 {
+    font-size: 14px;
+    min-height: 36px;
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+  }
+  .winery-card a {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 140px;
+    display: block;
+  }
+  .product-card {
+    width: 100%;
+    max-width: none;
+    height: 260px;
+    min-height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+  }
+  .product-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block; /* Asegura que la imagen sea un bloque para centrado */
+    align-self: center; /* Centra la imagen en el contenedor flex */
+    justify-self: center; /* Refuerza el centrado horizontal */
+  }
+  .product-card h3 {
+    font-size: 14px;
+    min-height: 36px;
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+  }
+  .product-card .price {
+    font-size: 14px;
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+  }
+  .product-card .buy-button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 140px;
+    display: block;
+  }
+  .info-icon {
+    display: block !important;
+    pointer-events: auto;
+    z-index: 10;
+  }
+  .overlay {
+    max-height: 150px;
+    pointer-events: auto;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+    padding: 40px 10px 10px 10px;
+    display: none;
+    z-index: 6;
+  }
+  .overlay.active {
+    display: block !important;
+    z-index: 6;
+  }
+  .product-card:hover .overlay {
+    display: none;
+  }
+  .presentation { margin: 0 0 20px 0; padding: 10px; }
+  .language-selector {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    max-width: 90%;
+  }
+  .language-selector a {
+    font-size: 9px;
+    padding: 2px 4px;
+    color: #4A2C59;
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+  }
+  .language-selector a:hover {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
+  .language-selector a.active {
+    background-color: #4A2C59;
+    color: #FFFFFF;
+  }
 }
-      #sidebar {
-        width: 80%;
-        height: 100vh;
-        max-height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
-        z-index: 100;
-        border-right: 1px solid #E0E0E0;
-        padding: 20px;
-        padding-top: 50px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        background-color: #F8F8F8;
-      }
-      #sidebar.open { transform: translateX(0); }
-      .logo-container { display: none; }
-      .main-content {
-        margin-left: 0;
-        width: 100%;
-        max-width: 100%;
-        margin: 10px auto 0;
-        padding: 10px 10px 250px 10px;
-        position: relative;
-        overflow: visible;
-        padding-top: 60px; /* Ajuste para móvil */
-      }
-      .banner { height: 80px; margin: 0 0 10px 0; }
-      .wineries-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        justify-content: start;
-        width: 100%;
-      }
-      .winery-card {
-        width: 100%;
-        max-width: none;
-        height: 260px;
-        min-height: auto;
-        padding: 10px;
-        box-sizing: border-box;
-        overflow: hidden;
-        position: relative;
-        align-items: center;
-      }
-      .winery-card img {
-        width: 140px;
-        height: 140px;
-        margin: 0 auto;
-      }
-      .winery-card h4 {
-        font-size: 14px;
-        min-height: 36px;
-        margin: 5px 0;
-        text-align: center;
-        width: 100%;
-      }
-      .winery-card a {
-        padding: 6px 12px;
-        font-size: 12px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        width: 100%;
-        max-width: 140px;
-        display: block;
-      }
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-        gap: 15px;
-        justify-content: start;
-        width: 100%;
-      }
-      .product-card {
-        width: 100%;
-        max-width: none;
-        height: 260px;
-        min-height: auto;
-        padding: 10px;
-        box-sizing: border-box;
-        overflow: hidden;
-        position: relative;
-        align-items: center;
-      }
-      .product-card img {
-        width: 140px;
-        height: 140px;
-        margin: 0 auto;
-      }
-      .product-card h3 {
-        font-size: 14px;
-        min-height: 36px;
-        margin: 5px 0;
-        text-align: center;
-        width: 100%;
-      }
-      .product-card .price {
-        font-size: 14px;
-        margin: 5px 0;
-        text-align: center;
-        width: 100%;
-      }
-      .product-card .buy-button {
-        padding: 6px 12px;
-        font-size: 12px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        width: 100%;
-        max-width: 140px;
-        display: block;
-      }
-      .info-icon {
-        display: block !important;
-        pointer-events: auto;
-        z-index: 10;
-      }
-      .overlay {
-        max-height: 150px;
-        pointer-events: auto;
-        width: 100%;
-        box-sizing: border-box;
-        top: 0;
-        padding: 40px 10px 10px 10px;
-        display: none;
-        z-index: 6;
-      }
-      .overlay.active {
-        display: block !important;
-        z-index: 6;
-      }
-      .product-card:hover .overlay {
-        display: none;
-      }
-      .presentation { margin: 0 0 20px 0; padding: 10px; }
-      .language-selector {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 50;
-        display: flex;
-        flex-direction: row;
-        gap: 2px;
-        justify-content: center;
-        transition: opacity 0.3s ease;
-        max-width: 90%;
-      }
-      .language-selector a {
-        font-size: 9px;
-        padding: 2px 4px;
-        color: #4A2C59;
-        text-decoration: none;
-        border-radius: 2px;
-        background-color: rgba(255, 255, 255, 0.7);
-        transition: all 0.3s ease;
-      }
-      .language-selector a:hover {
-        background-color: #4A2C59;
-        color: #FFFFFF;
-      }
-      .language-selector a.active {
-        background-color: #4A2C59;
-        color: #FFFFFF;
-      }
-    }
   @media (min-width: 769px) {
     .header { display: none; }
     .hamburger { display: none; }
