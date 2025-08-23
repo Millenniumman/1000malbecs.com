@@ -257,12 +257,15 @@
       box-sizing: border-box;
       width: 100%;
     }
-    .product-card img {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      margin: 0 auto;
-    }
+  .product-card img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block; /* Asegura que la imagen sea un bloque para centrado */
+  align-self: center; /* Centra la imagen en el contenedor flex */
+  justify-self: center; /* Refuerza el centrado horizontal */
+}
     .info-icon {
       position: absolute;
       top: 10px;
