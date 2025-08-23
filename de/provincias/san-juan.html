@@ -239,33 +239,30 @@
       justify-content: start;
     }
     .product-card {
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 5px;
-      padding: 15px;
-      padding-bottom: 20px;
-      position: relative;
-      overflow: visible;
-      max-width: 250px;
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 5;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-      width: 100%;
-    }
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 15px;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: visible;
+    max-width: 250px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    width: 100%;
+  }
   .product-card img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-  margin: 0 auto;
-  display: block; /* Asegura que la imagen sea un bloque para centrado */
-  align-self: center; /* Centra la imagen en el contenedor flex */
-  justify-self: center; /* Refuerza el centrado horizontal */
-}
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
     .info-icon {
       position: absolute;
       top: 10px;
@@ -475,26 +472,21 @@
     display: block;
   }
   .product-card {
-    width: 100%;
-    max-width: none;
-    height: 260px;
-    min-height: auto;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-    align-items: center;
-  }
-  .product-card img {
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-    margin: 0 auto !important; /* Forzar centrado horizontal */
-    display: block !important; /* Asegura que sea un bloque */
-    align-self: center !important; /* Centra en el contenedor flex */
-    justify-self: center !important; /* Centra en la cuadrícula */
-    text-align: center; /* Fallback para navegadores antiguos */
-  }
+      width: 100%;
+      max-width: none;
+      height: 260px;
+      min-height: auto;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      align-items: center;
+    }
+    .product-card img {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
+    }
   .product-card h3 {
     font-size: 14px;
     min-height: 36px;
