@@ -489,10 +489,11 @@
     width: 140px;
     height: 140px;
     object-fit: contain;
-    margin: 0 auto;
-    display: block; /* Asegura que la imagen sea un bloque para centrado */
-    align-self: center; /* Centra la imagen en el contenedor flex */
-    justify-self: center; /* Refuerza el centrado horizontal */
+    margin: 0 auto !important; /* Forzar centrado horizontal */
+    display: block !important; /* Asegura que sea un bloque */
+    align-self: center !important; /* Centra en el contenedor flex */
+    justify-self: center !important; /* Centra en la cuadrícula */
+    text-align: center; /* Fallback para navegadores antiguos */
   }
   .product-card h3 {
     font-size: 14px;
