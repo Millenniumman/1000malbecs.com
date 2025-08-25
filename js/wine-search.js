@@ -49,15 +49,15 @@ document.addEventListener('alpine:init', () => {
         filterWines() {
             this.filteredWines = this.winesData.filter(wine =>
                 Object.entries(this.filters).every(([key, value]) =>
-                    !value || wine[key.charAt(0).toUpperCase() + key.slice(1)] === value
+                    !value || wine[key.charAt(0).toUpperCase() + key.slice(1)] == value
                 )
             );
             console.log('Filtered wines:', this.filteredWines);
         },
         clearFilters() {
             this.filters = {
-                provincia: 'Mendoza', // Reset to Mendoza
-                region: 'Valle de Uco', // Reset to Valle de Uco
+                provincia: 'Mendoza',
+                region: 'Valle de Uco',
                 altura: '',
                 bodega: '',
                 año: '',
