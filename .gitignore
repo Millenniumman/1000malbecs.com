@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Backup and temporary files
+*.bak
+README.old*
+README.md*
+*.htmlold
+*.avif
+*.jpg
+
+# Logs
+*.log# Dependencies
+node_modules/
+
+# Build output
+build/
+
+# macOS
+.DS_Store
+*.bak
+*.htmlold
+README.old*
+*.jpg
+*.avif
