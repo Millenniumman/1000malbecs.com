@@ -2,8 +2,8 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('wineSearch', () => ({
         winesData: [],
         filters: {
-            provincia: '',
-            region: '',
+            provincia: 'Mendoza', // Default: Mendoza
+            region: 'Valle de Uco', // Default: Valle de Uco
             altura: '',
             bodega: '',
             año: '',
@@ -56,8 +56,8 @@ document.addEventListener('alpine:init', () => {
         },
         clearFilters() {
             this.filters = {
-                provincia: '',
-                region: '',
+                provincia: 'Mendoza', // Reset to Mendoza
+                region: 'Valle de Uco', // Reset to Valle de Uco
                 altura: '',
                 bodega: '',
                 año: '',
@@ -79,17 +79,15 @@ document.addEventListener('alpine:init', () => {
     }));
 });
 
-// Encapsular el código del hamburger y language selector en un bloque
 (function () {
-    // Hamburger menu
     const hamburger = document.querySelector('.hamburger');
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             document.getElementById('sidebar').classList.toggle('open');
+            console.log('Hamburger clicked, sidebar toggled');
         });
     }
 
-    // Language selector
     const languageSelector = document.querySelector('.language-selector');
     if (languageSelector) {
         const langLinks = languageSelector.querySelectorAll('a[data-lang]');
