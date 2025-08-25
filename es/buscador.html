@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
@@ -47,8 +47,8 @@
         .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
         .filters select { padding: 8px; border: 1px solid #E0E0E0; border-radius: 5px; width: 200px; }
         .filters button { background-color: #4A2C59; color: #f5e6ff; padding: 8px 16px; border-radius: 5px; border: none; cursor: pointer; }
-        .language-selector { display: flex; gap: 10px; position: relative; z-index: 1000; margin: 10px; justify-content: flex-end; }
-        .language-selector a { text-decoration: none; color: #333; font-size: 16px; padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; transition: background-color 0.3s; }
+        .language-selector { display: flex; gap: 10px; position: fixed; top: 10px; right: 10px; z-index: 1000; margin: 10px; justify-content: flex-end; }
+        .language-selector a { display: inline-block; visibility: visible; text-decoration: none; color: #333; font-size: 16px; padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; transition: background-color 0.3s; }
         .language-selector a:hover { background-color: #f0f0f0; }
         .language-selector a.active { background-color: #6200ea; color: white; }
         @media (max-width: 768px) {
@@ -69,7 +69,7 @@
             .overlay { max-height: 150px; pointer-events: auto; width: 100%; box-sizing: border-box; top: 0; padding: 40px 10px 10px 10px; display: none; z-index: 6; }
             .overlay.active { display: block !important; z-index: 6; }
             .product-card:hover .overlay { display: none; }
-            .language-selector { justify-content: center; left: 0; margin: 10px 0; z-index: 1000; }
+            .language-selector { position: static; width: 100%; text-align: center; margin: 10px 0; z-index: 1000; max-width: 100%; overflow: visible; }
             .filters select { width: 100%; max-width: 150px; }
         }
         @media (min-width: 769px) {
@@ -81,6 +81,7 @@
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
+        .error-message { color: red; text-align: center; margin: 20px 0; }
     </style>
 </head>
 <body x-data="wineSearch()">
@@ -142,11 +143,9 @@
             </select>
             <button @click="clearFilters()">Limpiar Filtros</button>
         </section>
+        <div x-show="!filteredWines.length" class="error-message">No se encontraron vinos. Ajusta los filtros o verifica la conexión.</div>
         <h3 class="section-title">Nuestros Vinos</h3>
         <div class="product-grid">
-            <template x-if="filteredWines.length === 0">
-                <p class="no-data">No se encontraron vinos. Ajusta los filtros.</p>
-            </template>
             <template x-for="wine in filteredWines" :key="wine.sku">
                 <div class="product-card">
                     <img :src="wine.Imagen" :alt="wine.Nombre" :onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';" />
