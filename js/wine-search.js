@@ -60,7 +60,7 @@ document.addEventListener('alpine:init', () => {
                             console.log('wineSearch: Unique values:', this.uniqueValues);
                             this.filterWines();
                         } catch (e) {
-                            throw new Error(`JSON parsing error: ${e.message}`);
+                            console.error('wineSearch: JSON parsing error:', e.message);
                         }
                     })
                     .catch(error => {
@@ -81,7 +81,7 @@ document.addEventListener('alpine:init', () => {
                 console.log('wineSearch: Filtering wines with filters:', this.filters);
                 this.filteredWines = this.winesData.filter(wine =>
                     Object.entries(this.filters).every(([key, value]) =>
-                        !value || String(wine[key.charAt(0).toUpperCase() + key.slice(1)]) === value
+                        !value || String(wine[key.charAt(0).toUpperCase() + key.slice(1)] || '').toLowerCase() === value.toLowerCase()
                     )
                 );
                 console.log('wineSearch: Filtered wines:', this.filteredWines);
