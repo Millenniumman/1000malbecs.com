@@ -1,8 +1,27 @@
 // global.js
 console.log('global.js: Initializing');
 
+function toggleSidebar() {
+  const sidebar = document.querySelector('#sidebar');
+  if (sidebar) {
+    sidebar.classList.toggle('open');
+    console.log('global.js: Sidebar toggled', sidebar.classList.contains('open') ? 'open' : 'closed');
+  } else {
+    console.warn('global.js: Sidebar not found');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log('global.js: Starting DOM checks');
+
+  // Handle hamburger menu
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    console.log('global.js: Hamburger button found');
+    hamburger.addEventListener('click', toggleSidebar);
+  } else {
+    console.warn('global.js: Hamburger button not found');
+  }
 
   // Handle collapsible navigation (details/summary)
   const detailsElements = document.querySelectorAll('#sidebar details');
