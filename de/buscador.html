@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="es" x-data="wineSearch" x-init="init()">
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
@@ -97,6 +98,9 @@
     <button class="hamburger">☰</button>
     <main>
         <h1>Buscador de Vinos</h1>
+       <form @submit.prevent="searchWines()">
+                <label for="searchQuery" class="sr-only" x-text="translations[lang].searchPlaceholder"></label>
+                <input type="text" id="searchQuery" x-model="searchQuery" :placeholder="translations[lang].searchPlaceholder">
         <section class="filters">
             <select name="provincia" x-model="filters.provincia">
                 <option value="">Selecciona Provincia</option>
@@ -153,11 +157,15 @@
                         <p x-text="wine.Descripción"></p>
                         <a :href="wine.url || '#'">Ver detalles</a>
                         <button @click="toggleOverlay(wine.sku)">Cerrar</button>
-                    </div>
-                    <h3 x-text="wine.Nombre"></h3>
-                    <p class="price" x-text="'$' + wine.Precio.toFixed(2)"></p>
-                    <a class="buy-button" :href="wine.url || '#'">Comprar</a>
+                   <h3 x-text="wine.Nombre"></h3>
+                            <p class="price" x-text="`${translations[lang].precio}: $${wine.Precio.toFixed(2)}`"></p>
+                            <a class="buy-button" :href="wine.url || '#'">{{ translations[lang].buyButton }}</a>
+                        </div>
+                    </template>
                 </div>
+                <p x-show="filteredWines.length === 0" class="error-message" x-text="translations[lang].noResults"></p>
+                <p x-show="wines.length === 0 && showResults" class="error-message" x-text="translations[lang].errorLoading"></p>
+            </div>
             </template>
         </div>
     </main>
