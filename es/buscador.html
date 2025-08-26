@@ -583,85 +583,73 @@
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
-  <button class="hamburger">☰</button>
-            <form @submit.prevent="searchWines()">
-                <label for="searchQuery" class="sr-only" x-text="translations[lang].searchPlaceholder"></label>
-                <input type="text" id="searchQuery" x-model="searchQuery" :placeholder="translations[lang].searchPlaceholder">
-                <div class="filters">
-                    <select x-model="filters.Provincia" :placeholder="translations[lang].provincia">
-                        <option value="">{{ translations[lang].allProvincias }}</option>
-                        <template x-for="val in uniqueProvincias" :key="val">
-                            <option :value="val" x-text="val"></option>
-                        </template>
-                    </select>
-                    <select x-model="filters.Región" :placeholder="translations[lang].region">
-                        <option value="">{{ translations[lang].allRegions }}</option>
-                        <template x-for="val in uniqueRegions" :key="val">
-                            <option :value="val" x-text="val"></option>
-                        </template>
-                    </select>
-                    <select x-model="filters.Altura" :placeholder="translations[lang].altura">
-                        <option value="">{{ translations[lang].allAlturas }}</option>
-                        <template x-for="val in uniqueAlturas" :key="val">
-                            <option :value="val" x-text="val + ' msnm'"></option>
-                        </template>
-                    </select>
-                    <select x-model="filters.Bodega" :placeholder="translations[lang].bodega">
-                        <option value="">{{ translations[lang].allBodegas }}</option>
-                        <template x-for="val in uniqueBodegas" :key="val">
-                            <option :value="val" x-text="val"></option>
-                        </template>
-                    </select>
-                    <select x-model="filters.Año" :placeholder="translations[lang].anada">
-                        <option value="">{{ translations[lang].allAnadas }}</option>
-                        <template x-for="val in uniqueAnadas" :key="val">
-                            <option :value="val" x-text="val"></option>
-                        </template>
-                    </select>
-                    <select x-model="filters.Nombre" :placeholder="translations[lang].marca">
-                        <option value="">{{ translations[lang].allMarcas }}</option>
-                        <template x-for="val in uniqueNombres" :key="val">
-                            <option :value="val" x-text="val"></option>
-                        </template>
-                    </select>
-                    <select x-model="filters.Variedad" :placeholder="translations[lang].variedad">
-                        <option value="">{{ translations[lang].allVariedades }}</option>
-                        <template x-for="val in uniqueVariedades" :key="val">
-                            <option :value="val" x-text="val"></option>
-                        </template>
-                    </select>
-                    <button type="submit" x-text="translations[lang].searchButton"></button>
-                    <button type="button" @click="clearFilters()" x-text="translations[lang].clearFilters"></button>
+ <main>
+        <h1>Buscador de Vinos</h1>
+        <section class="filters">
+            <select name="provincia" x-model="filters.provincia">
+                <option value="">Selecciona Provincia</option>
+                <template x-for="val in uniqueValues.provincia" :key="val">
+                    <option :value="val" x-text="val"></option>
+                </template>
+            </select>
+            <select name="region" x-model="filters.region">
+                <option value="">Selecciona Región</option>
+                <template x-for="val in uniqueValues.region" :key="val">
+                    <option :value="val" x-text="val"></option>
+                </template>
+            </select>
+            <select name="altura" x-model="filters.altura">
+                <option value="">Selecciona Altura</option>
+                <template x-for="val in uniqueValues.altura" :key="val">
+                    <option :value="val" x-text="val + ' msnm'"></option>
+                </template>
+            </select>
+            <select name="bodega" x-model="filters.bodega">
+                <option value="">Selecciona Bodega</option>
+                <template x-for="val in uniqueValues.bodega" :key="val">
+                    <option :value="val" x-text="val"></option>
+                </template>
+            </select>
+            <select name="año" x-model="filters.año">
+                <option value="">Selecciona Año</option>
+                <template x-for="val in uniqueValues.año" :key="val">
+                    <option :value="val" x-text="val"></option>
+                </template>
+            </select>
+            <select name="marca" x-model="filters.marca">
+                <option value="">Selecciona Marca</option>
+                <template x-for="val in uniqueValues.marca" :key="val">
+                    <option :value="val" x-text="val"></option>
+                </template>
+            </select>
+            <select name="variedad" x-model="filters.variedad">
+                <option value="">Selecciona Variedad</option>
+                <template x-for="val in uniqueValues.variedad" :key="val">
+                    <option :value="val" x-text="val"></option>
+                </template>
+            </select>
+            <button @click="clearFilters()">Limpiar Filtros</button>
+        </section>
+        <div x-show="!filteredWines.length" class="error-message">No se encontraron vinos. Ajusta los filtros o verifica la conexión.</div>
+        <h3 class="section-title">Nuestros Vinos</h3>
+        <div class="product-grid">
+            <template x-for="wine in filteredWines" :key="wine.sku">
+                <div class="product-card">
+                    <img :src="wine.Imagen" :alt="wine.Nombre" :onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';" />
+                    <div class="info-icon" @click="toggleOverlay(wine.sku)">🍷</div>
+                    <div class="overlay" :data-overlay-id="wine.sku">
+                        <p x-text="wine.Descripción"></p>
+                        <a :href="wine.url || '#'">Ver detalles</a>
+                        <button @click="toggleOverlay(wine.sku)">Cerrar</button>
+                    </div>
+                    <h3 x-text="wine.Nombre"></h3>
+                    <p class="price" x-text="'$' + wine.Precio.toFixed(2)"></p>
+                    <a class="buy-button" :href="wine.url || '#'">Comprar</a>
                 </div>
-            </form>
-            <div class="results" x-show="showResults">
-                <h3 class="section-title" x-text="translations[lang].ourWines"></h3>
-                <div class="product-grid">
-                    <template x-for="wine in filteredWines" :key="wine.sku">
-                        <div class="product-card">
-                            <img :src="wine.Imagen" :alt="wine.Nombre" :onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';" />
-                            <i class="fas fa-info-circle info-icon" @click="toggleOverlay($el.parentNode.querySelector('.overlay'))"></i>
-                            <div class="overlay">
-                                <p x-text="`${translations[lang].bodega}: ${wine.Bodega}`"></p>
-                                <p x-text="`${translations[lang].provincia}: ${wine.Provincia}`"></p>
-                                <p x-text="`${translations[lang].region}: ${wine.Región}`"></p>
-                                <p x-text="`${translations[lang].anada}: ${wine.Año}`"></p>
-                                <p x-text="`${translations[lang].altura}: ${wine.Altura} msnm`"></p>
-                                <p x-text="`${translations[lang].variedad}: ${wine.Variedad}`"></p>
-                                <p x-text="wine.Descripción"></p>
-                                <a :href="wine.url || '#'">{{ translations[lang].viewDetails }}</a>
-                            </div>
-                            <h3 x-text="wine.Nombre"></h3>
-                            <p class="price" x-text="`${translations[lang].precio}: $${wine.Precio.toFixed(2)}`"></p>
-                            <a class="buy-button" :href="wine.url || '#'">{{ translations[lang].buyButton }}</a>
-                        </div>
-                    </template>
-                </div>
-                <p x-show="filteredWines.length === 0" class="error-message" x-text="translations[lang].noResults"></p>
-                <p x-show="wines.length === 0 && showResults" class="error-message" x-text="translations[lang].errorLoading"></p>
-            </div>
-        </main>
-    </div>
+            </template>
+        </div>
+    </main> 
+</div>
     <footer></footer>
 </body>
 </html>
