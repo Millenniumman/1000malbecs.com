@@ -113,23 +113,26 @@ function initializeWineSearch() {
             }
         }));
         console.log('wine-search.js: wineSearch component registered');
-        const wineSearchElement = document.querySelector('body[x-data="wineSearch()"]');
-        if (wineSearchElement && wineSearchElement.__x) {
-            console.log('wine-search.js: Forcing init on wineSearch component');
-            wineSearchElement.__x.$data.init();
-        } else {
-            console.warn('wine-search.js: wineSearch element not found or not initialized by Alpine');
-        }
+        const checkAndInit = () => {
+            const wineSearchElement = document.querySelector('body[x-data="wineSearch()"]');
+            if (wineSearchElement && wineSearchElement.__x) {
+                console.log('wine-search.js: wineSearch element found, forcing init');
+                wineSearchElement.__x.$data.init();
+            } else {
+                console.warn('wine-search.js: wineSearch element not found or not initialized by Alpine, retrying...');
+                setTimeout(checkAndInit, 100); // Reintento cada 100ms
+            }
+        };
+        checkAndInit();
     } catch (e) {
         console.error('wine-search.js: Error registering wineSearch:', e);
     }
 }
 
-// Intentar inicialización tras DOM cargado y con un retraso para el Worker
+// Iniciar tras DOM cargado
 document.addEventListener('DOMContentLoaded', () => {
     console.log('wine-search.js: DOM fully loaded');
     initializeWineSearch();
-    setTimeout(initializeWineSearch, 500); // Reintento tras 500ms para el Worker
 });
 
 console.log('wine-search.js: Script registration complete');
