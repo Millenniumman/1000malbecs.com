@@ -113,6 +113,7 @@ if (typeof window !== 'undefined') {
           if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
           this.wines = await response.json();
           console.log('wine-search.js: Loaded', this.wines.length, 'wines');
+          this.searchWines(); // Auto-run search to display wines
         } catch (error) {
           console.error('wine-search.js: Error loading vinos.json:', error);
           this.wines = [];
@@ -139,6 +140,11 @@ if (typeof window !== 'undefined') {
         console.log('wine-search.js: Changing language to', this.lang);
         window.history.pushState({}, '', `/${this.lang}/buscador.html`);
         this.init();
+      },
+
+      toggleOverlay(overlay) {
+        console.log('wine-search.js: Toggling overlay');
+        overlay.classList.toggle('active');
       }
     }));
   });
