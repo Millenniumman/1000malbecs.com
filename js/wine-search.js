@@ -1,5 +1,6 @@
 // wine-search.js
 if (typeof window !== 'undefined') {
+  console.log('wine-search.js: Script loaded');
   document.addEventListener('alpine:init', () => {
     console.log('wine-search.js: Alpine.js detected, version:', Alpine.version);
     Alpine.data('wineSearch', () => ({
