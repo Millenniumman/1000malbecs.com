@@ -1,6 +1,5 @@
 // wine-search.js
 if (typeof window !== 'undefined') {
-  // Ensure this runs only in a browser environment
   document.addEventListener('alpine:init', () => {
     console.log('wine-search.js: Alpine.js detected, version:', Alpine.version);
     Alpine.data('wineSearch', () => ({
@@ -21,6 +20,7 @@ if (typeof window !== 'undefined') {
         es: {
           title: 'Buscador de Vinos',
           searchPlaceholder: 'Buscar vinos...',
+          selectLanguage: 'Seleccionar idioma',
           provincia: 'Provincia',
           region: 'Región',
           bodega: 'Bodega',
@@ -42,6 +42,7 @@ if (typeof window !== 'undefined') {
         en: {
           title: 'Wine Search',
           searchPlaceholder: 'Search wines...',
+          selectLanguage: 'Select language',
           provincia: 'Province',
           region: 'Region',
           bodega: 'Winery',
@@ -63,6 +64,7 @@ if (typeof window !== 'undefined') {
         de: {
           title: 'Weinsuche',
           searchPlaceholder: 'Weine suchen...',
+          selectLanguage: 'Sprache auswählen',
           provincia: 'Provinz',
           region: 'Region',
           bodega: 'Weingut',
@@ -83,7 +85,6 @@ if (typeof window !== 'undefined') {
         }
       },
 
-      // Computed properties for unique filter options
       uniqueProvincias() {
         return [...new Set(this.wines.map(wine => wine.Provincia))].sort();
       },
@@ -103,23 +104,21 @@ if (typeof window !== 'undefined') {
         return [...new Set(this.wines.map(wine => wine.Tipo))].sort();
       },
 
-      // Initialize data
       async init() {
-        console.log('wine-search.js: Attempting to initialize wineSearch component');
+        console.log('wine-search.js: Initializing wineSearch for', window.location.pathname);
         try {
-          console.log('wine-search.js: Fetching vinos.json');
-          const response = await fetch(`/${this.lang}/data/vinos.json`);
+          const jsonPath = `/${this.lang}/data/vinos.json`;
+          console.log('wine-search.js: Fetching', jsonPath);
+          const response = await fetch(jsonPath);
           if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
           this.wines = await response.json();
-          console.log('wine-search.js: JSON loaded, wines:', this.wines.length);
+          console.log('wine-search.js: Loaded', this.wines.length, 'wines');
         } catch (error) {
           console.error('wine-search.js: Error loading vinos.json:', error);
           this.wines = [];
         }
-        console.log('wine-search.js: wineSearch component registered');
       },
 
-      // Search and filter wines
       searchWines() {
         this.showResults = true;
         this.filteredWines = this.wines.filter(wine => {
@@ -133,26 +132,30 @@ if (typeof window !== 'undefined') {
           );
           return matchesSearch && matchesFilters;
         });
-        console.log('wine-search.js: Filtered wines:', this.filteredWines.length);
+        console.log('wine-search.js: Filtered', this.filteredWines.length, 'wines');
       },
 
-      // Change language
       changeLanguage() {
-        console.log('wine-search.js: Language changed to:', this.lang);
-        this.init(); // Reload JSON for the selected language
+        console.log('wine-search.js: Changing language to', this.lang);
+        window.history.pushState({}, '', `/${this.lang}/buscador.html`);
+        this.init();
       }
     }));
   });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('wine-search.js: DOM fully loaded');
-    setTimeout(() => {
-      if (window.Alpine) {
-        Alpine.start();
-        console.log('wine-search.js: Alpine.js started');
-      } else {
-        console.error('wine-search.js: Alpine.js not loaded');
-      }
-    }, 500); // Increased delay for Cloudflare Worker
-  });
+  // Initialize Alpine.js only once
+  if (!window.Alpine?.started) {
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('wine-search.js: DOM loaded');
+      setTimeout(() => {
+        if (window.Alpine) {
+          Alpine.start();
+          console.log('wine-search.js: Alpine.js started');
+          window.Alpine.started = true;
+        } else {
+          console.error('wine-search.js: Alpine.js not loaded');
+        }
+      }, 1000);
+    });
+  }
 }
