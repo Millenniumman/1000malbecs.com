@@ -6,7 +6,7 @@ if (typeof Alpine === 'undefined') {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('wine-search.js: DOM fully loaded, initializing Alpine manually');
+    console.log('wine-search.js: DOM fully loaded, registering wineSearch component');
     try {
         Alpine.data('wineSearch', () => ({
             winesData: [],
@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }));
         console.log('wine-search.js: wineSearch component registered');
-        Alpine.start(); // Forzar inicio manual de Alpine
     } catch (e) {
         console.error('wine-search.js: Error registering wineSearch:', e);
     }
