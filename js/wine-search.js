@@ -4,8 +4,9 @@ if (typeof Alpine === 'undefined') {
 } else {
     console.log('wine-search.js: Alpine.js detected, version:', Alpine.version);
 }
-document.addEventListener('alpine:init', () => {
-    console.log('wine-search.js: Alpine.js init event fired');
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('wine-search.js: DOM fully loaded, initializing Alpine manually');
     try {
         Alpine.data('wineSearch', () => ({
             winesData: [],
@@ -112,8 +113,10 @@ document.addEventListener('alpine:init', () => {
             }
         }));
         console.log('wine-search.js: wineSearch component registered');
+        Alpine.start(); // Forzar inicio manual de Alpine
     } catch (e) {
         console.error('wine-search.js: Error registering wineSearch:', e);
     }
 });
+
 console.log('wine-search.js: Script registration complete');
