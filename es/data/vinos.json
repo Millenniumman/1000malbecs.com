@@ -299,3 +299,47 @@
     "sku": "CAMBC2021"
   }
 ]
+[
+  {
+    "Nombre": "Felipe Rutini",
+    "Bodega": "Rutini Wines",
+    "Año": 2017,
+    "Provincia": "Mendoza",
+    "Región": "Gualtallary, Valle de Uco",
+    "Altura": 1200,
+    "Tipo": "Malbec",
+    "Precio": 168.99,
+    "Descripción": "Elegante Malbec con guarda de 20 años, notas de ciruela y cacao.",
+    "Imagen": "/images/small/felipe-rutini-2017.jpg",
+    "sku": "FELRUT2017",
+    "url": "/es/vinos/felipe-rutini-2017.html"
+  },
+  {
+    "Nombre": "Catena Zapata Malbec",
+    "Bodega": "Catena Zapata",
+    "Año": 2019,
+    "Provincia": "Mendoza",
+    "Región": "Valle de Uco",
+    "Altura": 1100,
+    "Tipo": "Malbec",
+    "Precio": 150.00,
+    "Descripción": "Malbec intenso con notas de frutos rojos y especias.",
+    "Imagen": "/images/small/catena-zapata-2019.jpg",
+    "sku": "CATZAP2019",
+    "url": "/es/vinos/catena-zapata-2019.html"
+  },
+  {
+    "Nombre": "Noemía Malbec",
+    "Bodega": "Noemia",
+    "Año": 2020,
+    "Provincia": "Patagonia",
+    "Región": "Río Negro",
+    "Altura": 300,
+    "Tipo": "Malbec",
+    "Precio": 190.82,
+    "Descripción": "Un Malbec excepcional de Río Negro, con notas de frutas negras y especias.",
+    "Imagen": "/images/small/noemia-malbec-2020.jpg",
+    "sku": "NOEMAL2020",
+    "url": "/es/vinos/noemia-malbec-2020.html"
+  }
+]
