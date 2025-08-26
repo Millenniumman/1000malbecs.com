@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Wine Search</title>
-  <link rel="stylesheet" href="/styles.css"> <!-- Your existing CSS -->
+  <link rel="stylesheet" href="/styles.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
   <script src="/scripts/wine-search.js"></script>
   <script src="/scripts/global.js"></script>
 </head>
 <body>
-  <!-- Navigation Bar (injected by Cloudflare Worker) -->
   <nav id="navbar"></nav>
-
-  <!-- Main Content -->
   <main class="container">
     <h1 x-text="translations[lang].title"></h1>
     <div class="language-selector">
@@ -23,68 +20,68 @@
         <option value="de">Deutsch</option>
       </select>
     </div>
-
-    <!-- Search Form and Filters -->
     <form @submit.prevent="searchWines()">
       <input type="text" x-model="searchQuery" :placeholder="translations[lang].searchPlaceholder">
       <div class="filters">
-        <select x-model="filters.provincia" :placeholder="translations[lang].provincia">
+        <select x-model="filters.Provincia" :placeholder="translations[lang].provincia">
           <option value="">{{ translations[lang].allProvincias }}</option>
           <template x-for="provincia in uniqueProvincias" :key="provincia">
             <option :value="provincia" x-text="provincia"></option>
           </template>
         </select>
-        <select x-model="filters.region" :placeholder="translations[lang].region">
+        <select x-model="filters.Región" :placeholder="translations[lang].region">
           <option value="">{{ translations[lang].allRegions }}</option>
           <template x-for="region in uniqueRegions" :key="region">
             <option :value="region" x-text="region"></option>
           </template>
         </select>
-        <select x-model="filters.bodega" :placeholder="translations[lang].bodega">
+        <select x-model="filters.Bodega" :placeholder="translations[lang].bodega">
           <option value="">{{ translations[lang].allBodegas }}</option>
           <template x-for="bodega in uniqueBodegas" :key="bodega">
             <option :value="bodega" x-text="bodega"></option>
           </template>
         </select>
-        <select x-model="filters.anada" :placeholder="translations[lang].anada">
+        <select x-model="filters.Año" :placeholder="translations[lang].anada">
           <option value="">{{ translations[lang].allAnadas }}</option>
           <template x-for="anada in uniqueAnadas" :key="anada">
             <option :value="anada" x-text="anada"></option>
           </template>
         </select>
-        <select x-model="filters.altura" :placeholder="translations[lang].altura">
+        <select x-model="filters.Altura" :placeholder="translations[lang].altura">
           <option value="">{{ translations[lang].allAlturas }}</option>
           <template x-for="altura in uniqueAlturas" :key="altura">
             <option :value="altura" x-text="altura"></option>
           </template>
         </select>
-        <select x-model="filters.marca" :placeholder="translations[lang].marca">
-          <option value="">{{ translations[lang].allMarcas }}</option>
-          <template x-for="marca in uniqueMarcas" :key="marca">
-            <option :value="marca" x-text="marca"></option>
+        <select x-model="filters.Tipo" :placeholder="translations[lang].tipo">
+          <option value="">{{ translations[lang].allTipos }}</option>
+          <template x-for="tipo in uniqueTipos" :key="tipo">
+            <option :value="tipo" x-text="tipo"></option>
           </template>
         </select>
       </div>
       <button type="submit" x-text="translations[lang].searchButton"></button>
     </form>
-
-    <!-- Results Section -->
     <div class="results" x-show="showResults">
-      <template x-for="wine in filteredWines" :key="wine.id">
+      <template x-for="wine in filteredWines" :key="wine.sku">
         <div class="wine-card">
-          <h3 x-text="wine.marca"></h3>
-          <p x-text="`${translations[lang].bodega}: ${wine.bodega}`"></p>
-          <p x-text="`${translations[lang].provincia}: ${wine.provincia}`"></p>
-          <p x-text="`${translations[lang].region}: ${wine.region}`"></p>
-          <p x-text="`${translations[lang].anada}: ${wine.anada}`"></p>
-          <p x-text="`${translations[lang].altura}: ${wine.altura}`"></p>
+          <img :src="wine.Imagen" :alt="wine.Nombre" class="wine-image">
+          <h3 x-text="wine.Nombre"></h3>
+          <p x-text="`${translations[lang].bodega}: ${wine.Bodega}`"></p>
+          <p x-text="`${translations[lang].provincia}: ${wine.Provincia}`"></p>
+          <p x-text="`${translations[lang].region}: ${wine.Región}`"></p>
+          <p x-text="`${translations[lang].anada}: ${wine.Año}`"></p>
+          <p x-text="`${translations[lang].altura}: ${wine.Altura}`"></p>
+          <p x-text="`${translations[lang].tipo}: ${wine.Tipo}`"></p>
+          <p x-text="`${translations[lang].precio}: $${wine.Precio.toFixed(2)}`"></p>
+          <p x-text="wine.Descripción"></p>
+          <a :href="wine.url" x-text="translations[lang].viewDetails"></a>
         </div>
       </template>
       <p x-show="filteredWines.length === 0" x-text="translations[lang].noResults"></p>
+      <p x-show="wines.length === 0 && showResults" x-text="translations[lang].errorLoading"></p>
     </div>
   </main>
-
-  <!-- Footer (injected by Cloudflare Worker) -->
   <footer id="footer"></footer>
 </body>
 </html>
