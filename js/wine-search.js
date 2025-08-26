@@ -106,6 +106,7 @@ if (typeof window !== 'undefined') {
 
       async init() {
         console.log('wine-search.js: Initializing wineSearch for', window.location.pathname);
+        this.lang = window.location.pathname.split('/')[1] || 'es';
         try {
           const jsonPath = `/${this.lang}/data/vinos.json`;
           console.log('wine-search.js: Fetching', jsonPath);
