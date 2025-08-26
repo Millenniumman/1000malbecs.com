@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" x-data="wineSearch" x-init="init()">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7,7 +7,7 @@
     <title>1000malbecs - Buscador de Vinos</title>
     <meta content="Buscador de los mejores Malbecs argentinos, desde Patagonia hasta Puna" property="og:title"/>
     <meta content="Explora y filtra nuestra selección de Malbecs por provincia, región, bodega, año y variedad." property="og:description"/>
-    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" property="og:image"/>
+    <meta content="https://www.1000malbecs.com/images/1000-malbecs-logo.png" property="og:image"/>
     <meta content="image/png" property="og:image:type"/>
     <meta content="1200" property="og:image:width"/>
     <meta content="630" property="og:image:height"/>
@@ -16,20 +16,27 @@
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="1000 Malbecs - Buscador de Vinos" name="twitter:title"/>
     <meta content="Filtra y descubre los mejores Malbecs argentinos." name="twitter:description"/>
-    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
+    <meta content="https://www.1000malbecs.com/images/1000-malbecs-logo.png" name="twitter:image"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="/js/wine-search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js" defer></script>
+    <script src="/js/wine-search.js" defer></script>
     <script src="/js/global.js" defer></script>
     <style>
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        .header { top: 50px; z-index: 120; display: flex; justify-content: flex-end; position: relative; }
-        .logo { max-width: 150px; height: auto; }
+        .main-content { flex: 1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
         #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
         .logo-container { text-align: center; margin-bottom: 20px; }
-        main { margin-left: 290px; padding: 20px; width: calc(100% - 290px); flex: 1; }
+        .logo { max-width: 150px; height: auto; }
+        #sidebar details { margin: 10px 0; }
+        #sidebar summary { cursor: pointer; font-weight: bold; padding: 10px; }
+        #sidebar ul { list-style: none; padding: 0; margin: 0; }
+        #sidebar ul li { margin: 5px 0; }
+        #sidebar ul li a { text-decoration: none; color: #333; }
+        #sidebar ul li a.active { font-weight: bold; }
+        main { margin-left: 290px; padding: 20px; width: calc(100% - 290px); }
         main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
         .section-title { font-size: 22px; color: #4A2C59; margin: 20px 0 10px; text-align: center; text-transform: uppercase; }
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
@@ -46,15 +53,18 @@
         .product-card .buy-button:hover { background-color: #5A1D39; }
         .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
         .filters select { padding: 8px; border: 1px solid #E0E0E0; border-radius: 5px; width: 200px; }
+        .filters input { padding: 8px; border: 1px solid #E0E0E0; border-radius: 5px; width: 200px; }
         .filters button { background-color: #4A2C59; color: #f5e6ff; padding: 8px 16px; border-radius: 5px; border: none; cursor: pointer; }
         .language-selector { display: flex; gap: 10px; position: fixed; top: 10px; right: 10px; z-index: 1000; margin: 10px; justify-content: flex-end; }
-        .language-selector a { display: inline-block; visibility: visible; text-decoration: none; color: #333; font-size: 16px; padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; transition: background-color 0.3s; }
-        .language-selector a:hover { background-color: #f0f0f0; }
-        .language-selector a.active { background-color: #6200ea; color: white; }
+        .language-selector select { padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        footer { background: #333; color: #fff; padding: 20px; text-align: center; }
+        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-around; }
+        .footer-contact, .footer-social { margin: 10px; }
+        .icon-text { display: inline-flex; align-items: center; gap: 5px; color: #fff; }
+        .separator { margin: 0 10px; }
+        .error-message { color: red; text-align: center; margin: 20px 0; }
         @media (max-width: 768px) {
             main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; }
-            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
-            .logo { max-width: 80px !important; height: auto !important; display: block; }
             .hamburger { display: block !important; z-index: 130; }
             #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
             #sidebar.open { transform: translateX(0); }
@@ -70,97 +80,122 @@
             .overlay.active { display: block !important; z-index: 6; }
             .product-card:hover .overlay { display: none; }
             .language-selector { position: static; width: 100%; text-align: center; margin: 10px 0; z-index: 1000; max-width: 100%; overflow: visible; }
-            .filters select { width: 100%; max-width: 150px; }
+            .filters select, .filters input { width: 100%; max-width: 150px; }
         }
         @media (min-width: 769px) {
-            .header { display: none; }
+            .hamburger { display: none; }
             .logo-container { display: block; }
             .info-icon { display: none; }
-            .hamburger { display: none; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; justify-content: start; }
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
-        .error-message { color: red; text-align: center; margin: 20px 0; }
     </style>
 </head>
-    <body x-data="wineSearch()">
-    <div class="language-selector">
-        <a aria-label="Español" class="active" data-lang="es" href="/es/buscador.html">ES 🇪🇸</a>
-        <a aria-label="Alemán" data-lang="de" href="/de/buscador.html">DE 🇩🇪</a>
-        <a aria-label="Inglés" data-lang="en" href="/en/buscador.html">EN 🇬🇧</a>
-    </div>
-    <header class="header">
-        <a href="/es/" title="Volver al inicio">
-            <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
-        </a>
-    </header>
-    <button class="hamburger">☰</button>
-    <main>
-        <h1>Buscador de Vinos</h1>
-        <section class="filters">
-            <select name="provincia" x-model="filters.provincia">
-                <option value="">Selecciona Provincia</option>
-                <template x-for="val in uniqueValues.provincia" :key="val">
-                    <option :value="val" x-text="val"></option>
-                </template>
-            </select>
-            <select name="region" x-model="filters.region">
-                <option value="">Selecciona Región</option>
-                <template x-for="val in uniqueValues.region" :key="val">
-                    <option :value="val" x-text="val"></option>
-                </template>
-            </select>
-            <select name="altura" x-model="filters.altura">
-                <option value="">Selecciona Altura</option>
-                <template x-for="val in uniqueValues.altura" :key="val">
-                    <option :value="val" x-text="val + ' msnm'"></option>
-                </template>
-            </select>
-            <select name="bodega" x-model="filters.bodega">
-                <option value="">Selecciona Bodega</option>
-                <template x-for="val in uniqueValues.bodega" :key="val">
-                    <option :value="val" x-text="val"></option>
-                </template>
-            </select>
-            <select name="año" x-model="filters.año">
-                <option value="">Selecciona Año</option>
-                <template x-for="val in uniqueValues.año" :key="val">
-                    <option :value="val" x-text="val"></option>
-                </template>
-            </select>
-            <select name="marca" x-model="filters.marca">
-                <option value="">Selecciona Marca</option>
-                <template x-for="val in uniqueValues.marca" :key="val">
-                    <option :value="val" x-text="val"></option>
-                </template>
-            </select>
-            <select name="variedad" x-model="filters.variedad">
-                <option value="">Selecciona Variedad</option>
-                <template x-for="val in uniqueValues.variedad" :key="val">
-                    <option :value="val" x-text="val"></option>
-                </template>
-            </select>
-            <button @click="clearFilters()">Limpiar Filtros</button>
-        </section>
-        <div x-show="!filteredWines.length" class="error-message">No se encontraron vinos. Ajusta los filtros o verifica la conexión.</div>
-        <h3 class="section-title">Nuestros Vinos</h3>
-        <div class="product-grid">
-            <template x-for="wine in filteredWines" :key="wine.sku">
-                <div class="product-card">
-                    <img :src="wine.Imagen" :alt="wine.Nombre" :onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';" />
-                    <div class="info-icon" @click="toggleOverlay(wine.sku)">🍷</div>
-                    <div class="overlay" :data-overlay-id="wine.sku">
-                        <p x-text="wine.Descripción"></p>
-                        <a :href="wine.url || '#'">Ver detalles</a>
-                        <button @click="toggleOverlay(wine.sku)">Cerrar</button>
-                    </div>
-                    <h3 x-text="wine.Nombre"></h3>
-                    <p class="price" x-text="'$' + wine.Precio.toFixed(2)"></p>
-                    <a class="buy-button" :href="wine.url || '#'">Comprar</a>
+<body>
+    <button class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+    <nav id="sidebar"></nav>
+    <div class="main-content">
+        <main class="container">
+            <h1 x-text="translations[lang].title"></h1>
+            <div class="language-selector">
+                <label for="lang-select" class="sr-only" x-text="translations[lang].selectLanguage"></label>
+                <select id="lang-select" x-model="lang" @change="changeLanguage()">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <form @submit.prevent="searchWines()">
+                <label for="searchQuery" class="sr-only" x-text="translations[lang].searchPlaceholder"></label>
+                <input type="text" id="searchQuery" x-model="searchQuery" :placeholder="translations[lang].searchPlaceholder">
+                <div class="filters">
+                    <select x-model="filters.Provincia" :placeholder="translations[lang].provincia">
+                        <option value="">{{ translations[lang].allProvincias }}</option>
+                        <template x-for="val in uniqueProvincias" :key="val">
+                            <option :value="val" x-text="val"></option>
+                        </template>
+                    </select>
+                    <select x-model="filters.Región" :placeholder="translations[lang].region">
+                        <option value="">{{ translations[lang].allRegions }}</option>
+                        <template x-for="val in uniqueRegions" :key="val">
+                            <option :value="val" x-text="val"></option>
+                        </template>
+                    </select>
+                    <select x-model="filters.Altura" :placeholder="translations[lang].altura">
+                        <option value="">{{ translations[lang].allAlturas }}</option>
+                        <template x-for="val in uniqueAlturas" :key="val">
+                            <option :value="val" x-text="val + ' msnm'"></option>
+                        </template>
+                    </select>
+                    <select x-model="filters.Bodega" :placeholder="translations[lang].bodega">
+                        <option value="">{{ translations[lang].allBodegas }}</option>
+                        <template x-for="val in uniqueBodegas" :key="val">
+                            <option :value="val" x-text="val"></option>
+                        </template>
+                    </select>
+                    <select x-model="filters.Año" :placeholder="translations[lang].anada">
+                        <option value="">{{ translations[lang].allAnadas }}</option>
+                        <template x-for="val in uniqueAnadas" :key="val">
+                            <option :value="val" x-text="val"></option>
+                        </template>
+                    </select>
+                    <select x-model="filters.Nombre" :placeholder="translations[lang].marca">
+                        <option value="">{{ translations[lang].allMarcas }}</option>
+                        <template x-for="val in uniqueNombres" :key="val">
+                            <option :value="val" x-text="val"></option>
+                        </template>
+                    </select>
+                    <select x-model="filters.Variedad" :placeholder="translations[lang].variedad">
+                        <option value="">{{ translations[lang].allVariedades }}</option>
+                        <template x-for="val in uniqueVariedades" :key="val">
+                            <option :value="val" x-text="val"></option>
+                        </template>
+                    </select>
+                    <button type="submit" x-text="translations[lang].searchButton"></button>
+                    <button type="button" @click="clearFilters()" x-text="translations[lang].clearFilters"></button>
                 </div>
-            </template>
+            </form>
+            <div class="results" x-show="showResults">
+                <h3 class="section-title" x-text="translations[lang].ourWines"></h3>
+                <div class="product-grid">
+                    <template x-for="wine in filteredWines" :key="wine.sku">
+                        <div class="product-card">
+                            <img :src="wine.Imagen" :alt="wine.Nombre" :onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';" />
+                            <i class="fas fa-info-circle info-icon" @click="toggleOverlay($el.parentNode.querySelector('.overlay'))"></i>
+                            <div class="overlay">
+                                <p x-text="`${translations[lang].bodega}: ${wine.Bodega}`"></p>
+                                <p x-text="`${translations[lang].provincia}: ${wine.Provincia}`"></p>
+                                <p x-text="`${translations[lang].region}: ${wine.Región}`"></p>
+                                <p x-text="`${translations[lang].anada}: ${wine.Año}`"></p>
+                                <p x-text="`${translations[lang].altura}: ${wine.Altura} msnm`"></p>
+                                <p x-text="`${translations[lang].variedad}: ${wine.Variedad}`"></p>
+                                <p x-text="wine.Descripción"></p>
+                                <a :href="wine.url || '#'">{{ translations[lang].viewDetails }}</a>
+                            </div>
+                            <h3 x-text="wine.Nombre"></h3>
+                            <p class="price" x-text="`${translations[lang].precio}: $${wine.Precio.toFixed(2)}`"></p>
+                            <a class="buy-button" :href="wine.url || '#'">{{ translations[lang].buyButton }}</a>
+                        </div>
+                    </template>
+                </div>
+                <p x-show="filteredWines.length === 0" class="error-message" x-text="translations[lang].noResults"></p>
+                <p x-show="wines.length === 0 && showResults" class="error-message" x-text="translations[lang].errorLoading"></p>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <p class="icon-text"><i class="fas fa-envelope"></i> info@1000malbecs.com</p>
+                <p class="icon-text"><i class="fas fa-phone"></i> +54 9 11 1234 5678</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://facebook.com/1000malbecs" class="icon-text"><i class="fab fa-facebook"></i> Facebook</a>
+                <span class="separator">|</span>
+                <a href="https://instagram.com/1000malbecs" class="icon-text"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
         </div>
-    </main>
+    </footer>
 </body>
 </html>
