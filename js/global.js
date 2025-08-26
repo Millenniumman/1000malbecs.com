@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('global.js: Starting DOM checks');
 
   // Handle collapsible navigation (details/summary)
-  const detailsElements = document.querySelectorAll('details');
+  const detailsElements = document.querySelectorAll('#sidebar details');
   if (detailsElements.length > 0) {
     console.log('global.js: Found', detailsElements.length, 'details elements');
     detailsElements.forEach((details) => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const langSelector = document.querySelector('#lang-select');
   if (langSelector) {
     console.log('global.js: Language selector found');
-    // Language switching is handled by wine-search.js, so no additional logic needed
+    // Language switching is handled by wine-search.js
   } else {
     console.warn('global.js: Language selector not found');
   }
