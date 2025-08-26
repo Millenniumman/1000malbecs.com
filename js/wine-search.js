@@ -12,6 +12,7 @@ if (typeof window !== 'undefined') {
         Bodega: '',
         Año: '',
         Altura: '',
+        Nombre: '',
         Variedad: ''
       },
       showResults: false,
@@ -26,6 +27,7 @@ if (typeof window !== 'undefined') {
           bodega: 'Bodega',
           anada: 'Añada',
           altura: 'Altura',
+          marca: 'Marca',
           variedad: 'Variedad',
           precio: 'Precio',
           allProvincias: 'Todas las Provincias',
@@ -33,11 +35,13 @@ if (typeof window !== 'undefined') {
           allBodegas: 'Todas las Bodegas',
           allAnadas: 'Todas las Añadas',
           allAlturas: 'Todas las Alturas',
+          allMarcas: 'Todas las Marcas',
           allVariedades: 'Todas las Variedades',
           searchButton: 'Buscar',
           clearFilters: 'Limpiar Filtros',
           noResults: 'No se encontraron vinos.',
           viewDetails: 'Ver Detalles',
+          buyButton: 'Comprar',
           ourWines: 'Nuestros Vinos',
           errorLoading: 'Error al cargar los datos de los vinos.'
         },
@@ -50,6 +54,7 @@ if (typeof window !== 'undefined') {
           bodega: 'Winery',
           anada: 'Vintage',
           altura: 'Altitude',
+          marca: 'Brand',
           variedad: 'Variety',
           precio: 'Price',
           allProvincias: 'All Provinces',
@@ -57,11 +62,13 @@ if (typeof window !== 'undefined') {
           allBodegas: 'All Wineries',
           allAnadas: 'All Vintages',
           allAlturas: 'All Altitudes',
+          allMarcas: 'All Brands',
           allVariedades: 'All Varieties',
           searchButton: 'Search',
           clearFilters: 'Clear Filters',
           noResults: 'No wines found.',
           viewDetails: 'View Details',
+          buyButton: 'Buy',
           ourWines: 'Our Wines',
           errorLoading: 'Error loading wine data.'
         },
@@ -74,6 +81,7 @@ if (typeof window !== 'undefined') {
           bodega: 'Weingut',
           anada: 'Jahrgang',
           altura: 'Höhe',
+          marca: 'Marke',
           variedad: 'Sorte',
           precio: 'Preis',
           allProvincias: 'Alle Provinzen',
@@ -81,11 +89,13 @@ if (typeof window !== 'undefined') {
           allBodegas: 'Alle Weingüter',
           allAnadas: 'Alle Jahrgänge',
           allAlturas: 'Alle Höhen',
+          allMarcas: 'Alle Marken',
           allVariedades: 'Alle Sorten',
           searchButton: 'Suchen',
           clearFilters: 'Filter zurücksetzen',
           noResults: 'Keine Weine gefunden.',
           viewDetails: 'Details anzeigen',
+          buyButton: 'Kaufen',
           ourWines: 'Unsere Weine',
           errorLoading: 'Fehler beim Laden der Weindaten.'
         }
@@ -105,6 +115,9 @@ if (typeof window !== 'undefined') {
       },
       uniqueAlturas() {
         return [...new Set(this.wines.map(wine => wine.Altura))].sort();
+      },
+      uniqueNombres() {
+        return [...new Set(this.wines.map(wine => wine.Nombre))].sort();
       },
       uniqueVariedades() {
         return [...new Set(this.wines.map(wine => wine.Variedad))].sort();
@@ -150,6 +163,7 @@ if (typeof window !== 'undefined') {
           Bodega: '',
           Año: '',
           Altura: '',
+          Nombre: '',
           Variedad: ''
         };
         this.searchQuery = '';
@@ -174,15 +188,13 @@ if (typeof window !== 'undefined') {
   if (!window.Alpine?.started) {
     document.addEventListener('DOMContentLoaded', () => {
       console.log('wine-search.js: DOM loaded');
-      setTimeout(() => {
-        if (window.Alpine) {
-          Alpine.start();
-          console.log('wine-search.js: Alpine.js started');
-          window.Alpine.started = true;
-        } else {
-          console.error('wine-search.js: Alpine.js not loaded');
-        }
-      }, 1000);
+      if (window.Alpine) {
+        Alpine.start();
+        console.log('wine-search.js: Alpine.js started');
+        window.Alpine.started = true;
+      } else {
+        console.error('wine-search.js: Alpine.js not loaded');
+      }
     });
   }
 }
