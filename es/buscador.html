@@ -93,19 +93,17 @@
     </style>
 </head>
 <body>
-    <button class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
-    <nav id="sidebar"></nav>
-    <div class="main-content">
-        <main class="container">
-            <h1 x-text="translations[lang].title"></h1>
-            <div class="language-selector">
-                <label for="lang-select" class="sr-only" x-text="translations[lang].selectLanguage"></label>
-                <select id="lang-select" x-model="lang" @change="changeLanguage()">
-                    <option value="es">Español</option>
-                    <option value="en">English</option>
-                    <option value="de">Deutsch</option>
-                </select>
-            </div>
+  <div class="language-selector">
+    <a href="/es/bodegas/a-corazon-abierto.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+    <a href="/de/bodegas/a-corazon-abierto.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
+    <a href="/en/bodegas/a-corazon-abierto.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
+  </div>
+  <header class="header">
+    <a href="/" title="Volver al inicio">
+      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+  <button class="hamburger">☰</button>
             <form @submit.prevent="searchWines()">
                 <label for="searchQuery" class="sr-only" x-text="translations[lang].searchPlaceholder"></label>
                 <input type="text" id="searchQuery" x-model="searchQuery" :placeholder="translations[lang].searchPlaceholder">
