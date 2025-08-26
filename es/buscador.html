@@ -136,40 +136,42 @@
                     <select x-model="filters.Altura" :placeholder="translations[lang].altura">
                         <option value="">{{ translations[lang].allAlturas }}</option>
                         <template x-for="altura in uniqueAlturas" :key="altura">
-                            <option :value="altura" x-text="altura"></option>
+                            <option :value="altura" x-text="altura + ' msnm'"></option>
                         </template>
                     </select>
-                    <select x-model="filters.Tipo" :placeholder="translations[lang].tipo">
-                        <option value="">{{ translations[lang].allTipos }}</option>
-                        <template x-for="tipo in uniqueTipos" :key="tipo">
-                            <option :value="tipo" x-text="tipo"></option>
+                    <select x-model="filters.Variedad" :placeholder="translations[lang].variedad">
+                        <option value="">{{ translations[lang].allVariedades }}</option>
+                        <template x-for="variedad in uniqueVariedades" :key="variedad">
+                            <option :value="variedad" x-text="variedad"></option>
                         </template>
                     </select>
+                    <button type="submit" x-text="translations[lang].searchButton"></button>
+                    <button type="button" @click="clearFilters()" x-text="translations[lang].clearFilters"></button>
                 </div>
-                <button type="submit" x-text="translations[lang].searchButton"></button>
             </form>
             <div class="results" x-show="showResults">
+                <h3 class="section-title" x-text="translations[lang].ourWines"></h3>
                 <div class="product-grid">
                     <template x-for="wine in filteredWines" :key="wine.sku">
                         <div class="product-card">
-                            <img :src="wine.Imagen" :alt="wine.Nombre" class="wine-image">
+                            <img :src="wine.Imagen" :alt="wine.Nombre" :onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';" />
                             <i class="fas fa-info-circle info-icon" @click="toggleOverlay($el.parentNode.querySelector('.overlay'))"></i>
                             <div class="overlay">
                                 <p x-text="`${translations[lang].bodega}: ${wine.Bodega}`"></p>
                                 <p x-text="`${translations[lang].provincia}: ${wine.Provincia}`"></p>
                                 <p x-text="`${translations[lang].region}: ${wine.Región}`"></p>
                                 <p x-text="`${translations[lang].anada}: ${wine.Año}`"></p>
-                                <p x-text="`${translations[lang].altura}: ${wine.Altura}`"></p>
-                                <p x-text="`${translations[lang].tipo}: ${wine.Tipo}`"></p>
+                                <p x-text="`${translations[lang].altura}: ${wine.Altura} msnm`"></p>
+                                <p x-text="`${translations[lang].variedad}: ${wine.Variedad}`"></p>
                                 <p x-text="wine.Descripción"></p>
                             </div>
                             <h3 x-text="wine.Nombre"></h3>
                             <p class="price" x-text="`${translations[lang].precio}: $${wine.Precio.toFixed(2)}`"></p>
-                            <a :href="wine.url" class="buy-button" x-text="translations[lang].viewDetails"></a>
+                            <a class="buy-button" :href="wine.url || '#'">{{ translations[lang].viewDetails }}</a>
                         </div>
                     </template>
                 </div>
-                <p x-show="filteredWines.length === 0" x-text="translations[lang].noResults"></p>
+                <p x-show="filteredWines.length === 0" class="error-message" x-text="translations[lang].noResults"></p>
                 <p x-show="wines.length === 0 && showResults" class="error-message" x-text="translations[lang].errorLoading"></p>
             </div>
         </main>
