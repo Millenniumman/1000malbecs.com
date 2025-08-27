@@ -584,8 +584,11 @@ async function loadWines() {
 
 // Function to adjust URL with current language
 function adjustUrlForLanguage(url, lang) {
-  // Replace the language code in the URL (e.g., /es/vinos/... -> /en/vinos/...)
-  return url.replace(/\/(es|en|de)\//, `/${lang}/`);
+  // Add the language code prefix to the URL (e.g., /vinos/... -> /[lang]/vinos/...)
+  if (url.startsWith('/vinos/')) {
+    return `/${lang}${url}`;
+  }
+  return url; // Fallback in case URL format is unexpected
 }
 
 // Load wines when the page loads
