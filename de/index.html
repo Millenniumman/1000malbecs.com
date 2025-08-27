@@ -499,7 +499,41 @@
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
-        <script src="/js/search.js"></script>
+<script>
+  // Wait for Alpine.js to be available before loading search.js
+  if (typeof Alpine === 'undefined') {
+    console.error('Alpine.js failed to load');
+  } else {
+    console.log('Alpine.js loaded, version:', Alpine.version);
+  }
+</script>
+<script src="/js/search.js"></script>
+<script>
+  // Fallback if wineSearch is not defined
+  document.addEventListener('alpine:init', () => {
+    if (!Alpine.data('wineSearch')) {
+      console.error('wineSearch component not registered');
+      Alpine.data('wineSearch', () => ({
+        query: '',
+        suggestions: [],
+        focusedIndex: -1,
+        lang: 'de',
+        translations: {
+          es: { placeholder: 'Busca tu vino favorito...' },
+          en: { placeholder: 'Search your favorite wine...' },
+          de: { placeholder: 'Suche deinen Lieblingswein...' }
+        },
+        init() {
+          console.warn('Using fallback wineSearch component');
+          this.lang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
+        },
+        search() {},
+        handleKeydown() {},
+        goTo(url) { window.location.href = url; }
+      }));
+    }
+  });
+</script>
     </div>
 </body>
 </html>
