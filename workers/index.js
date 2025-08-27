@@ -205,14 +205,14 @@ export default {
 
     // Generate navigation HTML
     const provinciaLinks = provincias.map((prov) => {
-      const slug = typeof prov === 'string' ? prov : prov.slug || prov.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-').replace(/^-+|-+$/g, '') || 'unnamed';
+      const slug = typeof prov === 'string' ? prov : (prov.slug || (prov.name || prov).toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/^-+|-+$/g, '') || 'unnamed');
       const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, '_')] || (typeof prov === 'string' ? prov : prov.name || 'Unnamed');
       const isActive = path === `/${lang}/provincias/${slug}.html` ? ' active' : '';
       return `<li><a href="/${lang}/provincias/${slug}.html" class="nav-link${isActive}">${displayName}</a></li>`;
     }).join('');
 
     const bodegaLinks = bodegas.map((bodega) => {
-      const slug = bodega.slug || bodega.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-').replace(/^-+|-+$/g, '') || 'unnamed';
+      const slug = bodega.slug || (bodega.name || 'unnamed').toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/^-+|-+$/g, '') || 'unnamed';
       const displayName = bodega.name || 'Unnamed';
       const isActive = path === `/${lang}/bodegas/${slug}.html` ? ' active' : '';
       return `<li><a href="/${lang}/bodegas/${slug}.html" class="nav-link${isActive}">${displayName}</a></li>`;
@@ -222,7 +222,7 @@ export default {
       <nav id="sidebar">
         <div class="logo-container">
           <a href="/${lang}/" title="${translations[lang].navbar.home}">
-            <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Nicht+Verfügbar';">
+            <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Nicht+Verf%C3%BCgbar';">
           </a>
         </div>
         <h2>${translations[lang].navbar.categories}</h2>
@@ -292,28 +292,40 @@ export default {
     let modifiedHtml = pageHtml;
 
     // Replace or append sidebar
-    const sidebarRegex = /<nav id="sidebar">[\s\S]*?<\/nav>/i;
-    if (modifiedHtml.match(sidebarRegex)) {
-      modifiedHtml = modifiedHtml.replace(sidebarRegex, navbarHtml);
-    } else {
-      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/i, `$&${navbarHtml}`);
+    try {
+      const sidebarRegex = new RegExp('<nav id="sidebar">[\\s\\S]*?</nav>', 'i');
+      if (modifiedHtml.match(sidebarRegex)) {
+        modifiedHtml = modifiedHtml.replace(sidebarRegex, navbarHtml);
+      } else {
+        modifiedHtml = modifiedHtml.replace(/<body[^>]*>/i, `$&${navbarHtml}`);
+      }
+    } catch (error) {
+      console.error('Error in sidebarRegex:', error.message);
     }
 
     // Replace or append footer
-    const footerRegex = /<footer>[\s\S]*?<\/footer>/i;
-    if (modifiedHtml.match(footerRegex)) {
-      modifiedHtml = modifiedHtml.replace(footerRegex, footerHtml);
-    } else {
-      modifiedHtml = modifiedHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
+    try {
+      const footerRegex = new RegExp('<footer>[\\s\\S]*?</footer>', 'i');
+      if (modifiedHtml.match(footerRegex)) {
+        modifiedHtml = modifiedHtml.replace(footerRegex, footerHtml);
+      } else {
+        modifiedHtml = modifiedHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
+      }
+    } catch (error) {
+      console.error('Error in footerRegex:', error.message);
     }
 
     // Ensure single <html>, <head>, and <body> tags
-    const htmlRegex = /<!DOCTYPE html>\s*<html[^>]*>\s*(<head>[\s\S]*?</head>)?\s*(<body[^>]*>[\s\S]*?</body>)?\s*<\/html>/i;
-    const match = modifiedHtml.match(htmlRegex);
-    if (match) {
-      const headContent = match[1] || '<head></head>';
-      const bodyContent = match[2] || '<body></body>';
-      modifiedHtml = `<!DOCTYPE html><html lang="${lang}">${headContent}${bodyContent}</html>`;
+    try {
+      const htmlRegex = new RegExp('<!DOCTYPE html>\\s*<html[^>]*>\\s*(<head>[\\s\\S]*?</head>)?\\s*(<body[^>]*>[\\s\\S]*?</body>)?\\s*</html>', 'i');
+      const match = modifiedHtml.match(htmlRegex);
+      if (match) {
+        const headContent = match[1] || '<head></head>';
+        const bodyContent = match[2] || '<body></body>';
+        modifiedHtml = `<!DOCTYPE html><html lang="${lang}">${headContent}${bodyContent}</html>`;
+      }
+    } catch (error) {
+      console.error('Error in htmlRegex:', error.message);
     }
 
     return new Response(modifiedHtml, {
@@ -322,7 +334,7 @@ export default {
       headers: {
         ...Object.fromEntries(pageResponse.headers),
         'content-type': 'text/html; charset=utf-8',
-        'Cache-Control': 'public, max-age=0, must-revalidate' // Prevent caching issues
+        'Cache-Control': 'public, max-age=0, must-revalidate'
       }
     });
   }
