@@ -518,62 +518,127 @@ Un plato que te abraza y un beat que explota.
             if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
         });
     }
-    const searchInput = document.querySelector('.search-input');
-    const suggestionsList = document.querySelector('.search-suggestions');
-    const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
-        name: card.querySelector('h3').textContent.trim(),
-        url: card.querySelector('.buy-button').href
-    }));
-    searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
-        suggestionsList.innerHTML = '';
-        suggestionsList.style.display = 'none';
-        if (query.length >= 3) {
-            const matches = wines.filter(wine => wine.name.toLowerCase().includes(query)).slice(0, 5);
-            if (matches.length > 0) {
-                matches.forEach(wine => {
-                    const li = document.createElement('li');
-                    li.textContent = wine.name;
-                    li.dataset.url = wine.url;
-                    suggestionsList.appendChild(li);
-                });
-                suggestionsList.style.display = 'block';
-            }
-        }
-    });
-    suggestionsList.addEventListener('click', function(e) {
-        const li = e.target.closest('li');
-        if (li && li.dataset.url) { window.location.href = li.dataset.url; }
-    });
-    let focusedSuggestion = -1;
-    searchInput.addEventListener('keydown', function(e) {
-        const suggestions = suggestionsList.querySelectorAll('li');
-        if (suggestions.length === 0) return;
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
-            updateFocus(suggestions);
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
-            updateFocus(suggestions);
-        } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
-            e.preventDefault();
-            window.location.href = suggestions[focusedSuggestion].dataset.url;
-        }
-    });
-    function updateFocus(suggestions) {
-        suggestions.forEach((suggestion, index) => {
-            suggestion.classList.toggle('focused', index === focusedSuggestion);
-        });
-        if (focusedSuggestion >= 0) { suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' }); }
+    // Function to fetch and merge JSON data
+async function loadWines() {
+  try {
+    // Define paths for JSON files
+    const jsonPaths = [
+      '/data/vinos.json',
+      '/es/data/vinos.json',
+      '/de/data/vinos.json'
+    ];
+
+    // Fetch all JSON files concurrently
+    const responses = await Promise.all(
+      jsonPaths.map(path =>
+        fetch(path)
+          .then(res => res.ok ? res.json() : [])
+          .catch(() => [])
+      )
+    );
+
+    // Merge all wines into a single array, removing duplicates by URL
+    const allWines = responses.flat().reduce((acc, wine) => {
+      if (!acc.some(w => w.url === wine.url)) {
+        acc.push(wine);
+      }
+      return acc;
+    }, []);
+
+    return allWines;
+  } catch (error) {
+    console.error('Error loading wines:', error);
+    return [];
+  }
+}
+
+// Search functionality
+const searchInput = document.querySelector('.search-input');
+const suggestionsList = document.querySelector('.search-suggestions');
+
+let wines = []; // Will be populated with JSON data
+
+// Load wines when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
+  wines = await loadWines();
+  console.log('Loaded wines:', wines);
+});
+
+// Handle search input
+searchInput.addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+  suggestionsList.innerHTML = '';
+  suggestionsList.style.display = 'none';
+
+  if (query.length >= 3) {
+    // Search across multiple fields (name, winery, province, region)
+    const matches = wines
+      .filter(wine => {
+        return (
+          wine.name?.toLowerCase().includes(query) ||
+          wine.winery?.toLowerCase().includes(query) ||
+          wine.province?.toLowerCase().includes(query) ||
+          wine.region?.toLowerCase().includes(query)
+        );
+      })
+      .slice(0, 5); // Limit to 5 suggestions
+
+    if (matches.length > 0) {
+      matches.forEach(wine => {
+        const li = document.createElement('li');
+        li.textContent = `${wine.name} - ${wine.winery} (${wine.province})`;
+        li.dataset.url = wine.url;
+        suggestionsList.appendChild(li);
+      });
+      suggestionsList.style.display = 'block';
     }
-    document.addEventListener('click', function(e) {
-        if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
-            suggestionsList.style.display = 'none';
-            focusedSuggestion = -1;
-        }
-    });
+  }
+});
+
+// Handle suggestion clicks
+suggestionsList.addEventListener('click', function (e) {
+  const li = e.target.closest('li');
+  if (li && li.dataset.url) {
+    window.location.href = li.dataset.url;
+  }
+});
+
+// Keyboard navigation
+let focusedSuggestion = -1;
+searchInput.addEventListener('keydown', function (e) {
+  const suggestions = suggestionsList.querySelectorAll('li');
+  if (suggestions.length === 0) return;
+
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
+    updateFocus(suggestions);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
+    updateFocus(suggestions);
+  } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
+    e.preventDefault();
+    window.location.href = suggestions[focusedSuggestion].dataset.url;
+  }
+});
+
+function updateFocus(suggestions) {
+  suggestions.forEach((suggestion, index) => {
+    suggestion.classList.toggle('focused', index === focusedSuggestion);
+  });
+  if (focusedSuggestion >= 0) {
+    suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
+  }
+}
+
+// Hide suggestions when clicking outside
+document.addEventListener('click', function (e) {
+  if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+    suggestionsList.style.display = 'none';
+    focusedSuggestion = -1;
+  }
+});
     const wineryGrid = document.querySelector('.winery-grid');
     const wineryPrev = document.querySelector('.winery-prev');
     const wineryNext = document.querySelector('.winery-next');
