@@ -569,10 +569,20 @@ const labels = {
   de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
 };
 
+// Function to clean wine name for URL
+function cleanWineName(name) {
+  return name
+    .toLowerCase()
+    .normalize('NFD') // Normalize accents
+    .replace(/[\u0300-\u036f]/g, '') // Remove accents
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-'); // Replace multiple hyphens with single hyphen
+}
+
 // Function to fetch and merge JSON data
 async function loadWines() {
   try {
-    // Prioritize JSON path based on current language
     const jsonPath = `/${currentLang}/data/vinos.json`;
     const response = await fetch(jsonPath);
     if (!response.ok) throw new Error(`Failed to fetch ${jsonPath}`);
@@ -597,7 +607,6 @@ searchInput.addEventListener('input', function () {
   suggestionsList.style.display = 'none';
 
   if (query.length >= 3) {
-    // Search across multiple fields
     const matches = wines
       .filter(wine => {
         return (
@@ -609,14 +618,14 @@ searchInput.addEventListener('input', function () {
           wine.Año?.toString().includes(query)
         );
       })
-      .sort((a, b) => a.Precio - b.Precio) // Sort by price (ascending)
-      .slice(0, 5); // Limit to 5 suggestions
+      .sort((a, b) => a.Precio - b.Precio)
+      .slice(0, 5);
 
     if (matches.length > 0) {
       matches.forEach(wine => {
         const li = document.createElement('li');
         li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
-        li.dataset.url = wine.url;
+        li.dataset.wineName = wine.Nombre; // Store the wine name for URL construction
         suggestionsList.appendChild(li);
       });
       suggestionsList.style.display = 'block';
@@ -635,8 +644,9 @@ searchInput.addEventListener('input', function () {
 // Handle suggestion clicks
 suggestionsList.addEventListener('click', function (e) {
   const li = e.target.closest('li');
-  if (li && li.dataset.url) {
-    window.location.href = li.dataset.url;
+  if (li && li.dataset.wineName) {
+    const cleanedName = cleanWineName(li.dataset.wineName);
+    window.location.href = `/${currentLang}/vinos/${cleanedName}`;
   }
 });
 
@@ -656,8 +666,9 @@ searchInput.addEventListener('keydown', function (e) {
     updateFocus(suggestions);
   } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
     e.preventDefault();
-    if (suggestions[focusedSuggestion].dataset.url) {
-      window.location.href = suggestions[focusedSuggestion].dataset.url;
+    if (suggestions[focusedSuggestion].dataset.wineName) {
+      const cleanedName = cleanWineName(suggestions[focusedSuggestion].dataset.wineName);
+      window.location.href = `/${currentLang}/vinos/${cleanedName}`;
     }
   }
 });
