@@ -1,16 +1,15 @@
-// workers/index.js
-var index_default = {
+export default {
   async fetch(request) {
     const url = new URL(request.url);
-    const path = url.pathname.toLowerCase();
-    const staticPaths = [".js", ".json", ".css", ".png", ".jpg", ".jpeg", ".ico"];
-    const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/data/navigation.json", "/data/vinos.json", "/js/search.js"];
-    if (staticPaths.some((ext) => path.endsWith(ext)) || excludedPaths.some((excluded) => path.includes(excluded))) {
+    const path = url.pathname;
+    const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/data/navigation.json"];
+    if (excludedPaths.some((excluded) => path.includes(excluded))) {
       console.log("Bypassing Worker for path:", path);
       return fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
         headers: request.headers
       });
     }
+
     let lang = "es";
     if (path.startsWith("/en/")) lang = "en";
     else if (path.startsWith("/de/")) lang = "de";
@@ -19,10 +18,11 @@ var index_default = {
     if (langParam && ["es", "en", "de"].includes(langParam)) {
       lang = langParam;
     }
+
     const translations = {
       es: {
         navbar: {
-          categories: "Categor\xEDas",
+          categories: "Categorías",
           provinces: "Provincias",
           wineries: "Bodegas",
           events: "Eventos",
@@ -31,7 +31,7 @@ var index_default = {
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
-            neuquen: "Neuqu\xE9n",
+            neuquen: "Neuquén",
             salta: "Salta",
             san_juan: "San Juan"
           },
@@ -47,7 +47,7 @@ var index_default = {
         },
         footer: {
           inquiries: "Consultas",
-          follow: "S\xEDguenos",
+          follow: "Síguenos",
           whatsapp: "+49 151 5822 4728",
           email: "federico@1000malbecs.com",
           instagram: "@1000malbecs",
@@ -65,7 +65,7 @@ var index_default = {
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
-            neuquen: "Neuqu\xE9n",
+            neuquen: "Neuquén",
             salta: "Salta",
             san_juan: "San Juan"
           },
@@ -92,14 +92,14 @@ var index_default = {
         navbar: {
           categories: "Kategorien",
           provinces: "Provinzen",
-          wineries: "Weing\xFCter",
+          wineries: "Weingüter",
           events: "Veranstaltungen",
           info: "Info",
-          home: "Zur\xFCck zur Startseite",
+          home: "Zurück zur Startseite",
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
-            neuquen: "Neuqu\xE9n",
+            neuquen: "Neuquén",
             salta: "Salta",
             san_juan: "San Juan"
           },
@@ -123,6 +123,7 @@ var index_default = {
         }
       }
     };
+
     let provincias = [];
     let bodegas = [];
     try {
@@ -133,36 +134,34 @@ var index_default = {
         provincias = navData.provincias || [];
         bodegas = navData.bodegas || [];
         console.log("Provincias loaded:", provincias);
-        console.log("Bodegas loaded:", bodegas.map((b) => b.name));
+        console.log("Bodegas loaded:", bodegas.map(b => b.name));
       } else {
         console.error("Error fetching navigation.json:", navResponse.status);
       }
     } catch (error) {
       console.error("Error loading navigation data:", error.message);
     }
+
     if (provincias.length === 0) {
       console.warn("Falling back to hardcoded provincias");
-      provincias = ["la-rioja", "mendoza", "neuquen", "salta", "san-juan"];
+      provincias = ["La Rioja", "Mendoza", "Neuquén", "Salta", "San Juan"];
     }
     if (bodegas.length === 0) {
       console.warn("Falling back to hardcoded bodegas");
       bodegas = [
-        { name: "A Coraz\xF3n Abierto", slug: "a-corazon-abierto" },
-        { name: "Agust\xEDn Lan\xFAs", slug: "agustin-lanus" },
+        { name: "A Corazón Abierto", slug: "a-corazon-abierto" },
+        { name: "Agustín Lanús", slug: "agustin-lanus" },
         { name: "Alamos", slug: "alamos" },
         { name: "Bemberg Estate Wines", slug: "bemberg-estate-wines" },
-        { name: "Bodega Amalaya", slug: "bodega-amalaya" },
         { name: "Bodega Bressia", slug: "bodega-bressia" },
-        { name: "Bodega Cha\xF1armuyo", slug: "bodega-chanarmuyo" },
-        { name: "Bodega Colom\xE9", slug: "bodega-colome" },
+        { name: "Bodega Chañarmuyo", slug: "bodega-chanarmuyo" },
         { name: "Bodega Estancia Mendoza", slug: "bodega-estancia-mendoza" },
         { name: "Bodega Foster Lorca", slug: "bodega-foster-lorca" },
         { name: "Bodega Goyenechea", slug: "bodega-goyenechea" },
-        { name: "Bodega Noem\xEDa Patagonia", slug: "bodega-noemia-patagonia" },
-        { name: "Bodega S\xE9ptima", slug: "bodega-septima" },
+        { name: "Bodega Noemía Patagonia", slug: "bodega-noemia-patagonia" },
+        { name: "Bodega Séptima", slug: "bodegas-septima" },
         { name: "Bodega Tukma", slug: "bodega-tukma" },
         { name: "Bodegas Bianchi", slug: "bodegas-bianchi" },
-        { name: "Bodegas Caro", slug: "bodegas-caro" },
         { name: "Casa Araujo", slug: "casa-araujo" },
         { name: "Catena Zapata", slug: "catena-zapata" },
         { name: "Chakana", slug: "chakana" },
@@ -174,9 +173,9 @@ var index_default = {
         { name: "Familia Schroeder", slug: "familia-schroeder" },
         { name: "Finca La Anita", slug: "finca-la-anita" },
         { name: "Finca & Bodega Arca Yaco", slug: "finca-bodega-arca-yaco" },
+        { name: "Finca y Bodega Vistalba", slug: "finca-y-bodega-vistalba" },
         { name: "Finca Las Moras", slug: "finca-las-moras" },
         { name: "Finca Las Nubes", slug: "finca-las-nubes" },
-        { name: "Finca y Bodega Vistalba", slug: "finca-y-bodega-vistalba" },
         { name: "Humberto Canale", slug: "humberto-canale" },
         { name: "Jasmine Monet", slug: "jasmine-monet" },
         { name: "Jorge Rubio", slug: "jorge-rubio" },
@@ -189,55 +188,75 @@ var index_default = {
         { name: "Rutini Wines", slug: "rutini-wines" },
         { name: "San Telmo", slug: "san-telmo" },
         { name: "Trapiche", slug: "trapiche" },
-        { name: "Vi\xF1a Alicia", slug: "vina-alicia" },
+        { name: "Viña Alicia", slug: "vina-alicia" },
         { name: "Weinert Bodega y Cavas", slug: "weinert-bodega-y-cavas" }
       ];
     }
+
     const provinciaLinks = provincias.map((prov) => {
-      const slug = typeof prov === "string" ? prov : prov.slug || (prov.name || prov).toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/^-+|-+$/g, "") || "unnamed";
-      const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, "_")] || (typeof prov === "string" ? prov : prov.name || "Unnamed");
+      const slug = prov.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/[\s-]+/g, "-").replace(/^-+|-+$/g, "") || "unnamed";
+      const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, "_")] || prov;
       const isActive = path === `/${lang}/provincias/${slug}.html` ? " active" : "";
       return `<li><a href="/${lang}/provincias/${slug}.html" class="nav-link${isActive}">${displayName}</a></li>`;
     }).join("");
+
     const bodegaLinks = bodegas.map((bodega) => {
-      const slug = bodega.slug || (bodega.name || "unnamed").toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/^-+|-+$/g, "") || "unnamed";
-      const displayName = bodega.name || "Unnamed";
-      const isActive = path === `/${lang}/bodegas/${slug}.html` ? " active" : "";
-      return `<li><a href="/${lang}/bodegas/${slug}.html" class="nav-link${isActive}">${displayName}</a></li>`;
+      const isActive = path === `/${lang}/bodegas/${bodega.slug}.html` ? " active" : "";
+      return `<li><a href="/${lang}/bodegas/${bodega.slug}.html" class="nav-link${isActive}">${bodega.name}</a></li>`;
     }).join("");
+
+    const eventLinks = [
+      { href: `/eventos/eventos.html`, text: translations[lang].navbar.events_list.view_events },
+      { href: `/eventos/anotate.html`, text: translations[lang].navbar.events_list.sign_up }
+    ].map((link) => {
+      const isActive = path === `/${lang}${link.href}` ? " active" : "";
+      return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
+    }).join("");
+
+    const infoLinks = [
+      { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
+      { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
+      { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum }
+    ].map((link) => {
+      const isActive = path === `/${lang}${link.href}` ? " active" : "";
+      return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
+    }).join("");
+
     const navbarHtml = `
       <nav id="sidebar">
         <div class="logo-container">
           <a href="/${lang}/" title="${translations[lang].navbar.home}">
-            <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Nicht+Verf%C3%BCgbar';">
+            <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
           </a>
         </div>
         <h2>${translations[lang].navbar.categories}</h2>
         <details>
           <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
-          <ul>${provinciaLinks}</ul>
+          <ul>
+            ${provinciaLinks}
+          </ul>
         </details>
         <details>
           <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
-          <ul>${bodegaLinks}</ul>
+          <ul>
+            ${bodegaLinks}
+          </ul>
         </details>
         <details>
           <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
           <ul>
-            <li><a href="/${lang}/eventos/eventos.html" class="nav-link">${translations[lang].navbar.events_list.view_events}</a></li>
-            <li><a href="/${lang}/eventos/anotate.html" class="nav-link">${translations[lang].navbar.events_list.sign_up}</a></li>
+            ${eventLinks}
           </ul>
         </details>
         <details>
           <summary><i class="fas fa-wine-glass"></i> ${translations[lang].navbar.info}</summary>
           <ul>
-            <li><a href="/${lang}/about-us.html" class="nav-link">${translations[lang].navbar.info_list.about_us}</a></li>
-            <li><a href="/${lang}/faq.html" class="nav-link">${translations[lang].navbar.info_list.faq}</a></li>
-            <li><a href="/${lang}/impressum.html" class="nav-link">${translations[lang].navbar.info_list.impressum}</a></li>
+            ${infoLinks}
           </ul>
         </details>
       </nav>
     `;
+
     const footerHtml = `
       <footer>
         <div class="footer-content">
@@ -260,59 +279,86 @@ var index_default = {
         </div>
       </footer>
     `;
-    const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
-      headers: request.headers
-    });
-    let pageHtml = await pageResponse.text();
-    const contentType = pageResponse.headers.get("content-type") || "";
-    if (!contentType.includes("text/html")) {
-      console.log("Non-HTML response, bypassing manipulation:", path);
-      return pageResponse;
-    }
-    let modifiedHtml = pageHtml;
+
     try {
-      const sidebarRegex = new RegExp('<nav id="sidebar">[\\s\\S]*?</nav>', "i");
-      if (modifiedHtml.match(sidebarRegex)) {
-        modifiedHtml = modifiedHtml.replace(sidebarRegex, navbarHtml);
-      } else {
-        modifiedHtml = modifiedHtml.replace(/<body[^>]*>/i, `$&${navbarHtml}`);
+      console.log("Fetching page:", request.url, "Redirected to:", request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"));
+      const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
+        headers: request.headers
+      });
+      console.log("Page response status:", pageResponse.status, "URL:", pageResponse.url);
+      if (!pageResponse.ok) {
+        console.error(`Failed to fetch page: ${pageResponse.status} for URL: ${request.url}`);
+        if (pageResponse.status === 404) {
+          const custom404Response = await fetch(`https://1000malbecs.com/${lang}/404.html`);
+          if (custom404Response.ok) {
+            let custom404Html = await custom404Response.text();
+            const html = `
+              <!DOCTYPE html>
+              <html lang="${lang}">
+              <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="/css/styles.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+                ${custom404Html.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
+              </head>
+              <body>
+                ${navbarHtml}
+                <div class="main-content">
+                  ${custom404Html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || custom404Html}
+                </div>
+                ${footerHtml}
+              </body>
+              </html>
+            `;
+            return new Response(html, {
+              headers: { "Content-Type": "text/html; charset=utf-8" },
+              status: 404
+            });
+          }
+          return new Response("Page not found", {
+            status: 404,
+            headers: { "Content-Type": "text/plain" }
+          });
+        }
+        return pageResponse;
       }
+
+      const contentType = pageResponse.headers.get("content-type") || "";
+      if (!contentType.includes("text/html")) {
+        return pageResponse;
+      }
+
+      let pageHtml = await pageResponse.text();
+      const html = `
+        <!DOCTYPE html>
+        <html lang="${lang}">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="/css/styles.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+          ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
+        </head>
+        <body>
+          ${navbarHtml}
+          <div class="main-content">
+            ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
+          </div>
+          ${footerHtml}
+        </body>
+        </html>
+      `;
+      return new Response(html, {
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+        status: pageResponse.status
+      });
     } catch (error) {
-      console.error("Error in sidebarRegex:", error.message);
+      console.error(`Worker error: ${error.message} for URL: ${request.url}`);
+      return new Response("Internal Server Error", {
+        status: 500,
+        headers: { "Content-Type": "text/plain" }
+      });
     }
-    try {
-      const footerRegex = new RegExp("<footer>[\\s\\S]*?</footer>", "i");
-      if (modifiedHtml.match(footerRegex)) {
-        modifiedHtml = modifiedHtml.replace(footerRegex, footerHtml);
-      } else {
-        modifiedHtml = modifiedHtml.replace(/<\/body>/i, `${footerHtml}</body>`);
-      }
-    } catch (error) {
-      console.error("Error in footerRegex:", error.message);
-    }
-    try {
-      const htmlRegex = new RegExp("<!DOCTYPE html>\\s*<html[^>]*>\\s*(<head>[\\s\\S]*?</head>)?\\s*(<body[^>]*>[\\s\\S]*?</body>)?\\s*</html>", "i");
-      const match = modifiedHtml.match(htmlRegex);
-      if (match) {
-        const headContent = match[1] || "<head></head>";
-        const bodyContent = match[2] || "<body></body>";
-        modifiedHtml = `<!DOCTYPE html><html lang="${lang}">${headContent}${bodyContent}</html>`;
-      }
-    } catch (error) {
-      console.error("Error in htmlRegex:", error.message);
-    }
-    return new Response(modifiedHtml, {
-      status: pageResponse.status,
-      statusText: pageResponse.statusText,
-      headers: {
-        ...Object.fromEntries(pageResponse.headers),
-        "content-type": "text/html; charset=utf-8",
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      }
-    });
   }
 };
-export {
-  index_default as default
-};
-//# sourceMappingURL=index.js.map
