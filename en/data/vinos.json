@@ -5,13 +5,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 36.06,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/a-corazon-abierto-malbec-2019.jpg",
-    "sku": "ACAMACA2019",
-    "url": "/de/vinos/a-coraz-n-abierto-malbec.html"
+    "url": "/vinos/a-corazon-abierto-malbec-2019.html"
   },
   {
     "Nombre": "A Corazón Abierto Gran Corte",
@@ -19,13 +15,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 49.18,
-    "Descripción": "25 años",
-    "Imagen": "/images/small/a-corazon-abierto-gran-corte-2018.jpg",
-    "sku": "ACAGCACA2018",
-    "url": "/de/vinos/a-coraz-n-abierto-gran-corte.html"
+    "url": "/vinos/a-corazon-abierto-gran-corte-2018.html"
   },
   {
     "Nombre": "Bad Brothers Malbec Premium",
@@ -33,13 +25,9 @@
     "Provincia": "Salta",
     "Región": "Valle de Calchaquí",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 17.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/bad-brothers-malbec-premium-2020.jpg",
-    "sku": "BBMPAL2020",
-    "url": "/de/vinos/bad-brothers-malbec-premium.html"
+    "url": "/vinos/bad-brothers-malbec-premium-2020.html"
   },
   {
     "Nombre": "Sunal Ilogico Malbec ",
@@ -47,13 +35,9 @@
     "Provincia": "Salta",
     "Región": "Valle de Calchaquí",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 25.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/sunal-ilgico-malbec-2020.jpg",
-    "sku": "SIMAL2020",
-    "url": "/de/vinos/sunal-ilogico-malbec.html"
+    "url": "/vinos/sunal-ilgico-malbec-2020.html"
   },
   {
     "Nombre": "Alamos Malbec",
@@ -61,13 +45,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2024",
     "Precio": 10.97,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/alamos-malbec-2024.jpg",
-    "sku": "AMA2024",
-    "url": "/de/vinos/alamos-malbec.html"
+    "url": "/vinos/alamos-malbec-2024.html"
   },
   {
     "Nombre": "Alamos Malbec Magnum 1500 cc",
@@ -75,13 +55,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2024",
     "Precio": 22.02,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/alamos-malbec-magnum-2024.jpg",
-    "sku": "AMM1CA2024",
-    "url": "/de/vinos/alamos-malbec-magnum-1500-cc.html"
+    "url": "/vinos/alamos-malbec-magnum-1500-cc-2024.html"
   },
   {
     "Nombre": "Bemberg Estate La Linterna Malbec",
@@ -89,13 +65,9 @@
     "Provincia": "Mendoza",
     "Región": "Gualtallary, Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2016",
     "Precio": 89.34,
-    "Descripción": "nan",
-    "Imagen": "/images/small/bemberg-estate-la-linterna-malbec-2016.jpg",
-    "sku": "BELLMBEW2016",
-    "url": "/de/vinos/bemberg-estate-la-linterna-malbec.html"
+    "url": "/vinos/bemberg-estate-la-linterna-malbec-2016.html"
   },
   {
     "Nombre": "Monteagrelo Malbec",
@@ -103,13 +75,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo ",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 29.36,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/monteagrelo-malbec-2020.jpg",
-    "sku": "MMBB2020",
-    "url": "/de/vinos/monteagrelo-malbec.html"
+    "url": "/vinos/monteagrelo-malbec-2020.html"
   },
   {
     "Nombre": "Bressia Profundo Blend",
@@ -117,13 +85,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 43.06,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/bressia-profundo-blend-2020.jpg",
-    "sku": "BPBBB2020",
-    "url": "/de/vinos/bressia-profundo-blend.html"
+    "url": "/vinos/bressia-profundo-blend-2020.html"
   },
   {
     "Nombre": "Bressia Conjuro Blend",
@@ -131,13 +95,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo Tupungato",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2016",
     "Precio": 95.16,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/bressia-conjuro-blend-2016.jpg",
-    "sku": "BCBBB2016",
-    "url": "/de/vinos/bressia-conjuro-blend.html"
+    "url": "/vinos/bressia-conjuro-blend-2016.html"
   },
   {
     "Nombre": "CHANARMUYO Estate Malbec",
@@ -145,13 +105,9 @@
     "Provincia": "La Rioja",
     "Región": "Valle de Famatina",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 19.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/chanarmuyo-estate-malbec-2021.jpg",
-    "sku": "CEMBC2021",
-    "url": "/de/vinos/chanarmuyo-estate-malbec.html"
+    "url": "/vinos/chanarmuyo-estate-malbec-2021.html"
   },
   {
     "Nombre": "LA Grupa Syrah Malbec 0.75",
@@ -159,13 +115,9 @@
     "Provincia": "Mendoza",
     "Región": "Tupungato",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 11.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/la-grupa-syrah-malbec-075-2022.jpg",
-    "sku": "LGSM0BEM2022",
-    "url": "/de/vinos/la-grupa-syrah-malbec-0-75.html"
+    "url": "/vinos/la-grupa-syrah-malbec-075-2022.html"
   },
   {
     "Nombre": "Dilema Day Malbec",
@@ -173,13 +125,9 @@
     "Provincia": "Mendoza",
     "Región": "Tupungato",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 13.09,
-    "Descripción": "nan",
-    "Imagen": "/images/small/dilema-day-malbec-2021.jpg",
-    "sku": "DDMBEM2021",
-    "url": "/de/vinos/dilema-day-malbec.html"
+    "url": "/vinos/dilema-day-malbec-2021.html"
   },
   {
     "Nombre": "LA Grupa Syrah Malbec 1.25",
@@ -187,13 +135,9 @@
     "Provincia": "Mendoza",
     "Región": "Tupungato",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 15.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/la-grupa-syrah-malbec-125-2022.jpg",
-    "sku": "LGSM1BEM2022",
-    "url": "/de/vinos/la-grupa-syrah-malbec-1-25.html"
+    "url": "/vinos/la-grupa-syrah-malbec-125-2022.html"
   },
   {
     "Nombre": "Temático Malbec",
@@ -201,13 +145,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 9.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/temtico-malbec-2023.jpg",
-    "sku": "TMBFL2023",
-    "url": "/de/vinos/tem-tico-malbec.html"
+    "url": "/vinos/tematico-malbec-2023/vinos/temtico-malbec-2023.html"
   },
   {
     "Nombre": "Ique Malbec",
@@ -215,13 +155,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 13.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/ique-malbec-2021.jpg",
-    "sku": "IMBFL2021",
-    "url": "/de/vinos/ique-malbec.html"
+    "url": "/vinos/ique-malbec-2021.html"
   },
   {
     "Nombre": "Pink Malbec Rosado",
@@ -229,13 +165,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 13.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/pink-malbec-rosado-2023.jpg",
-    "sku": "PMRBFL2023",
-    "url": "/de/vinos/pink-malbec-rosado.html"
+    "url": "/vinos/pink-malbec-rosado-2023.html"
   },
   {
     "Nombre": "Fantasía Malbec",
@@ -243,13 +175,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 13.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/fantasa-malbec-2023.jpg",
-    "sku": "FMBFL2023",
-    "url": "/de/vinos/fantas-a-malbec.html"
+    "url": "/vinos/fantasia-malbec-2023/vinos/fantasa-malbec-2023.html"
   },
   {
     "Nombre": "Zapam Zucum Organic Malbec",
@@ -257,13 +185,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 13.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/zapam-zucum-organic-malbec-2022.jpg",
-    "sku": "ZZOMBFL2022",
-    "url": "/de/vinos/zapam-zucum-organic-malbec.html"
+    "url": "/vinos/zapam-zucum-organic-malbec-2022.html"
   },
   {
     "Nombre": "Lois Sparkling Malbec",
@@ -271,13 +195,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 19.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/lois-sparkling-malbec-2021.jpg",
-    "sku": "LSMBFL2021",
-    "url": "/de/vinos/lois-sparkling-malbec.html"
+    "url": "/vinos/lois-sparkling-malbec-2021.html"
   },
   {
     "Nombre": "Foster  Malbec",
@@ -285,13 +205,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 25.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/foster-malbec-2023.jpg",
-    "sku": "FMBFL2020",
-    "url": "/de/vinos/foster-malbec.html"
+    "url": "/vinos/foster-malbec-2020.html"
   },
   {
     "Nombre": "Foster  Malbec 'Los Altepes'",
@@ -299,13 +215,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 25.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/foster-malbec-los-altepes-2021.jpg",
-    "sku": "FMLABFL2021",
-    "url": "/de/vinos/foster-malbec-los-altepes.html"
+    "url": "/vinos/foster-malbec-los-altepes-2021.html"
   },
   {
     "Nombre": "Foster  Malbec 'Los Barrancos'",
@@ -313,13 +225,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 25.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/foster-malbec-los-barrancos-2021.jpg",
-    "sku": "FMLBBFL2021",
-    "url": "/de/vinos/foster-malbec-los-barrancos.html"
+    "url": "/vinos/foster-malbec-los-barrancos-2021.html"
   },
   {
     "Nombre": "Foster  Malbec Magnum 1.25 lts",
@@ -327,13 +235,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2015",
     "Precio": 51.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/foster-malbec-2023.jpg",
-    "sku": "FMM1LBFL2015",
-    "url": "/de/vinos/foster-malbec-magnum-1-25-lts.html"
+    "url": "/vinos/foster-malbec-magnum-125-lts-2015.html"
   },
   {
     "Nombre": "Foster  Malbec Limited Edition",
@@ -341,13 +245,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 51.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/foster-malbec-limited-edition-2019.jpg",
-    "sku": "FMLEBFL2019",
-    "url": "/de/vinos/foster-malbec-limited-edition.html"
+    "url": "/vinos/foster-malbec-limited-edition-2019.html"
   },
   {
     "Nombre": "Gran Poético Malbec",
@@ -355,13 +255,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2013",
     "Precio": 51.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/gran-potico-malbec-2013.jpg",
-    "sku": "GPMBFL2013",
-    "url": "/de/vinos/gran-po-tico-malbec.html"
+    "url": "/vinos/gran-potico-malbec-2013.html"
   },
   {
     "Nombre": "Enrique Foster  Malbec Firmado",
@@ -369,13 +265,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2013",
     "Precio": 88.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/enrique-foster-malbec-firmado-2013.jpg",
-    "sku": "EFMFBFL2013",
-    "url": "/de/vinos/enrique-foster-malbec-firmado.html"
+    "url": "/vinos/enrique-foster-malbec-firmado-2013.html"
   },
   {
     "Nombre": "Goye Malbec",
@@ -383,13 +275,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 9.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/goye-malbec-2022.jpg",
-    "sku": "GMBG2022",
-    "url": "/de/vinos/goye-malbec.html"
+    "url": "/vinos/goye-malbec-2022.html"
   },
   {
     "Nombre": "Quinta Generación Malbec",
@@ -397,13 +285,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 19.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/quinta-generacin-malbec-2022.jpg",
-    "sku": "QGMBG2022",
-    "url": "/de/vinos/quinta-generaci-n-malbec.html"
+    "url": "/vinos/quinta-generacin-malbec-2022.html"
   },
   {
     "Nombre": "135 Aniversario",
@@ -411,13 +295,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 39.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/135-aniversario-2022.jpg",
-    "sku": "1ABG2022",
-    "url": "/de/vinos/135-aniversario.html"
+    "url": "/vinos/135-aniversario-2022.html"
   },
   {
     "Nombre": "A Lisa Malbec",
@@ -425,13 +305,9 @@
     "Provincia": "Rio Negro",
     "Región": "Mainqué",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 33.72,
-    "Descripción": "6 años",
-    "Imagen": "/images/small/a-lisa-malbec-2023.jpg",
-    "sku": "ALMBNP2023",
-    "url": "/de/vinos/a-lisa-malbec.html"
+    "url": "/vinos/a-lisa-malbec-2023.html"
   },
   {
     "Nombre": "J Alberto",
@@ -439,13 +315,9 @@
     "Provincia": "Rio Negro",
     "Región": "Mainqué",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 69.06,
-    "Descripción": "nan",
-    "Imagen": "/images/small/j-alberto-2021.jpg",
-    "sku": "JABNP2021",
-    "url": "/de/vinos/j-alberto.html"
+    "url": "/vinos/j-alberto-2021.html"
   },
   {
     "Nombre": "A Lisa Malbec Magnum 1500 cc",
@@ -453,13 +325,9 @@
     "Provincia": "Rio Negro",
     "Región": "Mainqué",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 74.94,
-    "Descripción": "nan",
-    "Imagen": "/images/small/a-lisa-malbec-2021.jpg",
-    "sku": "ALMM1CBNP2021",
-    "url": "/de/vinos/a-lisa-malbec-magnum-1500-cc.html"
+    "url": "/vinos/a-lisa-malbec-magnum-1500-cc-2021.html"
   },
   {
     "Nombre": "Noemía Malbec",
@@ -467,13 +335,9 @@
     "Provincia": "Rio Negro",
     "Región": "Mainqué",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 190.82,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/noemia-malbec-2020.jpg",
-    "sku": "NMBNP2020",
-    "url": "/de/vinos/noem-a-malbec.html"
+    "url": "/vinos/noemia-malbec-2020.html"
   },
   {
     "Nombre": "Septima Rose de Malbec",
@@ -481,13 +345,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 14.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/sptima-ros-de-malbec-2023.jpg",
-    "sku": "SRDMBS2023",
-    "url": "/de/vinos/septima-rose-de-malbec.html"
+    "url": "/vinos/sptima-ros-de-malbec-2023.html"
   },
   {
     "Nombre": "Septima Malbec",
@@ -495,13 +355,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 15.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/sptima-malbec-2022.jpg",
-    "sku": "SMBS2022",
-    "url": "/de/vinos/septima-malbec.html"
+    "url": "/vinos/sptima-malbec-2022.html"
   },
   {
     "Nombre": "Tukma Malbec",
@@ -509,13 +365,9 @@
     "Provincia": "Salta",
     "Región": "Valle de Calchaquí",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 19.29,
-    "Descripción": "5  años",
-    "Imagen": "/images/small/tukma-malbec-2019.jpg",
-    "sku": "TMBT2019",
-    "url": "/de/vinos/tukma-malbec.html"
+    "url": "/vinos/tukma-malbec-2019.html"
   },
   {
     "Nombre": "Tukma Gran Corte",
@@ -523,13 +375,9 @@
     "Provincia": "Salta",
     "Región": "Valle de Calchaquí",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2017",
     "Precio": 41.29,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/tukma-gran-corte-2017.jpg",
-    "sku": "TGCBT2017",
-    "url": "/de/vinos/tukma-gran-corte.html"
+    "url": "/vinos/tukma-gran-corte-2017.html"
   },
   {
     "Nombre": "Famiglia Bianchi Malbec ",
@@ -537,13 +385,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 18.49,
-    "Descripción": "5 años",
-    "Imagen": "/images/small/famiglia-bianchi-malbec-2021.jpg",
-    "sku": "FBMBB2021",
-    "url": "/de/vinos/famiglia-bianchi-malbec.html"
+    "url": "/vinos/famiglia-bianchi-malbec-2021.html"
   },
   {
     "Nombre": "Famiglia Bianchi Malbec",
@@ -551,13 +395,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 19.49,
-    "Descripción": "5 años",
-    "Imagen": "/images/small/famiglia-bianchi-malbec-2020.jpg",
-    "sku": "FBMBB2020",
-    "url": "/de/vinos/famiglia-bianchi-malbec.html"
+    "url": "/vinos/famiglia-bianchi-malbec-2020.html"
   },
   {
     "Nombre": "Gran Famiglia  Malbec ",
@@ -565,13 +405,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2017",
     "Precio": 25.49,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/gran-famiglia-malbec-2017.jpg",
-    "sku": "GFMBB2017",
-    "url": "/de/vinos/gran-famiglia-malbec.html"
+    "url": "/vinos/gran-famiglia-malbec-2017.html"
   },
   {
     "Nombre": "Particular Malbec",
@@ -579,13 +415,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 27.99,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/particular-malbec-2020.jpg",
-    "sku": "PMBB2020",
-    "url": "/de/vinos/particular-malbec.html"
+    "url": "/vinos/particular-malbec-2020.html"
   },
   {
     "Nombre": "Particular Malbec ",
@@ -593,13 +425,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 28.99,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/particular-malbec-2018.jpg",
-    "sku": "PMBB2018",
-    "url": "/de/vinos/particular-malbec.html"
+    "url": "/vinos/particular-malbec-2018.html"
   },
   {
     "Nombre": "Enzo Bianchi Gran Malbec",
@@ -607,13 +435,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 62.99,
-    "Descripción": "20 años",
-    "Imagen": "/images/small/enzo-bianchi-gran-malbec-2019.jpg",
-    "sku": "EBGMBB2019",
-    "url": "/de/vinos/enzo-bianchi-gran-malbec.html"
+    "url": "/vinos/enzo-bianchi-gran-malbec-2019.html"
   },
   {
     "Nombre": "Particular Malbec 2019 Magnum 1.5 Lts",
@@ -621,13 +445,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 67.99,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/particular-malbec-2019-magnum-15-lts-2019.jpg",
-    "sku": "PM2M1LBB2019",
-    "url": "/de/vinos/particular-malbec-2019-magnum-1-5-lts.html"
+    "url": "/vinos/particular-malbec-2019-magnum-15-lts-2019.html"
   },
   {
     "Nombre": "Casa Araujo Varietal",
@@ -635,13 +455,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 7.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/casa-araujo-varietal-2023.jpg",
-    "sku": "CAVCA2023",
-    "url": "/de/vinos/casa-araujo-varietal.html"
+    "url": "/vinos/casa-araujo-varietal-2023.html"
   },
   {
     "Nombre": "Casa Araujo Roble",
@@ -649,13 +465,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 10.19,
-    "Descripción": "nan",
-    "Imagen": "/images/small/casa-araujo-roble-2023.jpg",
-    "sku": "CARCA2023",
-    "url": "/de/vinos/casa-araujo-roble.html"
+    "url": "/vinos/casa-araujo-roble-2023.html"
   },
   {
     "Nombre": "Casa Araujo Mimi",
@@ -663,13 +475,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 11.19,
-    "Descripción": "nan",
-    "Imagen": "/images/small/casa-araujo-mimi-2023.jpg",
-    "sku": "CAMCA2023",
-    "url": "/de/vinos/casa-araujo-mimi.html"
+    "url": "/vinos/casa-araujo-mimi-2023.html"
   },
   {
     "Nombre": "Nucha",
@@ -677,13 +485,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 12.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/nucha-2023.jpg",
-    "sku": "NCA2023",
-    "url": "/de/vinos/nucha.html"
+    "url": "/vinos/nucha-2023.html"
   },
   {
     "Nombre": "Graciano Reserva Blend",
@@ -691,13 +495,9 @@
     "Provincia": "Mendoza",
     "Región": "San Rafael",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 13.59,
-    "Descripción": "nan",
-    "Imagen": "/images/small/graciano-reserva-blend-2023.jpg",
-    "sku": "GRBCA2023",
-    "url": "/de/vinos/graciano-reserva-blend.html"
+    "url": "/vinos/graciano-reserva-blend-2023.html"
   },
   {
     "Nombre": "Catena Malbec",
@@ -705,13 +505,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 21.01,
-    "Descripción": "nan",
-    "Imagen": "/images/small/catena-malbec-2022.jpg",
-    "sku": "CMCZ2022",
-    "url": "/de/vinos/catena-malbec.html"
+    "url": "/vinos/catena-malbec-2022.html"
   },
   {
     "Nombre": "Catena Alta Malbec",
@@ -719,13 +515,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 55.05,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/catena-alta-malbec-2021.jpg",
-    "sku": "CAMCZ2021",
-    "url": "/de/vinos/catena-alta-malbec.html"
+    "url": "/vinos/catena-alta-malbec-2021.html"
   },
   {
     "Nombre": "Catena Zapata Nicasia Vineyard",
@@ -733,13 +525,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 113.38,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/catena-zapata-nicasia-malbec-2021.jpg",
-    "sku": "CZNVCZ2021",
-    "url": "/de/vinos/catena-zapata-nicasia-vineyard.html"
+    "url": "/vinos/catena-zapata-nicasia-vineyard-2021.html"
   },
   {
     "Nombre": "Catena Zapata Adrianna Malbec Fortuna Terrae",
@@ -747,13 +535,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 127.54,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/catena-zapata-adrianna-malbec-fortuna-terrae-2021.jpg",
-    "sku": "CZAMFTCZ2021",
-    "url": "/de/vinos/catena-zapata-adrianna-malbec-fortuna-terrae.html"
+    "url": "/vinos/catena-zapata-adrianna-malbec-fortuna-terrae-2021.html"
   },
   {
     "Nombre": "Catena Malbec Argentino",
@@ -761,13 +545,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 128.44,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/catena-malbec-argentino-2022.jpg",
-    "sku": "CMACZ2022",
-    "url": "/de/vinos/catena-malbec-argentino.html"
+    "url": "/vinos/catena-malbec-argentino-2022.html"
   },
   {
     "Nombre": "Adrianna Vineyard Mundus Bacillus Terrae Malbec",
@@ -775,13 +555,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 371.51,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg",
-    "sku": "AVMBTMCZ2020",
-    "url": "/de/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec.html"
+    "url": "/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.html"
   },
   {
     "Nombre": "CHAKANA Nuna Malbec Bio",
@@ -789,13 +565,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 19.19,
-    "Descripción": "nan",
-    "Imagen": "/images/small/chakana-nuna-malbec-bio-2022.jpg",
-    "sku": "CNMBC2022",
-    "url": "/de/vinos/chakana-nuna-malbec-bio.html"
+    "url": "/vinos/chakana-nuna-malbec-bio-2022.html"
   },
   {
     "Nombre": "CICCHITTI Primmo Malbec",
@@ -803,13 +575,9 @@
     "Provincia": "Mendoza",
     "Región": "Guaymallen",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 12.89,
-    "Descripción": "nan",
-    "Imagen": "/images/small/cicchitti-primmo-malbec-2022.jpg",
-    "sku": "CPMC2022",
-    "url": "/de/vinos/cicchitti-primmo-malbec.html"
+    "url": "/vinos/cicchitti-primmo-malbec-2022.html"
   },
   {
     "Nombre": "CICCHITTI Malbec",
@@ -817,13 +585,9 @@
     "Provincia": "Mendoza",
     "Región": "Guaymallen",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 17.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/cicchitti-malbec-2021.jpg",
-    "sku": "CMC2021",
-    "url": "/de/vinos/cicchitti-malbec.html"
+    "url": "/vinos/cicchitti-malbec-2021.html"
   },
   {
     "Nombre": "VOS Malbec de Malbec",
@@ -831,13 +595,9 @@
     "Provincia": "Mendoza",
     "Región": "Guaymallen",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 18.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/vos-malbec-de-malbec-2021.jpg",
-    "sku": "VMDMC2021",
-    "url": "/de/vinos/vos-malbec-de-malbec.html"
+    "url": "/vinos/vos-malbec-de-malbec-2021.html"
   },
   {
     "Nombre": "CICCHITTI Gran Reserva Malbec",
@@ -845,13 +605,9 @@
     "Provincia": "Mendoza",
     "Región": "Guaymallen",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 29.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/cicchitti-gran-reserva-malbec-2018.jpg",
-    "sku": "CGRMC2018",
-    "url": "/de/vinos/cicchitti-gran-reserva-malbec.html"
+    "url": "/vinos/cicchitti-gran-reserva-malbec-2018.html"
   },
   {
     "Nombre": "Cicchitti Malbec Edición Limitada",
@@ -859,13 +615,9 @@
     "Provincia": "Mendoza",
     "Región": "Guaymallen",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2016",
     "Precio": 37.59,
-    "Descripción": "nan",
-    "Imagen": "/images/small/cicchitti-malbec-edicin-limitada-2016.jpg",
-    "sku": "CMELC2016",
-    "url": "/de/vinos/cicchitti-malbec-edici-n-limitada.html"
+    "url": "/vinos/cicchitti-malbec-edicin-limitada-2016.html"
   },
   {
     "Nombre": "Puro Malbec Cabernet",
@@ -873,13 +625,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 15.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/puro-malbec-cabernet-2023.jpg",
-    "sku": "PMCDMAFW2023",
-    "url": "/de/vinos/puro-malbec-cabernet.html"
+    "url": "/vinos/puro-malbec-cabernet-2023.html"
   },
   {
     "Nombre": "Puro Malbec",
@@ -887,13 +635,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 21.01,
-    "Descripción": "7 años",
-    "Imagen": "/images/small/puro-malbec-2022.jpg",
-    "sku": "PMDMAFW2022",
-    "url": "/de/vinos/puro-malbec.html"
+    "url": "/vinos/puro-malbec-2022.html"
   },
   {
     "Nombre": "Puro Malbec Cabernet Magnum 1500 cc",
@@ -901,13 +645,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 34.07,
-    "Descripción": "nan",
-    "Imagen": "/images/small/puro-malbec-cabernet-magnum-1500-cc-2023.jpg",
-    "sku": "PMCM1CDMAFW2023",
-    "url": "/de/vinos/puro-malbec-cabernet-magnum-1500-cc.html"
+    "url": "/vinos/puro-malbec-cabernet-magnum-1500-cc-2023.html"
   },
   {
     "Nombre": "Puro Malbec Grape Selection",
@@ -915,13 +655,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 44.11,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/puro-malbec-grape-selection-2020.jpg",
-    "sku": "PMGSDMAFW2020",
-    "url": "/de/vinos/puro-malbec-grape-selection.html"
+    "url": "/vinos/puro-malbec-grape-selection-2020.html"
   },
   {
     "Nombre": "Don David Reserve Malbec",
@@ -929,13 +665,9 @@
     "Provincia": "Salta",
     "Región": "Valles Calchaquíes ",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 16.78,
-    "Descripción": "nan",
-    "Imagen": "/images/small/don-david-reserve-malbec-2022.jpg",
-    "sku": "DDRMEE2022",
-    "url": "/de/vinos/don-david-reserve-malbec.html"
+    "url": "/vinos/don-david-reserve-malbec-2022.html"
   },
   {
     "Nombre": "El Esteco Blend de Extremos Malbec",
@@ -943,13 +675,9 @@
     "Provincia": "Salta",
     "Región": "Valles Calchaquíes ",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 20.72,
-    "Descripción": "nan",
-    "Imagen": "/images/small/el-esteco-blend-de-extremos-malbec-2023.jpg",
-    "sku": "EEBDEMEE2023",
-    "url": "/de/vinos/el-esteco-blend-de-extremos-malbec.html"
+    "url": "/vinos/el-esteco-blend-de-extremos-malbec-2023.html"
   },
   {
     "Nombre": "El Esteco Malbec",
@@ -957,13 +685,9 @@
     "Provincia": "Salta",
     "Región": "Valle de Calchaquí",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2012",
     "Precio": 21.0,
-    "Descripción": "nan",
-    "Imagen": "/images/small/el-esteco-malbec-2012.jpg",
-    "sku": "EEMEE2012",
-    "url": "/de/vinos/el-esteco-malbec.html"
+    "url": "/vinos/el-esteco-malbec-2012.html"
   },
   {
     "Nombre": "Chañar Punco",
@@ -971,13 +695,9 @@
     "Provincia": "Salta",
     "Región": "Valles Calchaquíes ",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2016",
     "Precio": 70.62,
-    "Descripción": "nan",
-    "Imagen": "/images/small/chanar-punco-2016.jpg",
-    "sku": "CPEE2016",
-    "url": "/de/vinos/cha-ar-punco.html"
+    "url": "/vinos/chanar-punco-2016.html"
   },
   {
     "Nombre": "Urano  Malbec",
@@ -985,13 +705,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2017",
     "Precio": 15.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/urano-malbec-2017.jpg",
-    "sku": "UMEB2017",
-    "url": "/de/vinos/urano-malbec.html"
+    "url": "/vinos/urano-malbec-2017.html"
   },
   {
     "Nombre": "Eral Bravo  Malbec",
@@ -999,13 +715,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2017",
     "Precio": 25.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/eral-bravo-malbec-2017.png",
-    "sku": "EBMEB2017",
-    "url": "/de/vinos/eral-bravo-malbec.html"
+    "url": "/vinos/eral-bravo-malbec-2017.html"
   },
   {
     "Nombre": "Hermandad Malbec",
@@ -1013,13 +725,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 37.6,
-    "Descripción": "nan",
-    "Imagen": "/images/small/hermandad-malbec-2022.jpg",
-    "sku": "HMFW2022",
-    "url": "/de/vinos/hermandad-malbec.html"
+    "url": "/vinos/hermandad-malbec-2022.html"
   },
   {
     "Nombre": "Hermandad Blend",
@@ -1027,13 +735,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle Norte",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 37.6,
-    "Descripción": "nan",
-    "Imagen": "/images/small/hermandad-blend-2021.jpg",
-    "sku": "HBFW2021",
-    "url": "/de/vinos/hermandad-blend.html"
+    "url": "/vinos/hermandad-blend-2021.html"
   },
   {
     "Nombre": "Saurus  Malbec",
@@ -1041,13 +745,9 @@
     "Provincia": "Neuquén",
     "Región": "San Patricio del Chañar",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 14.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/saurus-malbec-2023.jpg",
-    "sku": "SMFS2023",
-    "url": "/de/vinos/saurus-malbec.html"
+    "url": "/vinos/saurus-malbec-2023.html"
   },
   {
     "Nombre": "Saurus Patagonia Select  Malbec",
@@ -1055,13 +755,9 @@
     "Provincia": "Neuquén",
     "Región": "San Patricio del Chañar",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 18.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/saurus-patagonia-select-malbec-2022.jpg",
-    "sku": "SPSMFS2022",
-    "url": "/de/vinos/saurus-patagonia-select-malbec.html"
+    "url": "/vinos/saurus-patagonia-select-malbec-2022.html"
   },
   {
     "Nombre": "Saurus Barrel Fermented  Malbec",
@@ -1069,13 +765,9 @@
     "Provincia": "Neuquén",
     "Región": "San Patricio del Chañar",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 25.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/saurus-barrel-fermented-malbec-2022.jpg",
-    "sku": "SBFMFS2022",
-    "url": "/de/vinos/saurus-barrel-fermented-malbec.html"
+    "url": "/vinos/saurus-barrel-fermented-malbec-2022.html"
   },
   {
     "Nombre": "Familia Schroeder  Malbec",
@@ -1083,13 +775,9 @@
     "Provincia": "Neuquén",
     "Región": "San Patricio del Chañar",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 62.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/familia-schroeder-malbec-2019.jpg",
-    "sku": "FSMFS2019",
-    "url": "/de/vinos/familia-schroeder-malbec.html"
+    "url": "/vinos/familia-schroeder-malbec-2019.html"
   },
   {
     "Nombre": "Imaginate Malbec",
@@ -1097,13 +785,9 @@
     "Provincia": "Salta",
     "Región": "Cafayate",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 54.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/imaginate-malbec-2019.jpg",
-    "sku": "IMFBAY2022",
-    "url": "/de/vinos/imaginate-malbec.html"
+    "url": "/vinos/imaginate-malbec-2019.html"
   },
   {
     "Nombre": "Amar Vivir Malbec",
@@ -1111,13 +795,9 @@
     "Provincia": "Salta",
     "Región": "Cafayate",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 112.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/amar-vivir-malbec-2020.jpg",
-    "sku": "AVMFBAY2020",
-    "url": "/de/vinos/amar-vivir-malbec.html"
+    "url": "/vinos/amar-vivir-malbec-2020.html"
   },
   {
     "Nombre": "Finca La Anita Malbec",
@@ -1125,13 +805,9 @@
     "Provincia": "Mendoza",
     "Región": "Alto Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 30.06,
-    "Descripción": "5 años",
-    "Imagen": "/images/small/finca-la-anita-malbec-2021.jpg",
-    "sku": "FLAMFLA2021",
-    "url": "/de/vinos/finca-la-anita-malbec.html"
+    "url": "/vinos/finca-la-anita-malbec-2021.html"
   },
   {
     "Nombre": "Finca La Anita Gran Corte",
@@ -1139,13 +815,9 @@
     "Provincia": "Mendoza",
     "Región": "Alto Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 30.06,
-    "Descripción": "6 años",
-    "Imagen": "/images/small/finca-la-anita-gran-corte-2021.jpg",
-    "sku": "FLAGCFLA2021",
-    "url": "/de/vinos/finca-la-anita-gran-corte.html"
+    "url": "/vinos/finca-la-anita-gran-corte-2021.html"
   },
   {
     "Nombre": "Magna Finca Malbec",
@@ -1153,13 +825,9 @@
     "Provincia": "Mendoza",
     "Región": "Alto Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 50.58,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/magna-finca-malbec-2019.jpg",
-    "sku": "MFMFLA2019",
-    "url": "/de/vinos/magna-finca-malbec.html"
+    "url": "/vinos/magna-finca-malbec-2019.html"
   },
   {
     "Nombre": "Finca Las Moras Mora Negra Malbec-Bonarda",
@@ -1167,13 +835,9 @@
     "Provincia": "San Juan",
     "Región": "Valle de Pedernal",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2014",
     "Precio": 31.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg",
-    "sku": "FLMMNMBFLM2014",
-    "url": "/de/vinos/finca-las-moras-mora-negra-malbec-bonarda.html"
+    "url": "/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html"
   },
   {
     "Nombre": "Finca Las Moras Sagrado Pedernal Malbec",
@@ -1181,13 +845,9 @@
     "Provincia": "San Juan",
     "Región": "Valle de Pedernal",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2010",
     "Precio": 39.9,
-    "Descripción": "nan",
-    "Imagen": "/images/small/finca-las-moras-sagrado-pedernal-malbec-2010.jpg",
-    "sku": "FLMSPMFLM2010",
-    "url": "/de/vinos/finca-las-moras-sagrado-pedernal-malbec.html"
+    "url": "/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html"
   },
   {
     "Nombre": "Finca Las Nubes Malbec",
@@ -1195,13 +855,9 @@
     "Provincia": "Salta",
     "Región": "Valles Calchaquíes ",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 14.72,
-    "Descripción": "5 años",
-    "Imagen": "/images/smalll/finca-las-nubes-malbec-2023.html",
-    "sku": "FLNMFLN2023",
-    "url": "/de/vinos/finca-las-nubes-malbec.html"
+    "url": "/vinos/finca-las-nubes-malbec-2023.html"
   },
   {
     "Nombre": "Tomero Malbec",
@@ -1209,13 +865,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 17.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/tomero-malbec-2023.jpg",
-    "sku": "TMFYBV2023",
-    "url": "/de/vinos/tomero-malbec.html"
+    "url": "/vinos/tomero-malbec-2023.html"
   },
   {
     "Nombre": "Vistalba  Malbec",
@@ -1223,13 +875,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 17.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/vistalba-malbec-2021.jpg",
-    "sku": "VMFYBV2021",
-    "url": "/de/vinos/vistalba-malbec.html"
+    "url": "/vinos/vistalba-malbec-2021.html"
   },
   {
     "Nombre": "Tomero Single Vineyard Malbec",
@@ -1237,13 +885,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 24.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/tomero-single-vineyard-malbec-2021.jpg",
-    "sku": "TSVMFYBV2021",
-    "url": "/de/vinos/tomero-single-vineyard-malbec.html"
+    "url": "/vinos/tomero-single-vineyard-malbec-2021.html"
   },
   {
     "Nombre": "Tomero Cuartel 41 Malbec",
@@ -1251,13 +895,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 62.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/tomero-cuartel-41-malbec-2019.jpg",
-    "sku": "TC4MFYBV2019",
-    "url": "/de/vinos/tomero-cuartel-41-malbec.html"
+    "url": "/vinos/tomero-cuartel-41-malbec-2019.html"
   },
   {
     "Nombre": "Vistalba  Gran Malbec",
@@ -1265,13 +905,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 62.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/vistalba-gran-malbec-2019.jpg",
-    "sku": "VGMFYBV2019",
-    "url": "/de/vinos/vistalba-gran-malbec.html"
+    "url": "/vinos/vistalba-gran-malbec-2019.html"
   },
   {
     "Nombre": "Tomero  Cuartel 41 Malbec",
@@ -1279,13 +915,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 64.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/tomero-cuartel-41-malbec-2018.jpg",
-    "sku": "TC4MFYBV2018",
-    "url": "/de/vinos/tomero-cuartel-41-malbec.html"
+    "url": "/vinos/tomero-cuartel-41-malbec-2018.html"
   },
   {
     "Nombre": "Canale Black River Malbec ",
@@ -1293,13 +925,9 @@
     "Provincia": "Río Negro",
     "Región": "General Roca",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 9.88,
-    "Descripción": "nan",
-    "Imagen": "/images/small/canale-black-river-malbec-2022.jpg",
-    "sku": "CBRMHC2022",
-    "url": "/de/vinos/canale-black-river-malbec.html"
+    "url": "/vinos/canale-black-river-malbec-2022.html"
   },
   {
     "Nombre": "Intimo Blend: Cabernet, Merlot, Malbec ",
@@ -1307,13 +935,9 @@
     "Provincia": "Río Negro",
     "Región": "General Roca",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 12.92,
-    "Descripción": "nan",
-    "Imagen": "/images/small/intimo-blend-cabernet-merlot-malbec-2020.jpg",
-    "sku": "IBCMMHC2020",
-    "url": "/de/vinos/intimo-blend-cabernet-merlot-malbec.html"
+    "url": "/vinos/intimo-blend-cabernet-merlot-malbec-2020.html"
   },
   {
     "Nombre": "Íntimo Malbec ",
@@ -1321,13 +945,9 @@
     "Provincia": "Río Negro",
     "Región": "General Roca",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 12.92,
-    "Descripción": "nan",
-    "Imagen": "/images/small/intimo-malbec-2023.jpg",
-    "sku": "IMHC2023",
-    "url": "/de/vinos/ntimo-malbec.html"
+    "url": "/vinos/intimo-malbec-2023.html"
   },
   {
     "Nombre": "Humberto Canale Estate Malbec ",
@@ -1335,13 +955,9 @@
     "Provincia": "Río Negro",
     "Región": "General Roca",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 14.94,
-    "Descripción": "7 años",
-    "Imagen": "/images/small/humberto-canale-estate-malbec-2023.jpg",
-    "sku": "HCEMHC2023",
-    "url": "/de/vinos/humberto-canale-estate-malbec.html"
+    "url": "/vinos/humberto-canale-estate-malbec-2023.html"
   },
   {
     "Nombre": "Humberto Canale Old Vineyard Malbec  ",
@@ -1349,13 +965,9 @@
     "Provincia": "Río Negro",
     "Región": "General Roca",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 23.78,
-    "Descripción": "nan",
-    "Imagen": "/images/small/humberto-canale-old-vineyard-malbec-2022.jpg",
-    "sku": "HCOVMHC2022",
-    "url": "/de/vinos/humberto-canale-old-vineyard-malbec.html"
+    "url": "/vinos/humberto-canale-old-vineyard-malbec-2022.html"
   },
   {
     "Nombre": "Humberto Canale Gran Reserva Malbec",
@@ -1363,13 +975,9 @@
     "Provincia": "Río Negro",
     "Región": "General Roca",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 28.94,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/humberto-canale-gran-reserva-malbec-2022.jpg",
-    "sku": "HCGRMHC2022",
-    "url": "/de/vinos/humberto-canale-gran-reserva-malbec.html"
+    "url": "/vinos/humberto-canale-gran-reserva-malbec-2022.html"
   },
   {
     "Nombre": "Caminante de los Mundos Malbec Bio",
@@ -1377,13 +985,9 @@
     "Provincia": "Mendoza",
     "Región": "Tupungato",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 18.19,
-    "Descripción": "nan",
-    "Imagen": "/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg",
-    "sku": "CDLMMBJM2021",
-    "url": "/de/vinos/caminante-de-los-mundos-malbec-bio.html"
+    "url": "/vinos/caminante-de-los-mundos-malbec-bio-2021.html"
   },
   {
     "Nombre": "FINCA GABRIEL Malbec",
@@ -1391,13 +995,9 @@
     "Provincia": "Mendoza",
     "Región": "General Alvear",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 18.19,
-    "Descripción": "nan",
-    "Imagen": "/images/small/finca-gabriel-malbec-2021.jpg",
-    "sku": "FGMJR2021",
-    "url": "/de/vinos/finca-gabriel-malbec.html"
+    "url": "/vinos/finca-gabriel-malbec-2021.html"
   },
   {
     "Nombre": "FINCA GABRIEL Edición Especial Malbec",
@@ -1405,13 +1005,9 @@
     "Provincia": "Mendoza",
     "Región": "General Alvear",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 18.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/finca-gabriel-edicin-especial-malbec-2022.jpg",
-    "sku": "FGEEMJR2022",
-    "url": "/de/vinos/finca-gabriel-edici-n-especial-malbec.html"
+    "url": "/vinos/finca-gabriel-edicin-especial-malbec-2022.html"
   },
   {
     "Nombre": "A CONTRAMANO Malbec",
@@ -1419,13 +1015,9 @@
     "Provincia": "Mendoza",
     "Región": "General Alvear",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 23.19,
-    "Descripción": "nan",
-    "Imagen": "/images/small/a-contramano-malbec-2021.jpg",
-    "sku": "ACMJR2021",
-    "url": "/de/vinos/a-contramano-malbec.html"
+    "url": "/vinos/a-contramano-malbec-2021.html"
   },
   {
     "Nombre": "JORGE RUBIO PRIVADO Malbec",
@@ -1433,13 +1025,9 @@
     "Provincia": "Mendoza",
     "Región": "General Alvear",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 23.19,
-    "Descripción": "nan",
-    "Imagen": "/images/small/jorge-rubio-privado-malbec-2021.jpg",
-    "sku": "JRPMJR2021",
-    "url": "/de/vinos/jorge-rubio-privado-malbec.html"
+    "url": "/vinos/jorge-rubio-privado-malbec-2021.html"
   },
   {
     "Nombre": "JORGE RUBIO GRAN RESERVA Malbec/Merlot",
@@ -1447,13 +1035,9 @@
     "Provincia": "Mendoza",
     "Región": "General Alvear",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 33.39,
-    "Descripción": "nan",
-    "Imagen": "/images/small/jorge-rubio-gran-reserva-malbecmerlot-2020.jpg",
-    "sku": "JRGRMJR2020",
-    "url": "/de/vinos/jorge-rubio-gran-reserva-malbec-merlot.html"
+    "url": "/vinos/jorge-rubio-gran-reserva-malbecmerlot-2020.html"
   },
   {
     "Nombre": "JORGE RUBIO PREMIADO Malbec",
@@ -1461,13 +1045,9 @@
     "Provincia": "Mendoza",
     "Región": "General Alvear",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 58.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/jorge-rubio-premiado-malbec-2018.jpg",
-    "sku": "JRPMJR2018",
-    "url": "/de/vinos/jorge-rubio-premiado-malbec.html"
+    "url": "/vinos/jorge-rubio-premiado-malbec-2018.html"
   },
   {
     "Nombre": "JORGE RUBIO GRAN RESERVA Malbec Magnum",
@@ -1475,13 +1055,9 @@
     "Provincia": "Mendoza",
     "Región": "General Alvear",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 66.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/jorge-rubio-gran-reserva-malbec-magnum-2019.jpg",
-    "sku": "JRGRMMJR2019",
-    "url": "/de/vinos/jorge-rubio-gran-reserva-malbec-magnum.html"
+    "url": "/vinos/jorge-rubio-gran-reserva-malbec-magnum-2019.html"
   },
   {
     "Nombre": "Kaiken Estate Malbec Reserve",
@@ -1489,13 +1065,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo, Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 12.05,
-    "Descripción": "7 años",
-    "Imagen": "/images/small/kaiken-estate-malbec-reserve-2022.jpg",
-    "sku": "KEMRK2022",
-    "url": "/de/vinos/kaiken-estate-malbec-reserve.html"
+    "url": "/vinos/kaiken-estate-malbec-reserve-2022.html"
   },
   {
     "Nombre": "Kaiken Terroir Malbec",
@@ -1503,13 +1075,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo, Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 13.05,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/kaiken-terroir-malbec-2022.jpg",
-    "sku": "KTMK2022",
-    "url": "/de/vinos/kaiken-terroir-malbec.html"
+    "url": "/vinos/kaiken-terroir-malbec-2022.html"
   },
   {
     "Nombre": "Kaiken Terroir Cabernet Sauvignon",
@@ -1517,13 +1085,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo, Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 13.05,
-    "Descripción": "7 años",
-    "Imagen": "/images/small/kaiken-terroir-cabernet-sauvignon-2021.jpg",
-    "sku": "KTCSK2021",
-    "url": "/de/vinos/kaiken-terroir-cabernet-sauvignon.html"
+    "url": "/vinos/kaiken-terroir-cabernet-sauvignon-2021.html"
   },
   {
     "Nombre": "Kaiken Disobedience Red Blend",
@@ -1531,13 +1095,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 22.77,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/kaiken-disobedience-red-blend-2021.jpg",
-    "sku": "KDRBK2021",
-    "url": "/de/vinos/kaiken-disobedience-red-blend.html"
+    "url": "/vinos/kaiken-disobedience-red-blend-2021.html"
   },
   {
     "Nombre": "Kaiken Ultra Malbec",
@@ -1545,13 +1105,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo, Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 21.49,
-    "Descripción": "93 pts James Suckling -2021",
-    "Imagen": "/images/small/kaiken-ultra-malbec-2021.jpg",
-    "sku": "KUMK2021",
-    "url": "/de/vinos/kaiken-ultra-malbec.html"
+    "url": "/vinos/kaiken-ultra-malbec-2021.html"
   },
   {
     "Nombre": "Kaiken Ultra Malbec Magnum 1500 cc",
@@ -1559,13 +1115,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo, Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 44.18,
-    "Descripción": "10 años",
-    "Imagen": "/images/small/kaiken-ultra-malbec-magnum-1500-cc-2019.jpg",
-    "sku": "KUMM1CK2019",
-    "url": "/de/vinos/kaiken-ultra-malbec-magnum-1500-cc.html"
+    "url": "/vinos/kaiken-ultra-malbec-magnum-1500-cc-2019.html"
   },
   {
     "Nombre": "Kaiken Mai Malbec",
@@ -1573,13 +1125,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 50.06,
-    "Descripción": "25 años",
-    "Imagen": "/images/small/kaiken-mai-malbec-2021.jpg",
-    "sku": "KMMK2021",
-    "url": "/de/vinos/kaiken-mai-malbec.html"
+    "url": "/vinos/kaiken-mai-malbec-2021.html"
   },
   {
     "Nombre": "Kaiken Boulder Red Blend",
@@ -1587,13 +1135,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 258.14,
-    "Descripción": "30 años",
-    "Imagen": "/images/small/kaiken-boulder-red-blend-2021.jpg",
-    "sku": "KBRBK2021",
-    "url": "/de/vinos/kaiken-boulder-red-blend.html"
+    "url": "/vinos/kaiken-boulder-red-blend-2021.html"
   },
   {
     "Nombre": "Pequeña Vasija Malbec",
@@ -1601,13 +1145,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 8.38,
-    "Descripción": "nan",
-    "Imagen": "/images/small/pequeña-vasija-malbec--2023.jpg",
-    "sku": "PVMLR2023",
-    "url": "/de/vinos/peque-a-vasija-malbec.html"
+    "url": "/vinos/pequeña-vasija-malbec-2023.html"
   },
   {
     "Nombre": "San Felipe Varietal Malbec",
@@ -1615,13 +1155,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 11.52,
-    "Descripción": "nan",
-    "Imagen": "/images/small/san-felipe-varietal-malbec-2023.jpg",
-    "sku": "SFVMLR2023",
-    "url": "/de/vinos/san-felipe-varietal-malbec.html"
+    "url": "/vinos/san-felipe-varietal-malbec-2023.html"
   },
   {
     "Nombre": "San Felipe en Roble Malbec",
@@ -1629,13 +1165,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2024",
     "Precio": 13.12,
-    "Descripción": "nan",
-    "Imagen": "/images/small/san-felipe-en-roble-malbec-2024.jpg",
-    "sku": "SFERMLR2024",
-    "url": "/de/vinos/san-felipe-en-roble-malbec.html"
+    "url": "/vinos/san-felipe-en-roble-malbec-2024.html"
   },
   {
     "Nombre": "Oro Negro Malbec",
@@ -1643,13 +1175,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle Norte",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2024",
     "Precio": 6.74,
-    "Descripción": "nan",
-    "Imagen": "/images/small/oro-negro-malbec-2024.jpg",
-    "sku": "ONMLH2024",
-    "url": "/de/vinos/oro-negro-malbec.html"
+    "url": "/vinos/oro-negro-malbec-2024.html"
   },
   {
     "Nombre": "Chacabuco Malbec",
@@ -1657,13 +1185,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle Norte",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2024",
     "Precio": 7.9,
-    "Descripción": "nan",
-    "Imagen": "/images/small/chacabuco-malbec-2024.jpg",
-    "sku": "CMLH2024",
-    "url": "/de/vinos/chacabuco-malbec.html"
+    "url": "/vinos/chacabuco-malbec-2024.html"
   },
   {
     "Nombre": "Los Haroldos Estate Malbec",
@@ -1671,13 +1195,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 11.9,
-    "Descripción": "nan",
-    "Imagen": "/images/small/los-haroldos-estate-malbec-2022.jpg",
-    "sku": "LHEMLH2022",
-    "url": "/de/vinos/los-haroldos-estate-malbec.html"
+    "url": "/vinos/los-haroldos-estate-malbec-2022.html"
   },
   {
     "Nombre": "Los Haroldos Reserve Malbec",
@@ -1685,13 +1205,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 17.9,
-    "Descripción": "nan",
-    "Imagen": "/images/small/los-haroldos-reserve-malbec-2021.jpg",
-    "sku": "LHRMLH2021",
-    "url": "/de/vinos/los-haroldos-reserve-malbec.html"
+    "url": "/vinos/los-haroldos-reserve-malbec-2021.html"
   },
   {
     "Nombre": "Los Haroldos Gran Corte Blend",
@@ -1699,13 +1215,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 27.5,
-    "Descripción": "nan",
-    "Imagen": "/images/small/los-haroldos-gran-corte-blend-2020.jpg",
-    "sku": "LHGCBLH2020",
-    "url": "/de/vinos/los-haroldos-gran-corte-blend.html"
+    "url": "/vinos/los-haroldos-gran-corte-blend-2020.html"
   },
   {
     "Nombre": "LUIGI BOSCA Malbec",
@@ -1713,13 +1225,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 28.45,
-    "Descripción": "nan",
-    "Imagen": "/images/small/luigi-bosca-malbec-2022.jpg",
-    "sku": "LBMLB2022",
-    "url": "/de/vinos/luigi-bosca-malbec.html"
+    "url": "/vinos/luigi-bosca-malbec-2022.html"
   },
   {
     "Nombre": "LUIGI BOSCA De SANGRE Malbec D.O.C",
@@ -1727,13 +1235,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 36.45,
-    "Descripción": "nan",
-    "Imagen": "/images/small/luigi-bosca-de-sangre-malbec-doc-2021.jpg",
-    "sku": "LBDSMDLB2021",
-    "url": "/de/vinos/luigi-bosca-de-sangre-malbec-d-o-c.html"
+    "url": "/vinos/luigi-bosca-de-sangre-malbec-doc-2021.html"
   },
   {
     "Nombre": "La Mascota Malbec",
@@ -1741,13 +1245,9 @@
     "Provincia": "Mendoza",
     "Región": "Maipú",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 17.54,
-    "Descripción": "nan",
-    "Imagen": "/images/small/la-mascota-malbec-2022.jpg",
-    "sku": "LMMMV2022",
-    "url": "/de/vinos/la-mascota-malbec.html"
+    "url": "/vinos/la-mascota-malbec-2022.html"
   },
   {
     "Nombre": "Unánime Gran Vino Tinto",
@@ -1755,13 +1255,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 27.7,
-    "Descripción": "nan",
-    "Imagen": "/images/small/unanime-gran-vino-tinto-2018.jpg",
-    "sku": "UGVTMV2018",
-    "url": "/de/vinos/un-nime-gran-vino-tinto.html"
+    "url": "/vinos/unanime-gran-vino-tinto-2018.html"
   },
   {
     "Nombre": "Premium Reserva Malbec Mendoza",
@@ -1769,13 +1265,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 25.14,
-    "Descripción": "5 años",
-    "Imagen": "/images/small/premium-reserva-malbec-mendoza-2022.jpg",
-    "sku": "PRMMPV2022",
-    "url": "/de/vinos/premium-reserva-malbec-mendoza.html"
+    "url": "/vinos/premium-reserva-malbec-mendoza-2022.html"
   },
   {
     "Nombre": "Reserva Malbec Salta",
@@ -1783,13 +1275,9 @@
     "Provincia": "Salta",
     "Región": "Cafayate",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 25.14,
-    "Descripción": "5 años",
-    "Imagen": "/images/small/reserva-malbec-salta-2022.jpg",
-    "sku": "RMSPV2022",
-    "url": "/de/vinos/reserva-malbec-salta.html"
+    "url": "/vinos/reserva-malbec-salta-2022.html"
   },
   {
     "Nombre": "Reserva Malbec Tannat",
@@ -1797,13 +1285,9 @@
     "Provincia": "Salta",
     "Región": "Cafayate",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 25.14,
-    "Descripción": "5 años",
-    "Imagen": "/images/small/reserva-malbec-tannat-salta-2022.jpg",
-    "sku": "RMTPV2022",
-    "url": "/de/vinos/reserva-malbec-tannat.html"
+    "url": "/vinos/reserva-malbec-tannat-salta-2022.html"
   },
   {
     "Nombre": "Gran Reserva Malbec Salta",
@@ -1811,13 +1295,9 @@
     "Provincia": "Salta",
     "Región": "Cafayate",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 36.7,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/gran-reserva-malbec-salta-2020.jpg",
-    "sku": "GRMSPV2020",
-    "url": "/de/vinos/gran-reserva-malbec-salta.html"
+    "url": "/vinos/gran-reserva-malbec-salta-2020.html"
   },
   {
     "Nombre": "Gran Reserva Malbec Mendoza",
@@ -1825,13 +1305,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 36.7,
-    "Descripción": "nan",
-    "Imagen": "/images/small/gran-reserva-malbec-mendoza-2022.jpg",
-    "sku": "GRMMPV2022",
-    "url": "/de/vinos/gran-reserva-malbec-mendoza.html"
+    "url": "/vinos/gran-reserva-malbec-mendoza-2022.html"
   },
   {
     "Nombre": "Trinitá Gran Reserva Blend",
@@ -1839,13 +1315,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 49.08,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trinita-gran-reserva-blend-2020.jpg",
-    "sku": "TGRBPV2020",
-    "url": "/de/vinos/trinit-gran-reserva-blend.html"
+    "url": "/vinos/trinita-gran-reserva-blend-2020.html"
   },
   {
     "Nombre": "Arlene Malbec y Cabernet Sauvignon",
@@ -1853,13 +1325,9 @@
     "Provincia": "Salta",
     "Región": "Cafayate",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 49.08,
-    "Descripción": "nan",
-    "Imagen": "/images/small/arlene-malbec-y-cabernet-sauvignon-2019.jpg",
-    "sku": "AMYCSPV2019",
-    "url": "/de/vinos/arlene-malbec-y-cabernet-sauvignon.html"
+    "url": "/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html"
   },
   {
     "Nombre": "Trumpeter Malbec 375 ml",
@@ -1867,13 +1335,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 9.96,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trumpeter-malbec-375-ml-2023.jpg",
-    "sku": "TM3MRW2023",
-    "url": "/de/vinos/trumpeter-malbec-375-ml.html"
+    "url": "/vinos/trumpeter-malbec-375-ml-2023.html"
   },
   {
     "Nombre": "Trumpeter Malbec Syrah",
@@ -1881,13 +1345,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 15.98,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trumpeter-malbec-syrah-2023.jpg",
-    "sku": "TMSRW2023",
-    "url": "/de/vinos/trumpeter-malbec-syrah.html"
+    "url": "/vinos/trumpeter-malbec-syrah-2023.html"
   },
   {
     "Nombre": "Trumpeter Malbec",
@@ -1895,13 +1355,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 15.98,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trumpeter-malbec-2023.jpg",
-    "sku": "TMRW2023",
-    "url": "/de/vinos/trumpeter-malbec.html"
+    "url": "/vinos/trumpeter-malbec-2023.html"
   },
   {
     "Nombre": "Trumpeter Reserve Rose de Malbec",
@@ -1909,13 +1365,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2024",
     "Precio": 18.38,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trumpeter-reserve-rose-de-malbec-2024.jpg",
-    "sku": "TRRDMRW2024",
-    "url": "/de/vinos/trumpeter-reserve-rose-de-malbec.html"
+    "url": "/vinos/trumpeter-reserve-rose-de-malbec-2024.html"
   },
   {
     "Nombre": "Trumpeter Reserve Malbec",
@@ -1923,13 +1375,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 20.72,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trumpeter-reserve-malbec-2023.jpg",
-    "sku": "TRMRW2023",
-    "url": "/de/vinos/trumpeter-reserve-malbec.html"
+    "url": "/vinos/trumpeter-reserve-malbec-2023.html"
   },
   {
     "Nombre": "Trumpeter Reserve Blend",
@@ -1937,13 +1385,9 @@
     "Provincia": "nan",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 20.72,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trumpeter-reserve-blend-2023.jpg",
-    "sku": "TRBRW2023",
-    "url": "/de/vinos/trumpeter-reserve-blend.html"
+    "url": "/vinos/trumpeter-reserve-blend-2023.html"
   },
   {
     "Nombre": "Trumpeter Espumante Rose de Malbec",
@@ -1951,13 +1395,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 22.22,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trumpeter-espumante-rose-de-malbec-2022.jpg",
-    "sku": "TERDMRW2022",
-    "url": "/de/vinos/trumpeter-espumante-rose-de-malbec.html"
+    "url": "/vinos/trumpeter-espumante-rose-de-malbec-2022.html"
   },
   {
     "Nombre": "Rutini Encuentro Malbec",
@@ -1965,13 +1405,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 29.72,
-    "Descripción": "nan",
-    "Imagen": "/images/small/rutini-encuentro-malbec-2021.jpg",
-    "sku": "REMRW2021",
-    "url": "/de/vinos/rutini-encuentro-malbec.html"
+    "url": "/vinos/rutini-encuentro-malbec-2021.html"
   },
   {
     "Nombre": "Rutini Colección Cabernet Malbec",
@@ -1979,13 +1415,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 30.86,
-    "Descripción": "nan",
-    "Imagen": "/images/small/rutini-colección-cabernet-malbec-2022.jpg",
-    "sku": "RCCMRW2022",
-    "url": "/de/vinos/rutini-colecci-n-cabernet-malbec.html"
+    "url": "/vinos/rutini-coleccin-cabernet-malbec-2022.html"
   },
   {
     "Nombre": "Rutini Dominio Malbec",
@@ -1993,13 +1425,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 31.74,
-    "Descripción": "nan",
-    "Imagen": "/images/small/rutini-dominio-malbec-2021.jpg",
-    "sku": "RDMRW2021",
-    "url": "/de/vinos/rutini-dominio-malbec.html"
+    "url": "/vinos/rutini-dominio-malbec-2021.html"
   },
   {
     "Nombre": "Rutini Dominio Malbec Cabernet Franc",
@@ -2007,13 +1435,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 31.74,
-    "Descripción": "8 años",
-    "Imagen": "/images/small/rutini-dominio-malbec-cabernet-franc-2019.jpg",
-    "sku": "RDMCFRW2019",
-    "url": "/de/vinos/rutini-dominio-malbec-cabernet-franc.html"
+    "url": "/vinos/rutini-dominio-malbec-cabernet-franc-2019.html"
   },
   {
     "Nombre": "Rutini Colección Malbec",
@@ -2021,13 +1445,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 46.08,
-    "Descripción": "nan",
-    "Imagen": "/images/small/rutini-coleccion-malbec-2021.jpg",
-    "sku": "RCMRW2021",
-    "url": "/de/vinos/rutini-colecci-n-malbec.html"
+    "url": "/vinos/rutini-coleccin-malbec-2021.html"
   },
   {
     "Nombre": "Rutini Dominio Gran Blend",
@@ -2035,13 +1455,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2017",
     "Precio": 59.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/rutini-dominio-gran-blend-2017.jpg",
-    "sku": "RDGBRW2017",
-    "url": "/de/vinos/rutini-dominio-gran-blend.html"
+    "url": "/vinos/rutini-dominio-gran-blend-2017.html"
   },
   {
     "Nombre": "Rutini Encuentro Barrel Blend",
@@ -2049,13 +1465,9 @@
     "Provincia": "Mendoza",
     "Región": "Tupungato",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 63.08,
-    "Descripción": "nan",
-    "Imagen": "/images/small/rutini-encuentro-barrel-blend-2020.jpg",
-    "sku": "REBBRW2020",
-    "url": "/de/vinos/rutini-encuentro-barrel-blend.html"
+    "url": "/vinos/rutini-encuentro-barrel-blend-2020.html"
   },
   {
     "Nombre": "Rutini Single Vineyard Malbec Gualtallary",
@@ -2063,13 +1475,9 @@
     "Provincia": "Mendoza",
     "Región": "Gualtallary, Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 67.0,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/rutini-single-vineyard-malbec-gualtallary-2021.jpg",
-    "sku": "RSVMGRW2021",
-    "url": "/de/vinos/rutini-single-vineyard-malbec-gualtallary.html"
+    "url": "/vinos/rutini-single-vineyard-malbec-gualtallary-2021.html"
   },
   {
     "Nombre": "Rutini Antología XXXVIII",
@@ -2077,13 +1485,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 73.3,
-    "Descripción": "15 años",
-    "Imagen": "/images/small/rutini-antología-xxxviii-2020.jpg",
-    "sku": "RAXRW2020",
-    "url": "/de/vinos/rutini-antolog-a-xxxviii.html"
+    "url": "/vinos/rutini-antologa-xxxviii-2020.html"
   },
   {
     "Nombre": "Rutini Apartado Gran Malbec",
@@ -2091,13 +1495,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 89.99,
-    "Descripción": "20 años",
-    "Imagen": "/images/small/rutini-apartado-gran-malbec-2020.jpg",
-    "sku": "RAGMRW2020",
-    "url": "/de/vinos/rutini-apartado-gran-malbec.html"
+    "url": "/vinos/rutini-apartado-gran-malbec-2020.html"
   },
   {
     "Nombre": "Felipe Rutini",
@@ -2105,13 +1505,9 @@
     "Provincia": "Mendoza",
     "Región": "Gualtallary, Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2017",
     "Precio": 168.99,
-    "Descripción": "20 años",
-    "Imagen": "/images/small/felipe-rutini-2017.jpg",
-    "sku": "FRRW2017",
-    "url": "/de/vinos/felipe-rutini.html"
+    "url": "/vinos/felipe-rutini-2017.html"
   },
   {
     "Nombre": "San Telmo Malbec",
@@ -2119,13 +1515,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2024",
     "Precio": 8.16,
-    "Descripción": "nan",
-    "Imagen": "/images/small/san-telmo-malbec-2024.jpg",
-    "sku": "STMST2024",
-    "url": "/de/vinos/san-telmo-malbec.html"
+    "url": "/vinos/san-telmo-malbec-2024.html"
   },
   {
     "Nombre": "Trapiche Reserve Malbec",
@@ -2133,13 +1525,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 13.2,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-reserve-malbec-2023.jpg",
-    "sku": "TRMT2023",
-    "url": "/de/vinos/trapiche-reserve-malbec.html"
+    "url": "/vinos/trapiche-reserve-malbec-2023.html"
   },
   {
     "Nombre": "Trapiche Medalla Malbec",
@@ -2147,13 +1535,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 25.1,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-medalla-malbec-2022.jpg",
-    "sku": "TMMT2022",
-    "url": "/de/vinos/trapiche-medalla-malbec.html"
+    "url": "/vinos/trapiche-medalla-malbec-2022.html"
   },
   {
     "Nombre": "Trapiche Gran Medalla Malbec",
@@ -2161,13 +1545,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 42.02,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-gran-medalla-malbec-2018.jpg",
-    "sku": "TGMMT2018",
-    "url": "/de/vinos/trapiche-gran-medalla-malbec.html"
+    "url": "/vinos/trapiche-gran-medalla-malbec-2018.html"
   },
   {
     "Nombre": "Trapiche Terroir Series Malbec Suarez Lastra",
@@ -2175,13 +1555,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2010",
     "Precio": 47.8,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-terroir-series-malbec-suarez-lastra-2010.jpg",
-    "sku": "TTSMSLT2010",
-    "url": "/de/vinos/trapiche-terroir-series-malbec-suarez-lastra.html"
+    "url": "/vinos/trapiche-terroir-series-malbec-suarez-lastra-2010.html"
   },
   {
     "Nombre": "Trapiche Terroir Series Malbec Orellana",
@@ -2189,13 +1565,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2012",
     "Precio": 47.8,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-terroir-series-malbec-orellana-2012.jpg",
-    "sku": "TTSMOT2012",
-    "url": "/de/vinos/trapiche-terroir-series-malbec-orellana.html"
+    "url": "/vinos/trapiche-terroir-series-malbec-orellana-2012.html"
   },
   {
     "Nombre": "Trapiche Terroir Series Limited Edition Malbec Las Piedras",
@@ -2203,13 +1575,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2013",
     "Precio": 49.8,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.jpg",
-    "sku": "TTSLEMLPT2013",
-    "url": "/de/vinos/trapiche-terroir-series-limited-edition-malbec-las-piedras.html"
+    "url": "/vinos/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.html"
   },
   {
     "Nombre": "Trapiche Terroir Series Limited Edition Malbec Finca El Milagro",
@@ -2217,13 +1585,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2013",
     "Precio": 49.8,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-terroir-series-limited-edition-malbec-finca-el-milagro-2013.jpg",
-    "sku": "TTSLEMFEMT2013",
-    "url": "/de/vinos/trapiche-terroir-series-limited-edition-malbec-finca-el-milagro.html"
+    "url": "/vinos/trapiche-terroir-series-limited-edition-malbec-finca-el-milagro-2013.html"
   },
   {
     "Nombre": "Trapiche Terroir Series SV Malbec Ambrosia",
@@ -2231,13 +1595,9 @@
     "Provincia": "Mendoza",
     "Región": "Gualtallary, Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 62.22,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-terroir-series-sv-malbec-ambrosia-2018.jpg",
-    "sku": "TTSSMAT2018",
-    "url": "/de/vinos/trapiche-terroir-series-sv-malbec-ambrosia.html"
+    "url": "/vinos/trapiche-terroir-series-sv-malbec-ambrosia-2018.html"
   },
   {
     "Nombre": "Trapiche Iscay Malbec Cabernet Franc",
@@ -2245,13 +1605,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2009",
     "Precio": 66.72,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-iscay-malbec-cabernet-franc-2009.jpg",
-    "sku": "TIMCFT2009",
-    "url": "/de/vinos/trapiche-iscay-malbec-cabernet-franc.html"
+    "url": "/vinos/trapiche-iscay-malbec-cabernet-franc-2009.html"
   },
   {
     "Nombre": "Trapiche Manos Malbec",
@@ -2259,13 +1615,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2005",
     "Precio": 79.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/trapiche-manos-malbec-2005.jpg",
-    "sku": "TMMT2005",
-    "url": "/de/vinos/trapiche-manos-malbec.html"
+    "url": "/vinos/trapiche-manos-malbec-2005.html"
   },
   {
     "Nombre": "Paso de Piedra Malbec",
@@ -2273,13 +1625,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 25.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/paso-de-piedra-malbec-2019.jpg",
-    "sku": "PDPMVA2019",
-    "url": "/de/vinos/paso-de-piedra-malbec.html"
+    "url": "/vinos/paso-de-piedra-malbec-2019.html"
   },
   {
     "Nombre": "Viña Alicia Malbec",
@@ -2287,13 +1635,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2016",
     "Precio": 51.99,
-    "Descripción": "nan",
-    "Imagen": "/images/small/via-alicia-malbec-2016.jpg",
-    "sku": "VAMVA2016",
-    "url": "/de/vinos/vi-a-alicia-malbec.html"
+    "url": "/vinos/via-alicia-malbec-2016.html"
   },
   {
     "Nombre": "Carrascal Malbec",
@@ -2301,13 +1645,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 16.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/carrascal-malbec-2021.jpg",
-    "sku": "CMWBYC2021",
-    "url": "/de/vinos/carrascal-malbec.html"
+    "url": "/vinos/carrascal-malbec-2021.html"
   },
   {
     "Nombre": "Weinert Malbec",
@@ -2315,13 +1655,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 38.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/weinert-malbec-2018.jpg",
-    "sku": "WMWBYC2018",
-    "url": "/de/vinos/weinert-malbec.html"
+    "url": "/vinos/weinert-malbec-2018.html"
   },
   {
     "Nombre": "Weinert Malbec ",
@@ -2329,13 +1665,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2010",
     "Precio": 42.49,
-    "Descripción": "nan",
-    "Imagen": "/images/small/weinert-malbec-2010.jpg",
-    "sku": "WMWBYC2010",
-    "url": "/de/vinos/weinert-malbec.html"
+    "url": "/vinos/weinert-malbec-2010.html"
   },
   {
     "Nombre": "Malbec Argentino",
@@ -2343,13 +1675,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 15.76,
-    "Descripción": "nan",
-    "Imagen": "/images/small/malbec-argentino-2023.jpg",
-    "sku": "MABC2023",
-    "url": "/de/vinos/malbec-argentino.html"
+    "url": "/vinos/malbec-argentino-2023.html"
   },
   {
     "Nombre": "Aruma Malbec",
@@ -2357,13 +1685,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 15.76,
-    "Descripción": "nan",
-    "Imagen": "/images/small/aruma-malbec-2023.jpg",
-    "sku": "AMBC2023",
-    "url": "/de/vinos/aruma-malbec.html"
+    "url": "/vinos/aruma-malbec-2023.html"
   },
   {
     "Nombre": "Amancaya",
@@ -2371,13 +1695,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 24.86,
-    "Descripción": "nan",
-    "Imagen": "/images/small/amancaya-2021.jpg",
-    "sku": "ABC2021",
-    "url": "/de/vinos/amancaya.html"
+    "url": "/vinos/amancaya-2021.html"
   },
   {
     "Nombre": "Petit Caro",
@@ -2385,13 +1705,9 @@
     "Provincia": "Mendoza",
     "Región": "Luján de Cuyo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 27.77,
-    "Descripción": "nan",
-    "Imagen": "/images/small/petit-caro-2021.jpg",
-    "sku": "PCBC2021",
-    "url": "/de/vinos/petit-caro.html"
+    "url": "/vinos/petit-caro-2021.html"
   },
   {
     "Nombre": "Caro",
@@ -2399,13 +1715,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 99.86,
-    "Descripción": "nan",
-    "Imagen": "/images/small/caro-2021.jpg",
-    "sku": "CBC2021",
-    "url": "/de/vinos/caro.html"
+    "url": "/vinos/caro-2021.html"
   },
   {
     "Nombre": "Nicolas Catena Zapata",
@@ -2413,13 +1725,9 @@
     "Provincia": "Mendoza",
     "Región": "Valle de Uco",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 139.76,
-    "Descripción": "nan",
-    "Imagen": "/images/small/nicolas-catena-zapata-malbec-2020.jpg",
-    "sku": "NCZCZ2020",
-    "url": "/de/vinos/nicolas-catena-zapata.html"
+    "url": "/vinos/nicolas-catena-zapata-malbec-2020.html"
   },
   {
     "Nombre": "Ojo de Agua Malbec ",
@@ -2427,13 +1735,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 18.36,
-    "Descripción": "nan",
-    "Imagen": "/images/small/ojo-de-agua-malbec-2023.jpg",
-    "sku": "ODAMDMAFW2023",
-    "url": "/de/vinos/ojo-de-agua-malbec.html"
+    "url": "/vinos/ojo-de-agua-malbec-2023.html"
   },
   {
     "Nombre": "Puro Corte",
@@ -2441,13 +1745,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2022",
     "Precio": 20.76,
-    "Descripción": "nan",
-    "Imagen": "/images/small/puro-corte-2022.jpg",
-    "sku": "PCDMAFW2022",
-    "url": "/de/vinos/puro-corte.html"
+    "url": "/vinos/puro-corte-2022.html"
   },
   {
     "Nombre": "Puro Corte d'Oro",
@@ -2455,13 +1755,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2019",
     "Precio": 37.76,
-    "Descripción": "nan",
-    "Imagen": "/images/small/puro-corte-doro-2019.jpg",
-    "sku": "PCDDMAFW2019",
-    "url": "/de/vinos/puro-corte-d-oro.html"
+    "url": "/vinos/puro-corte-doro-2019.html"
   },
   {
     "Nombre": "Puro Rose ",
@@ -2469,13 +1765,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 18.5,
-    "Descripción": "nan",
-    "Imagen": "/images/small/puro-rose-2023.jpg",
-    "sku": "PRDMAFW2023",
-    "url": "/de/vinos/puro-rose.html"
+    "url": "/vinos/puro-rose-2023.html"
   },
   {
     "Nombre": "Dieter Meier Malo",
@@ -2483,13 +1775,9 @@
     "Provincia": "Mendoza",
     "Región": "Agrelo",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2018",
     "Precio": 59.76,
-    "Descripción": "nan",
-    "Imagen": "/images/small/dieter-meier-malo-2018.jpg",
-    "sku": "DMMDMAFW2018",
-    "url": "/de/vinos/dieter-meier-malo.html"
+    "url": "/vinos/dieter-meier-malo-2018.html"
   },
   {
     "Nombre": "Amalaya Malbec",
@@ -2497,13 +1785,9 @@
     "Provincia": "Salta",
     "Región": "Valles Calchaquíes",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2023",
     "Precio": 13.5,
-    "Descripción": "nan",
-    "Imagen": "/images/small/amalaya-malbec-2023.jpg",
-    "sku": "AMBA2023",
-    "url": "/de/vinos/amalaya-malbec.html"
+    "url": "/vinos/amalaya-malbec-2023.html"
   },
   {
     "Nombre": "Colomé Estate Malbec",
@@ -2511,13 +1795,9 @@
     "Provincia": "Salta",
     "Región": "Valles Calchaquíes",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2020",
     "Precio": 20.3,
-    "Descripción": "nan",
-    "Imagen": "/images/small/colome-estate-malbec-2020.jpg",
-    "sku": "CEMBC2020",
-    "url": "/de/vinos/colom-estate-malbec.html"
+    "url": "/vinos/colome-estate-malbec-2020.html"
   },
   {
     "Nombre": "Colomé Autentico Malbec",
@@ -2525,12 +1805,8 @@
     "Provincia": "Salta",
     "Región": "Valles Calchaquíes",
     "Tipo": "Malbec",
-    "Año": null,
-    "Altura": null,
+    "Año": "2021",
     "Precio": 37.1,
-    "Descripción": "nan",
-    "Imagen": "/images/small/colome-autentico-malbec-2021.jpg",
-    "sku": "CAMBC2021",
-    "url": "/de/vinos/colom-autentico-malbec.html"
+    "url": "/vinos/colome-autentico-malbec-2021.html"
   }
 ]
