@@ -74,7 +74,16 @@
         .winery-nav button.hidden { display: none; }
         .recently-added-carousel { position: relative; max-width: 1200px; margin: 20px auto; overflow: hidden; }
         .recent-container { display: flex; transition: transform 0.5s ease; width: 100%; }
-        .recent-item { flex: 0 0 25%; max-width: 250px; margin-right: 30px; box-sizing: border-box; }
+        .recent-item { flex: 0 0 16.66%; max-width: 250px; margin-right: 30px; box-sizing: border-box; background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .recent-item img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
+        .recent-item .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
+        .recent-item .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
+        .recent-item:hover .overlay { display: block; }
+        .recent-item .overlay.active { display: block !important; }
+        .recent-item h3 { font-size: 16px; margin: 10px 0; color: #4A2C59; min-height: 40px; overflow: hidden; text-overflow: ellipsis; white-space: normal; text-align: center; width: 100%; }
+        .recent-item .price { font-size: 16px; color: #4A2C59; margin: 10px 0; position: relative; z-index: 7; text-align: center; width: 100%; }
+        .recent-item .buy-button { padding: 8px 16px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; position: relative; z-index: 7; text-align: center; background-color: #4A2C59; color: #f5e6ff; text-decoration: none; border-radius: 5px; pointer-events: auto; width: 100%; max-width: 180px; display: block; }
+        .recent-item .buy-button:hover { background-color: #5A1D39; }
         .recent-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
         .recent-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
         .recent-nav button:hover { background: #4A2C59; }
@@ -130,11 +139,15 @@
             .recently-added-carousel { margin: 10px auto; }
             .recent-container { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 15px; padding: 0 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
             .recent-container::-webkit-scrollbar { display: none; }
-            .recent-item { flex: 0 0 140px; max-width: 140px; margin-right: 15px; min-height: 260px; }
-            .recent-item img { width: 140px; height: 140px; }
-            .recent-item h3 { font-size: 14px; min-height: 36px; }
-            .recent-item .price { font-size: 14px; }
-            .recent-item .buy-button { padding: 6px 12px; font-size: 12px; max-width: 140px; }
+            .recent-item { flex: 0 0 140px; max-width: 140px; margin-right: 15px; min-height: 260px; padding: 10px; }
+            .recent-item img { width: 140px; height: 140px; margin: 0 auto; }
+            .recent-item h3 { font-size: 14px; min-height: 36px; margin: 5px 0; text-align: center; width: 100%; }
+            .recent-item .price { font-size: 14px; margin: 5px 0; text-align: center; width: 100%; }
+            .recent-item .buy-button { padding: 6px 12px; font-size: 12px; margin-top: 5px; margin-bottom: 5px; width: 100%; max-width: 140px; }
+            .recent-item .info-icon { display: block !important; pointer-events: auto; z-index: 10; }
+            .recent-item .overlay { max-height: 150px; pointer-events: auto; width: 100%; box-sizing: border-box; top: 0; padding: 40px 10px 10px 10px; display: none; z-index: 6; }
+            .recent-item .overlay.active { display: block !important; z-index: 6; }
+            .recent-item:hover .overlay { display: none; }
             .recent-nav button { padding: 6px; font-size: 14px; }
             .product-card { width: 100%; max-width: none; height: 260px; min-height: auto; padding: 10px; box-sizing: border-box; overflow: hidden; position: relative; align-items: center; }
             .product-card img { width: 140px; height: 140px; margin: 0 auto; }
@@ -198,26 +211,26 @@
     <div class="banner-carousel">
         <div class="banner-container">
             <div class="banner-item">
-                <a href="/de/veranstaltungen/veranstaltungen.html" title="Veranstaltungen erkunden">
+                <a href="/de/eventos/eventos.html" title="Veranstaltungen erkunden">
                     <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile.jpg"/>
-                        <img src="/images/banners/banner-1.jpg" alt="Veranstaltungen von 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Nicht+Verfügbar';">
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-de.jpg"/>
+                        <img src="/images/banners/banner-1-de.jpg" alt="Veranstaltungen von 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+Nicht+Verfügbar';">
                     </picture>
                 </a>
             </div>
             <div class="banner-item">
-                <a href="/de/weingüter.html" title="Weingüter erkunden">
+                <a href="/de/bodegas.html" title="Weingüter erkunden">
                     <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile.jpg"/>
-                        <img src="/images/banners/banner-2.jpg" alt="Weingüter Argentiniens" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Nicht+Verfügbar';">
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-de.jpg"/>
+                        <img src="/images/banners/banner-2-de.jpg" alt="Weingüter Argentiniens" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+Nicht+Verfügbar';">
                     </picture>
                 </a>
             </div>
             <div class="banner-item">
-                <a href="/de/provinzen.html" title="Provinzen erkunden">
+                <a href="/de/provincias.html" title="Provinzen erkunden">
                     <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile.jpg"/>
-                        <img src="/images/banners/banner-3.jpg" alt="Weinbauprovinzen" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Nicht+Verfügbar';">
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-de.jpg"/>
+                        <img src="/images/banners/banner-3-de.jpg" alt="Weinbauprovinzen" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+Nicht+Verfügbar';">
                     </picture>
                 </a>
             </div>
@@ -247,7 +260,7 @@
                 </div>
                 <h3>Adrianna Vineyard Mundus Bacillus Terrae Malbec</h3>
                 <p class="price">371.51</p>
-                <a class="buy-button" href="/de/weine/adrianna-vineyard-mundus-bacillus-terrae-malbec.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec.html">Kaufen</a>
             </div>
             
             <div class="product-card" data-overlay-id="kaiken-boulder-red-blend">
@@ -262,7 +275,7 @@
                 </div>
                 <h3>Kaiken Boulder Red Blend</h3>
                 <p class="price">258.14</p>
-                <a class="buy-button" href="/de/weine/kaiken-boulder-red-blend.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/kaiken-boulder-red-blend.html">Kaufen</a>
             </div>
             
             <div class="product-card" data-overlay-id="noem-a-malbec">
@@ -277,7 +290,7 @@
                 </div>
                 <h3>Noemía Malbec</h3>
                 <p class="price">190.82</p>
-                <a class="buy-button" href="/de/weine/noem-a-malbec.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/noem-a-malbec.html">Kaufen</a>
             </div>
             
             <div class="product-card" data-overlay-id="felipe-rutini">
@@ -292,7 +305,7 @@
                 </div>
                 <h3>Felipe Rutini</h3>
                 <p class="price">168.99</p>
-                <a class="buy-button" href="/de/weine/felipe-rutini.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/felipe-rutini.html">Kaufen</a>
             </div>
             
             <div class="product-card" data-overlay-id="nicolas-catena-zapata">
@@ -307,7 +320,7 @@
                 </div>
                 <h3>Nicolas Catena Zapata</h3>
                 <p class="price">139.76</p>
-                <a class="buy-button" href="/de/weine/nicolas-catena-zapata.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/nicolas-catena-zapata.html">Kaufen</a>
             </div>
             
             <div class="product-card" data-overlay-id="catena-malbec-argentino">
@@ -322,7 +335,7 @@
                 </div>
                 <h3>Catena Malbec Argentino</h3>
                 <p class="price">128.44</p>
-                <a class="buy-button" href="/de/weine/catena-malbec-argentino.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/catena-malbec-argentino.html">Kaufen</a>
             </div>
             
             <div class="product-card" data-overlay-id="catena-zapata-adrianna-malbec-fortuna-terrae">
@@ -337,7 +350,7 @@
                 </div>
                 <h3>Catena Zapata Adrianna Malbec Fortuna Terrae</h3>
                 <p class="price">127.54</p>
-                <a class="buy-button" href="/de/weine/catena-zapata-adrianna-malbec-fortuna-terrae.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/catena-zapata-adrianna-malbec-fortuna-terrae.html">Kaufen</a>
             </div>
             
             <div class="product-card" data-overlay-id="catena-zapata-nicasia-vineyard">
@@ -352,37 +365,99 @@
                 </div>
                 <h3>Catena Zapata Nicasia Vineyard</h3>
                 <p class="price">113.38</p>
-                <a class="buy-button" href="/de/weine/catena-zapata-nicasia-vineyard.html">Kaufen</a>
+                <a class="buy-button" href="/de/vinos/catena-zapata-nicasia-vineyard.html">Kaufen</a>
             </div>
             
     </div>
     <h3 class="section-title">Kürzlich hinzugefügt</h3><div class="recently-added-carousel"><div class="recent-container">
-        <div class="recent-item">
+        <div class="product-card recent-item" data-overlay-id="a-coraz-n-abierto-malbec">
             <img src="/images/small/a-corazon-abierto-malbec-2019.jpg" alt="Flasche von A Corazón Abierto Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+            <div class="info-icon" data-overlay-id="a-coraz-n-abierto-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="a-coraz-n-abierto-malbec">
+                
+            <p><strong>Weingut:</strong> A Corazon Abierto</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+        <p><strong>Lagerung:</strong> 10 años</p>
+            </div>
             <h3>A Corazón Abierto Malbec</h3>
             <p class="price">36.06</p>
-            <a class="buy-button" href="/de/weine/a-coraz-n-abierto-malbec.html">Kaufen</a>
+            <a class="buy-button" href="/de/vinos/a-coraz-n-abierto-malbec.html">Kaufen</a>
         </div>
         
-        <div class="recent-item">
+        <div class="product-card recent-item" data-overlay-id="a-coraz-n-abierto-gran-corte">
             <img src="/images/small/a-corazon-abierto-gran-corte-2018.jpg" alt="Flasche von A Corazón Abierto Gran Corte" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+            <div class="info-icon" data-overlay-id="a-coraz-n-abierto-gran-corte">🍷</div>
+            <div class="overlay" data-overlay-id="a-coraz-n-abierto-gran-corte">
+                
+            <p><strong>Weingut:</strong> A Corazon Abierto</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+        <p><strong>Lagerung:</strong> 25 años</p>
+            </div>
             <h3>A Corazón Abierto Gran Corte</h3>
             <p class="price">49.18</p>
-            <a class="buy-button" href="/de/weine/a-coraz-n-abierto-gran-corte.html">Kaufen</a>
+            <a class="buy-button" href="/de/vinos/a-coraz-n-abierto-gran-corte.html">Kaufen</a>
         </div>
         
-        <div class="recent-item">
+        <div class="product-card recent-item" data-overlay-id="bad-brothers-malbec-premium">
             <img src="/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Flasche von Bad Brothers Malbec Premium" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+            <div class="info-icon" data-overlay-id="bad-brothers-malbec-premium">🍷</div>
+            <div class="overlay" data-overlay-id="bad-brothers-malbec-premium">
+                
+            <p><strong>Weingut:</strong> Agustin Lanus</p>
+            <p><strong>Provinz:</strong> Salta</p>
+            <p><strong>Region:</strong> Valle de Calchaquí</p>
+        
+            </div>
             <h3>Bad Brothers Malbec Premium</h3>
             <p class="price">17.49</p>
-            <a class="buy-button" href="/de/weine/bad-brothers-malbec-premium.html">Kaufen</a>
+            <a class="buy-button" href="/de/vinos/bad-brothers-malbec-premium.html">Kaufen</a>
         </div>
         
-        <div class="recent-item">
+        <div class="product-card recent-item" data-overlay-id="sunal-ilogico-malbec">
             <img src="/images/small/sunal-ilgico-malbec-2020.jpg" alt="Flasche von Sunal Ilogico Malbec " onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+            <div class="info-icon" data-overlay-id="sunal-ilogico-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="sunal-ilogico-malbec">
+                
+            <p><strong>Weingut:</strong> Agustin Lanus</p>
+            <p><strong>Provinz:</strong> Salta</p>
+            <p><strong>Region:</strong> Valle de Calchaquí</p>
+        
+            </div>
             <h3>Sunal Ilogico Malbec </h3>
             <p class="price">25.49</p>
-            <a class="buy-button" href="/de/weine/sunal-ilogico-malbec.html">Kaufen</a>
+            <a class="buy-button" href="/de/vinos/sunal-ilogico-malbec.html">Kaufen</a>
+        </div>
+        
+        <div class="product-card recent-item" data-overlay-id="alamos-malbec">
+            <img src="/images/small/alamos-malbec-2024.jpg" alt="Flasche von Alamos Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+            <div class="info-icon" data-overlay-id="alamos-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="alamos-malbec">
+                
+            <p><strong>Weingut:</strong> Alamos</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+        <p><strong>Auszeichnungen:</strong> 91 pts James Suckling - 2019</p>
+            </div>
+            <h3>Alamos Malbec</h3>
+            <p class="price">10.97</p>
+            <a class="buy-button" href="/de/vinos/alamos-malbec.html">Kaufen</a>
+        </div>
+        
+        <div class="product-card recent-item" data-overlay-id="alamos-malbec-magnum-1500-cc">
+            <img src="/images/small/alamos-malbec-magnum-2024.jpg" alt="Flasche von Alamos Malbec Magnum 1500 cc" onerror="this.src='https://via.placeholder.com/200x200?text=Bild+Nicht+Verfügbar';">
+            <div class="info-icon" data-overlay-id="alamos-malbec-magnum-1500-cc">🍷</div>
+            <div class="overlay" data-overlay-id="alamos-malbec-magnum-1500-cc">
+                
+            <p><strong>Weingut:</strong> Alamos</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Valle de Uco</p>
+        <p><strong>Auszeichnungen:</strong> 91 pts James Suckling - 2019</p>
+            </div>
+            <h3>Alamos Malbec Magnum 1500 cc</h3>
+            <p class="price">22.02</p>
+            <a class="buy-button" href="/de/vinos/alamos-malbec-magnum-1500-cc.html">Kaufen</a>
         </div>
         </div><div class="recent-nav"><button onclick="moveRecent(-1)">❮</button><button onclick="moveRecent(1)">❯</button></div></div>
     <h3 class="section-title">Besuche unsere Weingüter</h3>
@@ -507,7 +582,7 @@
         currentRecent += direction;
         if (currentRecent < 0) currentRecent = recentItems.length - 1;
         if (currentRecent >= recentItems.length) currentRecent = 0;
-        recentContainer.style.transform = `translateX(-${currentRecent * 100}%)`;
+        recentContainer.style.transform = `translateX(-${currentRecent * 16.66}%)`;
         console.log('Aktueller kürzlich hinzugefügter Wein:', currentRecent);
     }
     if (recentItems.length > 1) { setInterval(() => moveRecent(1), 5000); }
@@ -605,7 +680,7 @@
 
     // Function to adjust URL with current language
     function adjustUrlForLanguage(url, lang) {
-        if (url.startsWith('/weine/')) {
+        if (url.startsWith('/vinos/')) {
             return `/${lang}${url}`;
         }
         return url;
