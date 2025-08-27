@@ -1,12 +1,12 @@
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    const path = url.pathname;
+    const path = url.pathname.toLowerCase(); // Case-insensitive matching
 
     // Bypass Worker for static files and excluded paths
     const staticPaths = ['.js', '.json', '.css', '.png', '.jpg', '.jpeg', '.ico'];
-    const excludedPaths = ['/footer.html', '/anotate.html', '/gracias.html', '/data/navigation.json'];
-    if (staticPaths.some(ext => path.toLowerCase().endsWith(ext)) || excludedPaths.some(excluded => path.includes(excluded))) {
+    const excludedPaths = ['/footer.html', '/anotate.html', '/gracias.html', '/data/navigation.json', '/data/vinos.json', '/js/search.js'];
+    if (staticPaths.some(ext => path.endsWith(ext)) || excludedPaths.some(excluded => path.includes(excluded))) {
       console.log('Bypassing Worker for path:', path);
       return fetch(request.url.replace('https://footer-injector.federico-augspach.workers.dev', 'https://1000malbecs.com'), {
         headers: request.headers
@@ -223,7 +223,7 @@ export default {
         <div class="logo-container">
           <a href="/${lang}/" title="${translations[lang].navbar.home}">
             <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Nicht+Verfügbar';">
-          Djokovic      </a>
+          </a>
         </div>
         <h2>${translations[lang].navbar.categories}</h2>
         <details>
@@ -321,7 +321,8 @@ export default {
       statusText: pageResponse.statusText,
       headers: {
         ...Object.fromEntries(pageResponse.headers),
-        'content-type': 'text/html; charset=utf-8'
+        'content-type': 'text/html; charset=utf-8',
+        'Cache-Control': 'public, max-age=0, must-revalidate' // Prevent caching issues
       }
     });
   }
