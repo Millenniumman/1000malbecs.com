@@ -1,6 +1,8 @@
 // search.js
+console.log('search.js: Script loaded');
+
 document.addEventListener('alpine:init', () => {
-  console.log('search.js: Alpine.js detected, version:', Alpine.version);
+  console.log('search.js: Alpine.js detected, version:', Alpine.version || 'unknown');
   Alpine.data('wineSearch', () => ({
     wines: [],
     query: '',
@@ -30,6 +32,7 @@ document.addEventListener('alpine:init', () => {
     },
 
     search() {
+      console.log('search.js: Searching for query:', this.query);
       const query = this.query.trim().toLowerCase();
       const suggestionsList = document.querySelector('.search-suggestions');
       this.suggestions = [];
@@ -63,10 +66,11 @@ document.addEventListener('alpine:init', () => {
       } else {
         suggestionsList.style.display = 'none';
       }
-      console.log('search.js: Found', this.suggestions.length, 'suggestions for query:', query);
+      console.log('search.js: Found', this.suggestions.length, 'suggestions');
     },
 
     handleKeydown(event) {
+      console.log('search.js: Handling keydown:', event.key);
       if (!this.suggestions.length) return;
       const suggestionsList = document.querySelector('.search-suggestions');
 
@@ -82,6 +86,7 @@ document.addEventListener('alpine:init', () => {
         event.preventDefault();
         this.goTo(this.suggestions[this.focusedIndex].url);
       } else if (event.key === 'Escape') {
+        event.preventDefault();
         this.query = '';
         this.suggestions = [];
         suggestionsList.style.display = 'none';
@@ -90,6 +95,7 @@ document.addEventListener('alpine:init', () => {
     },
 
     updateFocus() {
+      console.log('search.js: Updating focus to index:', this.focusedIndex);
       const suggestions = document.querySelectorAll('.search-suggestions li');
       suggestions.forEach((suggestion, index) => {
         suggestion.classList.toggle('focused', index === this.focusedIndex);
@@ -105,5 +111,3 @@ document.addEventListener('alpine:init', () => {
     }
   }));
 });
-
-console.log('search.js: Script loaded');
