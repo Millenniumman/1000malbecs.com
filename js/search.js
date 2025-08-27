@@ -1,83 +1,119 @@
-Alpine Expression Error: wineSearch is not defined
+console.log('search.js: Script loaded at', new Date().toISOString());
 
-Expression: "wineSearch"
+document.addEventListener('alpine:init', () => {
+  console.log('search.js: Alpine.js detected, version:', Alpine?.version || 'unknown');
+  try {
+    Alpine.data('wineSearch', () => ({
+      wines: [],
+      query: '',
+      suggestions: [],
+      focusedIndex: -1,
+      lang: 'de',
+      translations: {
+        es: { placeholder: 'Busca tu vino favorito...' },
+        en: { placeholder: 'Search your favorite wine...' },
+        de: { placeholder: 'Suche deinen Lieblingswein...' }
+      },
 
- 
-<div class="search-container" x-data="wineSearch" x-init="init()">
-cdn.min.js:1:5095
-Alpine Expression Error: init is not defined
+      async init() {
+        console.log('search.js: Initializing wineSearch for', window.location.pathname);
+        this.lang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
+        try {
+          const jsonPath = '/data/vinos.json'; // Changed from `/${this.lang}/data/vinos.json`
+          console.log('search.js: Fetching', jsonPath);
+          const response = await fetch(jsonPath);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch vinos.json: ${response.status} ${response.statusText}`);
+          }
+          this.wines = await response.json();
+          console.log('search.js: Loaded', this.wines.length, 'wines');
+        } catch (error) {
+          console.error('search.js: Error loading vinos.json:', error.message);
+          this.wines = [];
+        }
+      },
 
-Expression: "init()"
+      search() {
+        console.log('search.js: Searching for query:', this.query);
+        const query = this.query.trim().toLowerCase();
+        const suggestionsList = document.querySelector('.search-suggestions');
+        this.suggestions = [];
+        this.focusedIndex = -1;
 
- 
-<div class="search-container" x-data="wineSearch" x-init="init()">
-cdn.min.js:1:5095
-Alpine Expression Error: translations is not defined
+        if (query.length >= 3) {
+          // Wine suggestions
+          const wineMatches = this.wines
+            .filter(wine =>
+              ['Nombre', 'Bodega', 'Provincia', 'Región', 'Variedad'].some(key =>
+                wine[key]?.toString().toLowerCase().includes(query)
+              )
+            )
+            .map(wine => ({
+              text: `${wine.Nombre} (${wine.Bodega})`,
+              url: wine.url || `/${this.lang}/vinos/${wine.sku}.html`,
+              type: 'wine'
+            }));
 
-Expression: "translations?.[lang]?.placeholder || 'Suche deinen Lieblingswein...'"
+          // Winery suggestions (unique bodegas)
+          const wineryMatches = [...new Set(this.wines.map(wine => wine.Bodega))]
+            .filter(bodega => bodega && bodega.toLowerCase().includes(query))
+            .map(bodega => ({
+              text: `Weingut: ${bodega}`,
+              url: `/${this.lang}/bodegas/${bodega.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s]+/g, '-')}.html`,
+              type: 'winery'
+            }));
 
- 
-<input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations?.[lang]?.pl…einen Lieblingswein...'" placeholder="">
-cdn.min.js:1:5095
-Alpine Expression Error: query is not defined
+          this.suggestions = [...wineMatches, ...wineryMatches].slice(0, 10);
+          suggestionsList.style.display = this.suggestions.length > 0 ? 'block' : 'none';
+        } else {
+          suggestionsList.style.display = 'none';
+        }
+        console.log('search.js: Found', this.suggestions.length, 'suggestions');
+      },
 
-Expression: "query"
+      handleKeydown(event) {
+        console.log('search.js: Handling keydown:', event.key);
+        if (!this.suggestions.length) return;
+        const suggestionsList = document.querySelector('.search-suggestions');
 
- 
-<input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations?.[lang]?.pl…einen Lieblingswein...'" placeholder="">
-cdn.min.js:1:5095
-Alpine Expression Error: suggestions is not defined
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          this.focusedIndex = Math.min(this.focusedIndex + 1, this.suggestions.length - 1);
+          this.updateFocus();
+        } else if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          this.focusedIndex = Math.max(this.focusedIndex - 1, -1);
+          this.updateFocus();
+        } else if (event.key === 'Enter' && this.focusedIndex >= 0) {
+          event.preventDefault();
+          this.goTo(this.suggestions[this.focusedIndex].url);
+        } else if (event.key === 'Escape') {
+          event.preventDefault();
+          this.query = '';
+          this.suggestions = [];
+          suggestionsList.style.display = 'none';
+          this.focusedIndex = -1;
+        }
+      },
 
-Expression: "suggestions?.length > 0"
+      updateFocus() {
+        console.log('search.js: Updating focus to index:', this.focusedIndex);
+        const suggestions = document.querySelectorAll('.search-suggestions li');
+        suggestions.forEach((suggestion, index) => {
+          suggestion.classList.toggle('focused', index === this.focusedIndex);
+        });
+        if (this.focusedIndex >= 0) {
+          suggestions[this.focusedIndex].scrollIntoView({ block: 'nearest' });
+        }
+      },
 
- 
-<ul class="search-suggestions" x-show="suggestions?.length > 0" style="display: none;">
-cdn.min.js:1:5095
-Alpine Expression Error: suggestions is not defined
-
-Expression: "suggestions"
-
- 
-<template x-for="(suggestion, index) in suggestions" :key="suggestion.url">
-cdn.min.js:1:5095
-search.js: Script loaded at 2025-08-27T11:36:13.165Z search.js:2:9
-Alpine Expression Error: handleKeydown is not defined
-
-Expression: "handleKeydown"
-
- 
-<input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations?.[lang]?.pl…einen Lieblingswein...'" placeholder="">
-cdn.min.js:1:5095
-Alpine Expression Error: query is not defined
-
-Expression: "query"
-
- 
-<input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations?.[lang]?.pl…einen Lieblingswein...'" placeholder="">
-cdn.min.js:1:5095
-Alpine Expression Error: query is not defined
-
-Expression: "query"
-
- 
-<input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations?.[lang]?.pl…einen Lieblingswein...'" placeholder="">
-cdn.min.js:1:5095
-Alpine Expression Error: search is not defined
-
-Expression: "search"
-
- 
-<input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations?.[lang]?.pl…einen Lieblingswein...'" placeholder="">
-cdn.min.js:1:5095
-Alpine Expression Error: handleKeydown is not defined
-
-Expression: "handleKeydown"
-
- 
-<input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations?.[lang]?.pl…einen Lieblingswein...'" placeholder="">
-cdn.min.js:1:5095
-Alpine Expression Error: search is not defined
-
-Expression: "search"
-
- 
+      goTo(url) {
+        console.log('search.js: Navigating to', url);
+        window.location.href = url;
+      }
+    }));
+    console.log('search.js: wineSearch component registered');
+  } catch (error) {
+    console.error('search.js: Failed to register wineSearch component:', error.message);
+  }
+});
