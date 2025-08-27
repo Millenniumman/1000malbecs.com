@@ -19,8 +19,6 @@
     <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js" defer></script>
-    <script src="/js/search.js" defer></script>
     <style>
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .header { top: 50px; z-index: 120; }
@@ -228,7 +226,7 @@
         </div>
     </div>
    <div class="search-container" x-data="wineSearch" x-init="init()">
-                <input class="search-input" type="text" x-model="query" @input="search()" @keydown="handleKeydown($event)" :placeholder="translations[lang].placeholder">
+                <input class="search-input" type="text" x-model="query" @input.debounce.300ms="search" @keydown="handleKeydown" :placeholder="translations[lang].placeholder">
                 <i class="fas fa-search search-icon"></i>
                 <ul class="search-suggestions" x-show="suggestions.length > 0">
                     <template x-for="(suggestion, index) in suggestions" :key="suggestion.url">
@@ -428,7 +426,7 @@
 </div>
 </main>
 <script>
-   document.querySelector('.hamburger').addEventListener('click', function() { document.getElementById('sidebar').classList.toggle('open'); });
+ document.querySelector('.hamburger').addEventListener('click', function() { document.getElementById('sidebar').classList.toggle('open'); });
         let currentBanner = 0;
         const banners = document.querySelectorAll('.banner-item');
         const bannerContainer = document.querySelector('.banner-container');
@@ -533,5 +531,7 @@
             wineryNext.addEventListener('click', () => { wineryGrid.scrollBy({ left: 150, behavior: 'smooth' }); });
         }
     </script>
-</body>
+    <!-- Add Alpine.js and search.js at the end of body -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js" defer></script>
+    <script src="/js/search.js" defer></script></body>
 </html>
