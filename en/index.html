@@ -539,62 +539,161 @@ Oh WOW!!!! https://t.co/MbwjkFuZLF</p>
             if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
         });
     }
+     // Search functionality
     const searchInput = document.querySelector('.search-input');
     const suggestionsList = document.querySelector('.search-suggestions');
-    const wines = Array.from(document.querySelectorAll('.product-card')).map(card => ({
-        name: card.querySelector('h3').textContent.trim(),
-        url: card.querySelector('.buy-button').href
-    }));
-    searchInput.addEventListener('input', function() {
+    let wines = [];
+
+    // Determine current language
+    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+
+    // Language-specific labels
+    const labels = {{
+        es: {{ winery: 'Bodega', province: 'Provincia', region: 'Región' }},
+        en: {{ winery: 'Winery', province: 'Province', region: 'Region' }},
+        de: {{ winery: 'Weingut', province: 'Provinz', region: 'Region' }}
+    }};
+
+    // Function to fetch JSON data
+    async function loadWines() {{
+        try {{
+            const jsonPath = '/data/vinos.json';
+            const response = await fetch(jsonPath);
+            if (!response.ok) throw new Error(`Failed to fetch ${{jsonPath}}`);
+            const data = await response.json();
+            return data;
+        }} catch (error) {{
+            console.error('Error loading wines:', error);
+            return [];
+        }}
+    }}
+
+    // Function to adjust URL with current language
+    function adjustUrlForLanguage(url, lang) {{
+        if (url.startsWith('/vinos/')) {{
+            return `/${{lang}}${{url}}`;
+        }}
+        return url;
+    }}
+
+    // Load wines when the page loads
+    document.addEventListener('DOMContentLoaded', async () => {{
+        wines = await loadWines();
+        console.log('Loaded wines:', wines);
+    }});
+
+    // Handle search input
+    searchInput.addEventListener('input', function() {{
         const query = this.value.trim().toLowerCase();
         suggestionsList.innerHTML = '';
         suggestionsList.style.display = 'none';
-        if (query.length >= 3) {
-            const matches = wines.filter(wine => wine.name.toLowerCase().includes(query)).slice(0, 5);
-            if (matches.length > 0) {
-                matches.forEach(wine => {
+
+        if (query.length >= 3) {{
+            const matches = wines
+                .filter(wine => {{
+                    return (
+                        wine.Nombre?.toLowerCase().includes(query) ||
+                        wine.Bodega?.toLowerCase().includes(query) ||
+                        wine.Provincia?.toLowerCase().includes(query) ||
+                        wine.Región?.toLowerCase().includes(query) ||
+                        wine.Tipo?.toLowerCase().includes(query) ||
+                        wine.Año?.toString().includes(query)
+                    );
+                }})
+                .sort((a, b) => a.Precio - b.Precio)
+                .slice(0, 5);
+
+            if (matches.length > 0) {{
+                matches.forEach(wine => {{
                     const li = document.createElement('li');
-                    li.textContent = wine.name;
-                    li.dataset.url = wine.url;
+                    li.textContent = `${{wine.Nombre}} - ${{wine.Bodega}} (${{wine.Provincia}})`;
+                    li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
                     suggestionsList.appendChild(li);
-                });
+                }});
                 suggestionsList.style.display = 'block';
-            }
-        }
-    });
-    suggestionsList.addEventListener('click', function(e) {
+            }} else {{
+                const li = document.createElement('li');
+                li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
+                                currentLang === 'en' ? 'No results found' :
+                                'Keine Ergebnisse gefunden';
+                li.style.cursor = 'default';
+                suggestionsList.appendChild(li);
+                suggestionsList.style.display = 'block';
+            }}
+        }}
+    }});
+
+    // Handle suggestion clicks
+    suggestionsList.addEventListener('click', function(e) {{
         const li = e.target.closest('li');
-        if (li && li.dataset.url) { window.location.href = li.dataset.url; }
-    });
+        if (li && li.dataset.url) {{
+            window.location.href = li.dataset.url;
+        }}
+    }});
+
+    // Keyboard navigation
     let focusedSuggestion = -1;
-    searchInput.addEventListener('keydown', function(e) {
+    searchInput.addEventListener('keydown', function(e) {{
         const suggestions = suggestionsList.querySelectorAll('li');
         if (suggestions.length === 0) return;
-        if (e.key === 'ArrowDown') {
+
+        if (e.key === 'ArrowDown') {{
             e.preventDefault();
             focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
             updateFocus(suggestions);
-        } else if (e.key === 'ArrowUp') {
+        }} else if (e.key === 'ArrowUp') {{
             e.preventDefault();
             focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
             updateFocus(suggestions);
-        } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
+        }} else if (e.key === 'Enter' && focusedSuggestion >= 0) {{
             e.preventDefault();
-            window.location.href = suggestions[focusedSuggestion].dataset.url;
-        }
-    });
-    function updateFocus(suggestions) {
-        suggestions.forEach((suggestion, index) => {
+            if (suggestions[focusedSuggestion].dataset.url) {{
+                window.location.href = suggestions[focusedSuggestion].dataset.url;
+            }}
+        }}
+    }});
+
+    function updateFocus(suggestions) {{
+        suggestions.forEach((suggestion, index) => {{
             suggestion.classList.toggle('focused', index === focusedSuggestion);
-        });
-        if (focusedSuggestion >= 0) { suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' }); }
-    }
-    document.addEventListener('click', function(e) {
-        if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+        }});
+        if (focusedSuggestion >= 0) {{
+            suggestions[focusedSuggestion].scrollIntoView({{ block: 'nearest' }});
+        }}
+    }}
+
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', function(e) {{
+        if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {{
             suggestionsList.style.display = 'none';
             focusedSuggestion = -1;
-        }
-    });
+        }}
+    }});
+
+    // Winery grid scroll indicators
+    const wineryGrid = document.querySelector('.winery-grid');
+    const wineryPrev = document.querySelector('.winery-prev');
+    const wineryNext = document.querySelector('.winery-next');
+    function updateWineryScrollIndicators() {{
+        const scrollLeft = wineryGrid.scrollLeft;
+        const scrollWidth = wineryGrid.scrollWidth;
+        const clientWidth = wineryGrid.clientWidth;
+        wineryGrid.classList.toggle('has-left', scrollLeft > 0);
+        wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
+        if (wineryPrev && wineryNext) {{
+            wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
+            wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
+        }}
+    }}
+    if (wineryGrid) {{
+        wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
+        window.addEventListener('resize', updateWineryScrollIndicators);
+        updateWineryScrollIndicators();
+    }}
+    if (wineryPrev && wineryNext) {{
+        wineryPrev.addEventListener('click', () => {{ wineryGrid.scrollBy({{ left: -150, behavior: 'smooth' }}); }});
+        wineryNext.addEventListener('click', () => {{ wineryGrid.scrollBy({{ left: 150, behavior: 'smooth' }}); }});
+    }}
     const wineryGrid = document.querySelector('.winery-grid');
     const wineryPrev = document.querySelector('.winery-prev');
     const wineryNext = document.querySelector('.winery-next');
