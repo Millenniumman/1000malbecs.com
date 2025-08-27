@@ -553,7 +553,6 @@ if (wineryPrev && wineryNext) {
   wineryPrev.addEventListener('click', () => wineryGrid.scrollBy({ left: -150, behavior: 'smooth' }));
   wineryNext.addEventListener('click', () => wineryGrid.scrollBy({ left: 150, behavior: 'smooth' }));
 }
-
 // Search functionality
 const searchInput = document.querySelector('.search-input');
 const suggestionsList = document.querySelector('.search-suggestions');
@@ -568,17 +567,6 @@ const labels = {
   en: { winery: 'Winery', province: 'Province', region: 'Region' },
   de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
 };
-
-// Function to clean wine name for URL
-function cleanWineName(name) {
-  return name
-    .toLowerCase()
-    .normalize('NFD') // Normalize accents
-    .replace(/[\u0300-\u036f]/g, '') // Remove accents
-    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-'); // Replace multiple hyphens with single hyphen
-}
 
 // Function to fetch and merge JSON data
 async function loadWines() {
@@ -625,7 +613,7 @@ searchInput.addEventListener('input', function () {
       matches.forEach(wine => {
         const li = document.createElement('li');
         li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
-        li.dataset.wineName = wine.Nombre; // Store the wine name for URL construction
+        li.dataset.url = wine.url; // Use the URL directly from the JSON
         suggestionsList.appendChild(li);
       });
       suggestionsList.style.display = 'block';
@@ -644,9 +632,8 @@ searchInput.addEventListener('input', function () {
 // Handle suggestion clicks
 suggestionsList.addEventListener('click', function (e) {
   const li = e.target.closest('li');
-  if (li && li.dataset.wineName) {
-    const cleanedName = cleanWineName(li.dataset.wineName);
-    window.location.href = `/${currentLang}/vinos/${cleanedName}`;
+  if (li && li.dataset.url) {
+    window.location.href = li.dataset.url; // Redirect to the exact URL from the JSON
   }
 });
 
@@ -666,9 +653,8 @@ searchInput.addEventListener('keydown', function (e) {
     updateFocus(suggestions);
   } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
     e.preventDefault();
-    if (suggestions[focusedSuggestion].dataset.wineName) {
-      const cleanedName = cleanWineName(suggestions[focusedSuggestion].dataset.wineName);
-      window.location.href = `/${currentLang}/vinos/${cleanedName}`;
+    if (suggestions[focusedSuggestion].dataset.url) {
+      window.location.href = suggestions[focusedSuggestion].dataset.url; // Redirect to the exact URL
     }
   }
 });
