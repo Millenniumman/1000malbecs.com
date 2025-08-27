@@ -568,10 +568,10 @@ const labels = {
   de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
 };
 
-// Function to fetch and merge JSON data
+// Function to fetch JSON data
 async function loadWines() {
   try {
-    const jsonPath = `/${currentLang}/data/vinos.json`;
+    const jsonPath = '/data/vinos.json'; // Single JSON file for all languages
     const response = await fetch(jsonPath);
     if (!response.ok) throw new Error(`Failed to fetch ${jsonPath}`);
     const data = await response.json();
@@ -580,6 +580,12 @@ async function loadWines() {
     console.error('Error loading wines:', error);
     return [];
   }
+}
+
+// Function to adjust URL with current language
+function adjustUrlForLanguage(url, lang) {
+  // Replace the language code in the URL (e.g., /es/vinos/... -> /en/vinos/...)
+  return url.replace(/\/(es|en|de)\//, `/${lang}/`);
 }
 
 // Load wines when the page loads
@@ -613,7 +619,7 @@ searchInput.addEventListener('input', function () {
       matches.forEach(wine => {
         const li = document.createElement('li');
         li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
-        li.dataset.url = wine.url; // Use the URL directly from the JSON
+        li.dataset.url = adjustUrlForLanguage(wine.url, currentLang); // Adjust URL for current language
         suggestionsList.appendChild(li);
       });
       suggestionsList.style.display = 'block';
@@ -633,7 +639,7 @@ searchInput.addEventListener('input', function () {
 suggestionsList.addEventListener('click', function (e) {
   const li = e.target.closest('li');
   if (li && li.dataset.url) {
-    window.location.href = li.dataset.url; // Redirect to the exact URL from the JSON
+    window.location.href = li.dataset.url; // Redirect to the adjusted URL
   }
 });
 
@@ -654,7 +660,7 @@ searchInput.addEventListener('keydown', function (e) {
   } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
     e.preventDefault();
     if (suggestions[focusedSuggestion].dataset.url) {
-      window.location.href = suggestions[focusedSuggestion].dataset.url; // Redirect to the exact URL
+      window.location.href = suggestions[focusedSuggestion].dataset.url; // Redirect to the adjusted URL
     }
   }
 });
