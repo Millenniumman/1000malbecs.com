@@ -32,9 +32,10 @@
             min-height: 100vh;
         }
         main {
-            margin: 0;
+            margin: 0 auto;
             padding: 20px;
             width: 100%;
+            max-width: 1280px;
             flex: 1;
         }
         .banner-central {
@@ -78,9 +79,8 @@
             margin-bottom: 40px;
             width: 100%;
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: start;
+            margin: 0 auto;
+            justify-content: center;
         }
         .winery-card, .product-card {
             background-color: #FFFFFF;
@@ -238,10 +238,11 @@
             main {
                 margin-top: 60px;
                 padding: 10px;
-                width: 100%;
+                max-width: 100%;
             }
             .banner-central {
                 margin: -15px auto 20px;
+                max-width: 100%;
             }
             .banner-central img {
                 height: 200px;
@@ -256,6 +257,7 @@
             .winery-grid, .product-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
+                max-width: 100%;
             }
             .winery-card, .product-card {
                 width: 100%;
@@ -354,7 +356,7 @@
                 grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
                 max-width: 1200px;
-                justify-content: start;
+                justify-content: center;
             }
             .winery-card, .product-card {
                 pointer-events: auto;
@@ -504,7 +506,7 @@
         <div class="product-grid">
             <div class="product-card" data-overlay-id="catena-zapata-malbec-argentino">
                 <div class="image-container">
-                    <img src="/images/small/catena-zapata-malbec-argentino-2020.jpg" alt="Botella de Catena Zapata Malbec Argentino 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <img src="/images/small/catena-zapata-malbec-argentino-2021.jpg" alt="Botella de Catena Zapata Malbec Argentino 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
                 <div class="info-icon" data-overlay-id="catena-zapata-malbec-argentino">🍷</div>
                 <div class="overlay" data-overlay-id="catena-zapata-malbec-argentino">
@@ -512,27 +514,27 @@
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> Luján de Cuyo</p>
                     <p><strong>Altitud:</strong> 920 m</p>
-                    <p><strong>Año:</strong> 2020</p>
-                </div>
-                <h3>Catena Zapata Malbec Argentino - 2020</h3>
-                <p class="price">€99.99</p>
-                <a href="/es/vinos/catena-zapata-malbec-argentino-2020.html" class="buy-button">Comprar Ahora</a>
-            </div>
-            <div class="product-card" data-overlay-id="caro-amalaya-malbec">
-                <div class="image-container">
-                    <img src="/images/small/caro-amalaya-malbec-2021.jpg" alt="Botella de Caro Amalaya Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="caro-amalaya-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="caro-amalaya-malbec">
-                    <p><strong>Bodega:</strong> Caro</p>
-                    <p><strong>Provincia:</strong> Salta</p>
-                    <p><strong>Región:</strong> Valle Calchaquí</p>
-                    <p><strong>Altitud:</strong> 1700 m</p>
                     <p><strong>Año:</strong> 2021</p>
                 </div>
-                <h3>Caro Amalaya Malbec - 2021</h3>
-                <p class="price">€85.00</p>
-                <a href="/es/vinos/caro-amalaya-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+                <h3>Catena Zapata Malbec Argentino - 2021</h3>
+                <p class="price">€95.00</p>
+                <a href="/es/vinos/catena-zapata-malbec-argentino-2021.html" class="buy-button">Comprar Ahora</a>
+            </div>
+            <div class="product-card" data-overlay-id="caro-2021">
+                <div class="image-container">
+                    <img src="/images/small/caro-2021.jpg" alt="Botella de Caro 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="caro-2021">🍷</div>
+                <div class="overlay" data-overlay-id="caro-2021">
+                    <p><strong>Bodega:</strong> Caro</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> Luján de Cuyo</p>
+                    <p><strong>Altitud:</strong> 1000 m</p>
+                    <p><strong>Año:</strong> 2021</p>
+                </div>
+                <h3>Caro - 2021</h3>
+                <p class="price">€80.00</p>
+                <a href="/es/vinos/caro-2021.html" class="buy-button">Comprar Ahora</a>
             </div>
             <div class="product-card" data-overlay-id="kaiken-ultra-malbec">
                 <div class="image-container">
@@ -547,72 +549,72 @@
                     <p><strong>Año:</strong> 2022</p>
                 </div>
                 <h3>Kaiken Ultra Malbec - 2022</h3>
-                <p class="price">€75.00</p>
+                <p class="price">€70.00</p>
                 <a href="/es/vinos/kaiken-ultra-malbec-2022.html" class="buy-button">Comprar Ahora</a>
             </div>
-            <div class="product-card" data-overlay-id="colome-lote-especial">
+            <div class="product-card" data-overlay-id="colome-lote-especial-malbec">
                 <div class="image-container">
-                    <img src="/images/small/colome-lote-especial-malbec-2021.jpg" alt="Botella de Colomé Lote Especial Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <img src="/images/small/colome-lote-especial-malbec-2022.jpg" alt="Botella de Colomé Lote Especial Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
-                <div class="info-icon" data-overlay-id="colome-lote-especial">🍷</div>
-                <div class="overlay" data-overlay-id="colome-lote-especial">
+                <div class="info-icon" data-overlay-id="colome-lote-especial-malbec">🍷</div>
+                <div class="overlay" data-overlay-id="colome-lote-especial-malbec">
                     <p><strong>Bodega:</strong> Colomé</p>
                     <p><strong>Provincia:</strong> Salta</p>
                     <p><strong>Región:</strong> Valle Calchaquí</p>
                     <p><strong>Altitud:</strong> 2300 m</p>
-                    <p><strong>Año:</strong> 2021</p>
+                    <p><strong>Año:</strong> 2022</p>
                 </div>
-                <h3>Colomé Lote Especial Malbec - 2021</h3>
-                <p class="price">€65.00</p>
-                <a href="/es/vinos/colome-lote-especial-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+                <h3>Colomé Lote Especial Malbec - 2022</h3>
+                <p class="price">€60.00</p>
+                <a href="/es/vinos/colome-lote-especial-malbec-2022.html" class="buy-button">Comprar Ahora</a>
             </div>
-            <div class="product-card" data-overlay-id="dieter-meier-puro">
+            <div class="product-card" data-overlay-id="dieter-meier-puro-malbec">
                 <div class="image-container">
-                    <img src="/images/small/dieter-meier-puro-malbec-2022.jpg" alt="Botella de Dieter Meier Puro Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <img src="/images/small/dieter-meier-puro-malbec-2023.jpg" alt="Botella de Dieter Meier Puro Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
-                <div class="info-icon" data-overlay-id="dieter-meier-puro">🍷</div>
-                <div class="overlay" data-overlay-id="dieter-meier-puro">
+                <div class="info-icon" data-overlay-id="dieter-meier-puro-malbec">🍷</div>
+                <div class="overlay" data-overlay-id="dieter-meier-puro-malbec">
                     <p><strong>Bodega:</strong> Dieter Meier</p>
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> Luján de Cuyo</p>
                     <p><strong>Altitud:</strong> 1000 m</p>
-                    <p><strong>Año:</strong> 2022</p>
+                    <p><strong>Año:</strong> 2023</p>
                 </div>
-                <h3>Dieter Meier Puro Malbec - 2022</h3>
-                <p class="price">€55.00</p>
-                <a href="/es/vinos/dieter-meier-puro-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+                <h3>Dieter Meier Puro Malbec - 2023</h3>
+                <p class="price">€50.00</p>
+                <a href="/es/vinos/dieter-meier-puro-malbec-2023.html" class="buy-button">Comprar Ahora</a>
             </div>
-            <div class="product-card" data-overlay-id="catena-zapata-adrianna">
+            <div class="product-card" data-overlay-id="catena-zapata-dv-catena-malbec">
                 <div class="image-container">
-                    <img src="/images/small/catena-zapata-adrianna-vineyard-2019.jpg" alt="Botella de Catena Zapata Adrianna Vineyard Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <img src="/images/small/catena-zapata-dv-catena-malbec-2022.jpg" alt="Botella de Catena Zapata D.V. Catena Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
-                <div class="info-icon" data-overlay-id="catena-zapata-adrianna">🍷</div>
-                <div class="overlay" data-overlay-id="catena-zapata-adrianna">
+                <div class="info-icon" data-overlay-id="catena-zapata-dv-catena-malbec">🍷</div>
+                <div class="overlay" data-overlay-id="catena-zapata-dv-catena-malbec">
                     <p><strong>Bodega:</strong> Catena Zapata</p>
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> Valle de Uco</p>
                     <p><strong>Altitud:</strong> 1450 m</p>
-                    <p><strong>Año:</strong> 2019</p>
+                    <p><strong>Año:</strong> 2022</p>
                 </div>
-                <h3>Catena Zapata Adrianna Vineyard Malbec - 2019</h3>
-                <p class="price">€45.00</p>
-                <a href="/es/vinos/catena-zapata-adrianna-vineyard-2019.html" class="buy-button">Comprar Ahora</a>
+                <h3>Catena Zapata D.V. Catena Malbec - 2022</h3>
+                <p class="price">€40.00</p>
+                <a href="/es/vinos/catena-zapata-dv-catena-malbec-2022.html" class="buy-button">Comprar Ahora</a>
             </div>
-            <div class="product-card" data-overlay-id="amalaya-gran-corte">
+            <div class="product-card" data-overlay-id="amalaya-malbec">
                 <div class="image-container">
-                    <img src="/images/small/amalaya-gran-corte-malbec-2022.jpg" alt="Botella de Amalaya Gran Corte Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Botella de Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
-                <div class="info-icon" data-overlay-id="amalaya-gran-corte">🍷</div>
-                <div class="overlay" data-overlay-id="amalaya-gran-corte">
+                <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
+                <div class="overlay" data-overlay-id="amalaya-malbec">
                     <p><strong>Bodega:</strong> Amalaya</p>
                     <p><strong>Provincia:</strong> Salta</p>
                     <p><strong>Región:</strong> Valle Calchaquí</p>
                     <p><strong>Altitud:</strong> 1800 m</p>
-                    <p><strong>Año:</strong> 2022</p>
+                    <p><strong>Año:</strong> 2023</p>
                 </div>
-                <h3>Amalaya Gran Corte Malbec - 2022</h3>
-                <p class="price">€35.00</p>
-                <a href="/es/vinos/amalaya-gran-corte-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+                <h3>Amalaya Malbec - 2023</h3>
+                <p class="price">€30.00</p>
+                <a href="/es/vinos/amalaya-malbec-2023.html" class="buy-button">Comprar Ahora</a>
             </div>
             <div class="product-card" data-overlay-id="kaiken-estate-malbec">
                 <div class="image-container">
@@ -627,7 +629,7 @@
                     <p><strong>Año:</strong> 2023</p>
                 </div>
                 <h3>Kaiken Estate Malbec - 2023</h3>
-                <p class="price">€25.00</p>
+                <p class="price">€20.00</p>
                 <a href="/es/vinos/kaiken-estate-malbec-2023.html" class="buy-button">Comprar Ahora</a>
             </div>
         </div>
