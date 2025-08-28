@@ -31,74 +31,10 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        .header {
-            top: 50px;
-            z-index: 120;
-        }
-        .logo { max-width: 150px; height: auto; }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: #4A2C59;
-            cursor: pointer;
-            padding: 10px;
-            position: fixed;
-            top: 15px;
-            left: 10px;
-            z-index: 130;
-        }
-        #sidebar {
-            width: 250px;
-            background-color: #F8F8F8;
-            padding: 20px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-            border-right: 1px solid #E0E0E0;
-            z-index: 100;
-            transition: transform 0.3s ease;
-        }
-        .logo-container { text-align: center; margin-bottom: 20px; }
-        #sidebar h2 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #4A2C59;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        #sidebar details { margin-bottom: 15px; }
-        #sidebar details:first-of-type { margin-bottom: 25px; }
-        #sidebar summary {
-            font-size: 16px;
-            font-weight: 500;
-            color: #4A2C59;
-            cursor: pointer;
-            padding: 5px 0;
-            display: flex;
-            align-items: center;
-        }
-        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
-        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
-        #sidebar li { margin: 5px 0; }
-        .nav-link {
-            font-size: 14px;
-            color: #4A2C59;
-            text-decoration: none;
-            display: block;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
-        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
         main {
-            margin-left: 290px;
+            margin: 0;
             padding: 20px;
-            width: calc(100% - 290px);
+            width: 100%;
             flex: 1;
         }
         .banner-central {
@@ -141,6 +77,9 @@
             gap: 30px;
             margin-bottom: 40px;
             width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
             justify-content: start;
         }
         .winery-card, .product-card {
@@ -162,46 +101,22 @@
             box-sizing: border-box;
             width: 100%;
         }
-        .winery-card img, .product-card img {
+        .winery-card .image-container, .product-card .image-container {
             width: 200px;
             height: 200px;
-            object-fit: contain;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0 auto;
+            background-color: #f8f8f8;
         }
-        /* Add a wrapper for images to control size and positioning */
-.winery-card .image-container, .product-card .image-container {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    background-color: #f8f8f8; /* Optional: Background for empty space */
-}
-
-/* Style the images inside the container */
-.winery-card .image-container img, .product-card .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crop images to fill the container */
-    object-position: center; /* Center the image */
-}
-
-/* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-    .winery-card .image-container, .product-card .image-container {
-        width: 140px;
-        height: 140px;
-    }
-
-    .winery-card .image-container img, .product-card .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-}
+        .winery-card .image-container img, .product-card .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
         .info-icon {
             position: absolute;
             top: 10px;
@@ -319,79 +234,8 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
-        footer {
-            background-color: #F8F8F8;
-            padding: 15px;
-            text-align: center;
-            border-top: 1px solid #E0E0E0;
-            width: 100%;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-            color: #4A2C59;
-        }
-        .footer-content a {
-            color: #4A2C59;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer-content a:hover {
-            color: #7B4F8C;
-        }
-        .social-icon {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-        .fa-whatsapp {
-            font-size: 20px;
-            color: #25D366;
-            margin-right: 5px;
-        }
         @media (max-width: 768px) {
-            body { display: block; }
-            .header {
-                top: 10px;
-                left: auto;
-                right: 10px;
-                display: flex;
-                justify-content: flex-end;
-                z-index: 120;
-            }
-            .logo {
-                max-width: 80px !important;
-                height: auto !important;
-                display: block;
-            }
-            .hamburger {
-                display: block !important;
-                z-index: 130;
-            }
-            #sidebar {
-                width: 100%;
-                height: 100vh;
-                position: fixed;
-                top: 0;
-                left: 0;
-                transform: translateX(-100%);
-                z-index: 100;
-                border-bottom: 1px solid #E0E0E0;
-                padding-top: 50px;
-                padding-bottom: 20px;
-                overflow-y: auto;
-                box-sizing: border-box;
-            }
-            #sidebar.open {
-                transform: translateX(0);
-            }
-            .logo-container { display: none; }
             main {
-                margin-left: 0;
                 margin-top: 60px;
                 padding: 10px;
                 width: 100%;
@@ -424,10 +268,15 @@
                 position: relative;
                 align-items: center;
             }
-            .winery-card img, .product-card img {
+            .winery-card .image-container, .product-card .image-container {
                 width: 140px;
                 height: 140px;
-                margin: 0 auto;
+            }
+            .winery-card .image-container img, .product-card .image-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
             }
             .winery-card h3, .product-card h3 {
                 font-size: 14px;
@@ -500,10 +349,7 @@
             }
         }
         @media (min-width: 769px) {
-            .header { display: none; }
-            .logo-container { display: block; }
             .info-icon { display: none; }
-            .hamburger { display: none; }
             .winery-grid, .product-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
@@ -522,7 +368,7 @@
                 align-items: center;
                 box-sizing: border-box;
             }
-            .winery-card img, .product-card img {
+            .winery-card .image-container img, .product-card .image-container img {
                 width: 200px;
                 height: 200px;
                 margin: 0 auto;
@@ -536,67 +382,6 @@
         <a href="/de/bodegas.html" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
         <a href="/en/bodegas.html" data-lang="en" aria-label="Inglés">EN 🇬🇧</a>
     </div>
-    <header class="header">
-        <a href="/es/" title="Volver al inicio">
-            <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
-        </a>
-    </header>
-    <button class="hamburger">☰</button>
-    <nav id="sidebar">
-        <div class="logo-container">
-            <a href="/es/" title="Volver al inicio">
-                <img src="/images/l000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
-            </a>
-        </div>
-        <h2>Categorías</h2>
-        <details>
-            <summary><i class="fas fa-map-marker-alt"></i> Provincias</summary>
-            <ul>
-                <li><a href="/es/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-                <li><a href="/es/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-                <li><a href="/es/provincias/neuquen.html" class="nav-link">Neuquén</a></li>
-                <li><a href="/es/provincias/salta.html" class="nav-link">Salta</a></li>
-            </ul>
-        </details>
-        <details>
-            <summary><i class="fas fa-wine-bottle"></i> Bodegas</summary>
-            <ul>
-                <li><a href="/es/bodegas.html" class="nav-link active">Todas las Bodegas</a></li>
-                <li><a href="/es/bodegas/agustin-lanus.html" class="nav-link">Agustín Lanús</a></li>
-                <li><a href="/es/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
-                <li><a href="/es/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
-                <li><a href="/es/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
-                <li><a href="/es/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
-                <li><a href="/es/bodegas/bodega-septima.html" class="nav-link">Bodega Séptima</a></li>
-                <li><a href="/es/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
-                <li><a href="/es/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
-                <li><a href="/es/bodegas/bodegas-etchart.html" class="nav-link">Bodegas Etchart</a></li>
-                <li><a href="/es/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
-                <li><a href="/es/bodegas/chakana.html" class="nav-link">Chakana</a></li>
-                <li><a href="/es/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
-                <li><a href="/es/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
-                <li><a href="/es/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
-                <li><a href="/es/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
-                <li><a href="/es/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
-                <li><a href="/es/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
-                <li><a href="/es/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
-                <li><a href="/es/bodegas/vina-alicia.html" class="nav-link">Viña Alicia</a></li>
-                <li><a href="/es/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
-            </ul>
-        </details>
-        <details>
-            <summary><i class="fas fa-globe"></i> País</summary>
-            <ul>
-                <li><a href="/es/argentina.html" class="nav-link">Argentina</a></li>
-            </ul>
-        </details>
-        <details>
-            <summary><i class="fas fa-calendar-alt"></i> Eventos</summary>
-            <ul>
-                <li><a href="/es/eventos/eventos.html" class="nav-link">Ver Eventos</a></li>
-            </ul>
-        </details>
-    </nav>
     <main>
         <div class="banner-central">
             <picture>
@@ -608,246 +393,246 @@
             <h1>Bodegas de Argentina</h1>
             <p>Las bodegas argentinas son el alma del Malbec, combinando tradición, innovación y paisajes únicos. Desde las alturas de Salta hasta los valles de Mendoza, cada bodega cuenta una historia de pasión por el vino. Explora nuestra selección de bodegas destacadas y sus vinos excepcionales.</p>
         </div>
-      <h3 class="section-title">Bodegas Destacadas</h3>
-<div class="winery-grid">
-    <div class="winery-card" data-overlay-id="bodega-tukma">
-        <div class="image-container">
-            <img src="/images/bodegas/bodega-tukma-1.jpg" alt="Bodega Tukma" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="bodega-tukma">🏬</div>
-        <div class="overlay" data-overlay-id="bodega-tukma">
-            <p><strong>Provincia:</strong> Salta</p>
-            <p><strong>Región:</strong> Valle Calchaquí</p>
-            <p><strong>Altitud:</strong> 1700 m</p>
-        </div>
-        <h3>Bodega Tukma</h3>
-        <a href="/es/bodegas/bodega-tukma.html" class="explore-button">Explorar</a>
-    </div>
-    <div class="winery-card" data-overlay-id="jorge-rubio">
-        <div class="image-container">
-            <img src="/images/bodegas/jorge-rubio-1.jpg" alt="Jorge Rubio" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="jorge-rubio">🏬</div>
-        <div class="overlay" data-overlay-id="jorge-rubio">
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Maipú</p>
-            <p><strong>Altitud:</strong> 800 m</p>
-        </div>
-        <h3>Jorge Rubio</h3>
-        <a href="/es/bodegas/jorge-rubio.html" class="explore-button">Explorar</a>
-    </div>
-    <div class="winery-card" data-overlay-id="bodega-goyenechea">
-        <div class="image-container">
-            <img src="/images/bodegas/bodega-goyenechea-1.jpg" alt="Bodega Goyenechea" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="bodega-goyenechea">🏬</div>
-        <div class="overlay" data-overlay-id="bodega-goyenechea">
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> San Rafael</p>
-            <p><strong>Altitud:</strong> 520 m</p>
-        </div>
-        <h3>Bodega Goyenechea</h3>
-        <a href="/es/bodegas/bodega-goyenechea.html" class="explore-button">Explorar</a>
-    </div>
-    <div class="winery-card" data-overlay-id="familia-schroeder">
-        <div class="image-container">
-            <img src="/images/bodegas/familia-schroeder-1.jpg" alt="Familia Schroeder" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="familia-schroeder">🏬</div>
-        <div class="overlay" data-overlay-id="familia-schroeder">
-            <p><strong>Provincia:</strong> Neuquén</p>
-            <p><strong>Región:</strong> Patagonia</p>
-            <p><strong>Altitud:</strong> 300 m</p>
-        </div>
-        <h3>Familia Schroeder</h3>
-        <a href="/es/bodegas/familia-schroeder.html" class="explore-button">Explorar</a>
-    </div>
-</div>
-<div class="winery-grid">
-    <div class="winery-card" data-overlay-id="bodega-chanarmuyo">
-        <div class="image-container">
-            <img src="/images/bodegas/bodega-chanarmuyo-1.jpg" alt="Bodega Chañarmuyo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="bodega-chanarmuyo">🏬</div>
-        <div class="overlay" data-overlay-id="bodega-chanarmuyo">
-            <p><strong>Provincia:</strong> La Rioja</p>
-            <p><strong>Región:</strong> Valle de Chañarmuyo</p>
-            <p><strong>Altitud:</strong> 1700 m</p>
-        </div>
-        <h3>Bodega Chañarmuyo</h3>
-        <a href="/es/bodegas/bodega-chanarmuyo.html" class="explore-button">Explorar</a>
-    </div>
-    <div class="winery-card" data-overlay-id="luigi-bosca">
-        <div class="image-container">
-            <img src="/images/bodegas/luigi-bosca-1.jpg" alt="Luigi Bosca" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="luigi-bosca">🏬</div>
-        <div class="overlay" data-overlay-id="luigi-bosca">
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altitud:</strong> 960 m</p>
-        </div>
-        <h3>Luigi Bosca</h3>
-        <a href="/es/bodegas/luigi-bosca.html" class="explore-button">Explorar</a>
-    </div>
-    <div class="winery-card" data-overlay-id="bodegas-bianchi">
-        <div class="image-container">
-            <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Bodegas Bianchi" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="bodegas-bianchi">🏬</div>
-        <div class="overlay" data-overlay-id="bodegas-bianchi">
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> San Rafael</p>
-            <p><strong>Altitud:</strong> 750 m</p>
-        </div>
-        <h3>Bodegas Bianchi</h3>
-        <a href="/es/bodegas/bodegas-bianchi.html" class="explore-button">Explorar</a>
-    </div>
-    <div class="winery-card" data-overlay-id="bodega-septima">
-        <div class="image-container">
-            <img src="/images/bodegas/bodega-septima-1.jpg" alt="Bodega Séptima" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-        </div>
-        <div class="info-icon" data-overlay-id="bodega-septima">🏬</div>
-        <div class="overlay" data-overlay-id="bodega-septima">
-            <p><strong>Provincia:</strong> Mendoza</p>
-            <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Altitud:</strong> 1050 m</p>
-        </div>
-        <h3>Bodega Séptima</h3>
-        <a href="/es/bodegas/bodega-septima.html" class="explore-button">Explorar</a>
-    </div>
-</div>
-        <h3 class="section-title">Vinos de Otras Bodegas</h3>
-        <div class="product-grid">
-            <div class="product-card" data-overlay-id="casa-araujo-nucha">
-                <img src="/images/small/nucha-2023.jpg" alt="Botella de Nucha 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="casa-araujo-nucha">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-nucha">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 m</p>
+        <h3 class="section-title">Bodegas Destacadas</h3>
+        <div class="winery-grid">
+            <div class="winery-card" data-overlay-id="bodega-foster-lorca">
+                <div class="image-container">
+                    <img src="/images/bodegas/bodega-foster-lorca-1.jpg" alt="Bodega Foster Lorca" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
-                <h3>Nucha Malbec Orgánico - 2023</h3>
-                <p class="price">€12.99</p>
-                <a href="/es/vinos/nucha-2023.html" class="buy-button">Comprar Ahora</a>
-            </div>
-            <div class="product-card" data-overlay-id="agustin-lanus">
-                <img src="/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Botella de Agustín Lanús Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="agustin-lanus">🍷</div>
-                <div class="overlay" data-overlay-id="agustin-lanus">
-                    <p><strong>Bodega:</strong> Agustín Lanús</p>
-                    <p><strong>Provincia:</strong> Salta</p>
-                    <p><strong>Región:</strong> Valle Calchaquí</p>
-                    <p><strong>Altitud:</strong> 2300 m</p>
-                </div>
-                <h3>Bad Brothers Malbec Premium - 2020</h3>
-                <p class="price">€24.99</p>
-                <a href="/es/vinos/bad-brothers-malbec-premium-2020.html" class="buy-button">Comprar Ahora</a>
-            </div>
-            <div class="product-card" data-overlay-id="bodega-foster-lorca">
-                <img src="/images/small/gran-potico-malbec-2013.jpg" alt="Botella de Foster Lorca Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="bodega-foster-lorca">🍷</div>
+                <div class="info-icon" data-overlay-id="bodega-foster-lorca">🏬</div>
                 <div class="overlay" data-overlay-id="bodega-foster-lorca">
-                    <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> Luján de Cuyo</p>
                     <p><strong>Altitud:</strong> 1000 m</p>
                 </div>
-                <h3>Gran Poético Malbec - 2013</h3>
-                <p class="price">€17.99</p>
-                <a href="/es/vinos/gran-potico-malbec-2013.html" class="buy-button">Comprar Ahora</a>
+                <h3>Bodega Foster Lorca</h3>
+                <a href="/es/bodegas/bodega-foster-lorca.html" class="explore-button">Explorar</a>
             </div>
-            <div class="product-card" data-overlay-id="bodegas-etchart">
-                <img src="/images/small/amar-vivir-malbec-2020.jpg" alt="Botella de Etchart Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="bodegas-etchart">🍷</div>
-                <div class="overlay" data-overlay-id="bodegas-etchart">
-                    <p><strong>Bodega:</strong> Bodegas Etchart</p>
-                    <p><strong>Provincia:</strong> Salta</p>
-                    <p><strong>Región:</strong> Cafayate</p>
-                    <p><strong>Altitud:</strong> 1750 m</p>
+            <div class="winery-card" data-overlay-id="bodegas-bianchi">
+                <div class="image-container">
+                    <img src="/images/bodegas/bodegas-bianchi-1.jpg" alt="Bodegas Bianchi" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
-                <h3>Amar Vivir Malbec - 2020</h3>
-                <p class="price">€14.49</p>
-                <a href="/es/vinos/amar-vivir-malbec-2020.html" class="buy-button">Comprar Ahora</a>
+                <div class="info-icon" data-overlay-id="bodegas-bianchi">🏬</div>
+                <div class="overlay" data-overlay-id="bodegas-bianchi">
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> San Rafael</p>
+                    <p><strong>Altitud:</strong> 750 m</p>
+                </div>
+                <h3>Bodegas Bianchi</h3>
+                <a href="/es/bodegas/bodegas-bianchi.html" class="explore-button">Explorar</a>
             </div>
-        </div>
-        <div class="product-grid">
-            <div class="product-card" data-overlay-id="chakana">
-                <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Botella de Chakana Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="chakana">🍷</ estate
-                <div class="overlay" data-overlay-id="chakana">
-                    <p><strong>Bodega:</strong> Chakana</p>
+            <div class="winery-card" data-overlay-id="luigi-bosca">
+                <div class="image-container">
+                    <img src="/images/bodegas/luigi-bosca-1.jpg" alt="Luigi Bosca" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="luigi-bosca">🏬</div>
+                <div class="overlay" data-overlay-id="luigi-bosca">
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> Luján de Cuyo</p>
-                    <p><strong>Altitud:</strong> 950 m</p>
+                    <p><strong>Altitud:</strong> 960 m</p>
                 </div>
-                <h3>Chakana Nuna Malbec Bio - 2022</h3>
-                <p class="price">€13.99</p>
-                <a href="/es/vinos/chakana-nuna-malbec-bio-2022.html" class="buy-button">Comprar Ahora</a>
+                <h3>Luigi Bosca</h3>
+                <a href="/es/bodegas/luigi-bosca.html" class="explore-button">Explorar</a>
             </div>
-            <div class="product-card" data-overlay-id="cicchitti">
-                <img src="/images/small/cicchitti-malbec-2021.jpg" alt="Botella de Cicchitti Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="cicchitti">🍷</div>
-                <div class="overlay" data-overlay-id="cicchitti">
-                    <p><strong>Bodega:</strong> Cicchitti</p>
+            <div class="winery-card" data-overlay-id="bodega-septima">
+                <div class="image-container">
+                    <img src="/images/bodegas/bodega-septima-1.jpg" alt="Bodega Séptima" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="bodega-septima">🏬</div>
+                <div class="overlay" data-overlay-id="bodega-septima">
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> Luján de Cuyo</p>
+                    <p><strong>Altitud:</strong> 1050 m</p>
+                </div>
+                <h3>Bodega Séptima</h3>
+                <a href="/es/bodegas/bodega-septima.html" class="explore-button">Explorar</a>
+            </div>
+            <div class="winery-card" data-overlay-id="bodega-tukma">
+                <div class="image-container">
+                    <img src="/images/bodegas/bodega-tukma-1.jpg" alt="Bodega Tukma" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="bodega-tukma">🏬</div>
+                <div class="overlay" data-overlay-id="bodega-tukma">
+                    <p><strong>Provincia:</strong> Salta</p>
+                    <p><strong>Región:</strong> Valle Calchaquí</p>
+                    <p><strong>Altitud:</strong> 1700 m</p>
+                </div>
+                <h3>Bodega Tukma</h3>
+                <a href="/es/bodegas/bodega-tukma.html" class="explore-button">Explorar</a>
+            </div>
+            <div class="winery-card" data-overlay-id="familia-schroeder">
+                <div class="image-container">
+                    <img src="/images/bodegas/familia-schroeder-1.jpg" alt="Familia Schroeder" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="familia-schroeder">🏬</div>
+                <div class="overlay" data-overlay-id="familia-schroeder">
+                    <p><strong>Provincia:</strong> Neuquén</p>
+                    <p><strong>Región:</strong> Patagonia</p>
+                    <p><strong>Altitud:</strong> 300 m</p>
+                </div>
+                <h3>Familia Schroeder</h3>
+                <a href="/es/bodegas/familia-schroeder.html" class="explore-button">Explorar</a>
+            </div>
+            <div class="winery-card" data-overlay-id="bodega-chanarmuyo">
+                <div class="image-container">
+                    <img src="/images/bodegas/bodega-chanarmuyo-1.jpg" alt="Bodega Chañarmuyo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="bodega-chanarmuyo">🏬</div>
+                <div class="overlay" data-overlay-id="bodega-chanarmuyo">
+                    <p><strong>Provincia:</strong> La Rioja</p>
+                    <p><strong>Región:</strong> Valle de Chañarmuyo</p>
+                    <p><strong>Altitud:</strong> 1700 m</p>
+                </div>
+                <h3>Bodega Chañarmuyo</h3>
+                <a href="/es/bodegas/bodega-chanarmuyo.html" class="explore-button">Explorar</a>
+            </div>
+            <div class="winery-card" data-overlay-id="jorge-rubio">
+                <div class="image-container">
+                    <img src="/images/bodegas/jorge-rubio-1.jpg" alt="Jorge Rubio" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="jorge-rubio">🏬</div>
+                <div class="overlay" data-overlay-id="jorge-rubio">
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> Maipú</p>
-                    <p><strong>Altitud:</strong> 860 m</p>
+                    <p><strong>Altitud:</strong> 800 m</p>
                 </div>
-                <h3>Cicchitti Malbec - 2021</h3>
-                <p class="price">€16.99</p>
-                <a href="/es/vinos/cicchitti-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+                <h3>Jorge Rubio</h3>
+                <a href="/es/bodegas/jorge-rubio.html" class="explore-button">Explorar</a>
             </div>
-            <div class="product-card" data-overlay-id="eral-bravo">
-                <img src="/images/small/eral-bravo-malbec-2017.jpg" alt="Botella de Eral Bravo Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="eral-bravo">🍷</div>
-                <div class="overlay" data-overlay-id="eral-bravo">
-                    <p><strong>Bodega:</strong> Eral Bravo</p>
+        </div>
+        <h3 class="section-title">Vinos de Otras Bodegas</h3>
+        <div class="product-grid">
+            <div class="product-card" data-overlay-id="catena-zapata-malbec-argentino">
+                <div class="image-container">
+                    <img src="/images/small/catena-zapata-malbec-argentino-2020.jpg" alt="Botella de Catena Zapata Malbec Argentino 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="catena-zapata-malbec-argentino">🍷</div>
+                <div class="overlay" data-overlay-id="catena-zapata-malbec-argentino">
+                    <p><strong>Bodega:</strong> Catena Zapata</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> Luján de Cuyo</p>
+                    <p><strong>Altitud:</strong> 920 m</p>
+                    <p><strong>Año:</strong> 2020</p>
+                </div>
+                <h3>Catena Zapata Malbec Argentino - 2020</h3>
+                <p class="price">€99.99</p>
+                <a href="/es/vinos/catena-zapata-malbec-argentino-2020.html" class="buy-button">Comprar Ahora</a>
+            </div>
+            <div class="product-card" data-overlay-id="caro-amalaya-malbec">
+                <div class="image-container">
+                    <img src="/images/small/caro-amalaya-malbec-2021.jpg" alt="Botella de Caro Amalaya Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="caro-amalaya-malbec">🍷</div>
+                <div class="overlay" data-overlay-id="caro-amalaya-malbec">
+                    <p><strong>Bodega:</strong> Caro</p>
+                    <p><strong>Provincia:</strong> Salta</p>
+                    <p><strong>Región:</strong> Valle Calchaquí</p>
+                    <p><strong>Altitud:</strong> 1700 m</p>
+                    <p><strong>Año:</strong> 2021</p>
+                </div>
+                <h3>Caro Amalaya Malbec - 2021</h3>
+                <p class="price">€85.00</p>
+                <a href="/es/vinos/caro-amalaya-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+            </div>
+            <div class="product-card" data-overlay-id="kaiken-ultra-malbec">
+                <div class="image-container">
+                    <img src="/images/small/kaiken-ultra-malbec-2022.jpg" alt="Botella de Kaiken Ultra Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="kaiken-ultra-malbec">🍷</div>
+                <div class="overlay" data-overlay-id="kaiken-ultra-malbec">
+                    <p><strong>Bodega:</strong> Kaiken</p>
                     <p><strong>Provincia:</strong> Mendoza</p>
                     <p><strong>Región:</strong> Valle de Uco</p>
                     <p><strong>Altitud:</strong> 1200 m</p>
+                    <p><strong>Año:</strong> 2022</p>
                 </div>
-                <h3>Eral Bravo Malbec - 2017</h3>
-                <p class="price">€21.99</p>
-                <a href="/es/vinos/eral-bravo-malbec-2017.html" class="buy-button">Comprar Ahora</a>
+                <h3>Kaiken Ultra Malbec - 2022</h3>
+                <p class="price">€75.00</p>
+                <a href="/es/vinos/kaiken-ultra-malbec-2022.html" class="buy-button">Comprar Ahora</a>
             </div>
-            <div class="product-card" data-overlay-id="casa-araujo-varietal">
-                <img src="/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
-                     onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
-                <div class="info-icon" data-overlay-id="casa-araujo-varietal">🍷</div>
-                <div class="overlay" data-overlay-id="casa-araujo-varietal">
-                    <p><strong>Bodega:</strong> Casa Araujo</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> San Rafael</p>
-                    <p><strong>Altitud:</strong> 520 msnm</p>
+            <div class="product-card" data-overlay-id="colome-lote-especial">
+                <div class="image-container">
+                    <img src="/images/small/colome-lote-especial-malbec-2021.jpg" alt="Botella de Colomé Lote Especial Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
-                <h3>Casa Araujo Varietal - 2023</h3>
-                <p class="price">€7.99</p>
-                <a href="/es/vinos/casa-araujo-varietal-2023.html" class="buy-button">Comprar Ahora</a>
+                <div class="info-icon" data-overlay-id="colome-lote-especial">🍷</div>
+                <div class="overlay" data-overlay-id="colome-lote-especial">
+                    <p><strong>Bodega:</strong> Colomé</p>
+                    <p><strong>Provincia:</strong> Salta</p>
+                    <p><strong>Región:</strong> Valle Calchaquí</p>
+                    <p><strong>Altitud:</strong> 2300 m</p>
+                    <p><strong>Año:</strong> 2021</p>
+                </div>
+                <h3>Colomé Lote Especial Malbec - 2021</h3>
+                <p class="price">€65.00</p>
+                <a href="/es/vinos/colome-lote-especial-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+            </div>
+            <div class="product-card" data-overlay-id="dieter-meier-puro">
+                <div class="image-container">
+                    <img src="/images/small/dieter-meier-puro-malbec-2022.jpg" alt="Botella de Dieter Meier Puro Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="dieter-meier-puro">🍷</div>
+                <div class="overlay" data-overlay-id="dieter-meier-puro">
+                    <p><strong>Bodega:</strong> Dieter Meier</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> Luján de Cuyo</p>
+                    <p><strong>Altitud:</strong> 1000 m</p>
+                    <p><strong>Año:</strong> 2022</p>
+                </div>
+                <h3>Dieter Meier Puro Malbec - 2022</h3>
+                <p class="price">€55.00</p>
+                <a href="/es/vinos/dieter-meier-puro-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+            </div>
+            <div class="product-card" data-overlay-id="catena-zapata-adrianna">
+                <div class="image-container">
+                    <img src="/images/small/catena-zapata-adrianna-vineyard-2019.jpg" alt="Botella de Catena Zapata Adrianna Vineyard Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="catena-zapata-adrianna">🍷</div>
+                <div class="overlay" data-overlay-id="catena-zapata-adrianna">
+                    <p><strong>Bodega:</strong> Catena Zapata</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> Valle de Uco</p>
+                    <p><strong>Altitud:</strong> 1450 m</p>
+                    <p><strong>Año:</strong> 2019</p>
+                </div>
+                <h3>Catena Zapata Adrianna Vineyard Malbec - 2019</h3>
+                <p class="price">€45.00</p>
+                <a href="/es/vinos/catena-zapata-adrianna-vineyard-2019.html" class="buy-button">Comprar Ahora</a>
+            </div>
+            <div class="product-card" data-overlay-id="amalaya-gran-corte">
+                <div class="image-container">
+                    <img src="/images/small/amalaya-gran-corte-malbec-2022.jpg" alt="Botella de Amalaya Gran Corte Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="amalaya-gran-corte">🍷</div>
+                <div class="overlay" data-overlay-id="amalaya-gran-corte">
+                    <p><strong>Bodega:</strong> Amalaya</p>
+                    <p><strong>Provincia:</strong> Salta</p>
+                    <p><strong>Región:</strong> Valle Calchaquí</p>
+                    <p><strong>Altitud:</strong> 1800 m</p>
+                    <p><strong>Año:</strong> 2022</p>
+                </div>
+                <h3>Amalaya Gran Corte Malbec - 2022</h3>
+                <p class="price">€35.00</p>
+                <a href="/es/vinos/amalaya-gran-corte-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+            </div>
+            <div class="product-card" data-overlay-id="kaiken-estate-malbec">
+                <div class="image-container">
+                    <img src="/images/small/kaiken-estate-malbec-2023.jpg" alt="Botella de Kaiken Estate Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                </div>
+                <div class="info-icon" data-overlay-id="kaiken-estate-malbec">🍷</div>
+                <div class="overlay" data-overlay-id="kaiken-estate-malbec">
+                    <p><strong>Bodega:</strong> Kaiken</p>
+                    <p><strong>Provincia:</strong> Mendoza</p>
+                    <p><strong>Región:</strong> Maipú</p>
+                    <p><strong>Altitud:</strong> 900 m</p>
+                    <p><strong>Año:</strong> 2023</p>
+                </div>
+                <h3>Kaiken Estate Malbec - 2023</h3>
+                <p class="price">€25.00</p>
+                <a href="/es/vinos/kaiken-estate-malbec-2023.html" class="buy-button">Comprar Ahora</a>
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer-content">
-            <span>
-                <i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/+4915158224728" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">+49 151 5822 4728</a>
-            </span>
-            <span>
-                <img src="/images/x-icon.png" alt="X" class="social-icon">
-                <a href="https://x.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en X">@1000malbecs</a>
-            </span>
-            <span>
-                <img src="/images/instagram-icon.png" alt="Instagram" class="social-icon">
-                <a href="https://instagram.com/1000malbecs" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">@1000malbecs</a>
-            </span>
-        </div>
-    </footer>
     <script>
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('open');
-        });
         const languageSelector = document.querySelector('.language-selector');
         if (languageSelector) {
             let lastScrollY = window.scrollY;
@@ -868,12 +653,8 @@
                     const targetLang = link.getAttribute('data-lang');
                     const currentPath = window.location.pathname;
                     let newPath = currentPath;
-                    if (currentPath === '/' || currentPath === '/index.html') {
-                        newPath = `/${targetLang}/index.html`;
-                    } else if (currentPath.match(/\/(es|de|en)(\/|$)/)) {
+                    if (currentPath.match(/\/(es|de|en)(\/|$)/)) {
                         newPath = currentPath.replace(/\/(es|de|en)(\/|$)/, `/${targetLang}/`);
-                    } else if (currentPath.match(/\/(es|de|en)\//)) {
-                        newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
                     } else {
                         newPath = `/${targetLang}${currentPath === '/' ? '' : currentPath}`;
                     }
