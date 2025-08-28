@@ -34,14 +34,16 @@
         main {
             margin: 0 auto;
             padding: 20px;
+            padding-left: 220px; /* Ajustar según el ancho de la barra de navegación */
             width: 100%;
             max-width: 1280px;
             flex: 1;
+            box-sizing: border-box;
         }
         .banner-central {
             position: relative;
             width: 100%;
-            max-width: 1200px;
+            max-width: 900px; /* Reducido para 3 columnas */
             margin: 50px auto 40px;
             overflow: hidden;
         }
@@ -74,11 +76,11 @@
         }
         .winery-grid, .product-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* Cambiado a 3 columnas */
             gap: 30px;
             margin-bottom: 40px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 900px; /* Reducido para 3 columnas */
             margin: 0 auto;
             justify-content: center;
         }
@@ -238,6 +240,7 @@
             main {
                 margin-top: 60px;
                 padding: 10px;
+                padding-left: 10px; /* Sin margen extra en móviles */
                 max-width: 100%;
             }
             .banner-central {
@@ -255,7 +258,7 @@
                 font-size: 22px;
             }
             .winery-grid, .product-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas en móviles */
                 gap: 15px;
                 max-width: 100%;
             }
@@ -353,9 +356,9 @@
         @media (min-width: 769px) {
             .info-icon { display: none; }
             .winery-grid, .product-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas grandes */
                 gap: 30px;
-                max-width: 1200px;
+                max-width: 900px; /* Reducido para 3 columnas */
                 justify-content: center;
             }
             .winery-card, .product-card {
@@ -504,134 +507,143 @@
         </div>
         <h3 class="section-title">Vinos de Otras Bodegas</h3>
         <div class="product-grid">
-            <div class="product-card" data-overlay-id="catena-zapata-malbec-argentino">
-                <div class="image-container">
-                    <img src="/images/small/catena-zapata-malbec-argentino-2021.jpg" alt="Botella de Catena Zapata Malbec Argentino 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="catena-zapata-malbec-argentino">🍷</div>
-                <div class="overlay" data-overlay-id="catena-zapata-malbec-argentino">
-                    <p><strong>Bodega:</strong> Catena Zapata</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Luján de Cuyo</p>
-                    <p><strong>Altitud:</strong> 920 m</p>
-                    <p><strong>Año:</strong> 2021</p>
-                </div>
-                <h3>Catena Zapata Malbec Argentino - 2021</h3>
-                <p class="price">€95.00</p>
-                <a href="/es/vinos/catena-zapata-malbec-argentino-2021.html" class="buy-button">Comprar Ahora</a>
+            
+        <div class="product-card" data-overlay-id="catena-alta-malbec-2021">
+            <div class="image-container">
+                <img src="/images/small/catena-alta-malbec-2021.jpg" alt="Botella de Catena Alta Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
             </div>
-            <div class="product-card" data-overlay-id="caro-2021">
-                <div class="image-container">
-                    <img src="/images/small/caro-2021.jpg" alt="Botella de Caro 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="caro-2021">🍷</div>
-                <div class="overlay" data-overlay-id="caro-2021">
-                    <p><strong>Bodega:</strong> Caro</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Luján de Cuyo</p>
-                    <p><strong>Altitud:</strong> 1000 m</p>
-                    <p><strong>Año:</strong> 2021</p>
-                </div>
-                <h3>Caro - 2021</h3>
-                <p class="price">€80.00</p>
-                <a href="/es/vinos/caro-2021.html" class="buy-button">Comprar Ahora</a>
+            <div class="info-icon" data-overlay-id="catena-alta-malbec-2021">🍷</div>
+            <div class="overlay" data-overlay-id="catena-alta-malbec-2021">
+                <p><strong>Bodega:</strong> Catena Zapata</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+                <p><strong>Altitud:</strong> 1200 m</p>
+                <p><strong>Año:</strong> 2021</p>
             </div>
-            <div class="product-card" data-overlay-id="kaiken-ultra-malbec">
-                <div class="image-container">
-                    <img src="/images/small/kaiken-ultra-malbec-2022.jpg" alt="Botella de Kaiken Ultra Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="kaiken-ultra-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="kaiken-ultra-malbec">
-                    <p><strong>Bodega:</strong> Kaiken</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Valle de Uco</p>
-                    <p><strong>Altitud:</strong> 1200 m</p>
-                    <p><strong>Año:</strong> 2022</p>
-                </div>
-                <h3>Kaiken Ultra Malbec - 2022</h3>
-                <p class="price">€70.00</p>
-                <a href="/es/vinos/kaiken-ultra-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+            <h3>Catena Alta Malbec - 2021</h3>
+            <p class="price">€55.05</p>
+            <a href="/es/vinos/catena-alta-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
+        <div class="product-card" data-overlay-id="kaiken-mai-malbec-2021">
+            <div class="image-container">
+                <img src="/images/small/kaiken-mai-malbec-2021.jpg" alt="Botella de Kaiken Mai Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
             </div>
-            <div class="product-card" data-overlay-id="colome-lote-especial-malbec">
-                <div class="image-container">
-                    <img src="/images/small/colome-lote-especial-malbec-2022.jpg" alt="Botella de Colomé Lote Especial Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="colome-lote-especial-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="colome-lote-especial-malbec">
-                    <p><strong>Bodega:</strong> Colomé</p>
-                    <p><strong>Provincia:</strong> Salta</p>
-                    <p><strong>Región:</strong> Valle Calchaquí</p>
-                    <p><strong>Altitud:</strong> 2300 m</p>
-                    <p><strong>Año:</strong> 2022</p>
-                </div>
-                <h3>Colomé Lote Especial Malbec - 2022</h3>
-                <p class="price">€60.00</p>
-                <a href="/es/vinos/colome-lote-especial-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+            <div class="info-icon" data-overlay-id="kaiken-mai-malbec-2021">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-mai-malbec-2021">
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+                <p><strong>Altitud:</strong> 1200 m</p>
+                <p><strong>Año:</strong> 2021</p>
             </div>
-            <div class="product-card" data-overlay-id="dieter-meier-puro-malbec">
-                <div class="image-container">
-                    <img src="/images/small/dieter-meier-puro-malbec-2023.jpg" alt="Botella de Dieter Meier Puro Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="dieter-meier-puro-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="dieter-meier-puro-malbec">
-                    <p><strong>Bodega:</strong> Dieter Meier</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Luján de Cuyo</p>
-                    <p><strong>Altitud:</strong> 1000 m</p>
-                    <p><strong>Año:</strong> 2023</p>
-                </div>
-                <h3>Dieter Meier Puro Malbec - 2023</h3>
-                <p class="price">€50.00</p>
-                <a href="/es/vinos/dieter-meier-puro-malbec-2023.html" class="buy-button">Comprar Ahora</a>
+            <h3>Kaiken Mai Malbec - 2021</h3>
+            <p class="price">€50.06</p>
+            <a href="/es/vinos/kaiken-mai-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
+        <div class="product-card" data-overlay-id="kaiken-ultra-malbec-magnum-1500-cc-2019">
+            <div class="image-container">
+                <img src="/images/small/kaiken-ultra-malbec-magnum-1500-cc-2019.jpg" alt="Botella de Kaiken Ultra Malbec Magnum 1500 cc 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
             </div>
-            <div class="product-card" data-overlay-id="catena-zapata-dv-catena-malbec">
-                <div class="image-container">
-                    <img src="/images/small/catena-zapata-dv-catena-malbec-2022.jpg" alt="Botella de Catena Zapata D.V. Catena Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="catena-zapata-dv-catena-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="catena-zapata-dv-catena-malbec">
-                    <p><strong>Bodega:</strong> Catena Zapata</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Valle de Uco</p>
-                    <p><strong>Altitud:</strong> 1450 m</p>
-                    <p><strong>Año:</strong> 2022</p>
-                </div>
-                <h3>Catena Zapata D.V. Catena Malbec - 2022</h3>
-                <p class="price">€40.00</p>
-                <a href="/es/vinos/catena-zapata-dv-catena-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+            <div class="info-icon" data-overlay-id="kaiken-ultra-malbec-magnum-1500-cc-2019">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-ultra-malbec-magnum-1500-cc-2019">
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+                <p><strong>Altitud:</strong> 1000 m</p>
+                <p><strong>Año:</strong> 2019</p>
             </div>
-            <div class="product-card" data-overlay-id="amalaya-malbec">
-                <div class="image-container">
-                    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Botella de Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="amalaya-malbec">
-                    <p><strong>Bodega:</strong> Amalaya</p>
-                    <p><strong>Provincia:</strong> Salta</p>
-                    <p><strong>Región:</strong> Valle Calchaquí</p>
-                    <p><strong>Altitud:</strong> 1800 m</p>
-                    <p><strong>Año:</strong> 2023</p>
-                </div>
-                <h3>Amalaya Malbec - 2023</h3>
-                <p class="price">€30.00</p>
-                <a href="/es/vinos/amalaya-malbec-2023.html" class="buy-button">Comprar Ahora</a>
+            <h3>Kaiken Ultra Malbec Magnum 1500 cc - 2019</h3>
+            <p class="price">€44.18</p>
+            <a href="/es/vinos/kaiken-ultra-malbec-magnum-1500-cc-2019.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
+        <div class="product-card" data-overlay-id="kaiken-disobedience-red-blend-2021">
+            <div class="image-container">
+                <img src="/images/small/kaiken-disobedience-red-blend-2021.jpg" alt="Botella de Kaiken Disobedience Red Blend 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
             </div>
-            <div class="product-card" data-overlay-id="kaiken-estate-malbec">
-                <div class="image-container">
-                    <img src="/images/small/kaiken-estate-malbec-2023.jpg" alt="Botella de Kaiken Estate Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                </div>
-                <div class="info-icon" data-overlay-id="kaiken-estate-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="kaiken-estate-malbec">
-                    <p><strong>Bodega:</strong> Kaiken</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Maipú</p>
-                    <p><strong>Altitud:</strong> 900 m</p>
-                    <p><strong>Año:</strong> 2023</p>
-                </div>
-                <h3>Kaiken Estate Malbec - 2023</h3>
-                <p class="price">€20.00</p>
-                <a href="/es/vinos/kaiken-estate-malbec-2023.html" class="buy-button">Comprar Ahora</a>
+            <div class="info-icon" data-overlay-id="kaiken-disobedience-red-blend-2021">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-disobedience-red-blend-2021">
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+                <p><strong>Altitud:</strong> 1200 m</p>
+                <p><strong>Año:</strong> 2021</p>
             </div>
+            <h3>Kaiken Disobedience Red Blend - 2021</h3>
+            <p class="price">€22.77</p>
+            <a href="/es/vinos/kaiken-disobedience-red-blend-2021.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
+        <div class="product-card" data-overlay-id="kaiken-ultra-malbec-2021">
+            <div class="image-container">
+                <img src="/images/small/kaiken-ultra-malbec-2021.jpg" alt="Botella de Kaiken Ultra Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            </div>
+            <div class="info-icon" data-overlay-id="kaiken-ultra-malbec-2021">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-ultra-malbec-2021">
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+                <p><strong>Altitud:</strong> 1000 m</p>
+                <p><strong>Año:</strong> 2021</p>
+            </div>
+            <h3>Kaiken Ultra Malbec - 2021</h3>
+            <p class="price">€21.49</p>
+            <a href="/es/vinos/kaiken-ultra-malbec-2021.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
+        <div class="product-card" data-overlay-id="catena-malbec-2022">
+            <div class="image-container">
+                <img src="/images/small/catena-malbec-2022.jpg" alt="Botella de Catena Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            </div>
+            <div class="info-icon" data-overlay-id="catena-malbec-2022">🍷</div>
+            <div class="overlay" data-overlay-id="catena-malbec-2022">
+                <p><strong>Bodega:</strong> Catena Zapata</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+                <p><strong>Altitud:</strong> 1200 m</p>
+                <p><strong>Año:</strong> 2022</p>
+            </div>
+            <h3>Catena Malbec - 2022</h3>
+            <p class="price">€21.01</p>
+            <a href="/es/vinos/catena-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
+        <div class="product-card" data-overlay-id="kaiken-terroir-malbec-2022">
+            <div class="image-container">
+                <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Botella de Kaiken Terroir Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            </div>
+            <div class="info-icon" data-overlay-id="kaiken-terroir-malbec-2022">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-terroir-malbec-2022">
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+                <p><strong>Altitud:</strong> 1000 m</p>
+                <p><strong>Año:</strong> 2022</p>
+            </div>
+            <h3>Kaiken Terroir Malbec - 2022</h3>
+            <p class="price">€13.05</p>
+            <a href="/es/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
+        <div class="product-card" data-overlay-id="kaiken-terroir-cabernet-sauvignon-2021">
+            <div class="image-container">
+                <img src="/images/small/kaiken-terroir-cabernet-sauvignon-2021.jpg" alt="Botella de Kaiken Terroir Cabernet Sauvignon 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            </div>
+            <div class="info-icon" data-overlay-id="kaiken-terroir-cabernet-sauvignon-2021">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-terroir-cabernet-sauvignon-2021">
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+                <p><strong>Altitud:</strong> 1000 m</p>
+                <p><strong>Año:</strong> 2021</p>
+            </div>
+            <h3>Kaiken Terroir Cabernet Sauvignon - 2021</h3>
+            <p class="price">€13.05</p>
+            <a href="/es/vinos/kaiken-terroir-cabernet-sauvignon-2021.html" class="buy-button">Comprar Ahora</a>
+        </div>
+    
         </div>
     </main>
     <script>
