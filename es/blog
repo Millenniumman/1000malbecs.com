@@ -1,0 +1,7 @@
+blog_entries = [
+    {"title": "Nuestra Primera Vendimia", "date": "29/08/2025", "url": "/es/blog/post-1.html"},
+    # Agrega más entradas manualmente
+]
+blog_index_html = "<ul>" + "".join(f'<li><a href="{e["url"]}">{e["title"]} - {e["date"]}</a></li>' for e in blog_entries) + "</ul>"
+with open(os.path.join(script_dir, 'es', 'blog', 'index.html'), 'w', encoding='utf-8') as f:
+    f.write(f"<html><body>{blog_index_html}</body></html>")
