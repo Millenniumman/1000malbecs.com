@@ -113,11 +113,16 @@
             margin: 0 auto;
             background-color: #f8f8f8;
         }
-        .winery-card .image-container img, .product-card .image-container img {
+        .winery-card .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
+        }
+        .product-card .image-container img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain; /* Preserva proporciones originales */
         }
         .info-icon {
             position: absolute;
@@ -277,34 +282,16 @@
                 width: 140px;
                 height: 140px;
             }
-            .winery-card .image-container img, .product-card .image-container img {
+            .winery-card .image-container img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 object-position: center;
             }
-            .winery-card h3, .product-card h3 {
-                font-size: 14px;
-                min-height: 36px;
-                margin: 5px 0;
-                text-align: center;
-                width: 100%;
-            }
-            .winery-card .price, .product-card .price {
-                font-size: 14px;
-                margin: 5px 0;
-                text-align: center;
-                width: 100%;
-            }
-            .winery-card .explore-button, .product-card .buy-button {
-                padding: 6px 12px;
-                font-size: 12px;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                pointer-events: auto;
-                width: 100%;
-                max-width: 140px;
-                display: block;
+            .product-card .image-container img {
+                max-width: 100%;
+                height: auto;
+                object-fit: contain; /* Preserva proporciones originales */
             }
             .info-icon {
                 display: block !important;
@@ -373,10 +360,15 @@
                 align-items: center;
                 box-sizing: border-box;
             }
-            .winery-card .image-container img, .product-card .image-container img {
+            .winery-card .image-container img {
                 width: 200px;
                 height: 200px;
                 margin: 0 auto;
+            }
+            .product-card .image-container img {
+                max-width: 100%;
+                height: auto;
+                object-fit: contain; /* Preserva proporciones originales */
             }
         }
     </style>
@@ -506,7 +498,7 @@
             </div>
             <div class="winery-card" data-overlay-id="dieter-meier">
                 <div class="image-container">
-                    <img src="/images/bodegas/dieter-meier-and-familiy-wines-1.jpg" alt="Dieter Meier & Family Wines" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <img src="/images/bodegas/dieter-meier-1.jpg" alt="Dieter Meier & Family Wines" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
                 </div>
                 <div class="info-icon" data-overlay-id="dieter-meier">🏬</div>
                 <div class="overlay" data-overlay-id="dieter-meier">
