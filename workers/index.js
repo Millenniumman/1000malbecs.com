@@ -28,6 +28,7 @@ export default {
           events: "Eventos",
           info: "Info",
           home: "Volver al inicio",
+          blog: "1000 Historias - Blog", // Añadido
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
@@ -62,6 +63,7 @@ export default {
           events: "Events",
           info: "Info",
           home: "Back to home",
+          blog: "1000 Stories - Blog", // Añadido
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
@@ -96,6 +98,7 @@ export default {
           events: "Veranstaltungen",
           info: "Info",
           home: "Zurück zur Startseite",
+          blog: "1000 Geschichten - Blog", // Añadido
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
@@ -229,6 +232,7 @@ export default {
             <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
           </a>
         </div>
+        <a href="/${lang}/blog/index.html" class="nav-link"><i class="fas fa-blog"></i> ${translations[lang].navbar.blog}</a>
         <h2>${translations[lang].navbar.categories}</h2>
         <details>
           <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
