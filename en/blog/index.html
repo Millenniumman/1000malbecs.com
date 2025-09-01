@@ -13,6 +13,8 @@
             margin: 0;
             padding: 20px;
             color: #4A2C59;
+        }
+        .main-content {
             max-width: 800px;
             margin: 0 auto;
         }
@@ -30,11 +32,22 @@
             font-size: 16px;
         }
         .back-link:hover { color: #5A1D39; }
+        .post-preview { margin-bottom: 20px; }
+        .post-date { color: #666; font-size: 0.9em; margin-top: 5px; }
+        .post-excerpt { margin-top: 10px; font-size: 1em; color: #333; line-height: 1.6; }
     </style>
 </head>
 <body>
-    <h1>1000 Stories - The 1000 Malbecs Blog</h1>
-    <div class="post-list"><ul><li><a href="/en/blog/posts/From France to Argentina and to Germany.html">From France to Argentina and Back to Germany - 2025-09-01</a></li></ul></div>
-    <a href="https://1000malbecs.com/en" class="back-link">Back to Home</a>
+    <div class="main-content">
+        <h1>1000 Stories - The 1000 Malbecs Blog</h1>
+        <div class="post-list">
+            <div class="post-preview">
+                <h2><a href="/en/blog/posts/From France to Argentina and to Germany.html">From France to Argentina and Back to Germany</a></h2>
+                <p class="post-date">2025-09-01</p>
+                <p class="post-excerpt">The history of Malbec in Argentina is a remarkable story worth telling. Originating from the Cahors region in southwestern France, it arrived in Argentina in the mid-19th century through Michel Aimé Pouget, a French botanist hired by then-president Domingo Faustino Sarmiento to develop viticulture in the Cuyo region, Sarmiento’s homeland. ## The Phylloxera Crisis and the Opportunity in Argentina</p>
+            </div>
+            </div>
+        <a href="https://1000malbecs.com/en" class="back-link">Back to Home</a>
+    </div>
 </body>
 </html>
