@@ -6,23 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Because the best thing a wine can have is a great story, and here we will tell them">
     <title>1000 Stories - The 1000 Malbecs Blog (EN)</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQov1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+            background-color: #fdfdfd;
             margin: 0;
-            padding: 20px;
-            color: #4A2C59;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         .main-content {
-            max-width: 800px;
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            max-width: 1200px;
             margin: 0 auto;
+            flex: 1;
+            padding: 20px 20px 200px 20px;
+            position: relative;
+            overflow: visible;
         }
-        h1 { text-align: center; }
-        .post-list a { color: #4A2C59; text-decoration: none; }
-        .post-list a:hover { color: #5A1D39; }
-        .post-content h1, .post-content h2 { color: #4A2C59; }
-        .post-content p { line-height: 1.6; }
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%;
+                padding: 10px 10px 250px 10px;
+            }
+        }
+        h1 { 
+            font-size: 24px;
+            color: #4A2C59;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .post-list a { 
+            color: #4A2C59; 
+            text-decoration: none; 
+        }
+        .post-list a:hover { 
+            color: #5A1D39; 
+        }
+        .post-content h1, .post-content h2 { 
+            color: #4A2C59; 
+        }
+        .post-content p { 
+            line-height: 1.6; 
+        }
         .back-link {
             display: block;
             text-align: center;
@@ -31,22 +64,35 @@
             text-decoration: none;
             font-size: 16px;
         }
-        .back-link:hover { color: #5A1D39; }
-        .post-preview { margin-bottom: 20px; }
-        .post-date { color: #666; font-size: 0.9em; margin-top: 5px; }
-        .post-excerpt { margin-top: 10px; font-size: 1em; color: #333; line-height: 1.6; }
+        .back-link:hover { 
+            color: #5A1D39; 
+        }
+        .post-preview { 
+            margin-bottom: 20px; 
+        }
+        .post-date { 
+            color: #666; 
+            font-size: 0.9em; 
+            margin-top: 5px; 
+        }
+        .post-excerpt { 
+            margin-top: 10px; 
+            font-size: 1em; 
+            color: #333; 
+            line-height: 1.6; 
+        }
     </style>
 </head>
 <body>
     <div class="main-content">
         <h1>1000 Stories - The 1000 Malbecs Blog</h1>
         <div class="post-list">
-            <div class="post-preview">
-                <h2><a href="/en/blog/posts/From France to Argentina and to Germany.html">From France to Argentina and Back to Germany</a></h2>
-                <p class="post-date">2025-09-01</p>
-                <p class="post-excerpt">The history of Malbec in Argentina is a remarkable story worth telling. Originating from the Cahors region in southwestern France, it arrived in Argentina in the mid-19th century through Michel Aimé Pouget, a French botanist hired by then-president Domingo Faustino Sarmiento to develop viticulture in the Cuyo region, Sarmiento’s homeland. ## The Phylloxera Crisis and the Opportunity in Argentina</p>
-            </div>
-            </div>
+                <div class="post-preview">
+                    <h2><a href="/en/blog/posts/From France to Argentina and to Germany.html">From France to Argentina and Back to Germany</a></h2>
+                    <p class="post-date">2025-09-01</p>
+                    <p class="post-excerpt">The history of Malbec in Argentina is a remarkable story worth telling. Originating from the Cahors region in southwestern France, it arrived in Argentina in the mid-19th century through Michel Aimé Pouget, a French botanist hired by then-president Domingo Faustino Sarmiento to develop viticulture in the Cuyo region, Sarmiento’s homeland. ## The Phylloxera Crisis and the Opportunity in Argentina</p>
+                </div>
+                </div>
         <a href="https://1000malbecs.com/en" class="back-link">Back to Home</a>
     </div>
 </body>
