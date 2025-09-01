@@ -308,6 +308,7 @@ export default {
                   #sidebar .nav-link { padding-left: 20px; }
                   #sidebar details > summary { padding-left: 20px; cursor: pointer; }
                   #sidebar .nav-link:hover, #sidebar details > summary:hover { color: #5A1D39; background-color: #f5f5f5; }
+                  #sidebar > a.nav-link { margin-bottom: 10px; }
                 </style>
                 ${custom404Html.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
               </head>
@@ -351,6 +352,7 @@ export default {
             #sidebar .nav-link { padding-left: 20px; }
             #sidebar details > summary { padding-left: 20px; cursor: pointer; }
             #sidebar .nav-link:hover, #sidebar details > summary:hover { color: #5A1D39; background-color: #f5f5f5; }
+            #sidebar > a.nav-link { margin-bottom: 10px; }
           </style>
           ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
         </head>
