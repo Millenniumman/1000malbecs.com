@@ -141,7 +141,7 @@
         }
         @media (max-width: 768px) {
             main {
-                margin-top: 60px;
+                margin-top: 80px;
                 padding: 10px;
                 max-width: 100%;
             }
@@ -208,7 +208,7 @@
             .hamburger:hover {
                 color: #5A1D39;
             }
-            #sidebar {
+            .sidebar, #sidebar {
                 display: none !important;
             }
         }
@@ -228,6 +228,13 @@
                     }
                     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
                 });
+            }
+            // Log if hamburger or sidebar is missing (for debugging)
+            if (!document.querySelector('.hamburger')) {
+                console.warn('Hamburger menu not found. Ensure worker is injecting <button class="hamburger"> correctly.');
+            }
+            if (!document.querySelector('#sidebar')) {
+                console.warn('Sidebar not found. Ensure worker is injecting <nav id="sidebar"> correctly.');
             }
         });
     </script>
