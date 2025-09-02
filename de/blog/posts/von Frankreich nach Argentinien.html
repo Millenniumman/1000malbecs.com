@@ -1,47 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Denn das Beste, was ein Wein haben kann, ist eine gute Geschichte, und hier werden wir sie erzählen">
-    <title>Von Frankreich nach Argentinien und zurück nach Deutschland - 1000 Malbecs</title>
+    <meta property="og:title" content="Von Frankreich nach Argentinien und zurück nach Deutschland - 1000 Malbecs">
+    <meta property="og:description" content="Denn das Beste, was ein Wein haben kann, ist eine gute Geschichte, und hier werden wir sie erzählen">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/de/blog/posts/von Frankreich nach Argentinien.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Von Frankreich nach Argentinien und zurück nach Deutschland - 1000 Malbecs">
+    <meta name="twitter:description" content="Denn das Beste, was ein Wein haben kann, ist eine gute Geschichte, und hier werden wir sie erzählen">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/de/blog/posts/von Frankreich nach Argentinien.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/von Frankreich nach Argentinien.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/von Frankreich nach Argentinien.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/von Frankreich nach Argentinien.html">
     <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQov1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #fdfdfd;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: #FFFFFF;
             overflow-x: hidden;
         }
-        .main-content {
-            margin-left: 250px;
-            width: calc(100% - 250px);
-            max-width: 1200px;
+        .sidebar {
+            display: none !important;
+        }
+        .hamburger-menu {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
             margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
             flex: 1;
-            padding: 20px 20px 200px 20px;
-            position: relative;
-            overflow: visible;
+            box-sizing: border-box;
         }
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                max-width: 100%;
-                padding: 10px 10px 250px 10px;
-            }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
         }
-        .post-content h1, .post-content h2 { 
-            color: #4A2C59; 
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
         }
-        .post-content p { 
-            line-height: 1.6; 
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
         }
         .back-link {
             display: block;
@@ -51,14 +108,123 @@
             text-decoration: none;
             font-size: 16px;
         }
-        .back-link:hover { 
-            color: #5A1D39; 
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .logo-mobile {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 60px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .logo-mobile {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+                width: 50px;
+            }
+            .logo-mobile img {
+                width: 100%;
+                height: auto;
+            }
+            .hamburger-menu {
+                display: block;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 1001;
+                cursor: pointer;
+                width: 30px;
+                height: 20px;
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+            .hamburger-menu span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: #4A2C59;
+                margin-bottom: 5px;
+                transition: all 0.3s ease;
+            }
+            .hamburger-menu:hover span {
+                background-color: #5A1D39;
+            }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+        });
+    </script>
 </head>
 <body>
-    <div class="main-content">
-        <div class="post-content"><h2>Von Frankreich nach Argentinien und zurück nach Deutschland</h2>
+    <div class="language-selector">
+        <a href="/es/blog/posts/von Frankreich nach Argentinien.html" data-lang="es" aria-label="Español" class="">ES 🇪🇸</a>
+        <a href="/en/blog/posts/von Frankreich nach Argentinien.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="/de/blog/posts/von Frankreich nach Argentinien.html" data-lang="de" aria-label="Deutsch" class="active">DE 🇩🇪</a>
+    </div>
+    <a href="https://1000malbecs.com/de" class="logo-mobile">
+        <img src="/images/logo.png" alt="1000 Malbecs Logo">
+    </a>
+    <button class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <main>
+        <div class="main-content">
+            <div class="post-content"><h2>Von Frankreich nach Argentinien und zurück nach Deutschland</h2>
 <p>Die Geschichte des Malbec in Argentinien ist eine bemerkenswerte Geschichte, die es wert ist, erzählt zu werden. Ursprünglich aus der Region Cahors im Südwesten Frankreichs, kam er Mitte des 19. Jahrhunderts durch <strong>Michel Aimé Pouget</strong>, einen französischen Botaniker, der von dem damaligen Präsidenten <strong>Domingo Faustino Sarmiento</strong> beauftragt wurde, den Weinbau in der Region Cuyo, der Heimat Sarmientos, zu entwickeln.</p>
 <h2>Die Phylloxera-Krise und die Chance in Argentinien</h2>
 <p>Dies fiel zeitlich zusammen mit einer Zeit, in der eine <em>Phylloxera</em>-Plage große Flächen von Weinbergen in Frankreich verwüstete und unter anderem die Malbec-Rebe, die in diesem Land eine bedeutende und alte Geschichte hatte, auslöschte.</p>
@@ -74,7 +240,8 @@
 <p>Von der Seite meines Vaters erhielt ich eine Einführung in die deutsche Kultur, und er war es, der seine eigene Rebe in mir pflanzte, mit dem Traum, dass sie eines Tages Früchte tragen und, warum nicht, unseren Nachnamen zurück nach Deutschland, dem Land seines Großvaters, bringen würde. Ich brachte nicht nur den Nachnamen; ich bringe jetzt auch unsere Weine. Mein klares Ziel ist es, den argentinischen Wein und die Kultur in Deutschland zu entwickeln und zu fördern. Ich gehe diese Aufgabe mit Stolz, Leidenschaft und vor allem viel Liebe an. Denn alles, was geht, kommt eines Tages zurück. Wie die Malbec-Reben und wie dieser Urenkel von Einwanderern.</p>
 <p><strong>Lang lebe <a href="https://1000malbecs.com">1000malbecs.com</a></strong></p>
 <p><em>Federico Augspach</em></p></div>
-        <a href="https://1000malbecs.com/de" class="back-link">Zurück zur Startseite</a>
-    </div>
+            <a href="https://1000malbecs.com/de" class="back-link">Zurück zur Startseite</a>
+        </div>
+    </main>
 </body>
 </html>
