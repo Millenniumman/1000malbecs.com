@@ -33,6 +33,21 @@
             background-color: #FFFFFF;
             overflow-x: hidden;
         }
+        .sidebar {
+            display: none !important; /* Oculta cualquier sidebar personalizada */
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
         .hamburger {
             display: none;
         }
@@ -136,6 +151,45 @@
         .header, .logo-mobile {
             display: none;
         }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
         @media (max-width: 768px) {
             main {
                 margin-top: 80px;
@@ -191,7 +245,7 @@
             }
             .hamburger {
                 display: block;
-                font-size: 24px;
+                font-size: 20px; /* Tamaño ajustado para coincidir con otras páginas */
                 background: none;
                 border: none;
                 color: #4A2C59;
@@ -203,10 +257,29 @@
                 z-index: 110;
             }
             .hamburger:hover {
-                color: #5A1D39;
+                color: #5-European
             }
-            .sidebar, #sidebar {
+            #sidebar {
                 display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
             }
         }
     </style>
@@ -226,12 +299,15 @@
                     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
                 });
             }
-            // Log if hamburger or sidebar is missing (for debugging)
-            if (!document.querySelector('.hamburger')) {
-                console.warn('Hamburger menu not found. Ensure worker is injecting <button class="hamburger"> correctly.');
-            }
-            if (!document.querySelector('#sidebar')) {
-                console.warn('Sidebar not found. Ensure worker is injecting <nav id="sidebar"> correctly.');
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
             }
         });
     </script>
