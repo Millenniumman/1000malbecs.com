@@ -21,6 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/De_Francia_a_Argentina.html">
     <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/De_Francia_a_Argentina.html">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -31,6 +32,12 @@
             min-height: 100vh;
             background-color: #FFFFFF;
             overflow-x: hidden;
+        }
+        .sidebar, #sidebar {
+            display: none !important;
+        }
+        .hamburger {
+            display: none;
         }
         .language-selector {
             position: fixed;
@@ -105,6 +112,9 @@
         .back-link:hover {
             color: #5A1D39;
         }
+        .header, .logo-mobile {
+            display: none;
+        }
         @media (max-width: 768px) {
             main {
                 margin-top: 60px;
@@ -126,6 +136,7 @@
                 flex-direction: row;
                 gap: 2px;
                 justify-content: center;
+                z-index: 1000;
             }
             .language-selector a {
                 font-size: 9px;
@@ -142,8 +153,57 @@
                 background-color: #4A2C59;
                 color: #FFFFFF;
             }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 24px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="language-selector">
@@ -151,6 +211,10 @@
         <a href="/en/blog/posts/De_Francia_a_Argentina.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
         <a href="/de/blog/posts/De_Francia_a_Argentina.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
     </div>
+    <div class="header">
+        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
     <main>
         <div class="main-content">
             <div class="post-content"><h2>De Francia a Argentina y de regreso a Alemania</h2>
