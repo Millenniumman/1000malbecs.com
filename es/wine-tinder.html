@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ingresa tu plato y descubre los mejores vinos para combinar. ¡Desliza y elige tu favorito!">
-    <meta property="og:title" content="Wine Tinder - Encuentra el Vino Perfecto">
-    <meta property="og:description" content="Ingresa tu plato y descubre los mejores vinos para combinar. ¡Desliza y elige tu favorito!">
+    <meta name="description" content="Desliza para descubrir vinos que harán que tus comidas sean inolvidables. ¡Haz match y contáctanos por WhatsApp!">
+    <meta property="og:title" content="Wine Tinder - Encuentra tu Vino Ideal">
+    <meta property="og:description" content="Desliza para descubrir vinos que harán que tus comidas sean inolvidables. ¡Haz match y contáctanos por WhatsApp!">
     <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -13,8 +13,8 @@
     <meta property="og:url" content="https://www.1000malbecs.com/es/wine-tinder.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Wine Tinder - Encuentra el Vino Perfecto">
-    <meta name="twitter:description" content="Ingresa tu plato y descubre los mejores vinos para combinar. ¡Desliza y elige tu favorito!">
+    <meta name="twitter:title" content="Wine Tinder - Encuentra tu Vino Ideal">
+    <meta name="twitter:description" content="Desliza para descubrir vinos que harán que tus comidas sean inolvidables. ¡Haz match y contáctanos por WhatsApp!">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
     <link rel="canonical" href="https://www.1000malbecs.com/es/wine-tinder.html">
     <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/wine-tinder.html">
@@ -55,30 +55,7 @@
             text-transform: uppercase;
             color: #4A2C59;
         }
-        .wine-tinder-form {
-            margin-bottom: 30px;
-        }
-        .wine-tinder-form input {
-            padding: 10px;
-            font-size: 16px;
-            width: 300px;
-            border: 1px solid #E0E0E0;
-            border-radius: 5px;
-        }
-        .wine-tinder-form button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4A2C59;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .wine-tinder-form button:hover {
-            background-color: #5A1D39;
-        }
         .tinder-container {
-            display: none;
             max-width: 400px;
             margin: 0 auto;
         }
@@ -97,16 +74,30 @@
             height: 200px;
             object-fit: contain;
             margin-bottom: 10px;
+            border-radius: 5px;
         }
         .tinder-card h3 {
             font-size: 18px;
             color: #4A2C59;
             margin: 10px 0;
         }
-        .tinder-card p {
+        .tinder-card .bio {
+            font-size: 14px;
+            color: #333;
+            font-style: italic;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #F8F8F8;
+            border-radius: 5px;
+        }
+        .tinder-card .wine-details {
             font-size: 14px;
             color: #333;
             margin: 5px 0;
+            text-align: left;
+        }
+        .tinder-card .wine-details strong {
+            color: #4A2C59;
         }
         .tinder-buttons {
             display: flex;
@@ -199,10 +190,6 @@
             .main-content h1 {
                 font-size: 22px;
             }
-            .wine-tinder-form input {
-                width: 100%;
-                max-width: 250px;
-            }
             .tinder-card {
                 max-width: 300px;
                 padding: 15px;
@@ -214,7 +201,7 @@
             .tinder-card h3 {
                 font-size: 16px;
             }
-            .tinder-card p {
+            .tinder-card .bio, .tinder-card .wine-details {
                 font-size: 12px;
             }
             .tinder-buttons button {
@@ -251,7 +238,6 @@
                 });
             }
             // Wine Tinder logic
-            const form = document.querySelector('#wine-tinder-form');
             const tinderContainer = document.querySelector('.tinder-container');
             const selectedWines = document.querySelector('.selected-wines');
             const selectedList = document.querySelector('#selected-wines-list');
@@ -259,28 +245,17 @@
             let currentWineIndex = 0;
             let selectedWinesList = [];
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const dish = document.querySelector('#dish-input').value.toLowerCase();
-                if (dish.includes('empanadas de carne')) {
-                    currentWineIndex = 0;
-                    selectedWinesList = [];
-                    selectedWines.style.display = 'none';
-                    selectedList.innerHTML = '';
-                    showWineCard();
-                    tinderContainer.style.display = 'block';
-                } else {
-                    alert('Por ahora, solo soportamos empanadas de carne. ¡Prueba con eso!');
-                }
-            });
+            // Show first wine card on page load
+            showWineCard();
 
             function showWineCard() {
                 if (currentWineIndex >= wines.length) {
                     tinderContainer.innerHTML = '<p>No hay más vinos para mostrar.</p>';
                     if (selectedWinesList.length > 0) {
                         selectedWines.style.display = 'block';
+                        selectedList.innerHTML = '';
                         selectedWinesList.forEach(wine => {
-                            selectedList.innerHTML += `<li><a href="${wine.url}">${wine.name} - ${wine.price}</a></li>`;
+                            selectedList.innerHTML += `<li><a href="${wine.whatsapp_url}">${wine.name} - ${wine.price}</a></li>`;
                         });
                     }
                     return;
@@ -290,10 +265,17 @@
                     <div class="tinder-card">
                         <img src="${wine.image}" alt="${wine.name}" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Available';">
                         <h3>${wine.name}</h3>
-                        <p><strong>Bodega:</strong> ${wine.bodega}</p>
-                        <p><strong>Precio:</strong> ${wine.price}</p>
-                        <p><strong>Región:</strong> ${wine.region}</p>
-                        <p>${wine.pairing_note}</p>
+                        <div class="bio">${wine.bio}</div>
+                        <div class="wine-details">
+                            <p><strong>Bodega:</strong> ${wine.bodega}</p>
+                            <p><strong>Provincia:</strong> ${wine.provincia}</p>
+                            <p><strong>Región:</strong> ${wine.region}</p>
+                            <p><strong>Altura:</strong> ${wine.altura}</p>
+                            <p><strong>Acidez:</strong> ${wine.acidez}</p>
+                            <p><strong>% de Alcohol:</strong> ${wine.alcohol}</p>
+                            <p><strong>Premios:</strong> ${wine.premios}</p>
+                            <p><strong>Precio:</strong> ${wine.price}</p>
+                        </div>
                         <div class="tinder-buttons">
                             <button class="dislike" onclick="swipe('dislike')">✗</button>
                             <button class="like" onclick="swipe('like')">✔</button>
@@ -326,15 +308,11 @@
     </div>
     <main>
         <div class="main-content">
-            <h1>Wine Tinder - Encuentra el Vino Perfecto</h1>
-            <p>Ingresa tu plato y descubre los mejores vinos para combinar. ¡Desliza y elige tu favorito!</p>
-            <form id="wine-tinder-form" class="wine-tinder-form">
-                <input type="text" id="dish-input" placeholder="Ingresa tu plato (ej. empanadas de carne)" required>
-                <button type="submit">Buscar Vinos</button>
-            </form>
+            <h1>Wine Tinder - Encuentra tu Vino Ideal</h1>
+            <p>Desliza para descubrir vinos que harán que tus comidas sean inolvidables. ¡Haz match y contáctanos por WhatsApp!</p>
             <div class="tinder-container"></div>
             <div class="selected-wines">
-                <h3>Vinos Seleccionados</h3>
+                <h3>Tus Vinos Favoritos</h3>
                 <ul id="selected-wines-list"></ul>
             </div>
         </div>
