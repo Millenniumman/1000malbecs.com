@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visitando amigos y probando vinos">
+    <meta property="og:title" content="De paseo por España - 1000 Malbecs">
+    <meta property="og:description" content="Visitando amigos y probando vinos">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/es/blog/posts/de paseo por espana.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="De paseo por España - 1000 Malbecs">
+    <meta name="twitter:description" content="Visitando amigos y probando vinos">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/es/blog/posts/de paseo por espana.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/de paseo por espana.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/de paseo por espana.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/de paseo por espana.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="language-selector">
+        <a href="/es/blog/posts/de paseo por espana.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
+        <a href="/en/blog/posts/de paseo por espana.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="/de/blog/posts/de paseo por espana.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
+    </div>
+    <div class="header">
+        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+    <main>
+        <div class="main-content">
+            <div class="post-content"><h2>Visitando amigos y probando vinos</h2>
+<p>Me gusta viajar. Creo que soy un sujeto viajado que ya recorrió al menos 3 continentes y varios países más. De hecho, si bien tengo pasaporte alemán, nací y me crié en Argentina y no soy más que un extranjero en la tierra de Goethe. Por supuesto, también me gusta visitar amigos y tomar vinos. ¡A eso nos dedicamos en este lugar!</p>
+<p>Así que, de paseo por Madrid el fin de semana pasado, hice poco más que eso: visitar amigos, comer mucho y rico, y probar unos excelentes vinos.</p>
+<h2>Probando los Malbec de Foster Lorca</h2>
+<p>El viernes por la tarde me junté con Carola, una mendocina que no tengo dudas será una de mis mejores amigas en este universo, y probé 3 de los vinos que ya tengo disponibles en mi inventario. Digo, lo mejor que puede hacer alguien que vende vinos es probar lo que vende. Y lo que no vende también. Me gustaron los vinos de Foster Lorca. Y más me gustó la historia de la bodega, así que la voy a contar acá.</p>
+<p>Enrique Foster crea la bodega y contrata a Mauricio Lorca como enólogo y director general de la misma en el año 2002. Con el tiempo, Mauricio, que ya contaba con una trayectoria destacada en distintas bodegas de la talla de Luigi Bosca, decide empezar a hacer sus propios vinos a la par de su trabajo en la bodega de Foster y finalmente se genera lo que hoy se conoce como la Bodega Foster Lorca. Desde los vinos premium sin madera, la bodega se posiciona como representante de la vanguardia, siguiendo cada vez más el camino de la sustentabilidad y siendo fieles a la expresión del terruño.</p>
+<p>Estos son los 3 vinos que probé y que me gustaron mucho:</p>
+<div class="wine-card-container">
+  <div class="product-card" data-overlay-id="ique-malbec">
+    <img src="/images/small/ique-malbec-2021.jpg" alt="Botella de Ique Malbec" onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+    <div class="info-icon" data-overlay-id="ique-malbec">🍷</div>
+    <div class="overlay" data-overlay-id="ique-malbec">
+      <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
+      <p><strong>Altura:</strong> 950 msnm</p>
+      <p><strong>Añada:</strong> 2021</p>
+    </div>
+    <h3>Ique Malbec</h3>
+    <p class="price">€13.49</p>
+    <a href="/es/vinos/ique-malbec-2021.html" class="buy-button">Comprar</a>
+  </div>
+
+  <div class="product-card" data-overlay-id="foster-malbec-los-barrancos">
+    <img src="/images/small/foster-malbec-los-barrancos-2021.jpg" alt="Botella de Foster Malbec 'Los Barrancos'" onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+    <div class="info-icon" data-overlay-id="foster-malbec-los-barrancos">🍷</div>
+    <div class="overlay" data-overlay-id="foster-malbec-los-barrancos">
+      <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
+      <p><strong>Altura:</strong> 1050 msnm</p>
+      <p><strong>Añada:</strong> 2021</p>
+    </div>
+    <h3>Foster Malbec 'Los Barrancos'</h3>
+    <p class="price">€25.49</p>
+    <a href="/es/vinos/foster-malbec-los-barrancos-2021.html" class="buy-button">Comprar</a>
+  </div>
+
+  <div class="product-card" data-overlay-id="foster-malbec-los-altepes">
+    <img src="/images/small/foster-malbec-los-altepes-2021.jpg" alt="Botella de Foster Malbec 'Los Altepes'" onerror="this.src='https://via.placeholder.com/180x180?text=Imagen+No+Disponible';">
+    <div class="info-icon" data-overlay-id="foster-malbec-los-altepes">🍷</div>
+    <div class="overlay" data-overlay-id="foster-malbec-los-altepes">
+      <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
+      <p><strong>Altura:</strong> 1250 msnm</p>
+      <p><strong>Añada:</strong> 2021</p>
+    </div>
+    <h3>Foster Malbec 'Los Altepes'</h3>
+    <p class="price">€25.49</p>
+    <a href="/es/vinos/foster-malbec-los-altepes-2021.html" class="buy-button">Comprar</a>
+  </div>
+</div>
+
+<style>
+.wine-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-card .price {
+  color: #b12704;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-card .buy-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.product-card .buy-button:hover {
+  background-color: #0056b3;
+}
+
+.info-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.product-card:hover .overlay {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .wine-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<h2>Probando lo que no vendo - Los vinos de Rioja</h2>
+<p>El domingo estuve en lo de mi primo Charlie, un fanático del vino que trabajó durante años en los viñedos de la zona de Bordeaux. Entre otras cosas, me contó que, pese a que como todo argentino le encantan los Malbecs, en España encuentra unos vinos riquísimos a un precio que realmente le parece muy competitivo. En este caso, probamos unos Rioja de Costco (Kirkland Signature) que son la réplica de otros vinos del mercado, envasados para ellos y a un precio mucho más conveniente.</p>
+<p>Debo confesar que también me gustaron, solo que no los voy a vender, porque vinos españoles ya los probamos todos y yo lo que quiero es que descubran los vinos del nuevo mundo y, entre ellos, el Malbec argentino que me parece de los más ricos que van a encontrar. Me dirán que vinos ricos hay en todos lados, como me dijo mi primo. Y es verdad, cada uno elige lo que más le gusta. Solo que "pertenecer tiene sus privilegios" y, como digo, los de España ya los conocen, los de Argentina van a ser ustedes los primeros en descubrirlos. Y no es poca cosa ser el primero en algo.</p>
+<h2>Cómo los pueden probar</h2>
+<p>Por supuesto, todos los vinos en la página se pueden comprar. Solo tienen que mandarme un WhatsApp 📱 <a href="https://wa.me/+4915158224728?text=quiero%20probar%20primero">+4915158224728</a> y en pocos días los van a tener en sus casas. Sin embargo, Carola me propuso algo muy interesante: voy a armar unos packs sorpresa con 3 o 6 vinos del nuevo mundo y un descuento especial para que puedan empezar a recorrer este camino sin tener que invertir un dineral.</p>
+<p>En breve van a encontrar en la página una sección especial para suscribirse y comenzar a recibir un pack de 3 o 6 vinos todos los meses. Sin trampas y sin letra chica: los prueban y me dicen si quieren seguir probando o si prefieren seguir tomando sus vinos favoritos. Prometo que no los voy a defraudar... por más que, como argentino, debo decir que ya lo hemos escuchado muchas veces. Nada, 3 o 6 vinos a precio de oferta todos los meses.</p>
+<p>¿Quieren ser los primeros? ¡Mándenme ya un WhatsApp 📱 <a href="https://wa.me/+4915158224728?text=quiero%20probar%20primero">+4915158224728</a> y los anoto!</p>
+<p>Atte.<br />
+Federico Augspach<br />
+Viajero y Malbec Wine Lover</p></div>
+            <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
+        </div>
+    </main>
+</body>
+</html>
