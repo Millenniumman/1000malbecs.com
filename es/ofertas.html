@@ -7,9 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #fdfdfd;
@@ -21,23 +19,8 @@
             overflow-x: hidden;
         }
         .header { display: none; }
-        .logo { max-width: 150px; height: auto; }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: #4A2C59;
-            cursor: pointer;
-            padding: 10px;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 110;
-        }
-        #sidebar {
-            display: none;
-        }
+        .hamburger { display: none; }
+        #sidebar { display: none; }
         .main-content {
             margin-left: 250px;
             width: calc(100% - 250px);
@@ -45,7 +28,7 @@
             margin: 0 auto;
             z-index: 1;
             flex: 1;
-            padding: 20px 20px 200px 20px;
+            padding: 20px 20px 200px 10px;
             position: relative;
             overflow: visible;
         }
@@ -55,18 +38,18 @@
             margin-bottom: 10px;
             text-align: left;
         }
-        .presentation {
+        .presentation, .subscription-presentation {
             max-width: 800px;
             margin: 0 0 20px 0;
             text-align: left;
         }
-        .presentation h2 {
+        .presentation h2, .subscription-presentation h2 {
             color: #4A2C59;
             font-size: 1.8em;
             margin-bottom: 15px;
             text-align: left;
         }
-        .presentation p {
+        .presentation p, .subscription-presentation p {
             font-size: 1.1em;
             color: #333;
             line-height: 1.6;
@@ -80,7 +63,7 @@
             border-radius: 10px;
             margin: 20px 0;
         }
-        .product-grid {
+        .product-grid, .subscription-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
@@ -88,12 +71,11 @@
             width: 100%;
             justify-content: start;
         }
-        .product-card {
+        .product-card, .subscription-item {
             background-color: #FFFFFF;
             border: 1px solid #E0E0E0;
             border-radius: 5px;
             padding: 15px;
-            padding-bottom: 20px;
             position: relative;
             overflow: visible;
             max-width: 250px;
@@ -107,7 +89,7 @@
             box-sizing: border-box;
             width: 100%;
         }
-        .product-card img {
+        .product-card img, .subscription-item img {
             width: 200px;
             height: 200px;
             object-fit: contain;
@@ -159,7 +141,7 @@
         .product-card .overlay.active {
             display: block !important;
         }
-        .product-card h3 {
+        .product-card h3, .month-label {
             font-size: 16px;
             margin: 10px 0;
             color: #4A2C59;
@@ -214,59 +196,59 @@
         .combo-button:hover {
             background-color: #20b358;
         }
-        .subscription-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 30px;
-            width: 100%;
-            justify-content: start;
-        }
-        .subscription-item {
-            background-color: #FFFFFF;
-            border: 1px solid #E0E0E0;
-            border-radius: 5px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            width: 100%;
-            max-width: 250px;
-        }
-        .subscription-item img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            margin: 0 auto;
-        }
-        .month-label {
-            font-size: 16px;
-            color: #4A2C59;
-            margin: 10px 0 0 0;
-            text-align: center;
-            width: 100%;
-        }
         .language-selector {
-            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 50;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+            max-width: 100%;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        footer {
+            background-color: #F8F8F8;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #E0E0E0;
+            color: #4A2C59;
+            font-size: 14px;
+        }
+        footer a {
+            color: #4A2C59;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
         @media (max-width: 768px) {
-            .header {
-                display: block;
-                position: fixed;
-                top: 10px;
-                right: 10px;
-                z-index: 50;
-            }
-            .logo { max-width: 100px; }
-            .hamburger {
-                display: block;
-                z-index: 110;
-            }
-            #sidebar {
-                display: none;
-            }
+            .header { display: none; }
+            .hamburger { display: none; }
+            #sidebar { display: none; }
             .main-content {
                 margin-left: 0;
                 width: 100%;
@@ -276,14 +258,11 @@
                 position: relative;
                 overflow: visible;
             }
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                justify-content: start;
-                width: 100%;
+            .combo-image {
+                height: 100px;
             }
-            .subscription-grid {
-                grid-template-columns: 1fr;
+            .product-grid, .subscription-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
                 justify-content: start;
                 width: 100%;
@@ -291,7 +270,7 @@
             .product-card, .subscription-item {
                 width: 100%;
                 max-width: none;
-                height: 260px;
+                height: 280px;
                 min-height: auto;
                 padding: 10px;
                 box-sizing: border-box;
@@ -349,25 +328,35 @@
             .product-card:hover .overlay {
                 display: none;
             }
-            .combo-image {
-                height: 100px;
-            }
             .language-selector {
-                display: none;
+                position: fixed;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 50;
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                transition: opacity 0.3s ease;
+                max-width: 90%;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                background-color: rgba(255, 255, 255, 0.7);
             }
         }
         @media (min-width: 769px) {
             .header { display: none; }
             .hamburger { display: none; }
-            #sidebar {
-                display: none;
-            }
+            #sidebar { display: none; }
             .main-content {
                 margin-left: 250px;
                 width: calc(100% - 250px);
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 20px 20px 200px 20px;
+                padding: 20px 20px 200px 10px;
                 position: relative;
                 overflow: visible;
             }
@@ -420,23 +409,24 @@
                 box-sizing: border-box;
             }
             .info-icon { display: none; }
-            .overlay {
-                max-height: 150px;
-                pointer-events: none;
-                z-index: 6;
-            }
+            .overlay { pointer-events: none; }
             .product-card:hover .overlay { display: block; }
         }
     </style>
 </head>
 <body>
+    <div class="language-selector">
+        <a href="/es/ofertas.html" class="active" data-lang="es" aria-label="Español"><img src="/images/flags/es.png" alt="Español" width="20"> ES</a>
+        <a href="/en/ofertas.html" data-lang="en" aria-label="English"><img src="/images/flags/en.png" alt="English" width="20"> EN</a>
+        <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán"><img src="/images/flags/de.png" alt="Deutsch" width="20"> DE</a>
+    </div>
     <main class="main-content">
         <div class="presentation">
             <h1>Oferta Especial: Pack Discovery Malbec</h1>
             <p>Oferta Exclusiva por tiempo limitado: <b> Pack Discovery Malbec 10% OFF</b> <br> Comprá ya el tuyo a tan solo EUR35.99 - Envío sin cargo. <br></p>
             <p> No te pierdas esta oportunidad única para conocer a 3 de los más emblemáticos Malbecs de la Argentina. Solo 36 Unidades disponibles! </p>
             <p><b> Qué contiene el Mabec Discovery Package? </b><br>
-            En esta ocasión 3 vinos de altura de distintas Provincias y regiones de Argentina. Vas a recibir una botella de 750 ml de cada uno de los siguientes vinos:<br></p><p> - Amalaya Malbec, proveniente de los valles calchaquíes de Salta, a unos impresionantes 1800 metros sobre el nivel del mar <br></p> <p>- Kaiken Terroir Malbec de la región de Agrelo, Luján de Cuyo en Mendoza a 950 msnm <br></p> <p> - Foster Lorca Pink Malbec, un Malbec rosado de excepción proveniente del reconocido Valle de Uco también en Mendoza. <br></p><p> <b>Junto con tu pedido, vas a recibir instrucciones y recomendaciones que te van a permitir aprender sobrezos los vinos y realzar aún más de tu experiencia.</p></b>
+            En esta ocasión 3 vinos de altura de distintas Provincias y regiones de Argentina. Vas a probar el Amalaya Malbec, proveniente de los valles calchaquíes de Salta, a unos impresionantes 1800 metros sobre el nivel del mar,  el Kaiken Terroir Malbec de la región de Agrelo, Luján de Cuyo en Mendoza y el Foster Lorca Pink Malbec, un Malbec rosado de excepción proveniente del reconocido Valle de Uco también en Mendoza. Junto con tu pedido, vas a recibir instrucciones para disfrutar más de tu experiencia.</p>
         </div>
         <!-- Replace this placeholder with your combo image path, e.g., /images/combo-discovery.jpg -->
         <img src="https://via.placeholder.com/800x200?text=Combo+Discovery+Image" alt="Pack Discovery Malbec" class="combo-image">
@@ -488,8 +478,10 @@
         <div style="text-align: center;">
             <a href="https://wa.me/+4915158224728?text=quiero%201%20combo%20Discovery" class="combo-button">Quiero ya mi Pack Discovery Malbec</a>
         </div>
-        <p><b>Suscribite y obtené un 15% adicional de descuento en tu primer pedido!</b><br>
-        Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Vas a poder disfrutar de nuestros mejores vinos a un precio especial: EUR33.33 por mes en un solo pago de EUR99.99</p>
+        <div class="subscription-presentation">
+            <p><b>Suscribite y obtené un 15% adicional de descuento en tu primer pedido!</b><br>
+            Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Vas a poder disfrutar de nuestros mejores vinos a un precio especial: EUR33.33 por mes en un solo pago de EUR99.99</p>
+        </div>
         <!-- Subscription Grid -->
         <div class="subscription-grid">
     <div class="subscription-item">
