@@ -49,6 +49,7 @@
             top: 10px;
             left: 10px;
             z-index: 110;
+            pointer-events: auto;
         }
         #sidebar {
             display: none;
@@ -299,6 +300,12 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
+        .language-selector img {
+            width: 20px;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
         footer {
             background-color: #F8F8F8;
             padding: 20px;
@@ -318,7 +325,7 @@
         @media (max-width: 768px) {
             .header { display: block; }
             .logo { max-width: 100px; }
-            .hamburger { display: block; }
+            .hamburger { display: block; pointer-events: auto; }
             #sidebar {
                 width: 80%;
                 height: 100vh;
@@ -335,7 +342,7 @@
                 -webkit-overflow-scrolling: touch;
                 background-color: #F8F8F8;
             }
-            #sidebar.open { transform: translateX(0); }
+            #sidebar.open { transform: translateX(0); display: block; }
             .logo-container { display: none; }
             .main-content {
                 margin-left: 0;
@@ -434,6 +441,10 @@
                 padding: 2px 4px;
                 background-color: rgba(255, 255, 255, 0.7);
             }
+            .language-selector img {
+                width: 16px;
+                height: auto;
+            }
         }
         @media (min-width: 769px) {
             .header { display: none; }
@@ -445,6 +456,7 @@
                 height: 100vh;
                 top: 0;
                 left: 0;
+                display: block;
             }
             .logo-container { display: block; }
             .main-content {
@@ -513,22 +525,22 @@
 <body>
     <header class="header">
         <a href="/es/" title="Volver al inicio">
-            <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+            <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.style.display='none';">
         </a>
     </header>
     <button class="hamburger">☰</button>
-    <nav id="sidebar">
+    <nav id="sidebar" class="worker-managed">
         <div class="logo-container">
             <a href="/es/" title="Volver al inicio">
-                <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+                <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.style.display='none';">
             </a>
         </div>
         <!-- Contenido del sidebar será gestionado por Cloudflare Worker -->
     </nav>
     <div class="language-selector">
-        <a href="/es/ofertas.html" class="active" data-lang="es" aria-label="Español"><img src="/images/flags/es.png" alt="Español" width="20"> ES</a>
-        <a href="/en/ofertas.html" data-lang="en" aria-label="English"><img src="/images/flags/en.png" alt="English" width="20"> EN</a>
-        <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán"><img src="/images/flags/de.png" alt="Deutsch" width="20"> DE</a>
+        <a href="/es/ofertas.html" class="active" data-lang="es" aria-label="Español"><img src="https://1000malbecs.com/images/flags/es.png" alt="Español" width="20" onerror="this.style.display='none'; this.nextSibling.textContent='ES';"> ES</a>
+        <a href="/en/ofertas.html" data-lang="en" aria-label="English"><img src="https://1000malbecs.com/images/flags/en.png" alt="English" width="20" onerror="this.style.display='none'; this.nextSibling.textContent='EN';"> EN</a>
+        <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán"><img src="https://1000malbecs.com/images/flags/de.png" alt="Deutsch" width="20" onerror="this.style.display='none'; this.nextSibling.textContent='DE';"> DE</a>
     </div>
     <main class="main-content">
         <div class="presentation">
@@ -538,9 +550,7 @@
             <p><b> Qué contiene el Mabec Discovery Package? </b><br>
             En esta ocasión 3 vinos de altura de distintas Provincias y regiones de Argentina. Vas a probar el Amalaya Malbec, proveniente de los valles calchaquíes de Salta, a unos impresionantes 1800 metros sobre el nivel del mar,  el Kaiken Terroir Malbec de la región de Agrelo, Luján de Cuyo en Mendoza y el Foster Lorca Pink Malbec, un Malbec rosado de excepción proveniente del reconocido Valle de Uco también en Mendoza. Junto con tu pedido, vas a recibir instrucciones para disfrutar más de tu experiencia.</p>
         </div>
-        <!-- Replace this placeholder with your combo image path, e.g., /images/combo-discovery.jpg -->
-        <img src="https://via.placeholder.com/800x200?text=Combo+Discovery+Image" alt="Pack Discovery Malbec" class="combo-image">
-        <!-- First Product Grid -->
+        <img src="https://via.placeholder.com/800x200?text=Combo+Discovery+Image" alt="Pack Discovery Malbec" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
         <div class="product-grid">
     <div class="product-card" data-overlay-id="pink-malbec-rosado">
         <img src="/images/small/pink-malbec-rosado-2023.jpg" alt="Botella de Pink Malbec Rosado" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
@@ -592,7 +602,6 @@
             <p><b>Suscribite y obtené un 15% adicional de descuento en tu primer pedido!</b><br>
             Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Vas a poder disfrutar de nuestros mejores vinos a un precio especial: EUR33.33 por mes en un solo pago de EUR99.99</p>
         </div>
-        <!-- Subscription Grid -->
         <div class="subscription-grid">
     <div class="subscription-item">
         <img src="https://via.placeholder.com/800x200?text=Combo+Discovery+Image" alt="Octubre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
@@ -617,11 +626,20 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, initializing hamburger and info-icon handlers');
             const hamburger = document.querySelector('.hamburger');
             const sidebar = document.querySelector('#sidebar');
-            hamburger.addEventListener('click', () => {
-                sidebar.classList.toggle('open');
-            });
+            if (hamburger && sidebar) {
+                console.log('Hamburger and sidebar found, attaching click event');
+                hamburger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    sidebar.classList.toggle('open');
+                    console.log('Hamburger clicked, sidebar open:', sidebar.classList.contains('open'));
+                });
+            } else {
+                console.error('Hamburger or sidebar not found in DOM');
+            }
             const infoIcons = document.querySelectorAll('.info-icon');
             infoIcons.forEach(icon => {
                 ['click', 'touchstart'].forEach(eventType => {
@@ -643,8 +661,13 @@
             buyButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
+                    console.log('Buy button clicked:', button.href);
                 });
             });
+            // Log sidebar status for Worker debugging
+            if (sidebar) {
+                console.log('Sidebar initial state:', sidebar.style.display, sidebar.classList.contains('worker-managed'));
+            }
         });
     </script>
 </body>
