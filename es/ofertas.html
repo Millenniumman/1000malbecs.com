@@ -48,8 +48,8 @@
             position: fixed;
             top: 10px;
             left: 10px;
-            z-index: 110;
-            pointer-events: auto;
+            z-index: 120;
+            pointer-events: auto !important;
         }
         #sidebar {
             display: none;
@@ -306,6 +306,10 @@
             display: inline-block;
             vertical-align: middle;
         }
+        .language-selector span {
+            display: inline-block;
+            vertical-align: middle;
+        }
         footer {
             background-color: #F8F8F8;
             padding: 20px;
@@ -325,7 +329,7 @@
         @media (max-width: 768px) {
             .header { display: block; }
             .logo { max-width: 100px; }
-            .hamburger { display: block; pointer-events: auto; }
+            .hamburger { display: block; pointer-events: auto !important; z-index: 120; }
             #sidebar {
                 width: 80%;
                 height: 100vh;
@@ -333,7 +337,7 @@
                 position: fixed;
                 top: 0;
                 left: 0;
-                transform: translateX(-100%);
+                transform: translateX(-100%) !important;
                 z-index: 100;
                 border-right: 1px solid #E0E0E0;
                 padding: 20px;
@@ -341,8 +345,12 @@
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
                 background-color: #F8F8F8;
+                display: block;
             }
-            #sidebar.open { transform: translateX(0); display: block; }
+            #sidebar.open {
+                transform: translateX(0) !important;
+                display: block !important;
+            }
             .logo-container { display: none; }
             .main-content {
                 margin-left: 0;
@@ -450,13 +458,13 @@
             .header { display: none; }
             .hamburger { display: none; }
             #sidebar {
-                transform: translateX(0);
+                transform: translateX(0) !important;
                 position: fixed;
                 width: 250px;
                 height: 100vh;
                 top: 0;
                 left: 0;
-                display: block;
+                display: block !important;
             }
             .logo-container { display: block; }
             .main-content {
@@ -525,22 +533,22 @@
 <body>
     <header class="header">
         <a href="/es/" title="Volver al inicio">
-            <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.style.display='none';">
+            <img src="https://1000malbecs.com/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.src='https://via.placeholder.com/150x50?text=Logo';">
         </a>
     </header>
     <button class="hamburger">☰</button>
     <nav id="sidebar" class="worker-managed">
         <div class="logo-container">
             <a href="/es/" title="Volver al inicio">
-                <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.style.display='none';">
+                <img src="https://1000malbecs.com/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo" onerror="this.src='https://via.placeholder.com/150x50?text=Logo';">
             </a>
         </div>
         <!-- Contenido del sidebar será gestionado por Cloudflare Worker -->
     </nav>
     <div class="language-selector">
-        <a href="/es/ofertas.html" class="active" data-lang="es" aria-label="Español"><img src="https://1000malbecs.com/images/flags/es.png" alt="Español" width="20" onerror="this.style.display='none'; this.nextSibling.textContent='ES';"> ES</a>
-        <a href="/en/ofertas.html" data-lang="en" aria-label="English"><img src="https://1000malbecs.com/images/flags/en.png" alt="English" width="20" onerror="this.style.display='none'; this.nextSibling.textContent='EN';"> EN</a>
-        <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán"><img src="https://1000malbecs.com/images/flags/de.png" alt="Deutsch" width="20" onerror="this.style.display='none'; this.nextSibling.textContent='DE';"> DE</a>
+        <a href="/es/ofertas.html" class="active" data-lang="es" aria-label="Español"><img src="https://1000malbecs.com/images/flags/es.png" alt="Español" width="20" onerror="this.src='https://via.placeholder.com/20x20?text=ES';"><span>ES</span></a>
+        <a href="/en/ofertas.html" data-lang="en" aria-label="English"><img src="https://1000malbecs.com/images/flags/en.png" alt="English" width="20" onerror="this.src='https://via.placeholder.com/20x20?text=EN';"><span>EN</span></a>
+        <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán"><img src="https://1000malbecs.com/images/flags/de.png" alt="Deutsch" width="20" onerror="this.src='https://via.placeholder.com/20x20?text=DE';"><span>DE</span></a>
     </div>
     <main class="main-content">
         <div class="presentation">
@@ -636,6 +644,21 @@
                     e.stopPropagation();
                     sidebar.classList.toggle('open');
                     console.log('Hamburger clicked, sidebar open:', sidebar.classList.contains('open'));
+                });
+                // Close sidebar when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+                        sidebar.classList.remove('open');
+                        console.log('Clicked outside, sidebar closed');
+                    }
+                });
+                // Close sidebar when clicking a nav-link
+                const navLinks = sidebar.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        sidebar.classList.remove('open');
+                        console.log('Nav link clicked, sidebar closed');
+                    });
                 });
             } else {
                 console.error('Hamburger or sidebar not found in DOM');
