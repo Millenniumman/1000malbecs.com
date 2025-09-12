@@ -92,6 +92,21 @@
         }
         .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
         .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        .banner-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .combo-image {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
         .main-content {
             margin-left: 250px;
             width: calc(100% - 250px);
@@ -125,14 +140,6 @@
             color: #333;
             line-height: 1.6;
             text-align: left;
-        }
-        .combo-image {
-            width: 100%;
-            max-width: 800px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 20px 0;
         }
         .product-grid, .subscription-grid {
             display: grid;
@@ -335,8 +342,18 @@
                 position: relative;
                 overflow: visible;
             }
+            .banner-container {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin: 10px 0;
+            }
             .combo-image {
                 height: 100px;
+                display: block;
+                width: 100%;
+                max-width: 800px;
+                margin: 0 auto;
             }
             .product-grid, .subscription-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -520,7 +537,9 @@
         <a href="/en/ofertas.html" data-lang="en" aria-label="English">EN 🇬🇧</a>
         <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
     </div>
-   <center></center> <img src="/images/banners/banner-ofertas.jpg" alt="Pack Discovery Malbec" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';"></center>
+    <div class="banner-container">
+        <img src="https://via.placeholder.com/800x200?text=Combo+Discovery+Image" alt="Pack Discovery Malbec" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
+    </div>
     <main class="main-content">
         <div class="presentation">
             <h1>Oferta Especial: Pack Discovery Malbec</h1>
