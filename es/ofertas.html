@@ -300,32 +300,6 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
-        .language-selector img {
-            width: 20px;
-            height: auto;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .language-selector span {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        footer {
-            background-color: #F8F8F8;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #E0E0E0;
-            color: #4A2C59;
-            font-size: 14px;
-        }
-        footer a {
-            color: #4A2C59;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
         @media (max-width: 768px) {
             .header { display: block; }
             .logo { max-width: 100px; }
@@ -449,10 +423,6 @@
                 padding: 2px 4px;
                 background-color: rgba(255, 255, 255, 0.7);
             }
-            .language-selector img {
-                width: 16px;
-                height: auto;
-            }
         }
         @media (min-width: 769px) {
             .header { display: none; }
@@ -546,9 +516,9 @@
         <!-- Contenido del sidebar será gestionado por Cloudflare Worker -->
     </nav>
     <div class="language-selector">
-        <a href="/es/ofertas.html" class="active" data-lang="es" aria-label="Español"><img src="https://1000malbecs.com/images/flags/es.png" alt="Español" width="20" onerror="this.src='https://via.placeholder.com/20x20?text=ES';"><span>ES</span></a>
-        <a href="/en/ofertas.html" data-lang="en" aria-label="English"><img src="https://1000malbecs.com/images/flags/en.png" alt="English" width="20" onerror="this.src='https://via.placeholder.com/20x20?text=EN';"><span>EN</span></a>
-        <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán"><img src="https://1000malbecs.com/images/flags/de.png" alt="Deutsch" width="20" onerror="this.src='https://via.placeholder.com/20x20?text=DE';"><span>DE</span></a>
+        <a href="/es/ofertas.html" class="active" data-lang="es" aria-label="Español">ES 🇪🇸</a>
+        <a href="/en/ofertas.html" data-lang="en" aria-label="English">EN 🇬🇧</a>
+        <a href="/de/ofertas.html" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
     </div>
     <main class="main-content">
         <div class="presentation">
@@ -628,10 +598,6 @@
             <a href="https://wa.me/+4915158224728?text=quiero%20suscribirme%20por%203%20meses" class="combo-button">Quiero Suscribirme por 3 meses</a>
         </div>
     </main>
-    <footer>
-        <p>1000 Malbecs &copy; 2025 | <a href="https://wa.me/+4915158224728">WhatsApp: +4915158224728</a> | <a href="mailto:info@1000malbecs.com">info@1000malbecs.com</a></p>
-        <p><a href="/es/acerca">Acerca de Nosotros</a> | <a href="/es/contacto">Contacto</a> | <a href="/es/terminos">Términos y Condiciones</a></p>
-    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM loaded, initializing hamburger and info-icon handlers');
