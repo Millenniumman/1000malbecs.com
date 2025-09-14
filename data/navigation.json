@@ -71,33 +71,13 @@
       "name": "Bodegas Caro",
       "slug": "bodegas-caro"
     },
+      {
+      "name": "Casa Araujo",
+      "slug": "casa-araujo"
+    },
      {
       "name": "Catena Zapata",
       "slug": "catena-zapata"
-    },
-     {
-      "name": "Dieter Meier & Family Wines",
-      "slug": "dieter-meier-and-family-wines"
-    },
-    {
-      "name": "Finca La Anita",
-      "slug": "finca-la-anita"
-    },
-    {
-      "name": "Finca & Bodega Arca Yaco",
-      "slug": "finca-bodega-arca-yaco"
-    },
-    {
-      "name": "Finca Las Moras",
-      "slug": "finca-las-moras"
-    },
-       {
-      "name": "Finca Las Nubes",
-      "slug": "finca-las-nubes"
-    },
-    {
-      "name": "Casa Araujo",
-      "slug": "casa-araujo"
     },
     {
       "name": "Chakana",
@@ -106,6 +86,10 @@
     {
       "name": "Cicchitti",
       "slug": "cicchitti"
+    },
+     {
+      "name": "Dieter Meier & Family Wines",
+      "slug": "dieter-meier-and-family-wines"
     },
        {
       "name": "El Esteco",
@@ -122,6 +106,22 @@
     {
       "name": "Familia Schroeder",
       "slug": "familia-schroeder"
+    },
+       {
+      "name": "Finca & Bodega Arca Yaco",
+      "slug": "finca-bodega-arca-yaco"
+    },  
+    {
+      "name": "Finca La Anita",
+      "slug": "finca-la-anita"
+    },
+    {
+      "name": "Finca Las Moras",
+      "slug": "finca-las-moras"
+    },
+       {
+      "name": "Finca Las Nubes",
+      "slug": "finca-las-nubes"
     },
     {
       "name": "Finca y Bodega Vistalba",
