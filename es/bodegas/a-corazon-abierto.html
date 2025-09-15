@@ -63,6 +63,82 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
       left: 10px;
       z-index: 110;
     }
+    #sidebar {
+      width: 250px;
+      background-color: #F8F8F8;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      border-right: 1px solid #E0E0E0;
+      z-index: 100;
+      transition: transform 0.3s ease;
+      transform: translateX(-100%);
+    }
+    #sidebar.open {
+      transform: translateX(0);
+    }
+    .logo-container {
+      text-align: left;
+      margin-bottom: 20px;
+      display: block;
+    }
+    #sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A2C59;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      text-align: left;
+    }
+    #sidebar details {
+      margin-bottom: 15px;
+    }
+    #sidebar details:first-of-type {
+      margin-bottom: 25px;
+    }
+    #sidebar summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      text-align: left;
+    }
+    #sidebar summary i {
+      margin-right: 10px;
+      color: #4A2C59;
+    }
+    #sidebar ul {
+      list-style: none;
+      padding: 0 0 0 20px;
+      margin: 10px 0;
+    }
+    #sidebar li {
+      margin: 5px 0;
+    }
+    .nav-link {
+      font-size: 14px;
+      color: #4A2C59;
+      text-decoration: none;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+    .nav-link:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .nav-link.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
     .main-content {
       margin-left: 250px;
       width: calc(100% - 250px);
@@ -283,12 +359,21 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
       .hamburger {
         display: block;
       }
+      #sidebar {
+        transform: translateX(-100%);
+      }
+      #sidebar.open {
+        transform: translateX(0);
+      }
+      .logo-container {
+        display: none;
+      }
       .main-content {
         margin-left: 0;
         width: 100%;
         max-width: 100%;
         margin: 10px auto 0;
-        padding: 10px 10px 250px 10px;
+        padding: 60px 10px 250px 10px; /* Increased top padding to avoid logo overlap */
       }
       .banner {
         height: 80px;
@@ -360,6 +445,12 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
       .hamburger {
         display: none;
       }
+      #sidebar {
+        transform: translateX(0);
+      }
+      .logo-container {
+        display: block;
+      }
       .main-content {
         margin-left: 250px;
         width: calc(100% - 250px);
@@ -419,15 +510,120 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
     </a>
   </header>
   <button class="hamburger">☰</button>
+  <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/" title="Volver al inicio">
+        <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+      </a>
+    </div>
+    <h2>Bodegas</h2>
+    <ul>
+      
+      <li><a href="/bodegas/a-corazon-abierto.html" class="nav-link">A Corazon Abierto</a></li>
+      
+      <li><a href="/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
+      
+      <li><a href="/bodegas/alamos.html" class="nav-link">Alamos</a></li>
+      
+      <li><a href="/bodegas/bemberg-estate-wines.html" class="nav-link">Bemberg Estate Wines</a></li>
+      
+      <li><a href="/bodegas/bodega-amalaya.html" class="nav-link">Bodega Amalaya</a></li>
+      
+      <li><a href="/bodegas/bodega-bressia.html" class="nav-link">Bodega Bressia</a></li>
+      
+      <li><a href="/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+      
+      <li><a href="/bodegas/bodega-colomé.html" class="nav-link">Bodega Colomé</a></li>
+      
+      <li><a href="/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+      
+      <li><a href="/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+      
+      <li><a href="/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+      
+      <li><a href="/bodegas/bodega-noemía-patagonia.html" class="nav-link">Bodega Noemía Patagonia</a></li>
+      
+      <li><a href="/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
+      
+      <li><a href="/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+      
+      <li><a href="/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+      
+      <li><a href="/bodegas/bodegas-caro.html" class="nav-link">Bodegas Caro</a></li>
+      
+      <li><a href="/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+      
+      <li><a href="/bodegas/catena-zapata.html" class="nav-link">Catena Zapata</a></li>
+      
+      <li><a href="/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+      
+      <li><a href="/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+      
+      <li><a href="/bodegas/dieter-meier-and-family-wines.html" class="nav-link">Dieter Meier and Family Wines</a></li>
+      
+      <li><a href="/bodegas/el-esteco.html" class="nav-link">El Esteco</a></li>
+      
+      <li><a href="/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+      
+      <li><a href="/bodegas/falasco-wines.html" class="nav-link">Falasco Wines</a></li>
+      
+      <li><a href="/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+      
+      <li><a href="/bodegas/finca-&-bodega-arca-yaco.html" class="nav-link">Finca & Bodega Arca Yaco</a></li>
+      
+      <li><a href="/bodegas/finca-la-anita.html" class="nav-link">Finca La Anita</a></li>
+      
+      <li><a href="/bodegas/finca-las-moras.html" class="nav-link">Finca Las Moras</a></li>
+      
+      <li><a href="/bodegas/finca-las-nubes.html" class="nav-link">Finca Las Nubes</a></li>
+      
+      <li><a href="/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+      
+      <li><a href="/bodegas/humberto-canale.html" class="nav-link">Humberto Canale</a></li>
+      
+      <li><a href="/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+      
+      <li><a href="/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+      
+      <li><a href="/bodegas/kaiken.html" class="nav-link">Kaiken</a></li>
+      
+      <li><a href="/bodegas/la-rural.html" class="nav-link">La Rural</a></li>
+      
+      <li><a href="/bodegas/los-haroldos.html" class="nav-link">Los Haroldos</a></li>
+      
+      <li><a href="/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+      
+      <li><a href="/bodegas/mascota-vineyards.html" class="nav-link">Mascota Vineyards</a></li>
+      
+      <li><a href="/bodegas/piattelli-vineyards.html" class="nav-link">Piattelli Vineyards</a></li>
+      
+      <li><a href="/bodegas/rutini-wines.html" class="nav-link">Rutini Wines</a></li>
+      
+      <li><a href="/bodegas/san-telmo.html" class="nav-link">San Telmo</a></li>
+      
+      <li><a href="/bodegas/trapiche.html" class="nav-link">Trapiche</a></li>
+      
+      <li><a href="/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+      
+      <li><a href="/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+      
+    </ul>
+    <h2>Provincias</h2>
+    <ul>
+      <!-- Add provinces dynamically if available -->
+      <li><a href="/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
+    </ul>
+  </nav>
   <main class="main-content">
+    <h1>A Corazon Abierto</h1>
+    <!-- Banner -->
+    <div class="banner"></div>
     <!-- Descripción de la bodega -->
     <section class="presentation">
       <h2>Acerca de A Corazon Abierto</h2>
       <p>A Corazon Abierto nació en 2010 como un sueño de hacer algo único.
 Marcando la característica de los varietales y blends de alta calidad enfocado en Los Chacayes, Valle de Uco. Este camino marcado por nuestra Pre-cordillera con un suelo tradicional. Este es el punto de partida al cual se suma una produccion limitada de botellas íntegramente fermentadas en barricas.
 A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en realizar vinos que produzcan placer como concepto primordial.</p>
-      <!-- Banner -->
-    <div class="banner"></div>
     </section>
     <!-- Vinos -->
     <section class="products-section">
@@ -448,7 +644,7 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
           </div>
           <h3>A Corazón Abierto Gran Corte</h3>
           <p class="price">€49.18</p>
-          <a href="/es//vinos/a-corazon-abierto-gran-corte-2018.html" class="buy-button">Comprar</a>
+          <a href="/vinos//vinos/a-corazon-abierto-gran-corte-2018.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="a-corazon-abierto-malbec.html">
@@ -464,7 +660,7 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
           </div>
           <h3>A Corazón Abierto Malbec</h3>
           <p class="price">€36.06</p>
-          <a href="/es//vinos/a-corazon-abierto-malbec-2019.html" class="buy-button">Comprar</a>
+          <a href="/vinos//vinos/a-corazon-abierto-malbec-2019.html" class="buy-button">Comprar</a>
         </div>
         
       </div>
@@ -474,15 +670,30 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
       let isSidebarOpen = false;
-      if (hamburger) {
+      if (hamburger && sidebar) {
         hamburger.addEventListener('click', (e) => {
           e.stopPropagation();
           isSidebarOpen = !isSidebarOpen;
+          sidebar.classList.toggle('open', isSidebarOpen);
           hamburger.textContent = isSidebarOpen ? '✕' : '☰';
-          // Sidebar is managed externally, e.g., by Cloudflare Worker
+        });
+        document.addEventListener('click', (e) => {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = '☰';
+          }
         });
       }
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPath = window.location.pathname;
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+        }
+      });
       const infoIcons = document.querySelectorAll('.info-icon');
       infoIcons.forEach(icon => {
         ['click', 'touchstart'].forEach(eventType => {
