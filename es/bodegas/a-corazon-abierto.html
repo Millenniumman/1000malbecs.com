@@ -11,6 +11,13 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
   <meta property="og:image" content="https://www.1000malbecs.com/images/bodegas/a-corazon-abierto-1.jpg">
   <meta property="og:url" content="https://www.1000malbecs.com/bodegas/a-corazon-abierto.html">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1000 Malbecs - A Corazon Abierto">
+  <meta name="twitter:description" content="A Corazon Abierto nació en 2010 como un sueño de hacer algo único.
+Marcando la característica de los varietales y blends de alta calidad enfocado en Los Chac...">
+  <meta name="twitter:image" content="https://www.1000malbecs.com/images/bodegas/a-corazon-abierto-1.jpg">
+  <meta name="twitter:site" content="@1000malbecs">
+  <meta name="twitter:creator" content="@1000malbecs">
   
   <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/bodegas/a-corazon-abierto.html">
   
@@ -32,8 +39,32 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
       min-height: 100vh;
       overflow-x: hidden;
     }
+    .header {
+      display: none;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 50;
+    }
+    .logo {
+      max-width: 150px;
+      height: auto;
+    }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #4A2C59;
+      cursor: pointer;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 110;
+    }
     .main-content {
-      margin-left: 250px; /* 250px margin for navigation bar */
+      margin-left: 250px;
       width: calc(100% - 250px);
       max-width: 1200px;
       margin-right: auto;
@@ -239,6 +270,19 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
       color: #FFFFFF;
     }
     @media (max-width: 768px) {
+      .header {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 50;
+      }
+      .logo {
+        max-width: 100px;
+      }
+      .hamburger {
+        display: block;
+      }
       .main-content {
         margin-left: 0;
         width: 100%;
@@ -310,6 +354,12 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
       }
     }
     @media (min-width: 769px) {
+      .header {
+        display: none;
+      }
+      .hamburger {
+        display: none;
+      }
       .main-content {
         margin-left: 250px;
         width: calc(100% - 250px);
@@ -363,6 +413,12 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
     <a href="/de/bodegas/a-corazon-abierto.html" class="" data-lang="de" aria-label="Alemán">DE 🇩🇪</a>
     <a href="/en/bodegas/a-corazon-abierto.html" class="" data-lang="en" aria-label="English">EN 🇬🇧</a>
   </div>
+  <header class="header">
+    <a href="/" title="Volver al inicio">
+      <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+  <button class="hamburger">☰</button>
   <main class="main-content">
     <!-- Descripción de la bodega -->
     <section class="presentation">
@@ -370,9 +426,9 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
       <p>A Corazon Abierto nació en 2010 como un sueño de hacer algo único.
 Marcando la característica de los varietales y blends de alta calidad enfocado en Los Chacayes, Valle de Uco. Este camino marcado por nuestra Pre-cordillera con un suelo tradicional. Este es el punto de partida al cual se suma una produccion limitada de botellas íntegramente fermentadas en barricas.
 A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en realizar vinos que produzcan placer como concepto primordial.</p>
-    </section>
-     <!-- Banner -->
+      <!-- Banner -->
     <div class="banner"></div>
+    </section>
     <!-- Vinos -->
     <section class="products-section">
       <h2>Vinos destacados de A Corazon Abierto</h2>
@@ -392,7 +448,7 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
           </div>
           <h3>A Corazón Abierto Gran Corte</h3>
           <p class="price">€49.18</p>
-          <a href="/es/vinos//vinos/a-corazon-abierto-gran-corte-2018.html" class="buy-button">Comprar</a>
+          <a href="/es//vinos/a-corazon-abierto-gran-corte-2018.html" class="buy-button">Comprar</a>
         </div>
         
         <div class="product-card" data-overlay-id="a-corazon-abierto-malbec.html">
@@ -408,7 +464,7 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
           </div>
           <h3>A Corazón Abierto Malbec</h3>
           <p class="price">€36.06</p>
-          <a href="/es/vinos//vinos/a-corazon-abierto-malbec-2019.html" class="buy-button">Comprar</a>
+          <a href="/es//vinos/a-corazon-abierto-malbec-2019.html" class="buy-button">Comprar</a>
         </div>
         
       </div>
@@ -417,6 +473,16 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
   </main>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      let isSidebarOpen = false;
+      if (hamburger) {
+        hamburger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isSidebarOpen = !isSidebarOpen;
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+          // Sidebar is managed externally, e.g., by Cloudflare Worker
+        });
+      }
       const infoIcons = document.querySelectorAll('.info-icon');
       infoIcons.forEach(icon => {
         ['click', 'touchstart'].forEach(eventType => {
@@ -431,7 +497,7 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
               overlay.classList.toggle('active');
               console.log(`Overlay toggled for card: ${icon.closest('.product-card').querySelector('h3').textContent}`);
             }
-          });
+          }, { passive: false });
         });
       });
       const buyButtons = document.querySelectorAll('.buy-button');
@@ -440,6 +506,20 @@ A Corazon Abierto, con una gran personalidad y con gran pasión, enfocado en rea
           e.stopPropagation();
         });
       });
+      const languageSelector = document.querySelector('.language-selector');
+      let lastScrollY = window.scrollY;
+      let scrollThreshold = 50;
+      if (languageSelector) {
+        window.addEventListener('scroll', () => {
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            languageSelector.classList.add('hidden');
+          } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            languageSelector.classList.remove('hidden');
+          }
+          lastScrollY = currentScrollY;
+        });
+      }
     });
   </script>
 </body>
