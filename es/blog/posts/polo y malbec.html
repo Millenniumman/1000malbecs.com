@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Volviendo a las raíces">
+    <meta property="og:title" content="Polo & Malbec - 1000 Malbecs">
+    <meta property="og:description" content="Volviendo a las raíces">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/es/blog/posts/polo y malbec.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Polo & Malbec - 1000 Malbecs">
+    <meta name="twitter:description" content="Volviendo a las raíces">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/es/blog/posts/polo y malbec.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/polo y malbec.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/polo y malbec.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/polo y malbec.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="language-selector">
+        <a href="/es/blog/posts/polo y malbec.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
+        <a href="/en/blog/posts/polo y malbec.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="/de/blog/posts/polo y malbec.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
+    </div>
+    <div class="header">
+        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+    <main>
+        <div class="main-content">
+            <div class="post-content"><p>Soy de los que extrañan. Al punto de terminar creando <a href="https://1000malbecs.com">1000malbecs.com</a>, una tienda online en Alemania para vender vinos argentinos. No me culpen, es lo que soy. ¿Cuándo me di cuenta que era de extrañar? Supongo que cuando era chiquito y mis padres se vinieron de viaje a este país. Ya de más grande, cuando me mudé por trabajo a Boston y, si bien tenía la compañía de mis compañeros de trabajo, estaba más solo que un hongo.</p>
+<p>Será por eso por lo que busco actividades que me conecten con personas parecidas y participo de eventos de todo tipo y color con el objetivo de no perder mi identidad.</p>
+<h2>Fede y el Polo</h2>
+<p>Para mí, el polo siempre fue algo medio ajeno. Lo jugaban los primos de mi madre en la estancia en Cañuelas, en una cancha que estaba justo detrás del parque de mi casa. Ahora, la relación con esa parte de la familia no era la mejor, así que digamos que el polo era lo que jugaban <em>ellos</em>. Tal vez el recuerdo más claro es el de Willy Fiorito en coma porque se había caído del caballo (n veces) y mi padre, que era una suerte de médico de consulta familiar, dando su opinión respecto del tratamiento.</p>
+<p>Un poco más acá en el tiempo, cuando un amigo del colegio me invitó al Abierto de Palermo. Por algún motivo no fui. Como que en ese momento no me interesaba. Como tampoco estaba tan interesado en los vinos. La vida es esa colección de momentos.</p>
+<h2>Un torneo de Polo en Alemania?</h2>
+<p><img alt="Evento de Polo en Düsseldorf" src="/images/fede_polo.jpg" /></p>
+<p>Todo eso cambió cuando hace un par de semanas, Martín Cortese, de Bodegas Colomé, me invitó a un evento de polo acá en Düsseldorf. Vino y polo, una combinación perfecta. Sumemos que había asado, por supuesto caballos increíbles, polistas mucho más atractivas que los primos de mi madre y un clima de fiesta argentina encubierta. Debo confesar que no me esperaba lo que viví. Tanto que al segundo día fui con amigos y la experiencia fue aún mejor. Voy a estar seguro el año que viene y, si todo va bien, no solo como asistente sino como sponsor. Ser argentino en Alemania necesita una dosis de polo y una buena dosis de Malbec.</p>
+<h2>¿Extrañás Argentina? Tengo algo para vos</h2>
+<p>Lo conté la semana pasada y ya lo hago realidad: hay cosas que nos acercan. El vino es una de ellas. Poder conseguir los mejores vinos argentinos en Alemania, un derecho. Y que los mismos sean accesibles a todos sin tener que pagar mucha plata para disfrutarlos, un <em>must</em>. Para todo lo demás, tenés tu <em>Master</em>…</p>
+<p>Así que acá va la oferta: una selección de 3 vinos argentinos que a mí me gustan mucho y me parecen novedosos, en tu casa, <strong>sin costo de envío</strong> y a tan solo <strong>EUR 38.99</strong>. ¿Querés más? Si te suscribís por 3 meses, te quedan a <strong>EUR 36.66 por mes</strong>. Y si los pagás de una vez, un preciazo: <strong>EUR 99.99</strong> (¡28% OFF!). Eso equivale a <strong>EUR 11.11 la botella</strong>.</p>
+<p>Si tenés en cuenta que además te estás llevando vinos de renombre y de bodegas boutique, que son exclusivos, es directamente un <em>no brainer</em>. Durante octubre, los vinos que elegí para vos son:</p>
+<ul>
+<li><strong>Foster Lorca Pink Malbec</strong>, un Malbec rosado de excepción proveniente del reconocido Valle de Uco en Mendoza.</li>
+<li><strong>Kaiken Terroir Malbec</strong>, de la región de Agrelo, Luján de Cuyo, también en Mendoza.</li>
+<li><strong>Amalaya Malbec</strong>, proveniente de los valles calchaquíes de Salta, a unos impresionantes 1800 metros sobre el nivel del mar.</li>
+</ul>
+<p>En la caja vas a encontrar, además, una guía para disfrutar más de tus vinos, información detallada de los mismos y un voucher con <strong>10% de descuento</strong> para comprar con envío sin cargo una caja adicional del que más te haya gustado de la serie.</p>
+<div class="product-grid">
+{% for wine in wines %}
+  <div class="product-card" data-overlay-id="{{ wine['Nombre']|lower|replace(' ', '-') }}">
+    <img src="{{ wine['Imagen'] }}" alt="Botella de {{ wine['Nombre'] }}" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+    <div class="info-icon" data-overlay-id="{{ wine['Nombre']|lower|replace(' ', '-') }}">🍷</div>
+    <div class="overlay" data-overlay-id="{{ wine['Nombre']|lower|replace(' ', '-') }}">
+      <p><strong>Bodega:</strong> {{ wine['Bodega'] }}</p>
+      <p><strong>Provincia:</strong> {{ wine['Provincia'] }}</p>
+      <p><strong>Región:</strong> {{ wine['Región'] }}</p>
+      <p><strong>Altura:</strong> {{ wine['Altura'] }}</p>
+      <p><strong>Añada:</strong> {{ wine['Año'] }}</p>
+    </div>
+    <h3>{{ wine['Nombre'] }}</h3>
+    <p class="price">{{ wine['Precio'] }}</p>
+    <a href="/es/vinos/{{ wine['Clean_URL'] }}" class="buy-button">Comprar</a>
+  </div>
+{% endfor %}
+</div>
+
+<p><strong>¡Apurate!</strong> Ordené solo 36 combos. Son más difíciles de conseguir que las entradas para el torneo de polo al que me invitaron. Y prometo que los próximos 6 que te voy a mandar en noviembre y diciembre van a ser tan buenos como esos. Hacé tu pedido ya por WhatsApp <a href="https://wa.me/+4915158224728?text=Quiero%20mi%20Pack%20Discovery%20Malbec">acá</a>.</p></div>
+            <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
+        </div>
+    </main>
+</body>
+</html>
