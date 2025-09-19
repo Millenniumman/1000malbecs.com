@@ -726,6 +726,31 @@
                 display: block;
             }
         }
+                .combo-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #25D366;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .combo-button:hover {
+            background-color: #20b358;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 50;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+            max-width: 100%;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
