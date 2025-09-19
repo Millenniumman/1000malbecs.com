@@ -518,6 +518,68 @@
             .overlay { pointer-events: none; }
             .product-card:hover .overlay { display: block; }
         }
+    footer h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #f5e6ff;
+    }
+    footer p {
+        margin: 10px 0;
+        color: #FFFFFF;
+    }
+    footer b {
+        color: #f5e6ff;
+    }
+    @media (max-width: 768px) {
+        footer {
+            padding: 20px 10px;
+            font-size: 12px;
+        }
+        footer h2 {
+            font-size: 16px;
+        }
+    }
+    .terms-container {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+        padding: 30px 20px;
+        margin: 40px auto 20px;
+        max-width: 1200px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.6;
+        display: grid;
+        grid-template-columns: 1fr 3fr; /* Dos columnas: 1 para título, 3 para contenido */
+        gap: 20px;
+        align-items: start;
+    }
+    .terms-container h2 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #f5e6ff;
+        margin: 0;
+    }
+    .terms-container p {
+        margin: 0;
+        color: #FFFFFF;
+    }
+    .terms-container b {
+        color: #f5e6ff;
+    }
+    @media (max-width: 768px) {
+        .terms-container {
+            grid-template-columns: 1fr; /* Una sola columna en móviles */
+            padding: 20px 10px;
+            font-size: 11px;
+            margin: 20px auto;
+        }
+        .terms-container h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
     </style>
 </head>
 <body>
@@ -545,93 +607,135 @@
         
     </div>
     <main class="main-content">
-        <div class="presentation">
-            <h1>Sonderangebot: Malbec Discovery Paket</h1>
-            <div class="banner-container">
-                <img src="/images/banners/banner-ofertas.jpg" alt="Sonderangebot: Malbec Discovery Paket" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
-            </div>
-            <p>Exklusives Angebot für begrenzte Zeit: <b>Malbec Discovery Paket 15% RABATT</b><br>
+    <div class="presentation">
+        <h1>Sonderangebot: Malbec Discovery Paket</h1>
+        <div class="banner-container">
+            <img src="/images/banners/banner-ofertas.jpg" alt="Sonderangebot: Malbec Discovery Paket" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
+        </div>
+        <p>Exklusives Angebot für begrenzte Zeit: <b>Malbec Discovery Paket 15% RABATT</b><br>
 Kaufen Sie Ihr Paket jetzt für nur EUR38.99 mit kostenlosem Versand.<br>
 Lassen Sie sich diese einzigartige Gelegenheit nicht entgehen, drei der ikonischsten Malbecs Argentiniens kennenzulernen. Nur 36 Einheiten verfügbar!</p>
-            <p><b>Was enthält das Malbec Discovery Paket?</b><br>Diesmal drei Höhenweine aus verschiedenen Provinzen und Regionen Argentiniens. Sie werden probieren:<br>
+        <p><b>Was enthält das Malbec Discovery Paket?</b><br>Diesmal drei Höhenweine aus verschiedenen Provinzen und Regionen Argentiniens. Sie werden probieren:<br>
 - Foster Lorca Pink Malbec, ein außergewöhnlicher Rosé-Malbec aus dem renommierten Valle de Uco in Mendoza.<br>
 - Kaiken Terroir Malbec aus der Region Agrelo, Luján de Cuyo, ebenfalls in Mendoza.<br>
 - Amalaya Malbec aus den Calchaquí-Tälern in Salta, auf beeindruckenden 1800 Metern über dem Meeresspiegel.<br>
 <b>Mit Ihrer Bestellung erhalten Sie Anleitungen, um Ihr Erlebnis noch mehr zu genießen, sowie einen Code, um eine Kiste Ihres Lieblingsweins mit einem speziellen Rabatt zu kaufen.</b></p>
-        </div>
-        <div class="product-grid">
-            
-            <div class="product-card" data-overlay-id="pink-malbec-rosado">
-                <img src="/images/small/pink-malbec-rosado-2023.jpg" alt="Weingut Pink Malbec Rosado" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="pink-malbec-rosado">🍷</div>
-                <div class="overlay" data-overlay-id="pink-malbec-rosado">
-                    <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> Uco Valley</p>
-                    <p><strong>Höhe:</strong> 950.0</p>
-                    <p><strong>Jahrgang:</strong> 2023</p>
-                </div>
-                <h3>Pink Malbec Rosado</h3>
-                <p class="price">13.49</p>
-                <a href="/de/vinos/pink-malbec-rosado-2023.html" class="buy-button">Details anzeigen</a>
+    </div>
+    <div class="product-grid">
+        
+        <div class="product-card" data-overlay-id="pink-malbec-rosado">
+            <img src="/images/small/pink-malbec-rosado-2023.jpg" alt="Weingut Pink Malbec Rosado" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="pink-malbec-rosado">🍷</div>
+            <div class="overlay" data-overlay-id="pink-malbec-rosado">
+                <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+                <p><strong>Provinz:</strong> Mendoza</p>
+                <p><strong>Region:</strong> Uco Valley</p>
+                <p><strong>Höhe:</strong> 950.0</p>
+                <p><strong>Jahrgang:</strong> 2023</p>
             </div>
-            
-            <div class="product-card" data-overlay-id="kaiken-terroir-malbec">
-                <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Weingut Kaiken Terroir Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="kaiken-terroir-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="kaiken-terroir-malbec">
-                    <p><strong>Weingut:</strong> Kaiken</p>
-                    <p><strong>Provinz:</strong> Mendoza</p>
-                    <p><strong>Region:</strong> Luján de Cuyo, Agrelo</p>
-                    <p><strong>Höhe:</strong> 950.0</p>
-                    <p><strong>Jahrgang:</strong> 2022</p>
-                </div>
-                <h3>Kaiken Terroir Malbec</h3>
-                <p class="price">13.05</p>
-                <a href="/de/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Details anzeigen</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="amalaya-malbec">
-                <img src="/images/small/amalaya-malbec-2023.jpg" alt="Weingut Amalaya Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="amalaya-malbec">
-                    <p><strong>Weingut:</strong> Bodega Amalaya</p>
-                    <p><strong>Provinz:</strong> Salta</p>
-                    <p><strong>Region:</strong> Calchaquí -Täler</p>
-                    <p><strong>Höhe:</strong> 1800.0</p>
-                    <p><strong>Jahrgang:</strong> 2023</p>
-                </div>
-                <h3>Amalaya Malbec</h3>
-                <p class="price">13.5</p>
-                <a href="/de/vinos/amalaya-malbec-2023.html" class="buy-button">Details anzeigen</a>
-            </div>
-            
+            <h3>Pink Malbec Rosado</h3>
+            <p class="price">13.49</p>
+            <a href="/de/vinos/pink-malbec-rosado-2023.html" class="buy-button">Details anzeigen</a>
         </div>
-        <div style="text-align: center;">
-            <a href="https://wa.me/+4915158224728?text=Ich%20m%C3%B6chte%20mein%20Malbec%20Discovery%20Paket%20jetzt" class="combo-button">Ich möchte mein Malbec Discovery Paket jetzt</a>
+        
+        <div class="product-card" data-overlay-id="kaiken-terroir-malbec">
+            <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Weingut Kaiken Terroir Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="kaiken-terroir-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-terroir-malbec">
+                <p><strong>Weingut:</strong> Kaiken</p>
+                <p><strong>Provinz:</strong> Mendoza</p>
+                <p><strong>Region:</strong> Luján de Cuyo, Agrelo</p>
+                <p><strong>Höhe:</strong> 950.0</p>
+                <p><strong>Jahrgang:</strong> 2022</p>
+            </div>
+            <h3>Kaiken Terroir Malbec</h3>
+            <p class="price">13.05</p>
+            <a href="/de/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Details anzeigen</a>
         </div>
-        <div class="subscription-presentation">
-            <p><b>Abonnieren Sie und sichern Sie sich 28% Rabatt!</b><br>
+        
+        <div class="product-card" data-overlay-id="amalaya-malbec">
+            <img src="/images/small/amalaya-malbec-2023.jpg" alt="Weingut Amalaya Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="amalaya-malbec">
+                <p><strong>Weingut:</strong> Bodega Amalaya</p>
+                <p><strong>Provinz:</strong> Salta</p>
+                <p><strong>Region:</strong> Calchaquí -Täler</p>
+                <p><strong>Höhe:</strong> 1800.0</p>
+                <p><strong>Jahrgang:</strong> 2023</p>
+            </div>
+            <h3>Amalaya Malbec</h3>
+            <p class="price">13.5</p>
+            <a href="/de/vinos/amalaya-malbec-2023.html" class="buy-button">Details anzeigen</a>
+        </div>
+        
+    </div>
+    <div style="text-align: center;">
+        <a href="https://wa.me/+4915158224728?text=Ich%20m%C3%B6chte%20mein%20Malbec%20Discovery%20Paket%20jetzt" class="combo-button">Ich möchte mein Malbec Discovery Paket jetzt</a>
+    </div>
+    <div class="subscription-presentation">
+        <p><b>Abonnieren Sie und sichern Sie sich 28% Rabatt!</b><br>
 Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschungs-Malbecs nach Hause. Zahlen Sie in 3 Raten von EUR36.66 oder eine einmalige Zahlung von EUR99,99 (28% RABATT)!</p>
+    </div>
+    <div class="subscription-grid">
+        <div class="subscription-item">
+            <img src="/images/combo-1.jpg" alt="Oktober Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Oktober</p>
         </div>
-        <div class="subscription-grid">
-            <div class="subscription-item">
-                <img src="/images/combo-1.jpg" alt="Oktober Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <p class="month-label">Oktober</p>
-            </div>
-            <div class="subscription-item">
-                <img src="/images/combo-2.jpg" alt="November Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <p class="month-label">November</p>
-            </div>
-            <div class="subscription-item">
-                <img src="/images/combo-3.jpg" alt="Dezember Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <p class="month-label">Dezember</p>
-            </div>
+        <div class="subscription-item">
+            <img src="/images/combo-2.jpg" alt="November Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">November</p>
         </div>
-        <div style="text-align: center;">
-            <a href="https://wa.me/+4915158224728?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%203%20Monate%20abonnieren" class="combo-button">Ich möchte mich für 3 Monate abonnieren</a>
+        <div class="subscription-item">
+            <img src="/images/combo-3.jpg" alt="Dezember Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Dezember</p>
         </div>
-    </main>
+    </div>
+    <div style="text-align: center;">
+        <a href="https://wa.me/+4915158224728?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%203%20Monate%20abonnieren" class="combo-button">Ich möchte mich für 3 Monate abonnieren</a>
+    </div>
+    <div class="terms-container">
+        <h2>Allgemeine Geschäftsbedingungen - 1000 Malbecs (Kombi-Angebot)</h2>
+        <p>Hier erklären wir dir alles, was du über unser Kombi-Angebot und Abonnements wissen musst. Lies es in Ruhe durch – es ist kein Hypothekenvertrag, aber wir wollen, dass du genau Bescheid weißt, bevor du in die Welt unserer tollen Malbecs eintauchst.<br><br>
+<b>Was ist 1000 Malbecs?</b><br>
+Dein Zugang zu großartigen Malbecs ohne Umstände. Jeden Monat schicken wir dir drei Flaschen sorgfältig ausgewählter Malbecs plus ein Booklet mit Geschichten, Fun Facts und Beschreibungen, die dich jeden Schluck lieben lassen. Wir sind kein gewöhnlicher Laden – wir sind deine Kuratoren für Weinabenteuer. Mit deiner Bestellung erhältst du außerdem einen Gutschein mit einem Rabatt, falls du einen Wein direkt kaufen möchtest oder etwas anderes ausprobieren willst. Unsere Abonnenten behandeln wir besonders gut.<br><br>
+<b>Kaufoptionen</b><br>
+1. <b>Discovery Package (Einmalkauf)</b><br>
+• Preis: EUR 38.99 (kostenloser Versand).<br>
+• Regulärer Preis außerhalb des Angebots: ca. EUR 46.00 (inklusive Versand).<br>
+• Du bekommst drei einzigartige Malbec-Flaschen + unser berühmtes Booklet + einen Gutschein mit Rabatten, falls du etwas anderes ausprobieren möchtest.<br>
+• Perfekt, um uns ohne Verpflichtungen auszuprobieren.<br><br>
+2. <b>3-Monats-Abo</b><br>
+• Option 1: Eine monatliche Zahlung von EUR 36.99 (insgesamt: EUR 110.97 für 3 Monate).<br>
+• Option 2: Einmalzahlung von EUR 99.99 (spart dir ein paar Euro).<br>
+• Jeden Monat drei Malbec-Flaschen + das Booklet + der Rabattgutschein.<br>
+• Das Abo verlängert sich automatisch, aber du kannst jederzeit kündigen (Details unten).<br><br>
+<b>Welche Malbecs kommen in die Box?</b><br>
+• Weine, die uns begeistern: Malbecs mit Seele, hergestellt von Winzern, die ihr Handwerk verstehen.<br>
+• Durchschnittlicher Marktpreis: EUR 12-17 pro Flasche.<br>
+• Flaschen mit Designs, die ins Auge fallen, und Geschmack, der dich überzeugt.<br>
+• Wir wählen nicht irgendeinen Wein – nur die, bei denen wir persönlich mit dir anstoßen würden.<br><br>
+<b>Kann ich die Weine selbst aussuchen?</b><br>
+Nein, tut uns leid! Es geht darum, dich zu überraschen. Wir suchen, probieren und wählen die besten Malbecs aus, damit du einfach genießen kannst. Möchtest du einen Wein wiederholen? Sag Bescheid, aber viele sind limitierte Editionen, also keine Garantie.<br><br>
+<b>Kündigung des Abos</b><br>
+• Du kannst jederzeit kündigen, aber das 3-Monats-Abo ist verbindlich. Beispiel: Wenn du im Juni beginnst, greift die Kündigung ab September.<br>
+• Zum Kündigen sende uns eine E-Mail oder eine WhatsApp-Nachricht. Einfach und ohne Theater.<br><br>
+<b>Versand</b><br>
+• Discovery Package: Kostenloser Versand in ganz Deutschland.<br>
+• Abo: Versand inbegriffen.<br>
+• Im Urlaub oder möchtest du die Box an eine andere Adresse schicken? Sag uns Bescheid, wir regeln das.<br>
+• Probleme mit der Lieferung? Schreib uns, und wir kümmern uns schnell darum – wie die Online-Shops, die man mag.<br><br>
+<b>Was, wenn es mir nicht gefällt?</b><br>
+Du wirst es lieben, versprochen. Aber wenn etwas nicht stimmt, melde dich, und wir klären das. Jede Flasche soll eine Feier sein.<br><br>
+<b>Wichtige Infos</b><br>
+• Abos verlängern sich automatisch. Kündige vor dem nächsten Zyklus, wenn du aufhören möchtest.<br>
+• Preise enthalten Steuern, decken aber keine möglichen Zollgebühren außerhalb der EU.<br>
+• Wir können diese Bedingungen aktualisieren, informieren dich aber rechtzeitig.<br><br>
+<b>Bereit für das Malbec-Abenteuer?</b><br>
+Melde dich an und entdecke, warum 1000 Malbecs mehr als nur Wein ist – es ist ein Erlebnis.<br><br>
+<b>Prost!</b><br>
+Das 1000 Malbecs Team</p>
+    </div>
+</main>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM loaded, initializing hamburger and info-icon handlers');
