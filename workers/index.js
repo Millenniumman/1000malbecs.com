@@ -27,6 +27,7 @@ export default {
           wineries: "Bodegas",
           events: "Eventos",
           info: "Info",
+          offers: "Ofertas", // Added
           home: "Volver al inicio",
           blog: "1000 Historias - Blog",
           provinces_list: {
@@ -62,6 +63,7 @@ export default {
           wineries: "Wineries",
           events: "Events",
           info: "Info",
+          offers: "Offers", // Added
           home: "Back to home",
           blog: "1000 Stories - Blog",
           provinces_list: {
@@ -97,6 +99,7 @@ export default {
           wineries: "Weingüter",
           events: "Veranstaltungen",
           info: "Info",
+          offers: "Angebote", // Added
           home: "Zurück zur Startseite",
           blog: "1000 Geschichten - Blog",
           provinces_list: {
@@ -251,7 +254,8 @@ export default {
             ${eventLinks}
           </ul>
         </details>
-        <a href="/${lang}/blog/index.html" class="nav-link"><i class="fas fa-book"></i> ${translations[lang].navbar.blog}</a>
+        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}"><i class="fas fa-tag"></i> ${translations[lang].navbar.offers}</a>
+        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}"><i class="fas fa-book"></i> ${translations[lang].navbar.blog}</a>
         <details>
           <summary><i class="fas fa-wine-glass"></i> ${translations[lang].navbar.info}</summary>
           <ul>
