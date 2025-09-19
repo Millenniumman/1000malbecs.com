@@ -549,6 +549,45 @@
             font-size: 16px;
         }
     }
+    .terms-container {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+        padding: 30px 20px;
+        margin: 40px auto 20px;
+        max-width: 1200px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.6;
+        display: grid;
+        grid-template-columns: 1fr 3fr; /* Dos columnas: 1 para título, 3 para contenido */
+        gap: 20px;
+        align-items: start;
+    }
+    .terms-container h2 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #f5e6ff;
+        margin: 0;
+    }
+    .terms-container p {
+        margin: 0;
+        color: #FFFFFF;
+    }
+    .terms-container b {
+        color: #f5e6ff;
+    }
+    @media (max-width: 768px) {
+        .terms-container {
+            grid-template-columns: 1fr; /* Una sola columna en móviles */
+            padding: 20px 10px;
+            font-size: 11px;
+            margin: 20px auto;
+        }
+        .terms-container h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
 </style>
 
     </style>
@@ -578,93 +617,135 @@
         
     </div>
     <main class="main-content">
-        <div class="presentation">
-            <h1>Oferta Especial: Pack Discovery Malbec</h1>
-            <div class="banner-container">
-                <img src="/images/banners/banner-ofertas.jpg" alt="Oferta Especial: Pack Discovery Malbec" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
-            </div>
-            <p>Oferta Exclusiva por tiempo limitado: <b>Pack Discovery Malbec 15% OFF</b><br>
+    <div class="presentation">
+        <h1>Oferta Especial: Pack Discovery Malbec</h1>
+        <div class="banner-container">
+            <img src="/images/banners/banner-ofertas.jpg" alt="Oferta Especial: Pack Discovery Malbec" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
+        </div>
+        <p>Oferta Exclusiva por tiempo limitado: <b>Pack Discovery Malbec 15% OFF</b><br>
 Comprá ya el tuyo a tan solo EUR38.99 y envío sin cargo.<br>
 No te pierdas esta oportunidad única para conocer a 3 de los más emblemáticos Malbecs de la Argentina. Solo 36 Unidades disponibles!</p>
-            <p><b>¿Qué contiene el Malbec Discovery Package?</b><br>En esta ocasión 3 vinos de altura de distintas Provincias y regiones de Argentina. Vas a probar:<br>
+        <p><b>¿Qué contiene el Malbec Discovery Package?</b><br>En esta ocasión 3 vinos de altura de distintas Provincias y regiones de Argentina. Vas a probar:<br>
 - Foster Lorca Pink Malbec, un Malbec rosado de excepción proveniente del reconocido Valle de Uco en Mendoza.<br>
 - Kaiken Terroir Malbec de la región de Agrelo, Luján de Cuyo, también en Mendoza.<br>
 - Amalaya Malbec, proveniente de los valles calchaquíes de Salta, a unos impresionantes 1800 metros sobre el nivel del mar.<br>
 <b>Junto con tu pedido, vas a recibir instrucciones para disfrutar más de tu experiencia y un código para comprar una caja de tu vino preferido con un descuento especial.</b></p>
-        </div>
-        <div class="product-grid">
-            
-            <div class="product-card" data-overlay-id="pink-malbec-rosado">
-                <img src="/images/small/pink-malbec-rosado-2023.jpg" alt="Bodega Pink Malbec Rosado" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="pink-malbec-rosado">🍷</div>
-                <div class="overlay" data-overlay-id="pink-malbec-rosado">
-                    <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Valle de Uco</p>
-                    <p><strong>Altura:</strong> 950.0</p>
-                    <p><strong>Año:</strong> 2023</p>
-                </div>
-                <h3>Pink Malbec Rosado</h3>
-                <p class="price">13.49</p>
-                <a href="/es/vinos/pink-malbec-rosado-2023.html" class="buy-button">Ver Detalles</a>
+    </div>
+    <div class="product-grid">
+        
+        <div class="product-card" data-overlay-id="pink-malbec-rosado">
+            <img src="/images/small/pink-malbec-rosado-2023.jpg" alt="Bodega Pink Malbec Rosado" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="pink-malbec-rosado">🍷</div>
+            <div class="overlay" data-overlay-id="pink-malbec-rosado">
+                <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+                <p><strong>Altura:</strong> 950.0</p>
+                <p><strong>Año:</strong> 2023</p>
             </div>
-            
-            <div class="product-card" data-overlay-id="kaiken-terroir-malbec">
-                <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Bodega Kaiken Terroir Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="kaiken-terroir-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="kaiken-terroir-malbec">
-                    <p><strong>Bodega:</strong> Kaiken</p>
-                    <p><strong>Provincia:</strong> Mendoza</p>
-                    <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
-                    <p><strong>Altura:</strong> 950.0</p>
-                    <p><strong>Año:</strong> 2022</p>
-                </div>
-                <h3>Kaiken Terroir Malbec</h3>
-                <p class="price">13.05</p>
-                <a href="/es/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Ver Detalles</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="amalaya-malbec">
-                <img src="/images/small/amalaya-malbec-2023.jpg" alt="Bodega Amalaya Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
-                <div class="overlay" data-overlay-id="amalaya-malbec">
-                    <p><strong>Bodega:</strong> Bodega Amalaya</p>
-                    <p><strong>Provincia:</strong> Salta</p>
-                    <p><strong>Región:</strong> Valles Calchaquíes</p>
-                    <p><strong>Altura:</strong> 1800.0</p>
-                    <p><strong>Año:</strong> 2023</p>
-                </div>
-                <h3>Amalaya Malbec</h3>
-                <p class="price">13.5</p>
-                <a href="/es/vinos/amalaya-malbec-2023.html" class="buy-button">Ver Detalles</a>
-            </div>
-            
+            <h3>Pink Malbec Rosado</h3>
+            <p class="price">13.49</p>
+            <a href="/es/vinos/pink-malbec-rosado-2023.html" class="buy-button">Ver Detalles</a>
         </div>
-        <div style="text-align: center;">
-            <a href="https://wa.me/+4915158224728?text=Quiero%20ya%20mi%20Pack%20Discovery%20Malbec" class="combo-button">Quiero ya mi Pack Discovery Malbec</a>
+        
+        <div class="product-card" data-overlay-id="kaiken-terroir-malbec">
+            <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Bodega Kaiken Terroir Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="kaiken-terroir-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="kaiken-terroir-malbec">
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+                <p><strong>Altura:</strong> 950.0</p>
+                <p><strong>Año:</strong> 2022</p>
+            </div>
+            <h3>Kaiken Terroir Malbec</h3>
+            <p class="price">13.05</p>
+            <a href="/es/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Ver Detalles</a>
         </div>
-        <div class="subscription-presentation">
-            <p><b>Suscribite y asegurate un descuento de 28%!</b><br>
+        
+        <div class="product-card" data-overlay-id="amalaya-malbec">
+            <img src="/images/small/amalaya-malbec-2023.jpg" alt="Bodega Amalaya Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
+            <div class="overlay" data-overlay-id="amalaya-malbec">
+                <p><strong>Bodega:</strong> Bodega Amalaya</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Valles Calchaquíes</p>
+                <p><strong>Altura:</strong> 1800.0</p>
+                <p><strong>Año:</strong> 2023</p>
+            </div>
+            <h3>Amalaya Malbec</h3>
+            <p class="price">13.5</p>
+            <a href="/es/vinos/amalaya-malbec-2023.html" class="buy-button">Ver Detalles</a>
+        </div>
+        
+    </div>
+    <div style="text-align: center;">
+        <a href="https://wa.me/+4915158224728?text=Quiero%20ya%20mi%20Pack%20Discovery%20Malbec" class="combo-button">Quiero ya mi Pack Discovery Malbec</a>
+    </div>
+    <div class="subscription-presentation">
+        <p><b>Suscribite y asegurate un descuento de 28%!</b><br>
 Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Pagá en 3 cuotas de EUR36.66 o un único pago de EUR99,99 (28% OFF)!</p>
+    </div>
+    <div class="subscription-grid">
+        <div class="subscription-item">
+            <img src="/images/combo-1.jpg" alt="Octubre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Octubre</p>
         </div>
-        <div class="subscription-grid">
-            <div class="subscription-item">
-                <img src="/images/combo-1.jpg" alt="Octubre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <p class="month-label">Octubre</p>
-            </div>
-            <div class="subscription-item">
-                <img src="/images/combo-2.jpg" alt="Noviembre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <p class="month-label">Noviembre</p>
-            </div>
-            <div class="subscription-item">
-                <img src="/images/combo-3.jpg" alt="Diciembre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <p class="month-label">Diciembre</p>
-            </div>
+        <div class="subscription-item">
+            <img src="/images/combo-2.jpg" alt="Noviembre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Noviembre</p>
         </div>
-        <div style="text-align: center;">
-            <a href="https://wa.me/+4915158224728?text=Quiero%20Suscribirme%20por%203%20meses" class="combo-button">Quiero Suscribirme por 3 meses</a>
+        <div class="subscription-item">
+            <img src="/images/combo-3.jpg" alt="Diciembre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Diciembre</p>
         </div>
-    </main>
+    </div>
+    <div style="text-align: center;">
+        <a href="https://wa.me/+4915158224728?text=Quiero%20Suscribirme%20por%203%20meses" class="combo-button">Quiero Suscribirme por 3 meses</a>
+    </div>
+    <div class="terms-container">
+        <h2>Términos y Condiciones – Oferta Discovery Package 1000 Malbecs</h2>
+        <p>Aquí te contamos todo lo que necesitas saber sobre nuestra oferta de combos y suscripciones. Léelo con calma, que esto no es un contrato de hipoteca, pero sí queremos que tengas todo clarito antes de que te lances a disfrutar de nuestros malbecs.<br><br>
+<b>¿Qué es el Discovery Package de 1000Malbecs.com?</b><br>
+Es tu pasaporte a descubrir malbecs espectaculares sin complicaciones. Cada mes, te enviamos tres botellas de malbecs seleccionados con cariño, acompañados de un díptico con historias, curiosidades y descripciones que te harán amar cada sorbo. No somos una tienda cualquiera, somos tus curadores de momentos vinícolas. Vas a recibir además un cupón con un descuento por si quieres comprar directamente un vino que te haya gustado o quieres probar otro que no esté en la lista. A los suscriptores los tratamos mejor.<br><br>
+<b>Opciones de compra</b><br>
+1. <b>Discovery Package (compra directa)</b><br>
+• Precio: EUR 38.99 (envío bonificado).<br>
+• Fuera de la oferta, el precio sería aproximadamente EUR 46.00 (envío incluido).<br>
+• Recibes tres botellas de malbec únicas + nuestra guía para disfrutarlos mejor + un cupón con descuentos por si quieres probar otra cosa.<br>
+• Perfecto para probar sin compromiso.<br><br>
+2. <b>Suscripción de 3 meses</b><br>
+• Opción 1: Un pago mensual de EUR 36.99 (total: EUR 110.97 en 3 meses).<br>
+• Opción 2: Un pago único de EUR 99.99 (te ahorras unos euritos).<br>
+• Cada mes, tres botellas de malbec + la guía + el cupón de descuento.<br>
+• La suscripción se renueva automáticamente, pero puedes cancelarla en cualquier momento (más abajo te contamos cómo).<br><br>
+<b>¿Qué tipo de malbecs llegan en el combo?</b><br>
+• Vinos que nos gustan: malbecs con alma, elaborados por bodegueros que saben lo que hacen.<br>
+• Precio medio en el mercado: entre EUR 12-17 por botella.<br>
+• Botellas con diseños que entran por los ojos y sabores que te conquistan.<br>
+• No elegimos cualquier vino: solo los que nos harían brindar contigo en persona.<br><br>
+<b>¿Puedo elegir los vinos?</b><br>
+No, reina mora. Esto va de sorprenderte. Nosotros buscamos, catamos y seleccionamos los mejores malbecs para que tú solo disfrutes. Si quieres repetir un vino, avísanos, pero muchos son ediciones limitadas, así que no prometemos milagros.<br><br>
+<b>Cancelación de la suscripción</b><br>
+• Puedes cancelar cuando quieras, pero los 3 meses de la suscripción están comprometidos. Por ejemplo, si te suscribes en junio, la cancelación aplica a partir de septiembre.<br>
+• Para cancelar, nos mandás un mail o un WhatsApp. Fácil y sin dramas.<br><br>
+<b>Envíos</b><br>
+• Discovery Package: Envío bonificado en toda Alemania.<br>
+• Suscripción: Envío incluido en el precio.<br>
+• Si estás de vacaciones o quieres enviar el combo a otra dirección, avísanos y lo organizamos.<br>
+• ¿Problemas con el envío? Escríbenos y lo solucionamos rapidito, como las tiendas online que nos gustan.<br><br>
+<b>¿Y si no me gusta?</b><br>
+Te va a gustar, confía. Pero si algo no te convence, contáctanos y lo hablamos. Queremos que cada botella sea una fiesta.<br><br>
+<b>Datos importantes</b><br>
+• La renovación de la suscripción es automática. Si no quieres continuar, cancela antes de que se renueve el próximo ciclo.<br>
+• Los precios incluyen impuestos, pero no cubren posibles tasas aduaneras si estás fuera de la UE.<br>
+• Nos reservamos el derecho de modificar estos términos, pero te avisaremos con tiempo.<br><br>
+<b>¿Listos para unirse a la aventura del malbec?</b><br>
+Anotate y descubre por qué 1000 Malbecs es más que vino: es una experiencia.<br><br>
+<b>¡Salud!</b><br>
+Equipo 1000 Malbecs</p>
+    </div>
+</main>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM loaded, initializing hamburger and info-icon handlers');
@@ -737,49 +818,5 @@ Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sor
             }
         });
     </script>
-    <footer>
-        <div class="footer-content" style="max-width: 1200px; margin: 0 auto;">
-            <h2>Términos y Condiciones – Oferta Discovery Package 1000 Malbecs</h2>
-            <p>Aquí te contamos todo lo que necesitas saber sobre nuestra oferta de combos y suscripciones. Léelo con calma, que esto no es un contrato de hipoteca, pero sí queremos que tengas todo clarito antes de que te lances a disfrutar de nuestros malbecs.<br><br>
-<b>¿Qué es el Discovery Package de 1000Malbecs.com?</b><br>
-Es tu pasaporte a descubrir malbecs espectaculares sin complicaciones. Cada mes, te enviamos tres botellas de malbecs seleccionados con cariño, acompañados de un díptico con historias, curiosidades y descripciones que te harán amar cada sorbo. No somos una tienda cualquiera, somos tus curadores de momentos vinícolas. Vas a recibir además un cupón con un descuento por si quieres comprar directamente un vino que te haya gustado o quieres probar otro que no esté en la lista. A los suscriptores los tratamos mejor.<br><br>
-<b>Opciones de compra</b><br>
-1. <b>Discovery Package (compra directa)</b><br>
-• Precio: EUR 38.99 (envío bonificado).<br>
-• Fuera de la oferta, el precio sería aproximadamente EUR 46.00 (envío incluido).<br>
-• Recibes tres botellas de malbec únicas + nuestra guía para disfrutarlos mejor + un cupón con descuentos por si quieres probar otra cosa.<br>
-• Perfecto para probar sin compromiso.<br><br>
-2. <b>Suscripción de 3 meses</b><br>
-• Opción 1: Un pago mensual de EUR 36.99 (total: EUR 110.97 en 3 meses).<br>
-• Opción 2: Un pago único de EUR 99.99 (te ahorras unos euritos).<br>
-• Cada mes, tres botellas de malbec + la guía + el cupón de descuento.<br>
-• La suscripción se renueva automáticamente, pero puedes cancelarla en cualquier momento (más abajo te contamos cómo).<br><br>
-<b>¿Qué tipo de malbecs llegan en el combo?</b><br>
-• Vinos que nos gustan: malbecs con alma, elaborados por bodegueros que saben lo que hacen.<br>
-• Precio medio en el mercado: entre EUR 12-17 por botella.<br>
-• Botellas con diseños que entran por los ojos y sabores que te conquistan.<br>
-• No elegimos cualquier vino: solo los que nos harían brindar contigo en persona.<br><br>
-<b>¿Puedo elegir los vinos?</b><br>
-No, reina mora. Esto va de sorprenderte. Nosotros buscamos, catamos y seleccionamos los mejores malbecs para que tú solo disfrutes. Si quieres repetir un vino, avísanos, pero muchos son ediciones limitadas, así que no prometemos milagros.<br><br>
-<b>Cancelación de la suscripción</b><br>
-• Puedes cancelar cuando quieras, pero los 3 meses de la suscripción están comprometidos. Por ejemplo, si te suscribes en junio, la cancelación aplica a partir de septiembre.<br>
-• Para cancelar, nos mandás un mail o un WhatsApp. Fácil y sin dramas.<br><br>
-<b>Envíos</b><br>
-• Discovery Package: Envío bonificado en toda Alemania.<br>
-• Suscripción: Envío incluido en el precio.<br>
-• Si estás de vacaciones o quieres enviar el combo a otra dirección, avísanos y lo organizamos.<br>
-• ¿Problemas con el envío? Escríbenos y lo solucionamos rapidito, como las tiendas online que nos gustan.<br><br>
-<b>¿Y si no me gusta?</b><br>
-Te va a gustar, confía. Pero si algo no te convence, contáctanos y lo hablamos. Queremos que cada botella sea una fiesta.<br><br>
-<b>Datos importantes</b><br>
-• La renovación de la suscripción es automática. Si no quieres continuar, cancela antes de que se renueve el próximo ciclo.<br>
-• Los precios incluyen impuestos, pero no cubren posibles tasas aduaneras si estás fuera de la UE.<br>
-• Nos reservamos el derecho de modificar estos términos, pero te avisaremos con tiempo.<br><br>
-<b>¿Listos para unirse a la aventura del malbec?</b><br>
-Anotate y descubre por qué 1000 Malbecs es más que vino: es una experiencia.<br><br>
-<b>¡Salud!</b><br>
-Equipo 1000 Malbecs</p>
-        </div>
-    </footer>
 </body>
 </html>
