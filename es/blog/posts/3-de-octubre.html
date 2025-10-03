@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrando la caída del muro con nuevos sabores">
+    <meta property="og:title" content="3 de Octubre del 89 – Cae el muro - 1000 Malbecs">
+    <meta property="og:description" content="Celebrando la caída del muro con nuevos sabores">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/es/blog/posts/3-de-octubre.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="3 de Octubre del 89 – Cae el muro - 1000 Malbecs">
+    <meta name="twitter:description" content="Celebrando la caída del muro con nuevos sabores">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/es/blog/posts/3-de-octubre.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/3-de-octubre.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/3-de-octubre.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/3-de-octubre.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="language-selector">
+        <a href="/es/blog/posts/3-de-octubre.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
+        <a href="/en/blog/posts/3-de-octubre.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="/de/blog/posts/3-de-octubre.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
+    </div>
+    <div class="header">
+        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+    <main>
+        <div class="main-content">
+            <div class="post-content"><p><link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></p>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #FFFFFF;
+        overflow-x: hidden;
+    }
+    .sidebar {
+        display: none !important;
+    }
+    #sidebar {
+        display: block;
+        width: 280px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 90;
+        border-right: 1px solid #E0E0E0;
+        padding: 20px;
+        background-color: #F8F8F8;
+    }
+    .hamburger {
+        display: none;
+    }
+    .language-selector {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        display: flex;
+        gap: 10px;
+        transition: opacity 0.3s ease;
+    }
+    .language-selector.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .language-selector a {
+        text-decoration: none;
+        color: #4A2C59;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .language-selector a:hover {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    .language-selector a.active {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    main {
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+        max-width: 1280px;
+        flex: 1;
+        box-sizing: border-box;
+    }
+    .main-content {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        text-align: left;
+        color: #4A2C59;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    .main-content h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #4A2C59;
+    }
+    .post-content h1, .post-content h2 {
+        color: #4A2C59;
+    }
+    .post-content p {
+        line-height: 1.6;
+        color: #333;
+    }
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #4A2C59;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .back-link:hover {
+        color: #5A1D39;
+    }
+    .header, .logo-mobile {
+        display: none;
+    }
+    #sidebar .logo-container {
+        display: block;
+        margin-bottom: 20px;
+    }
+    #sidebar .logo-container img {
+        max-width: 150px;
+        height: auto;
+    }
+    #sidebar h2 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #4A2C59;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        text-align: left;
+    }
+    #sidebar ul {
+        list-style: none;
+        padding: 0 0 0 20px;
+        margin: 10px 0;
+    }
+    .nav-link {
+        font-size: 14px;
+        color: #4A2C59;
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        text-align: left;
+    }
+    .nav-link:hover {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    .nav-link.active {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    @media (max-width: 768px) {
+        main {
+            margin-top: 80px;
+            padding: 10px;
+            max-width: 100%;
+        }
+        .main-content {
+            font-size: 14px;
+            padding: 0 10px;
+        }
+        .main-content h1 {
+            font-size: 22px;
+        }
+        .language-selector {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .language-selector a {
+            font-size: 9px;
+            padding: 2px 4px;
+            color: #4A2C59;
+            border-radius: 2px;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .header {
+            display: block;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+        }
+        .logo-mobile {
+            display: block;
+            max-width: 100px;
+            height: auto;
+        }
+        .hamburger {
+            display: block;
+            font-size: 20px;
+            background: none;
+            border: none;
+            color: #4A2C59;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 110;
+        }
+        .hamburger:hover {
+            color: #5A1D39;
+        }
+        #sidebar {
+            display: none !important;
+        }
+        #sidebar.open {
+            display: block !important;
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateX(0);
+            z-index: 100;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            padding-top: 50px;
+            background-color: #F8F8F8;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+        #sidebar .logo-container {
+            display: none !important;
+        }
+    }
+    .gallery {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .gallery img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .gallery.single-image img {
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .gallery.multiple-images {
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .gallery.multiple-images img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .products-section {
+        max-width: 1200px;
+        margin: 0 0 40px 0;
+        width: 100%;
+    }
+    .products-section h2 {
+        color: #4A2C59;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+        width: 100%;
+        justify-content: start;
+        overflow-x: auto;
+    }
+    .product-card {
+        background-color: #FFFFFF;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        padding: 15px;
+        padding-bottom: 20px;
+        position: relative;
+        overflow: visible;
+        max-width: 250px;
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 5;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .product-card img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+    .info-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        display: none;
+        color: #4A2C59;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        touch-action: manipulation;
+        pointer-events: auto;
+    }
+    .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: 150px;
+        background-color: rgba(74, 44, 89, 0.8) !important;
+        color: #FFFFFF;
+        padding: 40px 10px 10px 10px;
+        box-sizing: border-box;
+        font-size: 12px;
+        overflow-y: auto;
+        z-index: 6;
+        pointer-events: none;
+    }
+    .overlay p {
+        margin: 2px 0;
+        color: #FFFFFF !important;
+        visibility: visible !important;
+        text-align: left;
+    }
+    .product-card:hover .overlay {
+        display: block;
+    }
+    .product-card .overlay.active {
+        display: block !important;
+    }
+    .product-card h3 {
+        font-size: 16px;
+        margin: 10px 0;
+        color: #4A2C59;
+        min-height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+    }
+    .product-card .price {
+        font-size: 16px;
+        color: #4A2C59;
+        margin: 10px 0;
+        position: relative;
+        z-index: 7;
+        text-align: center;
+        width: 100%;
+    }
+    .product-card .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 7;
+        text-align: center;
+        background-color: #4A2C59;
+        color: #f5e6ff;
+        text-decoration: none;
+        border-radius: 5px;
+        pointer-events: auto;
+        width: 100%;
+        max-width: 180px;
+        display: block;
+    }
+    .product-card .buy-button:hover {
+        background-color: #5A1D39;
+    }
+    @media (max-width: 768px) {
+        .product-grid {
+            grid-template-columns: 1fr;
+            overflow-x: auto;
+        }
+        .info-icon {
+            display: block;
+        }
+    }
+    .combo-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        text-align: center;
+        background-color: #25D366;
+        color: #FFFFFF;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+    .combo-button:hover {
+        background-color: #1EBE54;
+    }
+</style>
+<div class="main-content">
+    <h1>3 de Octubre del 89 – Cae el muro</h1>
+    <div class="post-content">
+        <p>Dónde estabas cuando cayó el muro de Berlín? Yo lo recuerdo perfectamente porque tengo una memoria a prueba de todo: con mi padre que no paraba de mirar atónito la televisión sin parar de contener su alegría. Era casi su único tema de conversación: “el mundo es otro a partir de hoy”. Y vaya si tenía razón.</p>
+        <h2>Un nuevo mundo</h2>
+        <p>Un mundo nuevo tiene nuevas reglas. Y por supuesto nuevos vinos. En el caso de Argentina, esos años que van desde comienzo de los 90 hasta nuestros días, trajeron un cambio radical en la industria vitivinícola, y el mercado viró de la producción masiva de vinos baratos para consumo interno al desarrollo de verdaderas obras de arte.</p>
+        <p>Hoy los vinos argentinos ganan concursos, son reconocidos por su calidad y tienen cualidades únicas imposibles de replicar en otras latitudes. Porque cada vino es único, y cada uno de nosotros tiene derecho a disfrutar de una experiencia distinta.</p>
+        <h2>El otro muro</h2>
+        <p>Hay sin embargo un nuevo muro difícil de derribar. A los consumidores no les gusta muchas veces arriesgar y prefieren comprar lo que ya conocen y les gusta. Igual si es un jabón en polvo o un vino.</p>
+        <p>Y allí van las inversiones millonarias de campañas de marketing tratando de ganar la preferencia del consumidor, intentando poner en su mano el otro, el que todavía no probó. Lleva tiempo y mucho dinero y lo digo con conocimiento porque vengo de la industria.</p>
+        <p>Ahora el cambio existe y lo nuevo termina reemplazando a lo conocido, solo hay que superar la curva de adopción. Para eso estamos acá, la idea es que prueben vinos nuevos con un presupuesto limitado y que descubran nuevas experiencias. Estoy convencido de que los voy a convencer. Igual si tengo que ir a la plaza del pueblo a hacer catas o escribir como lo estoy haciendo en este momento.</p>
+        <h2>Somos lo nuevo</h2>
+        <p>Cómo ganás la mente del consumidor? Favoreciendo la prueba a bajo costo y por sobre todo tratando de que tu oferta que es diferente, se parezca en algo a lo que ya conoce. Si es algo totalmente distinto, se hace más difícil. Si tiene algunos puntos de contacto con lo que ya conoce, las chances es de que lo pruebe y al menos le de una oportunidad. Y una vez que probó algo que le gustó, ya le podés ofrecer otra cosa y luego otra y otra y otra.</p>
+        <h2>El combo Discovery en acción</h2>
+        <p>Por eso elegimos para nuestro primer combo estos vinos que nos parecen son un mix perfecto entre conocido y nuevo. De hecho incluimos el Séptima Malbec de Rosé porque nos parece que se acerca bastante en color e imagen a los vinos que se toman en Alemania, en donde los vinos de colores más claros y sabores más suaves se imponen a los rojos oscuros y de sabor más intenso.</p>
+        <p>El Malbec es un equilibrio entre unos y otros y si es de color rosado, pues ya tenemos una buena oportunidad para generar prueba.</p>
+        <p>Nada, no los entretengo más. Prueben el combo Discovery que incluye estos 3 vinos que ven aquí. Cuestan sólo EUR 38.99 los 3 vinos y el envío es sin cargo.</p>
+        <div class="products-section">
+            <h2>Combo Discovery</h2>
+            <div class="product-grid">
+                <div class="product-card" data-overlay-id="septima-malbec-rose">
+                    <img src="/images/small/septima-malbec-rose-2023.jpg" alt="Botella de Séptima Malbec Rosé" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <div class="info-icon" data-overlay-id="septima-malbec-rose">🍷</div>
+                    <div class="overlay" data-overlay-id="septima-malbec-rose">
+                        <p><strong>Bodega:</strong> Bodega Séptima</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> Luján de Cuyo</p>
+                        <p><strong>Altura:</strong> 1050.0</p>
+                        <p><strong>Año:</strong> 2023</p>
+                    </div>
+                    <h3>Séptima Malbec Rosé</h3>
+                    <p class="price">€13.49</p>
+                    <a href="/es/vinos/septima-malbec-rose-2023.html" class="buy-button">Ver Detalles</a>
+                </div>
+                <div class="product-card" data-overlay-id="kaiken-terroir-malbec">
+                    <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Botella de Kaiken Terroir Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <div class="info-icon" data-overlay-id="kaiken-terroir-malbec">🍷</div>
+                    <div class="overlay" data-overlay-id="kaiken-terroir-malbec">
+                        <p><strong>Bodega:</strong> Kaiken</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+                        <p><strong>Altura:</strong> 950.0</p>
+                        <p><strong>Año:</strong> 2022</p>
+                    </div>
+                    <h3>Kaiken Terroir Malbec</h3>
+                    <p class="price">€13.05</p>
+                    <a href="/es/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Ver Detalles</a>
+                </div>
+                <div class="product-card" data-overlay-id="amalaya-malbec">
+                    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Botella de Amalaya Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
+                    <div class="overlay" data-overlay-id="amalaya-malbec">
+                        <p><strong>Bodega:</strong> Bodega Amalaya</p>
+                        <p><strong>Provincia:</strong> Salta</p>
+                        <p><strong>Región:</strong> Valles Calchaquíes</p>
+                        <p><strong>Altura:</strong> 1800.0</p>
+                        <p><strong>Año:</strong> 2023</p>
+                    </div>
+                    <h3>Amalaya Malbec</h3>
+                    <p class="price">€12.45</p>
+                    <a href="/es/vinos/amalaya-malbec-2023.html" class="buy-button">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <p><strong>¡Apurate!</strong> Ordené solo 36 combos. <a href="https://wa.me/+4915158224728?text=Quiero%20mi%20Combo%20Discovery" class="combo-button">Quiero mi Combo Discovery</a></p>
+        <h2>Quiero suscribirme</h2>
+        <p>Si son de los que les gusta descubrir lo nuevo, se suscriben por 3 meses y van a poder probar 9 vinos a EUR 36.99 por mes o en un pago de EUR 99.99 (11.11 cada botella). Eso no es solo una oportunidad para descubrir nuevos sabores sino además para poder hacerlo sin gastar una millonada de dinero, que es justamente lo que tenemos que hacer los que queremos que prueben lo nuevo.</p>
+        <p>Feliz día de la unidad alemana. Celebremos la caída del muro de Berlín derribando este otro muro.</p>
+        <p><a href="https://wa.me/+4915158224728?text=Quiero%20suscribirme%20por%203%20meses" class="combo-button">Quiero suscribirme por 3 meses</a></p>
+        <p>Atte.,<br>Federico Augspach</p>
+        <p><a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a></p>
+    </div>
+</div></div>
+            <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
+        </div>
+    </main>
+</body>
+</html>
