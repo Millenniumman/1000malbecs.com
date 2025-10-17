@@ -1,0 +1,559 @@
+---
+title: Sumate a la Revolución del Malbec
+date: 2025-10-16
+description: Descubre cómo el Malbec argentino está conquistando el mercado alemán
+excerpt: Unite a la revolución del Malbec argentino en Alemania con nuestro Discovery Pack de 3 vinos únicos por EUR 38,99 con envío gratis.
+layout: post
+og_image: https://www.1000malbecs.com/images/og-image-malbec-revolution.jpg
+og_url: https://www.1000malbecs.com/es/blog/posts/revolucion-malbec.html
+canonical: https://www.1000malbecs.com/es/blog/posts/revolucion-malbec.html
+alternate_es: https://www.1000malbecs.com/es/blog/posts/revolucion-malbec.html
+alternate_en: https://www.1000malbecs.com/en/blog/posts/malbec-revolution.html
+alternate_de: https://www.1000malbecs.com/de/blog/posts/malbec-revolution.html
+---
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #FFFFFF;
+        overflow-x: hidden;
+    }
+    .sidebar {
+        display: none !important;
+    }
+    #sidebar {
+        display: block;
+        width: 280px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 90;
+        border-right: 1px solid #E0E0E0;
+        padding: 20px;
+        background-color: #F8F8F8;
+    }
+    .hamburger {
+        display: none;
+    }
+    .language-selector {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        display: flex;
+        gap: 10px;
+        transition: opacity 0.3s ease;
+    }
+    .language-selector.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .language-selector a {
+        text-decoration: none;
+        color: #4A2C59;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .language-selector a:hover {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    .language-selector a.active {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    main {
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+        max-width: 1280px;
+        flex: 1;
+        box-sizing: border-box;
+    }
+    .main-content {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        text-align: left;
+        color: #4A2C59;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    .main-content h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #4A2C59;
+    }
+    .post-content h1, .post-content h2 {
+        color: #4A2C59;
+    }
+    .post-content p {
+        line-height: 1.6;
+        color: #333;
+    }
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #4A2C59;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .back-link:hover {
+        color: #5A1D39;
+    }
+    .header, .logo-mobile {
+        display: none;
+    }
+    #sidebar .logo-container {
+        display: block;
+        margin-bottom: 20px;
+    }
+    #sidebar .logo-container img {
+        max-width: 150px;
+        height: auto;
+    }
+    #sidebar h2 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #4A2C59;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        text-align: left;
+    }
+    #sidebar ul {
+        list-style: none;
+        padding: 0 0 0 20px;
+        margin: 10px 0;
+    }
+    .nav-link {
+        font-size: 14px;
+        color: #4A2C59;
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        text-align: left;
+    }
+    .nav-link:hover {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    .nav-link.active {
+        background-color: #4A2C59;
+        color: #FFFFFF;
+    }
+    @media (max-width: 768px) {
+        main {
+            margin-top: 80px;
+            padding: 10px;
+            max-width: 100%;
+        }
+        .main-content {
+            font-size: 14px;
+            padding: 0 10px;
+        }
+        .main-content h1 {
+            font-size: 22px;
+        }
+        .language-selector {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .language-selector a {
+            font-size: 9px;
+            padding: 2px 4px;
+            color: #4A2C59;
+            border-radius: 2px;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .header {
+            display: block;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+        }
+        .logo-mobile {
+            display: block;
+            max-width: 100px;
+            height: auto;
+        }
+        .hamburger {
+            display: block;
+            font-size: 20px;
+            background: none;
+            border: none;
+            color: #4A2C59;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 110;
+        }
+        .hamburger:hover {
+            color: #5A1D39;
+        }
+        #sidebar {
+            display: none !important;
+        }
+        #sidebar.open {
+            display: block !important;
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateX(0);
+            z-index: 100;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            padding-top: 50px;
+            background-color: #F8F8F8;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+        #sidebar .logo-container {
+            display: none !important;
+        }
+    }
+    .gallery {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .gallery img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .gallery.single-image img {
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .gallery.multiple-images {
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .gallery.multiple-images img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .products-section {
+        max-width: 1200px;
+        margin: 0 0 40px 0;
+        width: 100%;
+    }
+    .products-section h2 {
+        color: #4A2C59;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+        width: 100%;
+        justify-content: start;
+        overflow-x: auto;
+    }
+    .product-card {
+        background-color: #FFFFFF;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        padding: 15px;
+        padding-bottom: 20px;
+        position: relative;
+        overflow: visible;
+        max-width: 250px;
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 5;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .product-card img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+    .info-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        display: none;
+        color: #4A2C59;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        touch-action: manipulation;
+        pointer-events: auto;
+    }
+    .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: 150px;
+        background-color: rgba(74, 44, 89, 0.8) !important;
+        color: #FFFFFF;
+        padding: 40px 10px 10px 10px;
+        box-sizing: border-box;
+        font-size: 12px;
+        overflow-y: auto;
+        z-index: 6;
+        pointer-events: none;
+    }
+    .overlay p {
+        margin: 2px 0;
+        color: #FFFFFF !important;
+        visibility: visible !important;
+        text-align: left;
+    }
+    .product-card:hover .overlay {
+        display: block;
+    }
+    .product-card .overlay.active {
+        display: block !important;
+    }
+    .product-card h3 {
+        font-size: 16px;
+        margin: 10px 0;
+        color: #4A2C59;
+        min-height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+    }
+    .product-card .price {
+        font-size: 16px;
+        color: #4A2C59;
+        margin: 10px 0;
+        position: relative;
+        z-index: 7;
+        text-align: center;
+        width: 100%;
+    }
+    .product-card .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 7;
+        text-align: center;
+        background-color: #4A2C59;
+        color: #f5e6ff;
+        text-decoration: none;
+        border-radius: 5px;
+        pointer-events: auto;
+        width: 100%;
+        max-width: 180px;
+        display: block;
+    }
+    .product-card .buy-button:hover {
+        background-color: #5A1D39;
+    }
+    .combo-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        text-align: center;
+        background-color: #25D366;
+        color: #FFFFFF;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+    .combo-button:hover {
+        background-color: #1EBE54;
+    }
+    .subscription-presentation {
+        text-align: center;
+        margin: 20px 0;
+        color: #333;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    .subscription-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 20px 0;
+        justify-items: center;
+    }
+    .subscription-item {
+        text-align: center;
+    }
+    .subscription-item img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .subscription-item .month-label {
+        font-size: 14px;
+        color: #4A2C59;
+        font-weight: 600;
+    }
+    @media (max-width: 768px) {
+        .product-grid {
+            grid-template-columns: 1fr;
+            overflow-x: auto;
+        }
+        .subscription-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        .subscription-item img {
+            width: 150px;
+            height: 150px;
+        }
+        .info-icon {
+            display: block;
+        }
+    }
+</style>
+<div class="main-content">
+    <h1>Sumate a la Revolución del Malbec</h1>
+    <div class="post-content">
+        <p>Antes que nada: sigo ofreciendo los combos de Discovery Pack. Eran solo 36 y ya vendí varios, así que no te quedes afuera. <a href="https://wa.me/+4915158224728?text=Quiero%20mi%20Discovery%20Pack" class="combo-button">Quiero mi combo</a></p>
+        <div class="products-section">
+            <h2>Discovery Pack</h2>
+            <div class="product-grid">
+                <div class="product-card" data-overlay-id="septima-malbec-rose">
+                    <img src="/images/small/septima-malbec-rose-2023.jpg" alt="Botella Séptima Malbec Rosé" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <div class="info-icon" data-overlay-id="septima-malbec-rose">🍷</div>
+                    <div class="overlay" data-overlay-id="septima-malbec-rose">
+                        <p><strong>Bodega:</strong> Bodega Séptima</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> Luján de Cuyo</p>
+                        <p><strong>Altitud:</strong> 1050,0</p>
+                        <p><strong>Año:</strong> 2023</p>
+                    </div>
+                    <h3>Séptima Malbec Rosé</h3>
+                    <p class="price">€13,49</p>
+                    <a href="/es/vinos/septima-malbec-rose-2023.html" class="buy-button">Ver Detalles</a>
+                </div>
+                <div class="product-card" data-overlay-id="kaiken-terroir-malbec">
+                    <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Botella Kaiken Terroir Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <div class="info-icon" data-overlay-id="kaiken-terroir-malbec">🍷</div>
+                    <div class="overlay" data-overlay-id="kaiken-terroir-malbec">
+                        <p><strong>Bodega:</strong> Kaiken</p>
+                        <p><strong>Provincia:</strong> Mendoza</p>
+                        <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+                        <p><strong>Altitud:</strong> 950,0</p>
+                        <p><strong>Año:</strong> 2022</p>
+                    </div>
+                    <h3>Kaiken Terroir Malbec</h3>
+                    <p class="price">€13,05</p>
+                    <a href="/es/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Ver Detalles</a>
+                </div>
+                <div class="product-card" data-overlay-id="amalaya-malbec">
+                    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Botella Amalaya Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                    <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
+                    <div class="overlay" data-overlay-id="amalaya-malbec">
+                        <p><strong>Bodega:</strong> Bodega Amalaya</p>
+                        <p><strong>Provincia:</strong> Salta</p>
+                        <p><strong>Región:</strong> Valles Calchaquíes</p>
+                        <p><strong>Altitud:</strong> 1800,0</p>
+                        <p><strong>Año:</strong> 2023</p>
+                    </div>
+                    <h3>Amalaya Malbec</h3>
+                    <p class="price">€12,45</p>
+                    <a href="/es/vinos/amalaya-malbec-2023.html" class="buy-button">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <h2>Historia de la semana</h2>
+        <p>Las revoluciones a lo largo de la historia tienen un par de componentes en común. El primero es que proponen un cambio de régimen. Lo nuevo busca reemplazar a lo existente y se genera un cambio en el status quo. El otro es que la genera un grupo reducido de personas que va creciendo a medida que se desarrollan los acontecimientos. En todas las revoluciones suele ser necesaria la participación masiva porque, si no, el grupo inicial pierde consistencia y fracasa.</p>
+        <h2>Nuestro CREDO</h2>
+        <p>Tenemos un mensaje claro y potente, y es lo que creemos acá:</p>
+        <p>El MALBEC ha llegado a Alemania para quedarse y, obviamente, vamos a dejar nuestra vida para hacer nuestro sueño realidad. Somos revolucionarios, nos gusta desafiar los límites y creemos firmemente en la unicidad de nuestros MALBECS. Beber una copa de MALBEC es teletransportarse a la tierra del sol, disfrutar de un asado en familia o un viernes con amigos comiendo empanadas. Somos, vivimos y respiramos MALBEC en Alemania y en cualquier otra parte del mundo, porque en el fondo, bien en el fondo, amamos nuestra tierra y la festejamos con una copa de MALBEC.</p>
+        <h2>¿Cómo me puedo sumar?</h2>
+        <p>Participar es muy fácil y todos lo pueden hacer. Comprando un MALBEC de nuestra tienda, ya sos un revolucionario. Abriendo una botella de MALBEC en una reunión con amigos, te otorga el grado de representante. Y si te querés sumar vendiendo MALBEC, ya sos un embajador. En todos los casos, mandame un WhatsApp y te anoto. <a href="https://wa.me/+4915158224728?text=Quiero%20sumarme%20a%20la%20revolución%20del%20Malbec" class="combo-button">Sumarme a la revolución</a></p>
+        <h2>Suscripción</h2>
+        <div style="text-align: center;">
+            <a href="https://wa.me/+4915158224728?text=Quiero%20ya%20mi%20Pack%20Discovery%20Malbec" class="combo-button">Quiero ya mi Pack Discovery Malbec</a>
+        </div>
+        <div class="subscription-presentation">
+            <p><b>Suscribite y asegurate un descuento de 28%!</b><br>
+            Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Pagá en 3 cuotas de EUR36.66 o un único pago de EUR99,99 (28% OFF)!</p>
+        </div>
+        <div class="subscription-grid">
+            <div class="subscription-item">
+                <img src="/images/combo-1.jpg" alt="Octubre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <p class="month-label">Octubre</p>
+            </div>
+            <div class="subscription-item">
+                <img src="/images/combo-2.jpg" alt="Noviembre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <p class="month-label">Noviembre</p>
+            </div>
+            <div class="subscription-item">
+                <img src="/images/combo-3.jpg" alt="Diciembre Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <p class="month-label">Diciembre</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="https://wa.me/+4915158224728?text=Quiero%20Suscribirme%20por%203%20meses" class="combo-button">Quiero Suscribirme por 3 meses</a>
+        </div>
+        <p>Hasta la próxima semana,<br>Federico Augspach</p>
+        <p><a href="https://1000malbecs.com/es" class="back-link">Volver al inicio</a></p>
+    </div>
+</div>
