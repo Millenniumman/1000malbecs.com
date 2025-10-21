@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Entdecken Sie, wie argentinischer Malbec den deutschen Markt erobert">
+    <meta property="og:title" content="Schließe dich der Malbec-Revolution an - 1000 Malbecs">
+    <meta property="og:description" content="Entdecken Sie, wie argentinischer Malbec den deutschen Markt erobert">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/de/revolucion.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schließe dich der Malbec-Revolution an - 1000 Malbecs">
+    <meta name="twitter:description" content="Entdecken Sie, wie argentinischer Malbec den deutschen Markt erobert">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/de/revolucion.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/revolucion.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/revolucion.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/revolucion.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        #sidebar .logo-container {
+            display: block;
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1510812431401-41d2bd1a3a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+        .hero-content {
+            max-width: 700px;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .cta-button {
+            background-color: #4A2C59;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: #5A1D39;
+        }
+        .why-join, .how-it-works, .join-now {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .why-join h2, .how-it-works h2, .join-now h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: #4A2C59;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .why-join p, .how-it-works p, .join-now p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .benefit-card {
+            background-color: #F8F8F8;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #4A2C59;
+            margin-bottom: 10px;
+        }
+        .benefit-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #333;
+        }
+        .how-it-works {
+            background-color: #F8F8F8;
+        }
+        .kit-details {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .kit-details p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 60px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .why-join h2, .how-it-works h2, .join-now h2 {
+                font-size: 22px;
+            }
+            .why-join p, .how-it-works p, .join-now p {
+                font-size: 14px;
+            }
+            .benefit-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 5px;
+                left: 5px;
+                z-index: 1002;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Selector de Idiomas -->
+    <div class="language-selector">
+        <a href="https://www.1000malbecs.com/es/revolucion.html" data-lang="es" aria-label="Español" class="">ES 🇪🇸</a>
+        <a href="https://www.1000malbecs.com/en/revolucion.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="https://www.1000malbecs.com/de/revolucion.html" data-lang="de" aria-label="Deutsch" class="active">DE 🇩🇪</a>
+    </div>
+
+    <!-- Menú Hamburguesa -->
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+
+    <!-- Contenido Principal -->
+    <main>
+        <div class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>¡Únete a la Revolución del Malbec!</h1>
+                    <p>Malbec ist in Deutschland angekommen, um zu bleiben. Wir sind leidenschaftlich, überschreiten Grenzen und erleben die Magie unseres Landes in jedem Glas. Möchtest du Teil dieser Revolution sein?</p>
+                    <a href="https://wa.me/+49123456789?text=Schließe%20dich%20der%20Revolution%20an" class="cta-button">Jetzt Mitmachen!</a>
+                </div>
+            </section>
+
+            <!-- Why Join -->
+            <section class="why-join">
+                <h2>Warum Social Seller bei 1000Malbecs werden?</h2>
+                <p>Wenn du Wein liebst, für Malbec brennst und in deiner Freizeit zusätzliches Einkommen erzielen möchtest, ist dies deine Chance. Verkaufe an Freunde, Bekannte, Bars und Restaurants und teile die Magie des Malbecs.</p>
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <h3>Flexibilität</h3>
+                        <p>Arbeite nach deinem eigenen Zeitplan, ohne Druck, von überall aus.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Leidenschaft für Malbec</h3>
+                        <p>Teile deine Liebe zum Wein und verbinde dich mit anderen Malbec-Fans.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Zusätzliches Einkommen</h3>
+                        <p>Verdiene Geld durch den Verkauf von Weinen an Privatpersonen, Bars und Restaurants.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="how-it-works">
+                <h2>Wie Funktioniert’s?</h2>
+                <p>Der Einstieg ist ganz einfach. Mit dem Willkommens-Kit hast du alles, was du brauchst, um den Geschmack von Malbec mit der Welt zu teilen.</p>
+                <div class="kit-details">
+                    <p><strong>Willkommens-Kit - €99.99</strong></p>
+                    <p>Enthält 12 Flaschen Malbec von verschiedenen argentinischen Weingütern, einen Leitfaden zur Geschichte des Malbecs und technische Datenblätter zu den Weinen.</p>
+                    <p>Mit deiner Anmeldung erhältst du Zugang zu Aktionsweinen, die du an deine Kunden verkaufen kannst.</p>
+                </div>
+            </section>
+
+            <!-- Join Now -->
+            <section class="join-now">
+                <h2>Schließe dich der Revolution an!</h2>
+                <p>Wenn du ein Malbec-Fan bist und diese Leidenschaft teilen möchtest, während du Geld verdienst, kontaktiere uns noch heute. Sende „Schließe dich der Revolution an“ über WhatsApp und starte dein Abenteuer mit 1000Malbecs.</p>
+                <a href="https://wa.me/+49123456789?text=Schließe%20dich%20der%20Revolution%20an" class="cta-button">Jetzt Mitmachen!</a>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</body>
+</html>
