@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Descubre cómo el Malbec argentino está conquistando el mercado alemán">
     <meta property="og:title" content="Sumate a la Revolución del Malbec - 1000 Malbecs">
     <meta property="og:description" content="Descubre cómo el Malbec argentino está conquistando el mercado alemán">
@@ -330,11 +330,20 @@
                 z-index: 1001;
                 overflow: visible;
             }
+            .header img {
+                max-width: 40px !important;
+                width: 40px !important;
+                height: auto !important;
+            }
             .logo-mobile {
                 display: block;
-                max-width: 40px; /* Tamaño más pequeño */
-                height: auto;
+                max-width: 40px !important;
+                width: 40px !important;
+                height: auto !important;
                 margin: 5px;
+                object-fit: contain;
+                -webkit-transform: scale(1);
+                transform: scale(1);
             }
             .hamburger {
                 display: block;
