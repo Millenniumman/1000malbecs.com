@@ -14,6 +14,78 @@
             color: #333;
         }
 
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #8B1E3F; /* Color Malbec */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 50px; /* Ajusta según el tamaño de tu logo */
+        }
+
+        /* Menú Hamburguesa */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            background-color: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 2px 0;
+            transition: all 0.3s;
+        }
+
+        /* Barra de Navegación (Lateral Izquierda en Desktop, Oculta en Mobile) */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Oculta por defecto en mobile */
+            width: 250px;
+            height: 100%;
+            background-color: #6B132D;
+            padding-top: 80px;
+            transition: left 0.3s;
+        }
+
+        .nav-menu.active {
+            left: 0; /* Muestra el menú en mobile al activar */
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu ul li {
+            margin: 20px 0;
+        }
+
+        .nav-menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .nav-menu ul li a:hover {
+            background-color: #8B1E3F;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1510812431401-41d2bd1a3a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
@@ -25,6 +97,7 @@
             justify-content: center;
             text-align: center;
             color: #fff;
+            padding-top: 70px; /* Espacio para el header fijo */
         }
 
         .hero-content {
@@ -49,7 +122,7 @@
         }
 
         .cta-button {
-            background-color: #8B1E3F; /* Color Malbec */
+            background-color: #8B1E3F;
             color: #fff;
             padding: 15px 30px;
             border: none;
@@ -181,6 +254,18 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex; /* Muestra el menú hamburguesa en mobile */
+            }
+
+            .nav-menu {
+                left: -250px; /* Oculta por defecto */
+            }
+
+            .nav-menu.active {
+                left: 0; /* Muestra al hacer clic en el hamburguesa */
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -193,10 +278,36 @@
                 width: 100%;
                 margin-bottom: 20px;
             }
+
+            .logo img {
+                height: 40px; /* Ajusta el logo en mobile */
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header con Logo y Menú Hamburguesa -->
+    <header>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">
+            <img src="images/l000-malbecs-logo.png.png" alt="1000Malbecs Logo">
+        </div>
+    </header>
+
+    <!-- Barra de Navegación Lateral -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="https://wa.me/+49123456789?text=Sumate%20a%20la%20revolución">Sumate</a></li>
+        </ul>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -241,7 +352,14 @@
     <section class="join-now">
         <h2>¡Sumate a la revolución!</h2>
         <p>Si sos fanático del Malbec y querés compartir esta pasión mientras ganás dinero, contáctanos hoy. Enviá "Sumate a la revolución" por WhatsApp y comenzá tu aventura con 1000Malbecs.</p>
-        <a href="https://wa.me/+49123456789?text=Sumate%20a%20la%20revolución" class="cta-button">Sumate YA </a>
+        <a href="https://wa.me/+49123456789?text=Sumate%20a%20la%20revolución" class="cta-button">Contactanos por WhatsApp</a>
     </section>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
