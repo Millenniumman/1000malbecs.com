@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how Argentine Malbec is conquering the German market">
+    <meta property="og:title" content="Join the Malbec Revolution - 1000 Malbecs">
+    <meta property="og:description" content="Discover how Argentine Malbec is conquering the German market">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/en/blog/posts/revolucion.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Join the Malbec Revolution - 1000 Malbecs">
+    <meta name="twitter:description" content="Discover how Argentine Malbec is conquering the German market">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/en/blog/posts/revolucion.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/revolucion.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/revolucion.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/revolucion.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block;
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1510812431401-41d2bd1a3a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+        .hero-content {
+            max-width: 700px;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .cta-button {
+            background-color: #4A2C59;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: #5A1D39;
+        }
+        .why-join, .how-it-works, .join-now {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .why-join h2, .how-it-works h2, .join-now h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: #4A2C59;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .why-join p, .how-it-works p, .join-now p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .benefit-card {
+            background-color: #F8F8F8;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #4A2C59;
+            margin-bottom: 10px;
+        }
+        .benefit-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #333;
+        }
+        .how-it-works {
+            background-color: #F8F8F8;
+        }
+        .kit-details {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .kit-details p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .why-join h2, .how-it-works h2, .join-now h2 {
+                font-size: 22px;
+            }
+            .why-join p, .how-it-works p, .join-now p {
+                font-size: 14px;
+            }
+            .benefit-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 5px;
+                right: 5px;
+                z-index: 1001;
+                overflow: visible;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 40px;
+                height: auto;
+                margin: 5px;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 5px;
+                left: 5px;
+                z-index: 1002;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Selector de Idiomas -->
+    <div class="language-selector">
+        <a href="https://www.1000malbecs.com/es/blog/posts/revolucion.html" data-lang="es" aria-label="Español" class="">ES 🇪🇸</a>
+        <a href="https://www.1000malbecs.com/en/blog/posts/revolucion.html" data-lang="en" aria-label="English" class="active">EN 🇬🇧</a>
+        <a href="https://www.1000malbecs.com/de/blog/posts/revolucion.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
+    </div>
+
+    <!-- Logo en Mobile -->
+    <div class="header">
+        <a href="https://1000malbecs.com/en" class="logo-mobile">
+            <img src="https://1000malbecs.com/images/l000-malbecs-logo.png" alt="1000Malbecs Logo">
+        </a>
+    </div>
+
+    <!-- Menú Hamburguesa -->
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+
+    <!-- Contenido Principal -->
+    <main>
+        <div class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>¡Únete a la Revolución del Malbec!</h1>
+                    <p>Malbec has arrived in Germany to stay. We are passionate, we challenge limits, and we live the magic of our land in every glass. Want to be part of this revolution?</p>
+                    <a href="https://wa.me/+49123456789?text=Join%20the%20revolution" class="cta-button">Join Now!</a>
+                </div>
+            </section>
+
+            <!-- Why Join -->
+            <section class="why-join">
+                <h2>Why Become a 1000Malbecs Social Seller?</h2>
+                <p>If you love wine, are passionate about Malbec, and want to earn extra income in your free time, this is your opportunity. Sell to friends, acquaintances, bars, and restaurants, and share the magic of Malbec.</p>
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <h3>Flexibility</h3>
+                        <p>Work on your own schedule, without pressure, from anywhere.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Passion for Malbec</h3>
+                        <p>Share your love for wine and connect with other Malbec enthusiasts.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Extra Income</h3>
+                        <p>Earn money by selling wines to individuals, bars, and restaurants.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="how-it-works">
+                <h2>How Does It Work?</h2>
+                <p>It’s super easy to get started. With the welcome kit, you’ll have everything you need to share the taste of Malbec with the world.</p>
+                <div class="kit-details">
+                    <p><strong>Welcome Kit - €99.99</strong></p>
+                    <p>Includes 12 bottles of Malbec from different Argentine wineries, a guide with the history of Malbec, and technical sheets for the wines.</p>
+                    <p>With your registration, you gain access to promotional wines to sell to your customers.</p>
+                </div>
+            </section>
+
+            <!-- Join Now -->
+            <section class="join-now">
+                <h2>Join the Revolution!</h2>
+                <p>If you’re a Malbec enthusiast and want to share this passion while earning money, contact us today. Send “Join the revolution” via WhatsApp and start your adventure with 1000Malbecs.</p>
+                <a href="https://wa.me/+49123456789?text=Join%20the%20revolution" class="cta-button">Join Now!</a>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</body>
+</html>
