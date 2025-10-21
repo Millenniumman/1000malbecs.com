@@ -330,11 +330,24 @@
                 z-index: 1001;
                 overflow: visible;
             }
-            .logo-mobile {
-                display: block;
-                max-width: 40px;
-                height: auto;
-                margin: 5px;
+            @media (max-width: 768px) {
+    .header {
+        display: block;
+        position: fixed;
+        top: 5px;
+        right: 5px;
+        z-index: 1001;
+        overflow: visible;
+    }
+    .logo-mobile {
+        display: block;
+        max-width: 40px !important; /* Forzar tamaño */
+        width: 40px !important; /* Tamaño fijo */
+        height: auto !important;
+        margin: 5px;
+        object-fit: contain; /* Evitar distorsión */
+    }
+}
             }
             .hamburger {
                 display: block;
