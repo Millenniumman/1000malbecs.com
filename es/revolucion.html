@@ -118,7 +118,7 @@
             display: none;
         }
         #sidebar .logo-container {
-            display: block; /* Visible en escritorio */
+            display: block;
             margin-bottom: 20px;
         }
         #sidebar .logo-container img {
@@ -161,14 +161,22 @@
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1510812431401-41d2bd1a3a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            padding: 60px 20px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             color: #fff;
+            padding-top: 80px; /* Espacio para banderas y logo en mobile */
+        }
+        .hero-content {
+            max-width: 700px;
+            padding: 20px;
         }
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 28px;
+            font-size: 36px;
             margin-bottom: 20px;
             text-transform: uppercase;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -176,12 +184,9 @@
         .hero p {
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 30px;
             line-height: 1.6;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
         .cta-button {
             background-color: #4A2C59;
@@ -278,10 +283,10 @@
                 font-size: 22px;
             }
             .hero h1 {
-                font-size: 22px;
+                font-size: 28px;
             }
             .hero p {
-                font-size: 14px;
+                font-size: 16px;
             }
             .why-join h2, .how-it-works h2, .join-now h2 {
                 font-size: 22px;
@@ -327,7 +332,7 @@
             }
             .logo-mobile {
                 display: block;
-                max-width: 100px;
+                max-width: 60px; /* Tamaño reducido */
                 height: auto;
             }
             .hamburger {
@@ -366,7 +371,7 @@
                 transition: transform 0.3s ease;
             }
             #sidebar .logo-container {
-                display: none !important; /* Ocultar logo en sidebar en móvil */
+                display: none !important;
             }
         }
     </style>
@@ -374,9 +379,9 @@
 <body>
     <!-- Selector de Idiomas -->
     <div class="language-selector">
-        <a href="https://www.1000malbecs.com/es/blog/posts/revolucion.html" class="active"><img src="/images/flags/es.png" alt="Español"> ES</a>
-        <a href="https://www.1000malbecs.com/en/blog/posts/revolucion.html"><img src="/images/flags/en.png" alt="English"> EN</a>
-        <a href="https://www.1000malbecs.com/de/blog/posts/revolucion.html"><img src="/images/flags/de.png" alt="Deutsch"> DE</a>
+        <a href="https://www.1000malbecs.com/es/blog/posts/revolucion.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
+        <a href="https://www.1000malbecs.com/en/blog/posts/revolucion.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="https://www.1000malbecs.com/de/blog/posts/revolucion.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
     </div>
 
     <!-- Logo en Mobile -->
@@ -394,9 +399,11 @@
         <div class="main-content">
             <!-- Hero Section -->
             <section class="hero">
-                <h1>¡Únete a la Revolución del Malbec!</h1>
-                <p>El Malbec llegó a Alemania para quedarse. Somos apasionados, desafiamos los límites y vivimos la magia de nuestra tierra en cada copa. ¿Querés ser parte de esta revolución?</p>
-                <a href="https://wa.me/+49123456789?text=Sumate%20a%20la%20revolución" class="cta-button">Sumate YA!</a>
+                <div class="hero-content">
+                    <h1>¡Únete a la Revolución del Malbec!</h1>
+                    <p>El Malbec llegó a Alemania para quedarse. Somos apasionados, desafiamos los límites y vivimos la magia de nuestra tierra en cada copa. ¿Querés ser parte de esta revolución?</p>
+                    <a href="https://wa.me/+49123456789?text=Sumate%20a%20la%20revolución" class="cta-button">Sumate YA!</a>
+                </div>
             </section>
 
             <!-- Por Qué Sumarte -->
@@ -441,7 +448,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide language selector on scroll (mobile only)
             if (window.innerWidth <= 768) {
                 const languageSelector = document.querySelector('.language-selector');
                 let lastScrollTop = 0;
@@ -455,7 +461,6 @@
                     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
                 });
             }
-            // Toggle para el menú hamburguesa
             const hamburger = document.querySelector('.hamburger');
             const sidebar = document.querySelector('#sidebar');
             if (hamburger && sidebar) {
