@@ -1,6 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +40,7 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      body { min-height: 100vh; } 
       overflow-x: hidden;
     }
     .header {
@@ -684,28 +683,6 @@
         background-color: #4A2C59;
         color: #FFFFFF;
       }
-      footer {
-        padding: 12px;
-        padding-bottom: 20px;
-        font-size: 0.9em;
-        z-index: 150;
-      }
-      footer a, footer span, footer strong {
-        margin: 0 4px;
-        font-size: 0.9em;
-      }
-    }
-    @media (max-width: 480px) {
-      footer {
-        padding: 10px;
-        padding-bottom: 25px;
-        font-size: 0.8em;
-        z-index: 150;
-      }
-      footer a, footer span, footer strong {
-        margin: 0 3px;
-        font-size: 0.8em;
-      }
     }
     @media (min-width: 769px) {
       .header {
@@ -880,169 +857,146 @@
         opacity: 0;
         pointer-events: none;
       }
-      footer {
-        padding: 15px;
-        font-size: 1em;
-        z-index: 150;
-      }
-      footer a, footer span, footer strong {
-        margin: 0 6px;
-        font-size: 1em;
-      }
     }
   </style>
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="active" aria-label="Español">ES 🇪🇸</a>
-    <a href="/en/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="" aria-label="English">EN 🇬🇧</a>
-    <a href="/de/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="" aria-label="Deutsch">DE 🇩🇪</a>
+    <a href="/es/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="active">ES</a>
+    <a href="/en/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="">EN</a>
+    <a href="/de/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="">DE</a>
   </div>
   <header class="header">
     <a href="/es/" title="1000 Malbecs - ">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
-  <button class="hamburger" aria-label="Toggle menu">☰</button>
+  <button class="hamburger">Menu</button>
+
   <div class="main-content">
     <div class="product-details">
       <div class="product-image">
-        <img src="https://www.1000malbecs.com/images/large/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg" alt="Botella de Finca Las Moras Mora Negra Malbec-Bonarda 2014"
-             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
+        <img src="https://www.1000malbecs.com/images/large/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg" alt="Botella de Finca Las Moras Mora Negra Malbec-Bonarda 2014">
       </div>
       <div class="product-info">
-        <h1>Finca Las Moras Mora Negra Malbec-Bonarda - 2014</h1>
+        <h1>Finca Las Moras Mora Negra Malbec-Bonarda 2014</h1>
         <p class="info"><strong>Bodega:</strong> Finca Las Moras</p>
         <p class="info"><strong>Provincia:</strong> San Juan</p>
         <p class="info"><strong>Región:</strong> valle de pedernal</p>
         <p class="info"><strong>Altura:</strong> 1350 msnm</p>
+
+        <!-- PRECIO -->
         <p class="info"><strong>Precio UVP:</strong> €32.00</p>
+        <p class="info" style="font-size: 0.85em; color: #555;">
+          Precio x litro: €42.67 / inkl. MwSt. zzgl. Versand
+        </p>
+
+        <!-- NUEVOS CAMPOS -->
+        
+        <p class="info"><strong>:</strong> 13.5</p>
         
         
+        <p class="info"><strong>:</strong> 5.9</p>
+        
+
+        <!-- GUARDA -->
+        
+
+        <!-- PREMIOS -->
+        
+
+        <!-- ENVÍO BONIFICADO -->
+        <p class="free-shipping">
+           <a href="/es/faq"></a>
+        </p>
+
+        <!-- BOTÓN WHATSAPP -->
         <div class="button-container">
-          <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20Finca%20Las%20Moras%20Mora%20Negra%20Malbec-Bonarda%202014" class="main-buy-button" target="_blank">
+          <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20Finca%20Las%20Moras%20Mora%20Negra%20Malbec-Bonarda%202014" 
+             class="main-buy-button" target="_blank">
             <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
           </a>
-          <p class="free-shipping">Costo de envío: EUR 5 - Envío bonificado comprando al menos 12 botellas de distintos vinos <a href="/es/faq">Más info</a></p>
         </div>
+
+        <!-- DESCRIPCIÓN -->
         <div class="info-box">
           <h2>Descripción</h2>
           <p>De color rojo violáceo, con aromas y sabores a frutas rojas y negras bien maduras acompañadas de notas a vainilla, especias dulces y aromas ahumados, es de sabor intenso y textura suave que perdura en la boca.
 
 Sus Viñedos se encuentran en el Valle de Tulum y en el Valle del Pedernal a una altitud entre 650 y 1350 metros sobre el nivel del mar. La altitud brinda la ventaja de noches más frescas, otorgando al vino más frescura; atempera el calor durante el día, brindando sabores a frutas rojas bien maduras y provee de abundantes rayos ultra violetas, dando vinos de textura suave, color y sabor intenso. Un blend único compuesto por uvas Malbec y Bonarda provenientes de los viñedos más antiguos de la región.</p>
         </div>
+
+        <!-- NOTAS DE CATA -->
         <div class="info-box">
           <h2>Notas de cata y maridaje</h2>
           <p>Es una presentación que acompaña bien gran diversidad de quesos por su textura aterciopelada, pastas con carnes y risottos, encontrando su punto justo al servirlo entre los 16º y 18º.</p>
         </div>
+
+        <!-- FICHA TÉCNICA -->
         
       </div>
     </div>
+
+    <!-- RECOMENDADOS -->
     <div class="recommended-section">
       
-        <h3>Más vinos de Finca Las Moras</h3>
-        <div class="product-grid same-bodega">
-          
-          <div class="product-card">
-            <img src="https://www.1000malbecs.com/images/small/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Botella de Finca Las Moras Sagrado Pedernal Malbec 2010"
-                 onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible'; console.error('Image failed to load:', this.src);">
-            <h3>Finca Las Moras Sagrado Pedernal Malbec</h3>
-            <div class="price">€39.90</div>
-            <a href="/es/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="buy-button">Comprar</a>
-            <span class="info-icon" data-overlay-id="bodega-finca-las-moras-sagrado-pedernal-malbec-2010.html">🍷</span>
-            <div class="overlay">
-              <p><strong>Bodega:</strong> Finca Las Moras</p>
-              <p><strong>Provincia:</strong> San Juan</p>
-              <p><strong>Región:</strong> valle de pedernal</p>
-              
-                <p><strong>Altura:</strong> 1350 msnm</p>
-              
-              
-                <p><strong>Añada:</strong> 2010</p>
-              
-              
-            </div>
-          </div>
-          
-        </div>
+
       
+      <h3>Vinos de Valle de pedernal</h3>
+      <div class="product-grid same-region">
+        
+        <div class="product-card">
+          <img src="https://www.1000malbecs.com/images/small/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Botella de Finca Las Moras Sagrado Pedernal Malbec 2010"
+               onerror="this.src='https://via.placeholder.com/200x200?text=No+Image';">
+          <h3>Finca Las Moras Sagrado Pedernal Malbec 2010</h3>
+          <div class="price">€39.90</div>
+          <a href="/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="buy-button">
+            Pedir por WhatsApp
+          </a>
+          <span class="info-icon" data-overlay-id="region-finca-las-moras-sagrado-pedernal-malbec-2010.html">
+            <i class="fas fa-wine-glass-alt"></i>
+          </span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Finca Las Moras</p>
+            <p><strong>Región:</strong> valle de pedernal</p>
+            <p><strong>Altura:</strong> 1350 msnm</p>
+            
+            
+            <p><strong>:</strong> 13.5</p>
+            <p><strong>:</strong> 5.9</p>
+          </div>
+        </div>
+        
+      </div>
       
     </div>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      try {
-        const hamburger = document.querySelector('.hamburger');
-        const sidebar = document.querySelector('#sidebar');
-        let isSidebarOpen = false;
-        if (hamburger && sidebar) {
-          hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isSidebarOpen = !isSidebarOpen;
-            sidebar.classList.toggle('open', isSidebarOpen);
-            hamburger.textContent = isSidebarOpen ? '✕' : '☰';
-          });
-          document.addEventListener('click', (e) => {
-            if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-              isSidebarOpen = false;
-              sidebar.classList.remove('open');
-              hamburger.textContent = '☰';
-            }
-          });
-        }
-        document.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.stopPropagation();
-          });
-        });
-        const infoIcons = document.querySelectorAll('.info-icon');
-        infoIcons.forEach(icon => {
-          ['click', 'touchstart'].forEach(eventType => {
-            icon.addEventListener(eventType, (e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              const overlayId = icon.getAttribute('data-overlay-id');
-              document.querySelectorAll('.overlay.active').forEach(overlay => {
-                overlay.classList.remove('active');
-              });
-              const productCard = icon.closest('.product-card');
-              if (productCard) {
-                const overlay = productCard.querySelector('.overlay');
-                if (overlay) {
-                  overlay.classList.toggle('active');
-                }
-              }
-            }, { passive: false });
-          });
-        });
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('.product-card')) {
-            document.querySelectorAll('.overlay.active').forEach(overlay => {
-              overlay.classList.remove('active');
-            });
-          }
-        });
-        const languageSelector = document.querySelector('.language-selector');
-        const footer = document.querySelector('footer');
-        let lastScrollY = window.scrollY;
-        let scrollThreshold = 50;
-        if (languageSelector && footer) {
-          window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const footerRect = footer.getBoundingClientRect();
-            const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-            if ((currentScrollY > lastScrollY && currentScrollY > scrollThreshold) || isFooterInView) {
-              languageSelector.classList.add('hidden');
-            } else {
-              languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
-          });
-        }
-      } catch (error) {
-        console.error('Error in DOMContentLoaded handler:', error);
-      }
+
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Abrir overlay al hacer click en la copa
+  document.querySelectorAll(".info-icon").forEach(icon => {
+    icon.addEventListener("click", function () {
+      const overlayId = this.getAttribute("data-overlay-id");
+      const overlay = document.getElementById(overlayId);
+      if (overlay) overlay.style.display = "block";
     });
-  </script>
+  });
+
+  // Cerrar overlay al hacer click en X
+  document.querySelectorAll(".close-overlay").forEach(close => {
+    close.addEventListener("click", function () {
+      this.closest(".overlay").style.display = "none";
+    });
+  });
+
+  // Cerrar al hacer click fuera del contenido
+  document.querySelectorAll(".overlay").forEach(overlay => {
+    overlay.addEventListener("click", function (e) {
+      if (e.target === this) this.style.display = "none";
+    });
+  });
+});
+</script>
 </body>
 </html>
