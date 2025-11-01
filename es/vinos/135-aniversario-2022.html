@@ -1008,8 +1008,8 @@ Name: 69, dtype: object</p>
           <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">
             Pedir por WhatsApp
           </a>
-          <span class="info-icon" data-overlay-id="bodega-casa-araujo-varietal-2023.html">
-          <i class="fas fa-wine-glass-alt"></i>
+          <span class="info-icon" data-overlay-id="region-casa-araujo-varietal-2023.html">
+            <i class="fas fa-wine-glass-alt"></i>
           </span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Casa Araujo</p>
@@ -1032,8 +1032,8 @@ Name: 2, dtype: object</p>
           <a href="/vinos/goye-malbec-2022.html" class="buy-button">
             Pedir por WhatsApp
           </a>
-          <span class="info-icon" data-overlay-id="bodega-goye-malbec-2022.html">
-          <i class="fas fa-wine-glass-alt"></i>
+          <span class="info-icon" data-overlay-id="region-goye-malbec-2022.html">
+            <i class="fas fa-wine-glass-alt"></i>
           </span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
@@ -1056,8 +1056,8 @@ Name: 5, dtype: object</p>
           <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">
             Pedir por WhatsApp
           </a>
-          <span class="info-icon" data-overlay-id="bodega-casa-araujo-roble-2023.html">
-          <i class="fas fa-wine-glass-alt"></i>
+          <span class="info-icon" data-overlay-id="region-casa-araujo-roble-2023.html">
+            <i class="fas fa-wine-glass-alt"></i>
           </span>
           <div class="overlay">
             <p><strong>Bodega:</strong> Casa Araujo</p>
@@ -1076,79 +1076,56 @@ Name: 9, dtype: object</p>
       
     </div>
   </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      try {
-        const hamburger = document.querySelector('.hamburger');
-        const sidebar = document.querySelector('#sidebar');
-        let isSidebarOpen = false;
-        if (hamburger && sidebar) {
-          hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isSidebarOpen = !isSidebarOpen;
-            sidebar.classList.toggle('open', isSidebarOpen);
-            hamburger.textContent = isSidebarOpen ? '✕' : '☰';
-          });
-          document.addEventListener('click', (e) => {
-            if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-              isSidebarOpen = false;
-              sidebar.classList.remove('open');
-              hamburger.textContent = '☰';
-            }
-          });
-        }
-        document.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.stopPropagation();
-          });
-        });
-        const infoIcons = document.querySelectorAll('.info-icon');
-        infoIcons.forEach(icon => {
-          ['click', 'touchstart'].forEach(eventType => {
-            icon.addEventListener(eventType, (e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              const overlayId = icon.getAttribute('data-overlay-id');
-              document.querySelectorAll('.overlay.active').forEach(overlay => {
-                overlay.classList.remove('active');
-              });
-              const productCard = icon.closest('.product-card');
-              if (productCard) {
-                const overlay = productCard.querySelector('.overlay');
-                if (overlay) {
-                  overlay.classList.toggle('active');
-                }
-              }
-            }, { passive: false });
-          });
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('#sidebar');
+      let isSidebarOpen = false;
+      if (hamburger && sidebar) {
+        hamburger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isSidebarOpen = !isSidebarOpen;
+          sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : 'Menu';
         });
         document.addEventListener('click', (e) => {
-          if (!e.target.closest('.product-card')) {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = 'Menu';
+          }
+        });
+      }
+
+      const infoIcons = document.querySelectorAll('.info-icon');
+      infoIcons.forEach(icon => {
+        ['click', 'touchstart'].forEach(eventType => {
+          icon.addEventListener(eventType, (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            const overlayId = icon.getAttribute('data-overlay-id');
             document.querySelectorAll('.overlay.active').forEach(overlay => {
               overlay.classList.remove('active');
             });
-          }
-        });
-        const languageSelector = document.querySelector('.language-selector');
-        const footer = document.querySelector('footer');
-        let lastScrollY = window.scrollY;
-        let scrollThreshold = 50;
-        if (languageSelector && footer) {
-          window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const footerRect = footer.getBoundingClientRect();
-            const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-            if ((currentScrollY > lastScrollY && currentScrollY > scrollThreshold) || isFooterInView) {
-              languageSelector.classList.add('hidden');
-            } else {
-              languageSelector.classList.remove('hidden');
+            const productCard = icon.closest('.product-card');
+            if (productCard) {
+              const overlay = productCard.querySelector('.overlay');
+              if (overlay) {
+                overlay.classList.toggle('active');
+              }
             }
-            lastScrollY = currentScrollY;
+          }, { passive: false });
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.product-card')) {
+          document.querySelectorAll('.overlay.active').forEach(overlay => {
+            overlay.classList.remove('active');
           });
         }
-      } catch (error) {
-        console.error('Error in DOMContentLoaded handler:', error);
-      }
+      });
     });
   </script>
 </body>
