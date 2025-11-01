@@ -862,16 +862,16 @@
 </head>
 <body>
   <div class="language-selector">
-    <a href="/es/vinos/135-aniversario-2022.html" class="active" aria-label="Español">ES </a>
-    <a href="/en/vinos/135-aniversario-2022.html" class="" aria-label="English">EN </a>
-    <a href="/de/vinos/135-aniversario-2022.html" class="" aria-label="Deutsch">DE </a>
+    <a href="/es/vinos/135-aniversario-2022.html" class="active">ES</a>
+    <a href="/en/vinos/135-aniversario-2022.html" class="">EN</a>
+    <a href="/de/vinos/135-aniversario-2022.html" class="">DE</a>
   </div>
   <header class="header">
     <a href="/es/" title="1000 Malbecs - ">
       <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
-  <button class="hamburger">☰</button>
+  <button class="hamburger">Menu</button>
 
   <div class="main-content">
     <div class="product-details">
@@ -885,11 +885,19 @@
         <p class="info"><strong>Región:</strong> san rafael</p>
         <p class="info"><strong>Altura:</strong> 520 msnm</p>
 
-        <!-- PRECIO + POR LITRO -->
+        <!-- PRECIO -->
         <p class="info"><strong>Precio UVP:</strong> €39.99</p>
         <p class="info" style="font-size: 0.85em; color: #555;">
           Precio x litro: €53.32 / inkl. MwSt. zzgl. Versand
         </p>
+
+        <!-- NUEVOS CAMPOS -->
+        
+        <p class="info"><strong>:</strong> Alcohol    
+Alcohol    
+Name: 138, dtype: object</p>
+        
+        
 
         <!-- GUARDA -->
         
@@ -901,13 +909,17 @@
         <p class="info"><strong>Premios:</strong> nan</p>
         
 
+        <!-- ENVÍO BONIFICADO -->
+        <p class="free-shipping">
+           <a href="/es/faq"></a>
+        </p>
+
         <!-- BOTÓN WHATSAPP -->
         <div class="button-container">
           <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20135%20Aniversario%202022" 
              class="main-buy-button" target="_blank">
             <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
           </a>
-          <p class="free-shipping">Costo de envío: EUR 5 - Envío bonificado comprando al menos 12 botellas de distintos vinos <a href="/es/faq">Más info</a></p>
         </div>
 
         <!-- DESCRIPCIÓN -->
@@ -924,136 +936,137 @@
 
         <!-- FICHA TÉCNICA -->
         
+      </div>
+    </div>
 
+    <!-- RECOMENDADOS -->
+    <div class="recommended-section">
+      
+      <h3>Más vinos de Bodega Goyenechea</h3>
+      <div class="product-grid same-bodega">
+        
+        <div class="product-card">
+          <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+               onerror="this.src='https://via.placeholder.com/200x200?text=No+Image';">
+          <h3>Goye Malbec 2022</h3>
+          <div class="price">€9.49</div>
+          <a href="/vinos/goye-malbec-2022.html" class="buy-button">
+            Pedir por WhatsApp
+          </a>
+          <span class="info-icon" data-overlay-id="bodega-goye-malbec-2022.html">Info</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Región:</strong> san rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            <p><strong>Premios:</strong> nan</p>
+            <p><strong>Guarda:</strong> nan</p>
+            <p><strong>:</strong> Alcohol    
+Alcohol    
+Name: 5, dtype: object</p>
+            
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
+               onerror="this.src='https://via.placeholder.com/200x200?text=No+Image';">
+          <h3>Quinta Generación Malbec 2022</h3>
+          <div class="price">€19.99</div>
+          <a href="/vinos/quinta-generacion-malbec-2022.html" class="buy-button">
+            Pedir por WhatsApp
+          </a>
+          <span class="info-icon" data-overlay-id="bodega-quinta-generacion-malbec-2022.html">Info</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Región:</strong> san rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            <p><strong>Premios:</strong> nan</p>
+            <p><strong>Guarda:</strong> nan</p>
+            <p><strong>:</strong> Alcohol    
+Alcohol    
+Name: 69, dtype: object</p>
+            
+          </div>
+        </div>
+        
       </div>
-    </div>
-<!-- RECOMENDADOS -->
-<div class="recommended-section">
-  
-  <h3>Más vinos de {bodega}</h3>
-  <div class="product-grid same-bodega">
-    
-    <div class="product-card">
-      <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
-           onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-      <h3>Goye Malbec 2022</h3>  <!-- SIN AÑO -->
-      <div class="price">€9.49</div>
-      <a href="/vinos/goye-malbec-2022.html" class="buy-button">
-        Pedir por WhatsApp
-      </a>
-      <span class="info-icon" data-overlay-id="bodega-goye-malbec-2022.html">Info</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-        <p><strong>Región:</strong> san rafael</p>
-        <p><strong>Altura:</strong> 520 msnm</p>
-        
-        <p><strong>Premios:</strong> nan</p>
-        
-        
-        <p><strong>Guarda:</strong> nan</p>
-        
-      </div>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022"
-           onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-      <h3>Quinta Generación Malbec 2022</h3>  <!-- SIN AÑO -->
-      <div class="price">€19.99</div>
-      <a href="/vinos/quinta-generacion-malbec-2022.html" class="buy-button">
-        Pedir por WhatsApp
-      </a>
-      <span class="info-icon" data-overlay-id="bodega-quinta-generacion-malbec-2022.html">Info</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-        <p><strong>Región:</strong> san rafael</p>
-        <p><strong>Altura:</strong> 520 msnm</p>
-        
-        <p><strong>Premios:</strong> nan</p>
-        
-        
-        <p><strong>Guarda:</strong> nan</p>
-        
-      </div>
-    </div>
-    
-  </div>
-  
+      
 
-  
-  <h3>Vinos de {region}</h3>
-  <div class="product-grid same-region">
-    
-    <div class="product-card">
-      <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
-           onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-      <h3>Casa Araujo Varietal 2023</h3>  <!-- SIN AÑO -->
-      <div class="price">€7.99</div>
-      <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">
-        Pedir por WhatsApp
-      </a>
-      <span class="info-icon" data-overlay-id="region-casa-araujo-varietal-2023.html">Info</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Casa Araujo</p>
-        <p><strong>Región:</strong> san rafael</p>
-        <p><strong>Altura:</strong> 520 msnm</p>
+      
+      <h3>Vinos de San rafael</h3>
+      <div class="product-grid same-region">
         
-        <p><strong>Premios:</strong> nan</p>
+        <div class="product-card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023"
+               onerror="this.src='https://via.placeholder.com/200x200?text=No+Image';">
+          <h3>Casa Araujo Varietal 2023</h3>
+          <div class="price">€7.99</div>
+          <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">
+            Pedir por WhatsApp
+          </a>
+          <span class="info-icon" data-overlay-id="region-casa-araujo-varietal-2023.html">Info</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> san rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            <p><strong>Premios:</strong> nan</p>
+            <p><strong>Guarda:</strong> nan</p>
+            <p><strong>:</strong> Alcohol    
+Alcohol    
+Name: 2, dtype: object</p>
+            
+          </div>
+        </div>
         
+        <div class="product-card">
+          <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
+               onerror="this.src='https://via.placeholder.com/200x200?text=No+Image';">
+          <h3>Goye Malbec 2022</h3>
+          <div class="price">€9.49</div>
+          <a href="/vinos/goye-malbec-2022.html" class="buy-button">
+            Pedir por WhatsApp
+          </a>
+          <span class="info-icon" data-overlay-id="region-goye-malbec-2022.html">Info</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Región:</strong> san rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            <p><strong>Premios:</strong> nan</p>
+            <p><strong>Guarda:</strong> nan</p>
+            <p><strong>:</strong> Alcohol    
+Alcohol    
+Name: 5, dtype: object</p>
+            
+          </div>
+        </div>
         
-        <p><strong>Guarda:</strong> nan</p>
+        <div class="product-card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
+               onerror="this.src='https://via.placeholder.com/200x200?text=No+Image';">
+          <h3>Casa Araujo Roble 2023</h3>
+          <div class="price">€10.19</div>
+          <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">
+            Pedir por WhatsApp
+          </a>
+          <span class="info-icon" data-overlay-id="region-casa-araujo-roble-2023.html">Info</span>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> san rafael</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            <p><strong>Premios:</strong> nan</p>
+            <p><strong>Guarda:</strong> nan</p>
+            <p><strong>:</strong> Alcohol    
+Alcohol    
+Name: 9, dtype: object</p>
+            
+          </div>
+        </div>
         
       </div>
+      
     </div>
-    
-    <div class="product-card">
-      <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022"
-           onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-      <h3>Goye Malbec 2022</h3>  <!-- SIN AÑO -->
-      <div class="price">€9.49</div>
-      <a href="/vinos/goye-malbec-2022.html" class="buy-button">
-        Pedir por WhatsApp
-      </a>
-      <span class="info-icon" data-overlay-id="region-goye-malbec-2022.html">Info</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-        <p><strong>Región:</strong> san rafael</p>
-        <p><strong>Altura:</strong> 520 msnm</p>
-        
-        <p><strong>Premios:</strong> nan</p>
-        
-        
-        <p><strong>Guarda:</strong> nan</p>
-        
-      </div>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023"
-           onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-      <h3>Casa Araujo Roble 2023</h3>  <!-- SIN AÑO -->
-      <div class="price">€10.19</div>
-      <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">
-        Pedir por WhatsApp
-      </a>
-      <span class="info-icon" data-overlay-id="region-casa-araujo-roble-2023.html">Info</span>
-      <div class="overlay">
-        <p><strong>Bodega:</strong> Casa Araujo</p>
-        <p><strong>Región:</strong> san rafael</p>
-        <p><strong>Altura:</strong> 520 msnm</p>
-        
-        <p><strong>Premios:</strong> nan</p>
-        
-        
-        <p><strong>Guarda:</strong> nan</p>
-        
-      </div>
-    </div>
-    
   </div>
-  
-</div>
- <script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       try {
         const hamburger = document.querySelector('.hamburger');
