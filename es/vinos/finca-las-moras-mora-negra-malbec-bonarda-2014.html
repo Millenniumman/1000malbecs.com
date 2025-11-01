@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="description" content="De color rojo violáceo, con aromas y sabores a frutas rojas y negras bien maduras acompañadas de notas a vainilla, especias dulces y aromas ahumados, es de s...">
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph -->
   <meta property="og:title" content="1000 Malbecs - Finca Las Moras Mora Negra Malbec-Bonarda 2014">
   <meta property="og:description" content="De color rojo violáceo, con aromas y sabores a frutas rojas y negras bien maduras acompañadas de notas a vainilla, especias dulces y aromas ahumados, es de s...">
   <meta property="og:image" content="https://www.1000malbecs.com/images/large/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg">
@@ -15,13 +15,13 @@
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
   <meta property="og:locale" content="es_ES">
-  <!-- Twitter Card Meta Tags -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Finca Las Moras Mora Negra Malbec-Bonarda 2014">
   <meta name="twitter:description" content="De color rojo violáceo, con aromas y sabores a frutas rojas y negras bien maduras acompañadas de notas a vainilla, especias dulces y aromas ahumados, es de s...">
   <meta name="twitter:image" content="https://www.1000malbecs.com/images/large/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg">
   <meta name="twitter:site" content="@1000malbecs">
-  <!-- Hreflang for SEO -->
+  <!-- Hreflang -->
   
   <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html">
   
@@ -30,7 +30,7 @@
   <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html">
   
   <title>1000 Malbecs - Finca Las Moras Mora Negra Malbec-Bonarda 2014</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
     body {
@@ -858,6 +858,50 @@
         pointer-events: none;
       }
     }
+    .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.9);
+      width: 36px; height: 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 11;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      display: none;
+    }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: rgba(74, 44, 89, 0.95);
+      color: white;
+      padding: 40px 15px 15px;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+      z-index: 10;
+      border-radius: 5px;
+    }
+    .close-overlay {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff;
+      z-index: 11;
+    }
+    @media (max-width: 768px) {
+      .info-icon { display: block; }
+      .product-card:hover .overlay { display: none; }
+    }
+    @media (min-width: 769px) {
+      .product-card:hover .overlay { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -866,12 +910,6 @@
     <a href="/en/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="">EN</a>
     <a href="/de/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html" class="">DE</a>
   </div>
-  <header class="header">
-    <a href="/es/" title="1000 Malbecs - ">
-      <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-    </a>
-  </header>
-  <button class="hamburger">Menu</button>
 
   <div class="main-content">
     <div class="product-details">
@@ -884,33 +922,20 @@
         <p class="info"><strong>Provincia:</strong> San Juan</p>
         <p class="info"><strong>Región:</strong> valle de pedernal</p>
         <p class="info"><strong>Altura:</strong> 1350 msnm</p>
-
-        <!-- PRECIO -->
         <p class="info"><strong>Precio UVP:</strong> €32.00</p>
         <p class="info" style="font-size: 0.85em; color: #555;">
           Precio x litro: €42.67 / inkl. MwSt. zzgl. Versand
         </p>
 
-        <!-- NUEVOS CAMPOS -->
-        
-        <p class="info"><strong>:</strong> 13.5</p>
-        
-        
+        <p class="info"><strong>:</strong> Alcohol    13.5
+Alcohol    13.5
+Name: 123, dtype: object</p>
         <p class="info"><strong>:</strong> 5.9</p>
         
-
-        <!-- GUARDA -->
         
 
-        <!-- PREMIOS -->
-        
+        <p class="free-shipping"> <a href="/es/faq"></a></p>
 
-        <!-- ENVÍO BONIFICADO -->
-        <p class="free-shipping">
-           <a href="/es/faq"></a>
-        </p>
-
-        <!-- BOTÓN WHATSAPP -->
         <div class="button-container">
           <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20Finca%20Las%20Moras%20Mora%20Negra%20Malbec-Bonarda%202014" 
              class="main-buy-button" target="_blank">
@@ -918,27 +943,43 @@
           </a>
         </div>
 
-        <!-- DESCRIPCIÓN -->
-        <div class="info-box">
-          <h2>Descripción</h2>
-          <p>De color rojo violáceo, con aromas y sabores a frutas rojas y negras bien maduras acompañadas de notas a vainilla, especias dulces y aromas ahumados, es de sabor intenso y textura suave que perdura en la boca.
+        <div class="info-box"><h2>Descripción</h2><p>De color rojo violáceo, con aromas y sabores a frutas rojas y negras bien maduras acompañadas de notas a vainilla, especias dulces y aromas ahumados, es de sabor intenso y textura suave que perdura en la boca.
 
-Sus Viñedos se encuentran en el Valle de Tulum y en el Valle del Pedernal a una altitud entre 650 y 1350 metros sobre el nivel del mar. La altitud brinda la ventaja de noches más frescas, otorgando al vino más frescura; atempera el calor durante el día, brindando sabores a frutas rojas bien maduras y provee de abundantes rayos ultra violetas, dando vinos de textura suave, color y sabor intenso. Un blend único compuesto por uvas Malbec y Bonarda provenientes de los viñedos más antiguos de la región.</p>
-        </div>
+Sus Viñedos se encuentran en el Valle de Tulum y en el Valle del Pedernal a una altitud entre 650 y 1350 metros sobre el nivel del mar. La altitud brinda la ventaja de noches más frescas, otorgando al vino más frescura; atempera el calor durante el día, brindando sabores a frutas rojas bien maduras y provee de abundantes rayos ultra violetas, dando vinos de textura suave, color y sabor intenso. Un blend único compuesto por uvas Malbec y Bonarda provenientes de los viñedos más antiguos de la región.</p></div>
+        <div class="info-box"><h2>Notas de cata y maridaje</h2><p>Es una presentación que acompaña bien gran diversidad de quesos por su textura aterciopelada, pastas con carnes y risottos, encontrando su punto justo al servirlo entre los 16º y 18º.</p></div>
 
-        <!-- NOTAS DE CATA -->
-        <div class="info-box">
-          <h2>Notas de cata y maridaje</h2>
-          <p>Es una presentación que acompaña bien gran diversidad de quesos por su textura aterciopelada, pastas con carnes y risottos, encontrando su punto justo al servirlo entre los 16º y 18º.</p>
-        </div>
-
-        <!-- FICHA TÉCNICA -->
         
       </div>
     </div>
 
-    <!-- RECOMENDADOS -->
     <div class="recommended-section">
+      
+      <h3>Más vinos de Finca Las Moras</h3>
+      <div class="product-grid same-bodega">
+        
+        <div class="product-card">
+          <img src="https://www.1000malbecs.com/images/small/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Botella de Finca Las Moras Sagrado Pedernal Malbec 2010">
+          <h3>Finca Las Moras Sagrado Pedernal Malbec 2010</h3>
+          <div class="price">€39.90</div>
+          <a href="/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="buy-button">
+            Pedir por WhatsApp
+          </a>
+          <div class="info-icon" data-overlay-id="finca-las-moras-sagrado-pedernal-malbec-2010.html">Wine</div>
+          <div class="overlay" id="finca-las-moras-sagrado-pedernal-malbec-2010.html">
+            <span class="close-overlay">×</span>
+            <p><strong>Bodega:</strong> Finca Las Moras</p>
+            <p><strong>Región:</strong> valle de pedernal</p>
+            <p><strong>Altura:</strong> 1350 msnm</p>
+            
+            
+            <p><strong>:</strong> Alcohol    13.5
+Alcohol    13.5
+Name: 137, dtype: object</p>
+            <p><strong>:</strong> 5.9</p>
+          </div>
+        </div>
+        
+      </div>
       
 
       
@@ -946,23 +987,23 @@ Sus Viñedos se encuentran en el Valle de Tulum y en el Valle del Pedernal a una
       <div class="product-grid same-region">
         
         <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Botella de Finca Las Moras Sagrado Pedernal Malbec 2010"
-               onerror="this.src='https://via.placeholder.com/200x200?text=No+Image';">
+          <img src="https://www.1000malbecs.com/images/small/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Botella de Finca Las Moras Sagrado Pedernal Malbec 2010">
           <h3>Finca Las Moras Sagrado Pedernal Malbec 2010</h3>
           <div class="price">€39.90</div>
           <a href="/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="buy-button">
             Pedir por WhatsApp
           </a>
-          <span class="info-icon" data-overlay-id="region-finca-las-moras-sagrado-pedernal-malbec-2010.html">
-            <i class="fas fa-wine-glass-alt"></i>
-          </span>
-          <div class="overlay">
+          <div class="info-icon" data-overlay-id="finca-las-moras-sagrado-pedernal-malbec-2010.html">Wine</div>
+          <div class="overlay" id="finca-las-moras-sagrado-pedernal-malbec-2010.html">
+            <span class="close-overlay">×</span>
             <p><strong>Bodega:</strong> Finca Las Moras</p>
             <p><strong>Región:</strong> valle de pedernal</p>
             <p><strong>Altura:</strong> 1350 msnm</p>
             
             
-            <p><strong>:</strong> 13.5</p>
+            <p><strong>:</strong> Alcohol    13.5
+Alcohol    13.5
+Name: 137, dtype: object</p>
             <p><strong>:</strong> 5.9</p>
           </div>
         </div>
@@ -972,31 +1013,30 @@ Sus Viñedos se encuentran en el Valle de Tulum y en el Valle del Pedernal a una
     </div>
   </div>
 
- <script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Abrir overlay al hacer click en la copa
-  document.querySelectorAll(".info-icon").forEach(icon => {
-    icon.addEventListener("click", function () {
-      const overlayId = this.getAttribute("data-overlay-id");
-      const overlay = document.getElementById(overlayId);
-      if (overlay) overlay.style.display = "block";
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".info-icon").forEach(icon => {
+      icon.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const overlayId = this.getAttribute("data-overlay-id");
+        const overlay = document.getElementById(overlayId);
+        if (overlay) overlay.style.display = "block";
+      });
     });
-  });
 
-  // Cerrar overlay al hacer click en X
-  document.querySelectorAll(".close-overlay").forEach(close => {
-    close.addEventListener("click", function () {
-      this.closest(".overlay").style.display = "none";
+    document.querySelectorAll(".close-overlay").forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        this.parentElement.style.display = "none";
+      });
     });
-  });
 
-  // Cerrar al hacer click fuera del contenido
-  document.querySelectorAll(".overlay").forEach(overlay => {
-    overlay.addEventListener("click", function (e) {
-      if (e.target === this) this.style.display = "none";
+    document.querySelectorAll(".overlay").forEach(overlay => {
+      overlay.addEventListener("click", function (e) {
+        if (e.target === this) this.style.display = "none";
+      });
     });
   });
-});
-</script>
+  </script>
 </body>
 </html>
