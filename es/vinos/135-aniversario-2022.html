@@ -156,12 +156,12 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 
   <!-- HEADER MOBILE: ICONO HAMBURGUESA + LOGO -->
   <header class="mobile-header">
-    <button class="hamburger">Menu</button>
+    <button class="hamburger">☰</button>
     <a href="/es/">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
     </a>
   </header>
-<button class="hamburger" aria-label="Toggle menu">☰</button>
+
   <!-- SELECTOR DE IDIOMAS - DESKTOP -->
   <div class="lang-selector-desktop">
     
@@ -348,13 +348,23 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 
   <!-- JS: ICONO HAMBURGUESA (SOLO PARA EL WORKER) -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+ ocument.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
-      if (hamburger) {
+      const sidebar = document.querySelector('#sidebar');
+      let isSidebarOpen = false;
+      if (hamburger && sidebar) {
         hamburger.addEventListener('click', (e) => {
           e.stopPropagation();
-          // El Worker manejará el menú
-          document.body.classList.toggle('sidebar-open');
+          isSidebarOpen = !isSidebarOpen;
+          sidebar.classList.toggle('open', isSidebarOpen);
+          hamburger.textContent = isSidebarOpen ? '✕' : '☰';
+        });
+        document.addEventListener('click', (e) => {
+          if (isSidebarOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            isSidebarOpen = false;
+            sidebar.classList.remove('open');
+            hamburger.textContent = '☰';
+          }
         });
       }
 
