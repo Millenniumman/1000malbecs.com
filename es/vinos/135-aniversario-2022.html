@@ -49,6 +49,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
   justify-content: space-between;
   padding: 0 15px;
 }
+
 .hamburger {
   font-size: 28px;
   background: none;
@@ -60,9 +61,18 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 130;
 }
+
+.mobile-logo-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .mobile-logo {
   max-height: 40px;
+  width: auto;
 }
 
 /* OCULTAR LOGO EN SIDEBAR MOBILE (Worker genera el logo) */
@@ -170,13 +180,12 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 </head>
 <body>
 
-  <!-- HEADER MOBILE: ÍCONO HAMBURGUESA + LOGO -->
-  <header class="mobile-header">
-    <button class="hamburger" aria-label="Toggle menu">☰</button>
-    <a href="/es/">
-      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
-    </a>
-  </header>
+ <header class="mobile-header">
+  <button class="hamburger" aria-label="Abrir menú">☰</button>
+  <a href="/es/" class="mobile-logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
+  </a>
+</header>
 
   <!-- SELECTOR DE IDIOMAS - DESKTOP -->
   <div class="lang-selector-desktop">
@@ -364,43 +373,63 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileHamburger = document.querySelector('.mobile-header .hamburger');
-      
-      if (mobileHamburger) {
-        mobileHamburger.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          // Busca el botón del Worker (varios selectores comunes)
-          const workerToggle = document.querySelector(
-            '.sidebar-toggle, .hamburger, [data-toggle="sidebar"], #menu-toggle, .mobile-menu-toggle, .nav-toggle'
-          );
-          
-          if (workerToggle) {
-            workerToggle.click();
-          } else {
-            // Fallback: disparar evento personalizado
-            document.dispatchEvent(new CustomEvent('toggle-sidebar'));
-          }
-        });
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.mobile-header .hamburger');
+    const body = document.body;
+
+    if (!hamburger) return;
+
+    // Función para abrir/cerrar sidebar
+    const toggleSidebar = () => {
+      // 1. Buscar botón del Worker (varios selectores comunes)
+      const workerToggle = document.querySelector(
+        '.sidebar-toggle, .hamburger, [data-toggle="sidebar"], #menu-toggle, .mobile-menu-toggle, .nav-toggle, .menu-btn'
+      );
+
+      if (workerToggle) {
+        workerToggle.click();
+        return;
       }
 
-      // SCROLL PARA OCULTAR SELECTOR MOBILE
-      const mobileSelector = document.querySelector('.lang-selector-mobile');
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        const current = window.scrollY;
-        if (current > lastScroll && current > 100) {
-          mobileSelector.style.opacity = '0';
-          mobileSelector.style.pointerEvents = 'none';
-        } else {
-          mobileSelector.style.opacity = '1';
-          mobileSelector.style.pointerEvents = 'auto';
-        }
-        lastScroll = current;
-      });
+      // 2. Fallback: evento personalizado
+      const event = new CustomEvent('toggle-sidebar', { bubbles: true });
+      document.dispatchEvent(event);
+
+      // 3. Fallback extremo: toggle clase en body (si el Worker usa .sidebar-open en body)
+      body.classList.toggle('sidebar-open');
+    };
+
+    // Click en hamburguesa
+    hamburger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleSidebar();
     });
-  </script>
+
+    // Cerrar menú al hacer clic fuera (opcional, si el Worker no lo hace)
+    document.addEventListener('click', (e) => {
+      const sidebar = document.querySelector('.sidebar, nav, aside');
+      const isClickInside = hamburger.contains(e.target) || (sidebar && sidebar.contains(e.target));
+      if (!isClickInside && body.classList.contains('sidebar-open')) {
+        toggleSidebar();
+      }
+    });
+
+    // SCROLL: ocultar selector de idioma mobile
+    const mobileSelector = document.querySelector('.lang-selector-mobile');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 100) {
+        mobileSelector.style.opacity = '0';
+        mobileSelector.style.pointerEvents = 'none';
+      } else {
+        mobileSelector.style.opacity = '1';
+        mobileSelector.style.pointerEvents = 'auto';
+      }
+      lastScroll = current;
+    });
+  });
+</script>
 </body>
 </html>
