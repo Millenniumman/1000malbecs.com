@@ -50,14 +50,26 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
   padding: 0 15px;
 }
 .hamburger {
-  font-size: 24px;
+  font-size: 28px;
   background: none;
   border: none;
   color: var(--primary);
   cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .mobile-logo {
   max-height: 40px;
+}
+
+/* OCULTAR LOGO EN SIDEBAR MOBILE (Worker genera el logo) */
+@media (max-width: 768px) {
+  .sidebar-logo, .sidebar .logo, [class*="logo"], img[src*="logo"] {
+    display: none !important;
+  }
 }
 
 /* SELECTOR DE IDIOMAS - DESKTOP */
@@ -158,9 +170,9 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 </head>
 <body>
 
-  <!-- HEADER MOBILE: HAMBURGUESA + LOGO -->
+  <!-- HEADER MOBILE: ÍCONO HAMBURGUESA + LOGO -->
   <header class="mobile-header">
-    <button class="hamburger" id="mobile-hamburger">Menu</button>
+    <button class="hamburger" aria-label="Toggle menu">☰</button>
     <a href="/es/">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
     </a>
@@ -350,17 +362,27 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
     
   </div>
 
-  <!-- JS: ACTIVAR MENÚ DEL WORKER EN MOBILE -->
+  <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const mobileHamburger = document.getElementById('mobile-hamburger');
-      const workerHamburger = document.querySelector('.sidebar-toggle, .hamburger, [data-toggle="sidebar"], #menu-toggle');
+      const mobileHamburger = document.querySelector('.mobile-header .hamburger');
       
-      if (mobileHamburger && workerHamburger) {
+      if (mobileHamburger) {
         mobileHamburger.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          workerHamburger.click(); // Activa el menú del Worker
+          
+          // Busca el botón del Worker (varios selectores comunes)
+          const workerToggle = document.querySelector(
+            '.sidebar-toggle, .hamburger, [data-toggle="sidebar"], #menu-toggle, .mobile-menu-toggle, .nav-toggle'
+          );
+          
+          if (workerToggle) {
+            workerToggle.click();
+          } else {
+            // Fallback: disparar evento personalizado
+            document.dispatchEvent(new CustomEvent('toggle-sidebar'));
+          }
         });
       }
 
