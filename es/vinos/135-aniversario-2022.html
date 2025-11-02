@@ -34,7 +34,7 @@
 :root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
 body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #fdfdfd; color: #333; }
 
-/* HEADER FIJO MOBILE */
+/* HEADER MOBILE */
 .mobile-header {
   display: none;
   position: fixed;
@@ -60,44 +60,6 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
   max-height: 40px;
 }
 
-/* SIDEBAR */
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: -280px;
-  width: 280px;
-  height: 100vh;
-  background: #f8f8f8;
-  z-index: 130;
-  transition: left 0.3s ease;
-  padding: 70px 20px 20px;
-  border-right: 1px solid #eee;
-  overflow-y: auto;
-}
-#sidebar.open { left: 0; }
-#sidebar h3 {
-  margin: 20px 0 10px;
-  color: var(--primary);
-  font-size: 16px;
-  text-transform: uppercase;
-}
-#sidebar ul { list-style: none; padding: 0; margin: 0; }
-#sidebar li { margin: 8px 0; }
-#sidebar a {
-  color: #444;
-  text-decoration: none;
-  font-size: 15px;
-  display: block;
-  padding: 6px 0;
-  border-radius: 4px;
-  transition: all 0.3s;
-}
-#sidebar a:hover, #sidebar a.active {
-  background: var(--primary);
-  color: white;
-  padding-left: 10px;
-}
-
 /* SELECTOR DE IDIOMAS - DESKTOP */
 .lang-selector-desktop {
   position: fixed; top: 15px; right: 20px; z-index: 110; display: flex; gap: 8px;
@@ -120,11 +82,16 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 }
 .lang-selector-mobile a.active { font-weight: 700; }
 
-/* CONTENIDO */
-.container { max-width: 900px; margin: 80px auto 40px; padding: 0 20px; }
-.product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+/* CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER */
+.container {
+  max-width: 900px;
+  margin: 80px auto 40px;
+  padding: 0 20px;
+  margin-left: 300px; /* RESERVADO PARA SIDEBAR DEL WORKER */
+}
 
 /* IMAGEN PRINCIPAL */
+.product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 .product img {
   width: 360px; height: 540px; object-fit: contain; object-position: center;
   border-radius: 12px; border: 3px solid var(--border); background: #fff;
@@ -185,8 +152,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
   .product { flex-direction: column; }
   .product img { width: 100%; height: auto; max-height: 500px; object-fit: contain; }
   .grid { grid-template-columns: 1fr 1fr; }
-  .container { margin-top: 80px; }
-  #sidebar { left: -280px; }
+  .container { margin-top: 80px; margin-left: 0; padding: 0 15px; }
 }
 </style>
 </head>
@@ -194,127 +160,11 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 
   <!-- HEADER MOBILE: HAMBURGUESA + LOGO -->
   <header class="mobile-header">
-    <button class="hamburger" aria-label="Toggle menu">☰</button>
+    <button class="hamburger" id="mobile-hamburger">Menu</button>
     <a href="/es/">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
     </a>
   </header>
-
-  <!-- SIDEBAR -->
-  <nav id="sidebar">
-    <h3>Bodegas</h3>
-    <ul>
-      
-      <li><a href="/es/bodegas/a-corazon-abierto.html">A Corazon Abierto</a></li>
-      
-      <li><a href="/es/bodegas/agustin-lanus.html">Agustin Lanus</a></li>
-      
-      <li><a href="/es/bodegas/alamos.html">Alamos</a></li>
-      
-      <li><a href="/es/bodegas/bemberg-estate-wines.html">Bemberg Estate Wines</a></li>
-      
-      <li><a href="/es/bodegas/bodega-amalaya.html">Bodega Amalaya</a></li>
-      
-      <li><a href="/es/bodegas/bodega-bressia.html">Bodega Bressia</a></li>
-      
-      <li><a href="/es/bodegas/bodega-chanarmuyo.html">Bodega Chanarmuyo</a></li>
-      
-      <li><a href="/es/bodegas/bodega-colomé.html">Bodega Colomé</a></li>
-      
-      <li><a href="/es/bodegas/bodega-estancia-mendoza.html">Bodega Estancia Mendoza</a></li>
-      
-      <li><a href="/es/bodegas/bodega-foster-lorca.html">Bodega Foster Lorca</a></li>
-      
-      <li><a href="/es/bodegas/bodega-goyenechea.html">Bodega Goyenechea</a></li>
-      
-      <li><a href="/es/bodegas/bodega-noemía-patagonia.html">Bodega Noemía Patagonia</a></li>
-      
-      <li><a href="/es/bodegas/bodega-séptima.html">Bodega Séptima</a></li>
-      
-      <li><a href="/es/bodegas/bodega-tukma.html">Bodega Tukma</a></li>
-      
-      <li><a href="/es/bodegas/bodegas-bianchi.html">Bodegas Bianchi</a></li>
-      
-      <li><a href="/es/bodegas/bodegas-caro.html">Bodegas Caro</a></li>
-      
-      <li><a href="/es/bodegas/casa-araujo.html">Casa Araujo</a></li>
-      
-      <li><a href="/es/bodegas/catena-zapata.html">Catena Zapata</a></li>
-      
-      <li><a href="/es/bodegas/chakana.html">Chakana</a></li>
-      
-      <li><a href="/es/bodegas/cicchitti.html">Cicchitti</a></li>
-      
-      <li><a href="/es/bodegas/dieter-meier-and-family-wines.html">Dieter Meier and Family Wines</a></li>
-      
-      <li><a href="/es/bodegas/el-esteco.html">El Esteco</a></li>
-      
-      <li><a href="/es/bodegas/eral-bravo.html">Eral Bravo</a></li>
-      
-      <li><a href="/es/bodegas/falasco-wines.html">Falasco Wines</a></li>
-      
-      <li><a href="/es/bodegas/familia-schroeder.html">Familia Schroeder</a></li>
-      
-      <li><a href="/es/bodegas/finca-&-bodega-arca-yaco.html">Finca & Bodega Arca Yaco</a></li>
-      
-      <li><a href="/es/bodegas/finca-la-anita.html">Finca La Anita</a></li>
-      
-      <li><a href="/es/bodegas/finca-las-moras.html">Finca Las Moras</a></li>
-      
-      <li><a href="/es/bodegas/finca-las-nubes.html">Finca Las Nubes</a></li>
-      
-      <li><a href="/es/bodegas/finca-y-bodega-vistalba.html">Finca y Bodega Vistalba</a></li>
-      
-      <li><a href="/es/bodegas/humberto-canale.html">Humberto Canale</a></li>
-      
-      <li><a href="/es/bodegas/jasmine-monet.html">Jasmine Monet</a></li>
-      
-      <li><a href="/es/bodegas/jorge-rubio.html">Jorge Rubio</a></li>
-      
-      <li><a href="/es/bodegas/kaiken.html">Kaiken</a></li>
-      
-      <li><a href="/es/bodegas/la-rural.html">La Rural</a></li>
-      
-      <li><a href="/es/bodegas/los-haroldos.html">Los Haroldos</a></li>
-      
-      <li><a href="/es/bodegas/luigi-bosca.html">Luigi Bosca</a></li>
-      
-      <li><a href="/es/bodegas/mascota-vineyards.html">Mascota Vineyards</a></li>
-      
-      <li><a href="/es/bodegas/piattelli-vineyards.html">Piattelli Vineyards</a></li>
-      
-      <li><a href="/es/bodegas/rutini-wines.html">Rutini Wines</a></li>
-      
-      <li><a href="/es/bodegas/san-telmo.html">San Telmo</a></li>
-      
-      <li><a href="/es/bodegas/trapiche.html">Trapiche</a></li>
-      
-      <li><a href="/es/bodegas/viña-alicia.html">Viña Alicia</a></li>
-      
-      <li><a href="/es/bodegas/viña-cobos.html">Viña Cobos</a></li>
-      
-      <li><a href="/es/bodegas/weinert-bodega-y-cavas.html">Weinert Bodega y Cavas</a></li>
-      
-    </ul>
-    <h3>Provincias</h3>
-    <ul>
-      
-      <li><a href="/es/provincias/la-rioja.html">La Rioja</a></li>
-      
-      <li><a href="/es/provincias/mendoza.html">Mendoza</a></li>
-      
-      <li><a href="/es/provincias/neuquén.html">Neuquén</a></li>
-      
-      <li><a href="/es/provincias/rio-negro.html">Rio Negro</a></li>
-      
-      <li><a href="/es/provincias/río-negro.html">Río Negro</a></li>
-      
-      <li><a href="/es/provincias/salta.html">Salta</a></li>
-      
-      <li><a href="/es/provincias/san-juan.html">San Juan</a></li>
-      
-    </ul>
-  </nav>
 
   <!-- SELECTOR DE IDIOMAS - DESKTOP -->
   <div class="lang-selector-desktop">
@@ -338,7 +188,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
     
   </div>
 
-  <!-- CONTENIDO -->
+  <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
       <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="135 Aniversario 2022 2022">
@@ -500,27 +350,19 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
     
   </div>
 
-  <!-- JS: MENÚ HAMBURGUESA -->
+  <!-- JS: ACTIVAR MENÚ DEL WORKER EN MOBILE -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.hamburger');
-      const sidebar = document.getElementById('sidebar');
-      let isOpen = false;
-
-      hamburger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        isOpen = !isOpen;
-        sidebar.classList.toggle('open', isOpen);
-        hamburger.textContent = isOpen ? 'Close' : 'Menu';
-      });
-
-      document.addEventListener('click', (e) => {
-        if (isOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-          isOpen = false;
-          sidebar.classList.remove('open');
-          hamburger.textContent = 'Menu';
-        }
-      });
+      const mobileHamburger = document.getElementById('mobile-hamburger');
+      const workerHamburger = document.querySelector('.sidebar-toggle, .hamburger, [data-toggle="sidebar"], #menu-toggle');
+      
+      if (mobileHamburger && workerHamburger) {
+        mobileHamburger.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          workerHamburger.click(); // Activa el menú del Worker
+        });
+      }
 
       // SCROLL PARA OCULTAR SELECTOR MOBILE
       const mobileSelector = document.querySelector('.lang-selector-mobile');
