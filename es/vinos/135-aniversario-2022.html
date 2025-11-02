@@ -56,19 +56,19 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 }
 .lang-selector-mobile a.active { font-weight: 700; }
 
+/* ESPACIO PARA HEADER FIJO (INYECTADO POR WORKER) */
+.header-placeholder {
+  height: 70px;
+}
+
 /* CONTENIDO */
-.container { max-width: 900px; margin: 80px auto 40px; padding: 0 20px; }
+.container { max-width: 900px; margin: 20px auto 40px; padding: 0 20px; }
 .product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 
-/* IMAGEN PRINCIPAL: PROPORCIÓN 1:1.5 (600x900) */
+/* IMAGEN PRINCIPAL: 1:1.5 */
 .product img {
-  width: 360px;
-  height: 540px;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 12px;
-  border: 3px solid var(--border);
-  background: #fff;
+  width: 360px; height: 540px; object-fit: contain; object-position: center;
+  border-radius: 12px; border: 3px solid var(--border); background: #fff;
 }
 
 .info h1 { margin: 0 0 15px; color: var(--primary); font-size: 28px; }
@@ -93,23 +93,13 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 }
 .shipping a { color: #2e7d32; font-weight: 600; text-decoration: underline; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; margin-top: 50px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; margin-top: 30px; }
 .card { 
   border: 1px solid #eee; border-radius: 12px; padding: 14px; text-align: center; 
   position: relative; overflow: hidden; transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); border-color: var(--primary); }
-
-/* IMÁGENES PEQUEÑAS: PROPORCIÓN 1:1 (300x300) */
-.card img { 
-  width: 150px; 
-  height: 150px; 
-  object-fit: contain; 
-  object-position: center;
-  border-radius: 8px; 
-  background: #fff;
-}
-
+.card img { width: 150px; height: 150px; object-fit: contain; border-radius: 8px; background: #fff; }
 .card h4 { margin: 10px 0 5px; font-size: 15px; color: var(--primary); }
 .card p { margin: 5px 0; font-weight: 600; color: #333; }
 .card a { 
@@ -124,23 +114,26 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 .card:hover .overlay { display: block; }
 .overlay p { margin: 4px 0; color: white !important; }
 
+/* SECCIÓN NUEVA: OTROS VINOS DE LA REGIÓN */
+.region-section { margin-top: 60px; }
+.region-section h3 { color: var(--primary); }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .lang-selector-desktop { display: none; }
   .lang-selector-mobile { display: flex; }
   .product { flex-direction: column; }
-  .product img { 
-    width: 100%; 
-    height: auto; 
-    max-height: 500px; 
-    object-fit: contain;
-  }
+  .product img { width: 100%; height: auto; max-height: 500px; object-fit: contain; }
   .grid { grid-template-columns: 1fr 1fr; }
-  .container { margin-top: 100px; }
+  .header-placeholder { height: 60px; }
+  .container { margin-top: 10px; }
 }
 </style>
 </head>
 <body>
+
+  <!-- PLACEHOLDER PARA HEADER FIJO (INYECTADO POR WORKER) -->
+  <div class="header-placeholder"></div>
 
   <!-- SELECTOR DE IDIOMAS - DESKTOP -->
   <div class="lang-selector-desktop">
@@ -203,6 +196,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
       </div>
     </div>
 
+    <!-- OTRA BODEGA -->
     
     <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Goyenechea</h3>
     <div class="grid">
@@ -233,6 +227,94 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
         </div>
       </div>
       
+    </div>
+    
+
+    <!-- OTRA REGIÓN -->
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">Otros vinos de San rafael</h3>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Casa Araujo Varietal 2023 2023">
+          <h4>Casa Araujo Varietal 2023</h4>
+          <p>€7.99</p>
+          <a href="/es/vinos/casa-araujo-varietal-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Casa Araujo Roble 2023 2023">
+          <h4>Casa Araujo Roble 2023</h4>
+          <p>€10.19</p>
+          <a href="/es/vinos/casa-araujo-roble-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.2%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-mimi-2023.jpg" alt="Casa Araujo Mimi 2023 2023">
+          <h4>Casa Araujo Mimi 2023</h4>
+          <p>€11.19</p>
+          <a href="/es/vinos/casa-araujo-mimi-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/nucha-2023.jpg" alt="Nucha 2023 2023">
+          <h4>Nucha 2023</h4>
+          <p>€12.99</p>
+          <a href="/es/vinos/nucha-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023 2023">
+          <h4>Graciano Reserva Blend 2023</h4>
+          <p>€13.59</p>
+          <a href="/es/vinos/graciano-reserva-blend-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Famiglia Bianchi Malbec 2021 2021">
+          <h4>Famiglia Bianchi Malbec 2021</h4>
+          <p>€18.49</p>
+          <a href="/es/vinos/famiglia-bianchi-malbec-2021.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 800.0</p>
+            <p><strong>Alcohol:</strong> 14.0%</p>
+          </div>
+        </div>
+        
+      </div>
     </div>
     
   </div>
