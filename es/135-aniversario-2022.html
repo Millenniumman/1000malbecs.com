@@ -4,426 +4,539 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <meta name="description" content="Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega">
   <!-- Open Graph -->
-  <meta property="og:title" content="1000 Malbecs - 135 Aniversario 2022 2022">
+  <meta property="og:title" content="1000 Malbecs - 135 Aniversario 2022">
   <meta property="og:description" content="Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega">
   <meta property="og:image" content="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg">
-  <meta property="og:url" content="https://www.1000malbecs.com/vinos/135-aniversario-2022.html">
+  <meta property="og:url" content="https://www.1000malbecs.com/es/vinos/135-aniversario-2022.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
   <meta property="og:locale" content="es_ES">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="1000 Malbecs - 135 Aniversario 2022 2022">
+  <meta name="twitter:title" content="1000 Malbecs - 135 Aniversario 2022">
   <meta name="twitter:description" content="Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega">
   <meta name="twitter:image" content="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg">
   <meta name="twitter:site" content="@1000malbecs">
   <!-- Hreflang -->
   
-  <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/vinos/135-aniversario-2022.html">
+  <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/vinos/135-aniversario-2022.html">
   
   <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/vinos/135-aniversario-2022.html">
   
   <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/vinos/135-aniversario-2022.html">
   
-  <title>1000 Malbecs - 135 Aniversario 2022 2022</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>1000 Malbecs - 135 Aniversario 2022</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/styles.css">
   <style>
-    :root {
-      --primary: #6B1D49;   /* violeta medio */
-      --accent: #4A2C59;
-      --whatsapp: #25D366;
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #fdfdfd; margin: 0; padding: 0; min-height: 100vh;
-      color: #333; line-height: 1.4;
-    }
+:root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
+body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #fdfdfd; color: #333; }
 
-    /* IDIOMA */
-    .language-selector {
-      position: fixed; top: 12px; right: 12px; z-index: 130; display: flex; gap: 6px;
-    }
-    .language-selector a {
-      padding: 6px 10px; background: rgba(255,255,255,0.9); color: var(--accent);
-      text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: 600;
-      transition: 0.2s;
-    }
-    .language-selector a:hover, .language-selector a.active {
-      background: var(--accent); color: white;
-    }
+/* HEADER MOBILE */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: white;
+  z-index: 120;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+.hamburger {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 8px;
+}
+.mobile-logo {
+  max-height: 48px;
+}
 
-    /* MÓVIL: HAMBURGUESA + LOGO DERECHA */
-    .header, .hamburger { display: none; }
-    .logo { max-width: 90px; height: auto; }
-    @media (max-width: 768px) {
-      .header, .hamburger { display: block !important; }
-      .hamburger {
-        position: fixed; top: 10px; left: 10px; z-index: 120; background: none; border: none;
-        font-size: 26px; color: var(--accent); cursor: pointer;
-      }
-      .header {
-        position: fixed; top: 10px; right: 10px; z-index: 110;
-      }
-      .main-content { margin-top: 80px; padding: 15px; }
-      .product-details { flex-direction: column; }
-      .product-image img { max-height: 380px; width: 100%; object-fit: contain; }
-      .info-icon { display: block !important; }
-    }
+/* SIDEBAR MOBILE */
+#mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #f8f8f8;
+  z-index: 130;
+  transition: left 0.3s ease;
+  padding: 80px 20px 20px;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+}
+#mobile-sidebar.open { left: 0; }
+#mobile-sidebar h3 {
+  margin: 20px 0 10px;
+  color: var(--primary);
+  font-size: 16px;
+  text-transform: uppercase;
+}
+#mobile-sidebar ul { list-style: none; padding: 0; margin: 0; }
+#mobile-sidebar li { margin: 8px 0; }
+#mobile-sidebar a {
+  color: #444;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  padding: 6px 0;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+#mobile-sidebar a:hover, #mobile-sidebar a.active {
+  background: var(--primary);
+  color: white;
+  padding-left: 10px;
+}
 
-    .main-content { padding: 20px; max-width: 900px; margin: 0 auto; }
-    .product-details {
-      background: white; padding: 25px; border-radius: 12px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08); display: flex; gap: 25px;
-    }
-    .product-image { flex: 0 0 38%; }
-    .product-image img {
-      width: 100%; height: auto; max-height: 520px; object-fit: contain;
-      border-radius: 10px; border: 1px solid #eee;
-    }
-    .product-info { flex: 1; display: flex; flex-direction: column; gap: 10px; }
-    .product-info h1 { color: var(--primary); font-size: 1.9em; margin: 0; font-weight: 700; }
-    .info { font-size: 0.98em; margin: 4px 0; }
-    .info strong { color: var(--primary); font-weight: 600; }
+/* SELECTOR DE IDIOMAS - DESKTOP */
+.lang-selector-desktop {
+  position: fixed; top: 15px; right: 20px; z-index: 110; display: flex; gap: 8px;
+}
+.lang-selector-desktop a {
+  color: #666; text-decoration: none; font-weight: 600; padding: 6px 10px; 
+  border-radius: 6px; transition: all 0.3s; font-size: 14px;
+}
+.lang-selector-desktop a.active { background: var(--primary); color: white; }
+.lang-selector-desktop a:hover { background: #eee; }
 
-    .main-buy-button {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 13px 22px; background: var(--whatsapp); color: white; text-decoration: none;
-      border-radius: 8px; font-weight: 600; font-size: 1em; transition: 0.2s;
-    }
-    .main-buy-button:hover { background: #20B858; }
+/* SELECTOR DE IDIOMAS - MOBILE */
+.lang-selector-mobile {
+  position: fixed; top: 80px; left: 50%; transform: translateX(-50%); z-index: 110;
+  background: white; padding: 6px 12px; border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+}
+.lang-selector-mobile a {
+  color: var(--primary); text-decoration: none;
+}
+.lang-selector-mobile a.active { font-weight: 700; }
 
-    .info-box {
-      background: #f8f0ff; padding: 16px; border-radius: 10px;
-      border-left: 4px solid var(--accent); margin: 12px 0;
-    }
-    .info-box h2 { color: var(--accent); font-size: 1.25em; margin: 0 0 8px; font-weight: 600; }
+/* CONTENIDO */
+.container { max-width: 900px; margin: 80px auto 40px; padding: 0 20px; }
 
-    /* RECOMENDADOS */
-    .recommended-section { margin-top: 50px; }
-    .recommended-section h3 {
-      color: var(--primary); font-size: 1.5em; margin: 30px 0 16px; font-weight: 600;
-      border-bottom: 2px solid var(--primary); padding-bottom: 5px;
-    }
-    .product-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px;
-    }
-    .product-card {
-      background: white; border: 1px solid #eee; border-radius: 10px; padding: 14px;
-      text-align: center; position: relative; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .product-card:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      z-index: 10;
-    }
-    .product-card img {
-      width: 160px; height: 160px; object-fit: contain; margin: 0 auto 10px;
-      border-radius: 6px;
-    }
-    .product-card h3 {
-      font-size: 14px; margin: 8px 0; color: var(--accent); height: 36px; overflow: hidden;
-      font-weight: 600;
-    }
-    .price { color: var(--primary); margin: 6px 0; font-size: 1.1em; }
-    .buy-button {
-      display: block; padding: 9px; background: var(--primary); color: white;
-      text-decoration: none; border-radius: 6px; font-size: 13px; font-weight: 600;
-      margin-top: 8px; transition: 0.2s;
-    }
-    .buy-button:hover { background: #5A1D39; }
+/* IMAGEN PRINCIPAL */
+.product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.product img {
+  width: 360px; height: 540px; object-fit: contain; object-position: center;
+  border-radius: 12px; border: 3px solid var(--border); background: #fff;
+}
 
-    /* OVERLAY COMPACTO */
-    .overlay {
-      position: absolute; top: 0; left: 0; right: 0; background: rgba(74,44,89,0.97);
-      color: white; padding: 38px 12px 12px; max-height: 180px; overflow-y: auto;
-      display: none; z-index: 10; border-radius: 10px; font-size: 12px; line-height: 1.3;
-    }
-    .overlay p { margin: 3px 0; font-size: 12px; }
-    .close-overlay {
-      position: absolute; top: 8px; right: 10px; font-size: 20px; font-weight: bold;
-      cursor: pointer; color: white; z-index: 11;
-    }
+.info h1 { margin: 0 0 15px; color: var(--primary); font-size: 28px; }
+.info p { margin: 8px 0; }
+.info strong { color: var(--primary); }
+.buy-btn { 
+  background: var(--whatsapp); color: white; padding: 14px 24px; text-decoration: none; 
+  border-radius: 10px; display: inline-flex; align-items: center; gap: 10px; font-weight: 600;
+  transition: all 0.3s; position: relative; z-index: 10;
+}
+.buy-btn:hover { background: #20B858; transform: translateY(-2px); }
 
-    /* DESKTOP: HOVER */
-    @media (min-width: 769px) {
-      .info-icon { display: none !important; }
-      .product-card:hover .overlay { display: block; }
-    }
+.section {
+  background: #f9f5f7; border-left: 4px solid var(--primary); padding: 18px; margin: 20px 0; 
+  border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.section h2 { margin: 0 0 10px; color: var(--primary); font-size: 20px; }
 
-    /* MÓVIL: COPA */
-    @media (max-width: 768px) {
-      .info-icon {
-        position: absolute; top: 8px; right: 8px; background: white;
-        width: 34px; height: 34px; line-height: 34px; text-align: center;
-        border-radius: 50%; font-size: 18px; cursor: pointer; z-index: 11;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: block !important;
-      }
-    }
+.shipping {
+  background: #e8f5e8; border: 1px solid #4CAF50; color: #2e7d32; padding: 14px; border-radius: 8px;
+  font-size: 15px; text-align: center; margin: 20px 0;
+}
+.shipping a { color: #2e7d32; font-weight: 600; text-decoration: underline; }
 
-    .free-shipping {
-      font-size: 0.88em; color: #555; margin: 12px 0; text-align: center;
-    }
-    .free-shipping a { color: var(--primary); text-decoration: underline; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; margin-top: 30px; }
+.card { 
+  border: 1px solid #eee; border-radius: 12px; padding: 14px; text-align: center; 
+  position: relative; overflow: hidden; transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); border-color: var(--primary); }
+.card img { width: 150px; height: 150px; object-fit: contain; border-radius: 8px; background: #fff; }
+.card h4 { margin: 10px 0 5px; font-size: 15px; color: var(--primary); }
+.card p { margin: 5px 0; font-weight: 600; color: #333; }
+.card a { 
+  background: var(--primary); color: white; padding: 6px 10px; border-radius: 6px; 
+  font-size: 13px; text-decoration: none; display: inline-block; margin-top: 8px; position: relative; z-index: 10;
+}
+.overlay { 
+  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 45px; 
+  background: rgba(107,29,73,0.95); color: white; padding: 12px 8px; border-radius: 12px 12px 0 0; 
+  font-size: 11.5px; line-height: 1.4; text-align: left; overflow-y: auto;
+}
+.card:hover .overlay { display: block; }
+.overlay p { margin: 4px 0; color: white !important; }
 
-    .legal-notice {
-      font-size: 0.78em; color: #777; text-align: center; margin: 20px 0 10px;
-      line-height: 1.3;
-    }
-  </style>
+/* SECCIÓN REGIÓN */
+.region-section { margin-top: 60px; }
+.region-section h3 { color: var(--primary); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .mobile-header { display: flex; }
+  .lang-selector-desktop { display: none; }
+  .lang-selector-mobile { display: flex; }
+  .product { flex-direction: column; }
+  .product img { width: 100%; height: auto; max-height: 500px; object-fit: contain; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .container { margin-top: 90px; }
+}
+</style>
 </head>
 <body>
 
-  <!-- IDIOMA -->
-  <div class="language-selector">
-    <a href="/es/vinos/135-aniversario-2022.html" class="active">ES</a>
-    <a href="/en/vinos/135-aniversario-2022.html" class="">EN</a>
-    <a href="/de/vinos/135-aniversario-2022.html" class="">DE</a>
-  </div>
-
-  <!-- MÓVIL: HAMBURGUESA + LOGO -->
-  <button class="hamburger">Menu</button>
-  <header class="header">
-    <a href="/es/"><img src="/images/l000-malbecs-logo.png" alt="1000malbecs" class="logo"></a>
+  <!-- HEADER MOBILE: ICONO HAMBURGUESA + LOGO -->
+  <header class="mobile-header">
+    <button class="hamburger">Hamburger</button>
+    <a href="/es/">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
+    </a>
   </header>
 
-  <div class="main-content">
-    <div class="product-details">
-      <div class="product-image">
-        <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022">
-      </div>
-      <div class="product-info">
-        <h1>135 Aniversario 2022 2022</h1>
-        <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
-        <p class="info"><strong>Provincia:</strong> Mendoza</p>
-        <p class="info"><strong>Región:</strong> San rafael</p>
-        <p class="info"><strong>Altura:</strong> 520 msnm</p>
-        <p class="info"><strong>Precio:</strong> €39.99</p>
-        <p class="info" style="font-size:0.88em; color:#666;">
-          <strong>Precio por litro:</strong> €53.32 / litro
-        </p>
+  <!-- SIDEBAR MOBILE -->
+  <nav id="mobile-sidebar">
+    <h3>Bodegas</h3>
+    <ul>
+      
+      <li><a href="/es/bodegas/a-corazon-abierto.html">A Corazon Abierto</a></li>
+      
+      <li><a href="/es/bodegas/agustin-lanus.html">Agustin Lanus</a></li>
+      
+      <li><a href="/es/bodegas/alamos.html">Alamos</a></li>
+      
+      <li><a href="/es/bodegas/bemberg-estate-wines.html">Bemberg Estate Wines</a></li>
+      
+      <li><a href="/es/bodegas/bodega-amalaya.html">Bodega Amalaya</a></li>
+      
+      <li><a href="/es/bodegas/bodega-bressia.html">Bodega Bressia</a></li>
+      
+      <li><a href="/es/bodegas/bodega-chanarmuyo.html">Bodega Chanarmuyo</a></li>
+      
+      <li><a href="/es/bodegas/bodega-colomé.html">Bodega Colomé</a></li>
+      
+      <li><a href="/es/bodegas/bodega-estancia-mendoza.html">Bodega Estancia Mendoza</a></li>
+      
+      <li><a href="/es/bodegas/bodega-foster-lorca.html">Bodega Foster Lorca</a></li>
+      
+      <li><a href="/es/bodegas/bodega-goyenechea.html">Bodega Goyenechea</a></li>
+      
+      <li><a href="/es/bodegas/bodega-noemía-patagonia.html">Bodega Noemía Patagonia</a></li>
+      
+      <li><a href="/es/bodegas/bodega-séptima.html">Bodega Séptima</a></li>
+      
+      <li><a href="/es/bodegas/bodega-tukma.html">Bodega Tukma</a></li>
+      
+      <li><a href="/es/bodegas/bodegas-bianchi.html">Bodegas Bianchi</a></li>
+      
+      <li><a href="/es/bodegas/bodegas-caro.html">Bodegas Caro</a></li>
+      
+      <li><a href="/es/bodegas/casa-araujo.html">Casa Araujo</a></li>
+      
+      <li><a href="/es/bodegas/catena-zapata.html">Catena Zapata</a></li>
+      
+      <li><a href="/es/bodegas/chakana.html">Chakana</a></li>
+      
+      <li><a href="/es/bodegas/cicchitti.html">Cicchitti</a></li>
+      
+      <li><a href="/es/bodegas/dieter-meier-and-family-wines.html">Dieter Meier and Family Wines</a></li>
+      
+      <li><a href="/es/bodegas/el-esteco.html">El Esteco</a></li>
+      
+      <li><a href="/es/bodegas/eral-bravo.html">Eral Bravo</a></li>
+      
+      <li><a href="/es/bodegas/falasco-wines.html">Falasco Wines</a></li>
+      
+      <li><a href="/es/bodegas/familia-schroeder.html">Familia Schroeder</a></li>
+      
+      <li><a href="/es/bodegas/finca-&-bodega-arca-yaco.html">Finca & Bodega Arca Yaco</a></li>
+      
+      <li><a href="/es/bodegas/finca-la-anita.html">Finca La Anita</a></li>
+      
+      <li><a href="/es/bodegas/finca-las-moras.html">Finca Las Moras</a></li>
+      
+      <li><a href="/es/bodegas/finca-las-nubes.html">Finca Las Nubes</a></li>
+      
+      <li><a href="/es/bodegas/finca-y-bodega-vistalba.html">Finca y Bodega Vistalba</a></li>
+      
+      <li><a href="/es/bodegas/humberto-canale.html">Humberto Canale</a></li>
+      
+      <li><a href="/es/bodegas/jasmine-monet.html">Jasmine Monet</a></li>
+      
+      <li><a href="/es/bodegas/jorge-rubio.html">Jorge Rubio</a></li>
+      
+      <li><a href="/es/bodegas/kaiken.html">Kaiken</a></li>
+      
+      <li><a href="/es/bodegas/la-rural.html">La Rural</a></li>
+      
+      <li><a href="/es/bodegas/los-haroldos.html">Los Haroldos</a></li>
+      
+      <li><a href="/es/bodegas/luigi-bosca.html">Luigi Bosca</a></li>
+      
+      <li><a href="/es/bodegas/mascota-vineyards.html">Mascota Vineyards</a></li>
+      
+      <li><a href="/es/bodegas/piattelli-vineyards.html">Piattelli Vineyards</a></li>
+      
+      <li><a href="/es/bodegas/rutini-wines.html">Rutini Wines</a></li>
+      
+      <li><a href="/es/bodegas/san-telmo.html">San Telmo</a></li>
+      
+      <li><a href="/es/bodegas/trapiche.html">Trapiche</a></li>
+      
+      <li><a href="/es/bodegas/viña-alicia.html">Viña Alicia</a></li>
+      
+      <li><a href="/es/bodegas/viña-cobos.html">Viña Cobos</a></li>
+      
+      <li><a href="/es/bodegas/weinert-bodega-y-cavas.html">Weinert Bodega y Cavas</a></li>
+      
+    </ul>
+    <h3>Provincias</h3>
+    <ul>
+      
+      <li><a href="/es/provincias/la-rioja.html">La Rioja</a></li>
+      
+      <li><a href="/es/provincias/mendoza.html">Mendoza</a></li>
+      
+      <li><a href="/es/provincias/neuquén.html">Neuquén</a></li>
+      
+      <li><a href="/es/provincias/rio-negro.html">Rio Negro</a></li>
+      
+      <li><a href="/es/provincias/río-negro.html">Río Negro</a></li>
+      
+      <li><a href="/es/provincias/salta.html">Salta</a></li>
+      
+      <li><a href="/es/provincias/san-juan.html">San Juan</a></li>
+      
+    </ul>
+  </nav>
 
-        
-        <p class="info"><strong>Alcohol:</strong> 14.0
-    14.0
-Name: 138, dtype: object%</p>
-        
-        
-        <p class="info"><strong>Acidez:</strong> 5.8 g/L</p>
-        
-        
-        
+  <!-- SELECTOR DE IDIOMAS - DESKTOP -->
+  <div class="lang-selector-desktop">
+    
+      <a href="/es/vinos/135-aniversario-2022.html" class="active">ES</a>
+    
+      <a href="/en/vinos/135-aniversario-2022.html" >EN</a>
+    
+      <a href="/de/vinos/135-aniversario-2022.html" >DE</a>
+    
+  </div>
 
-        <p class="free-shipping">
-          Costo de envío EUR6.49 <strong>Free shipping</strong> comprando 12 o más botellas 
-          <a href="/es/faq">Más Info</a>
-        </p>
+  <!-- SELECTOR DE IDIOMAS - MOBILE -->
+  <div class="lang-selector-mobile">
+    
+      <a href="/es/vinos/135-aniversario-2022.html" class="active">ES</a>
+    
+      <a href="/en/vinos/135-aniversario-2022.html" >EN</a>
+    
+      <a href="/de/vinos/135-aniversario-2022.html" >DE</a>
+    
+  </div>
 
-        <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20135%20Aniversario%202022" 
-           class="main-buy-button" target="_blank">
-          <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+  <!-- CONTENIDO -->
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="135 Aniversario 2022 2022">
+      <div class="info">
+        <h1>135 Aniversario 2022</h1>
+        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+        <p><strong>Región:</strong> San rafael</p>
+        <p><strong>Altura:</strong> 520.0 msnm</p>
+        <p><strong>Precio:</strong> €39.99</p>
+        <p><strong>Precio por litro:</strong> €53.32 / litro</p>
+        <p><strong>Alcohol:</strong> 14.0%</p>
+        <p><strong>Acidez:</strong> 5.8 g/L</p>
+        
+        
+        
+        <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20135%20Aniversario%202022%202022" 
+           class="buy-btn" target="_blank">
+          Pedir por WhatsApp
         </a>
 
-        <div class="info-box">
+        <div class="shipping">
+          Envío gratis en compras de 12 botellas o más • <a href="/es/faq.html" target="_blank">+info</a>
+        </div>
+
+        <div class="section">
           <h2>Descripción</h2>
           <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
         </div>
-        <div class="info-box">
-          <h2>Notas de cata</h2>
+
+        <div class="section">
+          <h2>Notas de cata y maridaje</h2>
           <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
         </div>
+
         
       </div>
     </div>
 
-    <!-- RECOMENDADOS -->
-    <div class="recommended-section">
+    <!-- OTRA BODEGA -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Goyenechea</h3>
+    <div class="grid">
       
-      <h3>Vinos de Bodega Goyenechea</h3>
-      <div class="product-grid">
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022">
-          <h3>Goye Malbec 2022</h3>
-          <div class="price">€9.49</div>
-          <a href="/vinos/goye-malbec-2022.html" class="buy-button">
-            Comprar
-          </a>
-          <div class="info-icon" data-overlay-id="overlay-goye-malbec-2022.html">Wine</div>
-          <div class="overlay" id="overlay-goye-malbec-2022.html">
-            <span class="close-overlay">×</span>
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            <p><strong>Alcohol:</strong> 14.0
-    14.0
-Name: 5, dtype: object%</p>
-            
-            
-            <p><strong>Acidez:</strong> 5.8 g/L</p>
-            
-            
-            
-          </div>
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Goye Malbec 2022 2022">
+        <h4>Goye Malbec 2022</h4>
+        <p>€9.49</p>
+        <a href="/es/vinos/goye-malbec-2022.html">Comprar</a>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+          <p><strong>Región:</strong> San rafael</p>
+          <p><strong>Altura:</strong> 520.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022">
-          <h3>Quinta Generación Malbec 2022</h3>
-          <div class="price">€19.99</div>
-          <a href="/vinos/quinta-generacion-malbec-2022.html" class="buy-button">
-            Comprar
-          </a>
-          <div class="info-icon" data-overlay-id="overlay-quinta-generacion-malbec-2022.html">Wine</div>
-          <div class="overlay" id="overlay-quinta-generacion-malbec-2022.html">
-            <span class="close-overlay">×</span>
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            <p><strong>Alcohol:</strong> 14.0
-    14.0
-Name: 69, dtype: object%</p>
-            
-            
-            <p><strong>Acidez:</strong> 5.8 g/L</p>
-            
-            
-            
-          </div>
-        </div>
-        
       </div>
       
-
-      
-      <h3>Vinos de San rafael</h3>
-      <div class="product-grid">
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Botella de Casa Araujo Varietal 2023">
-          <h3>Casa Araujo Varietal 2023</h3>
-          <div class="price">€7.99</div>
-          <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">
-            Comprar
-          </a>
-          <div class="info-icon" data-overlay-id="overlay-casa-araujo-varietal-2023.html">Wine</div>
-          <div class="overlay" id="overlay-casa-araujo-varietal-2023.html">
-            <span class="close-overlay">×</span>
-            <p><strong>Bodega:</strong> Casa Araujo</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            <p><strong>Alcohol:</strong> 13.0
-    13.0
-Name: 2, dtype: object%</p>
-            
-            
-            <p><strong>Acidez:</strong> 5.7 g/L</p>
-            
-            
-            
-          </div>
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Quinta Generación Malbec 2022 2022">
+        <h4>Quinta Generación Malbec 2022</h4>
+        <p>€19.99</p>
+        <a href="/es/vinos/quinta-generacion-malbec-2022.html">Comprar</a>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+          <p><strong>Región:</strong> San rafael</p>
+          <p><strong>Altura:</strong> 520.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022">
-          <h3>Goye Malbec 2022</h3>
-          <div class="price">€9.49</div>
-          <a href="/vinos/goye-malbec-2022.html" class="buy-button">
-            Comprar
-          </a>
-          <div class="info-icon" data-overlay-id="overlay-goye-malbec-2022.html">Wine</div>
-          <div class="overlay" id="overlay-goye-malbec-2022.html">
-            <span class="close-overlay">×</span>
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            <p><strong>Alcohol:</strong> 14.0
-    14.0
-Name: 5, dtype: object%</p>
-            
-            
-            <p><strong>Acidez:</strong> 5.8 g/L</p>
-            
-            
-            
-          </div>
-        </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Botella de Casa Araujo Roble 2023">
-          <h3>Casa Araujo Roble 2023</h3>
-          <div class="price">€10.19</div>
-          <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">
-            Comprar
-          </a>
-          <div class="info-icon" data-overlay-id="overlay-casa-araujo-roble-2023.html">Wine</div>
-          <div class="overlay" id="overlay-casa-araujo-roble-2023.html">
-            <span class="close-overlay">×</span>
-            <p><strong>Bodega:</strong> Casa Araujo</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            <p><strong>Alcohol:</strong> 13.2
-    13.2
-Name: 9, dtype: object%</p>
-            
-            
-            <p><strong>Acidez:</strong> 5.8 g/L</p>
-            
-            
-            
-          </div>
-        </div>
-        
       </div>
       
     </div>
+    
 
-    <p class="legal-notice">
-      Beber responsablemente - Prohibida la venta a menores de 18 años. Chequeamos ID.
-    </p>
+    <!-- OTRA REGIÓN -->
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">Otros vinos de San rafael</h3>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Casa Araujo Varietal 2023 2023">
+          <h4>Casa Araujo Varietal 2023</h4>
+          <p>€7.99</p>
+          <a href="/es/vinos/casa-araujo-varietal-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Casa Araujo Roble 2023 2023">
+          <h4>Casa Araujo Roble 2023</h4>
+          <p>€10.19</p>
+          <a href="/es/vinos/casa-araujo-roble-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.2%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-mimi-2023.jpg" alt="Casa Araujo Mimi 2023 2023">
+          <h4>Casa Araujo Mimi 2023</h4>
+          <p>€11.19</p>
+          <a href="/es/vinos/casa-araujo-mimi-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/nucha-2023.jpg" alt="Nucha 2023 2023">
+          <h4>Nucha 2023</h4>
+          <p>€12.99</p>
+          <a href="/es/vinos/nucha-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023 2023">
+          <h4>Graciano Reserva Blend 2023</h4>
+          <p>€13.59</p>
+          <a href="/es/vinos/graciano-reserva-blend-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 520.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Famiglia Bianchi Malbec 2021 2021">
+          <h4>Famiglia Bianchi Malbec 2021</h4>
+          <p>€18.49</p>
+          <a href="/es/vinos/famiglia-bianchi-malbec-2021.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 800.0</p>
+            <p><strong>Alcohol:</strong> 14.0%</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
   </div>
 
+  <!-- JS: ICONO HAMBURGUESA + MENÚ DESLIZABLE -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Overlay móvil
-    document.querySelectorAll(".info-icon").forEach(icon => {
-      icon.onclick = (e) => {
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.getElementById('mobile-sidebar');
+      let isOpen = false;
+
+      hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
-        const id = icon.getAttribute("data-overlay-id");
-        const overlay = document.getElementById(id);
-        if (overlay) overlay.style.display = "block";
-      };
-    });
+        isOpen = !isOpen;
+        sidebar.classList.toggle('open', isOpen);
+        hamburger.innerHTML = isOpen ? '&times;' : 'Hamburger';
+      });
 
-    // Cerrar overlay
-    document.querySelectorAll(".close-overlay, .overlay").forEach(el => {
-      el.onclick = (e) => {
-        if (e.target === el || e.target.classList.contains("close-overlay")) {
-          el.style.display = "none";
+      document.addEventListener('click', (e) => {
+        if (isOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+          isOpen = false;
+          sidebar.classList.remove('open');
+          hamburger.innerHTML = 'Hamburger';
         }
-      };
-    });
+      });
 
-    // Cerrar al hacer clic fuera
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".product-card")) {
-        document.querySelectorAll(".overlay").forEach(o => o.style.display = "none");
-      }
+      // SCROLL PARA OCULTAR SELECTOR MOBILE
+      const mobileSelector = document.querySelector('.lang-selector-mobile');
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const current = window.scrollY;
+        if (current > lastScroll && current > 100) {
+          mobileSelector.style.opacity = '0';
+          mobileSelector.style.pointerEvents = 'none';
+        } else {
+          mobileSelector.style.opacity = '1';
+          mobileSelector.style.pointerEvents = 'auto';
+        }
+        lastScroll = current;
+      });
     });
-  });
   </script>
 </body>
 </html>
