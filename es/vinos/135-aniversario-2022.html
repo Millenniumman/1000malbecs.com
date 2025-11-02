@@ -210,18 +210,87 @@ body.force-sidebar-open::before {
   z-index: 115;
   display: block;
 }
+/* HAMBURGUESA → X ANIMADA */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 130;
+  padding: 0;
+}
+
+.hamburger-icon {
+  transition: all 0.3s ease;
+}
+
+.hamburger.open .top {
+  transform: translateY(20px) rotate(45deg);
+}
+.hamburger.open .mid {
+  opacity: 0;
+}
+.hamburger.open .bot {
+  transform: translateY(-20px) rotate(-45deg);
+}
+
+.line {
+  transition: all 0.3s ease;
+  fill: var(--primary);
+}
+
+/* LOGO MOBILE */
+.mobile-logo {
+  max-height: 42px;
+  width: auto;
+  display: block;
+}
+/* FORZAR SIDEBAR SI ESTÁ VACÍO */
+body.force-sidebar-open .sidebar,
+body.force-sidebar-open nav,
+body.force-sidebar-open aside {
+  transform: translateX(0) !important;
+  left: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 125 !important;
+  min-width: 280px;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+}
+
+body.force-sidebar-open::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 115;
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER MOBILE: HAMBURGUESA IZQUIERDA + LOGO DERECHA -->
+<!-- HEADER MOBILE -->
 <header class="mobile-header">
-  <button class="hamburger" aria-label="Abrir menú">☰</button>
+  <button class="hamburger" aria-label="Menú">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
   <a href="/es/" class="mobile-logo-link">
-    <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
+    <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png?v=20251102" 
+         alt="1000 Malbecs" 
+         class="mobile-logo"
+         onerror="this.src='https://via.placeholder.com/150x40/6B1D49/ffffff?text=1000+MALBECS'; this.onerror=null;">
   </a>
 </header>
-
   <!-- SELECTOR DE IDIOMAS - DESKTOP -->
   <div class="lang-selector-desktop">
     
@@ -411,83 +480,57 @@ body.force-sidebar-open::before {
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.mobile-header .hamburger');
     const body = document.body;
-
     if (!hamburger) return;
 
     let isOpen = false;
 
-    const openSidebar = () => {
-      // 1. Intentar con botón del Worker
-      const toggles = [
-        '.sidebar-toggle',
-        '.hamburger',
-        '[data-toggle="sidebar"]',
-        '#menu-toggle',
-        '.mobile-menu-toggle',
-        '.nav-toggle',
-        '.menu-btn',
-        'button[aria-label*="menu" i]',
-        'button[aria-label*="sidebar" i]'
-      ];
-
-      let found = false;
-      for (const selector of toggles) {
-        const btn = document.querySelector(selector);
-        if (btn && btn !== hamburger) {
-          btn.click();
-          found = true;
-          break;
-        }
-      }
-
-      // 2. Si no encontró → forzar con clase en body
-      if (!found) {
-        body.classList.add('force-sidebar-open');
-        // Disparar evento personalizado
-        document.dispatchEvent(new CustomEvent('open-mobile-menu'));
-      }
+    const openMenu = () => {
+      hamburger.classList.add('open');
+      body.classList.add('mobile-menu-open', 'force-sidebar-open');
+      
+      // FORZAR AL WORKER A MOSTRAR EL MENÚ
+      const events = ['open-mobile-menu', 'toggle-sidebar', 'mobile-menu-open', 'show-menu'];
+      events.forEach(ev => document.dispatchEvent(new CustomEvent(ev)));
+      
+      setTimeout(() => {
+        document.body.style.overflow = 'hidden';
+        document.dispatchEvent(new Event('resize'));
+      }, 50);
 
       isOpen = true;
-      hamburger.innerHTML = 'Close'; // Cambiar ícono
     };
 
-    const closeSidebar = () => {
-      body.classList.remove('force-sidebar-open');
-      document.dispatchEvent(new CustomEvent('close-mobile-menu'));
+    const closeMenu = () => {
+      hamburger.classList.remove('open');
+      body.classList.remove('mobile-menu-open', 'force-sidebar-open');
+      document.body.style.overflow = '';
       isOpen = false;
-      hamburger.innerHTML = 'Menu';
     };
 
-    // Toggle
     hamburger.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      if (isOpen) closeSidebar();
-      else openSidebar();
+      isOpen ? closeMenu() : openMenu();
     });
 
     // Cerrar al tocar fuera
     document.addEventListener('click', (e) => {
       const sidebar = document.querySelector('.sidebar, nav, aside, .mobile-menu');
-      const isInside = hamburger.contains(e.target) || (sidebar && sidebar.contains(e.target));
-      if (!isInside && isOpen) {
-        closeSidebar();
-      }
+      const inside = hamburger.contains(e.target) || (sidebar && sidebar.contains(e.target));
+      if (!inside && isOpen) closeMenu();
     });
 
-    // Soporte para Worker que escucha clase
+    // Observar si el Worker abre solo
     const observer = new MutationObserver(() => {
-      if (body.classList.contains('sidebar-open') || body.classList.contains('menu-open')) {
-        isOpen = true;
-        hamburger.innerHTML = 'Close';
-      } else if (!body.classList.contains('force-sidebar-open')) {
-        isOpen = false;
-        hamburger.innerHTML = 'Menu';
-      }
+      const hasWorkerOpen = body.classList.contains('sidebar-open') || 
+                           body.classList.contains('menu-open') ||
+                           document.querySelector('.sidebar[style*="left: 0"], .sidebar[style*="transform: translateX(0)"]');
+      if (hasWorkerOpen && !isOpen) openMenu();
+      else if (!hasWorkerOpen && isOpen && !body.classList.contains('force-sidebar-open')) closeMenu();
     });
-    observer.observe(body, { attributes: true, attributeFilter: ['class'] });
+    observer.observe(body, { attributes: true, childList: true, subtree: true });
 
-    // SCROLL: ocultar selector mobile
+    // SCROLL: ocultar selector
     const mobileSelector = document.querySelector('.lang-selector-mobile');
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
