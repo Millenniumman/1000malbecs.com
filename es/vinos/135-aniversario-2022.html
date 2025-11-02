@@ -4,9 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <meta name="description" content="Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega">
   <!-- Open Graph -->
   <meta property="og:title" content="1000 Malbecs - 135 Aniversario 2022">
@@ -31,114 +28,173 @@
   <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/vinos/135-aniversario-2022.html">
   
   <title>1000 Malbecs - 135 Aniversario 2022</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/styles.css">
   <style>
-.language-selector {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 130;
-  display: flex;
-  gap: 10px;
-  transition: opacity 0.3s ease;
+:root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
+body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #fdfdfd; color: #333; }
+
+/* SELECTOR DE IDIOMAS - DESKTOP */
+.lang-selector-desktop {
+  position: fixed; top: 15px; right: 20px; z-index: 999; display: flex; gap: 8px;
 }
-.language-selector a {
-  text-decoration: none;
-  color: #4A2C59;
-  font-size: 14px;
-  padding: 5px 10px;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 600;
+.lang-selector-desktop a {
+  color: #666; text-decoration: none; font-weight: 600; padding: 6px 10px; 
+  border-radius: 6px; transition: all 0.3s; font-size: 14px;
 }
-.language-selector a:hover {
-  background-color: #4A2C59;
-  color: #FFFFFF;
+.lang-selector-desktop a.active { background: var(--primary); color: white; }
+.lang-selector-desktop a:hover { background: #eee; }
+
+/* SELECTOR DE IDIOMAS - MOBILE */
+.lang-selector-mobile {
+  position: fixed; top: 10px; left: 50%; transform: translateX(-50%); z-index: 999;
+  background: white; padding: 8px 16px; border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none; gap: 12px; font-weight: 600; font-size: 13px;
 }
-.language-selector a.active {
-  background-color: #4A2C59;
-  color: #FFFFFF;
+.lang-selector-mobile a {
+  color: var(--primary); text-decoration: none;
 }
-.language-selector.hidden {
-  opacity: 0;
-  pointer-events: none;
+.lang-selector-mobile a.active { font-weight: 700; }
+
+/* CONTENIDO */
+.container { max-width: 900px; margin: 80px auto 40px; padding: 0 20px; }
+.product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+/* IMAGEN PRINCIPAL: PROPORCIÓN 1:1.5 (600x900) */
+.product img {
+  width: 360px;
+  height: 540px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  border: 3px solid var(--border);
+  background: #fff;
 }
 
+.info h1 { margin: 0 0 15px; color: var(--primary); font-size: 28px; }
+.info p { margin: 8px 0; }
+.info strong { color: var(--primary); }
+.buy-btn { 
+  background: var(--whatsapp); color: white; padding: 14px 24px; text-decoration: none; 
+  border-radius: 10px; display: inline-flex; align-items: center; gap: 10px; font-weight: 600;
+  transition: all 0.3s; position: relative; z-index: 10;
+}
+.buy-btn:hover { background: #20B858; transform: translateY(-2px); }
+
+.section {
+  background: #f9f5f7; border-left: 4px solid var(--primary); padding: 18px; margin: 20px 0; 
+  border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.section h2 { margin: 0 0 10px; color: var(--primary); font-size: 20px; }
+
+.shipping {
+  background: #e8f5e8; border: 1px solid #4CAF50; color: #2e7d32; padding: 14px; border-radius: 8px;
+  font-size: 15px; text-align: center; margin: 20px 0;
+}
+.shipping a { color: #2e7d32; font-weight: 600; text-decoration: underline; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; margin-top: 50px; }
+.card { 
+  border: 1px solid #eee; border-radius: 12px; padding: 14px; text-align: center; 
+  position: relative; overflow: hidden; transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); border-color: var(--primary); }
+
+/* IMÁGENES PEQUEÑAS: PROPORCIÓN 1:1 (300x300) */
+.card img { 
+  width: 150px; 
+  height: 150px; 
+  object-fit: contain; 
+  object-position: center;
+  border-radius: 8px; 
+  background: #fff;
+}
+
+.card h4 { margin: 10px 0 5px; font-size: 15px; color: var(--primary); }
+.card p { margin: 5px 0; font-weight: 600; color: #333; }
+.card a { 
+  background: var(--primary); color: white; padding: 6px 10px; border-radius: 6px; 
+  font-size: 13px; text-decoration: none; display: inline-block; margin-top: 8px; position: relative; z-index: 10;
+}
+.overlay { 
+  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 45px; 
+  background: rgba(107,29,73,0.95); color: white; padding: 12px 8px; border-radius: 12px 12px 0 0; 
+  font-size: 11.5px; line-height: 1.4; text-align: left; overflow-y: auto;
+}
+.card:hover .overlay { display: block; }
+.overlay p { margin: 4px 0; color: white !important; }
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .language-selector {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10px;
-    gap: 2px;
+  .lang-selector-desktop { display: none; }
+  .lang-selector-mobile { display: flex; }
+  .product { flex-direction: column; }
+  .product img { 
+    width: 100%; 
+    height: auto; 
+    max-height: 500px; 
+    object-fit: contain;
   }
-  .language-selector a {
-    font-size: 9px;
-    padding: 2px 4px;
-    background-color: rgba(255, 255, 255, 0.7);
-  }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .container { margin-top: 100px; }
 }
 </style>
 </head>
 <body>
 
-  <!-- SELECTOR DE IDIOMAS -->
-  <div class="language-selector">
+  <!-- SELECTOR DE IDIOMAS - DESKTOP -->
+  <div class="lang-selector-desktop">
     
-      <a href="/es/vinos/135-aniversario-2022.html" 
-         class="active"
-         aria-label="ES">ES</a>
+      <a href="/es/vinos/135-aniversario-2022.html" class="active">ES</a>
     
-      <a href="/en/vinos/135-aniversario-2022.html" 
-         
-         aria-label="EN">EN</a>
+      <a href="/en/vinos/135-aniversario-2022.html" >EN</a>
     
-      <a href="/de/vinos/135-aniversario-2022.html" 
-         
-         aria-label="DE">DE</a>
+      <a href="/de/vinos/135-aniversario-2022.html" >DE</a>
+    
+  </div>
+
+  <!-- SELECTOR DE IDIOMAS - MOBILE -->
+  <div class="lang-selector-mobile">
+    
+      <a href="/es/vinos/135-aniversario-2022.html" class="active">ES</a>
+    
+      <a href="/en/vinos/135-aniversario-2022.html" >EN</a>
+    
+      <a href="/de/vinos/135-aniversario-2022.html" >DE</a>
     
   </div>
 
   <!-- CONTENIDO -->
-  <div class="main-content">
-    <div class="product-details">
-      <div class="product-image">
-        <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" 
-             alt="Botella de 135 Aniversario 2022"
-             onerror="this.src='https://via.placeholder.com/400x400?text=Imagen+No+Disponible'">
-      </div>
-      <div class="product-info">
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="135 Aniversario 2022 2022">
+      <div class="info">
         <h1>135 Aniversario 2022</h1>
-        <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
-        <p class="info"><strong>Región:</strong> San rafael</p>
-        <p class="info"><strong>Altura:</strong> 520.0 msnm</p>
-        <p class="info"><strong>Precio:</strong> €39.99</p>
-        <p class="info"><strong>Precio por litro:</strong> €53.32 / litro</p>
-        <p class="info"><strong>Alcohol:</strong> 14.0%</p>
-        <p class="info"><strong>Acidez:</strong> 5.8 g/L</p>
+        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+        <p><strong>Región:</strong> San rafael</p>
+        <p><strong>Altura:</strong> 520.0 msnm</p>
+        <p><strong>Precio:</strong> €39.99</p>
+        <p><strong>Precio por litro:</strong> €53.32 / litro</p>
+        <p><strong>Alcohol:</strong> 14.0%</p>
+        <p><strong>Acidez:</strong> 5.8 g/L</p>
         
         
+        
+        <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20135%20Aniversario%202022%202022" 
+           class="buy-btn" target="_blank">
+          Pedir por WhatsApp
+        </a>
 
-        <div class="button-container">
-          <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20135%20Aniversario%202022%202022" 
-             class="main-buy-button" target="_blank">
-            Pedir por WhatsApp
-          </a>
-          <p class="free-shipping">
-            Envío gratis en compras de 12 botellas o más • 
-            <a href="/es/faq.html" target="_blank">+info</a>
-          </p>
+        <div class="shipping">
+          Envío gratis en compras de 12 botellas o más • <a href="/es/faq.html" target="_blank">+info</a>
         </div>
 
-        <div class="info-box">
+        <div class="section">
           <h2>Descripción</h2>
           <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
         </div>
 
-        <div class="info-box">
+        <div class="section">
           <h2>Notas de cata y maridaje</h2>
           <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
         </div>
@@ -148,55 +204,50 @@
     </div>
 
     
-    <div class="recommended-section">
-      <h3>Más vinos de Bodega Goyenechea</h3>
-      <div class="product-grid same-bodega">
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Botella de Goye Malbec 2022">
-          <h3>Goye Malbec 2022</h3>
-          <div class="price">€9.49</div>
-          <a href="/es/vinos/goye-malbec-2022.html" class="buy-button">Comprar</a>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
-          </div>
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Goyenechea</h3>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Goye Malbec 2022 2022">
+        <h4>Goye Malbec 2022</h4>
+        <p>€9.49</p>
+        <a href="/es/vinos/goye-malbec-2022.html">Comprar</a>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+          <p><strong>Región:</strong> San rafael</p>
+          <p><strong>Altura:</strong> 520.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
-        
-        <div class="product-card">
-          <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Botella de Quinta Generación Malbec 2022">
-          <h3>Quinta Generación Malbec 2022</h3>
-          <div class="price">€19.99</div>
-          <a href="/es/vinos/quinta-generacion-malbec-2022.html" class="buy-button">Comprar</a>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
-          </div>
-        </div>
-        
       </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Quinta Generación Malbec 2022 2022">
+        <h4>Quinta Generación Malbec 2022</h4>
+        <p>€19.99</p>
+        <a href="/es/vinos/quinta-generacion-malbec-2022.html">Comprar</a>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+          <p><strong>Región:</strong> San rafael</p>
+          <p><strong>Altura:</strong> 520.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
+        </div>
+      </div>
+      
     </div>
     
   </div>
 
-  <!-- SCROLL PARA OCULTAR SELECTOR -->
+  <!-- SCROLL PARA OCULTAR SELECTOR MOBILE -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const selector = document.querySelector('.language-selector');
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        const current = window.scrollY;
-        if (current > lastScroll && current > 50) {
-          selector.classList.add('hidden');
-        } else {
-          selector.classList.remove('hidden');
-        }
-        lastScroll = current;
-      });
+    window.addEventListener('scroll', () => {
+      const mobile = document.querySelector('.lang-selector-mobile');
+      if (window.scrollY > 50) {
+        mobile.style.opacity = '0';
+        mobile.style.pointerEvents = 'none';
+      } else {
+        mobile.style.opacity = '1';
+        mobile.style.pointerEvents = 'auto';
+      }
     });
   </script>
 </body>
