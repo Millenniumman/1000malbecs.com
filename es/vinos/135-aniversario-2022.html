@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1000 Malbecs - 135 Aniversario 2022 2022</title>
+  <title>1000 Malbecs - 135 Aniversario 2022</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
@@ -20,7 +20,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 .buy-btn { 
   background: var(--whatsapp); color: white; padding: 14px 24px; text-decoration: none; 
   border-radius: 10px; display: inline-flex; align-items: center; gap: 10px; font-weight: 600;
-  transition: all 0.3s;
+  transition: all 0.3s; position: relative; z-index: 10;
 }
 .buy-btn:hover { background: #20B858; transform: translateY(-2px); }
 
@@ -47,15 +47,15 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 .card p { margin: 5px 0; font-weight: 600; color: #333; }
 .card a { 
   background: var(--primary); color: white; padding: 6px 10px; border-radius: 6px; 
-  font-size: 13px; text-decoration: none; display: inline-block; margin-top: 8px;
+  font-size: 13px; text-decoration: none; display: inline-block; margin-top: 8px; position: relative; z-index: 10;
 }
 .overlay { 
-  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-  background: rgba(107,29,73,0.95); color: white; padding: 12px 8px; border-radius: 12px; 
-  font-size: 11.5px; line-height: 1.4; text-align: left;
+  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 45px; 
+  background: rgba(107,29,73,0.95); color: white; padding: 12px 8px; border-radius: 12px 12px 0 0; 
+  font-size: 11.5px; line-height: 1.4; text-align: left; overflow-y: auto;
 }
 .card:hover .overlay { display: block; }
-.overlay p { margin: 4px 0; }
+.overlay p { margin: 4px 0; color: white !important; }
 
 @media (max-width: 768px) { 
   .product { flex-direction: column; } 
@@ -70,7 +70,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
     <div class="product">
       <img src="https://www.1000malbecs.comimages/large/135-aniversario-2022.jpg" alt="135 Aniversario 2022 2022">
       <div class="info">
-        <h1>135 Aniversario 2022 2022</h1>
+        <h1>135 Aniversario 2022</h1>
         <p><strong>Bodega:</strong> Bodega Goyenechea</p>
         <p><strong>Región:</strong> San rafael</p>
         <p><strong>Altura:</strong> 520.0 msnm</p>
@@ -83,7 +83,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
         
         <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20135%20Aniversario%202022%202022" 
            class="buy-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+          Pedir por WhatsApp
         </a>
 
         <div class="shipping">
