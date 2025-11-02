@@ -34,47 +34,47 @@
 :root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
 body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #fdfdfd; color: #333; }
 
-/* HEADER FIJO MOBILE */
+/* HEADER MOBILE */
 .mobile-header {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 70px;
   background: white;
   z-index: 120;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 0 18px;
 }
 .hamburger {
-  font-size: 24px;
+  font-size: 28px;
   background: none;
   border: none;
   color: var(--primary);
   cursor: pointer;
+  padding: 8px;
 }
 .mobile-logo {
-  max-height: 40px;
+  max-height: 48px;
 }
 
-/* SIDEBAR */
+/* SIDEBAR - DESKTOP Y MOBILE */
 #sidebar {
   position: fixed;
   top: 0;
-  left: -280px;
+  left: 0;
   width: 280px;
   height: 100vh;
   background: #f8f8f8;
-  z-index: 130;
-  transition: left 0.3s ease;
-  padding: 70px 20px 20px;
+  z-index: 110;
+  padding: 80px 20px 20px;
   border-right: 1px solid #eee;
   overflow-y: auto;
+  transition: transform 0.3s ease;
 }
-#sidebar.open { left: 0; }
 #sidebar h3 {
   margin: 20px 0 10px;
   color: var(--primary);
@@ -100,7 +100,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 
 /* SELECTOR DE IDIOMAS - DESKTOP */
 .lang-selector-desktop {
-  position: fixed; top: 15px; right: 20px; z-index: 110; display: flex; gap: 8px;
+  position: fixed; top: 15px; right: 20px; z-index: 100; display: flex; gap: 8px;
 }
 .lang-selector-desktop a {
   color: #666; text-decoration: none; font-weight: 600; padding: 6px 10px; 
@@ -111,7 +111,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 
 /* SELECTOR DE IDIOMAS - MOBILE */
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); z-index: 110;
+  position: fixed; top: 80px; left: 50%; transform: translateX(-50%); z-index: 100;
   background: white; padding: 6px 12px; border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   display: none; gap: 8px; font-weight: 600; font-size: 12px;
 }
@@ -121,10 +121,16 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 .lang-selector-mobile a.active { font-weight: 700; }
 
 /* CONTENIDO */
-.container { max-width: 900px; margin: 80px auto 40px; padding: 0 20px; }
-.product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.container {
+  max-width: 900px;
+  margin: 20px auto 40px;
+  padding: 0 20px;
+  margin-left: 300px;
+  transition: margin-left 0.3s ease;
+}
 
 /* IMAGEN PRINCIPAL */
+.product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 .product img {
   width: 360px; height: 540px; object-fit: contain; object-position: center;
   border-radius: 12px; border: 3px solid var(--border); background: #fff;
@@ -185,22 +191,22 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
   .product { flex-direction: column; }
   .product img { width: 100%; height: auto; max-height: 500px; object-fit: contain; }
   .grid { grid-template-columns: 1fr 1fr; }
-  .container { margin-top: 80px; }
-  #sidebar { left: -280px; }
+  .container { margin-left: 0; margin-top: 90px; padding: 0 15px; }
+  #sidebar { transform: translateX(-100%); }
 }
 </style>
 </head>
 <body>
 
-  <!-- HEADER MOBILE: HAMBURGUESA + LOGO -->
+  <!-- HEADER MOBILE -->
   <header class="mobile-header">
-    <button class="hamburger">Menu</button>
+    <button class="hamburger">Hamburger</button>
     <a href="/es/">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
     </a>
   </header>
 
-  <!-- SIDEBAR -->
+  <!-- SIDEBAR (DESKTOP + MOBILE) -->
   <nav id="sidebar">
     <h3>Bodegas</h3>
     <ul>
@@ -500,7 +506,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
     
   </div>
 
-  <!-- JS: MENÚ HAMBURGUESA -->
+  <!-- JS: HAMBURGUESA + SCROLL -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
@@ -510,15 +516,15 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
       hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
         isOpen = !isOpen;
-        sidebar.classList.toggle('open', isOpen);
-        hamburger.textContent = isOpen ? 'Close' : 'Menu';
+        sidebar.style.transform = isOpen ? 'translateX(0)' : 'translateX(-100%)';
+        hamburger.innerHTML = isOpen ? '&times;' : 'Hamburger';
       });
 
       document.addEventListener('click', (e) => {
         if (isOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
           isOpen = false;
-          sidebar.classList.remove('open');
-          hamburger.textContent = 'Menu';
+          sidebar.style.transform = 'translateX(-100%)';
+          hamburger.innerHTML = 'Hamburger';
         }
       });
 
