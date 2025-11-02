@@ -35,129 +35,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
-    :root { --primary: #4A0D29; --accent: #4A2C59; --whatsapp: #25D366; }
+    :root {
+      --primary: #6B1D49;   /* violeta medio */
+      --accent: #4A2C59;
+      --whatsapp: #25D366;
+    }
     * { box-sizing: border-box; }
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #fdfdfd; margin: 0; padding: 0; min-height: 100vh;
-      overflow-x: hidden; color: #333; line-height: 1.4;
+      background: #fdfdfd; margin: 0; padding: 0; min-height: 100vh;
+      color: #333; line-height: 1.4;
     }
 
-    .header { display: none; z-index: 120; }
-    .logo { max-width: 150px; height: auto; }
-    .hamburger {
-      display: none; font-size: 24px; background: none; border: none; color: var(--accent);
-      cursor: pointer; padding: 10px; position: fixed; top: 10px; left: 10px; z-index: 110;
-    }
-
-    #sidebar {
-      width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh;
-      position: fixed; top: 0; left: 0; border-right: 1px solid #E0E0E0; z-index: 100;
-      transition: transform 0.3s ease; overscroll-behavior: contain;
-    }
-    .logo-container { text-align: center; margin-bottom: 20px; }
-    #sidebar h2 { font-size: 18px; font-weight: 600; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
-    #sidebar details { margin-bottom: 15px; }
-    #sidebar details:first-of-type { margin-bottom: 25px; }
-    #sidebar summary { font-size: 16px; font-weight: 500; color: var(--accent); cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
-    #sidebar summary i { margin-right: 10px; color: var(--accent); }
-    #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
-    #sidebar li { margin: 5px 0; }
-    .nav-link {
-      font-size: 14px; color: var(--accent); text-decoration: none; display: block;
-      padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease;
-    }
-    .nav-link:hover, .nav-link.active { background-color: var(--accent); color: #FFFFFF; }
-
-    .main-content {
-      margin-left: 260px; width: calc(100% - 260px); padding: 20px 20px 20px 10px;
-      min-height: calc(100vh - 80px); text-align: left;
-    }
-    .product-details {
-      max-width: 800px; background: #fff; padding: 20px; border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: nowrap; gap: 20px;
-    }
-    .product-image { flex: 0 0 40%; max-width: 350px; max-height: 500px; overflow: hidden; }
-    .product-image img {
-      width: 100%; height: auto; max-height: 500px; object-fit: contain;
-      border-radius: 10px; display: block;
-    }
-    .product-info { flex: 0 0 60%; display: flex; flex-direction: column; gap: 12px; }
-    .product-details h1 { color: var(--primary); font-size: 1.8em; margin: 0 0 10px; font-weight: 700; }
-
-    .product-details p.info { margin: 4px 0; font-size: 1em; }
-    .product-details p.info strong { color: var(--primary); font-weight: 600; }
-
-    .main-buy-button {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 12px 20px; background: var(--whatsapp); color: white; text-decoration: none;
-      border-radius: 6px; font-weight: 600; font-size: 1em; margin-top: 10px;
-    }
-    .main-buy-button:hover { background: #20B858; }
-
-    .buy-button {
-      display: block; padding: 8px 16px; background: var(--primary); color: white;
-      text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600;
-      text-align: center; margin-top: 8px;
-    }
-    .buy-button:hover { background: #5A1D39; }
-
-    .pdf-button {
-      display: block; padding: 10px; background: var(--accent); color: white;
-      text-decoration: none; border-radius: 6px; font-size: 1em; text-align: center;
-      margin-top: 10px;
-    }
-    .pdf-button:hover { background: #5A1D39; }
-
-    .info-box {
-      background: #f5e6ff; padding: 15px; border: 1px solid var(--primary);
-      border-radius: 6px; margin: 10px 0;
-    }
-    .info-box h2 { color: var(--primary); font-size: 1.3em; margin: 0 0 8px; font-weight: 600; }
-
-    .recommended-section { max-width: 800px; margin: 40px 0 0; padding: 20px; }
-    .recommended-section h3 {
-      color: var(--primary); font-size: 1.4em; margin: 20px 0 15px; font-weight: 600;
-      border-bottom: 2px solid #6B1D49; padding-bottom: 5px;
-    }
-
-    .product-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 30px;
-      justify-items: start;
-    }
-    .product-card {
-      background: #fff; border: 1px solid #E0E0E0; border-radius: 6px; padding: 15px;
-      text-align: center; position: relative; min-height: 380px; display: flex;
-      flex-direction: column; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .product-card img {
-      width: 200px; height: 200px; object-fit: contain; margin: 0 auto;
-    }
-    .product-card h3 {
-      font-size: 16px; margin: 10px 0; color: var(--accent); min-height: 40px;
-      overflow: hidden; font-weight: 600;
-    }
-    .product-card .price { font-size: 16px; color: var(--primary); margin: 8px 0; }
-
-    .info-icon {
-      position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer;
-      z-index: 10; display: none; color: var(--accent); background: rgba(255,255,255,0.9);
-      border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center;
-    }
-    .overlay {
-      display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px;
-      background: rgba(74,44,89,0.9); color: white; padding: 40px 10px 10px; font-size: 1212px;
-      overflow-y: auto; z-index: 6; border-radius: 6px;
-    }
-    .overlay p { margin: 2px 0; }
-    .product-card:hover .overlay { display: block; }
-    .product-card .overlay.active { display: block; }
-
+    /* IDIOMA */
     .language-selector {
-      position: fixed; top: 10px; right: 10px; z-index: 130; display: flex; gap: 8px;
+      position: fixed; top: 12px; right: 12px; z-index: 130; display: flex; gap: 6px;
     }
     .language-selector a {
-      padding: 5px 10px; background: rgba(255,255,255,0.9); color: var(--accent);
+      padding: 6px 10px; background: rgba(255,255,255,0.9); color: var(--accent);
       text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: 600;
       transition: 0.2s;
     }
@@ -165,37 +60,123 @@
       background: var(--accent); color: white;
     }
 
+    /* MÓVIL: HAMBURGUESA + LOGO DERECHA */
+    .header, .hamburger { display: none; }
+    .logo { max-width: 90px; height: auto; }
+    @media (max-width: 768px) {
+      .header, .hamburger { display: block !important; }
+      .hamburger {
+        position: fixed; top: 10px; left: 10px; z-index: 120; background: none; border: none;
+        font-size: 26px; color: var(--accent); cursor: pointer;
+      }
+      .header {
+        position: fixed; top: 10px; right: 10px; z-index: 110;
+      }
+      .main-content { margin-top: 80px; padding: 15px; }
+      .product-details { flex-direction: column; }
+      .product-image img { max-height: 380px; width: 100%; object-fit: contain; }
+      .info-icon { display: block !important; }
+    }
+
+    .main-content { padding: 20px; max-width: 900px; margin: 0 auto; }
+    .product-details {
+      background: white; padding: 25px; border-radius: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08); display: flex; gap: 25px;
+    }
+    .product-image { flex: 0 0 38%; }
+    .product-image img {
+      width: 100%; height: auto; max-height: 520px; object-fit: contain;
+      border-radius: 10px; border: 1px solid #eee;
+    }
+    .product-info { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .product-info h1 { color: var(--primary); font-size: 1.9em; margin: 0; font-weight: 700; }
+    .info { font-size: 0.98em; margin: 4px 0; }
+    .info strong { color: var(--primary); font-weight: 600; }
+
+    .main-buy-button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 22px; background: var(--whatsapp); color: white; text-decoration: none;
+      border-radius: 8px; font-weight: 600; font-size: 1em; transition: 0.2s;
+    }
+    .main-buy-button:hover { background: #20B858; }
+
+    .info-box {
+      background: #f8f0ff; padding: 16px; border-radius: 10px;
+      border-left: 4px solid var(--accent); margin: 12px 0;
+    }
+    .info-box h2 { color: var(--accent); font-size: 1.25em; margin: 0 0 8px; font-weight: 600; }
+
+    /* RECOMENDADOS */
+    .recommended-section { margin-top: 50px; }
+    .recommended-section h3 {
+      color: var(--primary); font-size: 1.5em; margin: 30px 0 16px; font-weight: 600;
+      border-bottom: 2px solid var(--primary); padding-bottom: 5px;
+    }
+    .product-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px;
+    }
+    .product-card {
+      background: white; border: 1px solid #eee; border-radius: 10px; padding: 14px;
+      text-align: center; position: relative; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+    .product-card img {
+      width: 160px; height: 160px; object-fit: contain; margin: 0 auto 10px;
+      border-radius: 6px;
+    }
+    .product-card h3 {
+      font-size: 14px; margin: 8px 0; color: var(--accent); height: 36px; overflow: hidden;
+      font-weight: 600;
+    }
+    .price { color: var(--primary); margin: 6px 0; font-size: 1.1em; }
+    .buy-button {
+      display: block; padding: 9px; background: var(--primary); color: white;
+      text-decoration: none; border-radius: 6px; font-size: 13px; font-weight: 600;
+      margin-top: 8px; transition: 0.2s;
+    }
+    .buy-button:hover { background: #5A1D39; }
+
+    /* OVERLAY COMPACTO */
+    .overlay {
+      position: absolute; top: 0; left: 0; right: 0; background: rgba(74,44,89,0.97);
+      color: white; padding: 38px 12px 12px; max-height: 180px; overflow-y: auto;
+      display: none; z-index: 10; border-radius: 10px; font-size: 12px; line-height: 1.3;
+    }
+    .overlay p { margin: 3px 0; font-size: 12px; }
+    .close-overlay {
+      position: absolute; top: 8px; right: 10px; font-size: 20px; font-weight: bold;
+      cursor: pointer; color: white; z-index: 11;
+    }
+
+    /* DESKTOP: HOVER */
+    @media (min-width: 769px) {
+      .info-icon { display: none !important; }
+      .product-card:hover .overlay { display: block; }
+    }
+
+    /* MÓVIL: COPA */
+    @media (max-width: 768px) {
+      .info-icon {
+        position: absolute; top: 8px; right: 8px; background: white;
+        width: 34px; height: 34px; line-height: 34px; text-align: center;
+        border-radius: 50%; font-size: 18px; cursor: pointer; z-index: 11;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: block !important;
+      }
+    }
+
     .free-shipping {
-      font-size: 0.9em; color: #555; margin: 8px 0; text-align: center;
+      font-size: 0.88em; color: #555; margin: 12px 0; text-align: center;
     }
     .free-shipping a { color: var(--primary); text-decoration: underline; }
 
     .legal-notice {
       font-size: 0.78em; color: #777; text-align: center; margin: 20px 0 10px;
       line-height: 1.3;
-    }
-
-    @media (max-width: 768px) {
-      .header { display: block; position: fixed; top: 10px; right: 10px; z-index: 120; }
-      .logo { max-width: 100px; }
-      .hamburger { display: block; }
-      #sidebar { width: 100%; transform: translateX(-100%); padding-top: 60px; }
-      #sidebar.open { transform: translateX(0); }
-      .main-content { margin-left: 0; width: 100%; padding: 10px; margin-top: 120px; }
-      .product-details { flex-direction: column; padding: 15px; }
-      .product-image img { max-height: 380px; }
-      .info-icon { display: block; }
-      .product-card:hover .overlay { display: none; }
-      .language-selector { top: 10px; left: 50%; transform: translateX(-50%); gap: 2px; }
-      .language-selector a { font-size: 9px; padding: 3px 6px; }
-      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-      .product-card img { width: 140px; height: 140px; }
-    }
-
-    @media (min-width: 769px) {
-      .header, .hamburger { display: none; }
-      #sidebar { transform: translateX(0); }
-      .info-icon { display: none; }
     }
   </style>
 </head>
@@ -208,34 +189,25 @@
     <a href="/de/vinos/135-aniversario-2022.html" class="">DE</a>
   </div>
 
-  <!-- MÓVIL: LOGO DERECHA -->
+  <!-- MÓVIL: HAMBURGUESA + LOGO -->
+  <button class="hamburger">Menu</button>
   <header class="header">
     <a href="/es/"><img src="/images/l000-malbecs-logo.png" alt="1000malbecs" class="logo"></a>
   </header>
-  <button class="hamburger">Menu</button>
-
-  <!-- SIDEBAR -->
-  <div id="sidebar">
-    <div class="logo-container">
-      <img src="/images/l000-malbecs-logo.png" alt="1000malbecs" class="logo">
-    </div>
-    <!-- Tu menú aquí -->
-  </div>
 
   <div class="main-content">
     <div class="product-details">
       <div class="product-image">
-        <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022"
-             onerror="this.src='https://via.placeholder.com/400x400?text=No+Image';">
+        <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="Botella de 135 Aniversario 2022">
       </div>
       <div class="product-info">
-        <h1>135 Aniversario 2022 - 2022</h1>
+        <h1>135 Aniversario 2022 2022</h1>
         <p class="info"><strong>Bodega:</strong> Bodega Goyenechea</p>
         <p class="info"><strong>Provincia:</strong> Mendoza</p>
         <p class="info"><strong>Región:</strong> San rafael</p>
         <p class="info"><strong>Altura:</strong> 520 msnm</p>
         <p class="info"><strong>Precio:</strong> €39.99</p>
-        <p class="info" style="font-size:0.9em; color:#666;">
+        <p class="info" style="font-size:0.88em; color:#666;">
           <strong>Precio por litro:</strong> €53.32 / litro
         </p>
 
@@ -250,23 +222,22 @@ Name: 138, dtype: object%</p>
         
         
 
-        <div class="button-container">
-          <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20135%20Aniversario%202022" 
-             class="main-buy-button" target="_blank">
-            <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-          </a>
-          <p class="free-shipping">
-            Costo de envío EUR6.49 <strong>Free shipping</strong> comprando 12 o más botellas 
-            <a href="/es/faq">Más Info</a>
-          </p>
-        </div>
+        <p class="free-shipping">
+          Costo de envío EUR6.49 <strong>Free shipping</strong> comprando 12 o más botellas 
+          <a href="/es/faq">Más Info</a>
+        </p>
+
+        <a href="https://wa.me/4915158224728?text=Hola%2C%20estoy%20interesado%20en:%20135%20Aniversario%202022" 
+           class="main-buy-button" target="_blank">
+          <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+        </a>
 
         <div class="info-box">
           <h2>Descripción</h2>
           <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
         </div>
         <div class="info-box">
-          <h2>Notas de cata y maridaje</h2>
+          <h2>Notas de cata</h2>
           <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
         </div>
         
@@ -286,8 +257,9 @@ Name: 138, dtype: object%</p>
           <a href="/vinos/goye-malbec-2022.html" class="buy-button">
             Comprar
           </a>
-          <span class="info-icon" data-overlay-id="goye-malbec-2022.html">Wine</span>
-          <div class="overlay" id="goye-malbec-2022.html">
+          <div class="info-icon" data-overlay-id="overlay-goye-malbec-2022.html">Wine</div>
+          <div class="overlay" id="overlay-goye-malbec-2022.html">
+            <span class="close-overlay">×</span>
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Región:</strong> San rafael</p>
             <p><strong>Altura:</strong> 520 msnm</p>
@@ -311,8 +283,9 @@ Name: 5, dtype: object%</p>
           <a href="/vinos/quinta-generacion-malbec-2022.html" class="buy-button">
             Comprar
           </a>
-          <span class="info-icon" data-overlay-id="quinta-generacion-malbec-2022.html">Wine</span>
-          <div class="overlay" id="quinta-generacion-malbec-2022.html">
+          <div class="info-icon" data-overlay-id="overlay-quinta-generacion-malbec-2022.html">Wine</div>
+          <div class="overlay" id="overlay-quinta-generacion-malbec-2022.html">
+            <span class="close-overlay">×</span>
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Región:</strong> San rafael</p>
             <p><strong>Altura:</strong> 520 msnm</p>
@@ -343,8 +316,9 @@ Name: 69, dtype: object%</p>
           <a href="/vinos/casa-araujo-varietal-2023.html" class="buy-button">
             Comprar
           </a>
-          <span class="info-icon" data-overlay-id="casa-araujo-varietal-2023.html">Wine</span>
-          <div class="overlay" id="casa-araujo-varietal-2023.html">
+          <div class="info-icon" data-overlay-id="overlay-casa-araujo-varietal-2023.html">Wine</div>
+          <div class="overlay" id="overlay-casa-araujo-varietal-2023.html">
+            <span class="close-overlay">×</span>
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> San rafael</p>
             <p><strong>Altura:</strong> 520 msnm</p>
@@ -368,8 +342,9 @@ Name: 2, dtype: object%</p>
           <a href="/vinos/goye-malbec-2022.html" class="buy-button">
             Comprar
           </a>
-          <span class="info-icon" data-overlay-id="goye-malbec-2022.html">Wine</span>
-          <div class="overlay" id="goye-malbec-2022.html">
+          <div class="info-icon" data-overlay-id="overlay-goye-malbec-2022.html">Wine</div>
+          <div class="overlay" id="overlay-goye-malbec-2022.html">
+            <span class="close-overlay">×</span>
             <p><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Región:</strong> San rafael</p>
             <p><strong>Altura:</strong> 520 msnm</p>
@@ -393,8 +368,9 @@ Name: 5, dtype: object%</p>
           <a href="/vinos/casa-araujo-roble-2023.html" class="buy-button">
             Comprar
           </a>
-          <span class="info-icon" data-overlay-id="casa-araujo-roble-2023.html">Wine</span>
-          <div class="overlay" id="casa-araujo-roble-2023.html">
+          <div class="info-icon" data-overlay-id="overlay-casa-araujo-roble-2023.html">Wine</div>
+          <div class="overlay" id="overlay-casa-araujo-roble-2023.html">
+            <span class="close-overlay">×</span>
             <p><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> San rafael</p>
             <p><strong>Altura:</strong> 520 msnm</p>
@@ -415,52 +391,39 @@ Name: 9, dtype: object%</p>
       
     </div>
 
-    <!-- LEGAL -->
     <p class="legal-notice">
       Beber responsablemente - Prohibida la venta a menores de 18 años. Chequeamos ID.
     </p>
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.hamburger');
-      const sidebar = document.querySelector('#sidebar');
-      let open = false;
-      if (hamburger && sidebar) {
-        hamburger.addEventListener('click', e => {
-          e.stopPropagation();
-          open = !open;
-          sidebar.classList.toggle('open', open);
-          hamburger.textContent = open ? '×' : 'Menu';
-        });
-        document.addEventListener('click', e => {
-          if (open && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-            open = false;
-            sidebar.classList.remove('open');
-            hamburger.textContent = 'Menu';
-          }
-        });
-      }
-
-      document.querySelectorAll('.info-icon').forEach(icon => {
-        ['click', 'touchstart'].forEach(ev => {
-          icon.addEventListener(ev, e => {
-            e.stopPropagation();
-            e.preventDefault();
-            const id = icon.getAttribute('data-overlay-id');
-            document.querySelectorAll('.overlay.active').forEach(o => o.classList.remove('active'));
-            const overlay = document.getElementById(id);
-            if (overlay) overlay.classList.toggle('active');
-          }, { passive: false });
-        });
-      });
-
-      document.addEventListener('click', e => {
-        if (!e.target.closest('.product-card')) {
-          document.querySelectorAll('.overlay.active').forEach(o => o.classList.remove('active'));
-        }
-      });
+  document.addEventListener("DOMContentLoaded", () => {
+    // Overlay móvil
+    document.querySelectorAll(".info-icon").forEach(icon => {
+      icon.onclick = (e) => {
+        e.stopPropagation();
+        const id = icon.getAttribute("data-overlay-id");
+        const overlay = document.getElementById(id);
+        if (overlay) overlay.style.display = "block";
+      };
     });
+
+    // Cerrar overlay
+    document.querySelectorAll(".close-overlay, .overlay").forEach(el => {
+      el.onclick = (e) => {
+        if (e.target === el || e.target.classList.contains("close-overlay")) {
+          el.style.display = "none";
+        }
+      };
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".product-card")) {
+        document.querySelectorAll(".overlay").forEach(o => o.style.display = "none");
+      }
+    });
+  });
   </script>
 </body>
 </html>
