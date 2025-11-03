@@ -80,34 +80,62 @@ body {
 /* ========================================
    HEADER DESKTOP: LOGO (arriba izquierda)
    ======================================== */
-.desktop-header {
-  display: none;
+/* DESPUÉS (COINCIDE CON TU HTML <header class="header">) */
+.header {
+  display: none;                    /* Oculto en mobile */
   position: fixed;
-  top: 15px;                    /* Distancia desde arriba */
-  left: 15px;                   /* A la izquierda */
+  top: 20px;
+  left: 20px;
   z-index: 1400;
   background: white;
-  padding: 12px 16px;
+  padding: 18px 24px;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: block;                 /* ← Visible en desktop */
+  }
+  .logo {
+    max-height: 64px;               /* Logo más grande */
+  }
+  .header {
+    padding: 16px 20px;
+  }
+  body {
+    padding-top: 180px;             /* Espacio para logo + navbar */
+  }
+}
+
+@media (max-width: 767px) {           /* Nota: 767px para evitar conflicto */
+  .header { display: none !important; }
 }
 
 /* ========================================
    LOGO (mobile + desktop)
    ======================================== */
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  z-index: 1500;
-}
-
 .logo {
-  max-height: 42px;
   width: auto;
   display: block;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
-  transition: max-height 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Desktop: LOGO GRANDE */
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;
+    max-height: none !important;   /* ← ELIMINA EL LÍMITE */
+  }
+}
+
+/* Mobile: LOGO PEQUEÑO */
+@media (max-width: 767px) {
+  .logo {
+    height: 42px;
+    max-height: 42px;
+  }
 }
 
 /* ========================================
@@ -383,6 +411,132 @@ body {
   #sidebar { transform: translateX(0) !important; }
   .container { margin-left: 300px; }
 }
+/* ========================================
+   TOPBAR: LOGO GRANDE + IDIOMAS
+   ======================================== */
+.topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: white;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;     /* ← MÁS GRANDE */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+.main-content {
+  margin-top: 100px;     /* ← Debajo de topbar */
+  padding: 0 30px;
+}
+
+.product {
+  display: flex;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.product img {
+  width: 360px;
+  height: 540px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 3px solid var(--border);
+  background: #fff;
+}
+
+.info h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  color: var(--primary);
+}
+
+.info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.legal-disclaimer {
+  margin: 20px 0;
+  font-size: 12px;
+  color: #999;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* ========================================
+   DESKTOP: ACTIVAR
+   ======================================== */
+@media (min-width: 768px) {
+  .topbar {
+    display: flex !important;
+  }
+
+  /* Empujar Worker navbar */
+  nav, .navbar, [class*="nav"], header:not(.header) {
+    top: 100px !important;
+  }
+
+  .main-content {
+    margin-top: 160px !important;   /* topbar + navbar */
+  }
+
+  body {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar { display: none !important; }
+  .main-content { margin-top: 70px; padding: 0 15px; }
+}
+
+/* ========================================
+   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
+   ======================================== */
+@media (min-width: 768px) {
+  /* Sidebar del Worker */
+  #sidebar {
+    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
+    height: calc(100vh - 140px) !important;
+  }
+
+  /* Contenido principal (ajusta margen) */
+  .container,
+  #sidebar ~ .container {
+    margin-top: 160px !important;
+    margin-left: 300px !important;
+  }
+
+  /* Asegurar que no se superponga con topbar */
+  body {
+    padding-top: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -401,13 +555,14 @@ body {
   </a>
 </header>
 
-<!-- HEADER DESKTOP (solo logo, Worker inyecta menú) -->
-<header class="header">
-  <a href="/" title="Volver al inicio">
-    <img src="/images/l000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
-  </a>
-</header>
-  <!-- SELECTOR DE IDIOMAS - DESKTOP -->
+<!-- BARRA SUPERIOR: LOGO + IDIOMAS -->
+<div class="topbar">
+  <header class="header">
+    <a href="/es/" title="1000 Malbecs">
+      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
+  </header>
+
   <div class="lang-selector-desktop">
     
       <a href="/es/vinos/a-contramano-malbec-2021.html" class="active">ES</a>
@@ -417,6 +572,8 @@ body {
       <a href="/de/vinos/a-contramano-malbec-2021.html" >DE</a>
     
   </div>
+</div>
+
 
   <!-- SELECTOR DE IDIOMAS - MOBILE -->
   <div class="lang-selector-mobile">
@@ -438,7 +595,7 @@ body {
         <p><strong>Bodega:</strong> Jorge Rubio</p>
         <p><strong>Región:</strong> General alvear</p>
         <p><strong>Altura:</strong> 500.0 msnm</p>
-        <p><strong>Precio:</strong> €23.19</p>
+        <p><strong>Precio:</strong> €23.19 / botella (0.75 L)</p>
         <p><strong>Volumen:</strong> 750 ml</p>
         <p><strong>Precio por litro:</strong> €30.92 / litro</p>
         <p><strong>Alcohol:</strong> 13.5%</p>
@@ -452,7 +609,7 @@ body {
         </a>
 
         <div class="shipping">
-         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br> <br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></br></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">

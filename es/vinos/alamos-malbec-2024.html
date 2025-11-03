@@ -32,18 +32,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
 :root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
-body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #fdfdfd; color: #333; }
 
-/* HEADER MOBILE */
+body { 
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0; padding: 0; 
+  background: #fdfdfd; color: #333; 
+}
+
+/* ========================================
+   HEADER MOBILE
+   ======================================== */
 .mobile-header {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 60px;
   background: white;
-  z-index: 120;
+  z-index: 1300;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   align-items: center;
   justify-content: space-between;
@@ -51,143 +56,513 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
 }
 
 .hamburger {
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: var(--primary);
-  cursor: pointer;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 130;
+  background: none; border: none; cursor: pointer;
+  width: 50px; height: 50px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1301; padding: 0;
 }
 
-.mobile-logo-link {
-  display: flex;
-  align-items: center;
-  height: 100%;
+.hamburger-icon .line { 
+  fill: var(--primary); 
+  transition: all 0.3s ease; 
 }
 
-.mobile-logo {
-  max-height: 40px;
-  width: auto;
+.hamburger[aria-expanded="true"] .top { 
+  transform: translateY(20px) rotate(45deg); 
+}
+.hamburger[aria-expanded="true"] .mid { 
+  opacity: 0; 
+}
+.hamburger[aria-expanded="true"] .bot { 
+  transform: translateY(-20px) rotate(-45deg); 
 }
 
-/* OCULTAR LOGO EN SIDEBAR MOBILE (Worker genera el logo) */
-@media (max-width: 768px) {
-  .sidebar-logo, .sidebar .logo, [class*="logo"], img[src*="logo"] {
-    display: none !important;
+/* ========================================
+   HEADER DESKTOP: LOGO (arriba izquierda)
+   ======================================== */
+/* DESPUÉS (COINCIDE CON TU HTML <header class="header">) */
+.header {
+  display: none;                    /* Oculto en mobile */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1400;
+  background: white;
+  padding: 18px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: block;                 /* ← Visible en desktop */
+  }
+  .logo {
+    max-height: 64px;               /* Logo más grande */
+  }
+  .header {
+    padding: 16px 20px;
+  }
+  body {
+    padding-top: 180px;             /* Espacio para logo + navbar */
   }
 }
 
-/* SELECTOR DE IDIOMAS - DESKTOP */
-.lang-selector-desktop {
-  position: fixed; top: 15px; right: 20px; z-index: 110; display: flex; gap: 8px;
+@media (max-width: 767px) {           /* Nota: 767px para evitar conflicto */
+  .header { display: none !important; }
 }
-.lang-selector-desktop a {
-  color: #666; text-decoration: none; font-weight: 600; padding: 6px 10px; 
-  border-radius: 6px; transition: all 0.3s; font-size: 14px;
-}
-.lang-selector-desktop a.active { background: var(--primary); color: white; }
-.lang-selector-desktop a:hover { background: #eee; }
 
-/* SELECTOR DE IDIOMAS - MOBILE */
+/* ========================================
+   LOGO (mobile + desktop)
+   ======================================== */
+.logo {
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+  transition: all 0.3s ease;
+}
+
+/* Desktop: LOGO GRANDE */
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;
+    max-height: none !important;   /* ← ELIMINA EL LÍMITE */
+  }
+}
+
+/* Mobile: LOGO PEQUEÑO */
+@media (max-width: 767px) {
+  .logo {
+    height: 42px;
+    max-height: 42px;
+  }
+}
+
+/* ========================================
+   BARRA DE NAVEGACIÓN (debajo del logo)
+   ======================================== */
+.desktop-navbar {
+  position: fixed;
+  top: 90px;                    /* ← DEBAJO DEL LOGO (ajusta si querés más/menos espacio) */
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 1300;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 12px 0;
+}
+
+/* ========================================
+   DESKTOP: Activar y agrandar
+   ======================================== */
+@media (min-width: 768px) {
+  .desktop-header {
+    display: block;
+  }
+
+  .logo {
+    max-height: 64px;           /* ← Logo más grande */
+  }
+
+  .desktop-header {
+    padding: 16px 20px;
+  }
+
+  /* Aseguramos que el contenido no se superponga */
+  body {
+    padding-top: 140px;         /* ← Espacio para logo + navbar */
+  }
+}
+/* ========================================
+   SIDEBAR (Worker)
+   ======================================== */
+#sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 280px;
+  height: 100vh;
+  background: #f8f8f8;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+  z-index: 1100;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+#sidebar.open { 
+  transform: translateX(0); 
+}
+
+#sidebar .logo-container { 
+  margin-bottom: 20px; 
+  display: none; 
+}
+
+#sidebar h2 { 
+  font-size: 16px; 
+  font-weight: 600; 
+  color: var(--primary); 
+  margin: 20px 0 10px; 
+  text-transform: uppercase; 
+}
+
+#sidebar ul { 
+  list-style: none; 
+  padding: 0 0 0 10px; 
+  margin: 0; 
+}
+
+#sidebar li { 
+  margin: 6px 0; 
+}
+
+#sidebar .nav-link {
+  font-size: 15px; 
+  color: #333; 
+  text-decoration: none;
+  display: block; 
+  padding: 8px 12px; 
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#sidebar .nav-link:hover, 
+#sidebar .nav-link.active {
+  background: var(--primary); 
+  color: white;
+}
+
+/* <details> en mobile */
+#sidebar details[open] summary { 
+  color: #5A1D39; 
+}
+
+/* ========================================
+   SELECTOR DE IDIOMAS
+   ======================================== */
+.lang-selector-desktop {
+  position: fixed; top: 15px; right: 20px; z-index: 110; 
+  display: flex; gap: 8px;
+}
+
+.lang-selector-desktop a {
+  color: #666; text-decoration: none; font-weight: 600; 
+  padding: 6px 10px; border-radius: 6px; transition: all 0.3s; 
+  font-size: 14px;
+}
+
+.lang-selector-desktop a.active { 
+  background: var(--primary); color: white; 
+}
+
+.lang-selector-desktop a:hover { 
+  background: #eee; 
+}
+
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); z-index: 110;
-  background: white; padding: 6px 12px; border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
+  z-index: 110; background: white; padding: 6px 12px; 
+  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   display: none; gap: 8px; font-weight: 600; font-size: 12px;
 }
+
 .lang-selector-mobile a {
   color: var(--primary); text-decoration: none;
 }
-.lang-selector-mobile a.active { font-weight: 700; }
 
-/* CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER */
+.lang-selector-mobile a.active { 
+  font-weight: 700; 
+}
+
+/* ========================================
+   CONTENIDO
+   ======================================== */
 .container {
   max-width: 900px;
   margin: 80px auto 40px;
   padding: 0 20px;
-  margin-left: 300px; /* RESERVADO PARA SIDEBAR DEL WORKER */
+  margin-left: 300px;
 }
 
-/* IMAGEN PRINCIPAL */
-.product { display: flex; gap: 30px; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+/* ========================================
+   PRODUCTO PRINCIPAL
+   ======================================== */
+.product { 
+  display: flex; gap: 30px; background: white; 
+  padding: 30px; border-radius: 14px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+}
+
 .product img {
-  width: 360px; height: 540px; object-fit: contain; object-position: center;
-  border-radius: 12px; border: 3px solid var(--border); background: #fff;
+  width: 360px; height: 540px; object-fit: contain; 
+  object-position: center; border-radius: 12px; 
+  border: 3px solid var(--border); background: #fff;
 }
 
-.info h1 { margin: 0 0 15px; color: var(--primary); font-size: 28px; }
+.info h1 { 
+  margin: 0 0 15px; color: var(--primary); font-size: 28px; 
+}
+
 .info p { margin: 8px 0; }
 .info strong { color: var(--primary); }
+
 .buy-btn { 
-  background: var(--whatsapp); color: white; padding: 14px 24px; text-decoration: none; 
-  border-radius: 10px; display: inline-flex; align-items: center; gap: 10px; font-weight: 600;
+  background: var(--whatsapp); color: white; 
+  padding: 14px 24px; text-decoration: none; 
+  border-radius: 10px; display: inline-flex; 
+  align-items: center; gap: 10px; font-weight: 600;
   transition: all 0.3s; position: relative; z-index: 10;
 }
-.buy-btn:hover { background: #20B858; transform: translateY(-2px); }
+
+.buy-btn:hover { 
+  background: #20B858; transform: translateY(-2px); 
+}
 
 .section {
-  background: #f9f5f7; border-left: 4px solid var(--primary); padding: 18px; margin: 20px 0; 
-  border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: #f9f5f7; border-left: 4px solid var(--primary); 
+  padding: 18px; margin: 20px 0; border-radius: 0 8px 8px 0; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-.section h2 { margin: 0 0 10px; color: var(--primary); font-size: 20px; }
+
+.section h2 { 
+  margin: 0 0 10px; color: var(--primary); font-size: 20px; 
+}
 
 .shipping {
-  background: #e8f5e8; border: 1px solid #4CAF50; color: #2e7d32; padding: 14px; border-radius: 8px;
+  background: #e8f5e8; border: 1px solid #4CAF50; 
+  color: #2e7d32; padding: 14px; border-radius: 8px;
   font-size: 15px; text-align: center; margin: 20px 0;
 }
-.shipping a { color: #2e7d32; font-weight: 600; text-decoration: underline; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; margin-top: 30px; }
+.shipping a { 
+  color: #2e7d32; font-weight: 600; text-decoration: underline; 
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+  gap: 18px; margin-top: 30px; 
+}
+
 .card { 
-  border: 1px solid #eee; border-radius: 12px; padding: 14px; text-align: center; 
-  position: relative; overflow: hidden; transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border: 1px solid #eee; border-radius: 12px; 
+  padding: 14px; text-align: center; 
+  position: relative; overflow: hidden; 
+  transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); border-color: var(--primary); }
-.card img { width: 150px; height: 150px; object-fit: contain; border-radius: 8px; background: #fff; }
-.card h4 { margin: 10px 0 5px; font-size: 15px; color: var(--primary); }
-.card p { margin: 5px 0; font-weight: 600; color: #333; }
+
+.card:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+  border-color: var(--primary); 
+}
+
+.card img { 
+  width: 150px; height: 150px; object-fit: contain; 
+  border-radius: 8px; background: #fff; 
+}
+
+.card h4 { 
+  margin: 10px 0 5px; font-size: 15px; color: var(--primary); 
+}
+
+.card p { 
+  margin: 5px 0; font-weight: 600; color: #333; 
+}
+
 .card a { 
-  background: var(--primary); color: white; padding: 6px 10px; border-radius: 6px; 
-  font-size: 13px; text-decoration: none; display: inline-block; margin-top: 8px; position: relative; z-index: 10;
+  background: var(--primary); color: white; 
+  padding: 6px 10px; border-radius: 6px; 
+  font-size: 13px; text-decoration: none; 
+  display: inline-block; margin-top: 8px; 
+  position: relative; z-index: 10;
 }
+
 .overlay { 
   display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 45px; 
-  background: rgba(107,29,73,0.95); color: white; padding: 12px 8px; border-radius: 12px 12px 0 0; 
+  background: rgba(107,29,73,0.95); color: white; 
+  padding: 12px 8px; border-radius: 12px 12px 0 0; 
   font-size: 11.5px; line-height: 1.4; text-align: left; overflow-y: auto;
 }
+
 .card:hover .overlay { display: block; }
 .overlay p { margin: 4px 0; color: white !important; }
 
-/* SECCIÓN REGIÓN */
-.region-section { margin-top: 60px; }
-.region-section h3 { color: var(--primary); }
-
-/* RESPONSIVE */
+/* ========================================
+   RESPONSIVE
+   ======================================== */
 @media (max-width: 768px) {
-  .mobile-header { display: flex; }
+  .mobile-header { display: flex !important; }
+  .desktop-header { display: none !important; }
   .lang-selector-desktop { display: none; }
   .lang-selector-mobile { display: flex; }
   .product { flex-direction: column; }
-  .product img { width: 100%; height: auto; max-height: 500px; object-fit: contain; }
+  .product img { width: 100%; height: auto; max-height: 500px; }
   .grid { grid-template-columns: 1fr 1fr; }
-  .container { margin-top: 80px; margin-left: 0; padding: 0 15px; }
+  .container { margin-top: 80px; margin-left: 0 !important; padding: 0 15px; }
+  #sidebar { top: 60px; }
+}
+
+@media (min-width: 769px) {
+  .mobile-header { display: none !important; }
+  .desktop-header { display: block !important; }
+  #sidebar { transform: translateX(0) !important; }
+  .container { margin-left: 300px; }
+}
+/* ========================================
+   TOPBAR: LOGO GRANDE + IDIOMAS
+   ======================================== */
+.topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: white;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;     /* ← MÁS GRANDE */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+.main-content {
+  margin-top: 100px;     /* ← Debajo de topbar */
+  padding: 0 30px;
+}
+
+.product {
+  display: flex;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.product img {
+  width: 360px;
+  height: 540px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 3px solid var(--border);
+  background: #fff;
+}
+
+.info h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  color: var(--primary);
+}
+
+.info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.legal-disclaimer {
+  margin: 20px 0;
+  font-size: 12px;
+  color: #999;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* ========================================
+   DESKTOP: ACTIVAR
+   ======================================== */
+@media (min-width: 768px) {
+  .topbar {
+    display: flex !important;
+  }
+
+  /* Empujar Worker navbar */
+  nav, .navbar, [class*="nav"], header:not(.header) {
+    top: 100px !important;
+  }
+
+  .main-content {
+    margin-top: 160px !important;   /* topbar + navbar */
+  }
+
+  body {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar { display: none !important; }
+  .main-content { margin-top: 70px; padding: 0 15px; }
+}
+
+/* ========================================
+   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
+   ======================================== */
+@media (min-width: 768px) {
+  /* Sidebar del Worker */
+  #sidebar {
+    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
+    height: calc(100vh - 140px) !important;
+  }
+
+  /* Contenido principal (ajusta margen) */
+  .container,
+  #sidebar ~ .container {
+    margin-top: 160px !important;
+    margin-left: 300px !important;
+  }
+
+  /* Asegurar que no se superponga con topbar */
+  body {
+    padding-top: 0 !important;
+  }
 }
 </style>
 </head>
 <body>
 
- <header class="mobile-header">
-  <button class="hamburger" aria-label="Abrir menú">☰</button>
-  <a href="/es/" class="mobile-logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="mobile-logo">
+<!-- HEADER MOBILE -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menú" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+  <a href="/es/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
   </a>
 </header>
 
-  <!-- SELECTOR DE IDIOMAS - DESKTOP -->
+<!-- BARRA SUPERIOR: LOGO + IDIOMAS -->
+<div class="topbar">
+  <header class="header">
+    <a href="/es/" title="1000 Malbecs">
+      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
+  </header>
+
   <div class="lang-selector-desktop">
     
       <a href="/es/vinos/alamos-malbec-2024.html" class="active">ES</a>
@@ -197,6 +572,8 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
       <a href="/de/vinos/alamos-malbec-2024.html" >DE</a>
     
   </div>
+</div>
+
 
   <!-- SELECTOR DE IDIOMAS - MOBILE -->
   <div class="lang-selector-mobile">
@@ -218,7 +595,8 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
         <p><strong>Bodega:</strong> Alamos</p>
         <p><strong>Región:</strong> Valle de uco</p>
         <p><strong>Altura:</strong> 1250.0 msnm</p>
-        <p><strong>Precio:</strong> €10.97</p>
+        <p><strong>Precio:</strong> €10.97 / botella (0.75 L)</p>
+        <p><strong>Volumen:</strong> 750 ml</p>
         <p><strong>Precio por litro:</strong> €14.63 / litro</p>
         <p><strong>Alcohol:</strong> 13.5%</p>
         <p><strong>Acidez:</strong> 5.8 g/L</p>
@@ -231,7 +609,7 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background:
         </a>
 
         <div class="shipping">
-          Envío gratis en compras de 12 botellas o más • <a href="/es/faq.html" target="_blank">+info</a>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -368,62 +746,45 @@ Chocolate Amargo: Para el postre, un chocolate negro con alto porcentaje de caca
   </div>
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
-  <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.mobile-header .hamburger');
-    const body = document.body;
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('#sidebar');
+    if (!hamburger || !sidebar) return;
 
-    if (!hamburger) return;
+    let isOpen = false;
 
-    // Función para abrir/cerrar sidebar
-    const toggleSidebar = () => {
-      // 1. Buscar botón del Worker (varios selectores comunes)
-      const workerToggle = document.querySelector(
-        '.sidebar-toggle, .hamburger, [data-toggle="sidebar"], #menu-toggle, .mobile-menu-toggle, .nav-toggle, .menu-btn'
-      );
+  const openMenu = () => {
+  isOpen = true;
+  hamburger.setAttribute('aria-expanded', 'true');
+  sidebar.classList.add('open');
+  // CERRAR TODOS LOS <details>
+  sidebar.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
+};
 
-      if (workerToggle) {
-        workerToggle.click();
-        return;
-      }
-
-      // 2. Fallback: evento personalizado
-      const event = new CustomEvent('toggle-sidebar', { bubbles: true });
-      document.dispatchEvent(event);
-
-      // 3. Fallback extremo: toggle clase en body (si el Worker usa .sidebar-open en body)
-      body.classList.toggle('sidebar-open');
+    const closeMenu = () => {
+      isOpen = false;
+      hamburger.setAttribute('aria-expanded', 'false');
+      sidebar.classList.remove('open');
+      // Cerrar todos los <details>
+      sidebar.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
     };
 
-    // Click en hamburguesa
     hamburger.addEventListener('click', (e) => {
-      e.preventDefault();
       e.stopPropagation();
-      toggleSidebar();
+      isOpen ? closeMenu() : openMenu();
     });
 
-    // Cerrar menú al hacer clic fuera (opcional, si el Worker no lo hace)
+    // Cerrar al tocar fuera
     document.addEventListener('click', (e) => {
-      const sidebar = document.querySelector('.sidebar, nav, aside');
-      const isClickInside = hamburger.contains(e.target) || (sidebar && sidebar.contains(e.target));
-      if (!isClickInside && body.classList.contains('sidebar-open')) {
-        toggleSidebar();
+      if (isOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMenu();
       }
     });
 
-    // SCROLL: ocultar selector de idioma mobile
-    const mobileSelector = document.querySelector('.lang-selector-mobile');
-    let lastScroll = 0;
+    // Cerrar al hacer scroll
     window.addEventListener('scroll', () => {
-      const current = window.scrollY;
-      if (current > lastScroll && current > 100) {
-        mobileSelector.style.opacity = '0';
-        mobileSelector.style.pointerEvents = 'none';
-      } else {
-        mobileSelector.style.opacity = '1';
-        mobileSelector.style.pointerEvents = 'auto';
-      }
-      lastScroll = current;
+      if (isOpen && window.scrollY > 100) closeMenu();
     });
   });
 </script>
