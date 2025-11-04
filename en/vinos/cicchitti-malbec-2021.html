@@ -533,7 +533,43 @@ body {
 </style>
 </head>
 <body>
-  <!-- HEADER MOBILE, TOPBAR, etc. -->
+
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/en/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
+  </header>
+
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/en/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/cicchitti-malbec-2021.html">ES</a>
+      <a href="/en/vinos/cicchitti-malbec-2021.html" class="active">EN</a>
+      <a href="/de/vinos/cicchitti-malbec-2021.html">DE</a>
+    </div>
+  </div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/cicchitti-malbec-2021.html">ES</a>
+    <a href="/en/vinos/cicchitti-malbec-2021.html" class="active">EN</a>
+    <a href="/de/vinos/cicchitti-malbec-2021.html">DE</a>
+  </div>
+
+  <!-- CONTENIDO -->
   <div class="container">
     <div class="product">
       <img src="https://www.1000malbecs.com/images/large/cicchitti-malbec-2021.jpg" alt="CICCHITTI Malbec 2021 2021">
@@ -551,7 +587,9 @@ body {
         
 
         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20CICCHITTI%20Malbec%202021%202021" 
-           class="buy-btn" target="_blank">Order via WhatsApp</a>
+           class="buy-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </a>
 
         <div class="shipping">
           <strong>Shipping cost: EUR 6.49.</strong><br>
@@ -573,6 +611,91 @@ body {
         
       </div>
     </div>
+
+    <!-- VINOS DE LA MISMA BODEGA -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Cicchitti</h3>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/cicchitti-primmo-malbec-2022.jpg" alt="CICCHITTI Primmo Malbec 2022 2022">
+        <h4>CICCHITTI Primmo Malbec 2022</h4>
+        <p>€12.89</p>
+        <a href="/en/vinos/cicchitti-primmo-malbec-2022.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Cicchitti</p>
+          <p><strong>Region:</strong> Guaymallen</p>
+          <p><strong>Altitude:</strong> 700.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/vos-malbec-de-malbec-2021.jpg" alt="VOS Malbec de Malbec 2021 2021">
+        <h4>VOS Malbec de Malbec 2021</h4>
+        <p>€18.99</p>
+        <a href="/en/vinos/vos-malbec-de-malbec-2021.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Cicchitti</p>
+          <p><strong>Region:</strong> Guaymallen</p>
+          <p><strong>Altitude:</strong> 700.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="CICCHITTI Gran Reserva Malbec 2018 2018">
+        <h4>CICCHITTI Gran Reserva Malbec 2018</h4>
+        <p>€29.99</p>
+        <a href="/en/vinos/cicchitti-gran-reserva-malbec-2018.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Cicchitti</p>
+          <p><strong>Region:</strong> Guaymallen</p>
+          <p><strong>Altitude:</strong> 700.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/cicchitti-malbec-edicion-limitada-2016.jpg" alt="Cicchitti Malbec Edición Limitada 2016 2016">
+        <h4>Cicchitti Malbec Edición Limitada 2016</h4>
+        <p>€37.59</p>
+        <a href="/en/vinos/cicchitti-malbec-edicion-limitada-2016.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Cicchitti</p>
+          <p><strong>Region:</strong> Guaymallen</p>
+          <p><strong>Altitude:</strong> 700.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/cicchitti-blend-2016.jpg" alt="CICCHITTI Blend 2016 2016">
+        <h4>CICCHITTI Blend 2016</h4>
+        <p>€19.99</p>
+        <a href="/en/vinos/cicchitti-blend-2016.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Cicchitti</p>
+          <p><strong>Region:</strong> Luján de cuyo</p>
+          <p><strong>Altitude:</strong> 958.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- VINOS DE LA MISMA REGIÓN -->
+    
   </div>
+
+  <!-- JAVASCRIPT PARA HAMBURGUESA -->
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      this.setAttribute('aria-expanded', 
+        this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+      );
+    });
+  </script>
 </body>
 </html>

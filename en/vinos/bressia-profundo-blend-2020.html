@@ -533,7 +533,43 @@ body {
 </style>
 </head>
 <body>
-  <!-- HEADER MOBILE, TOPBAR, etc. -->
+
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/en/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
+  </header>
+
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/en/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/bressia-profundo-blend-2020.html">ES</a>
+      <a href="/en/vinos/bressia-profundo-blend-2020.html" class="active">EN</a>
+      <a href="/de/vinos/bressia-profundo-blend-2020.html">DE</a>
+    </div>
+  </div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/bressia-profundo-blend-2020.html">ES</a>
+    <a href="/en/vinos/bressia-profundo-blend-2020.html" class="active">EN</a>
+    <a href="/de/vinos/bressia-profundo-blend-2020.html">DE</a>
+  </div>
+
+  <!-- CONTENIDO -->
   <div class="container">
     <div class="product">
       <img src="https://www.1000malbecs.com/images/large/bressia-profundo-blend-2020.jpg" alt="Bressia Profundo Blend 2020 2020">
@@ -551,7 +587,9 @@ body {
         <p><strong>Aging:</strong> 8 años</p>
 
         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Bressia%20Profundo%20Blend%202020%202020" 
-           class="buy-btn" target="_blank">Order via WhatsApp</a>
+           class="buy-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </a>
 
         <div class="shipping">
           <strong>Shipping cost: EUR 6.49.</strong><br>
@@ -588,6 +626,137 @@ Desserts: You can accompany desserts with bitter chocolate (50-60%) or desserts 
         
       </div>
     </div>
+
+    <!-- VINOS DE LA MISMA BODEGA -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Bodega Bressia</h3>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Monteagrelo Malbec 2020 2020">
+        <h4>Monteagrelo Malbec 2020</h4>
+        <p>€29.36</p>
+        <a href="/en/vinos/monteagrelo-malbec-2020.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Bodega Bressia</p>
+          <p><strong>Region:</strong> Agrelo</p>
+          <p><strong>Altitude:</strong> 940.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/bressia-conjuro-blend-2016.jpg" alt="Bressia Conjuro Blend 2016 2016">
+        <h4>Bressia Conjuro Blend 2016</h4>
+        <p>€95.16</p>
+        <a href="/en/vinos/bressia-conjuro-blend-2016.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Bodega Bressia</p>
+          <p><strong>Region:</strong> Agrelo tupungato</p>
+          <p><strong>Altitude:</strong> 1100.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- VINOS DE LA MISMA REGIÓN -->
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">More wines from Agrelo</h3>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2023.jpg" alt="Ojo de Agua Malbec 2023 2023">
+          <h4>Ojo de Agua Malbec 2023</h4>
+          <p>€18.36</p>
+          <a href="/en/vinos/ojo-de-agua-malbec-2023.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+            <p><strong>Region:</strong> Agrelo</p>
+            <p><strong>Altitude:</strong> 1100.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2020.jpg" alt="Ojo de Agua Malbec 2020 2020">
+          <h4>Ojo de Agua Malbec 2020</h4>
+          <p>€18.36</p>
+          <a href="/en/vinos/ojo-de-agua-malbec-2020.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+            <p><strong>Region:</strong> Agrelo</p>
+            <p><strong>Altitude:</strong> 1100.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/puro-rose-2023.jpg" alt="Puro Rose 2023 2023">
+          <h4>Puro Rose 2023</h4>
+          <p>€18.50</p>
+          <a href="/en/vinos/puro-rose-2023.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+            <p><strong>Region:</strong> Agrelo</p>
+            <p><strong>Altitude:</strong> 1100.0</p>
+            <p><strong>Alcohol:</strong> 12.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/puro-corte-2022.jpg" alt="Puro Corte 2022 2022">
+          <h4>Puro Corte 2022</h4>
+          <p>€20.76</p>
+          <a href="/en/vinos/puro-corte-2022.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+            <p><strong>Region:</strong> Agrelo</p>
+            <p><strong>Altitude:</strong> 1100.0</p>
+            <p><strong>Alcohol:</strong> 14.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
+          <h4>Premium Reserva Malbec Mendoza 2022</h4>
+          <p>€25.14</p>
+          <a href="/en/vinos/premium-reserva-malbec-mendoza-2022.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Piattelli Vineyards</p>
+            <p><strong>Region:</strong> Agrelo</p>
+            <p><strong>Altitude:</strong> 940.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
+          <h4>Gran Reserva Malbec Mendoza 2022</h4>
+          <p>€36.70</p>
+          <a href="/en/vinos/gran-reserva-malbec-mendoza-2022.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Piattelli Vineyards</p>
+            <p><strong>Region:</strong> Agrelo</p>
+            <p><strong>Altitude:</strong> 975.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
   </div>
+
+  <!-- JAVASCRIPT PARA HAMBURGUESA -->
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      this.setAttribute('aria-expanded', 
+        this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+      );
+    });
+  </script>
 </body>
 </html>
