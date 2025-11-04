@@ -257,7 +257,7 @@ export default {
         </details>
         <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}"><i class="fas fa-tag"></i> ${translations[lang].navbar.offers}</a>
         <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}"><i class="fas fa-book"></i> ${translations[lang].navbar.blog}</a>
-        <details>
+        <details open>
           <summary><i class="fas fa-wine-glass"></i> ${translations[lang].navbar.info}</summary>
           <ul>
             ${infoLinks}
