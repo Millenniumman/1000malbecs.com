@@ -551,6 +551,26 @@ body {
     </a>
   </header>
 
+  <!-- SIDEBAR (MENÚ DESPLEGABLE) -->
+  <div id="sidebar">
+    <div class="logo-container">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </div>
+    <h2>Categories</h2>
+    <ul>
+      <li><a href="/en/" class="nav-link">Home</a></li>
+      <li><a href="/en/vinos/" class="nav-link active">Wines</a></li>
+      <li><a href="/en/faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="/en/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <h2>Regions</h2>
+    <ul>
+      <li><a href="/en/vinos/?region=Mendoza" class="nav-link">Mendoza</a></li>
+      <li><a href="/en/vinos/?region=Salta" class="nav-link">Salta</a></li>
+      <li><a href="/en/vinos/?region=Patagonia" class="nav-link">Patagonia</a></li>
+    </ul>
+  </div>
+
   <!-- TOPBAR (DESKTOP) -->
   <div class="topbar">
     <header class="header">
@@ -560,8 +580,12 @@ body {
     </header>
     <div class="lang-selector-desktop">
       <a href="/es/vinos/caro-2021.html">ES</a>
+      
       <a href="/en/vinos/caro-2021.html" class="active">EN</a>
+      
+      
       <a href="/de/vinos/caro-2021.html">DE</a>
+      
     </div>
   </div>
 
@@ -627,7 +651,7 @@ In the mouth, the wine is dense and complex, with fine tannins and refreshing ac
       </div>
     </div>
 
-    <!-- VINOS DE LA MISMA BODEGA -->
+    <!-- VINOS SIMILARES -->
     
     <h3 style="color: var(--primary); margin-top: 50px;">More wines from Bodegas Caro</h3>
     <div class="grid">
@@ -713,7 +737,6 @@ In the mouth, the wine is dense and complex, with fine tannins and refreshing ac
     </div>
     
 
-    <!-- VINOS DE LA MISMA REGIÓN -->
     
     <div class="region-section">
       <h3 style="color: var(--primary);">More wines from Valle de uco</h3>
@@ -802,13 +825,25 @@ In the mouth, the wine is dense and complex, with fine tannins and refreshing ac
     
   </div>
 
-  <!-- JAVASCRIPT PARA HAMBURGUESA -->
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
-    document.querySelector('.hamburger').addEventListener('click', function() {
-      this.setAttribute('aria-expanded', 
-        this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-      );
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
+
 </body>
 </html>
