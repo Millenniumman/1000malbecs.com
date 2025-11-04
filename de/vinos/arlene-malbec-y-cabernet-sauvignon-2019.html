@@ -15,7 +15,7 @@ Wir kombinieren mehrere Weinherstellungs">
   <meta property="og:url" content="https://www.1000malbecs.com/de/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
-  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale" content="de_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Arlene Malbec y Cabernet Sauvignon 2019">
   <meta name="twitter:description" content="Die Ausarbeitung der Arlene -Serie, unserem Ikonenwein,
@@ -536,75 +536,110 @@ body {
     padding-top: 0 !important;
   }
 }
+/* OCULTAR SIDEBAR EN DESKTOP (solo mostrar en móvil) */
+@media (min-width: 768px) {
+  #sidebar {
+    display: none !important;
+  }
+  .container {
+    margin-left: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER MOBILE -->
-<header class="mobile-header">
-  <button class="hamburger" aria-label="Menü" aria-expanded="false">
-    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-    </svg>
-  </button>
-  <a href="/de/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
-</header>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <header class="header">
-    <a href="/de/" title="1000 Malbecs">
-      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/de/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
-  <div class="lang-selector-desktop">
-    <a href="/es/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html" >ES</a>
-    <a href="/en/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html" >EN</a>
+
+  <!-- SIDEBAR (MENÚ DESPLEGABLE) -->
+  <div id="sidebar">
+    <div class="logo-container">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </div>
+    <h2>Categories</h2>
+    <ul>
+      <li><a href="/de/" class="nav-link">Home</a></li>
+      <li><a href="/de/vinos/" class="nav-link active">Wines</a></li>
+      <li><a href="/de/faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="/de/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <h2>Regions</h2>
+    <ul>
+      <li><a href="/de/vinos/?region=Mendoza" class="nav-link">Mendoza</a></li>
+      <li><a href="/de/vinos/?region=Salta" class="nav-link">Salta</a></li>
+      <li><a href="/de/vinos/?region=Patagonia" class="nav-link">Patagonia</a></li>
+    </ul>
+  </div>
+
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/de/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">ES</a>
+      
+      <a href="/en/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">EN</a>
+      
+      
+      <a href="/de/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html" class="active">DE</a>
+      
+    </div>
+  </div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">ES</a>
+    <a href="/en/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">EN</a>
     <a href="/de/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html" class="active">DE</a>
   </div>
-</div>
 
-<div class="lang-selector-mobile">
-  <a href="/es/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html" >ES</a>
-  <a href="/en/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html" >EN</a>
-  <a href="/de/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html" class="active">DE</a>
-</div>
+  <!-- CONTENIDO -->
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/arlene-malbec-y-cabernet-sauvignon-2019.jpg" alt="Arlene Malbec y Cabernet Sauvignon 2019 2019">
+      <div class="info">
+        <h1>Arlene Malbec y Cabernet Sauvignon 2019</h1>
+        <p><strong>Winery:</strong> Piattelli Vineyards</p>
+        <p><strong>Region:</strong> Cafayate</p>
+        <p><strong>Altitude:</strong> 1795.0 masl</p>
+        <p><strong>Price:</strong> €49.08 / Flasche (0.75 L)</p>
+        <p><strong>Volume:</strong> 750 ml</p>
+        <p><strong>Price per liter:</strong> €65.44 / L</p>
+        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Acidity:</strong> 6.0 g/L</p>
+        
+        
 
-<div class="container">
-  <div class="product">
-    <img src="https://www.1000malbecs.com/images/large/arlene-malbec-y-cabernet-sauvignon-2019.jpg" alt="Arlene Malbec y Cabernet Sauvignon 2019 2019">
-    <div class="info">
-      <h1>Arlene Malbec y Cabernet Sauvignon 2019</h1>
-      <p><strong>Weingut:</strong> Piattelli Vineyards</p>
-      <p><strong>Region:</strong> Cafayate</p>
-      <p><strong>Höhe:</strong> 1795.0 m.ü.M.</p>
-      <p><strong>Preis:</strong> €49.08 / Flasche (0.75 L)</p>
-      <p><strong>Volumen:</strong> 750 ml</p>
-      <p><strong>Preis pro Liter:</strong> €65.44 / L</p>
-      <p><strong>Alkohol:</strong> 13.5%</p>
-      <p><strong>Säure:</strong> 6.0 g/L</p>
-      
-      
+        <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Arlene%20Malbec%20y%20Cabernet%20Sauvignon%202019%202019" 
+           class="buy-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </a>
 
-      <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Arlene%20Malbec%20y%20Cabernet%20Sauvignon%202019%202019" 
-         class="buy-btn" target="_blank">
-        Jetzt per WhatsApp bestellen
-      </a>
+        <div class="shipping">
+          <strong>Shipping cost: EUR 6.49.</strong><br>
+          Free shipping on orders of 12 bottles or more. • 
+          <a href="/de/faq.html" target="_blank">+info</a><br>
+          <small><b>Sale to minors under 18 prohibited. ID check upon delivery.</b></small>
+        </div>
 
-      <div class="shipping">
-        <strong>Versandkosten: 6,49 €.</strong><br>
-        Ab 12 Flaschen versandkostenfrei. • 
-        <a href="/de/faq.html" target="_blank">+Info</a><br>
-        <small><b>Verkauf an Minderjährige unter 18 Jahren verboten. Ausweiskontrolle bei Lieferung.</b></small>
-      </div>
-
-      <div class="section">
-        <h2>Beschreibung</h2>
-        <p>Die Ausarbeitung der Arlene -Serie, unserem Ikonenwein,
+        <div class="section">
+          <h2>Description</h2>
+          <p>Die Ausarbeitung der Arlene -Serie, unserem Ikonenwein,
 Bedarf maximal Delikatesse in allen Arbeiten, weshalb der Grund
 Wir kombinieren mehrere Weinherstellungsstrategien. Beginnend mit dem
 Auswahl des Weinbergs: Für den Malbec wurde bereits ein Weinberg in Parral ausgewählt
@@ -628,174 +663,191 @@ Am Ende seines Parkplatzes in Fässern wird der Schnitt mit a gemacht
 Mindestanteil von Cabernet Sauvignon und Cabernet Franc
 der notwendige Hauch von Komplexität und würzigen Aromen, die vervollständigen
 Diese wundervolle Mischung. Arlene Malbec y Cabernet Sauvignon von Piattelli Vineyards</p>
-      </div>
+        </div>
 
-      <div class="section">
-        <h2>Verkostungsnotizen & Speisenempfehlung</h2>
-        <p>Sehr tiefe schwarze Farbe, Aromen zu
-Schwarzer Tabak und Früchte. Im Mund ist es lang und seidig. Unterstreicht seine Säure und
-Frische am Ende von Boca. Arlene Malbec y Cabernet Sauvignon von Piattelli Vineyards</p>
-      </div>
+        <div class="section">
+          <h2>Tasting notes & pairing</h2>
+          <p></p>
+        </div>
 
-      
-      <div class="section">
-        <h2>Technisches Datenblatt</h2>
-        <p><a href="/fichas/2020_ArleneSeries_PiattelliVineyards.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
-          PDF herunterladen
-        </a></p>
+        
+        <div class="section">
+          <h2>Technical sheet</h2>
+          <p><a href="/fichas/2020_ArleneSeries_PiattelliVineyards.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
+            Download PDF
+          </a></p>
+        </div>
+        
       </div>
-      
     </div>
-  </div>
 
-  <!-- OTROS VINOS DE LA MISMA BODEGA -->
-  
-  <h3 style="color: var(--primary); margin-top: 50px;">Weitere Weine von Piattelli Vineyards</h3>
-  <div class="grid">
+    <!-- VINOS SIMILARES -->
     
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
-      <h4>Premium Reserva Malbec Mendoza 2022</h4>
-      <p>€25.14</p>
-      <a href="/de/vinos/premium-reserva-malbec-mendoza-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Piattelli Vineyards</p>
-        <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Höhe:</strong> 940.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/reserva-malbec-salta-2022.jpg" alt="Reserva Malbec Salta 2022 2022">
-      <h4>Reserva Malbec Salta 2022</h4>
-      <p>€25.14</p>
-      <a href="/de/vinos/reserva-malbec-salta-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Piattelli Vineyards</p>
-        <p><strong>Region:</strong> Cafayate</p>
-        <p><strong>Höhe:</strong> 1795.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/reserva-malbec-tannat-2022.jpg" alt="Reserva Malbec Tannat 2022 2022">
-      <h4>Reserva Malbec Tannat 2022</h4>
-      <p>€25.14</p>
-      <a href="/de/vinos/reserva-malbec-tannat-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Piattelli Vineyards</p>
-        <p><strong>Region:</strong> Cafayate</p>
-        <p><strong>Höhe:</strong> 1795.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-salta-2020.jpg" alt="Gran Reserva Malbec Salta 2020 2020">
-      <h4>Gran Reserva Malbec Salta 2020</h4>
-      <p>€36.70</p>
-      <a href="/de/vinos/gran-reserva-malbec-salta-2020.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Piattelli Vineyards</p>
-        <p><strong>Region:</strong> Cafayate</p>
-        <p><strong>Höhe:</strong> 1795.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
-      <h4>Gran Reserva Malbec Mendoza 2022</h4>
-      <p>€36.70</p>
-      <a href="/de/vinos/gran-reserva-malbec-mendoza-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Piattelli Vineyards</p>
-        <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Höhe:</strong> 975.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Trinitá Gran Reserva Blend 2020 2020">
-      <h4>Trinitá Gran Reserva Blend 2020</h4>
-      <p>€49.08</p>
-      <a href="/de/vinos/trinita-gran-reserva-blend-2020.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Piattelli Vineyards</p>
-        <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Höhe:</strong> 1200.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
-  </div>
-  
-
-  <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-  
-  <div class="region-section">
-    <h3 style="color: var(--primary);">Weitere Weine aus Cafayate</h3>
+    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Piattelli Vineyards</h3>
     <div class="grid">
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2022.jpg" alt="Imaginate Malbec 2022 2022">
-        <h4>Imaginate Malbec 2022</h4>
-        <p>€54.99</p>
-        <a href="/de/vinos/imaginate-malbec-2022.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
+        <h4>Premium Reserva Malbec Mendoza 2022</h4>
+        <p>€25.14</p>
+        <a href="/de/vinos/premium-reserva-malbec-mendoza-2022.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Finca & Bodega Arca Yaco</p>
-          <p><strong>Region:</strong> Cafayate</p>
-          <p><strong>Höhe:</strong> 2100.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Winery:</strong> Piattelli Vineyards</p>
+          <p><strong>Region:</strong> Agrelo</p>
+          <p><strong>Altitude:</strong> 940.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2019.jpg" alt="Imaginate Malbec 2019 2019">
-        <h4>Imaginate Malbec 2019</h4>
-        <p>€56.99</p>
-        <a href="/de/vinos/imaginate-malbec-2019.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/reserva-malbec-salta-2022.jpg" alt="Reserva Malbec Salta 2022 2022">
+        <h4>Reserva Malbec Salta 2022</h4>
+        <p>€25.14</p>
+        <a href="/de/vinos/reserva-malbec-salta-2022.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Finca & Bodega Arca Yaco</p>
+          <p><strong>Winery:</strong> Piattelli Vineyards</p>
           <p><strong>Region:</strong> Cafayate</p>
-          <p><strong>Höhe:</strong> 2100.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 1795.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2020.jpg" alt="Amar Vivir Malbec 2020 2020">
-        <h4>Amar Vivir Malbec 2020</h4>
-        <p>€112.99</p>
-        <a href="/de/vinos/amar-vivir-malbec-2020.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/reserva-malbec-tannat-2022.jpg" alt="Reserva Malbec Tannat 2022 2022">
+        <h4>Reserva Malbec Tannat 2022</h4>
+        <p>€25.14</p>
+        <a href="/de/vinos/reserva-malbec-tannat-2022.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Finca & Bodega Arca Yaco</p>
+          <p><strong>Winery:</strong> Piattelli Vineyards</p>
           <p><strong>Region:</strong> Cafayate</p>
-          <p><strong>Höhe:</strong> 2100.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 1795.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2019.jpg" alt="Amar Vivir Malbec 2019 2019">
-        <h4>Amar Vivir Malbec 2019</h4>
-        <p>€122.99</p>
-        <a href="/de/vinos/amar-vivir-malbec-2019.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-salta-2020.jpg" alt="Gran Reserva Malbec Salta 2020 2020">
+        <h4>Gran Reserva Malbec Salta 2020</h4>
+        <p>€36.70</p>
+        <a href="/de/vinos/gran-reserva-malbec-salta-2020.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Finca & Bodega Arca Yaco</p>
+          <p><strong>Winery:</strong> Piattelli Vineyards</p>
           <p><strong>Region:</strong> Cafayate</p>
-          <p><strong>Höhe:</strong> 2100.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 1795.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
+        <h4>Gran Reserva Malbec Mendoza 2022</h4>
+        <p>€36.70</p>
+        <a href="/de/vinos/gran-reserva-malbec-mendoza-2022.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Piattelli Vineyards</p>
+          <p><strong>Region:</strong> Agrelo</p>
+          <p><strong>Altitude:</strong> 975.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Trinitá Gran Reserva Blend 2020 2020">
+        <h4>Trinitá Gran Reserva Blend 2020</h4>
+        <p>€49.08</p>
+        <a href="/de/vinos/trinita-gran-reserva-blend-2020.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Piattelli Vineyards</p>
+          <p><strong>Region:</strong> Agrelo</p>
+          <p><strong>Altitude:</strong> 1200.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
         </div>
       </div>
       
     </div>
+    
+
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">More wines from Cafayate</h3>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2022.jpg" alt="Imaginate Malbec 2022 2022">
+          <h4>Imaginate Malbec 2022</h4>
+          <p>€54.99</p>
+          <a href="/de/vinos/imaginate-malbec-2022.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Region:</strong> Cafayate</p>
+            <p><strong>Altitude:</strong> 2100.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2019.jpg" alt="Imaginate Malbec 2019 2019">
+          <h4>Imaginate Malbec 2019</h4>
+          <p>€56.99</p>
+          <a href="/de/vinos/imaginate-malbec-2019.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Region:</strong> Cafayate</p>
+            <p><strong>Altitude:</strong> 2100.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2020.jpg" alt="Amar Vivir Malbec 2020 2020">
+          <h4>Amar Vivir Malbec 2020</h4>
+          <p>€112.99</p>
+          <a href="/de/vinos/amar-vivir-malbec-2020.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Region:</strong> Cafayate</p>
+            <p><strong>Altitude:</strong> 2100.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2019.jpg" alt="Amar Vivir Malbec 2019 2019">
+          <h4>Amar Vivir Malbec 2019</h4>
+          <p>€122.99</p>
+          <a href="/de/vinos/amar-vivir-malbec-2019.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Region:</strong> Cafayate</p>
+            <p><strong>Altitude:</strong> 2100.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
   </div>
-  
-</div>
+
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 
 </body>
 </html>

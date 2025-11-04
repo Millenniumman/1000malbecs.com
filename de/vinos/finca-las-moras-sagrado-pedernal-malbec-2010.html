@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://www.1000malbecs.com/de/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
-  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale" content="de_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Finca Las Moras Sagrado Pedernal Malbec 2010">
   <meta name="twitter:description" content="Ein Feuerstein Malbec mit großer Konzentration und einem würzigen Profil. Empfindlicher Rotwein mit Aromen zu roten Früchten, CASIS- und Eukalyptusnoten. Eine k">
@@ -530,110 +530,164 @@ body {
     padding-top: 0 !important;
   }
 }
+/* OCULTAR SIDEBAR EN DESKTOP (solo mostrar en móvil) */
+@media (min-width: 768px) {
+  #sidebar {
+    display: none !important;
+  }
+  .container {
+    margin-left: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER MOBILE -->
-<header class="mobile-header">
-  <button class="hamburger" aria-label="Menü" aria-expanded="false">
-    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-    </svg>
-  </button>
-  <a href="/de/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
-</header>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <header class="header">
-    <a href="/de/" title="1000 Malbecs">
-      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/de/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
-  <div class="lang-selector-desktop">
-    <a href="/es/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" >ES</a>
-    <a href="/en/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" >EN</a>
+
+  <!-- SIDEBAR (MENÚ DESPLEGABLE) -->
+  <div id="sidebar">
+    <div class="logo-container">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </div>
+    <h2>Categories</h2>
+    <ul>
+      <li><a href="/de/" class="nav-link">Home</a></li>
+      <li><a href="/de/vinos/" class="nav-link active">Wines</a></li>
+      <li><a href="/de/faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="/de/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <h2>Regions</h2>
+    <ul>
+      <li><a href="/de/vinos/?region=Mendoza" class="nav-link">Mendoza</a></li>
+      <li><a href="/de/vinos/?region=Salta" class="nav-link">Salta</a></li>
+      <li><a href="/de/vinos/?region=Patagonia" class="nav-link">Patagonia</a></li>
+    </ul>
+  </div>
+
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/de/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html">ES</a>
+      
+      <a href="/en/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html">EN</a>
+      
+      
+      <a href="/de/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="active">DE</a>
+      
+    </div>
+  </div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html">ES</a>
+    <a href="/en/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html">EN</a>
     <a href="/de/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="active">DE</a>
   </div>
-</div>
 
-<div class="lang-selector-mobile">
-  <a href="/es/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" >ES</a>
-  <a href="/en/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" >EN</a>
-  <a href="/de/vinos/finca-las-moras-sagrado-pedernal-malbec-2010.html" class="active">DE</a>
-</div>
-
-<div class="container">
-  <div class="product">
-    <img src="https://www.1000malbecs.com/images/large/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Finca Las Moras Sagrado Pedernal Malbec 2010 2010">
-    <div class="info">
-      <h1>Finca Las Moras Sagrado Pedernal Malbec 2010</h1>
-      <p><strong>Weingut:</strong> Finca Las Moras</p>
-      <p><strong>Region:</strong> Valle de pedernal</p>
-      <p><strong>Höhe:</strong> 1350.0 m.ü.M.</p>
-      <p><strong>Preis:</strong> €39.90 / Flasche (0.75 L)</p>
-      <p><strong>Volumen:</strong> 750 ml</p>
-      <p><strong>Preis pro Liter:</strong> €53.20 / L</p>
-      <p><strong>Alkohol:</strong> 13.5%</p>
-      <p><strong>Säure:</strong> 5.9 g/L</p>
-      
-      
-
-      <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Finca%20Las%20Moras%20Sagrado%20Pedernal%20Malbec%202010%202010" 
-         class="buy-btn" target="_blank">
-        Jetzt per WhatsApp bestellen
-      </a>
-
-      <div class="shipping">
-        <strong>Versandkosten: 6,49 €.</strong><br>
-        Ab 12 Flaschen versandkostenfrei. • 
-        <a href="/de/faq.html" target="_blank">+Info</a><br>
-        <small><b>Verkauf an Minderjährige unter 18 Jahren verboten. Ausweiskontrolle bei Lieferung.</b></small>
-      </div>
-
-      <div class="section">
-        <h2>Beschreibung</h2>
-        <p>Ein Feuerstein Malbec mit großer Konzentration und einem würzigen Profil. Empfindlicher Rotwein mit Aromen zu roten Früchten, CASIS- und Eukalyptusnoten. Eine komplexe Textur mit ausgewogenen und süßen Tanninen. Ideal für die Wache Finca Las Moras Sagrado Pedernal Malbec von Finca Las Moras</p>
-      </div>
-
-      <div class="section">
-        <h2>Verkostungsnotizen & Speisenempfehlung</h2>
-        <p>Mora, Cassis und schwarzer Pfeffer mit einem geräucherten Ende. Kombination: geröstetes Lamm, Gewürzeplatten. Perfekt, um gegrilltes Fleisch, cremige Risottos und starke Käse zu begleiten. Finca Las Moras Sagrado Pedernal Malbec von Finca Las Moras</p>
-      </div>
-
-      
-    </div>
-  </div>
-
-  <!-- OTROS VINOS DE LA MISMA BODEGA -->
-  
-  <h3 style="color: var(--primary); margin-top: 50px;">Weitere Weine von Finca Las Moras</h3>
-  <div class="grid">
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg" alt="Finca Las Moras Mora Negra Malbec-Bonarda 2014 2014">
-      <h4>Finca Las Moras Mora Negra Malbec-Bonarda 2014</h4>
-      <p>€32.00</p>
-      <a href="/de/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Finca Las Moras</p>
+  <!-- CONTENIDO -->
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Finca Las Moras Sagrado Pedernal Malbec 2010 2010">
+      <div class="info">
+        <h1>Finca Las Moras Sagrado Pedernal Malbec 2010</h1>
+        <p><strong>Winery:</strong> Finca Las Moras</p>
         <p><strong>Region:</strong> Valle de pedernal</p>
-        <p><strong>Höhe:</strong> 1350.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
+        <p><strong>Altitude:</strong> 1350.0 masl</p>
+        <p><strong>Price:</strong> €39.90 / Flasche (0.75 L)</p>
+        <p><strong>Volume:</strong> 750 ml</p>
+        <p><strong>Price per liter:</strong> €53.20 / L</p>
+        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Acidity:</strong> 5.9 g/L</p>
+        
+        
+
+        <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Finca%20Las%20Moras%20Sagrado%20Pedernal%20Malbec%202010%202010" 
+           class="buy-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </a>
+
+        <div class="shipping">
+          <strong>Shipping cost: EUR 6.49.</strong><br>
+          Free shipping on orders of 12 bottles or more. • 
+          <a href="/de/faq.html" target="_blank">+info</a><br>
+          <small><b>Sale to minors under 18 prohibited. ID check upon delivery.</b></small>
+        </div>
+
+        <div class="section">
+          <h2>Description</h2>
+          <p>Ein Feuerstein Malbec mit großer Konzentration und einem würzigen Profil. Empfindlicher Rotwein mit Aromen zu roten Früchten, CASIS- und Eukalyptusnoten. Eine komplexe Textur mit ausgewogenen und süßen Tanninen. Ideal für die Wache Finca Las Moras Sagrado Pedernal Malbec von Finca Las Moras</p>
+        </div>
+
+        <div class="section">
+          <h2>Tasting notes & pairing</h2>
+          <p></p>
+        </div>
+
+        
       </div>
     </div>
+
+    <!-- VINOS SIMILARES -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Finca Las Moras</h3>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg" alt="Finca Las Moras Mora Negra Malbec-Bonarda 2014 2014">
+        <h4>Finca Las Moras Mora Negra Malbec-Bonarda 2014</h4>
+        <p>€32.00</p>
+        <a href="/de/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Finca Las Moras</p>
+          <p><strong>Region:</strong> Valle de pedernal</p>
+          <p><strong>Altitude:</strong> 1350.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+    </div>
+    
+
     
   </div>
-  
 
-  <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-  
-</div>
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 
 </body>
 </html>

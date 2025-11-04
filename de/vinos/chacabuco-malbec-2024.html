@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://www.1000malbecs.com/de/vinos/chacabuco-malbec-2024.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
-  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale" content="de_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Chacabuco Malbec 2024">
   <meta name="twitter:description" content="Expressives Malbec in großer Höhe mit Frucht und strukturiertem Profil, eine Reflexion des Mendoza Terroir. Chacabuco Malbec von Los Haroldos">
@@ -530,169 +530,223 @@ body {
     padding-top: 0 !important;
   }
 }
+/* OCULTAR SIDEBAR EN DESKTOP (solo mostrar en móvil) */
+@media (min-width: 768px) {
+  #sidebar {
+    display: none !important;
+  }
+  .container {
+    margin-left: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER MOBILE -->
-<header class="mobile-header">
-  <button class="hamburger" aria-label="Menü" aria-expanded="false">
-    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-    </svg>
-  </button>
-  <a href="/de/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
-</header>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <header class="header">
-    <a href="/de/" title="1000 Malbecs">
-      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/de/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
-  <div class="lang-selector-desktop">
-    <a href="/es/vinos/chacabuco-malbec-2024.html" >ES</a>
-    <a href="/en/vinos/chacabuco-malbec-2024.html" >EN</a>
+
+  <!-- SIDEBAR (MENÚ DESPLEGABLE) -->
+  <div id="sidebar">
+    <div class="logo-container">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </div>
+    <h2>Categories</h2>
+    <ul>
+      <li><a href="/de/" class="nav-link">Home</a></li>
+      <li><a href="/de/vinos/" class="nav-link active">Wines</a></li>
+      <li><a href="/de/faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="/de/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <h2>Regions</h2>
+    <ul>
+      <li><a href="/de/vinos/?region=Mendoza" class="nav-link">Mendoza</a></li>
+      <li><a href="/de/vinos/?region=Salta" class="nav-link">Salta</a></li>
+      <li><a href="/de/vinos/?region=Patagonia" class="nav-link">Patagonia</a></li>
+    </ul>
+  </div>
+
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/de/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/chacabuco-malbec-2024.html">ES</a>
+      
+      <a href="/en/vinos/chacabuco-malbec-2024.html">EN</a>
+      
+      
+      <a href="/de/vinos/chacabuco-malbec-2024.html" class="active">DE</a>
+      
+    </div>
+  </div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/chacabuco-malbec-2024.html">ES</a>
+    <a href="/en/vinos/chacabuco-malbec-2024.html">EN</a>
     <a href="/de/vinos/chacabuco-malbec-2024.html" class="active">DE</a>
   </div>
-</div>
 
-<div class="lang-selector-mobile">
-  <a href="/es/vinos/chacabuco-malbec-2024.html" >ES</a>
-  <a href="/en/vinos/chacabuco-malbec-2024.html" >EN</a>
-  <a href="/de/vinos/chacabuco-malbec-2024.html" class="active">DE</a>
-</div>
-
-<div class="container">
-  <div class="product">
-    <img src="https://www.1000malbecs.com/images/large/chacabuco-malbec-2024.jpg" alt="Chacabuco Malbec 2024 2024">
-    <div class="info">
-      <h1>Chacabuco Malbec 2024</h1>
-      <p><strong>Weingut:</strong> Los Haroldos</p>
-      <p><strong>Region:</strong> Valle norte</p>
-      <p><strong>Höhe:</strong> 750.0 m.ü.M.</p>
-      <p><strong>Preis:</strong> €7.90 / Flasche (0.75 L)</p>
-      <p><strong>Volumen:</strong> 750 ml</p>
-      <p><strong>Preis pro Liter:</strong> €10.53 / L</p>
-      <p><strong>Alkohol:</strong> 13.5%</p>
-      <p><strong>Säure:</strong> 5.9 g/L</p>
-      
-      
-
-      <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Chacabuco%20Malbec%202024%202024" 
-         class="buy-btn" target="_blank">
-        Jetzt per WhatsApp bestellen
-      </a>
-
-      <div class="shipping">
-        <strong>Versandkosten: 6,49 €.</strong><br>
-        Ab 12 Flaschen versandkostenfrei. • 
-        <a href="/de/faq.html" target="_blank">+Info</a><br>
-        <small><b>Verkauf an Minderjährige unter 18 Jahren verboten. Ausweiskontrolle bei Lieferung.</b></small>
-      </div>
-
-      <div class="section">
-        <h2>Beschreibung</h2>
-        <p>Expressives Malbec in großer Höhe mit Frucht und strukturiertem Profil, eine Reflexion des Mendoza Terroir. Chacabuco Malbec von Los Haroldos</p>
-      </div>
-
-      <div class="section">
-        <h2>Verkostungsnotizen & Speisenempfehlung</h2>
-        <p>Schwarze Kirschnoten, Blackberry und eine würzige Note. Firma Tannine, ausgeglichen. Perfekt mit argentinischen Braten oder Pasta mit intensiven Saucen. Chacabuco Malbec von Los Haroldos</p>
-      </div>
-
-      
-    </div>
-  </div>
-
-  <!-- OTROS VINOS DE LA MISMA BODEGA -->
-  
-  <h3 style="color: var(--primary); margin-top: 50px;">Weitere Weine von Los Haroldos</h3>
-  <div class="grid">
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/oro-negro-malbec-2024.jpg" alt="Oro Negro Malbec 2024 2024">
-      <h4>Oro Negro Malbec 2024</h4>
-      <p>€6.74</p>
-      <a href="/de/vinos/oro-negro-malbec-2024.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Los Haroldos</p>
+  <!-- CONTENIDO -->
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/chacabuco-malbec-2024.jpg" alt="Chacabuco Malbec 2024 2024">
+      <div class="info">
+        <h1>Chacabuco Malbec 2024</h1>
+        <p><strong>Winery:</strong> Los Haroldos</p>
         <p><strong>Region:</strong> Valle norte</p>
-        <p><strong>Höhe:</strong> 750.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
-      <h4>Los Haroldos Estate Malbec 2022</h4>
-      <p>€11.90</p>
-      <a href="/de/vinos/los-haroldos-estate-malbec-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Los Haroldos</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 1000.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/los-haroldos-reserve-malbec-2021.jpg" alt="Los Haroldos Reserve Malbec 2021 2021">
-      <h4>Los Haroldos Reserve Malbec 2021</h4>
-      <p>€17.90</p>
-      <a href="/de/vinos/los-haroldos-reserve-malbec-2021.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Los Haroldos</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 1000.0</p>
-        <p><strong>Alkohol:</strong> 13.8%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/los-haroldos-gran-corte-blend-2020.jpg" alt="Los Haroldos Gran Corte Blend 2020 2020">
-      <h4>Los Haroldos Gran Corte Blend 2020</h4>
-      <p>€27.50</p>
-      <a href="/de/vinos/los-haroldos-gran-corte-blend-2020.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Los Haroldos</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
-  </div>
-  
+        <p><strong>Altitude:</strong> 750.0 masl</p>
+        <p><strong>Price:</strong> €7.90 / Flasche (0.75 L)</p>
+        <p><strong>Volume:</strong> 750 ml</p>
+        <p><strong>Price per liter:</strong> €10.53 / L</p>
+        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Acidity:</strong> 5.9 g/L</p>
+        
+        
 
-  <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-  
-  <div class="region-section">
-    <h3 style="color: var(--primary);">Weitere Weine aus Valle norte</h3>
+        <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Chacabuco%20Malbec%202024%202024" 
+           class="buy-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </a>
+
+        <div class="shipping">
+          <strong>Shipping cost: EUR 6.49.</strong><br>
+          Free shipping on orders of 12 bottles or more. • 
+          <a href="/de/faq.html" target="_blank">+info</a><br>
+          <small><b>Sale to minors under 18 prohibited. ID check upon delivery.</b></small>
+        </div>
+
+        <div class="section">
+          <h2>Description</h2>
+          <p>Expressives Malbec in großer Höhe mit Frucht und strukturiertem Profil, eine Reflexion des Mendoza Terroir. Chacabuco Malbec von Los Haroldos</p>
+        </div>
+
+        <div class="section">
+          <h2>Tasting notes & pairing</h2>
+          <p></p>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <!-- VINOS SIMILARES -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Los Haroldos</h3>
     <div class="grid">
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/hermandad-blend-2021.jpg" alt="Hermandad Blend 2021 2021">
-        <h4>Hermandad Blend 2021</h4>
-        <p>€37.60</p>
-        <a href="/de/vinos/hermandad-blend-2021.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/oro-negro-malbec-2024.jpg" alt="Oro Negro Malbec 2024 2024">
+        <h4>Oro Negro Malbec 2024</h4>
+        <p>€6.74</p>
+        <a href="/de/vinos/oro-negro-malbec-2024.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Falasco Wines</p>
+          <p><strong>Winery:</strong> Los Haroldos</p>
           <p><strong>Region:</strong> Valle norte</p>
-          <p><strong>Höhe:</strong> 750.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 750.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
+        <h4>Los Haroldos Estate Malbec 2022</h4>
+        <p>€11.90</p>
+        <a href="/de/vinos/los-haroldos-estate-malbec-2022.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Los Haroldos</p>
+          <p><strong>Region:</strong> Valle de uco</p>
+          <p><strong>Altitude:</strong> 1000.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/los-haroldos-reserve-malbec-2021.jpg" alt="Los Haroldos Reserve Malbec 2021 2021">
+        <h4>Los Haroldos Reserve Malbec 2021</h4>
+        <p>€17.90</p>
+        <a href="/de/vinos/los-haroldos-reserve-malbec-2021.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Los Haroldos</p>
+          <p><strong>Region:</strong> Valle de uco</p>
+          <p><strong>Altitude:</strong> 1000.0</p>
+          <p><strong>Alcohol:</strong> 13.8%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/los-haroldos-gran-corte-blend-2020.jpg" alt="Los Haroldos Gran Corte Blend 2020 2020">
+        <h4>Los Haroldos Gran Corte Blend 2020</h4>
+        <p>€27.50</p>
+        <a href="/de/vinos/los-haroldos-gran-corte-blend-2020.html">Buy</a>
+        <div class="overlay">
+          <p><strong>Winery:</strong> Los Haroldos</p>
+          <p><strong>Region:</strong> Valle de uco</p>
+          <p><strong>Altitude:</strong> 1100.0</p>
+          <p><strong>Alcohol:</strong> 13.5%</p>
         </div>
       </div>
       
     </div>
+    
+
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">More wines from Valle norte</h3>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/hermandad-blend-2021.jpg" alt="Hermandad Blend 2021 2021">
+          <h4>Hermandad Blend 2021</h4>
+          <p>€37.60</p>
+          <a href="/de/vinos/hermandad-blend-2021.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Falasco Wines</p>
+            <p><strong>Region:</strong> Valle norte</p>
+            <p><strong>Altitude:</strong> 750.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
   </div>
-  
-</div>
+
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 
 </body>
 </html>

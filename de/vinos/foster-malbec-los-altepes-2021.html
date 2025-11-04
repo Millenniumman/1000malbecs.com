@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://www.1000malbecs.com/de/vinos/foster-malbec-los-altepes-2021.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
-  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale" content="de_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Foster Malbec 'Los Altepes' 2021">
   <meta name="twitter:description" content="Foster - Malbec 'Los Altepes' ist ein Grundstückwein von Enrique Foster aus ausgewählten Weinbergen in den Bäumen, Uco Valley, Mendoza. Mit einer längeren Zucht">
@@ -530,262 +530,314 @@ body {
     padding-top: 0 !important;
   }
 }
+/* OCULTAR SIDEBAR EN DESKTOP (solo mostrar en móvil) */
+@media (min-width: 768px) {
+  #sidebar {
+    display: none !important;
+  }
+  .container {
+    margin-left: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER MOBILE -->
-<header class="mobile-header">
-  <button class="hamburger" aria-label="Menü" aria-expanded="false">
-    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-    </svg>
-  </button>
-  <a href="/de/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
-</header>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <header class="header">
-    <a href="/de/" title="1000 Malbecs">
-      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/de/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
-  <div class="lang-selector-desktop">
-    <a href="/es/vinos/foster-malbec-los-altepes-2021.html" >ES</a>
-    <a href="/en/vinos/foster-malbec-los-altepes-2021.html" >EN</a>
+
+  <!-- SIDEBAR (MENÚ DESPLEGABLE) -->
+  <div id="sidebar">
+    <div class="logo-container">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </div>
+    <h2>Categories</h2>
+    <ul>
+      <li><a href="/de/" class="nav-link">Home</a></li>
+      <li><a href="/de/vinos/" class="nav-link active">Wines</a></li>
+      <li><a href="/de/faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="/de/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <h2>Regions</h2>
+    <ul>
+      <li><a href="/de/vinos/?region=Mendoza" class="nav-link">Mendoza</a></li>
+      <li><a href="/de/vinos/?region=Salta" class="nav-link">Salta</a></li>
+      <li><a href="/de/vinos/?region=Patagonia" class="nav-link">Patagonia</a></li>
+    </ul>
+  </div>
+
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/de/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/foster-malbec-los-altepes-2021.html">ES</a>
+      
+      <a href="/en/vinos/foster-malbec-los-altepes-2021.html">EN</a>
+      
+      
+      <a href="/de/vinos/foster-malbec-los-altepes-2021.html" class="active">DE</a>
+      
+    </div>
+  </div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/foster-malbec-los-altepes-2021.html">ES</a>
+    <a href="/en/vinos/foster-malbec-los-altepes-2021.html">EN</a>
     <a href="/de/vinos/foster-malbec-los-altepes-2021.html" class="active">DE</a>
   </div>
-</div>
 
-<div class="lang-selector-mobile">
-  <a href="/es/vinos/foster-malbec-los-altepes-2021.html" >ES</a>
-  <a href="/en/vinos/foster-malbec-los-altepes-2021.html" >EN</a>
-  <a href="/de/vinos/foster-malbec-los-altepes-2021.html" class="active">DE</a>
-</div>
-
-<div class="container">
-  <div class="product">
-    <img src="https://www.1000malbecs.com/images/large/foster-malbec-los-altepes-2021.jpg" alt="Foster Malbec 'Los Altepes' 2021 2021">
-    <div class="info">
-      <h1>Foster Malbec 'Los Altepes' 2021</h1>
-      <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-      <p><strong>Region:</strong> Valle de uco</p>
-      <p><strong>Höhe:</strong> 1250.0 m.ü.M.</p>
-      <p><strong>Preis:</strong> €25.49 / Flasche (0.75 L)</p>
-      <p><strong>Volumen:</strong> 750 ml</p>
-      <p><strong>Preis pro Liter:</strong> €33.99 / L</p>
-      <p><strong>Alkohol:</strong> 14.5%</p>
-      <p><strong>Säure:</strong> 6.2 g/L</p>
-      
-      
-
-      <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Foster%20Malbec%20%27Los%20Altepes%27%202021%202021" 
-         class="buy-btn" target="_blank">
-        Jetzt per WhatsApp bestellen
-      </a>
-
-      <div class="shipping">
-        <strong>Versandkosten: 6,49 €.</strong><br>
-        Ab 12 Flaschen versandkostenfrei. • 
-        <a href="/de/faq.html" target="_blank">+Info</a><br>
-        <small><b>Verkauf an Minderjährige unter 18 Jahren verboten. Ausweiskontrolle bei Lieferung.</b></small>
-      </div>
-
-      <div class="section">
-        <h2>Beschreibung</h2>
-        <p>Foster - Malbec 'Los Altepes' ist ein Grundstückwein von Enrique Foster aus ausgewählten Weinbergen in den Bäumen, Uco Valley, Mendoza. Mit einer längeren Zucht in französischer Eiche bietet dieser Malbec Komplexität und Tiefe, ideal zum Jagd auf Fleisch, Eintöpfe oder reife Käse. Der Jahrgang von 2021 hat ein 8-10-jähriges Wachpotential. Foster  Malbec 'Los Altepes' von Bodega Foster Lorca</p>
-      </div>
-
-      <div class="section">
-        <h2>Verkostungsnotizen & Speisenempfehlung</h2>
-        <p>Tiefrote Farbe mit violetten Farbstoffen. Intensive Nase, wo Pfeffer -Berührungen mit
-Rote Früchte lang und anhaltendes Finale.
-Es ist die ideale Ergänzung zu Pasten und rotem Fleisch. Foster  Malbec 'Los Altepes' von Bodega Foster Lorca</p>
-      </div>
-
-      
-    </div>
-  </div>
-
-  <!-- OTROS VINOS DE LA MISMA BODEGA -->
-  
-  <h3 style="color: var(--primary); margin-top: 50px;">Weitere Weine von Bodega Foster Lorca</h3>
-  <div class="grid">
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023 2023">
-      <h4>Temático Malbec 2023</h4>
-      <p>€9.99</p>
-      <a href="/de/vinos/tematico-malbec-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
+  <!-- CONTENIDO -->
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/foster-malbec-los-altepes-2021.jpg" alt="Foster Malbec 'Los Altepes' 2021 2021">
+      <div class="info">
+        <h1>Foster Malbec 'Los Altepes' 2021</h1>
+        <p><strong>Winery:</strong> Bodega Foster Lorca</p>
         <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021 2021">
-      <h4>Ique Malbec 2021</h4>
-      <p>€13.49</p>
-      <a href="/de/vinos/ique-malbec-2021.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 950.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/pink-malbec-rosado-2023.jpg" alt="Pink Malbec Rosado 2023 2023">
-      <h4>Pink Malbec Rosado 2023</h4>
-      <p>€13.49</p>
-      <a href="/de/vinos/pink-malbec-rosado-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 950.0</p>
-        <p><strong>Alkohol:</strong> 12.5%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/fantasia-malbec-2023.jpg" alt="Fantasía Malbec 2023 2023">
-      <h4>Fantasía Malbec 2023</h4>
-      <p>€13.99</p>
-      <a href="/de/vinos/fantasia-malbec-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/zapam-zucum-organic-malbec-2022.jpg" alt="Zapam Zucum Organic Malbec 2022 2022">
-      <h4>Zapam Zucum Organic Malbec 2022</h4>
-      <p>€13.99</p>
-      <a href="/de/vinos/zapam-zucum-organic-malbec-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/lois-sparkling-malbec-2021.jpg" alt="Lois Sparkling Malbec 2021 2021">
-      <h4>Lois Sparkling Malbec 2021</h4>
-      <p>€19.49</p>
-      <a href="/de/vinos/lois-sparkling-malbec-2021.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Bodega Foster Lorca</p>
-        <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Höhe:</strong> 950.0</p>
-        <p><strong>Alkohol:</strong> 12.0%</p>
-      </div>
-    </div>
-    
-  </div>
-  
+        <p><strong>Altitude:</strong> 1250.0 masl</p>
+        <p><strong>Price:</strong> €25.49 / Flasche (0.75 L)</p>
+        <p><strong>Volume:</strong> 750 ml</p>
+        <p><strong>Price per liter:</strong> €33.99 / L</p>
+        <p><strong>Alcohol:</strong> 14.5%</p>
+        <p><strong>Acidity:</strong> 6.2 g/L</p>
+        
+        
 
-  <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-  
-  <div class="region-section">
-    <h3 style="color: var(--primary);">Weitere Weine aus Valle de uco</h3>
+        <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Foster%20Malbec%20%27Los%20Altepes%27%202021%202021" 
+           class="buy-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </a>
+
+        <div class="shipping">
+          <strong>Shipping cost: EUR 6.49.</strong><br>
+          Free shipping on orders of 12 bottles or more. • 
+          <a href="/de/faq.html" target="_blank">+info</a><br>
+          <small><b>Sale to minors under 18 prohibited. ID check upon delivery.</b></small>
+        </div>
+
+        <div class="section">
+          <h2>Description</h2>
+          <p>Foster - Malbec 'Los Altepes' ist ein Grundstückwein von Enrique Foster aus ausgewählten Weinbergen in den Bäumen, Uco Valley, Mendoza. Mit einer längeren Zucht in französischer Eiche bietet dieser Malbec Komplexität und Tiefe, ideal zum Jagd auf Fleisch, Eintöpfe oder reife Käse. Der Jahrgang von 2021 hat ein 8-10-jähriges Wachpotential. Foster  Malbec 'Los Altepes' von Bodega Foster Lorca</p>
+        </div>
+
+        <div class="section">
+          <h2>Tasting notes & pairing</h2>
+          <p></p>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <!-- VINOS SIMILARES -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Bodega Foster Lorca</h3>
     <div class="grid">
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
-        <h4>Trumpeter Malbec 375 ml 2023</h4>
-        <p>€9.96</p>
-        <a href="/de/vinos/trumpeter-malbec-375-ml-2023.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023 2023">
+        <h4>Temático Malbec 2023</h4>
+        <p>€9.99</p>
+        <a href="/de/vinos/tematico-malbec-2023.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Rutini Wines</p>
+          <p><strong>Winery:</strong> Bodega Foster Lorca</p>
           <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Höhe:</strong> 1000.0</p>
-          <p><strong>Alkohol:</strong> 13.0%</p>
+          <p><strong>Altitude:</strong> 1100.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024 2024">
-        <h4>Alamos Malbec 2024</h4>
-        <p>€10.97</p>
-        <a href="/de/vinos/alamos-malbec-2024.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021 2021">
+        <h4>Ique Malbec 2021</h4>
+        <p>€13.49</p>
+        <a href="/de/vinos/ique-malbec-2021.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Alamos</p>
+          <p><strong>Winery:</strong> Bodega Foster Lorca</p>
           <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Höhe:</strong> 1250.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 950.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
-        <h4>Los Haroldos Estate Malbec 2022</h4>
-        <p>€11.90</p>
-        <a href="/de/vinos/los-haroldos-estate-malbec-2022.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/pink-malbec-rosado-2023.jpg" alt="Pink Malbec Rosado 2023 2023">
+        <h4>Pink Malbec Rosado 2023</h4>
+        <p>€13.49</p>
+        <a href="/de/vinos/pink-malbec-rosado-2023.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Los Haroldos</p>
+          <p><strong>Winery:</strong> Bodega Foster Lorca</p>
           <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Höhe:</strong> 1000.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 950.0</p>
+          <p><strong>Alcohol:</strong> 12.5%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
-        <h4>Trapiche Reserve Malbec 2023</h4>
-        <p>€13.20</p>
-        <a href="/de/vinos/trapiche-reserve-malbec-2023.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/fantasia-malbec-2023.jpg" alt="Fantasía Malbec 2023 2023">
+        <h4>Fantasía Malbec 2023</h4>
+        <p>€13.99</p>
+        <a href="/de/vinos/fantasia-malbec-2023.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Trapiche</p>
+          <p><strong>Winery:</strong> Bodega Foster Lorca</p>
           <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Höhe:</strong> 1000.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 1100.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/malbec-argentino-2023.jpg" alt="Malbec Argentino 2023 2023">
-        <h4>Malbec Argentino 2023</h4>
-        <p>€15.76</p>
-        <a href="/de/vinos/malbec-argentino-2023.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/zapam-zucum-organic-malbec-2022.jpg" alt="Zapam Zucum Organic Malbec 2022 2022">
+        <h4>Zapam Zucum Organic Malbec 2022</h4>
+        <p>€13.99</p>
+        <a href="/de/vinos/zapam-zucum-organic-malbec-2022.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Bodegas Caro</p>
+          <p><strong>Winery:</strong> Bodega Foster Lorca</p>
           <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Höhe:</strong> 1200.0</p>
-          <p><strong>Alkohol:</strong> 14.0%</p>
+          <p><strong>Altitude:</strong> 1100.0</p>
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/aruma-malbec-2023.jpg" alt="Aruma Malbec 2023 2023">
-        <h4>Aruma Malbec 2023</h4>
-        <p>€15.76</p>
-        <a href="/de/vinos/aruma-malbec-2023.html">Kaufen</a>
+        <img src="https://www.1000malbecs.com/images/small/lois-sparkling-malbec-2021.jpg" alt="Lois Sparkling Malbec 2021 2021">
+        <h4>Lois Sparkling Malbec 2021</h4>
+        <p>€19.49</p>
+        <a href="/de/vinos/lois-sparkling-malbec-2021.html">Buy</a>
         <div class="overlay">
-          <p><strong>Weingut:</strong> Bodegas Caro</p>
+          <p><strong>Winery:</strong> Bodega Foster Lorca</p>
           <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Höhe:</strong> 1200.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+          <p><strong>Altitude:</strong> 950.0</p>
+          <p><strong>Alcohol:</strong> 12.0%</p>
         </div>
       </div>
       
     </div>
+    
+
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">More wines from Valle de uco</h3>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
+          <h4>Trumpeter Malbec 375 ml 2023</h4>
+          <p>€9.96</p>
+          <a href="/de/vinos/trumpeter-malbec-375-ml-2023.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Rutini Wines</p>
+            <p><strong>Region:</strong> Valle de uco</p>
+            <p><strong>Altitude:</strong> 1000.0</p>
+            <p><strong>Alcohol:</strong> 13.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024 2024">
+          <h4>Alamos Malbec 2024</h4>
+          <p>€10.97</p>
+          <a href="/de/vinos/alamos-malbec-2024.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Alamos</p>
+            <p><strong>Region:</strong> Valle de uco</p>
+            <p><strong>Altitude:</strong> 1250.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
+          <h4>Los Haroldos Estate Malbec 2022</h4>
+          <p>€11.90</p>
+          <a href="/de/vinos/los-haroldos-estate-malbec-2022.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Los Haroldos</p>
+            <p><strong>Region:</strong> Valle de uco</p>
+            <p><strong>Altitude:</strong> 1000.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
+          <h4>Trapiche Reserve Malbec 2023</h4>
+          <p>€13.20</p>
+          <a href="/de/vinos/trapiche-reserve-malbec-2023.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Trapiche</p>
+            <p><strong>Region:</strong> Valle de uco</p>
+            <p><strong>Altitude:</strong> 1000.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/malbec-argentino-2023.jpg" alt="Malbec Argentino 2023 2023">
+          <h4>Malbec Argentino 2023</h4>
+          <p>€15.76</p>
+          <a href="/de/vinos/malbec-argentino-2023.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Bodegas Caro</p>
+            <p><strong>Region:</strong> Valle de uco</p>
+            <p><strong>Altitude:</strong> 1200.0</p>
+            <p><strong>Alcohol:</strong> 14.0%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/aruma-malbec-2023.jpg" alt="Aruma Malbec 2023 2023">
+          <h4>Aruma Malbec 2023</h4>
+          <p>€15.76</p>
+          <a href="/de/vinos/aruma-malbec-2023.html">Buy</a>
+          <div class="overlay">
+            <p><strong>Winery:</strong> Bodegas Caro</p>
+            <p><strong>Region:</strong> Valle de uco</p>
+            <p><strong>Altitude:</strong> 1200.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
   </div>
-  
-</div>
+
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 
 </body>
 </html>
