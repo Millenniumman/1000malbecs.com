@@ -44,7 +44,8 @@ export default {
           info_list: {
             about_us: "About us",
             faq: "FAQ",
-            impressum: "Impressum"
+            impressum: "Impressum",
+            agb: "AGB"
           }
         },
         footer: {
@@ -80,7 +81,8 @@ export default {
           info_list: {
             about_us: "About us",
             faq: "FAQ",
-            impressum: "Impressum"
+            impressum: "Impressum",
+            agb: "AGB"
           }
         },
         footer: {
@@ -116,7 +118,8 @@ export default {
           info_list: {
             about_us: "About us",
             faq: "FAQ",
-            impressum: "Impressum"
+            impressum: "Impressum",
+            agb: "AGB"
           }
         },
         footer: {
@@ -224,6 +227,7 @@ export default {
       { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
       { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
       { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum }
+       { href: `/agb.html`, text: translations[lang].navbar.info_list.agb }
     ].map((link) => {
       const isActive = path === `/${lang}${link.href}` ? " active" : "";
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
