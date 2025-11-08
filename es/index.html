@@ -43,7 +43,7 @@
         .banner-item { flex: 0 0 100%; width: 100%; height: 300px; background-color: #f8f8f8; }
         .banner-item img { width: 100%; height: 100%; object-fit: contain; border-radius: 5px; display: block; }
         .banner-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
-        .banner-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
+        .banner-nav button { background: rgba(74, , 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
         .banner-nav button:hover { background: #4A2C59; }
         @media (min-width: 769px) { .banner-carousel { margin-top: 50px; } }
         @media (max-width: 768px) {
@@ -81,7 +81,9 @@
         .recent-item:hover .overlay { display: block; }
         .recent-item .overlay.active { display: block !important; }
         .recent-item h3 { font-size: 16px; margin: 10px 0; color: #4A2C59; min-height: 40px; overflow: hidden; text-overflow: ellipsis; white-space: normal; text-align: center; width: 100%; }
-        .recent-item .price { font-size: 16px; color: #4A2C59; margin: 10px 0; position: relative; z-index: 7; text-align: center; width: 100%; }
+        .price { font-size: 18px; font-weight: bold; color: #4A2C59; margin: 8px 0 2px; text-align: center; }
+        .shipping-note { font-size: 11px; color: #666; margin: 0; font-style: italic; text-align: center; }
+        .price-per-liter { font-size: 11px; color: #4A2C59; margin: 2px 0 0; font-weight: 500; text-align: center; }
         .recent-item .buy-button { padding: 8px 16px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; position: relative; z-index: 7; text-align: center; background-color: #4A2C59; color: #f5e6ff; text-decoration: none; border-radius: 5px; pointer-events: auto; width: 100%; max-width: 180px; display: block; }
         .recent-item .buy-button:hover { background-color: #5A1D39; }
         .recent-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
@@ -104,7 +106,6 @@
         .product-card:hover .overlay { display: block; }
         .product-card .overlay.active { display: block !important; }
         .product-card h3 { font-size: 16px; margin: 10px 0; color: #4A2C59; min-height: 40px; overflow: hidden; text-overflow: ellipsis; white-space: normal; text-align: center; width: 100%; }
-        .product-card .price { font-size: 16px; color: #4A2C59; margin: 10px 0; position: relative; z-index: 7; text-align: center; width: 100%; }
         .product-card .buy-button { padding: 8px 16px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; position: relative; z-index: 7; text-align: center; background-color: #4A2C59; color: #f5e6ff; text-decoration: none; border-radius: 5px; pointer-events: auto; width: 100%; max-width: 180px; display: block; }
         .product-card .buy-button:hover { background-color: #5A1D39; }
         .twitter-box { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #E0E0E0; border-radius: 5px; font-family: 'Montserrat', sans-serif; text-align: center; }
@@ -141,7 +142,8 @@
             .recent-item { flex: 0 0 140px; max-width: 140px; margin-right: 15px; min-height: 260px; padding: 10px; }
             .recent-item img { width: 140px; height: 140px; margin: 0 auto; }
             .recent-item h3 { font-size: 14px; min-height: 36px; margin: 5px 0; text-align: center; width: 100%; }
-            .recent-item .price { font-size: 14px; margin: 5px 0; text-align: center; width: 100%; }
+            .price { font-size: 14px; margin: 5px 0; }
+            .shipping-note, .price-per-liter { font-size: 10px; }
             .recent-item .buy-button { padding: 6px 12px; font-size: 12px; margin-top: 5px; margin-bottom: 5px; width: 100%; max-width: 140px; }
             .recent-item .info-icon { display: block !important; pointer-events: auto; z-index: 10; }
             .recent-item .overlay { max-height: 150px; pointer-events: auto; width: 100%; box-sizing: border-box; top: 0; padding: 40px 10px 10px 10px; display: none; z-index: 6; }
@@ -187,21 +189,21 @@
 </head>
 <body>
 <div class="language-selector">
-    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES 🇪🇸</a>
-    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
-    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN 🇬🇧</a>
+    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES Spanish Flag</a>
+    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE German Flag</a>
+    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN UK Flag</a>
 </div>
 <header class="header">
     <a href="/es/" title="Volver a la página principal">
         <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
     </a>
 </header>
-<button class="hamburger">☰</button>
+<button class="hamburger">Menu</button>
 <main>
     <div class="banner-carousel">
         <div class="banner-container">
             <div class="banner-item">
-                <a href="/es/ofertas.html" title="Explorar eventos">
+                <a href="/es/eventos/eventos.html" title="Explorar eventos">
                     <picture>
                         <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-es.jpg"/>
                         <img src="/images/banners/banner-1-es.jpg" alt="Eventos de 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
@@ -226,8 +228,8 @@
             </div>
         </div>
         <div class="banner-nav">
-            <button onclick="moveBanner(-1)">❮</button>
-            <button onclick="moveBanner(1)">❯</button>
+            <button onclick="moveBanner(-1)">Left</button>
+            <button onclick="moveBanner(1)">Right</button>
         </div>
     </div>
     <div class="search-container">
@@ -238,146 +240,9 @@
     <h3 class="section-title">Vinos Destacados</h3>
     <div class="product-grid">
         
-            <div class="product-card" data-overlay-id="tomero-single-vineyard-malbec-2021">
-                <img src="/images/small/tomero-single-vineyard-malbec-2021.jpg" alt="Botella de Tomero Single Vineyard Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="tomero-single-vineyard-malbec-2021">🍷</div>
-                <div class="overlay" data-overlay-id="tomero-single-vineyard-malbec-2021">
-                    
-                <p><strong>Bodega:</strong> Finca y Bodega Vistalba</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Año:</strong> 2021</p>
-                </div>
-                <h3>Tomero Single Vineyard Malbec</h3>
-                <p class="price">24.49</p>
-                <a class="buy-button" href="/es/vinos/tomero-single-vineyard-malbec-2021.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="trumpeter-espumante-rose-de-malbec-2022">
-                <img src="/images/small/trumpeter-espumante-rose-de-malbec-2022.jpg" alt="Botella de Trumpeter Espumante Rose de Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="trumpeter-espumante-rose-de-malbec-2022">🍷</div>
-                <div class="overlay" data-overlay-id="trumpeter-espumante-rose-de-malbec-2022">
-                    
-                <p><strong>Bodega:</strong> Rutini Wines</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Año:</strong> 2022</p>
-                </div>
-                <h3>Trumpeter Espumante Rose de Malbec</h3>
-                <p class="price">22.22</p>
-                <a class="buy-button" href="/es/vinos/trumpeter-espumante-rose-de-malbec-2022.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="cicchitti-blend-2016">
-                <img src="/images/small/cicchitti-blend-2016.jpg" alt="Botella de CICCHITTI Blend" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="cicchitti-blend-2016">🍷</div>
-                <div class="overlay" data-overlay-id="cicchitti-blend-2016">
-                    
-                <p><strong>Bodega:</strong> Cicchitti</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Año:</strong> 2016</p><p><strong>Premios:</strong> 90 pts Wine Advocate 2016</p>
-                </div>
-                <h3>CICCHITTI Blend</h3>
-                <p class="price">19.99</p>
-                <a class="buy-button" href="/es/vinos/cicchitti-blend-2016.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="tukma-malbec-2019">
-                <img src="/images/small/tukma-malbec-2019.jpg" alt="Botella de Tukma Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="tukma-malbec-2019">🍷</div>
-                <div class="overlay" data-overlay-id="tukma-malbec-2019">
-                    
-                <p><strong>Bodega:</strong> Bodega Tukma</p>
-                <p><strong>Provincia:</strong> Salta</p>
-                <p><strong>Región:</strong> Valle de Calchaquí</p>
-            <p><strong>Año:</strong> 2019</p><p><strong>Guarda:</strong> 5  años</p>
-                </div>
-                <h3>Tukma Malbec</h3>
-                <p class="price">19.29</p>
-                <a class="buy-button" href="/es/vinos/tukma-malbec-2019.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
-                <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Botella de Caminante de los Mundos Malbec Bio" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">🍷</div>
-                <div class="overlay" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
-                    
-                <p><strong>Bodega:</strong> Jasmine Monet</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Tupungato</p>
-            <p><strong>Año:</strong> 2021</p>
-                </div>
-                <h3>Caminante de los Mundos Malbec Bio</h3>
-                <p class="price">18.19</p>
-                <a class="buy-button" href="/es/vinos/caminante-de-los-mundos-malbec-bio-2021.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="la-mascota-malbec-2022">
-                <img src="/images/small/la-mascota-malbec-2022.jpg" alt="Botella de La Mascota Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="la-mascota-malbec-2022">🍷</div>
-                <div class="overlay" data-overlay-id="la-mascota-malbec-2022">
-                    
-                <p><strong>Bodega:</strong> Mascota Vineyards</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Maipú</p>
-            <p><strong>Año:</strong> 2022</p>
-                </div>
-                <h3>La Mascota Malbec</h3>
-                <p class="price">17.54</p>
-                <a class="buy-button" href="/es/vinos/la-mascota-malbec-2022.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="finca-las-nubes-malbec-2023">
-                <img src="/images/small/finca-las-nubes-malbec-2023.jpg" alt="Botella de Finca Las Nubes Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="finca-las-nubes-malbec-2023">🍷</div>
-                <div class="overlay" data-overlay-id="finca-las-nubes-malbec-2023">
-                    
-                <p><strong>Bodega:</strong> Finca Las Nubes</p>
-                <p><strong>Provincia:</strong> Salta</p>
-                <p><strong>Región:</strong> Valles Calchaquíes </p>
-            <p><strong>Año:</strong> 2023</p><p><strong>Guarda:</strong> 5 años</p>
-                </div>
-                <h3>Finca Las Nubes Malbec</h3>
-                <p class="price">14.72</p>
-                <a class="buy-button" href="/es/vinos/finca-las-nubes-malbec-2023.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="graciano-reserva-blend-2023">
-                <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Botella de Graciano Reserva Blend" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="graciano-reserva-blend-2023">🍷</div>
-                <div class="overlay" data-overlay-id="graciano-reserva-blend-2023">
-                    
-                <p><strong>Bodega:</strong> Casa Araujo</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> San Rafael</p>
-            <p><strong>Año:</strong> 2023</p>
-                </div>
-                <h3>Graciano Reserva Blend</h3>
-                <p class="price">13.59</p>
-                <a class="buy-button" href="/es/vinos/graciano-reserva-blend-2023.html">Comprar Ahora</a>
-            </div>
-            
-    </div>
-    <h3 class="section-title">Recientemente Agregados</h3><div class="recently-added-carousel"><div class="recent-container" data-item-count="6">
-            <div class="product-card recent-item" data-overlay-id="san-telmo-malbec-2024">
-                <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="san-telmo-malbec-2024">🍷</div>
-                <div class="overlay" data-overlay-id="san-telmo-malbec-2024">
-                    
-                <p><strong>Bodega:</strong> San Telmo</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Año:</strong> 2024</p>
-                </div>
-                <h3>San Telmo Malbec</h3>
-                <p class="price">8.16</p>
-                <a class="buy-button" href="/es/vinos/san-telmo-malbec-2024.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card recent-item" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">
-                <img src="/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Botella de Adrianna Vineyard Mundus Bacillus Terrae Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">🍷</div>
+            <div class="product-card" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">
+                <img src="/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Botella de Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">Info</div>
                 <div class="overlay" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">
                     
                 <p><strong>Bodega:</strong> Catena Zapata</p>
@@ -385,14 +250,14 @@
                 <p><strong>Región:</strong> Valle de Uco</p>
             <p><strong>Año:</strong> 2020</p><p><strong>Premios:</strong> 99 pts James Suckling</p><p><strong>Guarda:</strong> 15 años</p>
                 </div>
-                <h3>Adrianna Vineyard Mundus Bacillus Terrae Malbec</h3>
-                <p class="price">371.51</p>
+                <h3>Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020</h3>
+                <p class="price"><strong>€ 371,51</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 495,35/L)</p>
                 <a class="buy-button" href="/es/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.html">Comprar Ahora</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="kaiken-boulder-red-blend-2021">
-                <img src="/images/small/kaiken-boulder-red-blend-2021.jpg" alt="Botella de Kaiken Boulder Red Blend" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="kaiken-boulder-red-blend-2021">🍷</div>
+            <div class="product-card" data-overlay-id="kaiken-boulder-red-blend-2021">
+                <img src="/images/small/kaiken-boulder-red-blend-2021.jpg" alt="Botella de Kaiken Boulder Red Blend 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="kaiken-boulder-red-blend-2021">Info</div>
                 <div class="overlay" data-overlay-id="kaiken-boulder-red-blend-2021">
                     
                 <p><strong>Bodega:</strong> Kaiken</p>
@@ -400,14 +265,14 @@
                 <p><strong>Región:</strong> Valle de Uco</p>
             <p><strong>Año:</strong> 2021</p><p><strong>Guarda:</strong> 30 años</p>
                 </div>
-                <h3>Kaiken Boulder Red Blend</h3>
-                <p class="price">258.14</p>
+                <h3>Kaiken Boulder Red Blend 2021</h3>
+                <p class="price"><strong>€ 258,14</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 344,19/L)</p>
                 <a class="buy-button" href="/es/vinos/kaiken-boulder-red-blend-2021.html">Comprar Ahora</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="noemia-malbec-2020">
-                <img src="/images/small/noemia-malbec-2020.jpg" alt="Botella de Noemía Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="noemia-malbec-2020">🍷</div>
+            <div class="product-card" data-overlay-id="noemia-malbec-2020">
+                <img src="/images/small/noemia-malbec-2020.jpg" alt="Botella de Noemía Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="noemia-malbec-2020">Info</div>
                 <div class="overlay" data-overlay-id="noemia-malbec-2020">
                     
                 <p><strong>Bodega:</strong> Bodega Noemía Patagonia</p>
@@ -415,14 +280,29 @@
                 <p><strong>Región:</strong> Mainqué</p>
             <p><strong>Año:</strong> 2020</p><p><strong>Guarda:</strong> 15 años</p>
                 </div>
-                <h3>Noemía Malbec</h3>
-                <p class="price">190.82</p>
+                <h3>Noemía Malbec 2020</h3>
+                <p class="price"><strong>€ 190,82</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 254,43/L)</p>
                 <a class="buy-button" href="/es/vinos/noemia-malbec-2020.html">Comprar Ahora</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="felipe-rutini-2017">
-                <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="felipe-rutini-2017">🍷</div>
+            <div class="product-card" data-overlay-id="rutini-coleccin-malbec-2020">
+                <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Botella de Rutini Colección Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="rutini-coleccin-malbec-2020">Info</div>
+                <div class="overlay" data-overlay-id="rutini-coleccin-malbec-2020">
+                    
+                <p><strong>Bodega:</strong> Rutini Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2020</p>
+                </div>
+                <h3>Rutini Colección Malbec 2020</h3>
+                <p class="price"><strong>€ 169,04</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 225,39/L)</p>
+                <a class="buy-button" href="/es/vinos/rutini-coleccion-malbec-2020/vinos/rutini-coleccin-malbec-2020.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="felipe-rutini-2017">
+                <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="felipe-rutini-2017">Info</div>
                 <div class="overlay" data-overlay-id="felipe-rutini-2017">
                     
                 <p><strong>Bodega:</strong> Rutini Wines</p>
@@ -430,14 +310,14 @@
                 <p><strong>Región:</strong> Gualtallary, Valle de Uco</p>
             <p><strong>Año:</strong> 2017</p><p><strong>Guarda:</strong> 20 años</p>
                 </div>
-                <h3>Felipe Rutini</h3>
-                <p class="price">168.99</p>
+                <h3>Felipe Rutini 2017</h3>
+                <p class="price"><strong>€ 168,99</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 225,32/L)</p>
                 <a class="buy-button" href="/es/vinos/felipe-rutini-2017.html">Comprar Ahora</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="nicolas-catena-zapata-malbec-2020">
-                <img src="/images/small/nicolas-catena-zapata-malbec-2020.jpg" alt="Botella de Nicolas Catena Zapata" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="nicolas-catena-zapata-malbec-2020">🍷</div>
+            <div class="product-card" data-overlay-id="nicolas-catena-zapata-malbec-2020">
+                <img src="/images/small/nicolas-catena-zapata-malbec-2020.jpg" alt="Botella de Nicolas Catena Zapata 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="nicolas-catena-zapata-malbec-2020">Info</div>
                 <div class="overlay" data-overlay-id="nicolas-catena-zapata-malbec-2020">
                     
                 <p><strong>Bodega:</strong> Catena Zapata</p>
@@ -445,11 +325,133 @@
                 <p><strong>Región:</strong> Valle de Uco</p>
             <p><strong>Año:</strong> 2020</p>
                 </div>
-                <h3>Nicolas Catena Zapata</h3>
-                <p class="price">139.76</p>
+                <h3>Nicolas Catena Zapata 2020</h3>
+                <p class="price"><strong>€ 139,76</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 186,35/L)</p>
                 <a class="buy-button" href="/es/vinos/nicolas-catena-zapata-2020/vinos/nicolas-catena-zapata-malbec-2020.html">Comprar Ahora</a>
             </div>
-            </div><div class="recent-nav"><button onclick="moveRecent(-1)">❮</button><button onclick="moveRecent(1)">❯</button></div></div>
+            
+            <div class="product-card" data-overlay-id="rutini-single-vineyard-malbec-gualtallary-2017">
+                <img src="/images/small/rutini-single-vineyard-malbec-gualtallary-2017.jpg" alt="Botella de Rutini Single Vineyard Malbec Gualtallary 2017" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="rutini-single-vineyard-malbec-gualtallary-2017">Info</div>
+                <div class="overlay" data-overlay-id="rutini-single-vineyard-malbec-gualtallary-2017">
+                    
+                <p><strong>Bodega:</strong> Rutini Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Gualtallary, Valle de Uco</p>
+            <p><strong>Año:</strong> 2017</p>
+                </div>
+                <h3>Rutini Single Vineyard Malbec Gualtallary 2017</h3>
+                <p class="price"><strong>€ 134,00</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 178,67/L)</p>
+                <a class="buy-button" href="/es/vinos/rutini-single-vineyard-malbec-gualtallary-2017.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="catena-malbec-argentino-2022">
+                <img src="/images/small/catena-malbec-argentino-2022.jpg" alt="Botella de Catena Malbec Argentino 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="catena-malbec-argentino-2022">Info</div>
+                <div class="overlay" data-overlay-id="catena-malbec-argentino-2022">
+                    
+                <p><strong>Bodega:</strong> Catena Zapata</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2022</p><p><strong>Premios:</strong> 98+ pts Robert Parker</p><p><strong>Guarda:</strong> 15 años</p>
+                </div>
+                <h3>Catena Malbec Argentino 2022</h3>
+                <p class="price"><strong>€ 128,44</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 171,25/L)</p>
+                <a class="buy-button" href="/es/vinos/catena-malbec-argentino-2022.html">Comprar Ahora</a>
+            </div>
+            
+    </div>
+    <h3 class="section-title">Recientemente Agregados</h3><div class="recently-added-carousel"><div class="recent-container" data-item-count="6">
+            <div class="product-card recent-item" data-overlay-id="san-telmo-malbec-2024">
+                <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="san-telmo-malbec-2024">Info</div>
+                <div class="overlay" data-overlay-id="san-telmo-malbec-2024">
+                    
+                <p><strong>Bodega:</strong> San Telmo</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Año:</strong> 2024</p>
+                </div>
+                <h3>San Telmo Malbec 2024</h3>
+                <p class="price"><strong>€ 8,16</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 10,88/L)</p>
+                <a class="buy-button" href="/es/vinos/san-telmo-malbec-2024.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="catena-zapata-adrianna-malbec-fortuna-terrae-2021">
+                <img src="/images/small/catena-zapata-adrianna-malbec-fortuna-terrae-2021.jpg" alt="Botella de Catena Zapata Adrianna Malbec Fortuna Terrae 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="catena-zapata-adrianna-malbec-fortuna-terrae-2021">Info</div>
+                <div class="overlay" data-overlay-id="catena-zapata-adrianna-malbec-fortuna-terrae-2021">
+                    
+                <p><strong>Bodega:</strong> Catena Zapata</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2021</p><p><strong>Premios:</strong> James Suckling 98 pts -2021</p><p><strong>Guarda:</strong> 15 años</p>
+                </div>
+                <h3>Catena Zapata Adrianna Malbec Fortuna Terrae 2021</h3>
+                <p class="price"><strong>€ 127,54</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 170,05/L)</p>
+                <a class="buy-button" href="/es/vinos/catena-zapata-adrianna-malbec-fortuna-terrae-2021.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="amar-vivir-malbec-2020">
+                <img src="/images/small/amar-vivir-malbec-2020.jpg" alt="Botella de Amar Vivir Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="amar-vivir-malbec-2020">Info</div>
+                <div class="overlay" data-overlay-id="amar-vivir-malbec-2020">
+                    
+                <p><strong>Bodega:</strong> Finca &amp; Bodega Arca Yaco</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Cafayate</p>
+            <p><strong>Año:</strong> 2019</p>
+                </div>
+                <h3>Amar Vivir Malbec 2019</h3>
+                <p class="price"><strong>€ 122,99</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 163,99/L)</p>
+                <a class="buy-button" href="/es/vinos/amar-vivir-malbec-2019/vinos/amar-vivir-malbec-2020.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="catena-zapata-nicasia-vineyard-2021">
+                <img src="/images/small/catena-zapata-nicasia-malbec-2021.jpg" alt="Botella de Catena Zapata Nicasia Vineyard 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="catena-zapata-nicasia-vineyard-2021">Info</div>
+                <div class="overlay" data-overlay-id="catena-zapata-nicasia-vineyard-2021">
+                    
+                <p><strong>Bodega:</strong> Catena Zapata</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2021</p><p><strong>Premios:</strong> Robert Parker 98 pts</p><p><strong>Guarda:</strong> 10 años</p>
+                </div>
+                <h3>Catena Zapata Nicasia Vineyard 2021</h3>
+                <p class="price"><strong>€ 113,38</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 151,17/L)</p>
+                <a class="buy-button" href="/es/vinos/catena-zapata-nicasia-vineyard-2021.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="amar-vivir-malbec-2020">
+                <img src="/images/small/amar-vivir-malbec-2020.jpg" alt="Botella de Amar Vivir Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="amar-vivir-malbec-2020">Info</div>
+                <div class="overlay" data-overlay-id="amar-vivir-malbec-2020">
+                    
+                <p><strong>Bodega:</strong> Finca &amp; Bodega Arca Yaco</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Cafayate</p>
+            <p><strong>Año:</strong> 2020</p>
+                </div>
+                <h3>Amar Vivir Malbec 2020</h3>
+                <p class="price"><strong>€ 112,99</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 150,65/L)</p>
+                <a class="buy-button" href="/es/vinos/amar-vivir-malbec-2020.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="chanares-malbec-2018">
+                <img src="/images/small/chanares-malbec-2018.jpg" alt="Botella de Chañares 2018" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="chanares-malbec-2018">Info</div>
+                <div class="overlay" data-overlay-id="chanares-malbec-2018">
+                    
+                <p><strong>Bodega:</strong> Viña Cobos</p>
+                <p><strong>Provincia:</strong> nan</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2018</p><p><strong>Guarda:</strong> 10 años</p>
+                </div>
+                <h3>Chañares 2018</h3>
+                <p class="price"><strong>€ 110,00</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 146,67/L)</p>
+                <a class="buy-button" href="/es/vinos/chanares-2018/vinos/chanares-malbec-2018.html">Comprar Ahora</a>
+            </div>
+            </div><div class="recent-nav"><button onclick="moveRecent(-1)">Left</button><button onclick="moveRecent(1)">Right</button></div></div>
     <h3 class="section-title">Visita nuestras Bodegas</h3>
     <div class="winery-grid">
         <a class="winery-card" href="/es/bodegas/bodega-foster-lorca.html">
@@ -477,8 +479,8 @@
             <img class="logo" src="/images/bodegas/logo-finca-las-moras.jpg" alt="Logo de Finca Las Moras" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
         </a>
         <div class="winery-nav">
-            <button class="winery-prev hidden">❮</button>
-            <button class="winery-next">❯</button>
+            <button class="winery-prev hidden">Left</button>
+            <button class="winery-next">Right</button>
         </div>
     </div>
     <h3 class="section-title">Descubre nuestras Provincias</h3>
@@ -504,35 +506,7 @@
             <div class="province-overlay">Neuquén</div>
         </a>
     </div>
-    
-    <div class="twitter-box">
-        <h3 class="section-title">Novedades</h3>
-        <div class="tweet-carousel">
-            <div class="tweet-container">
-                
-        <div class="tweet-item">
-            <p>@tramadolcada12 Ponele Malbec! Te mandamos después.</p>
-            <a href="https://x.com/1000malbecs/status/1972642423806603549" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>Nos gusta demasiado el malbec y es lo que vendemos acá. Ahora probar, probamos de todo. En este caso un español. Malbecs, pueden probar acá https://t.co/WK10tvLHhZ https://t.co/M71jbdwcwp</p>
-            <a href="https://x.com/1000malbecs/status/1971646249586831786" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>Viajar a la ruta del malbec puede ser, para muchos, un sueño. Probando alguno de los vinos que tenemos seleccionados para vos, lo podés empezar a hacer realidad. Nueva entrada en nuestro blog &quot;1000 Historias&quot;: viajar no cuesta nada https://t.co/cqKHwuIAtn #malbec #argentina #vino https://t.co/D5FMX10HG6</p>
-            <a href="https://x.com/1000malbecs/status/1971199243902988657" target="_blank">Ver Tweet</a>
-        </div>
-        
-            </div>
-            <div class="tweet-nav">
-                <button onclick="moveTweet(-1)">❮</button>
-                <button onclick="moveTweet(1)">❯</button>
-            </div>
-        </div>
-    </div>
-    
+    <div class="twitter-box"><h3 class="section-title">Novedades</h3><p>No hay tweets disponibles.</p></div>
 </main>
 <script>
     // Hamburger menu
@@ -542,13 +516,11 @@
     let currentBanner = 0;
     const banners = document.querySelectorAll('.banner-item');
     const bannerContainer = document.querySelector('.banner-container');
-    console.log('Cantidad de banners:', banners.length);
     function moveBanner(direction) {
         currentBanner += direction;
         if (currentBanner < 0) currentBanner = banners.length - 1;
         if (currentBanner >= banners.length) currentBanner = 0;
         bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
-        console.log('Banner actual:', currentBanner);
     }
     setInterval(() => moveBanner(1), 5000);
 
@@ -556,13 +528,11 @@
     let currentTweet = 0;
     const tweetItems = document.querySelectorAll('.tweet-item');
     const tweetContainer = document.querySelector('.tweet-container');
-    console.log('Cantidad de tweets:', tweetItems.length);
     function moveTweet(direction) {
         currentTweet += direction;
         if (currentTweet < 0) currentTweet = tweetItems.length - 1;
         if (currentTweet >= tweetItems.length) currentTweet = 0;
         tweetContainer.style.transform = `translateX(-${currentTweet * 100}%)`;
-        console.log('Tweet actual:', currentTweet);
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
 
@@ -570,35 +540,29 @@
     function initRecentCarousel() {
         const recentCarousel = document.querySelector('.recently-added-carousel');
         if (!recentCarousel) return;
-        
         const recentContainer = recentCarousel.querySelector('.recent-container');
         const recentItems = recentContainer.querySelectorAll('.recent-item');
         const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
-        
         if (itemCount <= 1) {
             const recentNav = recentCarousel.querySelector('.recent-nav');
             if (recentNav) recentNav.style.display = 'none';
             return;
         }
-        
         recentItems.forEach(item => {
             const cloneStart = item.cloneNode(true);
             const cloneEnd = item.cloneNode(true);
             recentContainer.insertBefore(cloneEnd, recentItems[0]);
             recentContainer.appendChild(cloneStart);
         });
-        
         const totalItems = recentContainer.querySelectorAll('.recent-item').length;
         let currentRecent = itemCount;
         const itemWidthPercentage = 100 / itemCount;
         recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-        
         function moveRecent(direction) {
             currentRecent += direction;
             const newTranslateX = -currentRecent * itemWidthPercentage;
             recentContainer.style.transition = 'transform 0.5s ease';
             recentContainer.style.transform = `translateX(${newTranslateX}%)`;
-            
             setTimeout(() => {
                 if (currentRecent >= itemCount * 2) {
                     currentRecent = itemCount;
@@ -611,19 +575,15 @@
                 }
             }, 500);
         }
-        
         let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
         recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
         recentCarousel.addEventListener('mouseleave', () => {
             autoScrollInterval = setInterval(() => moveRecent(1), 5000);
         });
-        
         const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
         const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
         if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
         if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
-        
-        console.log('Cantidad de vinos recientemente agregados:', itemCount);
     }
     document.addEventListener('DOMContentLoaded', initRecentCarousel);
 
@@ -635,7 +595,7 @@
                 icon.addEventListener(eventType, (e) => {
                     e.stopPropagation();
                     e.preventDefault();
-                    const overlayId = icon.getAttribute('data-overlay-id');
+                    const overlayId = icon.getAttribute('data-overlay-def');
                     const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
                     const isActive = overlay.classList.contains('active');
                     document.querySelectorAll('.overlay.active').forEach(ov => { ov.classList.remove('active'); });
@@ -694,37 +654,21 @@
     const suggestionsList = document.querySelector('.search-suggestions');
     let wines = [];
 
-    // Determine current language
-    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-
-    // Language-specific labels
-    const labels = {
-        es: { winery: 'Bodega', province: 'Provincia', region: 'Región' },
-        en: { winery: 'Winery', province: 'Province', region: 'Region' },
-        de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
-    };
-
-    // Function to fetch JSON data
     async function loadWines() {
         try {
-            const jsonPath = '/data/vinos.json';
-            const response = await fetch(jsonPath);
-            if (!response.ok) throw new Error(`No se pudo cargar ${jsonPath}`);
-            const data = await response.json();
-            return data;
+            const response = await fetch('/data/vinos.json');
+            if (!response.ok) throw new Error('No se pudo cargar vinos.json');
+            return await response.json();
         } catch (error) {
-            console.error('Error al cargar los vinos:', error);
+            console.error('Error al cargar vinos:', error);
             return [];
         }
     }
 
-    // Load wines when the page loads
     document.addEventListener('DOMContentLoaded', async () => {
         wines = await loadWines();
-        console.log('Vinos cargados:', wines);
     });
 
-    // Handle search input
     searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
         suggestionsList.innerHTML = '';
@@ -749,15 +693,13 @@
                 matches.forEach(wine => {
                     const li = document.createElement('li');
                     li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
-                    li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
+                    li.dataset.url = wine.url;
                     suggestionsList.appendChild(li);
                 });
                 suggestionsList.style.display = 'block';
             } else {
                 const li = document.createElement('li');
-                li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
-                                 currentLang === 'en' ? 'No results found' :
-                                 'Keine Ergebnisse gefunden';
+                li.textContent = 'No se encontraron resultados';
                 li.style.cursor = 'default';
                 suggestionsList.appendChild(li);
                 suggestionsList.style.display = 'block';
@@ -765,7 +707,6 @@
         }
     });
 
-    // Handle suggestion clicks
     suggestionsList.addEventListener('click', function(e) {
         const li = e.target.closest('li');
         if (li && li.dataset.url) {
@@ -773,7 +714,6 @@
         }
     });
 
-    // Keyboard navigation
     let focusedSuggestion = -1;
     searchInput.addEventListener('keydown', function(e) {
         const suggestions = suggestionsList.querySelectorAll('li');
@@ -804,7 +744,6 @@
         }
     }
 
-    // Hide suggestions when clicking outside
     document.addEventListener('click', function(e) {
         if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
             suggestionsList.style.display = 'none';
@@ -812,7 +751,7 @@
         }
     });
 
-    // Winery grid scroll indicators
+    // Winery grid scroll
     const wineryGrid = document.querySelector('.winery-grid');
     const wineryPrev = document.querySelector('.winery-prev');
     const wineryNext = document.querySelector('.winery-next');
@@ -835,14 +774,6 @@
     if (wineryPrev && wineryNext) {
         wineryPrev.addEventListener('click', () => { wineryGrid.scrollBy({ left: -150, behavior: 'smooth' }); });
         wineryNext.addEventListener('click', () => { wineryGrid.scrollBy({ left: 150, behavior: 'smooth' }); });
-    }
-
-    // Function to adjust URL with current language
-    function adjustUrlForLanguage(url, lang) {
-        if (url.startsWith('/vinos/')) {
-            return `/${lang}${url}`;
-        }
-        return url;
     }
 </script>
 </body>
