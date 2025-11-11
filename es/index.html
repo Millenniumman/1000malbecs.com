@@ -74,6 +74,18 @@
         .winery-nav button.hidden { display: none; }
         .recently-added-carousel { position: relative; max-width: 1200px; margin: 20px auto; overflow: hidden; }
         .recent-container { display: flex; transition: transform 0.5s ease; width: calc(100% * 3); }
+        .recently-added-carousel { 
+            position: relative; 
+            max-width: 1200px; 
+            margin: 20px auto; 
+            overflow: hidden; 
+        }
+        .recent-container { 
+            display: flex; 
+            transition: transform 0.5s ease; 
+            width: max-content;   /* ← CLAVE: permite 18 ítems */
+            gap: 30px;            /* ← respeta tu margin-right: 30px */
+        }
         .recent-item { flex: 0 0 16.66%; max-width: 250px; margin-right: 30px; box-sizing: border-box; background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .recent-item img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
         .recent-item .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
@@ -380,109 +392,250 @@
             </div>
             
     </div>
-    <h3 class="section-title">Recientemente Agregados</h3><div class="recently-added-carousel"><div class="recent-container" data-item-count="6">
-            <div class="product-card recent-item" data-overlay-id="san-telmo-malbec-2024">
-                <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="san-telmo-malbec-2024">🍷</div>
-                <div class="overlay" data-overlay-id="san-telmo-malbec-2024">
-                    
-                <p><strong>Bodega:</strong> San Telmo</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Luján de Cuyo</p>
-            <p><strong>Año:</strong> 2024</p>
-                </div>
+    <div class="recently-added-carousel">
+    <h2>Vinos Recientes</h2>
+    <div class="recent-container">
+        
+            <div class="product-card recent-item">
+                <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> San Telmo</p><p><strong>Región:</strong> Luján de Cuyo</p><p><strong>Año:</strong> 2024</p></div>
                 <h3>San Telmo Malbec 2024</h3>
-                <p class="price"><strong>&euro; 8.16</strong></p>
-                <p class="price-per-liter">(&euro; 10.88/L)</p>
-                <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/san-telmo-malbec-2024.html">Comprar Ahora</a>
+                
+            <p class="price"><strong>€ 8,16</strong></p>
+            <p class="price-per-liter">(€ 10,88/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/san-telmo-malbec-2024.html">Comprar</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">
-                <img src="/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Botella de Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">🍷</div>
-                <div class="overlay" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">
-                    
-                <p><strong>Bodega:</strong> Catena Zapata</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Año:</strong> 2020</p><p><strong>Premios:</strong> 99 pts James Suckling</p><p><strong>Guarda:</strong> 15 años</p>
-                </div>
+            <div class="product-card recent-item">
+                <img src="/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Botella de Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Catena Zapata</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2020</p></div>
                 <h3>Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020</h3>
-                <p class="price"><strong>&euro; 371.51</strong></p>
-                <p class="price-per-liter">(&euro; 495.35/L)</p>
-                <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.html">Comprar Ahora</a>
+                
+            <p class="price"><strong>€ 371,51</strong></p>
+            <p class="price-per-liter">(€ 495,35/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.html">Comprar</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="kaiken-boulder-red-blend-2021">
-                <img src="/images/small/kaiken-boulder-red-blend-2021.jpg" alt="Botella de Kaiken Boulder Red Blend 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="kaiken-boulder-red-blend-2021">🍷</div>
-                <div class="overlay" data-overlay-id="kaiken-boulder-red-blend-2021">
-                    
-                <p><strong>Bodega:</strong> Kaiken</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Año:</strong> 2021</p><p><strong>Guarda:</strong> 30 años</p>
-                </div>
+            <div class="product-card recent-item">
+                <img src="/images/small/kaiken-boulder-red-blend-2021.jpg" alt="Botella de Kaiken Boulder Red Blend 2021">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Kaiken</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2021</p></div>
                 <h3>Kaiken Boulder Red Blend 2021</h3>
-                <p class="price"><strong>&euro; 258.14</strong></p>
-                <p class="price-per-liter">(&euro; 344.19/L)</p>
-                <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/kaiken-boulder-red-blend-2021.html">Comprar Ahora</a>
+                
+            <p class="price"><strong>€ 258,14</strong></p>
+            <p class="price-per-liter">(€ 344,19/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/kaiken-boulder-red-blend-2021.html">Comprar</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="noemia-malbec-2020">
-                <img src="/images/small/noemia-malbec-2020.jpg" alt="Botella de Noemía Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="noemia-malbec-2020">🍷</div>
-                <div class="overlay" data-overlay-id="noemia-malbec-2020">
-                    
-                <p><strong>Bodega:</strong> Bodega Noemía Patagonia</p>
-                <p><strong>Provincia:</strong> Rio Negro</p>
-                <p><strong>Región:</strong> Mainqué</p>
-            <p><strong>Año:</strong> 2020</p><p><strong>Guarda:</strong> 15 años</p>
-                </div>
+            <div class="product-card recent-item">
+                <img src="/images/small/noemia-malbec-2020.jpg" alt="Botella de Noemía Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Bodega Noemía Patagonia</p><p><strong>Región:</strong> Mainqué</p><p><strong>Año:</strong> 2020</p></div>
                 <h3>Noemía Malbec 2020</h3>
-                <p class="price"><strong>&euro; 190.82</strong></p>
-                <p class="price-per-liter">(&euro; 254.43/L)</p>
-                <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/noemia-malbec-2020.html">Comprar Ahora</a>
+                
+            <p class="price"><strong>€ 190,82</strong></p>
+            <p class="price-per-liter">(€ 254,43/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/noemia-malbec-2020.html">Comprar</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="rutini-coleccin-malbec-2020">
-                <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Botella de Rutini Colección Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="rutini-coleccin-malbec-2020">🍷</div>
-                <div class="overlay" data-overlay-id="rutini-coleccin-malbec-2020">
-                    
-                <p><strong>Bodega:</strong> Rutini Wines</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Valle de Uco</p>
-            <p><strong>Año:</strong> 2020</p>
-                </div>
+            <div class="product-card recent-item">
+                <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Botella de Rutini Colección Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Rutini Wines</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2020</p></div>
                 <h3>Rutini Colección Malbec 2020</h3>
-                <p class="price"><strong>&euro; 169.04</strong></p>
-                <p class="price-per-liter">(&euro; 225.39/L)</p>
-                <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/rutini-coleccion-malbec-2020/vinos/rutini-coleccin-malbec-2020.html">Comprar Ahora</a>
+                
+            <p class="price"><strong>€ 169,04</strong></p>
+            <p class="price-per-liter">(€ 225,39/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/rutini-coleccion-malbec-2020/vinos/rutini-coleccin-malbec-2020.html">Comprar</a>
             </div>
             
-            <div class="product-card recent-item" data-overlay-id="felipe-rutini-2017">
-                <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="felipe-rutini-2017">🍷</div>
-                <div class="overlay" data-overlay-id="felipe-rutini-2017">
-                    
-                <p><strong>Bodega:</strong> Rutini Wines</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Gualtallary, Valle de Uco</p>
-            <p><strong>Año:</strong> 2017</p><p><strong>Guarda:</strong> 20 años</p>
-                </div>
+            <div class="product-card recent-item">
+                <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Rutini Wines</p><p><strong>Región:</strong> Gualtallary, Valle de Uco</p><p><strong>Año:</strong> 2017</p></div>
                 <h3>Felipe Rutini 2017</h3>
-                <p class="price"><strong>&euro; 168.99</strong></p>
-                <p class="price-per-liter">(&euro; 225.32/L)</p>
-                <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/felipe-rutini-2017.html">Comprar Ahora</a>
+                
+            <p class="price"><strong>€ 168,99</strong></p>
+            <p class="price-per-liter">(€ 225,32/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/felipe-rutini-2017.html">Comprar</a>
             </div>
-            </div><div class="recent-nav"><button onclick="moveRecent(-1)">❮</button><button onclick="moveRecent(1)">❯</button></div></div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> San Telmo</p><p><strong>Región:</strong> Luján de Cuyo</p><p><strong>Año:</strong> 2024</p></div>
+                <h3>San Telmo Malbec 2024</h3>
+                
+            <p class="price"><strong>€ 8,16</strong></p>
+            <p class="price-per-liter">(€ 10,88/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/san-telmo-malbec-2024.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Botella de Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Catena Zapata</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2020</p></div>
+                <h3>Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020</h3>
+                
+            <p class="price"><strong>€ 371,51</strong></p>
+            <p class="price-per-liter">(€ 495,35/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/kaiken-boulder-red-blend-2021.jpg" alt="Botella de Kaiken Boulder Red Blend 2021">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Kaiken</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2021</p></div>
+                <h3>Kaiken Boulder Red Blend 2021</h3>
+                
+            <p class="price"><strong>€ 258,14</strong></p>
+            <p class="price-per-liter">(€ 344,19/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/kaiken-boulder-red-blend-2021.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/noemia-malbec-2020.jpg" alt="Botella de Noemía Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Bodega Noemía Patagonia</p><p><strong>Región:</strong> Mainqué</p><p><strong>Año:</strong> 2020</p></div>
+                <h3>Noemía Malbec 2020</h3>
+                
+            <p class="price"><strong>€ 190,82</strong></p>
+            <p class="price-per-liter">(€ 254,43/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/noemia-malbec-2020.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Botella de Rutini Colección Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Rutini Wines</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2020</p></div>
+                <h3>Rutini Colección Malbec 2020</h3>
+                
+            <p class="price"><strong>€ 169,04</strong></p>
+            <p class="price-per-liter">(€ 225,39/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/rutini-coleccion-malbec-2020/vinos/rutini-coleccin-malbec-2020.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Rutini Wines</p><p><strong>Región:</strong> Gualtallary, Valle de Uco</p><p><strong>Año:</strong> 2017</p></div>
+                <h3>Felipe Rutini 2017</h3>
+                
+            <p class="price"><strong>€ 168,99</strong></p>
+            <p class="price-per-liter">(€ 225,32/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/felipe-rutini-2017.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> San Telmo</p><p><strong>Región:</strong> Luján de Cuyo</p><p><strong>Año:</strong> 2024</p></div>
+                <h3>San Telmo Malbec 2024</h3>
+                
+            <p class="price"><strong>€ 8,16</strong></p>
+            <p class="price-per-liter">(€ 10,88/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/san-telmo-malbec-2024.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Botella de Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Catena Zapata</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2020</p></div>
+                <h3>Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020</h3>
+                
+            <p class="price"><strong>€ 371,51</strong></p>
+            <p class="price-per-liter">(€ 495,35/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/kaiken-boulder-red-blend-2021.jpg" alt="Botella de Kaiken Boulder Red Blend 2021">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Kaiken</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2021</p></div>
+                <h3>Kaiken Boulder Red Blend 2021</h3>
+                
+            <p class="price"><strong>€ 258,14</strong></p>
+            <p class="price-per-liter">(€ 344,19/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/kaiken-boulder-red-blend-2021.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/noemia-malbec-2020.jpg" alt="Botella de Noemía Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Bodega Noemía Patagonia</p><p><strong>Región:</strong> Mainqué</p><p><strong>Año:</strong> 2020</p></div>
+                <h3>Noemía Malbec 2020</h3>
+                
+            <p class="price"><strong>€ 190,82</strong></p>
+            <p class="price-per-liter">(€ 254,43/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/noemia-malbec-2020.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Botella de Rutini Colección Malbec 2020">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Rutini Wines</p><p><strong>Región:</strong> Valle de Uco</p><p><strong>Año:</strong> 2020</p></div>
+                <h3>Rutini Colección Malbec 2020</h3>
+                
+            <p class="price"><strong>€ 169,04</strong></p>
+            <p class="price-per-liter">(€ 225,39/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/rutini-coleccion-malbec-2020/vinos/rutini-coleccin-malbec-2020.html">Comprar</a>
+            </div>
+            
+            <div class="product-card recent-item">
+                <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017">
+                <div class="info-icon">Info</div>
+                <div class="overlay"><p><strong>Bodega:</strong> Rutini Wines</p><p><strong>Región:</strong> Gualtallary, Valle de Uco</p><p><strong>Año:</strong> 2017</p></div>
+                <h3>Felipe Rutini 2017</h3>
+                
+            <p class="price"><strong>€ 168,99</strong></p>
+            <p class="price-per-liter">(€ 225,32/L)</p>
+            <p class="shipping-note">+ gastos de envío</p>
+            
+                <a class="buy-button" href="/es/vinos/felipe-rutini-2017.html">Comprar</a>
+            </div>
+            </div><div class="recent-nav"><button onclick="moveRecent(-1)">❮</button><button onclick="moveRecent(1)">❯</button></div></div>  <!-- 18 ítems -->
+    </div>
+    <div class="recent-nav">
+        <button class="prev">←</button>
+        <button class="next">→</button>
+    </div>
+</div>
     <h3 class="section-title">Visita nuestras Bodegas</h3>
     <div class="winery-grid">
         <a class="winery-card" href="/es/bodegas/bodega-foster-lorca.html">
@@ -849,6 +1002,31 @@
         }
         return url;
     }
-</script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.recent-item');
+            const totalItems = items.length;
+            let currentIndex = 0;
+
+            const carousel = document.querySelector('.recent-carousel');
+
+            function showSlide(index) {
+                const offset = -index * (items[0].offsetWidth + 20);
+                carousel.style.transform = `translateX(${offset}px)`;
+            }
+
+            document.querySelector('.prev').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                showSlide(currentIndex);
+            });
+
+            document.querySelector('.next').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                showSlide(currentIndex);
+            });
+
+            // Opcional: Auto-play
+            // setInterval(() => document.querySelector('.next').click(), 4000);
+        });
+    </script>
 </body>
 </html>
