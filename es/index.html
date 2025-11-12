@@ -723,7 +723,55 @@
         console.log('Tweet actual:', currentTweet);
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
-html_js = """
+
+    // Recently added carousel
+    html_js = """
+function initRecentCarousel() {
+    const recentCarousel = document.querySelector('.recently-added-carousel');
+    if (!recentCarousel) return;
+
+    const recentContainer = recentCarousel.querySelector('.recent-container');
+    const recentItems = recentContainer.querySelectorAll('.recent-item');
+    const itemCount = recentItems.length;
+
+    if (itemCount <= 1) {
+        const recentNav = recentCarousel.querySelector('.recent-nav');
+        if (recentNav) recentNav.style.display = 'none';
+        return;
+    }
+
+    let currentRecent = 0; // Primer elemento visible
+
+    // Mostrar el primer conjunto de productos sin movimiento inicial
+    recentContainer.style.transition = 'none';
+    recentContainer.style.transform = `translateX(0%)`;
+
+    function moveRecent(direction) {
+        const maxIndex = itemCount - 1;
+        currentRecent += direction;
+
+        if (currentRecent < 0) currentRecent = maxIndex;       // vuelve al final
+        if (currentRecent > maxIndex) currentRecent = 0;       // vuelve al principio
+
+        const itemWidth = 100 / itemCount;
+        const newTranslateX = -currentRecent * itemWidth;
+
+        recentContainer.style.transition = 'transform 0.5s ease';
+        recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+    }
+
+    const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
+    const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
+
+    if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
+    if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
+
+    console.log('Carrusel inicializado (manual, fijo):', itemCount);
+}
+
+document.addEventListener('DOMContentLoaded', initRecentCarousel);
+"""
+
 
     // Info icons for mobile
     if (window.innerWidth <= 768) {
@@ -942,53 +990,6 @@ html_js = """
         }
         return url;
     }
-    
-## Carrousel de productos
-function initRecentCarousel() {
-    const recentCarousel = document.querySelector('.recently-added-carousel');
-    if (!recentCarousel) return;
-
-    const recentContainer = recentCarousel.querySelector('.recent-container');
-    const recentItems = recentContainer.querySelectorAll('.recent-item');
-    const itemCount = recentItems.length;
-
-    if (itemCount <= 1) {
-        const recentNav = recentCarousel.querySelector('.recent-nav');
-        if (recentNav) recentNav.style.display = 'none';
-        return;
-    }
-
-    let currentRecent = 0; // Primer elemento visible
-
-    // Mostrar el primer conjunto de productos sin movimiento inicial
-    recentContainer.style.transition = 'none';
-    recentContainer.style.transform = `translateX(0%)`;
-
-    function moveRecent(direction) {
-        const maxIndex = itemCount - 1;
-        currentRecent += direction;
-
-        if (currentRecent < 0) currentRecent = maxIndex;       // vuelve al final
-        if (currentRecent > maxIndex) currentRecent = 0;       // vuelve al principio
-
-        const itemWidth = 100 / itemCount;
-        const newTranslateX = -currentRecent * itemWidth;
-
-        recentContainer.style.transition = 'transform 0.5s ease';
-        recentContainer.style.transform = `translateX(${newTranslateX}%)`;
-    }
-
-    const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
-    const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
-
-    if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
-    if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
-
-    console.log('Carrusel inicializado (manual, fijo):', itemCount);
-}
-
-document.addEventListener('DOMContentLoaded', initRecentCarousel);
-"""
-    </script>
+</script>
 </body>
 </html>
