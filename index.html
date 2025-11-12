@@ -723,56 +723,67 @@
         console.log('Tweet actual:', currentTweet);
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
-html_js = """
 
-## Carrousel de productos
-function initRecentCarousel() {
-    const recentCarousel = document.querySelector('.recently-added-carousel');
-    if (!recentCarousel) return;
-
-    const recentContainer = recentCarousel.querySelector('.recent-container');
-    const recentItems = recentContainer.querySelectorAll('.recent-item');
-    const itemCount = recentItems.length;
-
-    if (itemCount <= 1) {
-        const recentNav = recentCarousel.querySelector('.recent-nav');
-        if (recentNav) recentNav.style.display = 'none';
-        return;
+    // Recently added carousel
+    function initRecentCarousel() {
+        const recentCarousel = document.querySelector('.recently-added-carousel');
+        if (!recentCarousel) return;
+        
+        const recentContainer = recentCarousel.querySelector('.recent-container');
+        const recentItems = recentContainer.querySelectorAll('.recent-item');
+        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
+        
+        if (itemCount <= 1) {
+            const recentNav = recentCarousel.querySelector('.recent-nav');
+            if (recentNav) recentNav.style.display = 'none';
+            return;
+        }
+        
+        recentItems.forEach(item => {
+            const cloneStart = item.cloneNode(true);
+            const cloneEnd = item.cloneNode(true);
+            recentContainer.insertBefore(cloneEnd, recentItems[0]);
+            recentContainer.appendChild(cloneStart);
+        });
+        
+        const totalItems = recentContainer.querySelectorAll('.recent-item').length;
+        let currentRecent = itemCount;
+        const itemWidthPercentage = 100 / itemCount;
+        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+        
+        function moveRecent(direction) {
+            currentRecent += direction;
+            const newTranslateX = -currentRecent * itemWidthPercentage;
+            recentContainer.style.transition = 'transform 0.5s ease';
+            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+            
+            setTimeout(() => {
+                if (currentRecent >= itemCount * 2) {
+                    currentRecent = itemCount;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                } else if (currentRecent < itemCount) {
+                    currentRecent = itemCount * 2 - 1;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                }
+            }, 500);
+        }
+        
+        let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        recentCarousel.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        });
+        
+        const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
+        const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
+        if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
+        if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
+        
+        console.log('Cantidad de vinos recientemente agregados:', itemCount);
     }
-
-    let currentRecent = 0; // Primer elemento visible
-
-    // Mostrar el primer conjunto de productos sin movimiento inicial
-    recentContainer.style.transition = 'none';
-    recentContainer.style.transform = `translateX(0%)`;
-
-    function moveRecent(direction) {
-        const maxIndex = itemCount - 1;
-        currentRecent += direction;
-
-        if (currentRecent < 0) currentRecent = maxIndex;       // vuelve al final
-        if (currentRecent > maxIndex) currentRecent = 0;       // vuelve al principio
-
-        const itemWidth = 100 / itemCount;
-        const newTranslateX = -currentRecent * itemWidth;
-
-        recentContainer.style.transition = 'transform 0.5s ease';
-        recentContainer.style.transform = `translateX(${newTranslateX}%)`;
-    }
-
-    const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
-    const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
-
-    if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
-    if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
-
-    console.log('Carrusel inicializado (manual, fijo):', itemCount);
-}
-
-document.addEventListener('DOMContentLoaded', initRecentCarousel);
-"""
-
-
+    document.addEventListener('DOMContentLoaded', initRecentCarousel);
 
     // Info icons for mobile
     if (window.innerWidth <= 768) {
@@ -991,7 +1002,6 @@ document.addEventListener('DOMContentLoaded', initRecentCarousel);
         }
         return url;
     }
-    
-    </script>
+</script>
 </body>
 </html>
