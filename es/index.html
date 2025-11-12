@@ -160,8 +160,9 @@
             .recent-item h3 { font-size: 14px; min-height: 36px; margin: 5px 0; text-align: center; width: 100%; }
             .recent-item .price { font-size: 14px; margin: 5px 0; text-align: center; width: 100%; }
             .recent-item .buy-button { padding: 6px 12px; font-size: 12px; margin-top: 5px; margin-bottom: 5px; width: 100%; max-width: 140px; }
-            .recent-item .info-icon { display: block !important; pointer-events: auto; z-index: 10; }
-            .recent-item .overlay { max-height: 150px; pointer-events: auto; width: 100%; box-sizing: border-box; top: 0; padding: 40px 10px 10px 10px; display: none; z-index: 6; }
+            .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
+            .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
+            .overlay p { margin: 2px 0; color: #FFFFFF; text-align: left; }
             .recent-item .overlay.active { display: block !important; z-index: 6; }
             .recent-item:hover .overlay { display: none; }
             .recent-nav button { padding: 6px; font-size: 14px; }
