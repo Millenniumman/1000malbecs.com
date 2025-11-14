@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000Malbecs para Bares y Restaurantes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: white; color: #333; line-height: 1.6; }
+        
+        /* === HEADER === */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            color: #4A2C59;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #eee;
+        }
+        .logo img { height: 40px; }
+        .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: #4A2C59; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            header { background: white; }
+        }
+
+        /* === BANNER === */
+        .hero {
+            background: linear-gradient(rgba(74,44,89,0.85), rgba(74,44,89,0.85)), url('/images/b2b/banner-bares.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+            margin-top: 70px;
+        }
+        .hero h1 { font-size: 2.8em; margin-bottom: 20px; font-weight: 700; }
+        .hero p { font-size: 1.2em; max-width: 900px; margin: 0 auto 25px; }
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 16px 32px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+            transition: 0.3s;
+        }
+        .cta-whatsapp:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(37,211,102,0.4); }
+        .cta-whatsapp img { width: 28px; margin-right: 12px; }
+
+        /* === SECCIONES === */
+        .section-text, .bodegas { padding: 70px 20px; text-align: center; }
+        .section-text h2, .bodegas h2 { color: #4A2C59; margin-bottom: 25px; font-size: 2.2em; }
+        .section-text p { max-width: 900px; margin: 0 auto 20px; font-size: 1.15em; }
+
+        /* === BODEGAS === */
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .logos-grid a { display: block; }
+        .logos-grid img { height: 70px; filter: grayscale(100%); transition: 0.4s; }
+        .logos-grid img:hover { filter: grayscale(0); transform: scale(1.15); }
+
+        /* === VINOS === */
+        .vinos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .vino-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .vino-card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+        .vino-card img { width: 100%; height: 220px; object-fit: cover; }
+        .vino-card h3 { padding: 18px 12px 8px; font-size: 1.15em; color: #4A2C59; }
+        .vino-card .precio { font-weight: 700; color: #800020; padding: 0 12px 18px; font-size: 1.3em; }
+
+        /* === FOOTER ESPACIO === */
+        .footer-space { height: 120px; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .hero { padding: 130px 20px 80px; margin-top: 65px; }
+            .hero h1 { font-size: 2.1em; }
+            .hero p { font-size: 1.05em; }
+            .logos-grid { gap: 25px; }
+            .logos-grid img { height: 55px; }
+            .vinos-grid { gap: 20px; }
+            .vino-card img { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="/images/logo-1000malbecs.png" alt="1000Malbecs">
+        </div>
+        <div class="menu-toggle">Menu</div>
+    </header>
+
+    <!-- BANNER -->
+   <section class="hero">
+    <h1>Eleve su JUEGO con 1000Malbecs</h1>
+    <p><strong>En 1000Malbecs</strong> ofrecemos un <strong>servicio exclusivo para bares y restaurantes</strong>: vinos, espumantes y vermuts argentinos de alta calidad para <strong>elevar la experiencia de sus clientes</strong>.</p>
+    <p>Contamos con una <strong>selección premium</strong> de las <strong>mejores bodegas argentinas</strong>, pensada para <strong>complementar cada plato</strong> de su carta y <strong>resaltar sus creaciones</strong>.</p>
+    <p>El vino argentino es el <strong>maridaje perfecto</strong> para cualquier cocina. Tenemos la opción ideal para <strong>cada estilo, cada momento y cada presupuesto</strong>.</p>
+    <p><strong>Estamos a su disposición</strong> para asesorarlo personalmente, optimizar su carta y <strong>maximizar la rentabilidad de su negocio</strong>.</p>
+    <a href="https://wa.me/4915158224728?text=Hola%2C%20quiero%20mejorar%20mi%20carta%20de%20vinos%20con%201000Malbecs" class="cta-whatsapp" target="_blank">
+        <img src="/images/icons/whatsapp.svg" alt="WhatsApp"> +49 151 5822 4728
+    </a>
+</section>
+        
+    <!-- BODEGAS -->
+    <section class="bodegas">
+        <h2>Descubra nuestras bodegas</h2>
+        <div class="logos-grid">
+            <a href="https://www.rutiniwines.com" target="_blank"><img src="/images/logos/rutini.png" alt="Rutini"></a><a href="https://www.casaaraujo.com.ar" target="_blank"><img src="/images/logos/casa_araujo.png" alt="Casa Araujo"></a><a href="https://www.bodegacolome.com" target="_blank"><img src="/images/logos/colome.png" alt="Colomé"></a><a href="https://www.jazminmonet.com" target="_blank"><img src="/images/logos/jazmin_monet.png" alt="Jazmín Monet"></a>
+        </div>
+
+        <div class="vinos-grid">
+            
+            <div class="vino-card">
+                <a href="/vinos/rutini-coleccion-malbec-2020/vinos/rutini-coleccin-malbec-2020.html" target="_blank">
+                    <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Rutini Colección Malbec 2020">
+                    <h3>Rutini Colección Malbec 2020</h3>
+                    <div class="precio">€ 169,04</div>
+                </a>
+            </div>
+            
+            <div class="vino-card">
+                <a href="/vinos/graciano-reserva-blend-2023.html" target="_blank">
+                    <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023">
+                    <h3>Graciano Reserva Blend 2023</h3>
+                    <div class="precio">€ 13,59</div>
+                </a>
+            </div>
+            
+            <div class="vino-card">
+                <a href="/vinos/colome-autentico-malbec-2021.html" target="_blank">
+                    <img src="/images/small/colome-autentico-malbec-2021.jpg" alt="Colomé Autentico Malbec 2021">
+                    <h3>Colomé Autentico Malbec 2021</h3>
+                    <div class="precio">€ 37,10</div>
+                </a>
+            </div>
+            
+            <div class="vino-card">
+                <a href="#" target="_blank">
+                    <img src="/images/small/placeholder.jpg" alt="Jazmín Monet Malbec">
+                    <h3>Jazmín Monet Malbec</h3>
+                    <div class="precio">€ --,--</div>
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- CONTACTO FINAL -->
+    <section class="section-text">
+        <p><strong>¡No espere más!</strong> Contáctenos hoy y reciba una visita personalizada.</p>
+        <a href="https://wa.me/5491123456789?text=Hola%2C%20quiero%20una%20visita%20exclusiva%20de%201000Malbecs" class="cta-whatsapp" target="_blank">
+            <img src="/images/icons/whatsapp.svg" alt="WhatsApp"> WhatsApp: +5491123456789
+        </a>
+    </section>
+
+    <!-- ESPACIO PARA FOOTER -->
+    <div class="footer-space"></div>
+
+</body>
+</html>
