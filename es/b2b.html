@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1000Malbecs B2B - Vinos Argentinos para Bares y Restaurantes</title>
+    <title>1000Malbecs B2B - Vinos Argentinos</title>
+    <meta property="og:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <style>
@@ -14,103 +15,102 @@
             --bg: #FAF9F6;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+        body { font-family: 'Inter', montserrat; background: var(--bg); color: var(--text); }
 
         header {
             position: fixed; top:0; width:100%; background:white; z-index:1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 0.8rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); height:60px; display:flex; align-items:center;
+            justify-content: flex-end; padding: 0 5%;
         }
-        .logo img { height: 45px; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { text-decoration:none; color: var(--text); font-weight:600; transition:0.3s; }
-        .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display:none; cursor:pointer; font-size:1.6rem; color:var(--primary); }
+        .logo img { height: 40px; }
 
-        .hero {
-            background: linear-gradient(rgba(74,44,89,0.9), rgba(74,44,89,0.9)), url('/images/b2b/banner-bares.jpg') center/cover no-repeat;
-            color: white; text-align:center; padding: 180px 20px 120px; margin-top: 70px;
+        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
+        .hamburger span { display: block; width: 25px; height: 3px; background: #4A2C59; margin: 5px 0; transition: 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+        #sidebar {
+            position: fixed; top:0; left:0; width:250px; height:100vh; background:white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index:120; transform: translateX(-100%);
+            transition: 0.3s; padding-top: 80px;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; margin-bottom:1rem; }
-        .hero p { max-width:800px; margin:0 auto 1.2rem; font-size:1.15rem; }
-        .cta-whatsapp {
-            display:inline-flex; align-items:center; background:var(--accent); color:white;
-            padding:1rem 2rem; border-radius:50px; font-weight:600; text-decoration:none;
-            margin-top:1.5rem; box-shadow:0 6px 20px rgba(37,211,102,0.3); transition:0.3s;
-        }
-        .cta-whatsapp:hover { transform:translateY(-3px); }
+        #sidebar.open { transform: translateX(0); }
+        #sidebar a { display:block; padding:1rem 2rem; color:var(--text); text-decoration:none; font-weight:600; }
+        #sidebar a:hover { background:#f0f0f0; color:var(--primary); }
+
+        main { margin-top: 60px; padding: 2rem 5%; }
+
+        .hero { text-align:center; padding:120px 20px 80px; background: linear-gradient(rgba(74,44,89,0.9), rgba(74,44,89,0.9)), url('/images/b2b/banner-bares.jpg') center/cover; color:white; }
+        .hero h1 { font-family:'Playfair Display', serif; font-size:3rem; margin-bottom:1rem; }
+        .hero p { max-width:800px; margin:0 auto 1rem; }
+        .cta-whatsapp { display:inline-flex; align-items:center; background:var(--accent); color:white; padding:1rem 2rem; border-radius:50px; text-decoration:none; margin-top:1.5rem; }
         .cta-whatsapp i { margin-right:0.5rem; }
 
-        .bodegas { padding: 80px 5%; text-align:center; background:white; }
-        .bodegas h2 { color:var(--primary); margin-bottom:2rem; font-size:2.3rem; font-family:'Playfair Display', serif; }
-
-        .vinos-grid {
-            display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-            gap:30px; max-width:1300px; margin:0 auto; padding:0 20px;
+        .vinos-grid, .bodegas-grid {
+            display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; max-width:1000px; margin:3rem auto;
         }
-        .vino-card {
-            background:white; border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.08);
-            transition:0.3s; text-align:center;
+        .vino-card, .bodega-card {
+            background:white; border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.08); text-align:center;
         }
-        .vino-card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
-        .vino-card .bodega-logo { width:70px; height:70px; object-fit:contain; margin:1rem auto; border-radius:8px; }
-        .vino-card img:not(.bodega-logo) { width:100%; height:200px; object-fit:cover; }
-        .vino-card h3 { padding:0.8rem 1rem 0.4rem; color:var(--primary); font-size:1.15rem; }
+        .vino-card img { width:100%; height:200px; object-fit:cover; }
+        .vino-card h3 { padding:1rem; color:var(--primary); font-size:1.1rem; }
         .vino-card .precio { font-weight:700; color:#800020; font-size:1.3rem; }
-        .vino-card .precio-litro { font-size:0.9rem; color:#666; margin-top:0.3rem; }
+        .vino-card .precio-litro { font-size:0.9rem; color:#666; }
+        .bodega-card img { width:100%; height:120px; object-fit:contain; padding:20px; }
 
-        .contacto { padding:60px 20px; text-align:center; background:var(--primary); color:white; }
+        .contacto { text-align:center; padding:60px 20px; background:var(--primary); color:white; }
 
         @media (max-width: 768px) {
-            .menu-toggle { display:block !important; order:1; }
-            .logo { order:2; text-align:right; }
-            header { justify-content: space-between; }
-            .nav-links {
-                position:fixed; top:70px; left:0; width:100%; background:white;
-                flex-direction:column; padding:1rem 0; box-shadow:0 5px 15px rgba(0,0,0,0.1);
-                transform:translateY(-150%); transition:0.3s; text-align:center; opacity:0;
-            }
-            .nav-links.active { transform:translateY(0); opacity:1; }
-            .hero { padding:140px 20px 90px; margin-top:65px; }
+            .hamburger { display: block !important; }
+            .vinos-grid, .bodegas-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .hero h1 { font-size:2.3rem; }
-            .vinos-grid { gap:20px; }
-            .vino-card img:not(.bodega-logo) { height:180px; }
+        }
+        @media (min-width: 769px) {
+            .hamburger { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <button class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav id="sidebar">
+        <a href="#inicio">Inicio</a>
+        <a href="#vinos">Vinos</a>
+        <a href="#bodegas">Bodegas</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
     <header>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </div>
         <div class="logo">
             <a href="/index.html">
                 <img src="/images/logo-1000malbecs.png" alt="1000Malbecs">
             </a>
         </div>
-
     </header>
 
-    <section class="hero" id="inicio">
-        <h1>Eleve su JUEGO con 1000Malbecs</h1>
-        <p><strong>En 1000Malbecs</strong> ofrecemos un <strong>servicio exclusivo para bares y restaurantes</strong>: vinos, espumantes y vermuts argentinos de alta calidad para <strong>elevar la experiencia de sus clientes</strong>.</p>
-        <p>Contamos con una <strong>selección premium</strong> de las <strong>mejores bodegas argentinas</strong>, pensada para <strong>complementar cada plato</strong> de su carta y <strong>resaltar sus creaciones</strong>.</p>
-        <p>El vino argentino es el <strong>maridaje perfecto</strong> para cualquier cocina. Tenemos la opción ideal para <strong>cada estilo, cada momento y cada presupuesto</strong>.</p>
-        <p><strong>Estamos a su disposición</strong> para asesorarlo personalmente, optimizar su carta y <strong>maximizar la rentabilidad de su negocio</strong>.</p>
-        <a href="https://wa.me/4915158224728?text=Hola%2C%20quiero%20mejorar%20mi%20carta%20de%20vinos%20con%201000Malbecs" class="cta-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i> +49 151 5822 4728
-        </a>
-    </section>
+    <main>
+        <section class="hero" id="inicio">
+            <h1>Eleve su JUEGO con 1000Malbecs</h1>
+            <p><strong>En 1000Malbecs</strong> ofrecemos un <strong>servicio exclusivo para bares y restaurantes</strong>: vinos, espumantes y vermuts argentinos de alta calidad.</p>
+            <p>Contamos con una <strong>selección premium</strong> de las <strong>mejores bodegas argentinas</strong>, pensada para <strong>complementar cada plato</strong> de su carta.</p>
+            <p>El vino argentino es el <strong>maridaje perfecto</strong>. Tenemos la opción ideal para <strong>cada estilo, cada momento y cada presupuesto</strong>.</p>
+            <p><strong>Estamos a su disposición</strong> para asesorarlo personalmente y <strong>maximizar la rentabilidad de su negocio</strong>.</p>
+            <a href="https://wa.me/4915158224728" class="cta-whatsapp" target="_blank">
+                WhatsApp +49 151 5822 4728
+            </a>
+        </section>
 
-    <section class="bodegas" id="bodegas">
-        <h2>Nuestras bodegas destacadas</h2>
-        <div class="vinos-grid">
-            
+        <section id="vinos">
+            <h2 style="text-align:center; margin:2rem 0; color:var(--primary); font-family:'Montserrat',serif;">Vinos Destacados</h2>
+            <div class="vinos-grid">
+                
     <div class="vino-card">
         <a href="/vinos/rutini-coleccion-malbec-2020/vinos/rutini-coleccin-malbec-2020.html" target="_blank">
             <img src="/images/small//images/small/rutini-coleccion-malbec-2021.jpg" alt="Rutini Colección Malbec 2020" loading="lazy">
-            <img src="/images/bodegas/rutini-1.jpg" alt="Rutini" class="bodega-logo" onerror="this.style.display='none'">
             <h3>Rutini Colección Malbec 2020</h3>
             <div class="precio">€ 142,05</div>
             <div class="precio-litro">€ 189,40/L</div>
@@ -120,7 +120,6 @@
     <div class="vino-card">
         <a href="/vinos/graciano-reserva-blend-2023.html" target="_blank">
             <img src="/images/small//images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023" loading="lazy">
-            <img src="/images/bodegas/casa-araujo-1.jpg" alt="Casa Araujo" class="bodega-logo" onerror="this.style.display='none'">
             <h3>Graciano Reserva Blend 2023</h3>
             <div class="precio">€ 11,42</div>
             <div class="precio-litro">€ 15,23/L</div>
@@ -130,7 +129,6 @@
     <div class="vino-card">
         <a href="/vinos/colome-autentico-malbec-2021.html" target="_blank">
             <img src="/images/small//images/small/colome-autentico-malbec-2021.jpg" alt="Colomé Autentico Malbec 2021" loading="lazy">
-            <img src="/images/bodegas/colome-1.jpg" alt="Colomé" class="bodega-logo" onerror="this.style.display='none'">
             <h3>Colomé Autentico Malbec 2021</h3>
             <div class="precio">€ 31,18</div>
             <div class="precio-litro">€ 41,57/L</div>
@@ -140,33 +138,61 @@
     <div class="vino-card">
         <a href="#" target="_blank">
             <img src="/images/small/placeholder.jpg" alt="Jazmín Monet Premium" loading="lazy">
-            <img src="/images/bodegas/jazmin-monet-1.jpg" alt="Jazmín Monet" class="bodega-logo" onerror="this.style.display='none'">
             <h3>Jazmín Monet Premium</h3>
             <div class="precio">€ --,--</div>
             <div class="precio-litro">€ --,--/L</div>
         </a>
     </div>
     
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section class="contacto" id="contacto">
-        <p><strong>¡No espere más!</strong> Contáctenos hoy y reciba una visita personalizada.</p>
-        <a href="https://wa.me/4915158224728?text=Hola%2C%20quiero%20una%20visita%20exclusiva%20de%201000Malbecs" class="cta-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp: +4915158224728
-        </a>
-    </section>
+        <section id="bodegas">
+            <h2 style="text-align:center; margin:2rem 0; color:var(--primary); font-family:'Montserrat',serif;">Nuestras Bodegas</h2>
+            <div class="bodegas-grid">
+                
+    <div class="bodega-card">
+        <img src="/images/bodegas/rutini-1.jpg" alt="Rutini" onerror="this.style.display='none'">
+    </div>
+    
+    <div class="bodega-card">
+        <img src="/images/bodegas/casa-araujo-1.jpg" alt="Casa Araujo" onerror="this.style.display='none'">
+    </div>
+    
+    <div class="bodega-card">
+        <img src="/images/bodegas/colome-1.jpg" alt="Colomé" onerror="this.style.display='none'">
+    </div>
+    
+    <div class="bodega-card">
+        <img src="/images/bodegas/jazmin-monet-1.jpg" alt="Jazmín Monet" onerror="this.style.display='none'">
+    </div>
+    
+            </div>
+        </section>
+
+        <section class="contacto" id="contacto">
+            <p><strong>¡No espere más!</strong> Contáctenos hoy y reciba una visita personalizada.</p>
+            <a href="https://wa.me/5491123456789?text=Hola%2C%20quiero%20una%20visita%20exclusiva%20de%201000Malbecs" class="cta-whatsapp" target="_blank">
+                WhatsApp: +5491123456789
+            </a>
+        </section>
+    </main>
 
     <script>
         
-document.getElementById('menuToggle').addEventListener('click', function() {
-    document.getElementById('navLinks').classList.toggle('active');
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.getElementById('sidebar');
+
+hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    sidebar.classList.toggle('open');
 });
 
-document.querySelectorAll('.nav-links a').forEach(function(link) {
-    link.addEventListener('click', function() {
-        document.getElementById('navLinks').classList.remove('active');
-    });
+document.addEventListener('click', function(e) {
+    if (!hamburger.contains(e.target) && !sidebar.contains(e.target)) {
+        hamburger.classList.remove('open');
+        sidebar.classList.remove('open');
+    }
 });
 
     </script>
