@@ -28,12 +28,19 @@
             .logo { display: none; }
         }
 
-        /* ESPACIO PARA BARRA DEL SISTEMA */
-        main { margin-top: 60px; padding: 2rem 5%; padding-left: 80px; }
+        /* ESPACIO PARA BARRA DEL WORKER (200px) */
+        main {
+            margin-top: 60px;
+            padding: 2rem 5%;
+        }
+        @media (min-width: 769px) {
+            main { padding-left: 220px; } /* 200px + 20px margen */
+        }
         @media (max-width: 768px) {
             main { padding-left: 5%; }
         }
 
+        /* HAMBURGUESA (SOLO EN MOBILE) */
         .hamburger {
             display: none; background: none; border: none; cursor: pointer;
             padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 1100;
@@ -46,6 +53,7 @@
         .hamburger.open span:nth-child(2) { opacity: 0; }
         .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
+        /* SIDEBAR (SIN LOGO) */
         #sidebar {
             position: fixed; top:0; left:0; width:250px; height:100vh; background:white;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index: 1050; transform: translateX(-100%);
@@ -69,9 +77,8 @@
             display:inline-flex; align-items:center; background:var(--accent); color:white; 
             padding:1rem 2rem; border-radius:50px; text-decoration:none; margin-top:1.5rem; 
         }
-        .cta-whatsapp i { margin-right:0.5rem; }
 
-        /* BODEGAS DENTRO DEL HERO */
+        /* BODEGAS SIN FLECHAS */
         .winery-grid {
             display:flex; overflow-x:auto; gap:15px; padding:20px 0; scroll-behavior:smooth;
             max-width:1000px; margin:2rem auto;
@@ -81,25 +88,18 @@
             box-shadow:0 6px 20px rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center;
         }
         .winery-card img.logo { width:160px; height:160px; object-contain; }
-        .winery-nav { text-align:center; margin-top:1rem; }
-        .winery-nav button { 
-            background:none; border:none; font-size:2rem; cursor:pointer; 
-            color: white; font-weight: bold; /* FLECHAS BLANCAS */
-        }
-        .winery-nav .hidden { display:none; }
 
+        /* VINOS: IMAGEN 80px */
         .vinos-grid {
             display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; max-width:1000px; margin:3rem auto;
         }
         .vino-card {
             background:white; border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.08); text-align:center;
+            padding:1rem;
         }
-        .vino-card img { width:100%; height:200px; object-fit:cover; }
-        .vino-card h3 { padding:1rem; color:var(--primary); font-size:1.1rem; }
+        .vino-card h3 { color:var(--primary); font-size:1.1rem; margin:0.5rem 0; }
         .vino-card .precio { font-weight:700; color:#800020; font-size:1.3rem; }
         .vino-card .precio-litro { font-size:0.9rem; color:#666; }
-
-        .section-title { text-align:center; margin:3rem 0 1.5rem; color:var(--primary); font-family:'Playfair Display',serif; font-size:2rem; }
 
         .contacto { text-align:center; padding:60px 20px; background:var(--primary); color:white; }
 
@@ -117,12 +117,12 @@
 </head>
 <body>
 
-    <!-- HAMBURGUESA -->
+    <!-- HAMBURGUESA (SOLO EN MOBILE) -->
     <button class="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
     </button>
 
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR (SIN LOGO) -->
     <nav id="sidebar">
         <a href="#inicio">Inicio</a>
         <a href="#vinos">Vinos</a>
@@ -140,10 +140,11 @@
     </header>
 
     <main>
-        <!-- HERO CON BODEGAS -->
+        <!-- HERO -->
         <section class="hero" id="inicio">
             <h1>1000 nuevas <strong>EXPERIENCIAS</strong> para sus clientes</h1>
-            <!-- BODEGAS DENTRO DEL HERO -->
+
+            <!-- BODEGAS (SIN FLECHAS) -->
             <div class="winery-grid">
                 
         <a class="winery-card" href="/es/bodegas/casa-araujo.html">
@@ -183,10 +184,6 @@
         </a>
     
             </div>
-            <div class="winery-nav">
-                <button class="winery-prev hidden"><</button>
-                <button class="winery-next">></button>
-            </div>
 
             <p>En <strong>1000malbecs.com</strong> ofrecemos un <strong>servicio exclusivo para bares y restaurantes</strong>. Vinos, espumantes y vermuts argentinos de alta calidad para <strong>elevar la experiencia de sus clientes y aumentar sus ventas</strong>.</p>
             <p><strong>Variedad, diferenciación y unicidad</strong>: contamos con una <strong>selección premium</strong> de las <strong>mejores bodegas argentinas</strong>, pensada para <strong>complementar cada plato</strong> de su carta y <strong>resaltar sus creaciones</strong>.</p>
@@ -204,7 +201,7 @@
                 
         <div class="vino-card">
             <a href="/vinos/tukma-gran-corte-2017.html" target="_blank">
-                <img src="/images/small/tukma-gran-corte-2017.jpg" alt="Tukma Gran Corte 2017" loading="lazy">
+                <img src="/images/small/tukma-gran-corte-2017.jpg" alt="Tukma Gran Corte 2017" loading="lazy" style="height:80px; width:auto; object-fit:contain;">
                 <h3>Tukma Gran Corte 2017</h3>
                 <div class="precio">€ 34,70</div>
                 <div class="precio-litro">€ 46,27/L</div>
@@ -213,7 +210,7 @@
         
         <div class="vino-card">
             <a href="/vinos/chakana-nuna-malbec-bio-2022.html" target="_blank">
-                <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="CHAKANA Nuna Malbec Bio 2022" loading="lazy">
+                <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="CHAKANA Nuna Malbec Bio 2022" loading="lazy" style="height:80px; width:auto; object-fit:contain;">
                 <h3>CHAKANA Nuna Malbec Bio 2022</h3>
                 <div class="precio">€ 16,13</div>
                 <div class="precio-litro">€ 21,51/L</div>
@@ -222,7 +219,7 @@
         
         <div class="vino-card">
             <a href="#">
-                <img src="/images/small/placeholder.jpg" alt="Charnamuyo Estate Malbec" loading="lazy">
+                <img src="/images/small/placeholder.jpg" alt="Charnamuyo Estate Malbec" loading="lazy" style="height:80px; width:auto; object-fit:contain;">
                 <h3>Charnamuyo Estate Malbec</h3>
                 <div class="precio">€ --,--</div>
                 <div class="precio-litro">€ --,--/L</div>
@@ -231,7 +228,7 @@
         
         <div class="vino-card">
             <a href="#">
-                <img src="/images/small/placeholder.jpg" alt="Graciano Malbec" loading="lazy">
+                <img src="/images/small/placeholder.jpg" alt="Graciano Malbec" loading="lazy" style="height:80px; width:auto; object-fit:contain;">
                 <h3>Graciano Malbec</h3>
                 <div class="precio">€ --,--</div>
                 <div class="precio-litro">€ --,--/L</div>
@@ -240,7 +237,7 @@
         
         <div class="vino-card">
             <a href="/vinos/nucha-2023.html" target="_blank">
-                <img src="/images/small/nucha-2023.jpg" alt="Nucha 2023" loading="lazy">
+                <img src="/images/small/nucha-2023.jpg" alt="Nucha 2023" loading="lazy" style="height:80px; width:auto; object-fit:contain;">
                 <h3>Nucha 2023</h3>
                 <div class="precio">€ 10,92</div>
                 <div class="precio-litro">€ 14,56/L</div>
@@ -249,7 +246,7 @@
         
         <div class="vino-card">
             <a href="/vinos/amalaya-malbec-2023.html" target="_blank">
-                <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" loading="lazy">
+                <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" loading="lazy" style="height:80px; width:auto; object-fit:contain;">
                 <h3>Amalaya Malbec 2023</h3>
                 <div class="precio">€ 11,34</div>
                 <div class="precio-litro">€ 15,12/L</div>
@@ -284,32 +281,6 @@ document.addEventListener('click', function(e) {
         hamburger.classList.remove('open');
         sidebar.classList.remove('open');
     }
-});
-
-const grid = document.querySelector('.winery-grid');
-const prev = document.querySelector('.winery-prev');
-const next = document.querySelector('.winery-next');
-let scrollAmount = 0;
-const cardWidth = 220;
-
-next.addEventListener('click', () => {
-    scrollAmount += cardWidth;
-    if (scrollAmount >= grid.scrollWidth - grid.clientWidth) {
-        scrollAmount = grid.scrollWidth - grid.clientWidth;
-        next.classList.add('hidden');
-    }
-    prev.classList.remove('hidden');
-    grid.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-});
-
-prev.addEventListener('click', () => {
-    scrollAmount -= cardWidth;
-    if (scrollAmount <= 0) {
-        scrollAmount = 0;
-        prev.classList.add('hidden');
-    }
-    next.classList.remove('hidden');
-    grid.scrollTo({ left: scrollAmount, behavior: 'smooth' });
 });
 
     </script>
