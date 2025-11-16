@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <style>
-css_block = f"""
-:root {
+    :root {
     --primary: #4A2C59;
     --accent: #25D366;
     --text: #333;
@@ -24,7 +23,9 @@ body {
     font-size: 1.1rem; line-height: 1.7;
 }
 
-/* HEADER: SOLO MOBILE */
+/* ========================================
+   HEADER: SOLO MOBILE, DESAPARECE EN DESKTOP
+   ======================================== */
 header {
     position: fixed; top:0; left:0; width:100%; background:white; z-index:1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1); height:90px; display:flex; 
@@ -35,7 +36,9 @@ header {
     header { display: none !important; } 
 }
 
-/* SIDEBAR: LOGO GRANDE (80px), LETRA CHICA, SIN LOGO EN MOBILE */
+/* ========================================
+   SIDEBAR (WORKER): LOGO INCLUIDO EN DESKTOP
+   ======================================== */
 #sidebar {
     position: fixed; top:0; left:0; width: var(--sidebar-width); height:100vh; 
     background:white; box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index: 1050; 
@@ -44,32 +47,32 @@ header {
 }
 #sidebar.open { transform: translateX(0); }
 
-/* LOGO GRANDE EN SIDEBAR (solo desktop) */
+/* Logo dentro del sidebar (visible en desktop) */
 #sidebar .logo-container {
-    text-align: center; padding: 18px 20px; border-bottom: 1px solid #eee;
+    text-align: center; padding: 15px 20px; border-bottom: 1px solid #eee;
 }
 #sidebar .logo-container img {
-    height: 80px; max-width: 200px;
+    height: 60px; max-width: 180px;
 }
 
-/* OCULTAR LOGO EN MOBILE */
-@media (max-width: 768px) {
-    #sidebar .logo-container { display: none !important; }
-}
+/* Ocultar logos duplicados del worker si los hay */
+#sidebar .logo, #sidebar img.logo { display: none !important; }
 
-/* ENLACES: LETRA MÁS CHICA, SIN NEGRITAS */
+/* Enlaces del menú */
 #sidebar a {
-    display:block; padding:1.1rem 2rem; color:var(--text); text-decoration:none;
-    font-weight: 500; font-size: 0.95rem; border-bottom:1px solid #eee;
+    display:block; padding:1.2rem 2rem; color:var(--text); text-decoration:none;
+    font-weight:700; font-size:1.1rem; border-bottom:1px solid #eee;
 }
 #sidebar a:hover { background:#f5f5f5; color:var(--primary); }
 
 /* Forzar sidebar visible en desktop */
 @media (min-width: 769px) {
-    #sidebar { transform: translateX(0) !important; }
+    #sidebar {transform: translateX(0) !important; }
 }
 
-/* MAIN: ESPACIO PARA SIDEBAR */
+/* ========================================
+   MAIN: ESPACIO PARA SIDEBAR
+   ======================================== */
 main {
     margin-top: 90px;
     padding: 2.5rem 5%;
@@ -81,7 +84,9 @@ main {
     main { padding: 2rem 5%; }
 }
 
-/* HAMBURGUESA: PEQUEÑA */
+/* ========================================
+   HAMBURGUESA: MÁS PEQUEÑA EN MOBILE
+   ======================================== */
 .hamburger {
     display: none; background: none; border: none; cursor: pointer;
     padding: 6px; position: fixed; top: 22px; left: 12px; z-index: 1100;
@@ -101,7 +106,9 @@ main {
     .hamburger { display: none !important; }
 }
 
-/* HERO */
+/* ========================================
+   HERO
+   ======================================== */
 .hero { 
     text-align:center; padding:140px 20px 90px; 
     background: linear-gradient(rgba(74,44,89,0.9), rgba(74,44,89,0.9)), url('/images/b2b/banner-bares.jpg') center/cover; 
@@ -121,7 +128,9 @@ main {
     font-weight:700; font-size:1.1rem; text-transform: uppercase;
 }
 
-/* BODEGAS */
+/* ========================================
+   BODEGAS
+   ======================================== */
 .winery-grid {
     display:flex; overflow-x:auto; gap:18px; padding:25px 0; scroll-behavior:smooth;
     max-width:1100px; margin:2.5rem auto;
@@ -132,7 +141,7 @@ main {
 }
 .winery-card img.logo { width:180px; height:180px; object-contain; }
 
-/* VINOS GRID */
+/* VINOS GRID - CORREGIDO CON DOBLE CORCHETE */
 .vinos-grid {
     display: grid; gap: 25px; max-width: 1100px; margin: 4rem auto;
 }
@@ -142,7 +151,6 @@ main {
 @media (max-width: 768px) { 
     .vinos-grid { grid-template-columns: 1fr; } 
 }
-
 .product-card {
     background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:20px;
     min-height:400px; display:flex; flex-direction:column; justify-content:space-between;
