@@ -235,7 +235,19 @@
             .hero h1 { font-size:2.5rem; }
             .hero p { font-size:1.1rem; text-align:center; }
             .vinos-grid { margin: 3rem auto; }
-    
+    /* HAMBURGUESA MÁS CHICA EN MOBILE */
+        @media (max-width: 768px) {
+            .hamburger {
+                padding: 4px;
+                top: 20px;
+                left: 10px;
+            }
+            .hamburger span {
+                width: 26px;
+                height: 3px;
+                margin: 5px 0;
+            }
+        }
         }
         @media (min-width: 769px) {
             .hamburger { display: none; }
@@ -257,9 +269,12 @@
         }
         
         /* 2. Logo a la derecha */
-        header {
-            justify-content: flex-end;
-        }
+       header {
+    display: flex;
+    justify-content: flex-end;   /* logo a la derecha */
+    align-items: center;
+    padding-right: 10%;          /* más espacio "premium" */
+    }
         .logo img {
             height: 70px;
             margin-left: auto;
