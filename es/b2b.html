@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000Malbecs B2B - Vinos Argentinos</title>
     <meta property="og:image" content="https://www.1000malbecs.com/images/l000-malbecs-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- MONTSERRAT -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <style>
         :root {
@@ -15,42 +16,48 @@
             --bg: #FAF9F6;
             --sidebar-width: 250px;
         }
-        
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: var(--bg); color: var(--text); 
+            font-size: 1.1rem; line-height: 1.7;
+        }
+
         /* HEADER: LOGO SOLO EN MOBILE */
         header {
             position: fixed; top:0; left:0; width:100%; background:white; z-index:1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); height:80px; display:flex; align-items:center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); height:90px; display:flex; align-items:center;
             justify-content: flex-end; padding: 0 5%;
         }
         .logo img { height: 80px; }
         @media (min-width: 769px) { .logo { display: none; } }
 
-        /* RESERVAR ESPACIO PARA SIDEBAR DEL WORKER */
+        /* RESERVAR ESPACIO PARA WORKER SIDEBAR */
         main {
-            margin-top: 80px;
-            padding: 2rem 5%;
+            margin-top: 90px;
+            padding: 2.5rem 5%;
         }
         @media (min-width: 769px) {
-            main { margin-left: var(--sidebar-width); padding-left: 2rem; }
+            main { margin-left: var(--sidebar-width); padding-left: 3rem; }
         }
         @media (max-width: 768px) {
             main { padding: 2rem 5%; }
         }
 
-        /* HAMBURGUESA (MOBILE) */
+        /* HAMBURGUESA MÁS GRANDE */
         .hamburger {
             display: none; background: none; border: none; cursor: pointer;
-            padding: 10px; position: fixed; top: 25px; left: 10px; z-index: 1100;
+            padding: 15px; position: fixed; top: 22px; left: 12px; z-index: 1100;
         }
         .hamburger span {
-            display: block; width: 30px; height: 3px; background: #4A2C59;
-            margin: 6px 0; transition: 0.3s; border-radius: 2px;
+            display: block; width: 38px; height: 4px; background: #4A2C59;
+            margin: 8px 0; transition: 0.3s; border-radius: 3px;
         }
-        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(8px, -7px); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(10px, -9px); }
 
-        /* ESTILOS PARA SIDEBAR DEL WORKER (opcional, si no lo tiene) */
+        /* ESTILOS PARA SIDEBAR DEL WORKER */
         #sidebar {
             position: fixed; top:0; left:0; width: var(--sidebar-width); height:100vh; background:white;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index: 1050; padding-top: 100px;
@@ -58,77 +65,91 @@
         }
         #sidebar.open { transform: translateX(0); }
         #sidebar a {
-            display:block; padding:1rem 2rem; color:var(--text); text-decoration:none;
-            font-weight:600; border-bottom:1px solid #eee;
+            display:block; padding:1.2rem 2rem; color:var(--text); text-decoration:none;
+            font-weight:700; font-size: 1.1rem; border-bottom:1px solid #eee;
         }
         #sidebar a:hover { background:#f0f0f0; color:var(--primary); }
 
         .hero { 
-            text-align:center; padding:120px 20px 80px; 
+            text-align:center; padding:140px 20px 90px; 
             background: linear-gradient(rgba(74,44,89,0.9), rgba(74,44,89,0.9)), url('/images/b2b/banner-bares.jpg') center/cover; 
             color:white;
         }
-        .hero h1 { font-family:'Playfair Display', serif; font-size:3rem; margin-bottom:1rem; }
-        .hero p { max-width:800px; margin:0 auto 1rem; text-align: justify; }
+        .hero h1 { 
+            font-size: 3.2rem; font-weight: 800; margin-bottom: 1.5rem; 
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .hero p { 
+            max-width:900px; margin:0 auto 1.2rem; text-align: justify; 
+            font-size: 1.25rem; font-weight: 500;
+        }
         .cta-whatsapp { 
             display:inline-flex; align-items:center; background:var(--accent); color:white; 
-            padding:1rem 2rem; border-radius:50px; text-decoration:none; margin-top:1.5rem; 
+            padding:1.2rem 2.5rem; border-radius:50px; text-decoration:none; margin-top:2rem; 
+            font-weight:700; font-size:1.1rem; text-transform: uppercase;
         }
 
         /* BODEGAS */
         .winery-grid {
-            display:flex; overflow-x:auto; gap:15px; padding:20px 0; scroll-behavior:smooth;
-            max-width:1000px; margin:2rem auto;
+            display:flex; overflow-x:auto; gap:18px; padding:25px 0; scroll-behavior:smooth;
+            max-width:1100px; margin:2.5rem auto;
         }
         .winery-card {
-            flex: 0 0 200px; height:200px; background:white; border-radius:14px; overflow:hidden;
-            box-shadow:0 6px 20px rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center;
+            flex: 0 0 220px; height:220px; background:white; border-radius:16px; overflow:hidden;
+            box-shadow:0 8px 25px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center;
         }
-        .winery-card img.logo { width:160px; height:160px; object-contain; }
+        .winery-card img.logo { width:180px; height:180px; object-contain; }
 
         /* VINOS GRID */
         .vinos-grid {
-            display: grid; gap: 20px; max-width: 1000px; margin: 3rem auto;
+            display: grid; gap: 25px; max-width: 1100px; margin: 4rem auto;
         }
         @media (min-width: 769px) { .vinos-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .vinos-grid { grid-template-columns: 1fr; } }
 
         .product-card {
-            background:#fff; border:1px solid #e0e0e0; border-radius:5px; padding:15px;
-            min-height:380px; display:flex; flex-direction:column; justify-content:space-between;
-            align-items:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);
+            background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:20px;
+            min-height:400px; display:flex; flex-direction:column; justify-content:space-between;
+            align-items:center; box-shadow:0 3px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
         }
+        .product-card:hover { transform: translateY(-5px); }
         .product-card img { width:100%; height:200px; object-fit:contain; }
-        .product-card h3 { font-size:16px; margin:10px 0; color:#4A2C59; text-align:center; }
-        .product-card .price { font-weight:bold; color:#6B2D8F; text-align:center; }
-        .product-card .price-per-liter { font-size:0.9em; color:#666; text-align:center; }
-        .product-card .shipping-note { font-size:0.8em; color:#999; font-style:italic; text-align:center; }
+        .product-card h3 { 
+            font-size: 1.3rem; margin:12px 0; color:#4A2C59; text-align:center; 
+            font-weight:700; text-transform: uppercase;
+        }
+        .product-card .price { font-weight:800; color:#6B2D8F; text-align:center; font-size:1.4rem; }
+        .product-card .price-per-liter { font-size:1rem; color:#666; text-align:center; }
+        .product-card .shipping-note { font-size:0.9rem; color:#999; font-style:italic; text-align:center; }
         .product-card .buy-button {
-            background:#4A2C59; color:#f5e6ff; padding:8px 16px; border-radius:5px;
-            text-decoration:none; font-size:14px; width:100%; max-width:180px; text-align:center;
+            background:#4A2C59; color:#fff; padding:12px 20px; border-radius:6px;
+            text-decoration:none; font-size:1rem; font-weight:700; width:100%; max-width:200px; 
+            text-align:center; text-transform: uppercase; margin-top:15px;
         }
         .product-card .buy-button:hover { background:#5A1D39; }
 
-        .contacto { text-align:center; padding:60px 20px; background:var(--primary); color:white; }
+        .contacto { 
+            text-align:center; padding:80px 20px; background:var(--primary); color:white; 
+            font-size:1.3rem; font-weight:600;
+        }
+        .contacto p { margin-bottom:1.5rem; }
+        .contacto .cta-whatsapp { font-size:1.2rem; padding:1.3rem 3rem; }
 
         @media (max-width: 768px) {
             .hamburger { display: block !important; }
             .hero h1 { font-size:2.5rem; }
-            .hero p { text-align: center; }
-            .logo-container { display: none; }
+            .hero p { font-size:1.1rem; text-align:center; }
+            .vinos-grid { margin: 3rem auto; }
         }
         @media (min-width: 769px) {
-            .header { display: none; }
-            .logo-container { display: block; }
-            .info-icon { display: none; }
             .hamburger { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HAMBURGUESA (MOBILE) -->
-     <button class="hamburger"><strong>☰</strong></button>
+    <!-- HAMBURGUESA MÁS GRANDE -->
+    <button class="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
     </button>
 
@@ -142,13 +163,10 @@
     </header>
 
     <main>
-           <!-- HERO -->
+        <!-- HERO -->
         <section class="hero" id="inicio">
-            <h1>1000 nuevas <strong>EXPERIENCIAS</strong> para sus clientes</h1>
-
-            <!-- BODEGAS (SIN FLECHAS) -->
+            <h1>1000 NUEVAS <strong>EXPERIENCIAS</strong> PARA SUS CLIENTES</h1>
             <div class="winery-grid">
-                
         <a class="winery-card" href="/es/bodegas/casa-araujo.html">
             <img class="logo" src="/images/bodegas/logo-casa-araujo.jpg" alt="Logo de Casa Araujo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
         </a>
@@ -184,21 +202,17 @@
         <a class="winery-card" href="/es/bodegas/amalaya.html">
             <img class="logo" src="/images/bodegas/logo-amalaya.jpg" alt="Logo de Amalaya" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
         </a>
-    
-            </div>
-
-            <p>En <strong>1000malbecs.com</strong> ofrecemos un <strong>servicio exclusivo para bares y restaurantes</strong>. Vinos, espumantes y vermuts argentinos de alta calidad para <strong>elevar la experiencia de sus clientes y aumentar sus ventas</strong>.</p>
-            <p><strong>Variedad, diferenciación y unicidad</strong>: contamos con una <strong>selección premium</strong> de las <strong>mejores bodegas argentinas</strong>, pensada para <strong>complementar cada plato</strong> de su carta y <strong>resaltar sus creaciones</strong>.</p>
-            <p>El vino argentino es el <strong>maridaje perfecto</strong> para cualquier cocina. Tenemos la opción ideal para <strong>cada estilo, cada momento y cada presupuesto</strong>.</p>
-            <p><strong>Estamos a su disposición</strong> para asesorarlo personalmente, optimizar su carta y <strong>maximizar la rentabilidad de su negocio</strong>.</p>
-            <a href="https://wa.me/4915158224728" class="cta-whatsapp" target="_blank">
-                Contáctenos
-            </a>
+    </div>
+            <p>En <strong>1000MALBECS.COM</strong> ofrecemos un <strong>SERVICIO EXCLUSIVO para BARES y RESTAURANTES</strong>. Vinos, espumantes y vermuts argentinos de ALTA CALIDAD para <strong>ELEVAR la EXPERIENCIA de sus CLIENTES y AUMENTAR sus VENTAS</strong>.</p>
+            <p><strong>VARIEDAD, DIFERENCIACIÓN y UNICIDAD</strong>: contamos con una <strong>SELECCIÓN PREMIUM</strong> de las <strong>MEJORES BODEGAS ARGENTINAS</strong>, pensada para <strong>COMPLEMENTAR cada PLATO</strong> de su carta y <strong>RESALTAR sus CREACIONES</strong>.</p>
+            <p>El vino argentino es el <strong>MARIDAJE PERFECTO</strong> para cualquier cocina. Tenemos la opción ideal para <strong>CADA ESTILO, CADA MOMENTO y CADA PRESUPUESTO</strong>.</p>
+            <p><strong>ESTAMOS A SU DISPOSICIÓN</strong> para asesorarlo personalmente, optimizar su carta y <strong>MAXIMIZAR la RENTABILIDAD de su NEGOCIO</strong>.</p>
+            <a href="https://wa.me/4915158224728" class="cta-whatsapp" target="_blank">CONTÁCTENOS</a>
         </section>
 
         <!-- VINOS -->
         <section id="vinos">
-            <h2 style="text-align:center; margin:3rem 0 1.5rem; color:var(--primary); font-family:'Playfair Display',serif; font-size:2rem;">Vinos Destacados</h2>
+            <h2 style="text-align:center; margin:4rem 0 2rem; color:var(--primary); font-weight:800; font-size:2.3rem; text-transform:uppercase;">VINOS DESTACADOS</h2>
             <div class="vinos-grid">
         <div class="product-card">
             <img src="/images/small/tukma-gran-corte-2017.jpg" alt="Tukma Gran Corte 2017" loading="lazy">
@@ -206,7 +220,7 @@
             <p class="price"><strong>€ 34,70</strong></p>
             <p class="price-per-liter">(€ 46,27/L)</p>
             <p class="shipping-note">+ gastos de envío</p>
-            <a class="buy-button" href="/vinos/tukma-gran-corte-2017.html" target="_blank">Comprar Ahora</a>
+            <a class="buy-button" href="/vinos/tukma-gran-corte-2017.html" target="_blank">COMPRAR AHORA</a>
         </div>
         
         <div class="product-card">
@@ -215,7 +229,7 @@
             <p class="price"><strong>€ 16,13</strong></p>
             <p class="price-per-liter">(€ 21,51/L)</p>
             <p class="shipping-note">+ gastos de envío</p>
-            <a class="buy-button" href="/vinos/chakana-nuna-malbec-bio-2022.html" target="_blank">Comprar Ahora</a>
+            <a class="buy-button" href="/vinos/chakana-nuna-malbec-bio-2022.html" target="_blank">COMPRAR AHORA</a>
         </div>
         
         <div class="product-card">
@@ -224,7 +238,7 @@
             <p class="price"><strong>€ --,--</strong></p>
             <p class="price-per-liter">(€ --,--/L)</p>
             <p class="shipping-note">+ gastos de envío</p>
-            <a class="buy-button" href="#">Comprar Ahora</a>
+            <a class="buy-button" href="#">COMPRAR AHORA</a>
         </div>
         
         <div class="product-card">
@@ -233,7 +247,7 @@
             <p class="price"><strong>€ --,--</strong></p>
             <p class="price-per-liter">(€ --,--/L)</p>
             <p class="shipping-note">+ gastos de envío</p>
-            <a class="buy-button" href="#">Comprar Ahora</a>
+            <a class="buy-button" href="#">COMPRAR AHORA</a>
         </div>
         
         <div class="product-card">
@@ -242,7 +256,7 @@
             <p class="price"><strong>€ 10,92</strong></p>
             <p class="price-per-liter">(€ 14,56/L)</p>
             <p class="shipping-note">+ gastos de envío</p>
-            <a class="buy-button" href="/vinos/nucha-2023.html" target="_blank">Comprar Ahora</a>
+            <a class="buy-button" href="/vinos/nucha-2023.html" target="_blank">COMPRAR AHORA</a>
         </div>
         
         <div class="product-card">
@@ -251,21 +265,21 @@
             <p class="price"><strong>€ 11,34</strong></p>
             <p class="price-per-liter">(€ 15,12/L)</p>
             <p class="shipping-note">+ gastos de envío</p>
-            <a class="buy-button" href="/vinos/amalaya-malbec-2023.html" target="_blank">Comprar Ahora</a>
+            <a class="buy-button" href="/vinos/amalaya-malbec-2023.html" target="_blank">COMPRAR AHORA</a>
         </div>
         </div>
         </section>
 
         <!-- CONTACTO -->
         <section class="contacto" id="contacto">
-            <p><strong>¡No espere más!</strong> Contáctenos hoy y reciba una visita personalizada.</p>
-            <a href="https://wa.me/5491123456789?text=Hola%2C%20quiero%20una%20visita%20exclusiva%20de%201000Malbecs" class="cta-whatsapp" target="_blank">Contáctenos</a>
+            <p><strong>¡NO ESPERE MÁS!</strong> Contáctenos hoy y reciba una <strong>VISITA PERSONALIZADA</strong>.</p>
+            <a href="https://wa.me/5491123456789?text=Hola%2C%20quiero%20una%20visita%20exclusiva%20de%201000Malbecs" class="cta-whatsapp" target="_blank">CONTÁCTENOS</a>
         </section>
     </main>
 
     <script>
 const hamburger = document.querySelector('.hamburger');
-const sidebar = document.getElementById('sidebar'); // El worker lo inyecta
+const sidebar = document.getElementById('sidebar');
 
 hamburger?.addEventListener('click', function(e) {
     e.stopPropagation();
