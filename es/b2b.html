@@ -240,6 +240,43 @@
         @media (min-width: 769px) {
             .hamburger { display: none; }
         }
+        /* ========= FIXES ========= */
+
+        /* 1. Hamburguesa más chica en mobile */
+        @media (max-width: 768px) {
+            .hamburger {
+                padding: 4px;
+                top: 20px;
+                left: 10px;
+            }
+            .hamburger span {
+                width: 26px;
+                height: 3px;
+                margin: 5px 0;
+            }
+        }
+        
+        /* 2. Logo a la derecha */
+        header {
+            justify-content: flex-end;
+        }
+        .logo img {
+            height: 70px;
+            margin-left: auto;
+        }
+        
+       css_block = f"""
+    /* 3. Sidebar visible en desktop (worker) */
+    @media (min-width: 769px) {
+        #sidebar {
+            transform: translateX(0) !important;
+        }
+        .hamburger {
+            display: none !important;
+        }
+    }
+    """
+
     </style>
 </head>
 <body>
