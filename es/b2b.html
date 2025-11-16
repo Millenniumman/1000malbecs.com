@@ -15,23 +15,7 @@
             --bg: #FAF9F6;
             --sidebar-width: 250px;
         }
-        * { margin:0; padding:0; box-sizing:border-box; }
-         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        .header { top: 50px; z-index: 120; }
-        .logo { max-width: 150px; height: auto; }
-        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
-        #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
-        .logo-container { text-align: center; margin-bottom: 20px; }
-        #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
-        #sidebar details { margin-bottom: 15px; }
-        #sidebar details:first-of-type { margin-bottom: 25px; }
-        #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
-        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
-        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
-        #sidebar li { margin: 5px 0; }
-        .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
-        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
-        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        
         /* HEADER: LOGO SOLO EN MOBILE */
         header {
             position: fixed; top:0; left:0; width:100%; background:white; z-index:1000;
@@ -128,11 +112,10 @@
         .contacto { text-align:center; padding:60px 20px; background:var(--primary); color:white; }
 
         @media (max-width: 768px) {
-            .hamburger { display: block !important; }
-            .hero h1 { font-size:2.3rem; }
-            .hero p { text-align: center; }
+           .hamburger { display: block !important; z-index: 130; }
+            #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
+            #sidebar.open { transform: translateX(0); }
             .logo-container { display: none; }
-        }
         @media (min-width: 769px) {
             .header { display: none; }
             .logo-container { display: block; }
@@ -144,7 +127,7 @@
 <body>
 
     <!-- HAMBURGUESA (MOBILE) -->
-    <button class="hamburger" aria-label="Menú">
+     <button class="hamburger">☰</button>
         <span></span><span></span><span></span>
     </button>
 
