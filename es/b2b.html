@@ -467,24 +467,50 @@ main {
     </main>
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('JS cargado - flip activado');
+    console.log('JS flip + icono activado');
 
     document.querySelectorAll('.restaurant-card').forEach(card => {
-        card.addEventListener('click', () => card.classList.toggle('flipped'));
-        card.addEventListener('touchstart', () => card.classList.toggle('flipped'), {passive: true});
+        // === CLICK Y TOQUE (un solo toque en móvil) ===
+        const flipCard = (e) => {
+            e.preventDefault();           // evita scroll
+            card.classList.toggle('flipped');
+        };
+        card.addEventListener('click', flipCard);
+        card.addEventListener('touchend', flipCard);   // ← touchend = un solo toque
+
+        // === ICONO DE INFO ARRIBA A LA DERECHA ===
+        const icon = document.createElement('div');
+        icon.innerHTML = 'ℹ️';                     // o usa → ⬇ o ↷ o ⋯
+        icon.style.cssText = `
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            background: rgba(255,255,255,0.8);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        `;
+        card.style.position = 'relative';   // necesario para el icono
+        card.querySelector('.flip-front').appendChild(icon);
     });
 
+    // === HAMBURGUESA (sin cambios) ===
     const hamburger = document.querySelector('.hamburger');
     const sidebar = document.getElementById('sidebar');
-    
     if (hamburger && sidebar) {
-        hamburger.addEventListener('click', function(e) {
+        hamburger.addEventListener('click', e => {
             e.stopPropagation();
             hamburger.classList.toggle('open');
             sidebar.classList.toggle('open');
         });
-
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', e => {
             if (sidebar.classList.contains('open') && 
                 !sidebar.contains(e.target) && 
                 !hamburger.contains(e.target)) {
