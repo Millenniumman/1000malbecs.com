@@ -190,6 +190,80 @@ main {
     .hero p { font-size:1.1rem; text-align:center; }
     .vinos-grid { margin: 3rem auto; }
 }
+# /* RESTAURANTES FLIP CARD */
+.restaurant-section {{
+    margin: 6rem 0;
+    text-align: center;
+}}
+
+.restaurant-section h2 {{
+    color: #4A2C59;
+    font-size: 2.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}}
+
+.restaurant-card {{
+    perspective: 1000px;
+    flex: 0 0 220px;
+    height: 280px;
+    cursor: pointer;
+}}
+
+.restaurant-card .flip-inner {{
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
+    transform-style: preserve-3d;
+}}
+
+.restaurant-card.flipped .flip-inner {{
+    transform: rotateY(180deg);
+}}
+
+.flip-front,
+.flip-back {{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #4A2C59;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}}
+
+.flip-back {{
+    transform: rotateY(180deg);
+    color: white;
+    font-size: .95rem;
+    text-align: center;
+}}
+
+.restaurant-card img {{
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,.6));
+}}
+
+.restaurant-card .nombre {{
+    margin: 12px 0 4px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}}
+
+.restaurant-card .localidad {{
+    color: #ddd;
+    font-size: .9rem;
+}}
 </style>
 </head>
 <body>
@@ -319,61 +393,71 @@ main {
         <section class="restaurant-section">
             <h2>Restaurantes con vinos de 1000 Malbecs</h2>
             <div class="restaurant-grid">
-        <div class="restaurant-card" data-direccion="{{Friedrichstrasse 24, 41460 Neuss, Germany}}">
-            <div class="front">
-                <img class="logo" src="{{/images/bodegas/logo-los-moretto.jpg}}" alt="Logo de {{nombre}}" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-                <p class="nombre">{{LOS MORETTO}}</p>
-                <p class="localidad">{{Neuss}}</p>
-            </div>
-            <div class="back">
-                <p class="direccion">{{Friedrichstrasse 24, 41460 Neuss, Germany}}</p>
-            </div>
-        </div>
-    
-        <div class="restaurant-card" data-direccion="{{Niederkasseler Str. 9, 40547 Düsseldorf, Germany}}">
-            <div class="front">
-                <img class="logo" src="{{/images/bodegas/logo-rustica.jpg}}" alt="Logo de {{nombre}}" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-                <p class="nombre">{{RUSTICA}}</p>
-                <p class="localidad">{{Düsseldorf}}</p>
-            </div>
-            <div class="back">
-                <p class="direccion">{{Niederkasseler Str. 9, 40547 Düsseldorf, Germany}}</p>
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{/images/bodegas/logo-los-moretto.jpg}}" alt="Los Moretto" 
+                         onerror="this.src='https:// pollutants/via.placeholder.com/200x200/4A2C59/ffffff?text=LO';">
+                    <p class="nombre">LOS MORETTO</p>
+                    <p class="localidad">Neuss</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Friedrichstrasse 24, 41460 Neuss, Germany</p>
+                </div>
             </div>
         </div>
-    
-        <div class="restaurant-card" data-direccion="{{Barmbeker Str. 150, 22299 Hamburg, Germany}}">
-            <div class="front">
-                <img class="logo" src="{{/images/bodegas/logo-arizona-steak-house.jpg}}" alt="Logo de {{nombre}}" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-                <p class="nombre">{{ARIZONA STEAK-HOUSE}}</p>
-                <p class="localidad">{{Hamburg}}</p>
-            </div>
-            <div class="back">
-                <p class="direccion">{{Barmbeker Str. 150, 22299 Hamburg, Germany}}</p>
-            </div>
-        </div>
-    
-        <div class="restaurant-card" data-direccion="{{Möllner Landstraße 55, 21509 Glinde, Germany}}">
-            <div class="front">
-                <img class="logo" src="{{/images/bodegas/logo-remise-steakhouse.jpg}}" alt="Logo de {{nombre}}" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-                <p class="nombre">{{REMISE STEAKHOUSE}}</p>
-                <p class="localidad">{{Glinde}}</p>
-            </div>
-            <div class="back">
-                <p class="direccion">{{Möllner Landstraße 55, 21509 Glinde, Germany}}</p>
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{/images/bodegas/logo-rustica.jpg}}" alt="Rustica" 
+                         onerror="this.src='https:// pollutants/via.placeholder.com/200x200/4A2C59/ffffff?text=RU';">
+                    <p class="nombre">RUSTICA</p>
+                    <p class="localidad">Düsseldorf</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Niederkasseler Str. 9, 40547 Düsseldorf, Germany</p>
+                </div>
             </div>
         </div>
-    
-        <div class="restaurant-card" data-direccion="{{Unter den Ulmen 15, 33330 Gütersloh, Germany}}">
-            <div class="front">
-                <img class="logo" src="{{/images/bodegas/logo-mendoza-steakhouse.jpg}}" alt="Logo de {{nombre}}" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+No+Disponible';">
-                <p class="nombre">{{MENDOZA STEAKHOUSE}}</p>
-                <p class="localidad">{{Gütersloh}}</p>
-            </div>
-            <div class="back">
-                <p class="direccion">{{Unter den Ulmen 15, 33330 Gütersloh, Germany}}</p>
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{/images/bodegas/logo-arizona-steak-house.jpg}}" alt="Arizona Steak-House" 
+                         onerror="this.src='https:// pollutants/via.placeholder.com/200x200/4A2C59/ffffff?text=AR';">
+                    <p class="nombre">ARIZONA STEAK-HOUSE</p>
+                    <p class="localidad">Hamburg</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Barmbeker Str. 150, 22299 Hamburg, Germany</p>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{/images/bodegas/logo-remise-steakhouse.jpg}}" alt="Remise Steakhouse" 
+                         onerror="this.src='https:// pollutants/via.placeholder.com/200x200/4A2C59/ffffff?text=RE';">
+                    <p class="nombre">REMISE STEAKHOUSE</p>
+                    <p class="localidad">Glinde</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Möllner Landstraße 55, 21509 Glinde, Germany</p>
+                </div>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{/images/bodegas/logo-mendoza-steakhouse.jpg}}" alt="Mendoza Steakhouse" 
+                         onerror="this.src='https:// pollutants/via.placeholder.com/200x200/4A2C59/ffffff?text=ME';">
+                    <p class="nombre">MENDOZA STEAKHOUSE</p>
+                    <p class="localidad">Gütersloh</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Unter den Ulmen 15, 33330 Gütersloh, Germany</p>
+                </div>
+            </div>
+        </div></div>
         </section>
         <!-- CONTACTO -->
         <section class="contacto" id="contacto">
