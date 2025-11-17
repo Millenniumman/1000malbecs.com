@@ -466,19 +466,32 @@ main {
         </section>
     </main>
     <script>
-const hamburger = document.querySelector('.hamburger');
-const sidebar = document.getElementById('sidebar');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('JS cargado - flip activado');
 
-hamburger?.addEventListener('click', function(e) {
-    e.stopPropagation();
-    hamburger.classList.toggle('open');
-    sidebar?.classList.toggle('open');
-});
+    document.querySelectorAll('.restaurant-card').forEach(card => {
+        card.addEventListener('click', () => card.classList.toggle('flipped'));
+        card.addEventListener('touchstart', () => card.classList.toggle('flipped'), {passive: true});
+    });
 
-document.addEventListener('click', function(e) {
-    if (sidebar && !sidebar.contains(e.target) && !hamburger?.contains(e.target)) {
-        hamburger?.classList.remove('open');
-        sidebar.classList.remove('open');
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (hamburger && sidebar) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('open');
+            sidebar.classList.toggle('open');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (sidebar.classList.contains('open') && 
+                !sidebar.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                hamburger.classList.remove('open');
+                sidebar.classList.remove('open');
+            }
+        });
     }
 });
 </script>
