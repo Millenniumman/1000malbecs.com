@@ -127,30 +127,44 @@ main {
 .winery-grid {
     display:flex; overflow-x:auto; gap:18px; padding:25px 0; scroll-behavior:smooth;
     max-width:1100px; margin:2.5rem auto;
+    scrollbar-color: #4A2C59 transparent;
 }
 .winery-card {
     flex: 0 0 220px; 
     height: 220px; 
-    background: #4A2C59;           /* ← FONDO BORDEAUX */
+    background: #4A2C59;                    /* ← fondo bordeaux */
     border-radius: 16px; 
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.4);
     display: flex; 
     align-items: center; 
     justify-content: center;
-    padding: 20px;                  /* ← para que no toque los bordes */
+    position: relative;
 }
 
-/* Para que los logos se vean perfectos sobre bordeaux */
+/* Círculo blanco detrás del logo (queda elegante y funciona con cualquier logo) */
+.winery-card::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.95;
+}
+
+/* Logo encima del círculo blanco */
 .winery-card img.logo {
-    width: 180px; 
-    height: 180px; 
+    width: 160px; 
+    height: 160px; 
     object-fit: contain;
-    filter: brightness(0) invert(1);   /* ← hace que logos oscuros se vean BLANCOS */
-    transition: filter 0.3s;
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    transition: transform 0.3s ease;
 }
 .winery-card:hover img.logo {
-    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.6));
+    transform: scale(1.08);
 }
 
 /* VINOS GRID - CORREGIDO CON DOBLE CORCHETE */
