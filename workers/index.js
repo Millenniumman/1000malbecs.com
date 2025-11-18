@@ -4,7 +4,6 @@ export default {
     const path = url.pathname;
     const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/data/navigation.json"];
     if (excludedPaths.some((excluded) => path.includes(excluded))) {
-      console.log("Bypassing Worker for path:", path);
       return fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
         headers: request.headers
       });
@@ -14,11 +13,7 @@ export default {
     if (path.startsWith("/en/")) lang = "en";
     else if (path.startsWith("/de/")) lang = "de";
     else if (path.startsWith("/es/")) lang = "es";
-    const langParam = url.searchParams.get("lang");
-    if (langParam && ["es", "en", "de"].includes(langParam)) {
-      lang = langParam;
-    }
-
+  
     const translations = {
       es: {
         navbar: {
@@ -224,7 +219,12 @@ export default {
       const isActive = path === `/${lang}${link.href}` ? " active" : "";
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
-
+    
+    const b2bLink = `
+      <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? ' active' : ''}">
+        <i class="fas fa-utensils"></i> ${translations[lang].B2B}
+      </a>
+    `;
       const infoLinks = [
       { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
       { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
@@ -238,10 +238,14 @@ export default {
     const navbarHtml = `
       <nav id="sidebar">
         <div class="logo-container">
-          <a href="/${lang}/" title="${translations[lang].navbar.home}">
+          <a href="/${lang}/" title="Volver al inicio">
             <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
           </a>
         </div>
+
+        <!-- NUEVA SECCIÓN B2B -->
+        ${b2bLink}
+        
         <h2>${translations[lang].navbar.categories}</h2>
         <details>
           <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
