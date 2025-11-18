@@ -67,6 +67,7 @@ export default {
           offers: "Offers", // Added
           home: "Back to home",
           blog: "1000 Stories - Blog",
+          B2B: "Bares y Restaurants" 
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
