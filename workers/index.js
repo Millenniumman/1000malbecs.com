@@ -30,6 +30,7 @@ export default {
           offers: "Ofertas", // Added
           home: "Volver al inicio",
           blog: "1000 Historias - Blog",
+          B2B: "Bares y Restaurants"
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
