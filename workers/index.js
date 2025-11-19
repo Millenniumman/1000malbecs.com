@@ -228,11 +228,6 @@ export default {
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
     
-    const b2bLink = `
-      <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? ' active' : ''}">
-        <i class="fas fa-utensils"></i> ${translations[lang].B2B}
-      </a>
-    `;
       const infoLinks = [
       { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
       { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
