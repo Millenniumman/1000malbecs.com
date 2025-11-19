@@ -13,7 +13,15 @@ export default {
     if (path.startsWith("/en/")) lang = "en";
     else if (path.startsWith("/de/")) lang = "de";
     else if (path.startsWith("/es/")) lang = "es";
-  
+  // === B2B LINK CON TRADUCCIÓN E ICONO ===
+    const b2bText = lang === "es" ? "Bares y Restaurants" :
+                    lang === "en" ? "Bars & Restaurants" :
+                    lang === "de" ? "Bars & Restaurants";
+
+    const b2bLink = `
+      <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? ' active' : ''}">
+        <i class="fas fa-utensils"></i> ${b2bText}
+      </a>`;
     const translations = {
       es: {
         navbar: {
