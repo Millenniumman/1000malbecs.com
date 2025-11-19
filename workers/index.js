@@ -245,9 +245,6 @@ export default {
             <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
           </a>
         </div>
-
-        <!-- NUEVA SECCIÓN B2B -->
-        ${b2bLink}
         
         <h2>${translations[lang].navbar.categories}</h2>
         <details>
@@ -269,6 +266,7 @@ export default {
           </ul>
         </details>
         <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}"><i class="fas fa-tag"></i> ${translations[lang].navbar.offers}</a>
+        ${b2bLink}
         <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}"><i class="fas fa-book"></i> ${translations[lang].navbar.blog}</a>
         <details open>
           <summary><i class="fas fa-wine-glass"></i> ${translations[lang].navbar.info}</summary>
