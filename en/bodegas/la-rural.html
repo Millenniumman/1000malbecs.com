@@ -671,7 +671,7 @@ body { font-family: 'Montserrat', sans-serif; }
     <div class="banner"></div>
     <!-- Descripción de la bodega -->
     <section class="presentation">
-      <h2>Acerca de La Rural</h2>
+      <h2>About La Rural</h2>
       <p>Combining an ancient productive approach with the constant desire to combine innovative vision and evolution, the wines of La RuralThey are recognized as a successful and relevant brand of our time.
 
 The central objective is to create products of the highest international quality.
@@ -684,20 +684,20 @@ Advanced wine production and aging systems and equipment also allow us to satisf
     </section>
     <!-- Vinos -->
     <section class="products-section">
-      <h2>Vinos destacados de La Rural</h2>
+      <h2>Featured Wines from La Rural</h2>
       
       <div class="product-grid">
          
   <div class="product-card" data-overlay-id=".html">
     <img src="/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id=".html">i</div>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
     <div class="overlay" data-overlay-id=".html">
-      <p><strong>winery:</strong> La Rural</p>
-      <p><strong>province:</strong> Mendoza</p>
-      <p><strong>region:</strong> Luján de Cuyo</p>
-      <p><strong>altitude:</strong> 800 msnm</p>
-      <p><strong>vintage:</strong> 2024.0</p>
+      <p><strong>WINERY:</strong> La Rural</p>
+      <p><strong>PROVINCE:</strong> Mendoza</p>
+      <p><strong>REGION:</strong> Luján de Cuyo</p>
+      <p><strong>ALTITUDE:</strong> 800 msnm</p>
+      <p><strong>VINTAGE:</strong> 2024.0</p>
     </div>
 
     <h3></h3>
@@ -710,19 +710,19 @@ Advanced wine production and aging systems and equipment also allow us to satisf
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos/san-felipe-en-roble-malbec-2024.html" class="buy-button">Comprar</a>
+    <a href="/en/vinos/san-felipe-en-roble-malbec-2024.html" class="buy-button">Buy</a>
   </div>
         
   <div class="product-card" data-overlay-id=".html">
     <img src="/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id=".html">i</div>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
     <div class="overlay" data-overlay-id=".html">
-      <p><strong>winery:</strong> La Rural</p>
-      <p><strong>province:</strong> Mendoza</p>
-      <p><strong>region:</strong> Luján de Cuyo</p>
-      <p><strong>altitude:</strong> 800 msnm</p>
-      <p><strong>vintage:</strong> 2023.0</p>
+      <p><strong>WINERY:</strong> La Rural</p>
+      <p><strong>PROVINCE:</strong> Mendoza</p>
+      <p><strong>REGION:</strong> Luján de Cuyo</p>
+      <p><strong>ALTITUDE:</strong> 800 msnm</p>
+      <p><strong>VINTAGE:</strong> 2023.0</p>
     </div>
 
     <h3></h3>
@@ -735,19 +735,19 @@ Advanced wine production and aging systems and equipment also allow us to satisf
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos/san-felipe-varietal-malbec-2023.html" class="buy-button">Comprar</a>
+    <a href="/en/vinos/san-felipe-varietal-malbec-2023.html" class="buy-button">Buy</a>
   </div>
         
   <div class="product-card" data-overlay-id=".html">
     <img src="/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id=".html">i</div>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
     <div class="overlay" data-overlay-id=".html">
-      <p><strong>winery:</strong> La Rural</p>
-      <p><strong>province:</strong> Mendoza</p>
-      <p><strong>region:</strong> Luján de Cuyo</p>
-      <p><strong>altitude:</strong> </p>
-      <p><strong>vintage:</strong> 2023.0</p>
+      <p><strong>WINERY:</strong> La Rural</p>
+      <p><strong>PROVINCE:</strong> Mendoza</p>
+      <p><strong>REGION:</strong> Luján de Cuyo</p>
+      <p><strong>ALTITUDE:</strong> </p>
+      <p><strong>VINTAGE:</strong> 2023.0</p>
     </div>
 
     <h3></h3>
@@ -760,7 +760,7 @@ Advanced wine production and aging systems and equipment also allow us to satisf
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos/pequea-vasija-malbec-2023/vinos/pequeña-vasija-malbec-2023.html" class="buy-button">Comprar</a>
+    <a href="/en/vinos/pequea-vasija-malbec-2023/vinos/pequeña-vasija-malbec-2023.html" class="buy-button">Buy</a>
   </div>
         
       </div>
@@ -832,6 +832,13 @@ Advanced wine production and aging systems and equipment also allow us to satisf
         });
       }
     });
+      const lang = new URLSearchParams(window.location.search).get('lang') || 'es';
+    
+      if (lang === 'en') {
+        document.querySelectorAll('.title-about-winery').forEach(el => el.textContent = 'About the winery');
+        document.querySelectorAll('.title-products-winery').forEach(el => el.textContent = 'Products from the winery');
+      }
+
   </script>
 </body>
 </html>
