@@ -215,32 +215,47 @@ body { font-family: 'Montserrat', sans-serif; }
       width: 100%;
       justify-content: start;
     }
-    .product-card {
-            background-color: #FFFFFF;
-            border: 1px solid #E0E0E0;
-            border-radius: 5px;
-            padding: 15px;
-            position: relative;
-            overflow: visible;
-            max-width: 300px;
-            min-height: 400px;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 5;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            width: 100%;
-        }
-        .product-card img {
-            height: 190px;
-            max-width: 200px;
-            object-fit: contain;
-            margin:5px auto;
-            background-color: #FFFFFF;
-        }
+    /* ======================
+   PRODUCT CARD (ARREGLADO)
+   ====================== */
+.product-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+
+    /* KEY FIXES */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;          /* evita que el overlay “empúje” */
+    min-height: 400px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    box-sizing: border-box;
+}
+
+/* Imagen estable */
+.product-card img {
+    height: 190px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 5px auto 10px;
+}
+
+/* Título */
+.product-card h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    min-height: 40px;
+    text-align: center;
+    width: 100%;
+}
+    }
         .info-icon {
             position: absolute;
             top: 10px;
@@ -298,44 +313,36 @@ body { font-family: 'Montserrat', sans-serif; }
             text-align: center;
             width: 100%;
         }
-        .product-card .price {
-            font-size: 16px;
-            color: #4A2C59;
-            margin:3px 0;
-            position: relative;
-            z-index: 7;
-            text-align: center;
-            width: 100%;
-        }
-        .product-card .buy-button {
-            padding: 4px 8px;
-            font-size: 14px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 7;
-            text-align: center;
-            background-color: #4A2C59;
-            color: #f5e6ff;
-            text-decoration: none;
-            border-radius: 5px;
-            pointer-events: auto;
-            width: 100%;
-            max-width: 180px;
-            display: block;
-        }
-        .product-card .buy-button:hover {
-            background-color: #5A1D39;
-        }
-        .product-card {
-            display: flex;
-            flex-direction: column;
-        }
-        
         .product-card .price,
-        .product-card .buy-button {
-            margin-top: auto;
+.product-card .buy-button {
+    margin-top: auto;     /* ESTA ES LA CLAVE: baja al fondo sin desbordar */
 }
+
+/* Precio */
+.product-card .price {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    color: #4A2C59;
+}
+
+/* Botón */
+.product-card .buy-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+
+    background-color: #4A2C59;
+    color: #f5e6ff;
+    text-decoration: none;
+    border-radius: 5px;
+
+    width: 100%;
+    max-width: 180px;
+    display: block;
+}
+
 
     .language-selector {
       position: fixed;
@@ -709,8 +716,7 @@ Advanced wine production and aging systems and equipment also allow us to satisf
       <p><strong>ALTITUDE:</strong> 800 masl</p>
       <p><strong>VINTAGE:</strong> 2024</p>               <!-- ← AQUÍ YA ESTÁ LIMPIA -->
     </div>
-    </div>
-
+    
     <h3></h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
@@ -735,8 +741,7 @@ Advanced wine production and aging systems and equipment also allow us to satisf
       <p><strong>ALTITUDE:</strong> 800 masl</p>
       <p><strong>VINTAGE:</strong> 2024</p>               <!-- ← AQUÍ YA ESTÁ LIMPIA -->
     </div>
-    </div>
-
+    
     <h3></h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
@@ -761,8 +766,7 @@ Advanced wine production and aging systems and equipment also allow us to satisf
       <p><strong>ALTITUDE:</strong> N/D</p>
       <p><strong>VINTAGE:</strong> 2024</p>               <!-- ← AQUÍ YA ESTÁ LIMPIA -->
     </div>
-    </div>
-
+    
     <h3></h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
