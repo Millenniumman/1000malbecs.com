@@ -28,7 +28,7 @@ Marcando la característica de los varietales y blends de alta calidad enfocado 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-body { font-family: 'Montserrat', sans-serif; }
+  body { font-family: 'Montserrat', sans-serif; }
     .overlay p strong {
       font-weight: 700;
       text-transform: uppercase;
@@ -300,28 +300,15 @@ body { font-family: 'Montserrat', sans-serif; }
             text-align: center;
             width: 100%;
         }
-         .product-card .price {
-        font-size: 16px;
-      }
-        .price-container {
-        text-align: center;
-        margin: 10px 0 5px;
-        line-height: 1.4;
-    }
-        .price-main {
-        font-size: 18px;
-        font-weight: bold;
-        color: #4A2C59;
-    }
-        .price-per-liter {
-        font-size: 12px;
-        color: #666;
-        font-style: italic;
-    }
-        .shipping-note {
-        font-size: 11px;
-        color: #999;
-    }
+        .product-card .price {
+            font-size: 16px;
+            color: #4A2C59;
+            margin:3px 0;
+            position: relative;
+            z-index: 7;
+            text-align: center;
+            width: 100%;
+        }
         .product-card .buy-button {
             padding: 4px 8px;
             font-size: 14px;
@@ -427,7 +414,10 @@ body { font-family: 'Montserrat', sans-serif; }
         min-height: 36px;
         margin: 5px 0;
       }
-   
+      .product-card .price {
+        font-size: 14px;
+        margin: 5px 0;
+      }
       .product-card .buy-button {
         padding: 6px 12px;
         font-size: 12px;
@@ -541,12 +531,16 @@ body { font-family: 'Montserrat', sans-serif; }
       font-size: 11px;
       color: #999;
     }
+    @media (max-width: 768px) {
+      .price-main { font-size: 16px; }
+      .price-per-liter { font-size: 11px; }
+      .shipping-note { font-size: 10px; }
         
     }
   </style>
 </head>
 <body>
-  <div class="language-selector">
+<div class="language-selector">
     <a href="/es/bodegas/a-corazon-abierto.html" class="active" data-lang="es" aria-label="lang_es"> ES 🇪🇸</a>
     
     
@@ -565,6 +559,7 @@ body { font-family: 'Montserrat', sans-serif; }
       <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
+ 
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">

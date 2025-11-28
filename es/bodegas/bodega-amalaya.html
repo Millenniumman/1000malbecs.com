@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-body { font-family: 'Montserrat', sans-serif; }
+  body { font-family: 'Montserrat', sans-serif; }
     .overlay p strong {
       font-weight: 700;
       text-transform: uppercase;
@@ -177,7 +177,7 @@ body { font-family: 'Montserrat', sans-serif; }
       background-position: center;
       border-radius: 10px;
       margin: 0 0 10px 0;
-      background-image: url('https://www.1000malbecs.com/images/bodegas/bodega-amalaya-1.jpg');
+      background-image: url('https://www.1000malbecs.com/images/bodegas/a-corazon-abierto-1.jpg');
     }
     .presentation {
       max-width: 800px;
@@ -298,28 +298,15 @@ body { font-family: 'Montserrat', sans-serif; }
             text-align: center;
             width: 100%;
         }
-         .product-card .price {
-        font-size: 16px;
-      }
-        .price-container {
-        text-align: center;
-        margin: 10px 0 5px;
-        line-height: 1.4;
-    }
-        .price-main {
-        font-size: 18px;
-        font-weight: bold;
-        color: #4A2C59;
-    }
-        .price-per-liter {
-        font-size: 12px;
-        color: #666;
-        font-style: italic;
-    }
-        .shipping-note {
-        font-size: 11px;
-        color: #999;
-    }
+        .product-card .price {
+            font-size: 16px;
+            color: #4A2C59;
+            margin:3px 0;
+            position: relative;
+            z-index: 7;
+            text-align: center;
+            width: 100%;
+        }
         .product-card .buy-button {
             padding: 4px 8px;
             font-size: 14px;
@@ -340,7 +327,39 @@ body { font-family: 'Montserrat', sans-serif; }
         .product-card .buy-button:hover {
             background-color: #5A1D39;
         }
- 
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 50;
+      display: flex;
+      gap: 10px;
+      transition: opacity 0.3s ease;
+      max-width: 100%;
+    }
+    .language-selector.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .language-selector a {
+      text-decoration: none;
+      color: #4A2C59;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .language-selector a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .language-selector a.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
     @media (max-width: 768px) {
       .header {
         display: block;
@@ -393,7 +412,10 @@ body { font-family: 'Montserrat', sans-serif; }
         min-height: 36px;
         margin: 5px 0;
       }
-   
+      .product-card .price {
+        font-size: 14px;
+        margin: 5px 0;
+      }
       .product-card .buy-button {
         padding: 6px 12px;
         font-size: 12px;
@@ -418,7 +440,7 @@ body { font-family: 'Montserrat', sans-serif; }
       .presentation {
         padding: 10px;
       }
-        .language-selector {
+      .language-selector {
         top: 10px;
         left: 50%;
         transform: translateX(-50%);
@@ -507,6 +529,10 @@ body { font-family: 'Montserrat', sans-serif; }
       font-size: 11px;
       color: #999;
     }
+    @media (max-width: 768px) {
+      .price-main { font-size: 16px; }
+      .price-per-liter { font-size: 11px; }
+      .shipping-note { font-size: 10px; }
         
     }
   </style>
