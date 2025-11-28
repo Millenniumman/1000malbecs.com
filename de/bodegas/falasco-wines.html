@@ -1,18 +1,18 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Falasco Wines</title>
   <meta property="og:title" content="1000 Malbecs - Falasco Wines">
-  <meta property="og:description" content="Con una sólida tradición de más de 80 años en la Industria Vitivinícola, somos orgullosamente una empresa familiar, liderada por la cuarta generación desde s...">
+  <meta property="og:description" content="Mit einer soliden Tradition von mehr als 80 Jahren in der Weinindustrie sind wir stolz darauf, ein Familienunternehmen zu sein, das seit seiner Gründung im J...">
   <meta property="og:image" content="https://www.1000malbecs.com/images/bodegas/falasco-wines-1.jpg">
-  <meta property="og:url" content="https://www.1000malbecs.com/es/bodegas/falasco-wines.html">
+  <meta property="og:url" content="https://www.1000malbecs.com/de/bodegas/falasco-wines.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Falasco Wines">
-  <meta name="twitter:description" content="Con una sólida tradición de más de 80 años en la Industria Vitivinícola, somos orgullosamente una empresa familiar, liderada por la cuarta generación desde s...">
+  <meta name="twitter:description" content="Mit einer soliden Tradition von mehr als 80 Jahren in der Weinindustrie sind wir stolz darauf, ein Familienunternehmen zu sein, das seit seiner Gründung im J...">
   <meta name="twitter:image" content="https://www.1000malbecs.com/images/bodegas/falasco-wines-1.jpg">
   <meta name="twitter:site" content="@1000malbecs">
   <meta name="twitter:creator" content="@1000malbecs">
@@ -24,6 +24,7 @@
   <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/bodegas/falasco-wines.html">
   
   <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
   body { font-family: 'Montserrat', sans-serif; }
@@ -177,7 +178,7 @@
       background-position: center;
       border-radius: 10px;
       margin: 0 0 10px 0;
-      background-image: url('https://www.1000malbecs.com/images/bodegas/a-corazon-abierto-1.jpg');
+      <div class="banner" style="background-image: url('https://www.1000malbecs.com/images/bodegas/falasco-wines-1.jpg');"></div>
     }
     .presentation {
       max-width: 800px;
@@ -298,15 +299,7 @@
             text-align: center;
             width: 100%;
         }
-        .product-card .price {
-            font-size: 16px;
-            color: #4A2C59;
-            margin:3px 0;
-            position: relative;
-            z-index: 7;
-            text-align: center;
-            width: 100%;
-        }
+        
         .product-card .buy-button {
             padding: 4px 8px;
             font-size: 14px;
@@ -412,10 +405,7 @@
         min-height: 36px;
         margin: 5px 0;
       }
-      .product-card .price {
-        font-size: 14px;
-        margin: 5px 0;
-      }
+     
       .product-card .buy-button {
         padding: 6px 12px;
         font-size: 12px;
@@ -452,6 +442,25 @@
         padding: 2px 4px;
         background-color: rgba(255, 255, 255, 0.7);
       }
+    }
+        .price-container {
+      text-align: center;
+      margin: 10px 0 5px;
+      line-height: 1.4;
+    }
+    .price-main {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4A2C59;
+    }
+    .price-per-liter {
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+    }
+    .shipping-note {
+      font-size: 11px;
+      color: #999;
     }
     @media (min-width: 769px) {
       .header {
@@ -529,22 +538,17 @@
       font-size: 11px;
       color: #999;
     }
-    @media (max-width: 768px) {
-      .price-main { font-size: 16px; }
-      .price-per-liter { font-size: 11px; }
-      .shipping-note { font-size: 10px; }
-        
-    }
+   
   </style>
 </head>
 <body>
 <div class="language-selector">
-    <a href="/es/bodegas/falasco-wines.html" class="active" data-lang="es" aria-label="lang_es"> ES 🇪🇸</a>
+    <a href="/de/bodegas/falasco-wines.html" class="active" data-lang="de" aria-label="lang_de"> DE 🇩🇪</a>
     
     
+    <a href="/es/bodegas/falasco-wines.html" class="" data-lang="es" aria-label="lang_es">ES 🇪🇸</a>
     
     
-    <a href="/de/bodegas/falasco-wines.html" class="" data-lang="de" aria-label="lang_de">DE 🇩🇪</a>
     
     
     
@@ -553,7 +557,7 @@
     
   </div>
   <header class="header">
-    <a href="/es/" title="home">
+    <a href="/de/" title="home">
       <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
@@ -561,104 +565,104 @@
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
-      <a href="/es/" title="home">
+      <a href="/de/" title="home">
         <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
     <h2>wineries</h2>
     <ul>
       
-      <li><a href="/es/bodegas/a-corazon-abierto.html" class="nav-link">A Corazon Abierto</a></li>
+      <li><a href="/de/bodegas/a-corazon-abierto.html" class="nav-link">A Corazon Abierto</a></li>
       
-      <li><a href="/es/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
+      <li><a href="/de/bodegas/agustin-lanus.html" class="nav-link">Agustin Lanus</a></li>
       
-      <li><a href="/es/bodegas/alamos.html" class="nav-link">Alamos</a></li>
+      <li><a href="/de/bodegas/alamos.html" class="nav-link">Alamos</a></li>
       
-      <li><a href="/es/bodegas/bemberg-estate-wines.html" class="nav-link">Bemberg Estate Wines</a></li>
+      <li><a href="/de/bodegas/bemberg-estate-wines.html" class="nav-link">Bemberg Estate Wines</a></li>
       
-      <li><a href="/es/bodegas/bodega-amalaya.html" class="nav-link">Bodega Amalaya</a></li>
+      <li><a href="/de/bodegas/bodega-amalaya.html" class="nav-link">Bodega Amalaya</a></li>
       
-      <li><a href="/es/bodegas/bodega-bressia.html" class="nav-link">Bodega Bressia</a></li>
+      <li><a href="/de/bodegas/bodega-bressia.html" class="nav-link">Bodega Bressia</a></li>
       
-      <li><a href="/es/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+      <li><a href="/de/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
       
-      <li><a href="/es/bodegas/bodega-colomé.html" class="nav-link">Bodega Colomé</a></li>
+      <li><a href="/de/bodegas/bodega-colomé.html" class="nav-link">Bodega Colomé</a></li>
       
-      <li><a href="/es/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
+      <li><a href="/de/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
       
-      <li><a href="/es/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
+      <li><a href="/de/bodegas/bodega-foster-lorca.html" class="nav-link">Bodega Foster Lorca</a></li>
       
-      <li><a href="/es/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
+      <li><a href="/de/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
       
-      <li><a href="/es/bodegas/bodega-noemía-patagonia.html" class="nav-link">Bodega Noemía Patagonia</a></li>
+      <li><a href="/de/bodegas/bodega-noemía-patagonia.html" class="nav-link">Bodega Noemía Patagonia</a></li>
       
-      <li><a href="/es/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
+      <li><a href="/de/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
       
-      <li><a href="/es/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
+      <li><a href="/de/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
       
-      <li><a href="/es/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
+      <li><a href="/de/bodegas/bodegas-bianchi.html" class="nav-link">Bodegas Bianchi</a></li>
       
-      <li><a href="/es/bodegas/bodegas-caro.html" class="nav-link">Bodegas Caro</a></li>
+      <li><a href="/de/bodegas/bodegas-caro.html" class="nav-link">Bodegas Caro</a></li>
       
-      <li><a href="/es/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
+      <li><a href="/de/bodegas/casa-araujo.html" class="nav-link">Casa Araujo</a></li>
       
-      <li><a href="/es/bodegas/catena-zapata.html" class="nav-link">Catena Zapata</a></li>
+      <li><a href="/de/bodegas/catena-zapata.html" class="nav-link">Catena Zapata</a></li>
       
-      <li><a href="/es/bodegas/chakana.html" class="nav-link">Chakana</a></li>
+      <li><a href="/de/bodegas/chakana.html" class="nav-link">Chakana</a></li>
       
-      <li><a href="/es/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
+      <li><a href="/de/bodegas/cicchitti.html" class="nav-link">Cicchitti</a></li>
       
-      <li><a href="/es/bodegas/dieter-meier-and-family-wines.html" class="nav-link">Dieter Meier and Family Wines</a></li>
+      <li><a href="/de/bodegas/dieter-meier-and-family-wines.html" class="nav-link">Dieter Meier and Family Wines</a></li>
       
-      <li><a href="/es/bodegas/el-esteco.html" class="nav-link">El Esteco</a></li>
+      <li><a href="/de/bodegas/el-esteco.html" class="nav-link">El Esteco</a></li>
       
-      <li><a href="/es/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+      <li><a href="/de/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
       
-      <li><a href="/es/bodegas/falasco-wines.html" class="nav-link">Falasco Wines</a></li>
+      <li><a href="/de/bodegas/falasco-wines.html" class="nav-link">Falasco Wines</a></li>
       
-      <li><a href="/es/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
+      <li><a href="/de/bodegas/familia-schroeder.html" class="nav-link">Familia Schroeder</a></li>
       
-      <li><a href="/es/bodegas/finca-&-bodega-arca-yaco.html" class="nav-link">Finca & Bodega Arca Yaco</a></li>
+      <li><a href="/de/bodegas/finca-&-bodega-arca-yaco.html" class="nav-link">Finca & Bodega Arca Yaco</a></li>
       
-      <li><a href="/es/bodegas/finca-la-anita.html" class="nav-link">Finca La Anita</a></li>
+      <li><a href="/de/bodegas/finca-la-anita.html" class="nav-link">Finca La Anita</a></li>
       
-      <li><a href="/es/bodegas/finca-las-moras.html" class="nav-link">Finca Las Moras</a></li>
+      <li><a href="/de/bodegas/finca-las-moras.html" class="nav-link">Finca Las Moras</a></li>
       
-      <li><a href="/es/bodegas/finca-las-nubes.html" class="nav-link">Finca Las Nubes</a></li>
+      <li><a href="/de/bodegas/finca-las-nubes.html" class="nav-link">Finca Las Nubes</a></li>
       
-      <li><a href="/es/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
+      <li><a href="/de/bodegas/finca-y-bodega-vistalba.html" class="nav-link">Finca y Bodega Vistalba</a></li>
       
-      <li><a href="/es/bodegas/humberto-canale.html" class="nav-link">Humberto Canale</a></li>
+      <li><a href="/de/bodegas/humberto-canale.html" class="nav-link">Humberto Canale</a></li>
       
-      <li><a href="/es/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
+      <li><a href="/de/bodegas/jasmine-monet.html" class="nav-link">Jasmine Monet</a></li>
       
-      <li><a href="/es/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
+      <li><a href="/de/bodegas/jorge-rubio.html" class="nav-link">Jorge Rubio</a></li>
       
-      <li><a href="/es/bodegas/kaiken.html" class="nav-link">Kaiken</a></li>
+      <li><a href="/de/bodegas/kaiken.html" class="nav-link">Kaiken</a></li>
       
-      <li><a href="/es/bodegas/la-fuerza-vermu.html" class="nav-link">La Fuerza Vermu</a></li>
+      <li><a href="/de/bodegas/la-fuerza-vermu.html" class="nav-link">La Fuerza Vermu</a></li>
       
-      <li><a href="/es/bodegas/la-rural.html" class="nav-link">La Rural</a></li>
+      <li><a href="/de/bodegas/la-rural.html" class="nav-link">La Rural</a></li>
       
-      <li><a href="/es/bodegas/los-haroldos.html" class="nav-link">Los Haroldos</a></li>
+      <li><a href="/de/bodegas/los-haroldos.html" class="nav-link">Los Haroldos</a></li>
       
-      <li><a href="/es/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
+      <li><a href="/de/bodegas/luigi-bosca.html" class="nav-link">Luigi Bosca</a></li>
       
-      <li><a href="/es/bodegas/mascota-vineyards.html" class="nav-link">Mascota Vineyards</a></li>
+      <li><a href="/de/bodegas/mascota-vineyards.html" class="nav-link">Mascota Vineyards</a></li>
       
-      <li><a href="/es/bodegas/piattelli-vineyards.html" class="nav-link">Piattelli Vineyards</a></li>
+      <li><a href="/de/bodegas/piattelli-vineyards.html" class="nav-link">Piattelli Vineyards</a></li>
       
-      <li><a href="/es/bodegas/rutini-wines.html" class="nav-link">Rutini Wines</a></li>
+      <li><a href="/de/bodegas/rutini-wines.html" class="nav-link">Rutini Wines</a></li>
       
-      <li><a href="/es/bodegas/san-telmo.html" class="nav-link">San Telmo</a></li>
+      <li><a href="/de/bodegas/san-telmo.html" class="nav-link">San Telmo</a></li>
       
-      <li><a href="/es/bodegas/trapiche.html" class="nav-link">Trapiche</a></li>
+      <li><a href="/de/bodegas/trapiche.html" class="nav-link">Trapiche</a></li>
       
-      <li><a href="/es/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+      <li><a href="/de/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
       
-      <li><a href="/es/bodegas/viña-cobos.html" class="nav-link">Viña Cobos</a></li>
+      <li><a href="/de/bodegas/viña-cobos.html" class="nav-link">Viña Cobos</a></li>
       
-      <li><a href="/es/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
+      <li><a href="/de/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
       
     </ul>
     <h2>provinces</h2>
@@ -668,18 +672,28 @@
   </nav>
   <main class="main-content">
     <h1>Falasco Wines</h1>
-    <!-- Banner -->
-    <div class="banner"></div>
+    <div class="banner" style="
+        background: 
+            linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url('https://www.1000malbecs.com/images/bodegas/falasco-wines-1.jpg') center/cover no-repeat,
+            url('https://www.1000malbecs.com/images/bodegas/default-bodega.jpg') center/cover no-repeat,
+            #4A2C59;
+        height: 150px;
+        border-radius: 10px;
+        margin: 0 0 10px 0;
+        width: 100%;
+    ">
+    </div>
     <!-- Descripción de la bodega -->
     <section class="presentation">
-      <h2>Acerca de Falasco Wines</h2>
-      <p>Con una sólida tradición de más de 80 años en la Industria Vitivinícola, somos orgullosamente una empresa familiar, liderada por la cuarta generación desde su fundación en 1939. Ubicados en el oasis norte de la provincia de Mendoza, en el departamento de San Martín, considerado como la capital del Bonarda.
-Corría el año 1939 cuando Haroldo Santos Falasco comenzó este gran sueño. “Don Lolo”, como lo llamaban todos, recorría en su bicicleta las calles de una pequeña ciudad llamada Chacabuco, en Buenos Aires. Haroldo pensó en grande y la bicicleta con la que repartía los vinos comenzó a quedarle chica. Fue así como año tras año, el sueño de Don Lolo comenzó a hacerse realidad. Sus hijos y nietos tuvieron una misión: continuar con la tradición de crear vinos de excelencia.
-Guiados por la innovación y el compromiso con el crecimiento constante, durante años hemos logrado expandir nuestros horizontes, exportando a 42 países. Durante la última década, hemos invertido significativamente en tecnología de vanguardia, posicionándonos como líderes del futuro en el ámbito nacional e internacional; lo que nos constituye como parte de los principales grupos vitivinícolas más destacados de Argentina.</p>
+      <h2>Über Falasco Wines</h2>
+      <p>Mit einer soliden Tradition von mehr als 80 Jahren in der Weinindustrie sind wir stolz darauf, ein Familienunternehmen zu sein, das seit seiner Gründung im Jahr 1939 in der vierten Generation geführt wird. Das Unternehmen liegt in der nördlichen Oase der Provinz Mendoza, im Departement San Martín, das als Hauptstadt von Bonarda gilt.
+Es war 1939, als Haroldo Santos Falasco diesen großen Traum begann. „Don Lolo“, wie ihn alle nannten, fuhr mit dem Fahrrad durch die Straßen einer kleinen Stadt namens Chacabuco in Buenos Aires. Haroldo dachte groß und das Fahrrad, mit dem er die Weine verteilte, begann ihm zu entwachsen. So begann Don Lolos Traum Jahr für Jahr wahr zu werden. Seine Kinder und Enkel hatten eine Mission: die Tradition der Herstellung erstklassiger Weine fortzuführen.
+Geleitet von Innovation und der Verpflichtung zu stetigem Wachstum ist es uns im Laufe der Jahre gelungen, unseren Horizont zu erweitern und in 42 Länder zu exportieren. Im letzten Jahrzehnt haben wir erheblich in Spitzentechnologie investiert und uns auf nationaler und internationaler Ebene als zukunftsweisend positioniert; Damit gehören wir zu den bedeutendsten Weinkonzernen Argentiniens. Hermandad Malbec von Falasco Wines</p>
     </section>
     <!-- Vinos -->
     <section class="products-section">
-      <h2>Vinos destacados de Falasco Wines</h2>
+      <h2>Hervorgehobene Weine aus Falasco Wines</h2>
       
       <div class="product-grid">
          
@@ -688,11 +702,11 @@ Guiados por la innovación y el compromiso con el crecimiento constante, durante
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
     <div class="info-icon" data-overlay-id=".html">🍷</div>
     <div class="overlay" data-overlay-id=".html">
-      <p><strong>BODEGA:</strong> Falasco Wines</p>
-      <p><strong>PROVINCIA:</strong> Mendoza</p>
-      <p><strong>REGIÓN:</strong> Valle de Uco</p>
-      <p><strong>ALTURA:</strong> 1100 msnm</p>
-      <p><strong>AÑADA:</strong> 2022</p>               <!-- ← AQUÍ YA ESTÁ LIMPIA -->
+      <p><strong>WEINGUT:</strong> Falasco Wines</p>
+      <p><strong>PROVINZ:</strong> Mendoza</p>
+      <p><strong>REGION:</strong> Valle de Uco</p>
+      <p><strong>HÖHE:</strong> 1100 m ü. M.</p>
+      <p><strong>JAHRGANG:</strong> 2022</p>               <!-- ← AQUÍ YA ESTÁ LIMPIA -->
     </div>
 
     <h3>Hermandad Malbec 2022</h3>
@@ -702,10 +716,10 @@ Guiados por la innovación y el compromiso con el crecimiento constante, durante
     <div class="price-container">
       <div class="price-main">37,60 €</div>
       <div class="price-per-liter">50,13 €/L</div>
-      <div class="shipping-note">+ Gastos de envío</div>
+      <div class="shipping-note">+ zzgl. Versandkosten</div>
     </div>
 
-   <a href="/es/vinos/hermandad-malbec-2022.html" class="buy-button">Comprar</a>
+   <a href="/de/vinos/hermandad-malbec-2022.html" class="buy-button">Kaufen</a>
 
   </div>
         
@@ -714,11 +728,11 @@ Guiados por la innovación y el compromiso con el crecimiento constante, durante
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
     <div class="info-icon" data-overlay-id=".html">🍷</div>
     <div class="overlay" data-overlay-id=".html">
-      <p><strong>BODEGA:</strong> Falasco Wines</p>
-      <p><strong>PROVINCIA:</strong> Mendoza</p>
-      <p><strong>REGIÓN:</strong> Valle Norte</p>
-      <p><strong>ALTURA:</strong> 750 msnm</p>
-      <p><strong>AÑADA:</strong> 2021</p>               <!-- ← AQUÍ YA ESTÁ LIMPIA -->
+      <p><strong>WEINGUT:</strong> Falasco Wines</p>
+      <p><strong>PROVINZ:</strong> Mendoza</p>
+      <p><strong>REGION:</strong> Valle Norte</p>
+      <p><strong>HÖHE:</strong> 750 m ü. M.</p>
+      <p><strong>JAHRGANG:</strong> 2021</p>               <!-- ← AQUÍ YA ESTÁ LIMPIA -->
     </div>
 
     <h3>Hermandad Blend 2021</h3>
@@ -728,10 +742,10 @@ Guiados por la innovación y el compromiso con el crecimiento constante, durante
     <div class="price-container">
       <div class="price-main">37,60 €</div>
       <div class="price-per-liter">50,13 €/L</div>
-      <div class="shipping-note">+ Gastos de envío</div>
+      <div class="shipping-note">+ zzgl. Versandkosten</div>
     </div>
 
-   <a href="/es/vinos/hermandad-blend-2021.html" class="buy-button">Comprar</a>
+   <a href="/de/vinos/hermandad-blend-2021.html" class="buy-button">Kaufen</a>
 
   </div>
         
