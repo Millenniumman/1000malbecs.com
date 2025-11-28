@@ -298,15 +298,28 @@ body { font-family: 'Montserrat', sans-serif; }
             text-align: center;
             width: 100%;
         }
-        .product-card .price {
-            font-size: 16px;
-            color: #4A2C59;
-            margin:3px 0;
-            position: relative;
-            z-index: 7;
-            text-align: center;
-            width: 100%;
-        }
+         .product-card .price {
+        font-size: 16px;
+      }
+        .price-container {
+        text-align: center;
+        margin: 10px 0 5px;
+        line-height: 1.4;
+    }
+        .price-main {
+        font-size: 18px;
+        font-weight: bold;
+        color: #4A2C59;
+    }
+        .price-per-liter {
+        font-size: 12px;
+        color: #666;
+        font-style: italic;
+    }
+        .shipping-note {
+        font-size: 11px;
+        color: #999;
+    }
         .product-card .buy-button {
             padding: 4px 8px;
             font-size: 14px;
@@ -327,39 +340,44 @@ body { font-family: 'Montserrat', sans-serif; }
         .product-card .buy-button:hover {
             background-color: #5A1D39;
         }
-    .language-selector {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 50;
-      display: flex;
-      gap: 10px;
-      transition: opacity 0.3s ease;
-      max-width: 100%;
+ 
+ /* ========================================
+   SELECTOR DE IDIOMAS
+   ======================================== */
+    .lang-selector-desktop {
+      position: fixed; top: 15px; right: 20px; z-index: 110; 
+      display: flex; gap: 8px;
     }
-    .language-selector.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .language-selector a {
-      text-decoration: none;
-      color: #4A2C59;
+    
+    .lang-selector-desktop a {
+      color: #666; text-decoration: none; font-weight: 600; 
+      padding: 6px 10px; border-radius: 6px; transition: all 0.3s; 
       font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 5px;
     }
-    .language-selector a:hover {
-      background-color: #4A2C59;
-      color: #FFFFFF;
+    
+    .lang-selector-desktop a.active { 
+      background: var(--primary); color: white; 
     }
-    .language-selector a.active {
-      background-color: #4A2C59;
-      color: #FFFFFF;
+    
+    .lang-selector-desktop a:hover { 
+      background: #eee; 
     }
+    
+    .lang-selector-mobile {
+      position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
+      z-index: 110; background: white; padding: 6px 12px; 
+      border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: none; gap: 8px; font-weight: 600; font-size: 12px;
+    }
+    
+    .lang-selector-mobile a {
+      color: var(--primary); text-decoration: none;
+    }
+    
+    .lang-selector-mobile a.active { 
+      font-weight: 700; 
+    }
+        }
     @media (max-width: 768px) {
       .header {
         display: block;
@@ -412,10 +430,7 @@ body { font-family: 'Montserrat', sans-serif; }
         min-height: 36px;
         margin: 5px 0;
       }
-      .product-card .price {
-        font-size: 14px;
-        margin: 5px 0;
-      }
+   
       .product-card .buy-button {
         padding: 6px 12px;
         font-size: 12px;
@@ -529,15 +544,22 @@ body { font-family: 'Montserrat', sans-serif; }
       font-size: 11px;
       color: #999;
     }
-    @media (max-width: 768px) {
-      .price-main { font-size: 16px; }
-      .price-per-liter { font-size: 11px; }
-      .shipping-note { font-size: 10px; }
         
     }
   </style>
 </head>
 <body>
+ <div class="lang-selector-desktop">
+    
+  </div>
+</div>
+
+
+  <!-- SELECTOR DE IDIOMAS - MOBILE -->
+  <div class="lang-selector-mobile">
+    
+  </div>
+
   <div class="language-selector">
     <a href="/es/bodegas/bodega-amalaya.html" class="active" data-lang="es" aria-label="lang_es"> ES 🇪🇸</a>
     
