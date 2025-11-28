@@ -455,18 +455,38 @@ body { font-family: 'Montserrat', sans-serif; }
       .presentation {
         padding: 10px;
       }
-      .language-selector {
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        gap: 2px;
-        max-width: 90%;
-      }
-      .language-selector a {
-        font-size: 9px;
-        padding: 2px 4px;
-        background-color: rgba(255, 255, 255, 0.7);
-      }
+        .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 50;
+      display: flex;
+      gap: 10px;
+      transition: opacity 0.3s ease;
+      max-width: 100%;
+    }
+    .language-selector.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .language-selector a {
+      text-decoration: none;
+      color: #4A2C59;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .language-selector a:hover {
+      background-color: #4A2C59;
+      color: #FFFFFF;
+    }
+    .language-selector a.active {
+      background-color: #4A2C59;
+      color: #FFFFFF;
     }
     @media (min-width: 769px) {
       .header {
