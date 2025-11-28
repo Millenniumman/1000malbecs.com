@@ -341,43 +341,6 @@ body { font-family: 'Montserrat', sans-serif; }
             background-color: #5A1D39;
         }
  
- /* ========================================
-   SELECTOR DE IDIOMAS
-   ======================================== */
-    .lang-selector-desktop {
-      position: fixed; top: 15px; right: 20px; z-index: 110; 
-      display: flex; gap: 8px;
-    }
-    
-    .lang-selector-desktop a {
-      color: #666; text-decoration: none; font-weight: 600; 
-      padding: 6px 10px; border-radius: 6px; transition: all 0.3s; 
-      font-size: 14px;
-    }
-    
-    .lang-selector-desktop a.active { 
-      background: var(--primary); color: white; 
-    }
-    
-    .lang-selector-desktop a:hover { 
-      background: #eee; 
-    }
-    
-    .lang-selector-mobile {
-      position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
-      z-index: 110; background: white; padding: 6px 12px; 
-      border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      display: none; gap: 8px; font-weight: 600; font-size: 12px;
-    }
-    
-    .lang-selector-mobile a {
-      color: var(--primary); text-decoration: none;
-    }
-    
-    .lang-selector-mobile a.active { 
-      font-weight: 700; 
-    }
-        }
     @media (max-width: 768px) {
       .header {
         display: block;
@@ -456,37 +419,17 @@ body { font-family: 'Montserrat', sans-serif; }
         padding: 10px;
       }
         .language-selector {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 50;
-      display: flex;
-      gap: 10px;
-      transition: opacity 0.3s ease;
-      max-width: 100%;
-    }
-    .language-selector.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .language-selector a {
-      text-decoration: none;
-      color: #4A2C59;
-      font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .language-selector a:hover {
-      background-color: #4A2C59;
-      color: #FFFFFF;
-    }
-    .language-selector a.active {
-      background-color: #4A2C59;
-      color: #FFFFFF;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 2px;
+        max-width: 90%;
+      }
+      .language-selector a {
+        font-size: 9px;
+        padding: 2px 4px;
+        background-color: rgba(255, 255, 255, 0.7);
+      }
     }
     @media (min-width: 769px) {
       .header {
@@ -569,21 +512,26 @@ body { font-family: 'Montserrat', sans-serif; }
   </style>
 </head>
 <body>
+<div class="language-selector">
+    <a href="/es/bodegas/bodega-amalaya.html" class="active" data-lang="es" aria-label="lang_es"> ES 🇪🇸</a>
+    
+    
+    
+    
+    <a href="/de/bodegas/bodega-amalaya.html" class="" data-lang="de" aria-label="lang_de">DE 🇩🇪</a>
+    
+    
+    
+    <a href="/en/bodegas/bodega-amalaya.html" class="" data-lang="en" aria-label="lang_en">EN 🇬🇧</a>
+    
+    
+  </div>
   <header class="header">
     <a href="/es/" title="home">
       <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
-    <div class="lang-selector-desktop">
-    
-  </div>
-</div>
-
-
-  <!-- SELECTOR DE IDIOMAS - MOBILE -->
-  <div class="lang-selector-mobile">
-    
-  </div>
+ 
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
