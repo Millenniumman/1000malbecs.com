@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000Malbecs B2B – Premium Argentine Wines for Gastronomy in Europe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+   <style>
+    :root {
+    --primary: #4A2C59;
+    --accent: #25D366;
+    --text: #333;
+    --bg: #FAF9F6;
+    --sidebar-width: 250px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    background: var(--bg); color: var(--text); 
+    font-size: 1.1rem; line-height: 1.7;
+}
+
+/* ========================================
+   HEADER: SOLO MOBILE, DESAPARECE EN DESKTOP
+   ======================================== */
+header {
+    position: fixed; top:0; left:0; width:100%; background:white; z-index:1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); height:90px; display:flex; 
+    align-items:center; justify-content: flex-end; padding: 0 10%;
+}
+.logo img { height: 70px; }
+@media (min-width: 769px) { 
+    header { display: none !important; } 
+}
+
+/* SIDEBAR: LOGO + SIN NEGRITAS */
+#sidebar {
+    position: fixed; top:0; left:0; width: var(--sidebar-width); height:150vh; 
+    background:white; box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index: 1050; 
+    padding-top: 50px; overflow-y: auto;
+    transform: translateX(-100%); transition: transform 0.3s ease;
+}
+#sidebar.open { transform: translateX(0); }
+
+/* LOGO EN SIDEBAR (DESKTOP) */
+#sidebar .logo-container {
+    text-align: center; padding: 15px 20px; border-bottom: 1px solid #eee;
+}
+#sidebar .logo-container img {
+    height: 120px; max-width: 180px;
+}
+
+/* ENLACES DEL MENÚ: SIN NEGRITAS */
+#sidebar a {
+    display: block;
+    padding: 0.55rem 1.4rem;      /* Menos espacio vertical */
+    color: #444;                  /* Más suave */
+    text-decoration: none;
+    font-weight: 500;             /* Más claro que bold */
+    font-size: 0.92rem;           /* Más elegante */
+    border-bottom: 1px solid #f1f1f1;
+    transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+#sidebar a:hover {
+    background: #f7f4fa;          /* Hover suave */
+    padding-left: 1.7rem;         /* Efecto visual limpio */
+    color: var(--primary);
+}
+
+/* Forzar sidebar visible en desktop */
+@media (min-width: 769px) {
+    #sidebar { transform: translateX(0) !important; }
+}
+
+/* MAIN: ESPACIO PARA SIDEBAR */
+main {
+    margin-top: 90px;
+    padding: 2.5rem 5%;
+}
+@media (min-width: 769px) {
+    main { margin-left: var(--sidebar-width); padding-left: 3rem; }
+}
+@media (max-width: 768px) {
+    main { padding: 2rem 5%; }
+}
+/* ========================================
+   HAMBURGUESA: MÁS PEQUEÑA EN MOBILE
+   ======================================== */
+.hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    padding: 6px; position: fixed; top: 22px; left: 12px; z-index: 1100;
+}
+.hamburger span {
+    display: block; width: 26px; height: 3px; background: #4A2C59;
+    margin: 5px 0; transition: 0.3s; border-radius: 2px;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+@media (max-width: 768px) {
+    .hamburger { display: block !important; }
+    .logo-container { display: none; }
+}
+@media (min-width: 769px) {
+    .hamburger { display: none !important; }
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero { 
+    text-align:center; padding:140px 20px 90px; 
+    background: linear-gradient(rgba(74,44,89,0.9), rgba(74,44,89,0.9)), url('/images/b2b/banner-bares.jpg') center/cover; 
+    color:white;
+}
+.hero h1 { 
+    font-size: 3.2rem; font-weight: 800; margin-bottom: 1.5rem; 
+    text-transform: uppercase; letter-spacing: 1px;
+}
+.hero p { 
+    max-width:900px; margin:0 auto 1.2rem; text-align: justify; 
+    font-size: 1.25rem; font-weight: 500;
+}
+.cta-whatsapp { 
+    display:inline-flex; align-items:center; background:var(--accent); color:white; 
+    padding:1.2rem 2.5rem; border-radius:50px; text-decoration:none; margin-top:2rem; 
+    font-weight:700; font-size:1.1rem; text-transform: uppercase;
+}
+
+/* ========================================
+   BODEGAS
+   ======================================== */
+.winery-grid {
+    display:flex; overflow-x:auto; gap:18px; padding:25px 0; scroll-behavior:smooth;
+    max-width:1100px; margin:2.5rem auto;
+}
+.winery-card {
+    flex: 0 0 220px; height:220px; background:white; border-radius:8px; overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center;
+}
+.winery-card img.logo { width:180px; height:180px; object-contain; }
+
+/* RESTAURANTES – FLIP CARD */
+.restaurant-section { margin:5rem 0; text-align:center; }
+.restaurant-section h2 { color:#4A2C59; font-size:2.3rem; font-weight:800; text-transform:uppercase; margin-bottom:2rem; }
+.restaurant-grid { display:flex; overflow-x:auto; gap:20px; padding:20px 0; scroll-behavior:smooth; max-width:1100px; margin:0 auto; }
+.restaurant-card { perspective:1000px; flex:0 0 220px; height:280px; }
+.restaurant-card .flip-inner { width:100%; height:100%; transition:transform .6s; transform-style:preserve-3d; }
+.restaurant-card.flipped .flip-inner { transform:rotateY(180deg); }
+.flip-front, .flip-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; background:#4A2C59; border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,0.4); }
+.flip-back { transform:rotateY(180deg); color:white; font-size:0.95rem; text-align:center; }
+.restaurant-card img { width:140px; height:140px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.6)); }
+.restaurant-card .nombre { margin:12px 0 4px; color:white; font-weight:700; font-size:1.1rem; text-transform:uppercase; }
+.restaurant-card .localidad { color:#ddd; font-size:0.9rem; }
+
+/* VINOS GRID - CORREGIDO CON DOBLE CORCHETE */
+.vinos-grid {
+    display: grid; gap: 25px; max-width: 1100px; margin: 4rem auto;
+}
+@media (min-width: 769px) { 
+    .vinos-grid { grid-template-columns: repeat(3, 1fr); } 
+}
+@media (max-width: 768px) { 
+    .vinos-grid { grid-template-columns: 1fr; } 
+}
+.product-card {
+    background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:20px;
+    min-height:400px; display:flex; flex-direction:column; justify-content:space-between;
+    align-items:center; box-shadow:0 3px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
+}
+.product-card:hover { transform: translateY(-5px); }
+.product-card img { width:100%; height:200px; object-fit:contain; }
+.product-card h3 { 
+    font-size: 1.3rem; margin:12px 0; color:#4A2C59; text-align:center; 
+    font-weight:700; text-transform: uppercase;
+}
+.product-card .price { font-weight:800; color:#6B2D8F; text-align:center; font-size:1.4rem; }
+.product-card .price-per-liter { font-size:1rem; color:#666; text-align:center; }
+.product-card .shipping-note { font-size:0.9rem; color:#999; font-style:italic; text-align:center; }
+.product-card .buy-button {
+    background:#4A2C59; color:#fff; padding:12px 20px; border-radius:6px;
+    text-decoration:none; font-size:1rem; font-weight:700; width:100%; max-width:200px; 
+    text-align:center; text-transform: uppercase; margin-top:15px;
+}
+.product-card .buy-button:hover { background:#5A1D39; }
+
+.contacto { 
+    text-align:center; padding:80px 20px; background:var(--primary); color:white; 
+    font-size:1.3rem; font-weight:600;
+}
+.contacto p { margin-bottom:1.5rem; }
+.contacto .cta-whatsapp { font-size:1.2rem; padding:1.3rem 3rem; }
+
+@media (max-width: 768px) {
+    .hero h1 { font-size:2.5rem; }
+    .hero p { font-size:1.1rem; text-align:center; }
+    .vinos-grid { margin: 3rem auto; }
+}
+# /* RESTAURANTES FLIP CARD */
+.restaurant-section {{
+    margin: 6rem 0;
+    text-align: center;
+}}
+
+.restaurant-section h2 {{
+    color: ##fff;
+    font-size: 2.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}}
+
+.restaurant-card {{
+    perspective: 1000px;
+    flex: 0 0 220px;
+    height: 280px;
+    cursor: pointer;
+}}
+
+.restaurant-card .flip-inner {{
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
+    transform-style: preserve-3d;
+}}
+
+.restaurant-card.flipped .flip-inner {{
+    transform: rotateY(180deg);
+}}
+
+.flip-front,
+.flip-back {{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #fff; 
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}}
+
+.flip-back {{
+    transform: rotateY(180deg);
+    color: white;
+    font-size: .95rem;
+    text-align: center;
+}}
+
+.restaurant-card img {{
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,.6));
+}}
+
+.restaurant-card .nombre {{
+    margin: 12px 0 4px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}}
+
+.restaurant-card .localidad {{
+    color: #ddd;
+    font-size: .9rem;
+}}
+</style>
+</head>
+<body>
+    <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+    <header>
+        <div class="logo">
+            <a href="/en/"><img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000Malbecs"></a>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>1000 NEW <strong>EXPERIENCES</strong> FOR YOUR GUESTS</h1>
+            <div class="winery-grid"><a class="winery-card" href="/en/bodegas/bodega-colome.html"><img class="logo" src="/images/bodegas/logo-bodega-colome.jpg" alt="Logo bodega-Colome" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/chakana.html"><img class="logo" src="/images/bodegas/logo-chakana.jpg" alt="Logo Chakana" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/bodega-chanarmuyo.html"><img class="logo" src="/images/bodegas/logo-bodega-chanarmuyo.jpg" alt="Logo bodega-chanarmuyo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/jasmine-monet.html"><img class="logo" src="/images/bodegas/logo-jasmine-monet.jpg" alt="Logo Jasmine Monet" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/la-fuerza-vermu.html"><img class="logo" src="/images/bodegas/logo-la-fuerza-vermu.jpg" alt="Logo La Fuerza Vermu" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/rutini-wines.html"><img class="logo" src="/images/bodegas/logo-rutini-wines.jpg" alt="Logo Rutini-wines" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/luigi-bosca.html"><img class="logo" src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo Luigi Bosca" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/casa-araujo.html"><img class="logo" src="/images/bodegas/logo-casa-araujo.jpg" alt="Logo Casa Araujo" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a><a class="winery-card" href="/en/bodegas/bodega-amalaya.html"><img class="logo" src="/images/bodegas/logo-bodega-amalaya.jpg" alt="Logo bodega-Amalaya" onerror="this.src='https://via.placeholder.com/200x200?text=Logo';"></a></div>
+            <p>At <strong>1000MALBECS.COM</strong> we offer an <strong>EXCLUSIVE SERVICE for BARS and RESTAURANTS</strong> in Germany and Europe.</p><br><p>Premium Argentine wines, sparkling wines and vermouth to <strong>ELEVATE your guests’ experience and INCREASE your sales</strong>.</p><br><p>VARIETY, DIFFERENTIATION and UNIQUENESS: hand-picked selection from the best Argentine wineries.</p><br><p>Argentine wine is the <strong>PERFECT PAIRING</strong> for any cuisine and occasion.</p><br><p>We are at your disposal for <strong>personal advice</strong>, wine list optimization and to maximize the profitability of your business.</p>
+            <a href="https://wa.me/4915158224728?text=Hi%2C%20I%20would%20like%20a%20personal%20visit%20from%201000Malbecs" class="cta-whatsapp">CONTACT US NOW</a>
+        </section>
+        <section id="vinos">
+            <h2>FEATURED WINES</h2>
+            <div class="vinos-grid">
+    <div class="product-card">
+        <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="CHAKANA Nuna Malbec Bio 2022" loading="lazy">
+        <h3>CHAKANA Nuna Malbec Bio 2022</h3>
+        <p class="price-big"><strong>€ 9,10</strong></p>
+        <p class="price-note">incl. VAT € 10,83</p>
+        <p class="shipping-note">+ shipping costs</p>
+        <a class="buy-button" href="/en/vinos/chakana-nuna-malbec-bio-2022.html" target="_blank">BUY NOW</a>
+    </div>
+    
+    <div class="product-card">
+        <img src="/images/small/finca-gabriel-malbec-2021.jpg" alt="FINCA GABRIEL Malbec 2021" loading="lazy">
+        <h3>FINCA GABRIEL Malbec 2021</h3>
+        <p class="price-big"><strong>€ 9,10</strong></p>
+        <p class="price-note">incl. VAT € 10,83</p>
+        <p class="shipping-note">+ shipping costs</p>
+        <a class="buy-button" href="/en/vinos/finca-gabriel-malbec-2021.html" target="_blank">BUY NOW</a>
+    </div>
+    
+    <div class="product-card">
+        <img src="/images/small/nucha-2023.jpg" alt="Nucha 2023" loading="lazy">
+        <h3>Nucha 2023</h3>
+        <p class="price-big"><strong>€ 10,92</strong></p>
+        <p class="price-note">incl. VAT € 12,99</p>
+        <p class="shipping-note">+ shipping costs</p>
+        <a class="buy-button" href="/en/vinos/nucha-2023.html" target="_blank">BUY NOW</a>
+    </div>
+    
+    <div class="product-card">
+        <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" loading="lazy">
+        <h3>Amalaya Malbec 2023</h3>
+        <p class="price-big"><strong>€ 11,34</strong></p>
+        <p class="price-note">incl. VAT € 13,50</p>
+        <p class="shipping-note">+ shipping costs</p>
+        <a class="buy-button" href="/en/vinos/amalaya-malbec-2023.html" target="_blank">BUY NOW</a>
+    </div>
+    
+    <div class="product-card">
+        <img src="/images/small/trumpeter-malbec-2023.jpg" alt="Trumpeter Malbec 2023" loading="lazy">
+        <h3>Trumpeter Malbec 2023</h3>
+        <p class="price-big"><strong>€ 13,43</strong></p>
+        <p class="price-note">incl. VAT € 15,98</p>
+        <p class="shipping-note">+ shipping costs</p>
+        <a class="buy-button" href="/en/vinos/trumpeter-malbec-2023.html" target="_blank">BUY NOW</a>
+    </div>
+    
+    <div class="product-card">
+        <img src="/images/small/tukma-gran-corte-2017.jpg" alt="Tukma Gran Corte 2017" loading="lazy">
+        <h3>Tukma Gran Corte 2017</h3>
+        <p class="price-big"><strong>€ 20,65</strong></p>
+        <p class="price-note">incl. VAT € 24,57</p>
+        <p class="shipping-note">+ shipping costs</p>
+        <a class="buy-button" href="/en/vinos/tukma-gran-corte-2017.html" target="_blank">BUY NOW</a>
+    </div>
+    </div>
+        </section>
+        <section class="restaurant-section">
+            <h2>Restaurants serving 1000 Malbecs wines</h2>
+            <div class="restaurant-grid">
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="/images/bodegas/logo-los-morettos.jpg" alt="Los Morettos" onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=LO';">
+                    <p class="nombre">LOS MORETTOS</p>
+                    <p class="localidad">Neuss</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Friedrichstrasse 24, 41460 Neuss, Germany</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="/images/bodegas/logo-rustica.jpg" alt="Rustica" onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=RU';">
+                    <p class="nombre">RUSTICA</p>
+                    <p class="localidad">Düsseldorf</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Niederkasseler Str. 9, 40547 Düsseldorf, Germany</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="/images/bodegas/logo-arizona-steak-house.jpg" alt="Arizona Steak-House" onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=AR';">
+                    <p class="nombre">ARIZONA STEAK-HOUSE</p>
+                    <p class="localidad">Hamburg</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Barmbeker Str. 150, 22299 Hamburg, Germany</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="/images/bodegas/logo-remise-steakhouse.jpg" alt="Remise Steakhouse" onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=RE';">
+                    <p class="nombre">REMISE STEAKHOUSE</p>
+                    <p class="localidad">Glinde</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Möllner Landstraße 55, 21509 Glinde, Germany</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="restaurant-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="/images/bodegas/logo-mendoza-steakhouse.jpg" alt="Mendoza Steakhouse" onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=ME';">
+                    <p class="nombre">MENDOZA STEAKHOUSE</p>
+                    <p class="localidad">Gütersloh</p>
+                </div>
+                <div class="flip-back">
+                    <p class="direccion">Unter den Ulmen 15, 33330 Gütersloh, Germany</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
+        <section class="contacto">
+            <p>DON’T WAIT ANY LONGER! Contact us today and receive a <strong>personalized visit</strong>.</p>
+            <a href="https://wa.me/4915158224728?text=Hi%2C%20I%20would%20like%20a%20personal%20visit%20from%201000Malbecs" class="cta-whatsapp">CONTACT US NOW</a>
+        </section>
+    </main>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.restaurant-card').forEach(card => {
+        const flip = (e) => { e.preventDefault(); card.classList.toggle('flipped'); };
+        card.addEventListener('click', flip);
+        card.addEventListener('touchend', flip);
+        const icon = document.createElement('div');
+        icon.innerHTML = 'Wine';
+        icon.style.cssText = 'position:absolute;top:10px;right:10px;font-size:20px;background:rgba(255,255,255,0.8);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3);';
+        card.style.position = 'relative';
+        card.querySelector('.flip-front').appendChild(icon);
+    });
+});
+</script>
+</body>
+</html>
