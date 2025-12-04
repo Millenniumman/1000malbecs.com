@@ -48,21 +48,18 @@
         .search-suggestions li { padding: 10px 15px; font-size: 14px; color: #4A2C59; cursor: pointer; transition: all 0.3s ease; }
         .search-suggestions li:hover, .search-suggestions li.focused { background: #4A2C59; color: #FFFFFF; }
         .section-title { font-size: 22px; color: #4A2C59; margin: 20px 0 10px; text-align: center; text-transform: uppercase; }
-
-   /* ============================================= */
-    /* ========= PROVINCIAS – 4 COLUMNAS ANGOSTAS == */
-    /* ============================================= */
-    .province-grid {
+        .winery-grid.has-left, .winery-grid.has-right { box-shadow: none !important; }
+       .province-grid {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 14px !important;
-        max-width: 1100px !important;          /* bajamos el ancho máximo */
-        margin: 0 auto 70px 120px !important;  /* desplazamos todo bien a la derecha */
-        padding: 0 20px !important;
+        max-width: 1100px !important;
+        margin: 0 auto 70px 250px !important;     /* ← FUERTE desplazamiento a la derecha */
+        padding: 0 30px !important;
     }
 
     .province-card {
-        height: 182px !important;              /* más angostas y bajas */
+        height: 182px !important;
         border-radius: 9px !important;
         overflow: hidden !important;
         box-shadow: 0 5px 15px rgba(0,0,0,0.12) !important;
@@ -87,17 +84,16 @@
 
 
     /* ============================================= */
-    /* ========= BODEGAS – 2 FILAS DE 4 LOGOS ======= */
+    /* ========= BODEGAS – 2 FILAS × 4 COLUMNAS, BIEN A LA DERECHA */
     /* ============================================= */
     .winery-grid {
         display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;   /* exactamente 4 por fila */
+        grid-template-columns: repeat(4, 1fr) !important;
         grid-auto-rows: 92px !important;
         gap: 16px 20px !important;
         max-width: 1100px !important;
-        margin: 0 auto 60px 120px !important;   /* mismo desplazamiento que provincias */
-        padding: 0 20px !important;
-        /* Esto genera exactamente 2 filas de 4 = 8 logos visibles */
+        margin: 0 auto 60px 250px !important;     /* ← mismo desplazamiento fuerte */
+        padding: 0 30px !important;
     }
 
     .winery-card {
@@ -106,7 +102,6 @@
         border-radius: 8px !important;
         padding: 8px !important;
         box-shadow: 0 3px 12px rgba(0,0,0,0.09) !important;
-        transition: all 0.3s ease !important;
     }
 
     .winery-card:hover {
@@ -115,13 +110,10 @@
     }
 
     .winery-card img {
-        max-width: 102px !important;           /* logos un toque más chicos para que quepan lindo */
+        max-width: 102px !important;
         max-height: 62px !important;
         object-fit: contain !important;
     }
-
-}
-
         .winery-nav button:hover { background: #4A2C59; opacity: 1; }
         .winery-nav button.hidden { display: none; }
        .recently-added-carousel { position: relative; max-width: 1200px; margin: 20px auto; overflow: hidden; }
