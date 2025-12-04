@@ -50,74 +50,50 @@
         .section-title { font-size: 22px; color: #4A2C59; margin: 20px 0 10px; text-align: center; text-transform: uppercase; }
 
    /* GRID DE PROVINCIAS – 4 COLUMNAS OBLIGATORIAS */
-    .province-grid, 
-    .winery-grid {
+        .province-grid {
         display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 20px !important;
-        max-width: 1400px !important;
-        margin: 0 auto 40px auto !important;
+        grid-template-columns: repeat(4, 1fr) !important;   /* siempre 4 columnas */
+        gap: 16px !important;                              /* podés bajar a 12px si querés más apretado */
+        max-width: 1360px !important;
+        margin: 0 auto 60px auto !important;
         padding: 0 20px !important;
-        box-sizing: border-box !important;
     }
 
-    .province-card,
-    .winery-card {
+    .province-card {
         width: 100% !important;
-        height: 290px !important;
-        max-width: none !important;
+        height: 220px !important;                          /* tamaño provincias – cambiá cuando quieras */
         border-radius: 10px !important;
         overflow: hidden !important;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.12) !important;
-        transition: transform 0.3s ease !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.12) !important;
+        transition: all 0.3s ease !important;
     }
 
-    .province-card:hover,
-    .winery-card:hover {
-        transform: translateY(-10px) !important;
+    .province-card:hover {
+        transform: translateY(-8px) !important;
     }
 
-    .province-card img,
-    .winery-card img {
+    .province-card img {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
-        transition: transform 0.5s ease !important;
+        transition: transform 0.4s ease !important;
     }
 
-    .province-card:hover img,
-    .winery-card:hover img {
-        transform: scale(1.08) !important;
+    .province-card:hover img {
+        transform: scale(1.1) !important;
     }
 
     .province-overlay {
-        position: absolute !important;
-        top: 0; left: 0;
-        width: 100% !important;
-        height: 100% !important;
-        background: rgba(74, 44, 89, 0.82) !important;
-        color: #fff !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        font-size: 19px !important;
-        font-weight: 600 !important;
-        padding: 20px !important;
-        opacity: 0 !important;
-        transition: opacity 0.35s ease !important;
+        font-size: 17px !important;
+        background: rgba(74, 44, 89, 0.85) !important;
+        padding: 15px !important;
     }
 
     .province-card:hover .province-overlay {
         opacity: 1 !important;
     }
 
-    /* Oculta el nombre duplicado que pone el tema debajo de la foto */
-    .province-name,
-    .winery-name {
-        display: none !important;
-    }
-}
+    .province-name { display: none !important; }
         .winery-card img.logo { width: 100%; height: 100%; object-fit: contain; background: #FFFFFF; padding: 10px; box-sizing: border-box; }
         .winery-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; }
         .winery-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 8px; cursor: pointer; font-size: 16px; border-radius: 5px; opacity: 0.8; transition: opacity 0.3s ease; }
