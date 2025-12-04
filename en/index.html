@@ -189,39 +189,36 @@
         <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
     </a>
 </header>
+<button class="hamburger">☰</button>
 <main>
     <div class="banner-carousel">
-        <div class="banner-container">
-            <div class="banner-item">
-                <a href="/en/ofertas.html" title="Explore events">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-en.jpg"/>
-                        <img src="/images/banners/banner-1-en.jpg" alt="Banner 1" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
-                    </picture>
-                </a>
-            </div>
-            <div class="banner-item">
-                <a href="/en/bodegas.html" title="Explore wineries">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-en.jpg"/>
-                        <img src="/images/banners/banner-2-en.jpg" alt="Banner 2" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+No+Disponible';">
-                    </picture>
-                </a>
-            </div>
-            <div class="banner-item">
-                <a href="/en/provincias.html" title="Explore provinces">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-en.jpg"/>
-                        <img src="/images/banners/banner-3-en.jpg" alt="Banner 3" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+No+Disponible';">
-                    </picture>
-                </a>
-            </div>
+    <div class="banner-container" style="display:flex; transition:transform 0.5s ease;">
+        <div class="banner-item">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-en.jpg">
+                <img src="/images/banners/banner-1-en.jpg" alt="Banner 1">
+            </picture>
         </div>
-        <div class="banner-nav">
-            <button onclick="moveBanner(-1)">❮</button>
-            <button onclick="moveBanner(1)">❯</button>
+        <div class="banner-item">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-en.jpg">
+                <img src="/images/banners/banner-2-en.jpg" alt="Banner 2">
+            </picture>
+        </div>
+        <div class="banner-item">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-en.jpg">
+                <img src="/images/banners/banner-3-en.jpg" alt="Banner 3">
+            </picture>
         </div>
     </div>
+
+    <div class="banner-nav">
+        <button onclick="moveBanner(-1)">❮</button>
+        <button onclick="moveBanner(1)">❯</button>
+    </div>
+</div>
+
 
     <div class="search-container">
         <input class="search-input" type="text" placeholder="Search your favorite wine...">
@@ -369,11 +366,10 @@
                 </div>
                 
     </div>
-
-    <div class="recently-added-carousel">
-        <h2>Recently Added Wines</h2>
-        <div class="recent-container" data-item-count="6">
-            
+     <div class="recently-added-carousel">
+    <h2>Vinos Recientes</h2>
+    <div class="recent-container">
+        
                 <div class="product-card recent-item">
                     <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024">
                     <div class="info-icon">🍷</div>
@@ -643,10 +639,9 @@
                     <p class="shipping-note">+ shipping costs</p>
                     <a class="buy-button" href="/en/vinos/felipe-rutini-2017.html">Buy</a>
                 </div>
-                
-        </div>
-        <div class="recent-nav"><button onclick="moveRecent(-1)">❮</button><button onclick="moveRecent(1)">❯</button></div>
+                  <!-- 18 ítems -->
     </div>
+</div>
 
     <h3 class="section-title">Visit Our Wineries</h3>
     <div class="winery-grid">
@@ -708,7 +703,7 @@
 </div>
     <div class="twitter-box"><h3 class="section-title">News</h3><p>No tweets available.</p></div>
 </main>
-
+</main>
 <script>
     // Hamburger menu
     document.querySelector('.hamburger').addEventListener('click', function() { document.getElementById('sidebar').classList.toggle('open'); });
@@ -1019,6 +1014,7 @@
         }
         return url;
     }
+    
 </script>
 </body>
 </html>
