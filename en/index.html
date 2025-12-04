@@ -244,7 +244,7 @@
     }
 
     /* Provincias en móvil – 2 columnas y visibles */
-    .province-grid {
+.province-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 14px !important;
         margin-bottom: 50px !important;
@@ -254,6 +254,7 @@
         position: relative !important;
         height: 165px !important;
         border-radius: 10px !important;
+        overflow: hidden !important;
     }
 
     .province-card img {
@@ -262,14 +263,27 @@
         object-fit: cover !important;
     }
 
-    /* ← TÍTULO SIEMPRE VISIBLE EN MÓVIL */
+    /* ← OVERLAY SOLO MIENTRAS EL DEDO ESTÁ ENCIMA (perfecto en móvil) */
     .province-overlay {
-        opacity: 1 !important;                     /* siempre visible */
-        background: rgba(74, 44, 89, 0.82) !important;
+        opacity: 0 !important;
+        background: rgba(74, 44, 89, 0.88) !important;
         font-size: 16px !important;
         font-weight: 600 !important;
         padding: 12px !important;
+        transition: opacity 0.25s ease !important;
+        pointer-events: none !important;
     }
+
+    /* Esto simula el hover táctil real */
+    .province-card:active .province-overlay {
+        opacity: 1 !important;
+    }
+
+    /* opcional: también aparece muy levemente al hacer scroll (muchos temas lo usan) */
+    .province-card:focus-within .province-overlay {
+        opacity: 1 !important;
+    }
+
 
     /* Bodegas en móvil → reel horizontal original (como venía de fábrica) */
     .winery-grid {
