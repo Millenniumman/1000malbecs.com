@@ -148,18 +148,7 @@
             .winery-grid::-webkit-scrollbar { display: none; }
             .winery-grid.has-right { box-shadow: 8px 0 8px -8px rgba(0,0,0,0.3); }
             .winery-grid.has-left { box-shadow: -8px 0 8px -8px rgba(0,0,0,0.3); }
-            .province-card {
-    width: 100%;
-    aspect-ratio: 1/1;
-    height: auto;
-}
-
-.winery-card {
-    width: 100%;
-    aspect-ratio: 1/1;
-    height: auto;
-}
-
+            .province-card, .winery-card { width: 100%; height: 150px; }
             .winery-card { flex: 0 0 150px; height: 150px; }
             .province-card { position: relative; }
             .province-card .province-overlay { display: none; }
@@ -174,77 +163,6 @@
             .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
             .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
             .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
-            @media (max-width: 768px) {
-    /* --- PRODUCT CARDS MOBILE --- */
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .product-card {
-        max-width: 150px;
-        min-height: 220px;
-        padding: 10px;
-    }
-
-    .product-card img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .product-card h3 {
-        font-size: 13px;
-        min-height: 30px;
-    }
-
-    .product-card .price {
-        font-size: 14px;
-    }
-
-    .product-card .price-per-liter {
-        font-size: 12px;
-    }
-
-    .product-card .buy-button {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    /* --- PROVINCIAS MOBILE --- */
-    .province-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .province-card {
-        width: 100%;
-        height: 140px;
-    }
-
-    .province-card img {
-        object-fit: cover;
-    }
-
-    .province-card .province-overlay {
-        display: none;
-    }
-
-    .province-card .province-name {
-        display: block;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        color: #FFFFFF;
-        font-size: 16px;
-        font-weight: 600;
-        background: rgba(74, 44, 89, 0.7);
-        padding: 5px 10px;
-        border-radius: 3px;
-        z-index: 10;
-    }
-}
-
-            
         }
         @media (min-width: 769px) {
             .header { display: none; }
@@ -257,38 +175,6 @@
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; justify-content: start; }
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
-            @media (min-width: 769px) {
-    .province-card {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        height: auto;
-    }
-
-    .product-card {
-        pointer-events: auto;
-        max-width: 250px;
-        min-height: 360px;
-        width: 100%;
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    .product-card img {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-    }
-
-    .province-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-}
-
         }
     </style>
 </head>
