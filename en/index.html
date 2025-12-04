@@ -245,20 +245,30 @@
 
     /* Provincias en móvil – 2 columnas y visibles */
     .province-grid {
-        display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 14px !important;
-        margin: 0 auto 50px auto !important;
+        margin-bottom: 50px !important;
     }
 
     .province-card {
+        position: relative !important;
         height: 165px !important;
         border-radius: 10px !important;
     }
 
+    .province-card img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* ← TÍTULO SIEMPRE VISIBLE EN MÓVIL */
     .province-overlay {
+        opacity: 1 !important;                     /* siempre visible */
+        background: rgba(74, 44, 89, 0.82) !important;
         font-size: 16px !important;
-        padding: 15px !important;
+        font-weight: 600 !important;
+        padding: 12px !important;
     }
 
     /* Bodegas en móvil → reel horizontal original (como venía de fábrica) */
