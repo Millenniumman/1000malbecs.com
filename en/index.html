@@ -236,15 +236,23 @@
             .recent-nav button { padding: 6px; font-size: 14px; }
             .banner-carousel { margin-bottom: 20px; }
             .banner-item { height: 200px; }
-            province-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
-        padding: 0 15px !important;
+       .province-grid,
+    .winery-grid {
         margin-left: 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    /* Provincias en móvil – 2 columnas y visibles */
+    .province-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+        margin: 0 auto 50px auto !important;
     }
 
     .province-card {
-        height: 160px !important;
+        height: 165px !important;
         border-radius: 10px !important;
     }
 
