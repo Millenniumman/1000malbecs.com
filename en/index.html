@@ -148,7 +148,18 @@
             .winery-grid::-webkit-scrollbar { display: none; }
             .winery-grid.has-right { box-shadow: 8px 0 8px -8px rgba(0,0,0,0.3); }
             .winery-grid.has-left { box-shadow: -8px 0 8px -8px rgba(0,0,0,0.3); }
-            .province-card, .winery-card { width: 100%; height: 150px; }
+            .province-card {
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+}
+
+.winery-card {
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+}
+
             .winery-card { flex: 0 0 150px; height: 150px; }
             .province-card { position: relative; }
             .province-card .province-overlay { display: none; }
