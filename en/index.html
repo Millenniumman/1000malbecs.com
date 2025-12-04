@@ -355,35 +355,19 @@
                 <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-en.jpg">
                 <img src="/images/banners/banner-1-en.jpg" alt="Banner 1">
             </picture>
+          </div>
         </div>
-        <div class="banner-item">
-            <picture>
-                <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-en.jpg">
-                <img src="/images/banners/banner-2-en.jpg" alt="Banner 2">
-            </picture>
-        </div>
-        <div class="banner-item">
-            <picture>
-                <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-en.jpg">
-                <img src="/images/banners/banner-3-en.jpg" alt="Banner 3">
-            </picture>
+        <div class="banner-nav">
+            <button onclick="moveBanner(-1)">❮</button>
+            <button onclick="moveBanner(1)">❯</button>
         </div>
     </div>
-
-    <div class="banner-nav">
-        <button onclick="moveBanner(-1)">❮</button>
-        <button onclick="moveBanner(1)">❯</button>
-    </div>
-</div>
-
-
     <div class="search-container">
-        <input class="search-input" type="text" placeholder="Search your favorite wine...">
+        <input class="search-input" type="text" placeholder="Busca tu vino favorito...">
         <i class="fas fa-search search-icon"></i>
         <ul class="search-suggestions"></ul>
     </div>
-
-    <h3 class="section-title">Featured Wines</h3>
+    <h3 class="section-title">Vinos Destacados</h3>
     <div class="product-grid">
         
                 <div class="product-card" data-overlay-id="cicchitti-primmo-malbec-2022">
@@ -523,7 +507,7 @@
                 </div>
                 
     </div>
-     <div class="recently-added-carousel">
+    <div class="recently-added-carousel">
     <h2>Vinos Recientes</h2>
     <div class="recent-container">
         
@@ -799,11 +783,6 @@
                   <!-- 18 ítems -->
     </div>
 </div>
- <div class="recent-nav">
-        <button onclick="moveRecent(-1)">❮</button>
-        <button onclick="moveRecent(1)">❯</button>
-    </div>
-    </div>
     <h3 class="section-title">Visit Our Wineries</h3>
     <div class="winery-grid">
         <a class="winery-card" href="/es/bodegas/bodega-foster-lorca.html">
