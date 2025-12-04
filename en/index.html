@@ -163,6 +163,76 @@
             .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
             .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
             .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+            @media (max-width: 768px) {
+    /* --- PRODUCT CARDS MOBILE --- */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product-card {
+        max-width: 150px;
+        min-height: 220px;
+        padding: 10px;
+    }
+
+    .product-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .product-card h3 {
+        font-size: 13px;
+        min-height: 30px;
+    }
+
+    .product-card .price {
+        font-size: 14px;
+    }
+
+    .product-card .price-per-liter {
+        font-size: 12px;
+    }
+
+    .product-card .buy-button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    /* --- PROVINCIAS MOBILE --- */
+    .province-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .province-card {
+        width: 100%;
+        height: 140px;
+    }
+
+    .province-card img {
+        object-fit: cover;
+    }
+
+    .province-card .province-overlay {
+        display: none;
+    }
+
+    .province-card .province-name {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 600;
+        background: rgba(74, 44, 89, 0.7);
+        padding: 5px 10px;
+        border-radius: 3px;
+        z-index: 10;
+    }
+}
+
             
         }
         @media (min-width: 769px) {
