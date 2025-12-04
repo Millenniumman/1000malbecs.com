@@ -163,6 +163,7 @@
             .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
             .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
             .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+            
         }
         @media (min-width: 769px) {
             .header { display: none; }
@@ -175,6 +176,38 @@
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; justify-content: start; }
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
+            @media (min-width: 769px) {
+    .province-card {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: auto;
+    }
+
+    .product-card {
+        pointer-events: auto;
+        max-width: 250px;
+        min-height: 360px;
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .product-card img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .province-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
         }
     </style>
 </head>
@@ -646,7 +679,7 @@
         <button onclick="moveRecent(-1)">❮</button>
         <button onclick="moveRecent(1)">❯</button>
     </div>
-</div>
+    </div>
     <h3 class="section-title">Visit Our Wineries</h3>
     <div class="winery-grid">
         <a class="winery-card" href="/es/bodegas/bodega-foster-lorca.html">
