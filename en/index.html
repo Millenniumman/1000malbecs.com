@@ -49,76 +49,74 @@
         .search-suggestions li:hover, .search-suggestions li.focused { background: #4A2C59; color: #FFFFFF; }
         .section-title { font-size: 22px; color: #4A2C59; margin: 20px 0 10px; text-align: center; text-transform: uppercase; }
 
-   .province-grid {
+   /* ============================================= */
+    /* ========= PROVINCIAS – 4 COLUMNAS ANGOSTAS == */
+    /* ============================================= */
+    .province-grid {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
-        gap: 15px !important;
-        max-width: 1360px !important;
-        margin: 0 auto 70px auto !important;
+        gap: 14px !important;
+        max-width: 1100px !important;          /* bajamos el ancho máximo */
+        margin: 0 auto 70px 120px !important;  /* desplazamos todo bien a la derecha */
         padding: 0 20px !important;
-        margin-left: 90px !important;          /* ← mueve todo a la derecha (ajustalo si querés más/menos) */
     }
 
     .province-card {
-        height: 195px !important;
-        border-radius: 10px !important;
+        height: 182px !important;              /* más angostas y bajas */
+        border-radius: 9px !important;
         overflow: hidden !important;
-        box-shadow: 0 5px 16px rgba(0,0,0,0.13) !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.12) !important;
     }
 
-    .province-card:hover { transform: translateY(-8px) !important; }
-    .province-card img { width: 100% !important; height: 100% !important; object-fit: cover !important; transition: transform 0.4s ease !important; }
-    .province-card:hover img { transform: scale(1.12) !important; }
+    .province-card:hover { transform: translateY(-7px) !important; }
+    .province-card img { 
+        width: 100% !important; 
+        height: 100% !important; 
+        object-fit: cover !important; 
+        transition: transform 0.4s ease !important; 
+    }
+    .province-card:hover img { transform: scale(1.15) !important; }
 
     .province-overlay {
-        position: absolute !important;
-        inset: 0 !important;
-        background: rgba(74, 44, 89, 0.88) !important;
-        color: #fff !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 18px !important;
-        font-weight: 600 !important;
-        padding: 20px !important;
-        opacity: 0 !important;
-        transition: opacity 0.35s ease !important;
+        font-size: 17px !important;
+        background: rgba(74, 44, 89, 0.89) !important;
+        padding: 15px !important;
     }
-
     .province-card:hover .province-overlay { opacity: 1 !important; }
     .province-name { display: none !important; }
 
 
     /* ============================================= */
-    /* =============== BODEGAS DESKTOP ============= */
+    /* ========= BODEGAS – 2 FILAS DE 4 LOGOS ======= */
     /* ============================================= */
     .winery-grid {
         display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
-        gap: 18px 22px !important;
-        max-width: 1400px !important;
-        margin: 0 auto 50px auto !important;
-        padding-left: 130px !important;         /* ← más margen izquierdo para que no tape la barra */
-        padding-right: 20px !important;
-        margin-left: 90px !important;           /* ← mismo desplazamiento que las provincias */
+        grid-template-columns: repeat(4, 1fr) !important;   /* exactamente 4 por fila */
+        grid-auto-rows: 92px !important;
+        gap: 16px 20px !important;
+        max-width: 1100px !important;
+        margin: 0 auto 60px 120px !important;   /* mismo desplazamiento que provincias */
+        padding: 0 20px !important;
+        /* Esto genera exactamente 2 filas de 4 = 8 logos visibles */
     }
 
     .winery-card {
-        height: 90px !important;
+        height: 92px !important;
         background: #fff !important;
         border-radius: 8px !important;
-        padding: 10px !important;
+        padding: 8px !important;
         box-shadow: 0 3px 12px rgba(0,0,0,0.09) !important;
+        transition: all 0.3s ease !important;
     }
 
     .winery-card:hover {
-        transform: translateY(-6px) !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.16) !important;
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 22px rgba(0,0,0,0.16) !important;
     }
 
     .winery-card img {
-        max-width: 108px !important;
-        max-height: 65px !important;
+        max-width: 102px !important;           /* logos un toque más chicos para que quepan lindo */
+        max-height: 62px !important;
         object-fit: contain !important;
     }
 
