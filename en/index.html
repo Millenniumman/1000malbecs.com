@@ -120,7 +120,7 @@
         grid-template-rows: 120px 120px !important;     /* dos filas altas para logos grandes */
         gap: 20px !important;
         max-width: 1120px !important;
-        margin: 0 auto 70px 350px !important;           /* mismo margen que provincias */
+        margin: 0 auto 70px 400px !important;           /* mismo margen que provincias */
         padding: 0 20px !important;
     }
 
@@ -236,17 +236,49 @@
             .recent-nav button { padding: 6px; font-size: 14px; }
             .banner-carousel { margin-bottom: 20px; }
             .banner-item { height: 200px; }
-            .province-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .winery-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 15px; padding: 0 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-            .winery-grid::-webkit-scrollbar { display: none; }
-            .winery-grid.has-right { box-shadow: 8px 0 8px -8px rgba(0,0,0,0.3); }
-            .winery-grid.has-left { box-shadow: -8px 0 8px -8px rgba(0,0,0,0.3); }
-            .province-card, .winery-card { width: 100%; height: 150px; }
-            .winery-card { flex: 0 0 150px; height: 150px; }
-            .province-card { position: relative; }
-            .province-card .province-overlay { display: none; }
-            .province-card .province-name { display: block; position: absolute; top: 10px; left: 10px; color: #FFFFFF; font-size: 16px; font-weight: 600; background: rgba(74, 44, 89, 0.7); padding: 5px 10px; border-radius: 3px; z-index: 10; }
-            .winery-card img.logo { width: 100%; height: 100%; object-fit: contain; background: #FFFFFF; padding: 5px; box-sizing: border-box; max-width: 100%; }
+            province-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        padding: 0 15px !important;
+        margin-left: 0 !important;
+    }
+
+    .province-card {
+        height: 160px !important;
+        border-radius: 10px !important;
+    }
+
+    .province-overlay {
+        font-size: 16px !important;
+        padding: 15px !important;
+    }
+
+    /* Bodegas en móvil → reel horizontal original (como venía de fábrica) */
+    .winery-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 18px !important;
+        padding: 20px 20px !important;
+        scrollbar-width: none !important;
+        margin-left: 0 !important;
+    }
+
+    .winery-grid::-webkit-scrollbar { display: none !important; }
+
+    .winery-card {
+        flex: 0 0 150px !important;
+        height: 100px !important;
+        scroll-snap-align: center !important;
+    }
+
+    .winery-card img {
+        max-width: 130px !important;
+        max-height: 75px !important;
+    }
+
+}
             .search-container { max-width: 100%; padding: 0 10px; }
             .search-input { font-size: 14px; padding: 8px 35px 8px 12px; }
             .search-icon { font-size: 16px; right: 12px; }
