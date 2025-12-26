@@ -1,5 +1,5 @@
 # Redirect root to default language
-/ /es/index.html 302
+/ /es/index.html 301
 
 # Serve language-specific index pages
 /es/ /es/index.html 200
