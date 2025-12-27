@@ -381,9 +381,9 @@
             </div>
             
     </div>
-        <div class="recently-added-carousel">
+    <div class="recently-added-carousel">
     <h3 class="section-title">Vinos Recientemente Agregados</h3>
-    <div class="recent-container">
+    <div class="recent-container" data-item-count="6">
 
                 <div class="product-card recent-item">
                     <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
@@ -696,7 +696,7 @@
         <button onclick="moveRecent(1)">❯</button>
     </div>
 </div>
-  <!-- 18 ítems -->
+
     <h3 class="section-title">Visita nuestras Bodegas</h3>
     <div class="winery-grid">
         <a class="winery-card" href="/es/bodegas/bodega-foster-lorca.html">
@@ -792,7 +792,7 @@
         
         const recentContainer = recentCarousel.querySelector('.recent-container');
         const recentItems = recentContainer.querySelectorAll('.recent-item');
-        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
+        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length / 3;
         
         if (itemCount <= 1) {
             const recentNav = recentCarousel.querySelector('.recent-nav');
@@ -800,14 +800,7 @@
             return;
         }
         
-        recentItems.forEach(item => {
-            const cloneStart = item.cloneNode(true);
-            const cloneEnd = item.cloneNode(true);
-            recentContainer.insertBefore(cloneEnd, recentItems[0]);
-            recentContainer.appendChild(cloneStart);
-        });
-        
-        const totalItems = recentContainer.querySelectorAll('.recent-item').length;
+        // No agregar clones aquí, ya que se duplican en Python
         let currentRecent = itemCount;
         const itemWidthPercentage = 100 / itemCount;
         recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
@@ -831,6 +824,7 @@
             }, 500);
         }
         
+        // Auto-avance
         let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
         recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
         recentCarousel.addEventListener('mouseleave', () => {
@@ -1063,70 +1057,6 @@
         }
         return url;
     }
-
-    function initRecentCarousel() {
-        const recentContainer = document.querySelector('.recent-container');
-        if (!recentContainer) return;
-
-        const recentItems = recentContainer.querySelectorAll('.recent-item');
-        const totalItems = recentItems.length;
-        const itemCount = totalItems / 3;  // 3 copias del set original
-
-        if (itemCount <= 0) return;
-
-        const itemWidthPercentage = 100 / itemCount;
-        let currentRecent = itemCount;  // Empezamos en el centro (segundo bloque)
-
-        // Posición inicial correcta
-        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-
-        window.moveRecent = function(direction) {
-            currentRecent += direction;
-
-            const newTranslateX = -currentRecent * itemWidthPercentage;
-            recentContainer.style.transition = 'transform 0.5s ease';
-            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
-
-            // Reinicio infinito sin salto visible
-            setTimeout(() => {
-                if (currentRecent >= itemCount * 2) {
-                    currentRecent = itemCount;
-                    recentContainer.style.transition = 'none';
-                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                } else if (currentRecent < itemCount) {
-                    currentRecent = itemCount * 2 - 1;
-                    recentContainer.style.transition = 'none';
-                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                }
-            }, 500);
-        };
-
-        /        // Auto-avance cada 5 segundos con pausa al hover
-             let autoScroll = setInterval(() => moveRecent(1), 5000);
-
-        const carousel = document.querySelector('.recently-added-carousel');
-        if (carousel) {
-            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-            carousel.addEventListener('mouseleave', () => {
-                autoScroll = setInterval(() => moveRecent(1), 5000);
-            });
-        }
-
-               // Botones de navegación (izquierda/derecha)
-        document.querySelectorAll('.recent-nav button').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const direction = e.target.textContent.includes('❮') ? -1 : 1;
-                moveRecent(direction);
-            });
-        });
-
-    }  // Cierre de initRecentCarousel
-
-    document.addEventListener('DOMContentLoaded', initRecentCarousel);
-
-
-    // Ejecutar cuando el DOM esté listo
-    document.addEventListener('DOMContentLoaded', initRecentCarousel);
 </script>
 </body>
 </html>
