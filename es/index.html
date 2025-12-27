@@ -784,56 +784,64 @@
         console.log('Tweet actual:', currentTweet);
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
+           // Recently added carousel - infinito sin salto ni reinicio visible
+        function initRecentCarousel() {
+            const recentContainer = document.querySelector('.recent-container');
+            if (!recentContainer) return;
 
-        // Recently added carousel - versión infinita perfecta
-    function initRecentCarousel() {
-        const recentContainer = document.querySelector('.recent-container');
-        if (!recentContainer) return;
+            const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || 6;
+            if (itemCount <= 0) return;
 
-        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || 6;
-        if (itemCount <= 0) return;
+            const itemWidth = 100 / itemCount;
+            let currentIndex = itemCount;  // Empezamos en el centro
 
-        const itemWidth = 100 / itemCount;
-        let currentIndex = itemCount;  // Empezamos en el segundo bloque
-
-        recentContainer.style.transition = 'none';
-        recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-
-        window.moveRecent = function(direction) {
-            currentIndex += direction;
-
-            recentContainer.style.transition = 'transform 0.5s ease';
+            recentContainer.style.transition = 'none';
             recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
 
-            // Reset infinito SIN SALTO
-            if (currentIndex >= itemCount * 2 || currentIndex < itemCount) {
-                setTimeout(() => {
-                    recentContainer.style.transition = 'none';
-                    currentIndex = (currentIndex >= itemCount * 2) ? itemCount : itemCount;
-                    recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-                }, 510);  // un poquito más de 500ms para seguridad
+            // Forzar reflow
+            recentContainer.offsetHeight;
+
+            window.moveRecent = function(direction) {
+                currentIndex += direction;
+
+                recentContainer.style.transition = 'transform 0.5s ease';
+                recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+
+                // Reset suave cuando nos acercamos al límite
+                if (currentIndex >= itemCount * 2 || currentIndex <= 0) {
+                    setTimeout(() => {
+                        recentContainer.style.transition = 'none';
+                        if (currentIndex >= itemCount * 2) {
+                            currentIndex -= itemCount;
+                        } else {
+                            currentIndex += itemCount;
+                        }
+                        recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+                        recentContainer.offsetHeight;
+                    }, 510);
+                }
+            };
+
+            // Auto-avance más rápido (3 segundos)
+            let autoScroll = setInterval(() => moveRecent(1), 3000);
+
+            const carousel = document.querySelector('.recently-added-carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+                carousel.addEventListener('mouseleave', () => {
+                    autoScroll = setInterval(() => moveRecent(1), 3000);
+                });
             }
-        };
 
-        let autoScroll = setInterval(() => moveRecent(1), 2000);
-
-        const carousel = document.querySelector('.recently-added-carousel');
-        if (carousel) {
-            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-            carousel.addEventListener('mouseleave', () => {
-                autoScroll = setInterval(() => moveRecent(1), 2000);
+            // Botones
+            document.querySelectorAll('.recent-nav button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    moveRecent(btn.textContent.includes('❮') ? -1 : 1);
+                });
             });
         }
 
-        document.querySelectorAll('.recent-nav button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                moveRecent(btn.textContent.includes('❮') ? -1 : 1);
-            });
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', initRecentCarousel);
-
+        document.addEventListener('DOMContentLoaded', initRecentCarousel);
     // Info icons for mobile
     if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
