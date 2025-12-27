@@ -74,7 +74,7 @@
         .winery-nav button.hidden { display: none; }
        .recently-added-carousel { position: relative; max-width: 1200px; margin: 20px auto; overflow: hidden; }
         .recent-container { display: flex; transition: transform 0.5s ease; width: calc(100% * 3); }
-        .recent-item { flex: 0 0 16.66%; max-width: 250px; margin-right: 30px; box-sizing: border-box; background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .recent-item { flex: 0 0 200; max-width: 250px; margin-right: 30px; box-sizing: border-box; background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .recent-item img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
         .recent-item .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
         .recent-item .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
@@ -815,13 +815,13 @@
             }
         };
 
-        let autoScroll = setInterval(() => moveRecent(1), 5000);
+        let autoScroll = setInterval(() => moveRecent(1), 2000);
 
         const carousel = document.querySelector('.recently-added-carousel');
         if (carousel) {
             carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
             carousel.addEventListener('mouseleave', () => {
-                autoScroll = setInterval(() => moveRecent(1), 5000);
+                autoScroll = setInterval(() => moveRecent(1), 2000);
             });
         }
 
