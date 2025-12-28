@@ -784,64 +784,66 @@
         console.log('Tweet actual:', currentTweet);
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
-           // Recently added carousel - infinito sin salto ni reinicio visible
-        function initRecentCarousel() {
-            const recentContainer = document.querySelector('.recent-container');
-            if (!recentContainer) return;
-
-            const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || 6;
-            if (itemCount <= 0) return;
-
-            const itemWidth = 100 / itemCount;
-            let currentIndex = itemCount;  // Empezamos en el centro
-
-            recentContainer.style.transition = 'none';
-            recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-
-            // Forzar reflow
-            recentContainer.offsetHeight;
-
-            window.moveRecent = function(direction) {
-                currentIndex += direction;
-
-                recentContainer.style.transition = 'transform 0.5s ease';
-                recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-
-                // Reset suave cuando nos acercamos al límite
-                if (currentIndex >= itemCount * 2 || currentIndex <= 0) {
-                    setTimeout(() => {
-                        recentContainer.style.transition = 'none';
-                        if (currentIndex >= itemCount * 2) {
-                            currentIndex -= itemCount;
-                        } else {
-                            currentIndex += itemCount;
-                        }
-                        recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-                        recentContainer.offsetHeight;
-                    }, 510);
-                }
-            };
-
-            // Auto-avance más rápido (3 segundos)
-            let autoScroll = setInterval(() => moveRecent(1), 3000);
-
-            const carousel = document.querySelector('.recently-added-carousel');
-            if (carousel) {
-                carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-                carousel.addEventListener('mouseleave', () => {
-                    autoScroll = setInterval(() => moveRecent(1), 3000);
-                });
-            }
-
-            // Botones
-            document.querySelectorAll('.recent-nav button').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    moveRecent(btn.textContent.includes('❮') ? -1 : 1);
-                });
-            });
+       // Recently added carousel
+    function initRecentCarousel() {
+        const recentCarousel = document.querySelector('.recently-added-carousel');
+        if (!recentCarousel) return;
+        
+        const recentContainer = recentCarousel.querySelector('.recent-container');
+        const recentItems = recentContainer.querySelectorAll('.recent-item');
+        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
+        
+        if (itemCount <= 1) {
+            const recentNav = recentCarousel.querySelector('.recent-nav');
+            if (recentNav) recentNav.style.display = 'none';
+            return;
         }
-
-        document.addEventListener('DOMContentLoaded', initRecentCarousel);
+        
+        recentItems.forEach(item => {
+            const cloneStart = item.cloneNode(true);
+            const cloneEnd = item.cloneNode(true);
+            recentContainer.insertBefore(cloneEnd, recentItems[0]);
+            recentContainer.appendChild(cloneStart);
+        });
+        
+        const totalItems = recentContainer.querySelectorAll('.recent-item').length;
+        let currentRecent = itemCount;
+        const itemWidthPercentage = 100 / itemCount;
+        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+        
+        function moveRecent(direction) {
+            currentRecent += direction;
+            const newTranslateX = -currentRecent * itemWidthPercentage;
+            recentContainer.style.transition = 'transform 0.5s ease';
+            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+            
+            setTimeout(() => {
+                if (currentRecent >= itemCount * 2) {
+                    currentRecent = itemCount;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                } else if (currentRecent < itemCount) {
+                    currentRecent = itemCount * 2 - 1;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                }
+            }, 500);
+        }
+        
+        let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        recentCarousel.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        });
+        
+        const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
+        const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
+        if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
+        if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
+        
+        console.log('Cantidad de vinos recientemente agregados:', itemCount);
+    }
+    document.addEventListener('DOMContentLoaded', initRecentCarousel);
     // Info icons for mobile
     if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
