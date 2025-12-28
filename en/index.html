@@ -751,7 +751,70 @@
             <div class="province-overlay">Neuquén</div>
         </a>
     </div>
-    <div class="twitter-box"><h3 class="section-title">News</h3><p>No tweets available.</p></div>
+    
+    <div class="twitter-box">
+        <h3 class="section-title">News</h3>
+        <div class="tweet-carousel">
+            <div class="tweet-container">
+                
+        <div class="tweet-item">
+            <p>@Arekushu20 @AbogadoDijo @Tammy_Malbec Mejor que se los hubiese dejado, no?</p>
+            <a href="https://x.com/1000malbecs/status/2005169636279812476" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>@Tammy_Malbec @PFAOficial En las estaciones de tren del conurbano el 30% tienen esa cara genérica.  Seria un quilombo</p>
+            <a href="https://x.com/1000malbecs/status/2005120244466286612" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>@Jolumodu @Truthknight19xx @parrillax85 ¡Perfecto! Un Malbec de Mendoza encaja ideal para celebrar. ¿Catena Zapata o Achaval-Ferrer? ¡Salud por el libre mercado!</p>
+            <a href="https://x.com/1000malbecs/status/2005105298508304444" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>@lau_malbec @Maeven_P @ElmasGrandeR35 @casidolape @fedeflowersok La causa exacta de la infección de Silvina Scheffler no se ha reportado públicamente en fuentes como Perfil o Infobae. La leptospirosis se transmite comúnmente por contacto con agua, suelo o alimentos contaminados con orina de animales infectados, como roedores. En Argentina,</p>
+            <a href="https://x.com/1000malbecs/status/2005102681770152271" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>Me estoy bajando un vino Malbec de 2500 pesos que si lo conocieran lo tomarían también. Y en mi mente paralela me dieron ganas de hacerme el streamer con @LaRomiScalora hablando de La Izquierda, @taylorswift13, cosas tipo #Lam #Bendita y 90s 2000</p>
+            <a href="https://x.com/1000malbecs/status/2005099617688711393" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>Lluvia...malbec... airbag para rematar.... soledad. Paz🧭</p>
+            <a href="https://x.com/1000malbecs/status/2005096487470924063" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>@amosdelmundook @RightNewsShow @malbec_lady @nickshirleyy @JMilei Deja de romper las bolas villaruelin</p>
+            <a href="https://x.com/1000malbecs/status/2005089074634441048" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>Ahora si vamos a probar el Malbec 😒😃🤣 https://t.co/CUU2B3mEhF</p>
+            <a href="https://x.com/1000malbecs/status/2005086173639721453" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>@Tammy_Malbec @christiansanzok No me sorprendería</p>
+            <a href="https://x.com/1000malbecs/status/2005084030874902649" target="_blank">View Tweet</a>
+        </div>
+        
+        <div class="tweet-item">
+            <p>@Tammy_Malbec @BastaPosta Sí, salí al balcón. Descendió 10 grados.</p>
+            <a href="https://x.com/1000malbecs/status/2005082921124888782" target="_blank">View Tweet</a>
+        </div>
+        
+            </div>
+            <div class="tweet-nav">
+                <button onclick="moveTweet(-1)">❮</button>
+                <button onclick="moveTweet(1)">❯</button>
+            </div>
+        </div>
+    </div>
+    
 </main>
 <script>
     // Hamburger menu
@@ -785,62 +848,65 @@
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
            // Recently added carousel - infinito sin salto ni reinicio visible
+               // Recently added carousel
         function initRecentCarousel() {
-            const recentContainer = document.querySelector('.recent-container');
-            if (!recentContainer) return;
-
-            const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || 6;
-            if (itemCount <= 0) return;
-
-            const itemWidth = 100 / itemCount;
-            let currentIndex = itemCount;  // Empezamos en el centro
-
-            recentContainer.style.transition = 'none';
-            recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-
-            // Forzar reflow
-            recentContainer.offsetHeight;
-
-            window.moveRecent = function(direction) {
-                currentIndex += direction;
-
-                recentContainer.style.transition = 'transform 0.5s ease';
-                recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-
-                // Reset suave cuando nos acercamos al límite
-                if (currentIndex >= itemCount * 2 || currentIndex <= 0) {
-                    setTimeout(() => {
-                        recentContainer.style.transition = 'none';
-                        if (currentIndex >= itemCount * 2) {
-                            currentIndex -= itemCount;
-                        } else {
-                            currentIndex += itemCount;
-                        }
-                        recentContainer.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-                        recentContainer.offsetHeight;
-                    }, 510);
-                }
-            };
-
-            // Auto-avance más rápido (3 segundos)
-            let autoScroll = setInterval(() => moveRecent(1), 3000);
-
-            const carousel = document.querySelector('.recently-added-carousel');
-            if (carousel) {
-                carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-                carousel.addEventListener('mouseleave', () => {
-                    autoScroll = setInterval(() => moveRecent(1), 3000);
-                });
+            const recentCarousel = document.querySelector('.recently-added-carousel');
+            if (!recentCarousel) return;
+            
+            const recentContainer = recentCarousel.querySelector('.recent-container');
+            const recentItems = recentContainer.querySelectorAll('.recent-item');
+            const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
+            
+            if (itemCount <= 1) {
+                const recentNav = recentCarousel.querySelector('.recent-nav');
+                if (recentNav) recentNav.style.display = 'none';
+                return;
             }
-
-            // Botones
-            document.querySelectorAll('.recent-nav button').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    moveRecent(btn.textContent.includes('❮') ? -1 : 1);
-                });
+            
+            recentItems.forEach(item => {
+                const cloneStart = item.cloneNode(true);
+                const cloneEnd = item.cloneNode(true);
+                recentContainer.insertBefore(cloneEnd, recentItems[0]);
+                recentContainer.appendChild(cloneStart);
             });
+            
+            const totalItems = recentContainer.querySelectorAll('.recent-item').length;
+            let currentRecent = itemCount;
+            const itemWidthPercentage = 100 / itemCount;
+            recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+            
+            function moveRecent(direction) {
+                currentRecent += direction;
+                const newTranslateX = -currentRecent * itemWidthPercentage;
+                recentContainer.style.transition = 'transform 0.5s ease';
+                recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+                
+                setTimeout(() => {
+                    if (currentRecent >= itemCount * 2) {
+                        currentRecent = itemCount;
+                        recentContainer.style.transition = 'none';
+                        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                    } else if (currentRecent < itemCount) {
+                        currentRecent = itemCount * 2 - 1;
+                        recentContainer.style.transition = 'none';
+                        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                    }
+                }, 500);
+            }
+            
+            let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+            recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+            recentCarousel.addEventListener('mouseleave', () => {
+                autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+            });
+            
+            const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
+            const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
+            if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
+            if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
+            
+            console.log('Cantidad de vinos recientemente agregados:', itemCount);
         }
-
         document.addEventListener('DOMContentLoaded', initRecentCarousel);
     // Info icons for mobile
     if (window.innerWidth <= 768) {
