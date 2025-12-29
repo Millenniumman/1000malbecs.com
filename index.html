@@ -912,38 +912,50 @@
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
 
-    // Language selector
-    const languageSelector = document.querySelector('.language-selector');
-    let lastScrollY = window.scrollY;
-    let scrollThreshold = 50;
-    if (languageSelector) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                languageSelector.classList.add('hidden');
-            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
-        });
-        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetLang = link.getAttribute('data-lang');
-                const currentPath = window.location.pathname;
-                let newPath = currentPath;
-                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
-                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
-                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
-                if (newPath !== currentPath) { window.location.href = newPath; }
-            });
-        });
-        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-        langLinks.forEach(link => {
-            if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
-        });
-    }
+    // Language selector - versión corregida y robusta
+        const languageSelector = document.querySelector('.language-selector');
+        if (languageSelector) {{
+            const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+            langLinks.forEach(link => {{
+                link.addEventListener('click', (e) => {{
+                    e.preventDefault();
+                    const targetLang = link.getAttribute('data-lang');
+                    let currentPath = window.location.pathname;
+
+                    console.log('Click en idioma:', targetLang);
+                    console.log('Path actual:', currentPath);
+
+                    // Remover idioma actual y agregar el nuevo
+                    let newPath = currentPath.replace(/\/(es|de|en)(\/|$)/g, '/');
+                    if (!newPath.startsWith('/')) newPath = '/' + newPath;
+                    newPath = '/' + targetLang + newPath;
+
+                    // Asegurar que termine en index.html
+                    if (newPath.endsWith('/')) {{
+                        newPath += 'index.html';
+                    }} else if (!newPath.endsWith('index.html')) {{
+                        newPath = newPath.replace(/[^/]+$/, 'index.html');
+                    }}
+
+                    console.log('Redirigiendo a:', newPath);
+                    if (newPath !== currentPath) {{
+                        window.location.href = newPath;
+                    }}
+                }});
+            }});
+
+            // Marcar el activo
+            const currentLangMatch = window.location.pathname.match(/\/(es|de|en)\//);
+            const currentLang = currentLangMatch ? currentLangMatch[1] : 'es';
+            langLinks.forEach(link => {{
+                if (link.getAttribute('data-lang') === currentLang) {{
+                    link.classList.add('active');
+                }} else {{
+                    link.classList.remove('active');
+                }}
+            }});
+        }}
+
 
     // Search functionality
     const searchInput = document.querySelector('.search-input');
