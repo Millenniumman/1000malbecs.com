@@ -189,48 +189,13 @@
     </style>
 </head>
 <body>
-    // Language selector - versión mejorada
-    const languageSelector = document.querySelector('.language-selector');
-    if (languageSelector) {
-        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault(); // Siempre prevenir default
-                const targetLang = link.getAttribute('data-lang');
-                let currentPath = window.location.pathname;
+<div class="language-selector">
+    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES</a>
+    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE</a>
+    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN</a>
+</div>
 
-                console.log('Click en:', targetLang);
-                console.log('Path actual:', currentPath);
 
-                // Remover cualquier idioma existente y agregar el nuevo
-                let newPath = currentPath.replace(/\/(es|de|en)(\/|$)/, '/');
-                newPath = '/' + targetLang + newPath;
-
-                // Asegurar que termine en index.html
-                if (!newPath.endsWith('index.html') && !newPath.endsWith('/')) {
-                    newPath = newPath.replace(/\.html$/, '') + '/index.html';
-                } else if (newPath.endsWith('/')) {
-                    newPath += 'index.html';
-                }
-
-                console.log('Redirigiendo a:', newPath);
-                if (newPath !== currentPath) {
-                    window.location.href = newPath;
-                }
-            });
-        });
-
-        // Marcar activo
-        const currentLangMatch = window.location.pathname.match(/\/(es|de|en)\//);
-        const currentLang = currentLangMatch ? currentLangMatch[1] : 'es';
-        langLinks.forEach(link => {
-            if (link.getAttribute('data-lang') === currentLang) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    }
 <header class="header">
     <a href="/es/" title="Volver a la página principal">
         <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
