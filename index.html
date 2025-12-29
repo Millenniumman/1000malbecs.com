@@ -781,7 +781,8 @@
         console.log('Tweet actual:', currentTweet);
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
-         function initRecentCarousel() {
+           // Recently added carousel - infinito sin salto ni reinicio visible
+    function initRecentCarousel() {
             const recentCarousel = document.querySelector('.recently-added-carousel');
             if (!recentCarousel) return;
             
@@ -840,7 +841,6 @@
             console.log('Cantidad de vinos recientemente agregados:', itemCount);
         }
         document.addEventListener('DOMContentLoaded', initRecentCarousel);
-
     // Info icons for mobile
     if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
