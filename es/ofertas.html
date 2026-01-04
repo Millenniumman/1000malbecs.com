@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- AÑADE ESTAS DOS LÍNEAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Oferta Especial - 1000 Malbecs</title>
     <meta property="og:title" content="Oferta Especial - 1000 Malbecs">
     <meta property="og:description" content="Descubre nuestro Pack Discovery Malbec con 10% de descuento y suscripción con 15% de descuento adicional.">
@@ -97,19 +101,39 @@
         .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
         .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
         .banner-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px 0;
-        }
-        .combo-image {
-            display: block;
-            width: 100%;
-            max-width: 800px;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #000; /* fondo negro mientras carga */
+}
+
+    .combo-video {
+        display: block;
+        width: 100%;
+        height: 400px; /* altura mayor para que se vea bien */
+        object-fit: cover;
+        border-radius: 10px;
+        background-color: #000;
+    }
+    
+    @media (max-width: 768px) {
+        .combo-video {
             height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 0 auto;
         }
+    }
+    
+    /* Aseguramos que Montserrat se aplique a todo */
+    body {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 400;
+    }
+    
+    h1, h2, h3, p, a, button {
+        font-family: 'Montserrat', sans-serif !important;
+    }
         .main-content {
             margin-left: 250px;
             width: calc(100% - 250px);
@@ -625,12 +649,19 @@
     <div class="presentation">
         <h1>Oferta Especial: Pack Discovery Malbec</h1>
         <div class="banner-container">
-    <video class="combo-video" autoplay muted loop playsinline preload="metadata">
+    <video class="combo-video" 
+           autoplay 
+           muted 
+           loop 
+           playsinline 
+           preload="auto"
+           poster="/images/banners/banner-ofertas-fallback.jpg">
         
-            <source src="/videos/ENERO_SPANISH.MP4" type="video/mp4">
+            <source src="/videos/ENERO_SPANISH.mp4" type="video/mp4">
         
-        <!-- Fallback: imagen estática si el video no carga -->
-        <img src="/images/banners/banner-ofertas-fallback.jpg" alt="Oferta Especial: Pack Discovery Malbec" style="width:100%; height:auto; object-fit:cover;">
+        <!-- Fallback si el navegador no soporta video -->
+        Tu navegador no soporta video. 
+        <img src="/images/banners/banner-ofertas-fallback.jpg" alt="Oferta Especial: Pack Discovery Malbec" style="width:100%; height:auto; object-fit:cover; border-radius:10px;">
     </video>
 </div>
         <p>Oferta Exclusiva por tiempo limitado: <b>Pack Discovery Malbec 10% OFF</b><br>
