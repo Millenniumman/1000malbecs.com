@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- AÑADE ESTAS DOS LÍNEAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Sonderangebot - 1000 Malbecs</title>
     <meta property="og:title" content="Sonderangebot - 1000 Malbecs">
     <meta property="og:description" content="Entdecken Sie unser Malbec Discovery Paket mit 10% Rabatt und ein Abonnement mit zusätzlichen 15% Rabatt.">
@@ -96,20 +100,48 @@
         }
         .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
         .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
-        .banner-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px 0;
-        }
-        .combo-image {
-            display: block;
-            width: 100%;
-            max-width: 800px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 0 auto;
-        }
+      .banner-container {
+    width: 100%;
+    max-width: none; /* Quitamos el límite de 800px */
+    margin: 15px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.combo-video {
+    display: block;
+    width: 100%;
+    height: 600px; /* Más alto en desktop */
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .banner-container {
+        margin: 10px 0;
+        border-radius: 8px;
+    }
+    
+    .combo-video {
+        width: 100vw;           /* Ocupa todo el ancho de la pantalla */
+        margin-left: calc(-50vw + 50%); /* Centrado perfecto incluso con sidebar */
+        height: 400px;          /* Altura cómoda en móvil */
+        border-radius: 0;       /* Sin bordes redondos en móvil para que sea full-width real */
+    }
+}
+    
+    /* Aseguramos que Montserrat se aplique a todo */
+    body {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 400;
+    }
+    
+    h1, h2, h3, p, a, button {
+        font-family: 'Montserrat', sans-serif !important;
+    }
         .main-content {
             margin-left: 250px;
             width: calc(100% - 250px);
@@ -121,12 +153,22 @@
             position: relative;
             overflow: visible;
         }
-        .main-content h1 {
-            font-size: 24px;
-            color: #4A2C59;
-            margin-bottom: 10px;
-            text-align: left;
-        }
+    .main-content h1 {
+      font-size: 24px;
+      color: #4A2C59;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+@media (max-width: 768px) {
+    .main-content h1 {
+        font-size: 20px;
+        margin-top: 80px;   /* Un poco menos en móvil si es necesario */
+        padding: 0 10px;
+        text-align: center;
+    }
+}
         .presentation, .subscription-presentation {
             max-width: 800px;
             margin: 0 0 20px 0;
@@ -518,6 +560,23 @@
             .overlay { pointer-events: none; }
             .product-card:hover .overlay { display: block; }
         }
+            .combo-video {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .combo-video {
+        height: 120px;
+        border-radius: 8px;
+    }
+}
     footer h2 {
         font-size: 18px;
         margin-bottom: 20px;
@@ -597,73 +656,86 @@
     </nav>
     <div class="language-selector">
         
-        <a href="/es/ofertas.html" class="" data-lang="es" aria-label="Spanisch">ES 🇪🇸</a>
+        <a href="/es/ofertas.html" class="" data-lang="es" aria-label="Spanisch">ES </a>
         
-        <a href="/de/ofertas.html" class="active" data-lang="de" aria-label="Deutsch">DE 🇩🇪</a>
+        <a href="/de/ofertas.html" class="active" data-lang="de" aria-label="Deutsch">DE </a>
         
-        <a href="/en/ofertas.html" class="" data-lang="en" aria-label="Englisch">EN 🇬🇧</a>
+        <a href="/en/ofertas.html" class="" data-lang="en" aria-label="Englisch">EN </a>
         
     </div>
     <main class="main-content">
     <div class="presentation">
         <h1>Sonderangebot: Malbec Discovery Paket</h1>
         <div class="banner-container">
-            <img src="/images/banners/banner-ofertas.jpg" alt="Sonderangebot: Malbec Discovery Paket" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
-        </div>
-        <p>Exklusives Angebot für begrenzte Zeit: <b>Malbec Discovery Paket 18% RABATT</b><br>
-Kaufen Sie Ihr Paket jetzt für nur EUR38.99 mit kostenlosem Versand.<br>
+    <video class="combo-video" 
+           autoplay 
+           muted 
+           loop 
+           playsinline 
+           preload="auto"
+           poster="/images/banners/banner-ofertas-fallback.jpg">
+        
+            <source src="/videos/ENERO_DEUTSCH.mp4" type="video/mp4">
+        
+        <!-- Fallback si el navegador no soporta video -->
+        Tu navegador no soporta video. 
+        <img src="/images/banners/banner-ofertas-fallback.jpg" alt="Sonderangebot: Malbec Discovery Paket" style="width:100%; height:auto; object-fit:cover; border-radius:10px;">
+    </video>
+</div>
+        <p>Exklusives Angebot für begrenzte Zeit: <b>Malbec Discovery Paket 10% RABATT</b><br>
+Kaufen Sie Ihr Paket jetzt für nur EUR42.99 mit kostenlosem Versand.<br>
 Lassen Sie sich diese einzigartige Gelegenheit nicht entgehen, drei der ikonischsten Malbecs Argentiniens kennenzulernen. Nur 36 Einheiten verfügbar!</p>
-        <p><b>Was enthält das Malbec Discovery Paket?</b><br>Diesmal drei Höhenweine aus verschiedenen Provinzen und Regionen Argentiniens. Sie werden probieren:<br>
-- Séptima Rosé de Malbec, ein leichter Rosé-Malbec aus der Region Agrelo, Luján de Cuyo, Mendoza auf 900 m Höhe.<br>
-- Kaiken Terroir Malbec aus der Region Agrelo, Luján de Cuyo, ebenfalls in Mendoza.<br>
-- Amalaya Malbec aus den Calchaquí-Tälern in Salta, auf beeindruckenden 1800 Metern über dem Meeresspiegel.<br>
-<b>Mit Ihrer Bestellung erhalten Sie Anleitungen, um Ihr Erlebnis noch mehr zu genießen, sowie einen Code, um eine Kiste Ihres Lieblingsweins mit einem speziellen Rabatt zu kaufen.</b></p>
+        <p><b>Was enthält das Malbec Discovery Paket?</b><br>Diesmal bringen wir Ihnen 3 biologische Höhenweine, die das Beste des neuen argentinischen Malbec repräsentieren. Sie werden probieren:<br><br>
+- <b>Chakana Nuna Rosé</b>: ein frischer, lebendiger und 100% biologischer Rosé, ideal für jeden Moment.<br>
+- <b>Dilema Day Malbec</b>: ein junger, fruchtiger und ausdrucksstarker Malbec aus dem Valle de Uco – voller Energie der neuen Winzergeneration.<br>
+- <b>Caminante de los Mundos Blend Bio</b>: ein tiefer und komplexer biologischer Blend mit Noten von reifer Frucht und Gewürzen, perfekt für Liebhaber von Weinen mit Charakter.<br><br>
+<b>Mit Ihrer Bestellung erhalten Sie einen Leitfaden, um jede Flasche optimal zu genießen, sowie einen exklusiven Code für den Kauf weiterer Flaschen Ihres Lieblingsweins mit speziellem Rabatt.</b></p>
     </div>
     <div class="product-grid">
         
-        <div class="product-card" data-overlay-id="séptima-rosé-de-malbec">
-            <img src="/images/small/sptima-ros-de-malbec-2023.jpg" alt="Weingut Séptima Rosé de Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="séptima-rosé-de-malbec">🍷</div>
-            <div class="overlay" data-overlay-id="séptima-rosé-de-malbec">
-                <p><strong>Weingut:</strong> Bodega Séptima</p>
+        <div class="product-card" data-overlay-id="dilema-day-malbec-2021">
+            <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Weingut Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="dilema-day-malbec-2021">🍷</div>
+            <div class="overlay" data-overlay-id="dilema-day-malbec-2021">
+                <p><strong>Weingut:</strong> Weingut Estancia Mendoza</p>
                 <p><strong>Provinz:</strong> Mendoza</p>
-                <p><strong>Region:</strong> Luján de Cuyo</p>
-                <p><strong>Höhe:</strong> 900.0</p>
-                <p><strong>Jahrgang:</strong> 2023</p>
+                <p><strong>Region:</strong> Tupungato</p>
+                <p><strong>Höhe:</strong> 1000,0</p>
+                <p><strong>Jahrgang:</strong> 2021.0</p>
             </div>
-            <h3>Séptima Rosé de Malbec</h3>
-            <p class="price">14.99</p>
-            <a href="/de/vinos/septima-rose-de-malbec-2023.html" class="buy-button">Details anzeigen</a>
+            <h3>Dilema Day Malbec 2021</h3>
+            <p class="price">13.09</p>
+            <a href="/de/vinos/dilema-day-malbec-2021.html" class="buy-button">Details anzeigen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="amalaya-malbec">
-            <img src="/images/small/amalaya-malbec-2023.jpg" alt="Weingut Amalaya Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="amalaya-malbec">🍷</div>
-            <div class="overlay" data-overlay-id="amalaya-malbec">
-                <p><strong>Weingut:</strong> Bodega Amalaya</p>
-                <p><strong>Provinz:</strong> Salta</p>
-                <p><strong>Region:</strong> Calchaquí -Täler</p>
-                <p><strong>Höhe:</strong> 1800.0</p>
-                <p><strong>Jahrgang:</strong> 2023</p>
+        <div class="product-card" data-overlay-id="caminante-de-los-mundos-blend-bio-2021">
+            <img src="/images/small/caminante-de-los-mundos-blend-bio-2021.jpg" alt="Weingut CAMINANTE DE LOS MUNDOS Blend bio 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="caminante-de-los-mundos-blend-bio-2021">🍷</div>
+            <div class="overlay" data-overlay-id="caminante-de-los-mundos-blend-bio-2021">
+                <p><strong>Weingut:</strong> Jasmin Monet</p>
+                <p><strong>Provinz:</strong> Mendoza</p>
+                <p><strong>Region:</strong> Tupungato</p>
+                <p><strong>Höhe:</strong> 1250,0</p>
+                <p><strong>Jahrgang:</strong> 2021.0</p>
             </div>
-            <h3>Amalaya Malbec</h3>
-            <p class="price">13.5</p>
-            <a href="/de/vinos/amalaya-malbec-2023.html" class="buy-button">Details anzeigen</a>
+            <h3>CAMINANTE DE LOS MUNDOS Blend bio 2021</h3>
+            <p class="price">14.69</p>
+            <a href="/de/vinos/caminante-de-los-mundos-blend-bio-2021.html" class="buy-button">Details anzeigen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="kaiken-terroir-malbec">
-            <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Weingut Kaiken Terroir Malbec" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="kaiken-terroir-malbec">🍷</div>
-            <div class="overlay" data-overlay-id="kaiken-terroir-malbec">
-                <p><strong>Weingut:</strong> Kaiken</p>
+        <div class="product-card" data-overlay-id="chakana-nuna-rose-bio-2022">
+            <img src="/images/small/chakana-nuna-rose-2022.jpg" alt="Weingut Chakana Nuna Rose bio 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="chakana-nuna-rose-bio-2022">🍷</div>
+            <div class="overlay" data-overlay-id="chakana-nuna-rose-bio-2022">
+                <p><strong>Weingut:</strong> Einzelhandel</p>
                 <p><strong>Provinz:</strong> Mendoza</p>
-                <p><strong>Region:</strong> Luján de Cuyo, Agrelo</p>
-                <p><strong>Höhe:</strong> 950.0</p>
-                <p><strong>Jahrgang:</strong> 2022</p>
+                <p><strong>Region:</strong> Lujan de Cuyo</p>
+                <p><strong>Höhe:</strong> 960,0</p>
+                <p><strong>Jahrgang:</strong> 2022.0</p>
             </div>
-            <h3>Kaiken Terroir Malbec</h3>
-            <p class="price">13.05</p>
-            <a href="/de/vinos/kaiken-terroir-malbec-2022.html" class="buy-button">Details anzeigen</a>
+            <h3>Chakana Nuna Rose bio 2022</h3>
+            <p class="price">19.99</p>
+            <a href="/de/vinos/chakana-nuna-rose-bio-2022.html" class="buy-button">Details anzeigen</a>
         </div>
         
     </div>
@@ -676,16 +748,16 @@ Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschu
     </div>
     <div class="subscription-grid">
         <div class="subscription-item">
-            <img src="/images/combo-1.jpg" alt="Oktober Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">Oktober</p>
+            <img src="/images/combo-1.jpg" alt="Januar Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Januar</p>
         </div>
         <div class="subscription-item">
-            <img src="/images/combo-2.jpg" alt="November Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">November</p>
+            <img src="/images/combo-2.jpg" alt="Februar Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Februar</p>
         </div>
         <div class="subscription-item">
-            <img src="/images/combo-3.jpg" alt="Dezember Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">Dezember</p>
+            <img src="/images/combo-3.jpg" alt="März Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">März</p>
         </div>
     </div>
     <div style="text-align: center;">
@@ -698,7 +770,7 @@ Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschu
 Dein Zugang zu großartigen Malbecs ohne Umstände. Jeden Monat schicken wir dir drei Flaschen sorgfältig ausgewählter Malbecs plus ein Booklet mit Geschichten, Fun Facts und Beschreibungen, die dich jeden Schluck lieben lassen. Wir sind kein gewöhnlicher Laden – wir sind deine Kuratoren für Weinabenteuer. Mit deiner Bestellung erhältst du außerdem einen Gutschein mit einem Rabatt, falls du einen Wein direkt kaufen möchtest oder etwas anderes ausprobieren willst. Unsere Abonnenten behandeln wir besonders gut.<br><br>
 <b>Kaufoptionen</b><br>
 1. <b>Discovery Package (Einmalkauf)</b><br>
-• Preis: EUR 38.99 (kostenloser Versand).<br>
+• Preis: EUR 42.99 (kostenloser Versand).<br>
 • Regulärer Preis außerhalb des Angebots: ca. EUR 46.00 (inklusive Versand).<br>
 • Du bekommst drei einzigartige Malbec-Flaschen + unser berühmtes Booklet + einen Gutschein mit Rabatten, falls du etwas anderes ausprobieren möchtest.<br>
 • Perfekt, um uns ohne Verpflichtungen auszuprobieren.<br><br>
