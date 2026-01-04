@@ -518,6 +518,23 @@
             .overlay { pointer-events: none; }
             .product-card:hover .overlay { display: block; }
         }
+            .combo-video {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .combo-video {
+        height: 120px;
+        border-radius: 8px;
+    }
+}
     footer h2 {
         font-size: 18px;
         margin-bottom: 20px;
@@ -608,16 +625,22 @@
     <div class="presentation">
         <h1>Oferta Especial: Pack Discovery Malbec</h1>
         <div class="banner-container">
-            <img src="/images/banners/banner-ofertas.jpg" alt="Oferta Especial: Pack Discovery Malbec" class="combo-image" onerror="this.src='https://via.placeholder.com/800x200?text=Imagen+No+Disponible';">
-        </div>
+    <video class="combo-video" autoplay muted loop playsinline preload="metadata">
+        
+            <source src="/videos/ENERO_SPANISH.MP4" type="video/mp4">
+        
+        <!-- Fallback: imagen estática si el video no carga -->
+        <img src="/images/banners/banner-ofertas-fallback.jpg" alt="Oferta Especial: Pack Discovery Malbec" style="width:100%; height:auto; object-fit:cover;">
+    </video>
+</div>
         <p>Oferta Exclusiva por tiempo limitado: <b>Pack Discovery Malbec 10% OFF</b><br>
 Comprá ya el tuyo a tan solo EUR42.99 y envío sin cargo.<br>
 No te pierdas esta oportunidad única para conocer a 3 de los más emblemáticos Malbecs de la Argentina. Solo 36 Unidades disponibles!</p>
-        <p><b>¿Qué contiene el Malbec Discovery Package?</b><br>En esta ocasión te traemos 3 vinos orgánicos y de altura que representan lo mejor del nuevo Malbec argentino. Vas a probar:<br>
+        <p><b>¿Qué contiene el Malbec Discovery Package?</b><br>En esta ocasión te traemos 3 vinos orgánicos y de altura que representan lo mejor del nuevo Malbec argentino. Vas a probar:<br><br>
 - <b>Chakana Nuna Rosé</b>: un rosado fresco, vibrante y 100% orgánico, ideal para disfrutar en cualquier momento.<br>
 - <b>Dilema Day Malbec</b>: un Malbec joven, frutado y expresivo del Valle de Uco, con toda la energía de la nueva generación de bodegas.<br>
 - <b>Caminante de los Mundos Blend Bio</b>: un blend orgánico profundo y complejo, con notas de fruta madura y especias, perfecto para los amantes de vinos con personalidad.<br>
-<b>Con tu pedido recibirás una guía para disfrutar al máximo cada botella y un código exclusivo para comprar más de tu vino favorito con descuento especial.</b></p>
+<b>Con tu pedido recibirás una guía para disfrutar al máximo cada botella y un código exclusivo para comprar más de tu vino favorito con descuento especial.</b><br></p>
     </div>
     <div class="product-grid">
         
@@ -699,7 +722,7 @@ Es tu pasaporte a descubrir malbecs espectaculares sin complicaciones. Cada mes,
 <b>Opciones de compra</b><br>
 1. <b>Discovery Package (compra directa)</b><br>
 • Precio: EUR 42.99 (envío bonificado).<br>
-• Fuera de la oferta, el precio sería aproximadamente EUR 46.00 (envío incluido).<br>
+• Fuera de la oferta, el precio sería aproximadamente EUR 46.00 + envío.<br>
 • Recibes tres botellas de malbec únicas + nuestra guía para disfrutarlos mejor + un cupón con descuentos por si quieres probar otra cosa.<br>
 • Perfecto para probar sin compromiso.<br><br>
 2. <b>Suscripción de 3 meses</b><br>
