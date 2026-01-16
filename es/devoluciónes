@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="es">
+<head>
+    <title>FAQ - 1000malbecs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        .header { top: 50px; z-index: 120; }
+        .logo { max-width: 150px; height: auto; }
+        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
+        #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
+        .logo-container { text-align: center; margin-bottom: 20px; }
+        #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+        #sidebar details { margin-bottom: 15px; }
+        #sidebar details:first-of-type { margin-bottom: 25px; }
+        #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
+        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+        #sidebar li { margin: 5px 0; }
+        .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main { margin-left: 290px; padding: 20px; width: calc(100% - 290px); flex: 1; }
+        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; text-align: center; }
+        .legal-container { max-width: 800px; margin: 0 auto; }
+        .legal-container h2 { font-size: 20px; color: #4A2C59; margin: 20px 0 10px; }
+        .legal-container p { font-size: 16px; color: #4A2C59; line-height: 1.6; margin-bottom: 15px; }
+        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
+        .language-selector.hidden { opacity: 0; pointer-events: none; }
+        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
+        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) {
+            body { display: block; }
+            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
+            .logo { max-width: 80px !important; height: auto !important; display: block; }
+            .hamburger { display: block !important; z-index: 130; }
+            #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
+            #sidebar.open { transform: translateX(0); }
+            .logo-container { display: none; }
+            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; }
+            main h1 { font-size: 20px; line-height: 1.4; margin-bottom: 15px; }
+            .legal-container h2 { font-size: 18px; }
+            .legal-container p { font-size: 14px; }
+            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
+            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
+            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        }
+        @media (min-width: 769px) {
+            .header { display: none; }
+            .logo-container { display: block; }
+            .hamburger { display: none; }
+        }
+        .whatsapp-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #25D366;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .whatsapp-button:hover {
+            background-color: #20b358;
+        }
+        
+    @media (max-width: 768px) {
+        .main-content {
+            margin-left: 0;
+            width: 100%;
+            max-width: 100%;
+            margin: 10px auto 0;
+            padding: 10px 10px 250px 10px; /* Matches homepage */
+            position: relative;
+            overflow: visible;
+        }
+        .faq-container h1 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        .faq-container h2 {
+            font-size: 18px;
+        }
+        .faq-container p, .faq-container ol {
+            font-size: 14px;
+        }
+        /* Normalizar márgenes en main y sus hijos para evitar "corrido" */
+main, .faq-container, .legal-container {
+    margin: 0;
+    padding: 20px; /* o el que ya tengas */
+}
+
+main > * {
+    margin-top: 0; /* evita margen superior heredado */
+    margin-bottom: 1.5rem; /* espacio controlado entre secciones */
+}
+
+.legal-container h1,
+.legal-container h2 {
+    margin-top: 2rem; /* espacio antes de títulos */
+    margin-bottom: 1rem;
+}
+
+.legal-container p,
+.legal-container ol {
+    margin: 0 0 1rem 0; /* espacio abajo controlado */
+}
+
+.legal-container ol {
+    padding-left: 1.5rem; /* indentación limpia para listas */
+}
+
+/* Si main es flex column (como en tu body), agregar gap */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* espacio entre FAQ y Política */
+}
+
+/* Para mobile: ajusta padding/margin */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+        gap: 1.5rem;
+    }
+    .legal-container h1 {
+        font-size: 1.8rem;
+        margin-top: 1.5rem;
+    }
+}
+/* Estilos específicos para Política de Devoluciones - misma paleta y fuente */
+.legal-container {
+    max-width: 800px;
+    margin: 40px auto 60px; /* más espacio arriba para separar bien de las FAQs */
+    padding: 0 20px;
+    color: #4A2C59;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.legal-container h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4A2C59;
+    text-align: center;
+    margin: 0 0 25px 0;
+}
+
+.legal-container h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #4A2C59;
+    margin: 35px 0 12px 0;
+}
+
+.legal-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+    color: #4A2C59;
+}
+
+.legal-container ol {
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: 24px;
+    margin: 0 0 20px 0;
+    color: #4A2C59;
+}
+
+.legal-container ol li {
+    margin-bottom: 10px;
+}
+
+.legal-container .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 12px 0;
+    transition: background-color 0.3s ease;
+}
+
+.legal-container .whatsapp-button:hover {
+    background-color: #20b358;
+}
+
+.legal-container .whatsapp-button i {
+    font-size: 18px;
+}
+
+/* Mobile adjustments (consistente con tu media query existente) */
+@media (max-width: 768px) {
+    .legal-container {
+        margin: 30px auto 80px;
+        padding: 0 15px;
+    }
+    .legal-container h1 {
+        font-size: 22px;
+    }
+    .legal-container h2 {
+        font-size: 18px;
+        margin-top: 28px;
+    }
+    .legal-container p,
+    .legal-container ol {
+        font-size: 15px;
+    }
+    .legal-container .whatsapp-button {
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+}
+</style></head>
+<body>
+    <header class="header">
+        <a href="/es/" title="Volver al inicio">
+            <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+        </a>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+    </header>
+    <div class="language-selector">
+        <a aria-label="Español" class="active" data-lang="es" href="/es/faq.html">ES </a>
+        <a aria-label="Alemán" data-lang="de" href="/de/faq.html">DE </a>
+        <a aria-label="Inglés" data-lang="en" href="/en/faq.html">EN </a>
+    </div>
+    <div class="main-content">
+        <main>  
+          <div class="legal-container">
+    <h1>Política de Devoluciones</h1>
+    <p>En 1000malbecs.com, nos esforzamos por ofrecerte la mejor experiencia de compra. A continuación, detallamos nuestra política de devoluciones, adaptada a las normativas europeas y alemanas para ventas online.</p>
+    
+    <h2>Derecho de Devolución</h2>
+    <p>Tienes un plazo de 30 días (mínimo legal de 14 días en Alemania/EU) para devolver cualquier producto sin necesidad de justificar el motivo, siempre que el producto esté en su embalaje original, sin abrir y en perfectas condiciones. El plazo comienza desde la fecha de recepción del pedido.</p>
+    
+    <h2>Proceso de Devolución</h2>
+    <ol>
+        <li>Contacta con nosotros indicando el número de pedido y motivo (opcional).</li>
+        <li>Te proporcionaremos una etiqueta de devolución (cubrimos costos estándar en Alemania).</li>
+        <li>Envía el producto a nuestra dirección: [Dirección de almacén en Alemania/EU].</li>
+        <li>Una vez recibido y verificado, procesaremos el reembolso en 14 días (incluyendo precio del producto y envío inicial; tú pagas el envío de vuelta si no usas nuestra etiqueta).</li>
+    </ol>
+    
+    <h2>Excepciones</h2>
+    <p>No aceptamos devoluciones de productos abiertos o usados (por razones de higiene y perecederos, como vinos). Para defectos, aplica la garantía legal de 2 años: contáctanos para reemplazo o reembolso.</p>
+    
+    <h2>Contacto</h2>
+    <p>Para cualquier duda o consulta, escríbenos directamente:</p>
+    <a href="https://wa.me/4915158224728?text=Consulta%20sobre%20devoluci%C3%B3n%20-%20pedido%20N%C2%B0..." 
+       target="_blank" 
+       class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i> Contacta por WhatsApp
+    </a>
+</div>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('#sidebar').classList.toggle('open');
+            document.querySelector('.language-selector').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
