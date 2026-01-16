@@ -808,81 +808,87 @@
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
 
-            function initRecentCarousel() {
+           function initRecentCarousel() {
     const carousel = document.querySelector('.recently-added-carousel');
     if (!carousel) return;
 
     const container = carousel.querySelector('.recent-container');
-    const items = container.querySelectorAll('.recent-item');
-    const itemCount = items.length; // número real de vinos únicos
+    if (!container) return;
 
-    if (itemCount <= 1) {
-        const nav = carousel.querySelector('.recent-nav');
-        if (nav) nav.style.display = 'none';
-        return;
-    }
+    // Esperar un poco para que el DOM esté completo (útil si items se cargan dinámicamente)
+    setTimeout(() => {
+        let items = container.querySelectorAll('.recent-item');
+        let itemCount = items.length;
 
-    // Clonar TODA la lista al inicio y al final (más seguro)
-    const firstCloneGroup = Array.from(items).map(item => item.cloneNode(true));
-    const lastCloneGroup  = Array.from(items).map(item => item.cloneNode(true));
+        // Si hay data-item-count, úsalo como fallback o validación
+        const dataCount = parseInt(container.getAttribute('data-item-count')) || 0;
+        if (dataCount > 0 && dataCount !== itemCount) {
+            console.warn(`data-item-count (${dataCount}) no coincide con items detectados (${itemCount})`);
+            itemCount = dataCount; // priorizar el atributo si existe
+        }
 
-    // Insertar clones al inicio
-    firstCloneGroup.forEach(clone => container.insertBefore(clone, items[0]));
+        console.log('Vinos detectados en carrusel:', itemCount);
 
-    // Insertar clones al final
-    lastCloneGroup.forEach(clone => container.appendChild(clone));
+        if (itemCount <= 1) {
+            const nav = carousel.querySelector('.recent-nav');
+            if (nav) nav.style.display = 'none';
+            return;
+        }
 
-    // Ahora el container tiene: clones inicio + originales + clones final
-    const totalSlides = container.querySelectorAll('.recent-item').length;
-    const slidesPerView = itemCount; // asumiendo que muestras todos los items a la vez
-    const itemWidth = 100 / slidesPerView; // porcentaje por ítem
+        // Clonar una copia completa al inicio y otra al final
+        const originalItems = Array.from(items);
+        originalItems.forEach(item => {
+            container.appendChild(item.cloneNode(true));     // clones al final
+        });
+        originalItems.reverse().forEach(item => {
+            container.insertBefore(item.cloneNode(true), items[0]); // clones al inicio (en orden inverso para mantener secuencia)
+        });
 
-    // Posición inicial: después de los clones de inicio
-    let currentIndex = itemCount;
-    container.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+        // Re-obtener items después de clonar
+        items = container.querySelectorAll('.recent-item');
+        const total = items.length;
+        console.log('Total items después de clonar:', total);
 
-    function move(direction) {
-        currentIndex += direction;
+        const slidesPerView = itemCount; // asumiendo que muestras todos
+        const itemWidth = 100 / slidesPerView;
 
-        container.style.transition = 'transform 0.5s ease';
-        container.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+        let current = itemCount; // posición inicial: después de clones de inicio
+        container.style.transform = `translateX(-${current * itemWidth}%)`;
 
-        // Reset sin transición cuando llegamos al final o inicio
-        setTimeout(() => {
-            if (currentIndex >= itemCount * 2) {
-                // Llegamos al final → volvemos al set original (sin salto visible)
-                currentIndex = itemCount;
-                container.style.transition = 'none';
-                container.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-            } else if (currentIndex < itemCount) {
-                // Llegamos al inicio → saltamos al último set original
-                currentIndex = itemCount * 2 - 1;
-                container.style.transition = 'none';
-                container.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-            }
-        }, 500); // debe coincidir con la duración de la transición
-    }
+        function move(direction) {
+            current += direction;
+            container.style.transition = 'transform 0.5s ease';
+            container.style.transform = `translateX(-${current * itemWidth}%)`;
 
-    // Auto-scroll
-    let autoInterval = setInterval(() => move(1), 5000);
+            setTimeout(() => {
+                if (current >= itemCount * 2) {
+                    current = itemCount;
+                    container.style.transition = 'none';
+                    container.style.transform = `translateX(-${current * itemWidth}%)`;
+                } else if (current < itemCount) {
+                    current = itemCount + (itemCount - 1); // mejor reset para backward
+                    container.style.transition = 'none';
+                    container.style.transform = `translateX(-${current * itemWidth}%)`;
+                }
+            }, 500);
+        }
 
-    carousel.addEventListener('mouseenter', () => clearInterval(autoInterval));
-    carousel.addEventListener('mouseleave', () => {
-        autoInterval = setInterval(() => move(1), 5000);
-    });
+        let interval = setInterval(() => move(1), 5000);
 
-    // Botones
-    const prevBtn = carousel.querySelector('.recent-nav button:first-child');
-    const nextBtn = carousel.querySelector('.recent-nav button:last-child');
+        carousel.addEventListener('mouseenter', () => clearInterval(interval));
+        carousel.addEventListener('mouseleave', () => {
+            interval = setInterval(() => move(1), 5000);
+        });
 
-    if (prevBtn) prevBtn.addEventListener('click', () => move(-1));
-    if (nextBtn) nextBtn.addEventListener('click', () => move(1));
+        const prev = carousel.querySelector('.recent-nav button:first-child');
+        const next = carousel.querySelector('.recent-nav button:last-child');
+        if (prev) prev.onclick = () => move(-1);
+        if (next) next.onclick = () => move(1);
 
-    console.log('Carrusel infinito inicializado - Items únicos:', itemCount);
+    }, 1000); // delay de 1s para esperar carga dinámica (ajusta si necesitas más/menos)
 }
 
 document.addEventListener('DOMContentLoaded', initRecentCarousel);
-
     // Info icons for mobile
     if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
