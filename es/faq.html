@@ -89,7 +89,50 @@
         .faq-container p, .faq-container ol {
             font-size: 14px;
         }
-        
+        /* Normalizar márgenes en main y sus hijos para evitar "corrido" */
+main, .faq-container, .legal-container {
+    margin: 0;
+    padding: 20px; /* o el que ya tengas */
+}
+
+main > * {
+    margin-top: 0; /* evita margen superior heredado */
+    margin-bottom: 1.5rem; /* espacio controlado entre secciones */
+}
+
+.legal-container h1,
+.legal-container h2 {
+    margin-top: 2rem; /* espacio antes de títulos */
+    margin-bottom: 1rem;
+}
+
+.legal-container p,
+.legal-container ol {
+    margin: 0 0 1rem 0; /* espacio abajo controlado */
+}
+
+.legal-container ol {
+    padding-left: 1.5rem; /* indentación limpia para listas */
+}
+
+/* Si main es flex column (como en tu body), agregar gap */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* espacio entre FAQ y Política */
+}
+
+/* Para mobile: ajusta padding/margin */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+        gap: 1.5rem;
+    }
+    .legal-container h1 {
+        font-size: 1.8rem;
+        margin-top: 1.5rem;
+    }
+}
 </style></head>
 <body>
     <header class="header">
@@ -134,6 +177,9 @@
                 <p>¡Disfruta de los mejores vinos argentinos con 1000Malbecs!</p>
             </div>
             
+                            </div> <!-- cierre de .faq-container -->
+
+            <div class="legal-container">
                 <h1>Política de Devoluciones</h1>
                 <p>En 1000malbecs.com, nos esforzamos por ofrecerte la mejor experiencia de compra. A continuación, detallamos nuestra política de devoluciones, adaptada a las normativas europeas y alemanas para ventas online.</p>
                 
