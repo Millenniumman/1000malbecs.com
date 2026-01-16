@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Return Policy - 1000malbecs</title>
+    <html lang="es">
+<head>
+    <title>Política de Devoluciones - 1000malbecs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <style>
+        /* Estilos heredados de tu sitio para consistencia */
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; color: #4A2C59; }
+        .header { top: 50px; z-index: 120; }
+        .logo { max-width: 150px; height: auto; }
+        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
+        #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
+        .logo-container { text-align: center; margin-bottom: 20px; }
+        #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+        #sidebar details { margin-bottom: 15px; }
+        #sidebar details:first-of-type { margin-bottom: 25px; }
+        #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
+        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+        #sidebar li { margin: 5px 0; }
+        .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main { width: calc(100% - 290px); margin-left: 290px; padding: 20px; flex: 1; }
+        .legal-container { max-width: 800px; margin: 40px auto 60px; padding: 0 20px; }
+        .legal-container h1 { font-size: 24px; font-weight: 600; text-align: center; margin: 0 0 25px; }
+        .legal-container h2 { font-size: 20px; font-weight: 500; margin: 35px 0 12px; }
+        .legal-container p { font-size: 16px; line-height: 1.6; margin: 0 0 18px; }
+        .legal-container ol { font-size: 16px; line-height: 1.6; padding-left: 24px; margin: 0 0 20px; }
+        .legal-container ol li { margin-bottom: 10px; }
+        .whatsapp-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; background-color: #25D366; color: #FFFFFF; text-decoration: none; border-radius: 5px; font-size: 15px; font-weight: 500; margin: 12px 0; transition: background-color 0.3s ease; }
+        .whatsapp-button:hover { background-color: #20b358; }
+        .whatsapp-button i { font-size: 18px; }
+        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
+        .language-selector.hidden { opacity: 0; pointer-events: none; }
+        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
+        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) {
+            body { display: block; }
+            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
+            .logo { max-width: 80px !important; height: auto !important; display: block; }
+            .hamburger { display: block !important; z-index: 130; }
+            #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
+            #sidebar.open { transform: translateX(0); }
+            .logo-container { display: none; }
+            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; }
+            .legal-container { margin: 30px auto 80px; padding: 0 15px; }
+            .legal-container h1 { font-size: 22px; }
+            .legal-container h2 { font-size: 18px; margin-top: 28px; }
+            .legal-container p, .legal-container ol { font-size: 15px; }
+            .whatsapp-button { padding: 9px 18px; font-size: 14px; }
+            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
+            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
+            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        }
+        @media (min-width: 769px) {
+            .header { display: none; }
+            .logo-container { display: block; }
+            .hamburger { display: none; }
+        }
+        .whatsapp-button i { font-size: 18px; }
+    </style>
+</head>
+<body>
+            <a href="/es/" title="Volver al inicio">
+            <img alt="1000malbecs Logo" class="logo" src="/images/1000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+Not+Available';">
+        </a>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+    </header>
+    <div class="language-selector">
+        <a aria-label="Español" class="active" data-lang="es" href="/es/devoluciones.html">ES </a>
+        <a aria-label="Alemán" data-lang="de" href="/de/widerrufsbelehrung.html">DE </a>
+        <a aria-label="Inglés" data-lang="en" href="/en/return-policy.html">EN </a>
+    </div>
+    <div class="main-content">
+        <main>
+            <div class="legal-container">
+                <h1>Return Policy</h1>
+                <p>At 1000malbecs.com, we strive to provide the best shopping experience. Below is our return policy, compliant with EU and German regulations for online sales.</p>
+                
+                <h2>Right of Withdrawal</h2>
+                <p>You have 30 days (legal minimum of 14 days in Germany/EU) to return any product without stating a reason, provided it is in its original, unopened packaging and in perfect condition. The period starts from the date of receipt of the order.</p>
+                
+                <h2>Return Process</h2>
+                <ol>
+                    <li>Contact us at federico@1000malbecs.com or via your account, providing the order number and optional reason.</li>
+                    <li>We will provide a return label (we cover standard costs in Germany).</li>
+                    <li>Send the product to our address: [Warehouse address in Germany/EU].</li>
+                    <li>Upon receipt and verification, we will process the refund within 14 days (including product price and initial shipping; you pay return shipping if not using our label).</li>
+                </ol>
+                
+                <h2>Exceptions</h2>
+                <p>We do not accept returns for opened or used products (due to hygiene and perishable reasons, such as wines). For defects, the 2-year legal warranty applies: contact us for replacement or refund.</p>
+                
+                <h2>Contact</h2>
+                <p>For any questions, write to federico@1000malbecs.com or contact us directly:</p>
+                <a href="https://wa.me/4915158224728?text=Return%20inquiry%20-%20Order%20No..." target="_blank" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Contact via WhatsApp</a>
+            </div>
+        </main>
+    </div>
+       <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('#sidebar').classList.toggle('open');
+            document.querySelector('.language-selector').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
