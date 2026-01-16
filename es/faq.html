@@ -133,6 +133,95 @@ main {
         margin-top: 1.5rem;
     }
 }
+/* Estilos específicos para Política de Devoluciones - misma paleta y fuente */
+.legal-container {
+    max-width: 800px;
+    margin: 40px auto 60px; /* más espacio arriba para separar bien de las FAQs */
+    padding: 0 20px;
+    color: #4A2C59;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.legal-container h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4A2C59;
+    text-align: center;
+    margin: 0 0 25px 0;
+}
+
+.legal-container h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #4A2C59;
+    margin: 35px 0 12px 0;
+}
+
+.legal-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+    color: #4A2C59;
+}
+
+.legal-container ol {
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: 24px;
+    margin: 0 0 20px 0;
+    color: #4A2C59;
+}
+
+.legal-container ol li {
+    margin-bottom: 10px;
+}
+
+.legal-container .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 12px 0;
+    transition: background-color 0.3s ease;
+}
+
+.legal-container .whatsapp-button:hover {
+    background-color: #20b358;
+}
+
+.legal-container .whatsapp-button i {
+    font-size: 18px;
+}
+
+/* Mobile adjustments (consistente con tu media query existente) */
+@media (max-width: 768px) {
+    .legal-container {
+        margin: 30px auto 80px;
+        padding: 0 15px;
+    }
+    .legal-container h1 {
+        font-size: 22px;
+    }
+    .legal-container h2 {
+        font-size: 18px;
+        margin-top: 28px;
+    }
+    .legal-container p,
+    .legal-container ol {
+        font-size: 15px;
+    }
+    .legal-container .whatsapp-button {
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+}
 </style></head>
 <body>
     <header class="header">
@@ -180,26 +269,31 @@ main {
                             </div> <!-- cierre de .faq-container -->
 
             <div class="legal-container">
-                <h1>Política de Devoluciones</h1>
-                <p>En 1000malbecs.com, nos esforzamos por ofrecerte la mejor experiencia de compra. A continuación, detallamos nuestra política de devoluciones, adaptada a las normativas europeas y alemanas para ventas online.</p>
-                
-                <h2>Derecho de Devolución</h2>
-                <p>Tienes un plazo de 30 días (mínimo legal de 14 días en Alemania/EU) para devolver cualquier producto sin necesidad de justificar el motivo, siempre que el producto esté en su embalaje original, sin abrir y en perfectas condiciones. El plazo comienza desde la fecha de recepción del pedido.</p>
-                
-                <h2>Proceso de Devolución</h2>
-                <ol>
-                    <li>Contacta con nosotros en support@1000malbecs.com o a través de tu cuenta, indicando el número de pedido y motivo (opcional).</li>
-                    <li>Te proporcionaremos una etiqueta de devolución (cubrimos costos estándar en Alemania).</li>
-                    <li>Envía el producto a nuestra dirección: [Dirección de almacén en Alemania/EU].</li>
-                    <li>Una vez recibido y verificado, procesaremos el reembolso en 14 días (incluyendo precio del producto y envío inicial; tú pagas el envío de vuelta si no usas nuestra etiqueta).</li>
-                </ol>
-                
-                <h2>Excepciones</h2>
-                <p>No aceptamos devoluciones de productos abiertos o usados (por razones de higiene y perecederos, como vinos). Para defectos, aplica la garantía legal de 2 años: contacta para reemplazo o reembolso.</p>
-                
-                <h2>Contacto</h2>
-                <p>Para dudas, escribe a support@1000malbecs.com o llama al [teléfono].</p>
-            </div>
+    <h1>Política de Devoluciones</h1>
+    <p>En 1000malbecs.com, nos esforzamos por ofrecerte la mejor experiencia de compra. A continuación, detallamos nuestra política de devoluciones, adaptada a las normativas europeas y alemanas para ventas online.</p>
+    
+    <h2>Derecho de Devolución</h2>
+    <p>Tienes un plazo de 30 días (mínimo legal de 14 días en Alemania/EU) para devolver cualquier producto sin necesidad de justificar el motivo, siempre que el producto esté en su embalaje original, sin abrir y en perfectas condiciones. El plazo comienza desde la fecha de recepción del pedido.</p>
+    
+    <h2>Proceso de Devolución</h2>
+    <ol>
+        <li>Contacta con nosotros indicando el número de pedido y motivo (opcional).</li>
+        <li>Te proporcionaremos una etiqueta de devolución (cubrimos costos estándar en Alemania).</li>
+        <li>Envía el producto a nuestra dirección: [Dirección de almacén en Alemania/EU].</li>
+        <li>Una vez recibido y verificado, procesaremos el reembolso en 14 días (incluyendo precio del producto y envío inicial; tú pagas el envío de vuelta si no usas nuestra etiqueta).</li>
+    </ol>
+    
+    <h2>Excepciones</h2>
+    <p>No aceptamos devoluciones de productos abiertos o usados (por razones de higiene y perecederos, como vinos). Para defectos, aplica la garantía legal de 2 años: contáctanos para reemplazo o reembolso.</p>
+    
+    <h2>Contacto</h2>
+    <p>Para cualquier duda o consulta, escríbenos directamente:</p>
+    <a href="https://wa.me/4915158224728?text=Consulta%20sobre%20devoluci%C3%B3n%20-%20pedido%20N%C2%B0..." 
+       target="_blank" 
+       class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i> Contacta por WhatsApp
+    </a>
+</div>
         </main>
     </div>
     <script>
