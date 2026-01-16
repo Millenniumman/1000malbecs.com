@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Return Policy - 1000malbecs</title>
+    <html lang="es">
+<head>
+    <title>Política de Devoluciones - 1000malbecs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <style>
+        /* Estilos heredados de tu sitio para consistencia */
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; color: #4A2C59; }
+        .header { top: 50px; z-index: 120; }
+        .logo { max-width: 150px; height: auto; }
+        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
+        #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
+        .logo-container { text-align: center; margin-bottom: 20px; }
+        #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+        #sidebar details { margin-bottom: 15px; }
+        #sidebar details:first-of-type { margin-bottom: 25px; }
+        #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
+        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+        #sidebar li { margin: 5px 0; }
+        .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main { width: calc(100% - 290px); margin-left: 290px; padding: 20px; flex: 1; }
+        .legal-container { max-width: 800px; margin: 40px auto 60px; padding: 0 20px; }
+        .legal-container h1 { font-size: 24px; font-weight: 600; text-align: center; margin: 0 0 25px; }
+        .legal-container h2 { font-size: 20px; font-weight: 500; margin: 35px 0 12px; }
+        .legal-container p { font-size: 16px; line-height: 1.6; margin: 0 0 18px; }
+        .legal-container ol { font-size: 16px; line-height: 1.6; padding-left: 24px; margin: 0 0 20px; }
+        .legal-container ol li { margin-bottom: 10px; }
+        .whatsapp-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; background-color: #25D366; color: #FFFFFF; text-decoration: none; border-radius: 5px; font-size: 15px; font-weight: 500; margin: 12px 0; transition: background-color 0.3s ease; }
+        .whatsapp-button:hover { background-color: #20b358; }
+        .whatsapp-button i { font-size: 18px; }
+        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
+        .language-selector.hidden { opacity: 0; pointer-events: none; }
+        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
+        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) {
+            body { display: block; }
+            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
+            .logo { max-width: 80px !important; height: auto !important; display: block; }
+            .hamburger { display: block !important; z-index: 130; }
+            #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
+            #sidebar.open { transform: translateX(0); }
+            .logo-container { display: none; }
+            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; }
+            .legal-container { margin: 30px auto 80px; padding: 0 15px; }
+            .legal-container h1 { font-size: 22px; }
+            .legal-container h2 { font-size: 18px; margin-top: 28px; }
+            .legal-container p, .legal-container ol { font-size: 15px; }
+            .whatsapp-button { padding: 9px 18px; font-size: 14px; }
+            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
+            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
+            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        }
+        @media (min-width: 769px) {
+            .header { display: none; }
+            .logo-container { display: block; }
+            .hamburger { display: none; }
+        }
+        .whatsapp-button i { font-size: 18px; }
+    </style>
+</head>
+<body>
+    <!-- Header, language selector (active en DE), script -->
+    <div class="main-content">
+        <main>
+            <div class="legal-container">
+                <h1>Widerrufsbelehrung</h1>
+                <p>Bei 1000malbecs.com bemühen wir uns um das beste Einkaufserlebnis. Im Folgenden finden Sie unsere Widerrufsbelehrung, die den EU- und deutschen Vorschriften für Fernabsatzverträge entspricht.</p>
+                
+                <h2>Widerrufsrecht</h2>
+                <p>Sie haben das Recht, binnen 30 Tagen (gesetzliches Minimum 14 Tage in Deutschland/EU) ohne Angabe von Gründen diesen Vertrag zu widerrufen, sofern die Ware in der Originalverpackung, ungeöffnet und in einwandfreiem Zustand ist. Die Widerrufsfrist beginnt ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben bzw. hat.</p>
+                
+                <h2>Widerrufserklärung / Rückgabeprozess</h2>
+                <p>Um Ihr Widerrufsrecht auszuüben, informieren Sie uns bitte per E-Mail an federico@1000malbecs.com oder über Ihr Kundenkonto mit Angabe der Bestellnummer und ggf. Grund (freiwillig).</p>
+                <ol>
+                    <li>Wir stellen Ihnen ein Rücksendeetikett zur Verfügung (wir übernehmen die Standardkosten in Deutschland).</li>
+                    <li>Senden Sie die Ware an: [Lageradresse in Deutschland/EU].</li>
+                    <li>Nach Erhalt und Prüfung erstatten wir Ihnen den Betrag innerhalb von 14 Tagen (einschließlich Produktpreis und ursprünglicher Versandkosten; Sie tragen die Rücksendekosten, falls Sie unser Etikett nicht nutzen).</li>
+                </ol>
+                
+                <h2>Ausschlüsse / Ausnahmen</h2>
+                <p>Das Widerrufsrecht besteht nicht bei Verträgen zur Lieferung von Waren, die schnell verderben können oder deren Verfallsdatum schnell überschritten würde, sowie bei geöffneten oder gebrauchten Waren (aus Hygiene- und Verderblichkeitsgründen, insbesondere bei alkoholischen Getränken wie Wein). Bei Mängeln gilt die gesetzliche Gewährleistung von 2 Jahren: Kontaktieren Sie uns für Ersatz oder Rückerstattung.</p>
+                
+                <h2>Kontakt</h2>
+                <p>Bei Fragen schreiben Sie an federico@1000malbecs.com oder kontaktieren Sie uns direkt:</p>
+                <a href="https://wa.me/4915158224728?text=Widerruf%20Anfrage%20-%20Bestellnummer..." target="_blank" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Kontakt per WhatsApp</a>
+            </div>
+        </main>
+    </div>
+       <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('#sidebar').classList.toggle('open');
+            document.querySelector('.language-selector').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
