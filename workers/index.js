@@ -228,15 +228,16 @@ export default {
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
     
-      const infoLinks = [
-      { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
-      { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
-      { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
-      { href: `/agb.html`, text: translations[lang].navbar.info_list.agb }
-      ].map((link) => {
-      const isActive = path === `/${lang}${link.href}` ? " active" : "";
-      return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
-      }).join("");
+     const infoLinks = [
+  { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
+  { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
+  { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
+  { href: `/agb.html`, text: translations[lang].navbar.info_list.agb },
+  { href: `/devoluciones.html`, text: lang === "es" ? "Política de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }  // Nuevo link
+].map((link) => {
+  const isActive = path === `/${lang}${link.href}` ? " active" : "";
+  return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
+}).join("");
 
     const navbarHtml = `
       <nav id="sidebar">
