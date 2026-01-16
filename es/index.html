@@ -92,6 +92,9 @@
         .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
         .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
         .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
         .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; max-width: 250px; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); box-sizing: border-box; width: 100%; }
         .product-card img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
@@ -378,9 +381,9 @@
             </div>
             
     </div>
-          <div class="recently-added-carousel">
+        <div class="recently-added-carousel">
     <h3 class="section-title">Vinos Recientemente Agregados</h3>
-    <div class="recent-container" data-item-count="6">
+    <div class="recent-container">
 
                 <div class="product-card recent-item">
                     <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
@@ -688,7 +691,7 @@
                     <a class="buy-button" href="/es/vinos/felipe-rutini-2017.html">Comprar</a>
                 </div>
                 </div>
-       <div class="recent-nav">
+    <div class="recent-nav">
         <button onclick="moveRecent(-1)">❮</button>
         <button onclick="moveRecent(1)">❯</button>
     </div>
@@ -748,30 +751,7 @@
             <div class="province-overlay">Neuquén</div>
         </a>
     </div>
-    
-    <div class="twitter-box">
-        <h3 class="section-title">Novedades</h3>
-        <div class="tweet-carousel">
-            <div class="tweet-container">
-                
-        <div class="tweet-item">
-            <p>Dilema Day Malbec es un vino tinto joven y versátil, diseñado para disfrutarse sin complicaciones. Elaborado en Mendoza, este Malbec refleja la frescura y el carácter frutal de la región, ideal para momentos relajados, ya sea solo, con carnes asadas o platos vegetarianos. https://t.co/ZFezEOpFap https://t.co/K4RMn6V9U9</p>
-            <a href="https://x.com/1000malbecs/status/2011456736419606938" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>En un pueblito de Alemania 🇩🇪, un fanático A.K.A @MillenniumManX está promoviendo una revolución: la revolución del Malbec. Quién se quiere sumar? #Argentina #Malbec https://t.co/qIoSq2nNz1</p>
-            <a href="https://x.com/1000malbecs/status/2010042308662833343" target="_blank">Ver Tweet</a>
-        </div>
-        
-            </div>
-            <div class="tweet-nav">
-                <button onclick="moveTweet(-1)">❮</button>
-                <button onclick="moveTweet(1)">❯</button>
-            </div>
-        </div>
-    </div>
-    
+    <div class="twitter-box"><h3 class="section-title">Novedades</h3><p>No hay tweets disponibles.</p></div>
 </main>
 <script>
     // Hamburger menu
@@ -805,87 +785,67 @@
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
 
-           function initRecentCarousel() {
-    const carousel = document.querySelector('.recently-added-carousel');
-    if (!carousel) return;
-
-    const container = carousel.querySelector('.recent-container');
-    if (!container) return;
-
-    // Esperar un poco para que el DOM esté completo (útil si items se cargan dinámicamente)
-    setTimeout(() => {
-        let items = container.querySelectorAll('.recent-item');
-        let itemCount = items.length;
-
-        // Si hay data-item-count, úsalo como fallback o validación
-        const dataCount = parseInt(container.getAttribute('data-item-count')) || 0;
-        if (dataCount > 0 && dataCount !== itemCount) {
-            console.warn(`data-item-count (${dataCount}) no coincide con items detectados (${itemCount})`);
-            itemCount = dataCount; // priorizar el atributo si existe
-        }
-
-        console.log('Vinos detectados en carrusel:', itemCount);
-
+    // Recently added carousel
+    function initRecentCarousel() {
+        const recentCarousel = document.querySelector('.recently-added-carousel');
+        if (!recentCarousel) return;
+        
+        const recentContainer = recentCarousel.querySelector('.recent-container');
+        const recentItems = recentContainer.querySelectorAll('.recent-item');
+        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
+        
         if (itemCount <= 1) {
-            const nav = carousel.querySelector('.recent-nav');
-            if (nav) nav.style.display = 'none';
+            const recentNav = recentCarousel.querySelector('.recent-nav');
+            if (recentNav) recentNav.style.display = 'none';
             return;
         }
-
-        // Clonar una copia completa al inicio y otra al final
-        const originalItems = Array.from(items);
-        originalItems.forEach(item => {
-            container.appendChild(item.cloneNode(true));     // clones al final
+        
+        recentItems.forEach(item => {
+            const cloneStart = item.cloneNode(true);
+            const cloneEnd = item.cloneNode(true);
+            recentContainer.insertBefore(cloneEnd, recentItems[0]);
+            recentContainer.appendChild(cloneStart);
         });
-        originalItems.reverse().forEach(item => {
-            container.insertBefore(item.cloneNode(true), items[0]); // clones al inicio (en orden inverso para mantener secuencia)
-        });
-
-        // Re-obtener items después de clonar
-        items = container.querySelectorAll('.recent-item');
-        const total = items.length;
-        console.log('Total items después de clonar:', total);
-
-        const slidesPerView = itemCount; // asumiendo que muestras todos
-        const itemWidth = 100 / slidesPerView;
-
-        let current = itemCount; // posición inicial: después de clones de inicio
-        container.style.transform = `translateX(-${current * itemWidth}%)`;
-
-        function move(direction) {
-            current += direction;
-            container.style.transition = 'transform 0.5s ease';
-            container.style.transform = `translateX(-${current * itemWidth}%)`;
-
+        
+        const totalItems = recentContainer.querySelectorAll('.recent-item').length;
+        let currentRecent = itemCount;
+        const itemWidthPercentage = 100 / itemCount;
+        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+        
+        function moveRecent(direction) {
+            currentRecent += direction;
+            const newTranslateX = -currentRecent * itemWidthPercentage;
+            recentContainer.style.transition = 'transform 0.5s ease';
+            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+            
             setTimeout(() => {
-                if (current >= itemCount * 2) {
-                    current = itemCount;
-                    container.style.transition = 'none';
-                    container.style.transform = `translateX(-${current * itemWidth}%)`;
-                } else if (current < itemCount) {
-                    current = itemCount + (itemCount - 1); // mejor reset para backward
-                    container.style.transition = 'none';
-                    container.style.transform = `translateX(-${current * itemWidth}%)`;
+                if (currentRecent >= itemCount * 2) {
+                    currentRecent = itemCount;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                } else if (currentRecent < itemCount) {
+                    currentRecent = itemCount * 2 - 1;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
                 }
             }, 500);
         }
-
-        let interval = setInterval(() => move(1), 5000);
-
-        carousel.addEventListener('mouseenter', () => clearInterval(interval));
-        carousel.addEventListener('mouseleave', () => {
-            interval = setInterval(() => move(1), 5000);
+        
+        let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        recentCarousel.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(() => moveRecent(1), 5000);
         });
+        
+        const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
+        const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
+        if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
+        if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
+        
+        console.log('Cantidad de vinos recientemente agregados:', itemCount);
+    }
+    document.addEventListener('DOMContentLoaded', initRecentCarousel);
 
-        const prev = carousel.querySelector('.recent-nav button:first-child');
-        const next = carousel.querySelector('.recent-nav button:last-child');
-        if (prev) prev.onclick = () => move(-1);
-        if (next) next.onclick = () => move(1);
-
-    }, 1000); // delay de 1s para esperar carga dinámica (ajusta si necesitas más/menos)
-}
-
-document.addEventListener('DOMContentLoaded', initRecentCarousel);
     // Info icons for mobile
     if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
@@ -1104,66 +1064,6 @@ document.addEventListener('DOMContentLoaded', initRecentCarousel);
         return url;
     }
 
-    function initRecentCarousel() {
-        const recentContainer = document.querySelector('.recent-container');
-        if (!recentContainer) return;
-
-        const recentItems = recentContainer.querySelectorAll('.recent-item');
-        const totalItems = recentItems.length;
-        const itemCount = totalItems / 3;  // 3 copias del set original
-
-        if (itemCount <= 0) return;
-
-        const itemWidthPercentage = 100 / itemCount;
-        let currentRecent = itemCount;  // Empezamos en el centro (segundo bloque)
-
-        // Posición inicial correcta
-        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-
-        window.moveRecent = function(direction) {
-            currentRecent += direction;
-
-            const newTranslateX = -currentRecent * itemWidthPercentage;
-            recentContainer.style.transition = 'transform 0.5s ease';
-            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
-
-            // Reinicio infinito sin salto visible
-            setTimeout(() => {
-                if (currentRecent >= itemCount * 2) {
-                    currentRecent = itemCount;
-                    recentContainer.style.transition = 'none';
-                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                } else if (currentRecent < itemCount) {
-                    currentRecent = itemCount * 2 - 1;
-                    recentContainer.style.transition = 'none';
-                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                }
-            }, 500);
-        };
-
-           // Auto-avance cada 5 segundos con pausa al hover
-             let autoScroll = setInterval(() => moveRecent(1), 5000);
-
-        const carousel = document.querySelector('.recently-added-carousel');
-        if (carousel) {
-            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-            carousel.addEventListener('mouseleave', () => {
-                autoScroll = setInterval(() => moveRecent(1), 5000);
-            });
-        }
-
-               // Botones de navegación (izquierda/derecha)
-        document.querySelectorAll('.recent-nav button').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const direction = e.target.textContent.includes('❮') ? -1 : 1;
-                moveRecent(direction);
-            });
-        });
-
-    }  // Cierre de initRecentCarousel
-
-    // Ejecutar cuando el DOM esté listo
-    document.addEventListener('DOMContentLoaded', initRecentCarousel);
 </script>
 </body>
 </html>
