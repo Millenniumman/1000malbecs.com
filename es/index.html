@@ -74,7 +74,7 @@
         .winery-nav button.hidden { display: none; }
        .recently-added-carousel { position: relative; max-width: 1200px; margin: 20px auto; overflow: hidden; }
         .recent-container { display: flex; transition: transform 0.5s ease; width: calc(100% * 3); }
-        .recent-item { flex: 0 0 200; max-width: 250px; margin-right: 30px; box-sizing: border-box; background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .recent-item { flex: 0 0 16.66%; max-width: 250px; margin-right: 30px; box-sizing: border-box; background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .recent-item img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
         .recent-item .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
         .recent-item .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
@@ -92,6 +92,9 @@
         .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
         .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
         .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
         .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; max-width: 250px; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); box-sizing: border-box; width: 100%; }
         .product-card img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
@@ -190,9 +193,9 @@
 </head>
 <body>
 <div class="language-selector">
-    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES</a>
-    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE</a>
-    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN</a>
+    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES 🇪🇸</a>
+    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
+    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN 🇬🇧</a>
 </div>
 <header class="header">
     <a href="/es/" title="Volver a la página principal">
@@ -241,21 +244,21 @@
     <h3 class="section-title">Vinos Destacados</h3>
     <div class="product-grid">
         
-            <div class="product-card" data-overlay-id="cicchitti-primmo-malbec-2022">
-                <img src="/images/small/cicchitti-primmo-malbec-2022.jpg" alt="Botella de CICCHITTI Primmo Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="cicchitti-primmo-malbec-2022">🍷</div>
-                <div class="overlay" data-overlay-id="cicchitti-primmo-malbec-2022">
+            <div class="product-card" data-overlay-id="dilema-day-malbec-2021">
+                <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Botella de Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="dilema-day-malbec-2021">🍷</div>
+                <div class="overlay" data-overlay-id="dilema-day-malbec-2021">
                     
-                <p><strong>Bodega:</strong> Cicchitti</p>
+                <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
                 <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Guaymallen</p>
-            <p><strong>Año:</strong> 2022</p>
+                <p><strong>Región:</strong> Tupungato</p>
+            <p><strong>Año:</strong> 2021</p>
                 </div>
-                <h3>CICCHITTI Primmo Malbec 2022</h3>
-                <p class="price"><strong>&euro; 12.89</strong></p>
-                <p class="price-per-liter">(&euro; 17.19/L)</p>
+                <h3>Dilema Day Malbec 2021</h3>
+                <p class="price"><strong>&euro; 13.09</strong></p>
+                <p class="price-per-liter">(&euro; 17.45/L)</p>
                 <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/cicchitti-primmo-malbec-2022.html">Comprar Ahora</a>
+                <a class="buy-button" href="/es/vinos/dilema-day-malbec-2021.html">Comprar Ahora</a>
             </div>
             
             <div class="product-card" data-overlay-id="amalaya-malbec-2023">
@@ -290,23 +293,6 @@
                 <p class="price-per-liter">(&euro; 22.37/L)</p>
                 <p class="shipping-note">+ gastos de envío</p>
                 <a class="buy-button" href="/es/vinos/don-david-reserve-malbec-2022.html">Comprar Ahora</a>
-            </div>
-            
-            <div class="product-card" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
-                <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Botella de Caminante de los Mundos Malbec Bio 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-                <div class="info-icon" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">🍷</div>
-                <div class="overlay" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
-                    
-                <p><strong>Bodega:</strong> Jasmine Monet</p>
-                <p><strong>Provincia:</strong> Mendoza</p>
-                <p><strong>Región:</strong> Tupungato</p>
-            <p><strong>Año:</strong> 2021</p>
-                </div>
-                <h3>Caminante de los Mundos Malbec Bio 2021</h3>
-                <p class="price"><strong>&euro; 18.19</strong></p>
-                <p class="price-per-liter">(&euro; 24.25/L)</p>
-                <p class="shipping-note">+ gastos de envío</p>
-                <a class="buy-button" href="/es/vinos/caminante-de-los-mundos-malbec-bio-2021.html">Comprar Ahora</a>
             </div>
             
             <div class="product-card" data-overlay-id="chakana-nuna-malbec-bio-2022">
@@ -377,10 +363,27 @@
                 <a class="buy-button" href="/es/vinos/el-esteco-blend-de-extremos-malbec-2023.html">Comprar Ahora</a>
             </div>
             
+            <div class="product-card" data-overlay-id="kaiken-ultra-malbec-2021">
+                <img src="/images/small/kaiken-ultra-malbec-2021.jpg" alt="Botella de Kaiken Ultra Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="kaiken-ultra-malbec-2021">🍷</div>
+                <div class="overlay" data-overlay-id="kaiken-ultra-malbec-2021">
+                    
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+            <p><strong>Año:</strong> 2021</p><p><strong>Premios:</strong> 10 años</p><p><strong>Guarda:</strong> 93 pts James Suckling - 2021</p>
+                </div>
+                <h3>Kaiken Ultra Malbec 2021</h3>
+                <p class="price"><strong>&euro; 21.49</strong></p>
+                <p class="price-per-liter">(&euro; 28.65/L)</p>
+                <p class="shipping-note">+ gastos de envío</p>
+                <a class="buy-button" href="/es/vinos/kaiken-ultra-malbec-2021.html">Comprar Ahora</a>
+            </div>
+            
     </div>
-    <div class="recently-added-carousel">
+        <div class="recently-added-carousel">
     <h3 class="section-title">Vinos Recientemente Agregados</h3>
-    <div class="recent-container" data-item-count="6">
+    <div class="recent-container">
 
                 <div class="product-card recent-item">
                     <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
@@ -693,7 +696,7 @@
         <button onclick="moveRecent(1)">❯</button>
     </div>
 </div>
-
+  <!-- 18 ítems -->
     <h3 class="section-title">Visita nuestras Bodegas</h3>
     <div class="winery-grid">
         <a class="winery-card" href="/es/bodegas/bodega-foster-lorca.html">
@@ -755,53 +758,13 @@
             <div class="tweet-container">
                 
         <div class="tweet-item">
-            <p>@Arekushu20 @AbogadoDijo @Tammy_Malbec Mejor que se los hubiese dejado, no?</p>
-            <a href="https://x.com/1000malbecs/status/2005169636279812476" target="_blank">Ver Tweet</a>
+            <p>Dilema Day Malbec es un vino tinto joven y versátil, diseñado para disfrutarse sin complicaciones. Elaborado en Mendoza, este Malbec refleja la frescura y el carácter frutal de la región, ideal para momentos relajados, ya sea solo, con carnes asadas o platos vegetarianos. https://t.co/ZFezEOpFap https://t.co/K4RMn6V9U9</p>
+            <a href="https://x.com/1000malbecs/status/2011456736419606938" target="_blank">Ver Tweet</a>
         </div>
         
         <div class="tweet-item">
-            <p>@Tammy_Malbec @PFAOficial En las estaciones de tren del conurbano el 30% tienen esa cara genérica.  Seria un quilombo</p>
-            <a href="https://x.com/1000malbecs/status/2005120244466286612" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>@Jolumodu @Truthknight19xx @parrillax85 ¡Perfecto! Un Malbec de Mendoza encaja ideal para celebrar. ¿Catena Zapata o Achaval-Ferrer? ¡Salud por el libre mercado!</p>
-            <a href="https://x.com/1000malbecs/status/2005105298508304444" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>@lau_malbec @Maeven_P @ElmasGrandeR35 @casidolape @fedeflowersok La causa exacta de la infección de Silvina Scheffler no se ha reportado públicamente en fuentes como Perfil o Infobae. La leptospirosis se transmite comúnmente por contacto con agua, suelo o alimentos contaminados con orina de animales infectados, como roedores. En Argentina,</p>
-            <a href="https://x.com/1000malbecs/status/2005102681770152271" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>Me estoy bajando un vino Malbec de 2500 pesos que si lo conocieran lo tomarían también. Y en mi mente paralela me dieron ganas de hacerme el streamer con @LaRomiScalora hablando de La Izquierda, @taylorswift13, cosas tipo #Lam #Bendita y 90s 2000</p>
-            <a href="https://x.com/1000malbecs/status/2005099617688711393" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>Lluvia...malbec... airbag para rematar.... soledad. Paz🧭</p>
-            <a href="https://x.com/1000malbecs/status/2005096487470924063" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>@amosdelmundook @RightNewsShow @malbec_lady @nickshirleyy @JMilei Deja de romper las bolas villaruelin</p>
-            <a href="https://x.com/1000malbecs/status/2005089074634441048" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>Ahora si vamos a probar el Malbec 😒😃🤣 https://t.co/CUU2B3mEhF</p>
-            <a href="https://x.com/1000malbecs/status/2005086173639721453" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>@Tammy_Malbec @christiansanzok No me sorprendería</p>
-            <a href="https://x.com/1000malbecs/status/2005084030874902649" target="_blank">Ver Tweet</a>
-        </div>
-        
-        <div class="tweet-item">
-            <p>@Tammy_Malbec @BastaPosta Sí, salí al balcón. Descendió 10 grados.</p>
-            <a href="https://x.com/1000malbecs/status/2005082921124888782" target="_blank">Ver Tweet</a>
+            <p>En un pueblito de Alemania 🇩🇪, un fanático A.K.A @MillenniumManX está promoviendo una revolución: la revolución del Malbec. Quién se quiere sumar? #Argentina #Malbec https://t.co/qIoSq2nNz1</p>
+            <a href="https://x.com/1000malbecs/status/2010042308662833343" target="_blank">Ver Tweet</a>
         </div>
         
             </div>
@@ -844,67 +807,90 @@
         console.log('Tweet actual:', currentTweet);
     }
     if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
-           // Recently added carousel - infinito sin salto ni reinicio visible
-        function initRecentCarousel() {
-            const recentCarousel = document.querySelector('.recently-added-carousel');
-            if (!recentCarousel) return;
-            
-            const recentContainer = recentCarousel.querySelector('.recent-container');
-            const recentItems = recentContainer.querySelectorAll('.recent-item');
-            const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
-            
-            if (itemCount <= 1) {
-                const recentNav = recentCarousel.querySelector('.recent-nav');
-                if (recentNav) recentNav.style.display = 'none';
-                return;
-            }
-            
-            recentItems.forEach(item => {
-                const cloneStart = item.cloneNode(true);
-                const cloneEnd = item.cloneNode(true);
-                recentContainer.insertBefore(cloneEnd, recentItems[0]);
-                recentContainer.appendChild(cloneStart);
-            });
-            
-            const totalItems = recentContainer.querySelectorAll('.recent-item').length;
-            let currentRecent = itemCount;
-            const itemWidthPercentage = 100 / itemCount;
-            recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-            
-            function moveRecent(direction) {
-                currentRecent += direction;
-                const newTranslateX = -currentRecent * itemWidthPercentage;
-                recentContainer.style.transition = 'transform 0.5s ease';
-                recentContainer.style.transform = `translateX(${newTranslateX}%)`;
-                
-                setTimeout(() => {
-                    if (currentRecent >= itemCount * 2) {
-                        currentRecent = itemCount;
-                        recentContainer.style.transition = 'none';
-                        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                    } else if (currentRecent < itemCount) {
-                        currentRecent = itemCount * 2 - 1;
-                        recentContainer.style.transition = 'none';
-                        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                    }
-                }, 500);
-            }
-            
-            let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
-            recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-            recentCarousel.addEventListener('mouseleave', () => {
-                autoScrollInterval = setInterval(() => moveRecent(1), 5000);
-            });
-            
-            const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
-            const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
-            if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
-            if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
-            
-            console.log('Cantidad de vinos recientemente agregados:', itemCount);
-        }
-        document.addEventListener('DOMContentLoaded', initRecentCarousel);
 
+    // Recently added carousel
+    function initRecentCarousel() {
+        const recentCarousel = document.querySelector('.recently-added-carousel');
+        if (!recentCarousel) return;
+        
+        const recentContainer = recentCarousel.querySelector('.recent-container');
+        const recentItems = recentContainer.querySelectorAll('.recent-item');
+        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
+        
+        if (itemCount <= 1) {
+            const recentNav = recentCarousel.querySelector('.recent-nav');
+            if (recentNav) recentNav.style.display = 'none';
+            return;
+        }
+        
+        recentItems.forEach(item => {
+            const cloneStart = item.cloneNode(true);
+            const cloneEnd = item.cloneNode(true);
+            recentContainer.insertBefore(cloneEnd, recentItems[0]);
+            recentContainer.appendChild(cloneStart);
+        });
+        
+        const totalItems = recentContainer.querySelectorAll('.recent-item').length;
+        let currentRecent = itemCount;
+        const itemWidthPercentage = 100 / itemCount;
+        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+        
+        function moveRecent(direction) {
+            currentRecent += direction;
+            const newTranslateX = -currentRecent * itemWidthPercentage;
+            recentContainer.style.transition = 'transform 0.5s ease';
+            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+            
+            setTimeout(() => {
+                if (currentRecent >= itemCount * 2) {
+                    currentRecent = itemCount;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                } else if (currentRecent < itemCount) {
+                    currentRecent = itemCount * 2 - 1;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                }
+            }, 500);
+        }
+        
+        let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        recentCarousel.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        });
+        
+        const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
+        const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
+        if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
+        if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
+        
+        console.log('Cantidad de vinos recientemente agregados:', itemCount);
+    }
+    document.addEventListener('DOMContentLoaded', initRecentCarousel);
+
+    // Info icons for mobile
+    if (window.innerWidth <= 768) {
+        const infoIcons = document.querySelectorAll('.info-icon');
+        infoIcons.forEach(icon => {
+            ['click', 'touchstart'].forEach(eventType => {
+                icon.addEventListener(eventType, (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const overlayId = icon.getAttribute('data-overlay-id');
+                    const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+                    const isActive = overlay.classList.contains('active');
+                    document.querySelectorAll('.overlay.active').forEach(ov => { ov.classList.remove('active'); });
+                    if (!isActive && overlay) { overlay.classList.add('active'); }
+                }, { passive: false });
+            });
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
+                document.querySelectorAll('.overlay.active').forEach(overlay => { overlay.classList.remove('active'); });
+            }
+        });
+    }
 
     // Buy buttons
     const buyButtons = document.querySelectorAll('.buy-button');
@@ -1100,6 +1086,67 @@
         }
         return url;
     }
+
+    function initRecentCarousel() {
+        const recentContainer = document.querySelector('.recent-container');
+        if (!recentContainer) return;
+
+        const recentItems = recentContainer.querySelectorAll('.recent-item');
+        const totalItems = recentItems.length;
+        const itemCount = totalItems / 3;  // 3 copias del set original
+
+        if (itemCount <= 0) return;
+
+        const itemWidthPercentage = 100 / itemCount;
+        let currentRecent = itemCount;  // Empezamos en el centro (segundo bloque)
+
+        // Posición inicial correcta
+        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+
+        window.moveRecent = function(direction) {
+            currentRecent += direction;
+
+            const newTranslateX = -currentRecent * itemWidthPercentage;
+            recentContainer.style.transition = 'transform 0.5s ease';
+            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+
+            // Reinicio infinito sin salto visible
+            setTimeout(() => {
+                if (currentRecent >= itemCount * 2) {
+                    currentRecent = itemCount;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                } else if (currentRecent < itemCount) {
+                    currentRecent = itemCount * 2 - 1;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                }
+            }, 500);
+        };
+
+           // Auto-avance cada 5 segundos con pausa al hover
+             let autoScroll = setInterval(() => moveRecent(1), 5000);
+
+        const carousel = document.querySelector('.recently-added-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+            carousel.addEventListener('mouseleave', () => {
+                autoScroll = setInterval(() => moveRecent(1), 5000);
+            });
+        }
+
+               // Botones de navegación (izquierda/derecha)
+        document.querySelectorAll('.recent-nav button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const direction = e.target.textContent.includes('❮') ? -1 : 1;
+                moveRecent(direction);
+            });
+        });
+
+    }  // Cierre de initRecentCarousel
+
+    // Ejecutar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', initRecentCarousel);
 </script>
 </body>
 </html>
