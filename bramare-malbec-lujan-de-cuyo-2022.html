@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Palabra italiana que significa "anhelar". De las memorias de Frances Mayes "Bajo el sol de la Toscana", el término "Bramare" captura el espíritu con el que Viña">
+  <!-- Open Graph -->
+  <meta property="og:title" content="1000 Malbecs - Bramare Malbec Lujan de Cuyo 2022">
+  <meta property="og:description" content="Palabra italiana que significa "anhelar". De las memorias de Frances Mayes "Bajo el sol de la Toscana", el término "Bramare" captura el espíritu con el que Viña">
+  <meta property="og:image" content="https://www.1000malbecs.com/images/large/bramare-malbec-lujan-de-cuyo-2022.jpg">
+  <meta property="og:url" content="https://www.1000malbecs.com/es/vinos/bramare-malbec-lujan-de-cuyo-2022.html">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="1000malbecs">
+  <meta property="og:locale" content="es_ES">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1000 Malbecs - Bramare Malbec Lujan de Cuyo 2022">
+  <meta name="twitter:description" content="Palabra italiana que significa "anhelar". De las memorias de Frances Mayes "Bajo el sol de la Toscana", el término "Bramare" captura el espíritu con el que Viña">
+  <meta name="twitter:image" content="https://www.1000malbecs.com/images/large/bramare-malbec-lujan-de-cuyo-2022.jpg">
+  <meta name="twitter:site" content="@1000malbecs">
+  <!-- Hreflang -->
+  
+  <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/vinos/bramare-malbec-lujan-de-cuyo-2022.html">
+  
+  <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/vinos/bramare-malbec-lujan-de-cuyo-2022.html">
+  
+  <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/vinos/bramare-malbec-lujan-de-cuyo-2022.html">
+  
+  <title>1000 Malbecs - Bramare Malbec Lujan de Cuyo 2022</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+:root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
+
+body { 
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0; padding: 0; 
+  background: #fdfdfd; color: #333; 
+}
+
+/* ========================================
+   HEADER MOBILE
+   ======================================== */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: white;
+  z-index: 1300;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.hamburger {
+  background: none; border: none; cursor: pointer;
+  width: 50px; height: 50px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1301; padding: 0;
+}
+
+.hamburger-icon .line { 
+  fill: var(--primary); 
+  transition: all 0.3s ease; 
+}
+
+.hamburger[aria-expanded="true"] .top { 
+  transform: translateY(20px) rotate(45deg); 
+}
+.hamburger[aria-expanded="true"] .mid { 
+  opacity: 0; 
+}
+.hamburger[aria-expanded="true"] .bot { 
+  transform: translateY(-20px) rotate(-45deg); 
+}
+
+/* ========================================
+   HEADER DESKTOP: LOGO (arriba izquierda)
+   ======================================== */
+/* DESPUÉS (COINCIDE CON TU HTML <header class="header">) */
+.header {
+  display: none;                    /* Oculto en mobile */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1400;
+  background: white;
+  padding: 18px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: block;                 /* ← Visible en desktop */
+  }
+  .logo {
+    max-height: 64px;               /* Logo más grande */
+  }
+  .header {
+    padding: 16px 20px;
+  }
+  body {
+    padding-top: 180px;             /* Espacio para logo + navbar */
+  }
+}
+
+@media (max-width: 767px) {           /* Nota: 767px para evitar conflicto */
+  .header { display: none !important; }
+}
+
+/* ========================================
+   LOGO (mobile + desktop)
+   ======================================== */
+.logo {
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+  transition: all 0.3s ease;
+}
+
+/* Desktop: LOGO GRANDE */
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;
+    max-height: none !important;   /* ← ELIMINA EL LÍMITE */
+  }
+}
+
+/* Mobile: LOGO PEQUEÑO */
+@media (max-width: 767px) {
+  .logo {
+    height: 42px;
+    max-height: 42px;
+  }
+}
+
+/* ========================================
+   BARRA DE NAVEGACIÓN (debajo del logo)
+   ======================================== */
+.desktop-navbar {
+  position: fixed;
+  top: 90px;                    /* ← DEBAJO DEL LOGO (ajusta si querés más/menos espacio) */
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 1300;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 12px 0;
+}
+
+/* ========================================
+   DESKTOP: Activar y agrandar
+   ======================================== */
+@media (min-width: 768px) {
+  .desktop-header {
+    display: block;
+  }
+
+  .logo {
+    max-height: 64px;           /* ← Logo más grande */
+  }
+
+  .desktop-header {
+    padding: 16px 20px;
+  }
+
+  /* Aseguramos que el contenido no se superponga */
+  body {
+    padding-top: 140px;         /* ← Espacio para logo + navbar */
+  }
+}
+/* ========================================
+   SIDEBAR (Worker)
+   ======================================== */
+#sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 280px;
+  height: 100vh;
+  background: #f8f8f8;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+  z-index: 1100;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+#sidebar.open { 
+  transform: translateX(0); 
+}
+
+#sidebar .logo-container { 
+  margin-bottom: 20px; 
+  display: none; 
+}
+
+#sidebar h2 { 
+  font-size: 16px; 
+  font-weight: 600; 
+  color: var(--primary); 
+  margin: 20px 0 10px; 
+  text-transform: uppercase; 
+}
+
+#sidebar ul { 
+  list-style: none; 
+  padding: 0 0 0 10px; 
+  margin: 0; 
+}
+
+#sidebar li { 
+  margin: 6px 0; 
+}
+
+#sidebar .nav-link {
+  font-size: 15px; 
+  color: #333; 
+  text-decoration: none;
+  display: block; 
+  padding: 8px 12px; 
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#sidebar .nav-link:hover, 
+#sidebar .nav-link.active {
+  background: var(--primary); 
+  color: white;
+}
+
+/* <details> en mobile */
+#sidebar details[open] summary { 
+  color: #5A1D39; 
+}
+
+/* ========================================
+   SELECTOR DE IDIOMAS
+   ======================================== */
+.lang-selector-desktop {
+  position: fixed; top: 15px; right: 20px; z-index: 110; 
+  display: flex; gap: 8px;
+}
+
+.lang-selector-desktop a {
+  color: #666; text-decoration: none; font-weight: 600; 
+  padding: 6px 10px; border-radius: 6px; transition: all 0.3s; 
+  font-size: 14px;
+}
+
+.lang-selector-desktop a.active { 
+  background: var(--primary); color: white; 
+}
+
+.lang-selector-desktop a:hover { 
+  background: #eee; 
+}
+
+.lang-selector-mobile {
+  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
+  z-index: 110; background: white; padding: 6px 12px; 
+  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+}
+
+.lang-selector-mobile a {
+  color: var(--primary); text-decoration: none;
+}
+
+.lang-selector-mobile a.active { 
+  font-weight: 700; 
+}
+
+/* ========================================
+   CONTENIDO
+   ======================================== */
+.container {
+  max-width: 900px;
+  margin: 80px auto 40px;
+  padding: 0 20px;
+  margin-left: 300px;
+}
+
+/* ========================================
+   PRODUCTO PRINCIPAL
+   ======================================== */
+.product { 
+  display: flex; gap: 30px; background: white; 
+  padding: 30px; border-radius: 14px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+}
+
+.product img {
+  width: 360px; height: 540px; object-fit: contain; 
+  object-position: center; border-radius: 12px; 
+  border: 3px solid var(--border); background: #fff;
+}
+
+.info h1 { 
+  margin: 0 0 15px; color: var(--primary); font-size: 28px; 
+}
+
+.info p { margin: 8px 0; }
+.info strong { color: var(--primary); }
+
+.buy-btn { 
+  background: var(--whatsapp); color: white; 
+  padding: 14px 24px; text-decoration: none; 
+  border-radius: 10px; display: inline-flex; 
+  align-items: center; gap: 10px; font-weight: 600;
+  transition: all 0.3s; position: relative; z-index: 10;
+}
+
+.buy-btn:hover { 
+  background: #20B858; transform: translateY(-2px); 
+}
+
+.section {
+  background: #f9f5f7; border-left: 4px solid var(--primary); 
+  padding: 18px; margin: 20px 0; border-radius: 0 8px 8px 0; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section h2 { 
+  margin: 0 0 10px; color: var(--primary); font-size: 20px; 
+}
+
+.shipping {
+  background: #e8f5e8; border: 1px solid #4CAF50; 
+  color: #2e7d32; padding: 14px; border-radius: 8px;
+  font-size: 15px; text-align: center; margin: 20px 0;
+}
+
+.shipping a { 
+  color: #2e7d32; font-weight: 600; text-decoration: underline; 
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+  gap: 18px; margin-top: 30px; 
+}
+
+.card { 
+  border: 1px solid #eee; border-radius: 12px; 
+  padding: 14px; text-align: center; 
+  position: relative; overflow: hidden; 
+  transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.card:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+  border-color: var(--primary); 
+}
+
+.card img { 
+  width: 150px; height: 150px; object-fit: contain; 
+  border-radius: 8px; background: #fff; 
+}
+
+.card h4 { 
+  margin: 10px 0 5px; font-size: 15px; color: var(--primary); 
+}
+
+.card p { 
+  margin: 5px 0; font-weight: 600; color: #333; 
+}
+
+.card a { 
+  background: var(--primary); color: white; 
+  padding: 6px 10px; border-radius: 6px; 
+  font-size: 13px; text-decoration: none; 
+  display: inline-block; margin-top: 8px; 
+  position: relative; z-index: 10;
+}
+
+.overlay { 
+  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 45px; 
+  background: rgba(107,29,73,0.95); color: white; 
+  padding: 12px 8px; border-radius: 12px 12px 0 0; 
+  font-size: 11.5px; line-height: 1.4; text-align: left; overflow-y: auto;
+}
+
+.card:hover .overlay { display: block; }
+.overlay p { margin: 4px 0; color: white !important; }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .mobile-header { display: flex !important; }
+  .desktop-header { display: none !important; }
+  .lang-selector-desktop { display: none; }
+  .lang-selector-mobile { display: flex; }
+  .product { flex-direction: column; }
+  .product img { width: 100%; height: auto; max-height: 500px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .container { margin-top: 80px; margin-left: 0 !important; padding: 0 15px; }
+  #sidebar { top: 60px; }
+}
+
+@media (min-width: 769px) {
+  .mobile-header { display: none !important; }
+  .desktop-header { display: block !important; }
+  #sidebar { transform: translateX(0) !important; }
+  .container { margin-left: 300px; }
+}
+/* ========================================
+   TOPBAR: LOGO GRANDE + IDIOMAS
+   ======================================== */
+.topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: white;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;     /* ← MÁS GRANDE */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+.main-content {
+  margin-top: 100px;     /* ← Debajo de topbar */
+  padding: 0 30px;
+}
+
+.product {
+  display: flex;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.product img {
+  width: 360px;
+  height: 540px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 3px solid var(--border);
+  background: #fff;
+}
+
+.info h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  color: var(--primary);
+}
+
+.info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.legal-disclaimer {
+  margin: 20px 0;
+  font-size: 12px;
+  color: #999;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* ========================================
+   DESKTOP: ACTIVAR
+   ======================================== */
+@media (min-width: 768px) {
+  .topbar {
+    display: flex !important;
+  }
+
+  /* Empujar Worker navbar */
+  nav, .navbar, [class*="nav"], header:not(.header) {
+    top: 100px !important;
+  }
+
+  .main-content {
+    margin-top: 160px !important;   /* topbar + navbar */
+  }
+
+  body {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar { display: none !important; }
+  .main-content { margin-top: 70px; padding: 0 15px; }
+}
+
+/* ========================================
+   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
+   ======================================== */
+@media (min-width: 768px) {
+  /* Sidebar del Worker */
+  #sidebar {
+    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
+    height: calc(100vh - 140px) !important;
+  }
+
+  /* Contenido principal (ajusta margen) */
+  .container,
+  #sidebar ~ .container {
+    margin-top: 160px !important;
+    margin-left: 300px !important;
+  }
+
+  /* Asegurar que no se superponga con topbar */
+  body {
+    padding-top: 0 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER MOBILE -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menú" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+  <a href="/es/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  </a>
+</header>
+
+<!-- BARRA SUPERIOR: LOGO + IDIOMAS -->
+<div class="topbar">
+  <header class="header">
+    <a href="/es/" title="1000 Malbecs">
+      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
+  </header>
+
+  <div class="lang-selector-desktop">
+    
+      <a href="/es/vinos/bramare-malbec-lujan-de-cuyo-2022.html" class="active">ES</a>
+    
+      <a href="/en/vinos/bramare-malbec-lujan-de-cuyo-2022.html" >EN</a>
+    
+      <a href="/de/vinos/bramare-malbec-lujan-de-cuyo-2022.html" >DE</a>
+    
+  </div>
+</div>
+
+
+  <!-- SELECTOR DE IDIOMAS - MOBILE -->
+  <div class="lang-selector-mobile">
+    
+      <a href="/es/vinos/bramare-malbec-lujan-de-cuyo-2022.html" class="active">ES</a>
+    
+      <a href="/en/vinos/bramare-malbec-lujan-de-cuyo-2022.html" >EN</a>
+    
+      <a href="/de/vinos/bramare-malbec-lujan-de-cuyo-2022.html" >DE</a>
+    
+  </div>
+
+  <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/bramare-malbec-lujan-de-cuyo-2022.jpg" alt="Bramare Malbec Lujan de Cuyo 2022">
+      <div class="info">
+        <h1>Bramare Malbec Lujan de Cuyo 2022</h1>
+        <p><strong>Bodega:</strong> Viña Cobos</p>
+        <p><strong>Región:</strong> Luján de cuyo</p>
+        <p><strong>Altura:</strong> 1002.0 msnm</p>
+        <p><strong>Precio:</strong> €46.90 / botella (0.75 L)</p>
+        <p><strong>Volumen:</strong> 750 ml</p>
+        <p><strong>Precio por litro:</strong> €62.53 / litro</p>
+        <p><strong>Alcohol:</strong> 0.15%</p>
+        
+        <p><strong>Premios:</strong> 95 pts James Sucking</p>
+        <p><strong>Guarda:</strong> 8 años</p>
+        
+        <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Bramare%20Malbec%20Lujan%20de%20Cuyo%202022%20" 
+           class="buy-btn" target="_blank">
+          Pedir por WhatsApp
+        </a>
+
+        <div class="shipping">
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+        </div>
+
+        <div class="section">
+          <h2>Descripción</h2>
+          <p>Palabra italiana que significa "anhelar". De las memorias de Frances Mayes "Bajo el sol de la Toscana", el término "Bramare" captura el espíritu con el que Viña Cobos fue fundada. Simboliza nuestro primer paso en la diferenciación de las apelaciones, para demostrar su influencia en el varietal. Expresar la identidad del origen.</p>
+        </div>
+
+        <div class="section">
+          <h2>Notas de cata y maridaje</h2>
+          <p>De color rojo rubí profundo con tonos violetas. Aromas a fruta roja, ciruela, grafito y notas florales. En boca es redondo y balanceado, con taninos dulces y jugosos.</p>
+        </div>
+
+        
+        <div class="section">
+          <h2>Ficha técnica</h2>
+          <p><a href="/fichas/Esp- 3 Bramare Luján de Cuyo Malbec 2022.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
+            Descargar PDF
+          </a></p>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- OTRA BODEGA -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Viña Cobos</h3>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/felino-malbec-2023.jpg" alt="Felino Malbec 2023">
+        <h4>Felino Malbec 2023</h4>
+        <p>€20.90</p>
+        <a href="/es/vinos/felino-malbec-2023.html">Comprar</a>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Viña Cobos</p>
+          <p><strong>Región:</strong> Valle de uco</p>
+          <p><strong>Altura:</strong> 1400.0</p>
+          <p><strong>Alcohol:</strong> 0.141%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/bramare-malbec-valle-de-uco-2022.jpg" alt="Bramare Malbec Valle de Uco 2022">
+        <h4>Bramare Malbec Valle de Uco 2022</h4>
+        <p>€46.90</p>
+        <a href="/es/vinos/bramare-malbec-valle-de-uco-2022.html">Comprar</a>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Viña Cobos</p>
+          <p><strong>Región:</strong> Valle de uco</p>
+          <p><strong>Altura:</strong> 1200.0</p>
+          <p><strong>Alcohol:</strong> 0.15%</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/chanares-malbec-2018.jpg" alt="Chañares Malbec 2018">
+        <h4>Chañares Malbec 2018</h4>
+        <p>€110.00</p>
+        <a href="/es/vinos/chanares-malbec-2018.html">Comprar</a>
+        <div class="overlay">
+          <p><strong>Bodega:</strong> Viña Cobos</p>
+          <p><strong>Región:</strong> Valle de uco</p>
+          <p><strong>Altura:</strong> 1184.0</p>
+          <p><strong>Alcohol:</strong> 0.14%</p>
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- OTRA REGIÓN -->
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">Otros vinos de Luján de cuyo</h3>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/san-telmo-malbec-2024.jpg" alt="San Telmo Malbec 2024">
+          <h4>San Telmo Malbec 2024</h4>
+          <p>€8.16</p>
+          <a href="/es/vinos/san-telmo-malbec-2024.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> San Telmo</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> No disponible</p>
+            <p><strong>Alcohol:</strong> 13.4%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023">
+          <h4>Pequeña Vasija Malbec 2023</h4>
+          <p>€8.38</p>
+          <a href="/es/vinos/pequena-vasija-malbec-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> La Rural</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> No disponible</p>
+            <p><strong>Alcohol:</strong> 13.6%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023">
+          <h4>San Felipe Varietal Malbec 2023</h4>
+          <p>€11.52</p>
+          <a href="/es/vinos/san-felipe-varietal-malbec-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> La Rural</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 800.0</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024">
+          <h4>San Felipe en Roble Malbec 2024</h4>
+          <p>€13.12</p>
+          <a href="/es/vinos/san-felipe-en-roble-malbec-2024.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> La Rural</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 800.0</p>
+            <p><strong>Alcohol:</strong> 13.7%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023">
+          <h4>Septima Rose de Malbec 2023</h4>
+          <p>€14.99</p>
+          <a href="/es/vinos/septima-rose-de-malbec-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodega Séptima</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 900.0</p>
+            <p><strong>Alcohol:</strong> 12.9%</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Septima Malbec 2022">
+          <h4>Septima Malbec 2022</h4>
+          <p>€15.49</p>
+          <a href="/es/vinos/septima-malbec-2022.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Bodega:</strong> Bodega Séptima</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 900.0</p>
+            <p><strong>Alcohol:</strong> 14%</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('#sidebar');
+    if (!hamburger || !sidebar) return;
+
+    let isOpen = false;
+
+  const openMenu = () => {
+  isOpen = true;
+  hamburger.setAttribute('aria-expanded', 'true');
+  sidebar.classList.add('open');
+  // CERRAR TODOS LOS <details>
+  sidebar.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
+};
+
+    const closeMenu = () => {
+      isOpen = false;
+      hamburger.setAttribute('aria-expanded', 'false');
+      sidebar.classList.remove('open');
+      // Cerrar todos los <details>
+      sidebar.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
+    };
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // Cerrar al tocar fuera
+    document.addEventListener('click', (e) => {
+      if (isOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Cerrar al hacer scroll
+    window.addEventListener('scroll', () => {
+      if (isOpen && window.scrollY > 100) closeMenu();
+    });
+  });
+</script>
+</body>
+</html>
