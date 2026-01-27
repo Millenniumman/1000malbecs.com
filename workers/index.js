@@ -8,15 +8,14 @@ export default {
         headers: request.headers
       });
     }
-
     let lang = "es";
     if (path.startsWith("/en/")) lang = "en";
     else if (path.startsWith("/de/")) lang = "de";
     else if (path.startsWith("/es/")) lang = "es";
-  // === B2B LINK CON TRADUCCIÓN E ICONO ===
+    // === B2B LINK CON TRADUCCIÓN E ICONO ===
     const b2bText = lang === "es" ? "Bares y Restaurants" :
                     lang === "en" ? "Bars & Restaurants" :
-                    lang === "de" ? "Bars & Restaurants";
+                                    "Bars & Restaurants";
 
     const b2bLink = `
       <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? ' active' : ''}">
@@ -33,7 +32,7 @@ export default {
           offers: "Ofertas", // Added
           home: "Volver al inicio",
           blog: "1000 Historias - Blog",
-          B2B: "Bares y Restaurants"
+          B2B: "Bares y Restaurants",
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
@@ -71,7 +70,7 @@ export default {
           offers: "Offers", // Added
           home: "Back to home",
           blog: "1000 Stories - Blog",
-          B2B: "Bares y Restaurants" 
+          B2B: "Bares y Restaurants", 
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
@@ -142,22 +141,14 @@ export default {
     let bodegas = [];
     try {
       const navResponse = await fetch(`https://1000malbecs.com/data/navigation.json?ts=${Date.now()}`);
-      console.log("navigation.json status:", navResponse.status, "URL:", navResponse.url);
       if (navResponse.ok) {
         const navData = await navResponse.json();
         provincias = navData.provincias || [];
         bodegas = navData.bodegas || [];
-        console.log("Provincias loaded:", provincias);
-        console.log("Bodegas loaded:", bodegas.map(b => b.name));
-      } else {
-        console.error("Error fetching navigation.json:", navResponse.status);
       }
-    } catch (error) {
-      console.error("Error loading navigation data:", error.message);
-    }
+    } catch (e) { }
 
     if (provincias.length === 0) {
-      console.warn("Falling back to hardcoded provincias");
       provincias = ["La Rioja", "Mendoza", "Neuquén", "Salta", "San Juan"];
     }
     if (bodegas.length === 0) {
@@ -208,6 +199,7 @@ export default {
       ];
     }
 
+
     const provinciaLinks = provincias.map((prov) => {
       const slug = prov.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/[\s-]+/g, "-").replace(/^-+|-+$/g, "") || "unnamed";
       const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, "_")] || prov;
@@ -228,55 +220,59 @@ export default {
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
     
-     const infoLinks = [
-  { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
-  { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
-  { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
-  { href: `/agb.html`, text: translations[lang].navbar.info_list.agb },
-  { href: `/devoluciones.html`, text: lang === "es" ? "Política de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }  // Nuevo link
-].map((link) => {
-  const isActive = path === `/${lang}${link.href}` ? " active" : "";
-  return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
-}).join("");
+    const infoLinks = [
+      { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
+      { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
+      { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
+      { href: `/agb.html`, text: translations[lang].navbar.info_list.agb },
+      { href: `/devoluciones.html`, text: lang === "es" ? "Política de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }  // Nuevo link
+    ].map((link) => {
+      const isActive = path === `/${lang}${link.href}` ? " active" : "";
+      return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
+    }).join("");
 
-    const navbarHtml = `
+      const navbarHtml = `
       <nav id="sidebar">
         <div class="logo-container">
-          <a href="/${lang}/" title="Volver al inicio">
+          <a href="/${lang}/">
             <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
           </a>
         </div>
-        
+
+    
         <h2>${translations[lang].navbar.categories}</h2>
         <details>
           <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
-          <ul>
-            ${provinciaLinks}
-          </ul>
+          <ul>${provinciaLinks}</ul>
         </details>
         <details>
           <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
-          <ul>
-            ${bodegaLinks}
-          </ul>
+          <ul>${bodegaLinks}</ul>
         </details>
         <details>
           <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
-          <ul>
-            ${eventLinks}
-          </ul>
+          <ul>${eventLinks}</ul>
         </details>
-        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}"><i class="fas fa-tag"></i> ${translations[lang].navbar.offers}</a>
+        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}">
+          <i class="fas fa-tag"></i> ${translations[lang].navbar.offers}
+        </a>
         ${b2bLink}
-        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}"><i class="fas fa-book"></i> ${translations[lang].navbar.blog}</a>
+        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}">
+          <i class="fas fa-book"></i> ${translations[lang].navbar.blog}
+        </a>
         <details open>
-          <summary><i class="fas fa-wine-glass"></i> ${translations[lang].navbar.info}</summary>
-          <ul>
-            ${infoLinks}
-          </ul>
+          <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
+          <ul>${infoLinks}</ul>
         </details>
       </nav>
     `;
+    const consentTexts = {
+      es: 'Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y mostrarte publicidad personalizada. Puedes aceptar todo, rechazar o configurar tus preferencias.',
+      en: 'We use cookies to improve your experience. Some are essential, others help with analytics and marketing. You can configure or reject.',
+      de: 'Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Einige sind essenziell, andere helfen bei Analysen und Marketing. Sie können konfigurieren oder ablehnen.'
+    };
+
+    const consentText = consentTexts[lang] || consentTexts.es;
 
     const footerHtml = `
       <footer>
@@ -298,6 +294,80 @@ export default {
             </div>
           </div>
         </div>
+
+        <!-- Banner CMP -->
+        <div id="consent-banner">
+          <div class="container">
+            <p id="consent-text">${consentText}</p>
+            <div class="buttons">
+              <button id="accept-all">${lang === 'es' ? 'Aceptar todo' : lang === 'en' ? 'Accept all' : 'Alle akzeptieren'}</button>
+              <button id="reject-all">${lang === 'es' ? 'Rechazar todo' : lang === 'en' ? 'Reject all' : 'Alle ablehnen'}</button>
+              <button id="configure">${lang === 'es' ? 'Configurar' : lang === 'en' ? 'Configure' : 'Konfigurieren'}</button>
+              <button id="save-config">${lang === 'es' ? 'Guardar configuración' : lang === 'en' ? 'Save settings' : 'Einstellungen speichern'}</button>
+            </div>
+            <div class="config-options">
+              <label><input type="checkbox" id="essential" checked disabled> ${lang === 'es' ? 'Cookies esenciales (siempre activas)' : lang === 'en' ? 'Essential cookies (always active)' : 'Essenzielle Cookies (immer aktiv)'}</label>
+              <label><input type="checkbox" id="analytics"> ${lang === 'es' ? 'Cookies de análisis (ej. Google Analytics)' : lang === 'en' ? 'Analytics cookies (e.g. Google Analytics)' : 'Analyse-Cookies (z.B. Google Analytics)'}</label>
+              <label><input type="checkbox" id="marketing"> ${lang === 'es' ? 'Cookies de marketing/publicidad' : lang === 'en' ? 'Marketing/advertising cookies' : 'Marketing-/Werbe-Cookies'}</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Script del Banner CMP -->
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementById('consent-banner');
+            const acceptAll = document.getElementById('accept-all');
+            const rejectAll = document.getElementById('reject-all');
+            const configure = document.getElementById('configure');
+            const saveConfig = document.getElementById('save-config');
+            const configOptions = document.querySelector('.config-options');
+
+            // Verificar si ya hay consentimiento
+            if (localStorage.getItem('consent')) {
+              loadConsents();
+              return;
+            }
+            banner.style.display = 'block';
+
+            acceptAll.onclick = function() {
+              saveConsent({ essential: true, analytics: true, marketing: true });
+            };
+            rejectAll.onclick = function() {
+              saveConsent({ essential: true, analytics: false, marketing: false });
+            };
+            configure.onclick = function() {
+              configOptions.style.display = 'block';
+              saveConfig.style.display = 'inline-block';
+              configure.style.display = 'none';
+            };
+            saveConfig.onclick = function() {
+              saveConsent({
+                essential: true,
+                analytics: document.getElementById('analytics').checked,
+                marketing: document.getElementById('marketing').checked
+              });
+            };
+
+            function saveConsent(consent) {
+              localStorage.setItem('consent', JSON.stringify(consent));
+              banner.style.display = 'none';
+              loadConsents(); // Activar scripts basados en consentimiento
+            }
+
+            function loadConsents() {
+              const consent = JSON.parse(localStorage.getItem('consent'));
+              if (consent.analytics) {
+                // Aquí carga Google Analytics u otros (ej: gtag('consent', 'update', { analytics_storage: 'granted' });)
+                console.log('Analytics activado');
+              }
+              if (consent.marketing) {
+                // Aquí carga pixels de marketing
+                console.log('Marketing activado');
+              }
+            }
+          });
+        </script>
       </footer>
     `;
 
