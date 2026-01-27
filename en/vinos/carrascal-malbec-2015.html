@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 280px;
-  height: 100vh;
+  width: 240px;
+  height: 80vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -240,7 +240,6 @@ body {
 #sidebar details[open] summary { 
   color: #5A1D39; 
 }
-
 
 /* ========================================
    SELECTOR DE IDIOMAS
@@ -539,48 +538,6 @@ body {
   body {
     padding-top: 0 !important;
   }
-}
-/* ========================================
-   CORREGIR FOOTER Y BANNER CMP (inyectados por Worker)
-   ======================================== */
-
-/* En desktop: footer y banner deben respetar el ancho del sidebar */
-footer,
-#consent-banner {
-  margin-left: 300px !important;           /* Igual al margen de .container */
-  width: calc(100% - 300px) !important;    /* Ocupa el resto de la pantalla */
-  box-sizing: border-box;
-  left: 300px !important;                  /* Para el banner fixed */
-  right: 0 !important;
-}
-
-/* El banner CMP es fixed, así que forzamos su posición */
-#consent-banner {
-  left: 300px !important;
-  width: calc(100% - 300px) !important;
-}
-
-/* En mobile: todo vuelve a ocupar el 100% (sidebar se oculta) */
-@media (max-width: 768px) {
-  footer,
-  #consent-banner {
-    margin-left: 0 !important;
-    width: 100% !important;
-    left: 0 !important;
-  }
-}
-
-/* Asegurar que el contenido principal no se vea afectado */
-.container,
-.main-content {
-  margin-left: 300px !important;   /* Ya lo tienes, pero reforzamos */
-}
-
-/* Si el footer tiene fondo, que se vea bien */
-footer {
-  background: #fff;                /* o tu color de fondo */
-  padding: 40px 0 20px;
-  border-top: 1px solid #eee;
 }
 </style>
 </head>
