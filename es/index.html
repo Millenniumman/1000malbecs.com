@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="Descubre los mejores Malbecs de Argentina, desde Patagonia hasta Puna." name="description"/>
@@ -28,7 +19,91 @@
     <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
     <style>
+    
+    <style>
+        /* Estilos del banner (adaptable a tu sitio) */
+        #consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+            z-index: 9999;
+            font-family: Arial, sans-serif;
+            display: none; /* Se muestra con JS */
+        }
+        #consent-banner .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        #consent-banner p {
+            margin: 0;
+            font-size: 14px;
+        }
+        #consent-banner .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        #consent-banner button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        #consent-banner #accept-all {
+            background: green;
+            color: white;
+        }
+        #consent-banner #reject-all {
+            background: red;
+            color: white;
+        }
+        #consent-banner #configure {
+            background: gray;
+            color: white;
+        }
+        #consent-banner #save-config {
+            background: blue;
+            color: white;
+            display: none; /* Se muestra en modo config */
+        }
+        #consent-banner .config-options {
+            display: none; /* Se muestra al configurar */
+            flex-direction: column;
+            gap: 10px;
+        }
+        #consent-banner .config-options label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            #consent-banner {
+                padding: 15px;
+            }
+            #consent-banner .buttons {
+                flex-direction: column;
+            }
+        }   
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .header { top: 50px; z-index: 120; }
         .logo { max-width: 150px; height: auto; }
@@ -1074,5 +1149,91 @@
     }
 
 </script>
+    <!-- Banner CMP -->
+    <div id="consent-banner">
+        <div class="container">
+            <p id="consent-text">
+                <!-- Texto multilingüe: detecta idioma o cámbialo manualmente -->
+                Usamos cookies para mejorar tu experiencia. Algunas son esenciales, otras ayudan con análisis y marketing. Puedes configurar o rechazar.
+            </p>
+            <div class="buttons">
+                <button id="accept-all">Aceptar todo</button>
+                <button id="reject-all">Rechazar todo</button>
+                <button id="configure">Configurar</button>
+                <button id="save-config">Guardar configuración</button>
+            </div>
+            <div class="config-options">
+                <label><input type="checkbox" id="essential" checked disabled> Esenciales (siempre activas)</label>
+                <label><input type="checkbox" id="analytics"> Analíticas (ej: Google Analytics)</label>
+                <label><input type="checkbox" id="marketing"> Marketing (ej: Facebook Pixel)</label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JS para manejar el banner
+        document.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementById('consent-banner');
+            const acceptAll = document.getElementById('accept-all');
+            const rejectAll = document.getElementById('reject-all');
+            const configure = document.getElementById('configure');
+            const saveConfig = document.getElementById('save-config');
+            const configOptions = document.querySelector('.config-options');
+            const consentText = document.getElementById('consent-text');
+
+            // Detectar idioma (basado en html lang o URL)
+            const lang = document.documentElement.lang || 'es';
+            const texts = {
+                es: 'Usamos cookies para mejorar tu experiencia. Algunas son esenciales, otras ayudan con análisis y marketing. Puedes configurar o rechazar.',
+                en: 'We use cookies to improve your experience. Some are essential, others help with analytics and marketing. You can configure or reject.',
+                de: 'Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Einige sind essenziell, andere helfen bei Analysen und Marketing. Sie können konfigurieren oder ablehnen.'
+            };
+            consentText.textContent = texts[lang] || texts.es;
+
+            // Verificar si ya hay consentimiento
+            if (localStorage.getItem('consent')) {
+                loadConsents();
+                return;
+            }
+            banner.style.display = 'block';
+
+            acceptAll.onclick = function() {
+                saveConsent({ essential: true, analytics: true, marketing: true });
+            };
+            rejectAll.onclick = function() {
+                saveConsent({ essential: true, analytics: false, marketing: false });
+            };
+            configure.onclick = function() {
+                configOptions.style.display = 'block';
+                saveConfig.style.display = 'inline-block';
+                configure.style.display = 'none';
+            };
+            saveConfig.onclick = function() {
+                saveConsent({
+                    essential: true,
+                    analytics: document.getElementById('analytics').checked,
+                    marketing: document.getElementById('marketing').checked
+                });
+            };
+
+            function saveConsent(consent) {
+                localStorage.setItem('consent', JSON.stringify(consent));
+                banner.style.display = 'none';
+                loadConsents(); // Activar scripts basados en consentimiento
+            }
+
+            function loadConsents() {
+                const consent = JSON.parse(localStorage.getItem('consent'));
+                if (consent.analytics) {
+                    // Aquí carga Google Analytics u otros (ej: gtag('consent', 'update', { analytics_storage: 'granted' });)
+                    console.log('Analytics activado');
+                }
+                if (consent.marketing) {
+                    // Aquí carga pixels de marketing
+                    console.log('Marketing activado');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
