@@ -29,81 +29,46 @@
   gtag('config', 'AW-1068768833');
 </script>
     <style>
-    
-    <style>
-        /* Estilos del banner (adaptable a tu sitio) */
-        #consent-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 20px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
-            z-index: 9999;
-            font-family: Arial, sans-serif;
-            display: none; /* Se muestra con JS */
-        }
-        #consent-banner .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        #consent-banner p {
-            margin: 0;
-            font-size: 14px;
-        }
-        #consent-banner .buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        #consent-banner button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        #consent-banner #accept-all {
-            background: green;
-            color: white;
-        }
-        #consent-banner #reject-all {
-            background: red;
-            color: white;
-        }
-        #consent-banner #configure {
-            background: gray;
-            color: white;
-        }
-        #consent-banner #save-config {
-            background: blue;
-            color: white;
-            display: none; /* Se muestra en modo config */
-        }
-        #consent-banner .config-options {
-            display: none; /* Se muestra al configurar */
-            flex-direction: column;
-            gap: 10px;
-        }
-        #consent-banner .config-options label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        /* Responsive */
-        @media (max-width: 768px) {
-            #consent-banner {
-                padding: 15px;
-            }
-            #consent-banner .buttons {
-                flex-direction: column;
-            }
-        }   
+    #consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;                /* ← clave: ocupa todo el ancho */
+    width: 100%;
+    z-index: 9999;           /* muy alto para estar sobre todo */
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px 30px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.4);
+    display: none;           /* se muestra con JS */
+}
+
+/* Contenedor interno para centrar el contenido */
+#consent-banner .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* En mobile: apila verticalmente */
+@media (max-width: 768px) {
+    #consent-banner .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    #consent-banner .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    #consent-banner button {
+        width: 100%;
+        margin: 8px 0;
+    }
+}   
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .header { top: 50px; z-index: 120; }
         .logo { max-width: 150px; height: auto; }
