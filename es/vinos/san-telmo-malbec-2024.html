@@ -547,6 +547,25 @@ body {
 
   gtag('config', 'AW-1068768833');
 </script>
+  <!-- Tus metas, links y scripts actuales... -->
+  
+  <!-- Snippet de conversión de Google Ads -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
+          'value': 30.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 </head>
 <body>
 
@@ -603,11 +622,11 @@ body {
         <h1>San Telmo Malbec 2024</h1>
         <p><strong>Precio:</strong> €8.16 / botella (0.75 L)</p>
         <p><i><strong>Precio por litro:</strong> €10.88 / litro</p></i>
-           <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20San%20Telmo%20Malbec%202024%20" 
-           class="buy-btn" target="_blank">
-          Pedir por WhatsApp
-        </a>
-        
+         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20San%20Telmo%20Malbec%202024%20" 
+   onclick="return gtag_report_conversion(this.href);"
+   class="buy-btn" target="_blank">
+  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
+</a>
         <br>
         <br>
         <p><strong>Bodega:</strong> San Telmo</p>
@@ -708,7 +727,7 @@ body {
             <p><strong>Bodega:</strong> Bodega Séptima</p>
             <p><strong>Región:</strong> Luján de cuyo</p>
             <p><strong>Altura:</strong> 900.0</p>
-            <p><strong>Alcohol:</strong> 14%</p>
+            <p><strong>Alcohol:</strong> 14.0%</p>
           </div>
         </div>
         
