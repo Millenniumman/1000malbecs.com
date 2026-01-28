@@ -547,6 +547,25 @@ body {
 
   gtag('config', 'AW-1068768833');
 </script>
+  <!-- Tus metas, links y scripts actuales... -->
+  
+  <!-- Snippet de conversión de Google Ads -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
+          'value': 30.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 </head>
 <body>
 
@@ -603,11 +622,11 @@ body {
         <h1>Humberto Canale Gran Reserva Malbec 2022</h1>
         <p><strong>Precio:</strong> €28.94 / botella (0.75 L)</p>
         <p><i><strong>Precio por litro:</strong> €38.59 / litro</p></i>
-           <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Humberto%20Canale%20Gran%20Reserva%20Malbec%202022%20" 
-           class="buy-btn" target="_blank">
-          Pedir por WhatsApp
-        </a>
-        
+         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Humberto%20Canale%20Gran%20Reserva%20Malbec%202022%20" 
+   onclick="return gtag_report_conversion(this.href);"
+   class="buy-btn" target="_blank">
+  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
+</a>
         <br>
         <br>
         <p><strong>Bodega:</strong> Humberto Canale</p>
@@ -615,7 +634,7 @@ body {
         <p><strong>Altura:</strong> 300.0 msnm</p>
         <p><strong>Volumen:</strong> 750 ml</p>
         
-        <p><strong>Alcohol:</strong> 0.138%</p>
+        <p><strong>Alcohol:</strong> 13.8%</p>
         
         <p><strong>Premios:</strong> 90 pts James Suckling</p>
         <p><strong>Guarda:</strong> 10 años</p>
@@ -672,7 +691,7 @@ body {
           <p><strong>Bodega:</strong> Humberto Canale</p>
           <p><strong>Región:</strong> General roca</p>
           <p><strong>Altura:</strong> 300.0</p>
-          
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
@@ -685,7 +704,7 @@ body {
           <p><strong>Bodega:</strong> Humberto Canale</p>
           <p><strong>Región:</strong> General roca</p>
           <p><strong>Altura:</strong> 300.0</p>
-          
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
@@ -698,7 +717,7 @@ body {
           <p><strong>Bodega:</strong> Humberto Canale</p>
           <p><strong>Región:</strong> General roca</p>
           <p><strong>Altura:</strong> 300.0</p>
-          
+          <p><strong>Alcohol:</strong> 14.0%</p>
         </div>
       </div>
       
@@ -711,7 +730,7 @@ body {
           <p><strong>Bodega:</strong> Humberto Canale</p>
           <p><strong>Región:</strong> General roca</p>
           <p><strong>Altura:</strong> 300.0</p>
-          
+          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
         </div>
       </div>
       
