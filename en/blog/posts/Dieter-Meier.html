@@ -255,6 +255,20 @@
                 display: none !important; /* Ocultar logo en sidebar en móvil */
             }
         }
+         .main-content {
+    max-width: 1200px !important;  /* o 1100px si querés más conservador */
+}
+
+.products-section {
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;  /* más flexible: 3 o más si cabe */
+    justify-content: center;
+    overflow-x: hidden;
+}
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
