@@ -273,6 +273,39 @@ main {
     color: #ddd;
     font-size: .9rem;
 }}
+        .btn-price-list {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #6B2D8F;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 1.8rem auto;
+            transition: all 0.25s;
+            box-shadow: 0 4px 12px rgba(107,45,143,0.25);
+        }
+
+        .btn-price-list:hover {
+            background: #5A2678;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(107,45,143,0.35);
+        }
+
+        .btn-price-list i {
+            font-size: 1.3rem;
+        }
+
+        /* Centrado del botón en mobile */
+        @media (max-width: 768px) {
+            .btn-price-list {
+                width: 90%;
+                justify-content: center;
+            }
+        }
 </style>
 </head>
 <body>
