@@ -272,6 +272,25 @@ main {
     color: #ddd;
     font-size: .9rem;
 }}
+ .btn-price-list {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #6B2D8F;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 1.8rem auto;
+            transition: all 0.25s;
+            box-shadow: 0 4px 12px rgba(107,45,143,0.25);
+        }
+        .btn-price-list:hover {
+            background: #5A2678;
+            transform: translateY(-2px);
+        }
 </style>
 </head>
 <body>
@@ -290,26 +309,41 @@ main {
             <p>At <strong>1000MALBECS.COM</strong> we offer an <strong>EXCLUSIVE SERVICE for BARS and RESTAURANTS</strong> in Germany and Europe.</p><br><p>Premium Argentine wines, sparkling wines and vermouth to <strong>ELEVATE your guests’ experience and INCREASE your sales</strong>.</p><br><p>VARIETY, DIFFERENTIATION and UNIQUENESS: hand-picked selection from the best Argentine wineries.</p><br><p>Argentine wine is the <strong>PERFECT PAIRING</strong> for any cuisine and occasion.</p><br><p>We are at your disposal for <strong>personal advice</strong>, wine list optimization and to maximize the profitability of your business.</p>
             <a href="https://wa.me/4915158224728?text=Hi%2C%20I%20would%20like%20a%20personal%20visit%20from%201000Malbecs" class="cta-whatsapp">CONTACT US NOW</a>
         </section>
-        <section id="vinos">
-            <h2>FEATURED WINES</h2>
+        <section id="wines">
+            <h2 style="text-align:center; margin:4rem 0 1rem; color:var(--primary); font-weight:800; font-size:2.3rem; text-transform:uppercase;">FEATURED WINES</h2>
+
+            <!-- Botón lista de precios -->
+            <div style="text-align:center;">
+                <a href="/fichas/B2B/Lista_de_Precios_B2B_Vinos_por_Bodega.pdf" 
+                   target="_blank" rel="noopener noreferrer" 
+                   class="btn-price-list">
+                    <i class="fas fa-file-pdf"></i> View Price List
+                </a>
+            </div>
+
             <div class="vinos-grid">
-    <div class="product-card">
-        <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="CHAKANA Nuna Malbec Bio 2022" loading="lazy">
-        <h3>CHAKANA Nuna Malbec Bio 2022</h3>
-        <p class="price-big"><strong>€ 9,10</strong></p>
-        <p class="price-note">incl. VAT € 10,83</p>
-        <p class="shipping-note">+ shipping costs</p>
-        <a class="buy-button" href="/en/vinos/chakana-nuna-malbec-bio-2022.html" target="_blank">BUY NOW</a>
-    </div>
-    
-    <div class="product-card">
-        <img src="/images/small/finca-gabriel-malbec-2021.jpg" alt="FINCA GABRIEL Malbec 2021" loading="lazy">
-        <h3>FINCA GABRIEL Malbec 2021</h3>
-        <p class="price-big"><strong>€ 9,10</strong></p>
-        <p class="price-note">incl. VAT € 10,83</p>
-        <p class="shipping-note">+ shipping costs</p>
-        <a class="buy-button" href="/en/vinos/finca-gabriel-malbec-2021.html" target="_blank">BUY NOW</a>
-    </div>
+
+                <div class="product-card">
+                    <img src="/images/small/trumpeter-malbec-2023.jpg" alt="Trumpeter Malbec 2023" loading="lazy">
+                    <h3>Trumpeter Malbec 2023</h3>
+                    <p class="price-big"><strong>€ 6.95</strong></p>
+                    <p class="price-note">Incl. VAT € 8.27</p>
+                    <p class="shipping-note">+ shipping costs</p>
+                    <a class="buy-button" 
+                       href="https://wa.me/4915158224728?text=Hello%2C%20I'm%20interested%20in%20the%20wine%20Trumpeter%20Malbec%202023%20-%20approx.%20price%20%E2%82%AC6.95" 
+                       target="_blank" rel="noopener">INQUIRE / ORDER</a>
+                </div>
+
+                <div class="product-card">
+                    <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="CHAKANA Nuna Malbec Bio 2022" loading="lazy">
+                    <h3>CHAKANA Nuna Malbec Bio 2022</h3>
+                    <p class="price-big"><strong>€ 8.95</strong></p>
+                    <p class="price-note">Incl. VAT € 10.65</p>
+                    <p class="shipping-note">+ shipping costs</p>
+                    <a class="buy-button" 
+                       href="https://wa.me/4915158224728?text=Hello%2C%20I'm%20interested%20in%20the%20wine%20CHAKANA%20Nuna%20Malbec%20Bio%202022%20-%20approx.%20price%20%E2%82%AC8.95" 
+                       target="_blank" rel="noopener">INQUIRE / ORDER</a>
+                </div>
     
     <div class="product-card">
         <img src="/images/small/nucha-2023.jpg" alt="Nucha 2023" loading="lazy">
@@ -317,8 +351,10 @@ main {
         <p class="price-big"><strong>€ 10,92</strong></p>
         <p class="price-note">incl. VAT € 12,99</p>
         <p class="shipping-note">+ shipping costs</p>
-        <a class="buy-button" href="/en/vinos/nucha-2023.html" target="_blank">BUY NOW</a>
-    </div>
+       <a class="buy-button" 
+                       href="https://wa.me/4915158224728?text=Hello%2C%20I'm%20interested%20in%20the%20wine%20CHAKANA%20Nuna%20Malbec%20Bio%202022%20-%20approx.%20price%20%E2%82%AC8.95" 
+                       target="_blank" rel="noopener">INQUIRE / ORDER</a>
+                </div>
     
     <div class="product-card">
         <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" loading="lazy">
@@ -326,26 +362,30 @@ main {
         <p class="price-big"><strong>€ 11,34</strong></p>
         <p class="price-note">incl. VAT € 13,50</p>
         <p class="shipping-note">+ shipping costs</p>
-        <a class="buy-button" href="/en/vinos/amalaya-malbec-2023.html" target="_blank">BUY NOW</a>
-    </div>
-    
+       <a class="buy-button" 
+                       href="https://wa.me/4915158224728?text=Hello%2C%20I'm%20interested%20in%20the%20wine%20CHAKANA%20Nuna%20Malbec%20Bio%202022%20-%20approx.%20price%20%E2%82%AC8.95" 
+                       target="_blank" rel="noopener">INQUIRE / ORDER</a>
+                </div>
     <div class="product-card">
         <img src="/images/small/trumpeter-malbec-2023.jpg" alt="Trumpeter Malbec 2023" loading="lazy">
         <h3>Trumpeter Malbec 2023</h3>
         <p class="price-big"><strong>€ 13,43</strong></p>
         <p class="price-note">incl. VAT € 15,98</p>
         <p class="shipping-note">+ shipping costs</p>
-        <a class="buy-button" href="/en/vinos/trumpeter-malbec-2023.html" target="_blank">BUY NOW</a>
-    </div>
-    
+        <a class="buy-button" 
+                       href="https://wa.me/4915158224728?text=Hello%2C%20I'm%20interested%20in%20the%20wine%20CHAKANA%20Nuna%20Malbec%20Bio%202022%20-%20approx.%20price%20%E2%82%AC8.95" 
+                       target="_blank" rel="noopener">INQUIRE / ORDER</a>
+                </div>
     <div class="product-card">
         <img src="/images/small/tukma-gran-corte-2017.jpg" alt="Tukma Gran Corte 2017" loading="lazy">
         <h3>Tukma Gran Corte 2017</h3>
         <p class="price-big"><strong>€ 20,65</strong></p>
         <p class="price-note">incl. VAT € 24,57</p>
         <p class="shipping-note">+ shipping costs</p>
-        <a class="buy-button" href="/en/vinos/tukma-gran-corte-2017.html" target="_blank">BUY NOW</a>
-    </div>
+       <a class="buy-button" 
+                       href="https://wa.me/4915158224728?text=Hello%2C%20I'm%20interested%20in%20the%20wine%20CHAKANA%20Nuna%20Malbec%20Bio%202022%20-%20approx.%20price%20%E2%82%AC8.95" 
+                       target="_blank" rel="noopener">INQUIRE / ORDER</a>
+                </div>
     </div>
         </section>
         <section class="restaurant-section">
@@ -420,6 +460,13 @@ main {
         <section class="contacto">
             <p>DON’T WAIT ANY LONGER! Contact us today and receive a <strong>personalized visit</strong>.</p>
             <a href="https://wa.me/4915158224728?text=Hi%2C%20I%20would%20like%20a%20personal%20visit%20from%201000Malbecs" class="cta-whatsapp">CONTACT US NOW</a>
+        <div style="margin-top: 2.5rem;">
+                <a href="/fichas/B2B/Lista_de_Precios_B2B_Vinos_por_Bodega.pdf" 
+                   target="_blank" rel="noopener noreferrer" 
+                   class="btn-price-list" style="background:#4A2C59;">
+                    <i class="fas fa-file-pdf"></i> View full price list
+                </a>
+            </div>
         </section>
     </main>
     <script>
