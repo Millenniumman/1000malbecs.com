@@ -497,10 +497,6 @@ Si estás sola o solo, ¿te gustaría salir a cenar con alguien y ver qué suced
 <p>Y si todavía no conociste al o a la indicada y de todas maneras querés compartir un buen vino, acá también tenemos unas recomendaciones para <strong>decirlo con vino</strong>.</p>
 ## Vinos Destacados para tu San Valentín
 
-Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos suaves y esa magia que despierta los sentidos. Elige uno (o más) de [1000malbecs.com](https://www.1000malbecs.com) y deja que el vino haga el resto. Toca el ícono 🍷 en cada botella para ver más detalles.
-
-## Vinos Destacados para tu San Valentín
-
 Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos suaves y esa magia que despierta los sentidos. Elige uno (o más) de [1000malbecs.com](https://www.1000malbecs.com) y deja que el vino haga el resto. Toca el ícono 🍷 para ver detalles.
 
 <style>
@@ -734,24 +730,6 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.classList.remove('show');
       }
     });
-  });
-});
-</script>
-// JS simple para mostrar overlay al hover (o click en mobile)
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.product-card').forEach(card => {
-    const overlay = card.querySelector('.overlay');
-    card.addEventListener('mouseenter', () => overlay.style.display = 'flex');
-    card.addEventListener('mouseleave', () => overlay.style.display = 'none');
-    
-    // Para mobile: toggle al click en info-icon
-    const icon = card.querySelector('.info-icon');
-    if (icon) {
-      icon.addEventListener('click', (e) => {
-        e.stopPropagation();
-        overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
-      });
-    }
   });
 });
 </script>
