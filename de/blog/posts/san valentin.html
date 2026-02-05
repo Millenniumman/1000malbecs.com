@@ -680,7 +680,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <p class="price"><strong>€ 13,09</strong></p>
     <p class="price-per-liter">(€ 17,45/L)</p>
     <p class="shipping-note">+ Versandkosten</p>
-    <a class="buy-button" href="https://www.1000malbecs.com/de/weine/dilema-day-malbec-2021.html">Jetzt kaufen</a>
+    <a class="buy-button" href="https://www.1000malbecs.com/de/vinos/dilema-day-malbec-2021.html">Jetzt kaufen</a>
   </div>
 
   <div class="product-card">
@@ -696,7 +696,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <p class="price"><strong>€ 13,50</strong></p>
     <p class="price-per-liter">(€ 18,00/L)</p>
     <p class="shipping-note">+ Versandkosten</p>
-    <a class="buy-button" href="https://www.1000malbecs.com/de/weine/amalaya-malbec-2023.html">Jetzt kaufen</a>
+    <a class="buy-button" href="https://www.1000malbecs.com/de/vinos/amalaya-malbec-2023.html">Jetzt kaufen</a>
   </div>
 
   <div class="product-card">
@@ -712,12 +712,40 @@ document.addEventListener('DOMContentLoaded', function() {
     <p class="price"><strong>€ 16,78</strong></p>
     <p class="price-per-liter">(€ 22,37/L)</p>
     <p class="shipping-note">+ Versandkosten</p>
-    <a class="buy-button" href="https://www.1000malbecs.com/de/weine/don-david-reserve-malbec-2022.html">Jetzt kaufen</a>
+    <a class="buy-button" href="https://www.1000malbecs.com/de/vinos/don-david-reserve-malbec-2022.html">Jetzt kaufen</a>
   </div>
 
 </div>
 
-<!-- [Mismo JS script] -->
+<script>
+// JS sin cambios
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.product-card').forEach(card => {
+    const tooltip = card.querySelector('.tooltip');
+    const icon = card.querySelector('.info-icon');
+
+    card.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) tooltip.classList.add('show');
+    });
+    card.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) tooltip.classList.remove('show');
+    });
+
+    if (icon) {
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tooltip.classList.toggle('show');
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!card.contains(e.target)) {
+        tooltip.classList.remove('show');
+      }
+    });
+  });
+});
+</script>
 
 <h2>Warum verlieben wir uns?</h2>
 <p>Was treibt uns dazu, einen Partner zu suchen? Wie können wir jemanden anziehen, der uns gefällt?</p>
