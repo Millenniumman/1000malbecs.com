@@ -22,7 +22,269 @@
     <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/san valentin.html">
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   </head>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</head>
 <body>
     <div class="language-selector">
         <a href="/es/blog/posts/san valentin.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
@@ -38,106 +300,9 @@
             <div class="post-content"><p><strong>¿Vas a celebrar San Valentín?</strong><br />
 Si estás sola o solo, ¿te gustaría salir a cenar con alguien y ver qué sucede?  </p>
 <p>Si la respuesta es un <strong>rotundo SÍ</strong>, te dejamos un par de recomendaciones de restaurantes que tienen vinos de <a href="https://www.1000malbecs.com">1000malbecs.com</a> en su carta de vinos para que elijas el que más te gusta.</p>
-<!-- NUEVA SECCIÓN RESTAURANTES -->
-        <section class="restaurant-section">
-            <h2>Restaurantes con vinos de 1000 Malbecs</h2>
-            <div class="restaurant-grid">
-        <div class="restaurant-card">
-            <div class="flip-inner">
-                
-                <!-- FRONT -->
-                <div class="flip-front">
-                    <img src="/images/bodegas/logo-los-morettos.jpg" alt="Los Morettos"
-                         onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=LO';">
-                    <p class="nombre">LOS MORETTOS</p>
-                    <p class="localidad">Neuss</p>
-                </div>
-
-                <!-- BACK -->
-                <div class="flip-back">
-                    <p class="direccion">Friedrichstrasse 24, 41460 Neuss, Germany</p>
-                </div>
-
-            </div>
-        </div>
-    
-        <div class="restaurant-card">
-            <div class="flip-inner">
-                
-                <!-- FRONT -->
-                <div class="flip-front">
-                    <img src="/images/bodegas/logo-rustica.jpg" alt="Rustica"
-                         onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=RU';">
-                    <p class="nombre">RUSTICA</p>
-                    <p class="localidad">Düsseldorf</p>
-                </div>
-
-                <!-- BACK -->
-                <div class="flip-back">
-                    <p class="direccion">Niederkasseler Str. 9, 40547 Düsseldorf, Germany</p>
-                </div>
-
-            </div>
-        </div>
-    
-        <div class="restaurant-card">
-            <div class="flip-inner">
-                
-                <!-- FRONT -->
-                <div class="flip-front">
-                    <img src="/images/bodegas/logo-arizona-steak-house.jpg" alt="Arizona Steak-House"
-                         onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=AR';">
-                    <p class="nombre">ARIZONA STEAK-HOUSE</p>
-                    <p class="localidad">Hamburg</p>
-                </div>
-
-                <!-- BACK -->
-                <div class="flip-back">
-                    <p class="direccion">Barmbeker Str. 150, 22299 Hamburg, Germany</p>
-                </div>
-
-            </div>
-        </div>
-    
-        <div class="restaurant-card">
-            <div class="flip-inner">
-                
-                <!-- FRONT -->
-                <div class="flip-front">
-                    <img src="/images/bodegas/logo-remise-steakhouse.jpg" alt="Remise Steakhouse"
-                         onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=RE';">
-                    <p class="nombre">REMISE STEAKHOUSE</p>
-                    <p class="localidad">Glinde</p>
-                </div>
-
-                <!-- BACK -->
-                <div class="flip-back">
-                    <p class="direccion">Möllner Landstraße 55, 21509 Glinde, Germany</p>
-                </div>
-
-            </div>
-        </div>
-    
-        <div class="restaurant-card">
-            <div class="flip-inner">
-                
-                <!-- FRONT -->
-                <div class="flip-front">
-                    <img src="/images/bodegas/logo-mendoza-steakhouse.jpg" alt="Mendoza Steakhouse"
-                         onerror="this.src='https://via.placeholder.com/200x200/4A2C59/ffffff?text=ME';">
-                    <p class="nombre">MENDOZA STEAKHOUSE</p>
-                    <p class="localidad">Gütersloh</p>
-                </div>
-
-                <!-- BACK -->
-                <div class="flip-back">
-                    <p class="direccion">Unter den Ulmen 15, 33330 Gütersloh, Germany</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-        </section>
+<!-- Placeholder para Reel 1: Restaurantes -->
+<!-- Aquí inserta tu reel de restaurantes -->
+<!-- Ejemplo: ![Reel Restaurantes San Valentín](URL_DEL_REEL_O_EMBED) o usa shortcode de video -->
 <p><strong>Reel 1 – Recomendaciones de restaurantes con Malbecs increíbles</strong><br />
 [Espacio reservado para el reel – 2 líneas]</p>
 <p>Y si todavía no conociste al o a la indicada y de todas maneras querés compartir un buen vino, acá también tenemos unas recomendaciones para <strong>decirlo con vino</strong>.</p>
@@ -162,127 +327,5 @@ Contanos en los comentarios, etiquetanos en tus stories o pasá por <a href="htt
             <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
         </div>
     </main>
-    <style>
-.restaurant-section {
-  margin: 4rem 0;
-  text-align: center;
-}
-
-.restaurant-section h2 {
-  color: #4A2C59;
-  font-size: 2.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-
-.restaurant-grid {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px 0;
-  scroll-behavior: smooth;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.restaurant-card {
-  perspective: 1000px;
-  flex: 0 0 220px;
-  height: 280px;
-  cursor: pointer;
-  position: relative;
-}
-
-.restaurant-card .flip-inner {
-  width: 100%;
-  height: 100%;
-  transition: transform .6s;
-  transform-style: preserve-3d;
-}
-
-.restaurant-card.flipped .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front, .flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  background: #4A2C59;
-  border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-  color: white;
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-.restaurant-card img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
-}
-
-.restaurant-card .nombre {
-  margin: 12px 0 4px;
-  color: white;
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-}
-
-.restaurant-card .localidad {
-  color: #ddd;
-  font-size: 0.9rem;
-}
-
-.restaurant-card .direccion {
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-</style>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.restaurant-card').forEach(card => {
-    const flip = () => {
-      card.classList.toggle('flipped');
-    };
-    card.addEventListener('click', flip);
-    card.addEventListener('touchend', flip); // Para mobile, un toque
-
-    // Icono 🍷 en front superior derecha
-    const icon = document.createElement('div');
-    icon.innerHTML = '🍷';
-    icon.style.cssText = `
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      background: rgba(255,255,255,0.8);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    `;
-    card.querySelector('.flip-front').appendChild(icon);
-  });
-});
-</script>
 </body>
 </html>
