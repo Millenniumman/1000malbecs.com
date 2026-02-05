@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Allein am Valentinstag? Empfehlungen für Restaurants mit Weinen von 1000malbecs.com und Wege, es mit Malbec zu sagen. Gedanken über Sinne, Liebe und warum ein guter Wein der beste Begleiter sein kann.">
+    <meta property="og:title" content="Gibt es die Liebe? Ideen für einen unvergesslichen Valentinstag mit Malbec - 1000 Malbecs">
+    <meta property="og:description" content="Allein am Valentinstag? Empfehlungen für Restaurants mit Weinen von 1000malbecs.com und Wege, es mit Malbec zu sagen. Gedanken über Sinne, Liebe und warum ein guter Wein der beste Begleiter sein kann.">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/de/blog/posts/san valentin.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gibt es die Liebe? Ideen für einen unvergesslichen Valentinstag mit Malbec - 1000 Malbecs">
+    <meta name="twitter:description" content="Allein am Valentinstag? Empfehlungen für Restaurants mit Weinen von 1000malbecs.com und Wege, es mit Malbec zu sagen. Gedanken über Sinne, Liebe und warum ein guter Wein der beste Begleiter sein kann.">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/de/blog/posts/san valentin.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/san valentin.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/san valentin.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/san valentin.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="language-selector">
+        <a href="/es/blog/posts/san valentin.html" data-lang="es" aria-label="Español" class="">ES 🇪🇸</a>
+        <a href="/en/blog/posts/san valentin.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="/de/blog/posts/san valentin.html" data-lang="de" aria-label="Deutsch" class="active">DE 🇩🇪</a>
+    </div>
+    <div class="header">
+        <a href="https://1000malbecs.com/de"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+    <main>
+        <div class="main-content">
+            <div class="post-content"><p><strong>Feierst du den Valentinstag?</strong><br />
+Wenn du allein bist, hättest du Lust, mit jemandem essen zu gehen und zu schauen, was passiert?</p>
+<p>Wenn die Antwort ein klares <strong>JA</strong> ist, hier sind einige Restaurant-Empfehlungen, die Weine von <a href="https://www.1000malbecs.com">1000malbecs.com</a> auf ihrer Weinkarte haben. Wähle den Ort und den Malbec, der dir am besten gefällt.</p>
+<p>Tippe auf jede Karte, um die Adresse zu sehen.</p>
+<!-- [Mismo bloque flip cards – traduce solo textos internos si hace falta] -->
+
+<p>Und wenn du die Richtige / den Richtigen noch nicht gefunden hast, aber trotzdem einen guten Wein genießen möchtest, haben wir auch Empfehlungen, um es <strong>mit Wein zu sagen</strong>.</p>
+<h2>Empfohlene Weine für deinen Valentinstag</h2>
+<p>Diese drei Malbecs sind perfekt, um mit intensiven Aromen, weichen Tanninen und dieser Magie zu verführen, die die Sinne weckt. Fahre mit der Maus drüber (oder tippe auf das 🍷-Icon auf Mobilgeräten), um Details zu sehen.</p>
+<!-- [Mismo <style> CSS – no traduce] -->
+
+<h3 class="section-title">Empfohlene Weine</h3>
+<div class="product-grid">
+
+  <div class="product-card">
+    <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/280x280?text=Dilema+Day';">
+    <div class="info-icon">🍷</div>
+    <div class="tooltip">
+      <p><strong>Weingut:</strong> Bodega Estancia Mendoza</p>
+      <p><strong>Region:</strong> Tupungato, Mendoza</p>
+      <p><strong>Jahrgang:</strong> 2021</p>
+      <p>Frische rote Früchte, Veilchen und Pfeffer. Jung und saftig – ideal für ein entspanntes romantisches Dinner.</p>
+    </div>
+    <h3>Dilema Day Malbec 2021</h3>
+    <p class="price"><strong>€ 13,09</strong></p>
+    <p class="price-per-liter">(€ 17,45/L)</p>
+    <p class="shipping-note">+ Versandkosten</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/de/weine/dilema-day-malbec-2021.html">Jetzt kaufen</a>
+  </div>
+
+  <div class="product-card">
+    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/280x280?text=Amalaya';">
+    <div class="info-icon">🍷</div>
+    <div class="tooltip">
+      <p><strong>Weingut:</strong> Bodega Amalaya</p>
+      <p><strong>Region:</strong> Calchaquí-Täler, Salta</p>
+      <p><strong>Jahrgang:</strong> 2023</p>
+      <p>Blumig und elegant mit Erdbeeren und Rosen. Seidig – perfekt für subtile Verführung.</p>
+    </div>
+    <h3>Amalaya Malbec 2023</h3>
+    <p class="price"><strong>€ 13,50</strong></p>
+    <p class="price-per-liter">(€ 18,00/L)</p>
+    <p class="shipping-note">+ Versandkosten</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/de/weine/amalaya-malbec-2023.html">Jetzt kaufen</a>
+  </div>
+
+  <div class="product-card">
+    <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" onerror="this.src='https://via.placeholder.com/280x280?text=Don+David';">
+    <div class="info-icon">🍷</div>
+    <div class="tooltip">
+      <p><strong>Weingut:</strong> El Esteco</p>
+      <p><strong>Region:</strong> Calchaquí-Täler, Salta</p>
+      <p><strong>Jahrgang:</strong> 2022</p>
+      <p>Pflaumenmarmelade, Vanille und sanfter Toast. Intensiv und lang – für eine leidenschaftliche Nacht.</p>
+    </div>
+    <h3>Don David Reserve Malbec 2022</h3>
+    <p class="price"><strong>€ 16,78</strong></p>
+    <p class="price-per-liter">(€ 22,37/L)</p>
+    <p class="shipping-note">+ Versandkosten</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/de/weine/don-david-reserve-malbec-2022.html">Jetzt kaufen</a>
+  </div>
+
+</div>
+
+<!-- [Mismo JS script] -->
+
+<h2>Warum verlieben wir uns?</h2>
+<p>Was treibt uns dazu, einen Partner zu suchen? Wie können wir jemanden anziehen, der uns gefällt?</p>
+<p>Ich habe keine Antworten auf diese Fragen, aber es lohnt sich zu erinnern, dass es <strong>die Sinne</strong> sind, die uns zu einem anderen Menschen hinziehen. Und die Sinne sind eng mit Erlebnissen, Aromen und Geschmäckern verbunden.</p>
+<p>Ein guter Wein betört unsere Sinne:<br />
+- Seine <strong>intensive, tiefe Farbe</strong> fasziniert uns<br />
+- Die <strong>Aromen</strong>, die er freisetzt, versetzen uns an einen besonderen Ort<br />
+- Und schließlich, wenn wir ihn <strong>küssen</strong> (kosten), vervollständigen wir ein einzigartiges Erlebnis für jeden Gaumen.</p>
+<p>Kurz gesagt: Ein großartiger Wein und ein großartiger Partner sind beide schwer zu finden.</p>
+<p>Hoffen wir, dass dieser kommende <strong>14. Februar</strong> das eine zum anderen führt.</p>
+<p><strong>Wenn es kein guter Malbec ist, dann lieber gar nichts.</strong></p>
+<p><em>Und du? Hast du schon Pläne für den Valentinstag?</em> 🍷❤️<br />
+Erzähl es uns in den Kommentaren, tagge uns in deinen Stories oder schau bei <a href="https://www.1000malbecs.com">1000malbecs.com</a> vorbei, um den perfekten Malbec für deine Nacht auszuwählen.</p>
+<h1>Valentinstag #Malbec #1000Malbecs #WeinUndLiebe #LiebeImGlas #ArgentinischerWein #14Februar</h1></div>
+            <a href="https://1000malbecs.com/de" class="back-link">Zurück zur Startseite</a>
+        </div>
+    </main>
+</body>
+</html>
