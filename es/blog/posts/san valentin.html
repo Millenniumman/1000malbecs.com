@@ -532,16 +532,29 @@ document.addEventListener('DOMContentLoaded', function() {
 Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos suaves y esa magia que despierta los sentidos. Pasa el mouse (o toca el ícono 🍷 en mobile) para ver detalles.
 
 <style>
-/* Estilos para tooltip simple y no invasivo */
+/* Grid fijo en 3 columnas en desktop */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);   /* ← 3 vinos en una fila */
   gap: 30px;
   max-width: 1100px;
   margin: 3rem auto;
   padding: 0 10px;
 }
 
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas en tablets medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;             /* 1 columna en mobile */
+  }
+}
+
+/* Resto de estilos de tarjetas (sin cambios mayores) */
 .product-card {
   background: #fff;
   border-radius: 12px;
@@ -612,7 +625,7 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
   background: #3A1F48;
 }
 
-/* Tooltip */
+/* Tooltip con texto blanco forzado */
 .info-icon {
   position: absolute;
   top: 12px;
@@ -637,10 +650,10 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
 
 .tooltip {
   position: absolute;
-  top: 55px;               /* justo debajo del ícono */
+  top: 55px;
   right: 12px;
   background: #3A1F48;
-  color: white;
+  color: white !important;          /* ← Forzado blanco */
   padding: 12px 16px;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -660,6 +673,11 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
   visibility: visible;
 }
 
+.tooltip p {
+  margin: 4px 0;
+  color: white !important;          /* ← Doble garantía en párrafos */
+}
+
 .tooltip::before {
   content: '';
   position: absolute;
@@ -670,7 +688,6 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
   border-bottom: 8px solid #3A1F48;
 }
 
-/* Ajuste mobile */
 @media (max-width: 768px) {
   .tooltip {
     width: 90%;
@@ -739,12 +756,12 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
 </div>
 
 <script>
+// JS sin cambios (sigue funcionando para tooltip)
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.product-card').forEach(card => {
     const tooltip = card.querySelector('.tooltip');
     const icon = card.querySelector('.info-icon');
 
-    // Hover desktop
     card.addEventListener('mouseenter', () => {
       if (window.innerWidth > 768) tooltip.classList.add('show');
     });
@@ -752,7 +769,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (window.innerWidth > 768) tooltip.classList.remove('show');
     });
 
-    // Click en ícono (mobile + desktop)
     if (icon) {
       icon.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -760,7 +776,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Cerrar al click fuera
     document.addEventListener('click', (e) => {
       if (!card.contains(e.target)) {
         tooltip.classList.remove('show');
