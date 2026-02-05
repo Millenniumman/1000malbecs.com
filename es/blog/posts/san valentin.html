@@ -300,8 +300,102 @@
             <div class="post-content"><p><strong>¿Vas a celebrar San Valentín?</strong><br />
 Si estás sola o solo, ¿te gustaría salir a cenar con alguien y ver qué sucede?  </p>
 <p>Si la respuesta es un <strong>rotundo SÍ</strong>, te dejamos un par de recomendaciones de restaurantes que tienen vinos de <a href="https://www.1000malbecs.com">1000malbecs.com</a> en su carta de vinos para que elijas el que más te gusta.</p>
+<style>
+.restaurant-section {
+  margin: 5rem 0;
+  text-align: center;
+}
 
+.restaurant-section h2 {
+  color: #4A2C59;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.restaurant-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 40px;                  /* ← Más espacio entre tarjetas (antes 20px) */
+  padding: 25px 0;
+  scroll-behavior: smooth;
+  max-width: 1200px;          /* un poco más ancho para respirar */
+  margin: 0 auto;
+  justify-content: center;    /* centra si hay pocas tarjetas */
+}
+
+.restaurant-card {
+  perspective: 1000px;
+  flex: 0 0 220px;
+  height: 280px;
+  cursor: pointer;
+  position: relative;
+}
+
+.restaurant-card .flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform .6s ease;
+  transform-style: preserve-3d;
+}
+
+.restaurant-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #4A2C59;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: #3A1F48;        /* Fondo un poco más oscuro para contraste */
+  color: white !important;    /* Letra blanca garantizada */
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.restaurant-card img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+}
+
+.restaurant-card .nombre {
+  margin: 12px 0 6px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.restaurant-card .localidad {
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+.restaurant-card .direccion {
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  color: white;
+}
+</style>
 <p><strong>Reel 1 – Recomendaciones de restaurantes con Malbecs increíbles</strong><br />
+    
  <section class="restaurant-section">
             <h2>Restaurantes con vinos de 1000 Malbecs</h2>
             <div class="restaurant-grid">
