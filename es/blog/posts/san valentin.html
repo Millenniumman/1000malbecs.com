@@ -494,5 +494,42 @@ Contanos en los comentarios, etiquetanos en tus stories o pasá por <a href="htt
             <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
         </div>
     </main>
+    <script>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('JS flip + icono activado');
+
+    document.querySelectorAll('.restaurant-card').forEach(card => {
+        // === CLICK Y TOQUE (un solo toque en móvil) ===
+        const flipCard = (e) => {
+            e.preventDefault();           // evita scroll
+            card.classList.toggle('flipped');
+        };
+        card.addEventListener('click', flipCard);
+        card.addEventListener('touchend', flipCard);   // ← touchend = un solo toque
+
+        // === ICONO DE INFO ARRIBA A LA DERECHA ===
+        const icon = document.createElement('div');
+        icon.innerHTML = '🍷';                     // o usa → ⬇ o ↷ o ⋯
+        icon.style.cssText = `
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            background: rgba(255,255,255,0.8);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        `;
+        card.style.position = 'relative';   // necesario para el icono
+        card.querySelector('.flip-front').appendChild(icon);
+    });
+    </script>
 </body>
 </html>
