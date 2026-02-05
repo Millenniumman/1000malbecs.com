@@ -527,160 +527,91 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <p>Y si todavía no conociste al o a la indicada y de todas maneras querés compartir un buen vino, acá también tenemos unas recomendaciones para <strong>decirlo con vino</strong>.</p>
-<!-- Placeholder para Reel 2: Vinos / Recomendaciones para compartir -->
-<!-- Aquí inserta tu reel de vinos -->
-<!-- Ejemplo: ![Reel Vinos San Valentín](URL_DEL_REEL_O_EMBED) -->
-     <style>
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: 3rem auto;
-  padding: 0 10px;
-}
+<h3 class="section-title">Vinos Destacados</h3>
+<div class="product-grid">
 
-.product-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  transition: transform 0.25s ease;
-  position: relative;
-  text-align: center;
-  padding: 15px 15px 20px;
-}
+  <div class="product-card">
+    <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/220x220?text=Dilema+Day';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
+      <p><strong>Región:</strong> Tupungato, Mendoza</p>
+      <p><strong>Año:</strong> 2021</p>
+      <p>Frutos rojos frescos, violetas y pimienta. Joven y jugoso – ideal para una cena relajada.</p>
+    </div>
+    <h3>Dilema Day Malbec 2021</h3>
+    <p class="price"><strong>€ 13.09</strong></p>
+    <p class="price-per-liter">(€ 17.45/L)</p>
+    <p class="shipping-note">+ gastos de envío</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/es/vinos/dilema-day-malbec-2021.html">Comprar Ahora</a>
+  </div>
 
-.product-card:hover {
-  transform: translateY(-6px);
-}
+  <div class="product-card">
+    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/220x220?text=Amalaya';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Bodega:</strong> Bodega Amalaya</p>
+      <p><strong>Región:</strong> Valles Calchaquíes, Salta</p>
+      <p><strong>Año:</strong> 2023</p>
+      <p>Floral y elegante con frutillas y rosas. Sedoso – perfecto para seducir con delicadeza.</p>
+    </div>
+    <h3>Amalaya Malbec 2023</h3>
+    <p class="price"><strong>€ 13.50</strong></p>
+    <p class="price-per-liter">(€ 18.00/L)</p>
+    <p class="shipping-note">+ gastos de envío</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/es/vinos/amalaya-malbec-2023.html">Comprar Ahora</a>
+  </div>
 
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  margin-bottom: 12px;
-}
+  <div class="product-card">
+    <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" onerror="this.src='https://via.placeholder.com/220x220?text=Don+David';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Bodega:</strong> El Esteco</p>
+      <p><strong>Región:</strong> Valles Calchaquíes, Salta</p>
+      <p><strong>Año:</strong> 2022</p>
+      <p>Ciruelas, vainilla y tostado suave. Intenso y largo – para una noche apasionada.</p>
+    </div>
+    <h3>Don David Reserve Malbec 2022</h3>
+    <p class="price"><strong>€ 16.78</strong></p>
+    <p class="price-per-liter">(€ 22.37/L)</p>
+    <p class="shipping-note">+ gastos de envío</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/es/vinos/don-david-reserve-malbec-2022.html">Comprar Ahora</a>
+  </div>
 
-.product-card h3 {
-  font-size: 1.25rem;
-  color: #4A2C59;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 8px 0 6px;
-  line-height: 1.3;
-}
+</div>
 
-.price {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #6B2D8F;
-  margin: 4px 0;
-}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.product-card').forEach(card => {
+    const overlay = card.querySelector('.overlay');
+    const icon = card.querySelector('.info-icon');
 
-.price-per-liter {
-  font-size: 0.9rem;
-  color: #555;
-}
+    card.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) {
+        overlay.classList.add('show');
+      }
+    });
+    card.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) {
+        overlay.classList.remove('show');
+      }
+    });
 
-.shipping-note {
-  font-size: 0.82rem;
-  color: #888;
-  font-style: italic;
-  margin: 4px 0 12px;
-}
+    if (icon) {
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        overlay.classList.toggle('show');
+      });
+    }
 
-.buy-button {
-  display: block;
-  width: 85%;
-  max-width: 180px;
-  margin: 12px auto 0;
-  background: #4A2C59;
-  color: white;
-  padding: 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-  transition: background 0.25s;
-}
-
-.buy-button:hover {
-  background: #3A1F48;
-}
-
-.info-icon {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255,255,255,0.85);
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  z-index: 20;
-  transition: transform 0.2s;
-}
-
-.info-icon:hover {
-  transform: scale(1.1);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(74, 44, 89, 0.88);
-  color: white;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-  z-index: 15;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.overlay p {
-  margin: 6px 0;
-  font-size: 0.92rem;
-  line-height: 1.4;
-}
-
-.overlay.show {
-  display: flex;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.section-title {
-  text-align: center;
-  color: #4A2C59;
-  font-size: 2.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin: 4rem 0 2rem;
-}
-
-@media (max-width: 768px) {
-  .overlay {
-    padding: 15px;
-  }
-  .overlay p {
-    font-size: 0.88rem;
-  }
-}
-</style>
-<p><strong>Reel 2 – Decilo con vino: recomendaciones para compartir</strong><br />
-[Espacio reservado para el reel – 2 líneas]</p>
+    document.addEventListener('click', (e) => {
+      if (!card.contains(e.target)) {
+        overlay.classList.remove('show');
+      }
+    });
+  });
+});
+</script>
 <h2>¿Por qué nos enamoramos?</h2>
 <p>¿Qué motivos nos llevan a buscar una pareja? ¿Cómo podemos hacer para atraer a alguien que nos gusta?  </p>
 <p>Si bien no tengo respuesta para esos interrogantes, sí vale la pena recordar que son <strong>los sentidos</strong> los que nos atraen de alguna manera hacia otra persona. Y los sentidos están íntimamente relacionados a las experiencias, los aromas y los sabores.</p>
