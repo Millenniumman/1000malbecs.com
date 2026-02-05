@@ -526,9 +526,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-     Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos suaves y esa magia que despierta los sentidos. Toca el ícono 🍷 para ver detalles.
+     
+## Vinos Destacados para tu San Valentín
+
+Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos suaves y esa magia que despierta los sentidos. Pasa el mouse (o toca el ícono 🍷 en mobile) para ver detalles.
 
 <style>
+/* Estilos para tooltip simple y no invasivo */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -608,11 +612,12 @@ document.addEventListener('DOMContentLoaded', function() {
   background: #3A1F48;
 }
 
+/* Tooltip */
 .info-icon {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.9);
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -630,61 +635,63 @@ document.addEventListener('DOMContentLoaded', function() {
   transform: scale(1.1);
 }
 
-.overlay {
+.tooltip {
   position: absolute;
-  inset: 0;
-  background: rgba(74, 44, 89, 0.88);
+  top: 55px;               /* justo debajo del ícono */
+  right: 12px;
+  background: #3A1F48;
   color: white;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-  z-index: 15;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.overlay p {
-  margin: 6px 0;
-  font-size: 0.92rem;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
   line-height: 1.4;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+  pointer-events: none;
+  z-index: 15;
+  text-align: left;
 }
 
-.overlay.show {
-  display: flex;
+.tooltip.show {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
 }
 
-.section-title {
-  text-align: center;
-  color: #4A2C59;
-  font-size: 2.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin: 4rem 0 2rem;
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #3A1F48;
 }
 
+/* Ajuste mobile */
 @media (max-width: 768px) {
-  .overlay {
-    padding: 15px;
+  .tooltip {
+    width: 90%;
+    right: 5%;
+    left: 5%;
+    top: 60px;
   }
-  .overlay p {
-    font-size: 0.88rem;
+  .tooltip::before {
+    right: auto;
+    left: 20px;
   }
 }
 </style>
-<p>Y si todavía no conociste al o a la indicada y de todas maneras querés compartir un buen vino, acá también tenemos unas recomendaciones para <strong>decirlo con vino</strong>.</p>
+
 <h3 class="section-title">Vinos Destacados</h3>
 <div class="product-grid">
 
   <div class="product-card">
     <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/220x220?text=Dilema+Day';">
     <div class="info-icon">🍷</div>
-    <div class="overlay">
+    <div class="tooltip">
       <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
       <p><strong>Región:</strong> Tupungato, Mendoza</p>
       <p><strong>Año:</strong> 2021</p>
@@ -700,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="product-card">
     <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/220x220?text=Amalaya';">
     <div class="info-icon">🍷</div>
-    <div class="overlay">
+    <div class="tooltip">
       <p><strong>Bodega:</strong> Bodega Amalaya</p>
       <p><strong>Región:</strong> Valles Calchaquíes, Salta</p>
       <p><strong>Año:</strong> 2023</p>
@@ -716,7 +723,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="product-card">
     <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" onerror="this.src='https://via.placeholder.com/220x220?text=Don+David';">
     <div class="info-icon">🍷</div>
-    <div class="overlay">
+    <div class="tooltip">
       <p><strong>Bodega:</strong> El Esteco</p>
       <p><strong>Región:</strong> Valles Calchaquíes, Salta</p>
       <p><strong>Año:</strong> 2022</p>
@@ -734,30 +741,29 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.product-card').forEach(card => {
-    const overlay = card.querySelector('.overlay');
+    const tooltip = card.querySelector('.tooltip');
     const icon = card.querySelector('.info-icon');
 
+    // Hover desktop
     card.addEventListener('mouseenter', () => {
-      if (window.innerWidth > 768) {
-        overlay.classList.add('show');
-      }
+      if (window.innerWidth > 768) tooltip.classList.add('show');
     });
     card.addEventListener('mouseleave', () => {
-      if (window.innerWidth > 768) {
-        overlay.classList.remove('show');
-      }
+      if (window.innerWidth > 768) tooltip.classList.remove('show');
     });
 
+    // Click en ícono (mobile + desktop)
     if (icon) {
       icon.addEventListener('click', (e) => {
         e.stopPropagation();
-        overlay.classList.toggle('show');
+        tooltip.classList.toggle('show');
       });
     }
 
+    // Cerrar al click fuera
     document.addEventListener('click', (e) => {
       if (!card.contains(e.target)) {
-        overlay.classList.remove('show');
+        tooltip.classList.remove('show');
       }
     });
   });
