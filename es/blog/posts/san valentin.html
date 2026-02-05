@@ -525,11 +525,224 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <p>Y si todavía no conociste al o a la indicada y de todas maneras querés compartir un buen vino, acá también tenemos unas recomendaciones para <strong>decirlo con vino</strong>.</p>
-<!-- Placeholder para Reel 2: Vinos / Recomendaciones para compartir -->
-<!-- Aquí inserta tu reel de vinos -->
-<!-- Ejemplo: ![Reel Vinos San Valentín](URL_DEL_REEL_O_EMBED) -->
+
 <p><strong>Reel 2 – Decilo con vino: recomendaciones para compartir</strong><br />
-[Espacio reservado para el reel – 2 líneas]</p>
+<style>
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 15px;
+}
+
+@media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px)  { .product-grid { grid-template-columns: 1fr; } }
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  position: relative;
+  text-align: center;
+  padding: 20px 20px 25px;
+  min-height: 480px;
+}
+
+.product-card:hover { transform: translateY(-10px); }
+
+.product-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.product-card h3 {
+  font-size: 1.4rem;
+  color: #4A2C59;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 10px 0 8px;
+  line-height: 1.3;
+}
+
+.price { font-size: 1.6rem; font-weight: 800; color: #6B2D8F; margin: 6px 0; }
+.price-per-liter { font-size: 1rem; color: #555; }
+.shipping-note { font-size: 0.9rem; color: #888; font-style: italic; margin: 6px 0 14px; }
+
+.buy-button {
+  display: block;
+  width: 90%;
+  max-width: 200px;
+  margin: 14px auto 0;
+  background: #4A2C59;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.buy-button:hover { background: #3A1F48; }
+
+/* Tooltip ajustado para caber dentro de la tarjeta */
+.info-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.9);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  z-index: 20;
+}
+
+.info-icon:hover { transform: scale(1.1); }
+
+.tooltip {
+  position: absolute;
+  top: 65px;
+  left: 16px;                /* ← cambiado: empieza desde izquierda */
+  right: 16px;               /* ocupa casi todo el ancho disponible */
+  background: #3A1F48;
+  color: white !important;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+  pointer-events: none;
+  z-index: 15;
+  text-align: left;
+}
+
+.tooltip.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip p {
+  margin: 6px 0;
+  color: white !important;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 30px;                /* ajustado para que apunte al ícono */
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #3A1F48;
+}
+
+@media (max-width: 768px) {
+  .tooltip {
+    left: 10px;
+    right: 10px;
+    top: 70px;
+  }
+  .tooltip::before {
+    left: 30px;
+  }
+}
+</style>
+<div class="product-grid">
+
+  <div class="product-card">
+    <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/280x280?text=Dilema+Day';">
+    <div class="info-icon">🍷</div>
+    <div class="tooltip">
+      <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
+      <p><strong>Región:</strong> Tupungato, Mendoza</p>
+      <p><strong>Año:</strong> 2021</p>
+      <p>Frutos rojos frescos, violetas y pimienta. Joven y jugoso – ideal para una cena relajada.</p>
+    </div>
+    <h3>Dilema Day Malbec 2021</h3>
+    <p class="price"><strong>€ 13.09</strong></p>
+    <p class="price-per-liter">(€ 17.45/L)</p>
+    <p class="shipping-note">+ gastos de envío</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/es/vinos/dilema-day-malbec-2021.html">Comprar Ahora</a>
+  </div>
+
+  <div class="product-card">
+    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/280x280?text=Amalaya';">
+    <div class="info-icon">🍷</div>
+    <div class="tooltip">
+      <p><strong>Bodega:</strong> Bodega Amalaya</p>
+      <p><strong>Región:</strong> Valles Calchaquíes, Salta</p>
+      <p><strong>Año:</strong> 2023</p>
+      <p>Floral y elegante con frutillas y rosas. Sedoso – perfecto para seducir con delicadeza.</p>
+    </div>
+    <h3>Amalaya Malbec 2023</h3>
+    <p class="price"><strong>€ 13.50</strong></p>
+    <p class="price-per-liter">(€ 18.00/L)</p>
+    <p class="shipping-note">+ gastos de envío</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/es/vinos/amalaya-malbec-2023.html">Comprar Ahora</a>
+  </div>
+
+  <div class="product-card">
+    <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" onerror="this.src='https://via.placeholder.com/280x280?text=Don+David';">
+    <div class="info-icon">🍷</div>
+    <div class="tooltip">
+      <p><strong>Bodega:</strong> El Esteco</p>
+      <p><strong>Región:</strong> Valles Calchaquíes, Salta</p>
+      <p><strong>Año:</strong> 2022</p>
+      <p>Ciruelas, vainilla y tostado suave. Intenso y largo – para una noche apasionada.</p>
+    </div>
+    <h3>Don David Reserve Malbec 2022</h3>
+    <p class="price"><strong>€ 16.78</strong></p>
+    <p class="price-per-liter">(€ 22.37/L)</p>
+    <p class="shipping-note">+ gastos de envío</p>
+    <a class="buy-button" href="https://www.1000malbecs.com/es/vinos/don-david-reserve-malbec-2022.html">Comprar Ahora</a>
+  </div>
+
+</div>
+
+<script>
+// JS sin cambios
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.product-card').forEach(card => {
+    const tooltip = card.querySelector('.tooltip');
+    const icon = card.querySelector('.info-icon');
+
+    card.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) tooltip.classList.add('show');
+    });
+    card.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) tooltip.classList.remove('show');
+    });
+
+    if (icon) {
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tooltip.classList.toggle('show');
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!card.contains(e.target)) {
+        tooltip.classList.remove('show');
+      }
+    });
+  });
+});
+</script>
 <h2>¿Por qué nos enamoramos?</h2>
 <p>¿Qué motivos nos llevan a buscar una pareja? ¿Cómo podemos hacer para atraer a alguien que nos gusta?  </p>
 <p>Si bien no tengo respuesta para esos interrogantes, sí vale la pena recordar que son <strong>los sentidos</strong> los que nos atraen de alguna manera hacia otra persona. Y los sentidos están íntimamente relacionados a las experiencias, los aromas y los sabores.</p>
