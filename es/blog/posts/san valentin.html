@@ -532,92 +532,93 @@ document.addEventListener('DOMContentLoaded', function() {
 Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos suaves y esa magia que despierta los sentidos. Pasa el mouse (o toca el ícono 🍷 en mobile) para ver detalles.
 
 <style>
-/* Grid fijo en 3 columnas en desktop */
+/* Grid con columnas más anchas */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);   /* ← 3 vinos en una fila */
-  gap: 30px;
-  max-width: 1100px;
+  grid-template-columns: repeat(3, 1fr);   /* 3 en fila en desktop */
+  gap: 35px;                               /* un poco más espacio entre ellas */
+  max-width: 1200px;                       /* más ancho total para que respiren */
   margin: 3rem auto;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 @media (max-width: 1024px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);  /* 2 columnas en tablets medianas */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: 1fr;             /* 1 columna en mobile */
+    grid-template-columns: 1fr;
   }
 }
 
-/* Resto de estilos de tarjetas (sin cambios mayores) */
+/* Tarjetas más grandes */
 .product-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 16px;                     /* bordes más suaves */
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  transition: transform 0.25s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
   position: relative;
   text-align: center;
-  padding: 15px 15px 20px;
+  padding: 20px 20px 25px;                 /* más padding interno */
+  min-height: 480px;                       /* altura mínima para consistencia */
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-10px);
 }
 
 .product-card img {
   width: 100%;
-  height: 220px;
+  height: 280px;                           /* ← imagen más alta y grande */
   object-fit: contain;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .product-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.4rem;                       /* título un poco más grande */
   color: #4A2C59;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 8px 0 6px;
+  margin: 10px 0 8px;
   line-height: 1.3;
 }
 
 .price {
-  font-size: 1.45rem;
+  font-size: 1.6rem;                       /* precio más destacado */
   font-weight: 800;
   color: #6B2D8F;
-  margin: 4px 0;
+  margin: 6px 0;
 }
 
 .price-per-liter {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #555;
 }
 
 .shipping-note {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: #888;
   font-style: italic;
-  margin: 4px 0 12px;
+  margin: 6px 0 14px;
 }
 
 .buy-button {
   display: block;
-  width: 85%;
-  max-width: 180px;
-  margin: 12px auto 0;
+  width: 90%;
+  max-width: 200px;
+  margin: 14px auto 0;
   background: #4A2C59;
   color: white;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: background 0.25s;
 }
 
@@ -625,21 +626,21 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
   background: #3A1F48;
 }
 
-/* Tooltip con texto blanco forzado */
+/* Tooltip (sin cambios, pero texto blanco reforzado) */
 .info-icon {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 16px;
+  right: 16px;
   background: rgba(255,255,255,0.9);
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
   z-index: 20;
   transition: transform 0.2s;
 }
@@ -650,19 +651,19 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
 
 .tooltip {
   position: absolute;
-  top: 55px;
-  right: 12px;
+  top: 65px;
+  right: 16px;
   background: #3A1F48;
-  color: white !important;          /* ← Forzado blanco */
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  width: 220px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: white !important;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  width: 240px;                            /* tooltip un poco más ancho */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.35);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s;
+  transition: opacity 0.3s ease, visibility 0.3s;
   pointer-events: none;
   z-index: 15;
   text-align: left;
@@ -674,15 +675,15 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
 }
 
 .tooltip p {
-  margin: 4px 0;
-  color: white !important;          /* ← Doble garantía en párrafos */
+  margin: 6px 0;
+  color: white !important;
 }
 
 .tooltip::before {
   content: '';
   position: absolute;
   top: -8px;
-  right: 20px;
+  right: 22px;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid #3A1F48;
@@ -690,14 +691,14 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
 
 @media (max-width: 768px) {
   .tooltip {
-    width: 90%;
-    right: 5%;
-    left: 5%;
-    top: 60px;
+    width: 92%;
+    right: 4%;
+    left: 4%;
+    top: 70px;
   }
   .tooltip::before {
     right: auto;
-    left: 20px;
+    left: 24px;
   }
 }
 </style>
@@ -706,7 +707,7 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
 <div class="product-grid">
 
   <div class="product-card">
-    <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/220x220?text=Dilema+Day';">
+    <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/280x280?text=Dilema+Day';">
     <div class="info-icon">🍷</div>
     <div class="tooltip">
       <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
@@ -722,7 +723,7 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
   </div>
 
   <div class="product-card">
-    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/220x220?text=Amalaya';">
+    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/280x280?text=Amalaya';">
     <div class="info-icon">🍷</div>
     <div class="tooltip">
       <p><strong>Bodega:</strong> Bodega Amalaya</p>
@@ -738,7 +739,7 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
   </div>
 
   <div class="product-card">
-    <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" onerror="this.src='https://via.placeholder.com/220x220?text=Don+David';">
+    <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" onerror="this.src='https://via.placeholder.com/280x280?text=Don+David';">
     <div class="info-icon">🍷</div>
     <div class="tooltip">
       <p><strong>Bodega:</strong> El Esteco</p>
@@ -756,7 +757,7 @@ Estos tres Malbecs son perfectos para conquistar con aromas intensos, taninos su
 </div>
 
 <script>
-// JS sin cambios (sigue funcionando para tooltip)
+// JS sin cambios
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.product-card').forEach(card => {
     const tooltip = card.querySelector('.tooltip');
