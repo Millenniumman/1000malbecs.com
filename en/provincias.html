@@ -751,7 +751,84 @@
         </div>
     </main>
     <script>
-        // Script idéntico, sin cambios necesarios
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+        const languageSelector = document.querySelector('.language-selector');
+        if (languageSelector) {
+            let lastScrollY = window.scrollY;
+            let scrollThreshold = 50;
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                    languageSelector.classList.add('hidden');
+                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                    languageSelector.classList.remove('hidden');
+                }
+                lastScrollY = currentScrollY;
+            });
+            const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+            langLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetLang = link.getAttribute('data-lang');
+                    const currentPath = window.location.pathname;
+                    let newPath = currentPath;
+                    if (currentPath === '/' || currentPath === '/index.html') {
+                        newPath = `/${targetLang}/index.html`;
+                    } else if (currentPath.match(/\/(es|de|en)(\/|$)/)) {
+                        newPath = currentPath.replace(/\/(es|de|en)(\/|$)/, `/${targetLang}/`);
+                    } else if (currentPath.match(/\/(es|de|en)\//)) {
+                        newPath = currentPath.replace(/\/(es|de|en)\//, `/${targetLang}/`);
+                    } else {
+                        newPath = `/${targetLang}${currentPath === '/' ? '' : currentPath}`;
+                    }
+                    if (newPath !== currentPath) {
+                        window.location.href = newPath;
+                    }
+                });
+            });
+            const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
+            langLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-lang') === currentLang) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        if (window.innerWidth <= 768) {
+            const infoIcons = document.querySelectorAll('.info-icon');
+            infoIcons.forEach(icon => {
+                ['click', 'touchstart'].forEach(eventType => {
+                    icon.addEventListener(eventType, (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        const overlayId = icon.getAttribute('data-overlay-id');
+                        const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+                        const isActive = overlay.classList.contains('active');
+                        document.querySelectorAll('.overlay.active').forEach(ov => {
+                            ov.classList.remove('active');
+                        });
+                        if (!isActive && overlay) {
+                            overlay.classList.add('active');
+                        }
+                    }, { passive: false });
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
+                    document.querySelectorAll('.overlay.active').forEach(overlay => {
+                        overlay.classList.remove('active');
+                    });
+                }
+            });
+        }
+        const buyButtons = document.querySelectorAll('.buy-button');
+        buyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
     </script>
 </body>
 </html>
