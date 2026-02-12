@@ -307,12 +307,193 @@
 <em>(Espacio para tu imagen de las botellas de La Fuerza o un vermut servido)</em></p>
 <h3>Los vermuts de La Fuerza ahora disponibles</h3>
 <p>Todos elaborados en Mendoza al pie de los Andes, con vinos base, hierbas y botánicos locales, sin conservantes ni aromatizantes artificiales. Graduación típica: 17-17,5% alc. vol. en botella de 750 ml.</p>
-<p>| Vermut              | Descripción principal                          | Base / Notas destacadas                          | Ideal para...                     |
-|---------------------|------------------------------------------------|--------------------------------------------------|-----------------------------------|
-| <strong>La Fuerza Rojo</strong>  | Especiado, floral y con un leve amargor       | Base Malbec + más de 30 hierbas andinas (artemisa mendozana, jarilla, tomillo, peperina, salvia, piel de naranja) | Negroni, Americano, spritz        |
-| <strong>La Fuerza Blanco</strong>| Cítrico, fresco y perfumado                   | Base Torrontés + hierbas como menta y tomillo   | Consumir solo, con soda o tonic   |
-| <strong>La Fuerza Primavera</strong> | Fresco, floral y exótico (ni Bianco, ni Rosso, ni Rosé) | Infusión de 14 botánicos (hinojo, hibisco, violeta, lavanda, marcela, azahar, etc.) | Momentos primaverales, refrescantes |
-| <strong>La Fuerza Sideral</strong>| Intenso, aromático y profundo                 | Base Malbec criado en barricas de roble (12 meses) | Degustación tranquila, cócteles complejos |</p>
+### Los vermuts de La Fuerza ahora disponibles en 1000malbecs.com
+
+Todos elaborados en Mendoza al pie de los Andes, con vinos base, hierbas y botánicos locales, sin conservantes ni aromatizantes artificiales. Graduación típica: 17-17,5% alc. vol. en botella de 750 ml.
+
+<style>
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+    width: 100%;
+  }
+  .product-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+    max-width: 300px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .product-card img {
+    height: 190px;
+    max-width: 200px;
+    object-fit: contain;
+    margin: 10px auto;
+  }
+  .product-card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: #4A2C59;
+    text-align: center;
+    min-height: 50px;
+  }
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 44, 89, 0.85);
+    color: #FFFFFF;
+    padding: 50px 15px 15px;
+    box-sizing: border-box;
+    font-size: 13px;
+    overflow-y: auto;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .product-card:hover .overlay {
+    display: block;
+  }
+  .overlay p {
+    margin: 8px 0;
+    color: #FFFFFF !important;
+  }
+  .overlay p strong {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .info-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    color: #4A2C59;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+  }
+  .buy-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #4A2C59;
+    color: #f5e6ff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    width: 90%;
+    max-width: 180px;
+    z-index: 3;
+  }
+  .buy-button:hover {
+    background-color: #5A1D39;
+  }
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .product-card {
+      min-height: 320px;
+    }
+    .product-card img {
+      height: 140px;
+      max-width: 140px;
+    }
+    .info-icon {
+      display: block;
+    }
+    .overlay {
+      display: none;
+    }
+    .product-card .overlay.active {
+      display: block !important;
+    }
+    .product-card:hover .overlay {
+      display: none;
+    }
+  }
+</style>
+
+<div class="product-grid">
+
+  <div class="product-card">
+    <img src="https://jumboargentina.vtexassets.com/arquivos/ids/789708-800-600?v=638266953669870000&width=800&height=600&aspect=true" alt="La Fuerza Rojo" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Rojo';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Descripción:</strong> Especiado, floral y con un leve amargor.</p>
+      <p><strong>Base / Notas:</strong> Base Malbec + más de 30 hierbas andinas (artemisa mendozana, jarilla, tomillo, peperina, salvia, piel de naranja).</p>
+      <p><strong>Ideal para:</strong> Negroni, Americano, spritz.</p>
+      <p><strong>Graduación:</strong> 17% alc. vol. - 750 ml.</p>
+    </div>
+    <h3>La Fuerza Rojo</h3>
+    <a href="https://www.1000malbecs.com/es/vinos/la-fuerza-rojo.html" class="buy-button">Comprar</a>
+  </div>
+
+  <div class="product-card">
+    <img src="https://cdn11.bigcommerce.com/s-ftsflnse4o/images/stencil/1280x1280/products/230030/934353/D_847392-MLA53246667626_012023-O__49243.1731052087.jpg?c=1" alt="La Fuerza Blanco" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Blanco';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Descripción:</strong> Cítrico, fresco y perfumado.</p>
+      <p><strong>Base / Notas:</strong> Base Torrontés + hierbas como menta, tomillo y artemisa mendozana.</p>
+      <p><strong>Ideal para:</strong> Consumir solo, con soda o tonic.</p>
+      <p><strong>Graduación:</strong> 17% alc. vol. - 750 ml.</p>
+    </div>
+    <h3>La Fuerza Blanco</h3>
+    <a href="https://www.1000malbecs.com/es/vinos/la-fuerza-blanco.html" class="buy-button">Comprar</a>
+  </div>
+
+  <div class="product-card">
+    <img src="https://jumboargentina.vtexassets.com/arquivos/ids/816998-800-600?v=638470871231800000&width=800&height=600&aspect=true" alt="La Fuerza Primavera" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Primavera';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Descripción:</strong> Fresco, floral y exótico (ni Bianco, ni Rosso, ni Rosé).</p>
+      <p><strong>Base / Notas:</strong> Infusión de 14 botánicos (hinojo, hibisco, violeta, lavanda, marcela, azahar, etc.) + base Torrontés.</p>
+      <p><strong>Ideal para:</strong> Momentos primaverales, refrescantes.</p>
+      <p><strong>Graduación:</strong> 17% alc. vol. - 750 ml.</p>
+    </div>
+    <h3>La Fuerza Primavera</h3>
+    <a href="https://www.1000malbecs.com/es/vinos/la-fuerza-primavera.html" class="buy-button">Comprar</a>
+  </div>
+
+  <div class="product-card">
+    <img src="https://media.timeout.com/images/106332543/750/562/image.jpg" alt="La Fuerza Sideral" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Sideral';"> <!-- Usé una foto grupal, ajusta si tienes individual -->
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Descripción:</strong> Intenso, aromático y profundo.</p>
+      <p><strong>Base / Notas:</strong> Base Malbec criado en barricas de roble (12 meses) + hierbas andinas.</p>
+      <p><strong>Ideal para:</strong> Degustación tranquila, cócteles complejos.</p>
+      <p><strong>Graduación:</strong> 17,5% alc. vol. - 750 ml.</p>
+    </div>
+    <h3>La Fuerza Sideral</h3>
+    <a href="https://www.1000malbecs.com/es/vinos/la-fuerza-sideral.html" class="buy-button">Comprar</a>
+  </div>
+
+</div>
+
+Puedes verlos y comprarlos directamente aquí:  
+👉 [La Fuerza Vermú en 1000malbecs.com](https://1000malbecs.com/es/bodegas/la-fuerza-vermu.html)
 <p>Puedes verlos y comprarlos directamente aquí:<br />
 👉 <a href="https://1000malbecs.com/es/bodegas/la-fuerza-vermu.html">La Fuerza Vermú en 1000malbecs.com</a></p>
 <p>Hasta la semana que viene,</p>
