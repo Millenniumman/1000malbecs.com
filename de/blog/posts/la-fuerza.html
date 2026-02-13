@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detrás de un gran vino, siempre hay una historia extraordinaria y las vamos a contar">
+    <meta property="og:title" content="Sin título - 1000 Malbecs">
+    <meta property="og:description" content="Detrás de un gran vino, siempre hay una historia extraordinaria y las vamos a contar">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/es/blog/posts/la-fuerza.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sin título - 1000 Malbecs">
+    <meta name="twitter:description" content="Detrás de un gran vino, siempre hay una historia extraordinaria y las vamos a contar">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/es/blog/posts/la-fuerza.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/la-fuerza.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/la-fuerza.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/la-fuerza.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+         body {
+            font-family: 'Montserrat', sans-serif !important;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Imagen de Berlín más chica */
+        .berlin-image {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        @media (max-width: 768px) {
+            .berlin-image {
+                max-width: 100%;
+                margin: 15px auto;
+            }
+        }
+
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+                .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+         .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2, .post-content h3 {
+            color: #4A2C59;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="language-selector">
+        <a href="/es/blog/posts/la-fuerza.html" data-lang="es" aria-label="Español" class="active">ES </a>
+        <a href="/en/blog/posts/la-fuerza.html" data-lang="en" aria-label="English" class="">EN </a>
+        <a href="/de/blog/posts/la-fuerza.html" data-lang="de" aria-label="Deutsch" class="">DE </a>
+    </div>
+    <div class="header">
+        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+    <main>
+        <div class="main-content">
+          <h1>Die Kraft des Winters, die Lüfte des Frühlings</h1>
+            <div class="post-content">
+                <p>Wir stecken mitten im europäischen Winter. Und dieser ist einer der härtesten der letzten 30 Jahre, zumindest in manchen Regionen Deutschlands. Mich hat neulich ein Foto der völlig zugefrorenen Spree in Berlin sehr beeindruckt.</p>
+                <p><img class="berlin-image" alt="Zugefrorene Spree in Berlin" src="/es/blog/images/image-7.jpg" /></p>
+                <p>Mir gefällt auch sehr die Arbeit, die <strong>Wines of Argentina</strong> mit der Kampagne <em>The Wine for Now</em> vorantreibt. Die Idee ist klar: Es gibt für jeden Moment einen Wein. Und unsere Malbecs – die in dieser Weltgegend noch recht neu sind – passen perfekt zu dieser Jahreszeit. (Auch wenn ehrlich gesagt ein guter Wein im Sommer zum Asado nie fehlen darf, oder?).</p>
+                <p>Da ich in Deutschland lebe und mich schon daran gewöhne, „in der Zukunft“ zu leben, denke ich bereits an den Frühling. Und ich habe eine <strong>superwichtige Neuigkeit</strong>: Wir nehmen die Vermuts von La Fuerza Vermú in unser Sortiment auf 1000malbecs.com auf!</p>
+                <p>Die Kategorie Vermut aufzunehmen war eine Notwendigkeit, die wir beim Besuch von Bars und Restaurants festgestellt haben – vor allem dort, wo naturgemäß mehr Cocktails als Weingläser ausgeschenkt werden. Es ist die ideale Ergänzung zu unserem Angebot und eine große Chance für Konsumenten, die jetzt auch die Vermuts von La Fuerza direkt bei <a href="https://1000malbecs.com">1000malbecs.com</a> kaufen können.</p>
+                <p><img src="https://www.1000malbecs.com/images/bodegas/la-fuerza-vermu-1.jpg" alt="La Fuerza Vermuts"></p>
+                <h3>La Fuerza Vermuts jetzt verfügbar bei 1000malbecs.com</h3>
+                <p>Alle in Mendoza am Fuße der Anden hergestellt, mit Basisweinen, lokalen Kräutern und Botanicals, ohne Konservierungsstoffe oder künstliche Aromen. Typischer Alkoholgehalt: 17–17,5 % vol. in 0,75-l-Flaschen.</p>
+<style>
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+    width: 100%;
+  }
+  .product-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+    max-width: 300px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .product-card img {
+    height: 190px;
+    max-width: 200px;
+    object-fit: contain;
+    margin: 10px auto;
+  }
+  .product-card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: #4A2C59;
+    text-align: center;
+    min-height: 50px;
+  }
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 44, 89, 0.85);
+    color: #FFFFFF;
+    padding: 50px 15px 15px;
+    box-sizing: border-box;
+    font-size: 13px;
+    overflow-y: auto;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .product-card:hover .overlay {
+    display: block;
+  }
+  .overlay p {
+    margin: 8px 0;
+    color: #FFFFFF !important;
+  }
+  .overlay p strong {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .info-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    color: #4A2C59;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+  }
+  .buy-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #4A2C59;
+    color: #f5e6ff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    width: 90%;
+    max-width: 180px;
+    z-index: 3;
+  }
+  .buy-button:hover {
+    background-color: #5A1D39;
+  }
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .product-card {
+      min-height: 320px;
+    }
+    .product-card img {
+      height: 140px;
+      max-width: 140px;
+    }
+    .info-icon {
+      display: block;
+    }
+    .overlay {
+      display: none;
+    }
+    .product-card .overlay.active {
+      display: block !important;
+    }
+    .product-card:hover .overlay {
+      display: none;
+    }
+  }
+</style>
+
+<div class="product-grid">
+
+
+  <!-- Card 1: La Fuerza Rojo -->
+  <div class="product-card">
+    <img src="/images/small/la-fuerza-rojo.jpg" alt="La Fuerza Rojo" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Rojo';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Beschreibung:</strong> Würzig, floral und mit leichter Bitterkeit.</p>
+      <p><strong>Basis / Noten:</strong> Malbec-Basis + über 30 andine Kräuter (mendozinische Artemisia, Jarilla, Thymian, Peperina, Salbei, Orangenschale).</p>
+      <p><strong>Ideal für:</strong> Negroni, Americano, Spritz.</p>
+      <p><strong>Alkoholgehalt:</strong> 17 % vol. – 750 ml.</p>
+    </div>
+    <h3>La Fuerza Rojo</h3>
+    <a href="https://www.1000malbecs.com/de/vinos/la-fuerza-rojo.html" class="buy-button">Kaufen</a>
+  </div>
+
+  <!-- Card 2: La Fuerza Blanco -->
+  <div class="product-card">
+    <img src="/images/small/la-fuerza-blanco.jpg" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Blanco';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Beschreibung:</strong> Zitrusfrisch, erfrischend und duftend.</p>
+      <p><strong>Basis / Noten:</strong> Torrontés-Basis + Kräuter wie Minze, Thymian und mendozinische Artemisia.</p>
+      <p><strong>Ideal für:</strong> Pur trinken, mit Soda oder Tonic.</p>
+      <p><strong>Alkoholgehalt:</strong> 17 % vol. – 750 ml.</p>
+    </div>
+    <h3>La Fuerza Blanco</h3>
+    <a href="https://www.1000malbecs.com/de/vinos/la-fuerza-blanco.html" class="buy-button">Kaufen</a>
+  </div>
+
+  <!-- Card 3: La Fuerza Primavera -->
+  <div class="product-card">
+    <img src="/images/small/la-fuerza-primavera.jpg" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Primavera';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Beschreibung:</strong> Frisch, floral und exotisch (weder Bianco, noch Rosso, noch Rosé).</p>
+      <p><strong>Basis / Noten:</strong> Infusion von 14 Botanicals (Fenchel, Hibiskus, Veilchen, Lavendel, Marcela, Orangenblüte u. a.) + Torrontés-Basis.</p>
+      <p><strong>Ideal für:</strong> Frühlingshafte, erfrischende Momente.</p>
+      <p><strong>Alkoholgehalt:</strong> 17 % vol. – 750 ml.</p>
+    </div>
+    <h3>La Fuerza Primavera</h3>
+    <a href="https://www.1000malbecs.com/de/vinos/la-fuerza-primavera.html" class="buy-button">Kaufen</a>
+  </div>
+
+  <!-- Card 4: La Fuerza Sideral -->
+  <div class="product-card">
+    <img src="/images/small/la-fuerza-sideral.jpg" alt="La Fuerza Sideral" onerror="this.src='https://via.placeholder.com/200x190?text=La+Fuerza+Sideral';">
+    <div class="info-icon">🍷</div>
+    <div class="overlay">
+      <p><strong>Beschreibung:</strong> Intensiv, aromatisch und tiefgründig.</p>
+      <p><strong>Basis / Noten:</strong> Malbec-Basis, 12 Monate in Eichenfässern gereift + andine Kräuter.</p>
+      <p><strong>Ideal für:</strong> Ruhige Verkostung, komplexe Cocktails.</p>
+      <p><strong>Alkoholgehalt:</strong> 17,5 % vol. – 750 ml.</p>
+    </div>
+    <h3>La Fuerza Sideral</h3>
+    <a href="https://www.1000malbecs.com/de/vinos/la-fuerza-sideral.html" class="buy-button">Kaufen</a>
+  </div>
+
+</div>
+
+</div>
+
+p>Sie können sie direkt hier ansehen und kaufen:<br />
+                👉 <a href="https://1000malbecs.com/de/bodegas/la-fuerza-vermu.html">La Fuerza Vermut bei 1000malbecs.com</a></p>
+                <p>Bis nächste Woche,</p>
+                <p>Federico Augspach<br />
+                <a href="https://1000malbecs.com">1000malbecs.com</a></p>
+            </div>
+            <a href="https://1000malbecs.com/de" class="back-link">Zurück zur Startseite</a>
+        </div>
+    </main>
+</body>
+</html>
