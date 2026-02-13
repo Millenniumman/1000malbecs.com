@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
+         body {
+            font-family: 'Montserrat', sans-serif !important;
             margin: 0;
             padding: 0;
             display: flex;
@@ -33,6 +33,25 @@
             background-color: #FFFFFF;
             overflow-x: hidden;
         }
+
+        /* Imagen de Berlín más chica */
+        .berlin-image {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        @media (max-width: 768px) {
+            .berlin-image {
+                max-width: 100%;
+                margin: 15px auto;
+            }
+        }
+
         .sidebar {
             display: none !important;
         }
@@ -64,7 +83,7 @@
             opacity: 0;
             visibility: hidden;
         }
-        .language-selector a {
+                .language-selector a {
             text-decoration: none;
             color: #4A2C59;
             font-size: 14px;
@@ -83,15 +102,7 @@
             background-color: #4A2C59;
             color: #FFFFFF;
         }
-        main {
-            margin: 0 auto;
-            padding: 20px;
-            width: 100%;
-            max-width: 1280px;
-            flex: 1;
-            box-sizing: border-box;
-        }
-        .main-content {
+         .main-content {
             max-width: 800px;
             margin: 0 auto 40px;
             text-align: left;
@@ -106,12 +117,14 @@
             text-align: center;
             color: #4A2C59;
         }
-        .post-content h1, .post-content h2 {
+        .post-content h1, .post-content h2, .post-content h3 {
             color: #4A2C59;
+            font-family: 'Montserrat', sans-serif;
         }
         .post-content p {
             line-height: 1.6;
             color: #333;
+            font-family: 'Montserrat', sans-serif;
         }
         .back-link {
             display: block;
@@ -303,7 +316,7 @@
 <p>Me encanta también el trabajo que están impulsando desde <strong>Wines of Argentina</strong> con la campaña <em>The Wine for Now</em>. La idea es clara: hay un vino para cada momento. Y nuestros Malbecs —que son todavía bastante nuevos en esta parte del mundo— son perfectos para acompañarnos en esta época del año. (Aunque, seamos sinceros, un buen vino nunca está de más en verano con un asado, ¿no?).</p>
 <p>Pero como vivo en Alemania y ya me estoy acostumbrando a vivir “en el futuro”, ya estoy pensando en la primavera. Y tengo una <strong>novedad súper importante</strong> para compartir: ¡estamos incorporando los vermuts de La Fuerza Vermú a nuestro catálogo en 1000malbecs.com!</p>
 <p>Incorporar la categoría vermut era una necesidad que detectamos al recorrer bares y restaurantes, especialmente aquellos donde naturalmente se sirven más tragos que copas de vino. Es el complemento ideal para nuestra oferta y una gran oportunidad para los consumidores que ahora también pueden comprar los vermuts de La Fuerza directamente en <a href="https://1000malbecs.com">1000malbecs.com</a>.</p>
-<p><img alt="Vermuts La Fuerza" src=/images/bodegas/la-fuerza-vermu-1.jpg"/>
+<p><img alt="Vermuts La Fuerza" src"=/images/bodegas/la-fuerza-vermu-1.jpg"/>
 <h3>Los vermuts de La Fuerza ahora disponibles</h3>
 <p>Todos elaborados en Mendoza al pie de los Andes, con vinos base, hierbas y botánicos locales, sin conservantes ni aromatizantes artificiales. Graduación típica: 17-17,5% alc. vol. en botella de 750 ml.</p>
 <style>
