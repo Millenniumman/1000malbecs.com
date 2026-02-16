@@ -591,19 +591,33 @@ body {
         <p><strong>Premios:</strong> 90 pts Tim Atkins 2020</p>
         
         
-    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 20px 0;">
-      <a href="https://wa.me/..." onclick="..." class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 300px;">
-        <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-      </a>
-      
-      <div style="align-self: center; color: #555; font-weight: 500; font-size: 15px; white-space: nowrap;">
-        o
-      </div>
-      
-      <a href="mailto:ventas@..." class="buy-btn" style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 300px;">
-        <i class="fas fa-envelope"></i> Contactar por email
-      </a>
-    </div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Amalaya%20Malbec%202023%20(2023)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
+
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Amalaya%20Malbec%202023%20(2023)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Amalaya%20Malbec%202023%20(2023)%0A→%20Bodega:%20Bodega%20Amalaya%0A→%20Precio:%20€13.50 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
          <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
