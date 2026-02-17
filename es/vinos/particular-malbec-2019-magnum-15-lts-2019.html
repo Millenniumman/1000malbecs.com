@@ -180,8 +180,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,57 +515,8 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
@@ -617,30 +568,49 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/particular-malbec-2019-magnum-15-lts-2019.jpg" alt="Particular Malbec 2019 Magnum 1.5 Lts 2019">
+      <img src="https://www.1000malbecs.com/images/large/particular-malbec-2019-magnum-15-lts-2019.jpg" alt="Particular Malbec 2019 Magnum 1.5 Lts 2019 2019">
       <div class="info">
         <h1>Particular Malbec 2019 Magnum 1.5 Lts 2019</h1>
-        <p><strong>Precio:</strong> €67.99 / botella (1.50 L)</p>
-        <p><i><strong>Precio por litro:</strong> €45.33 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Particular%20Malbec%202019%20Magnum%201.5%20Lts%202019%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-        <br>
-        <br>
         <p><strong>Bodega:</strong> Bodegas Bianchi</p>
         <p><strong>Región:</strong> San rafael</p>
-        <p><strong>Altura:</strong> 750.0 msnm</p>
+        <p><strong>Altura:</strong> 750 msnm</p>
+        <p><strong>Precio:</strong> €67.99 / botella (1.50 L)</p>
         <p><strong>Volumen:</strong> 1500 ml</p>
-        
-        <p><strong>Alcohol:</strong> 14.6%</p>
+        <p><strong>Precio por litro:</strong> €45.33 / litro</p>
+        <p><strong>Alcohol:</strong> 14,60%</p>
         
         
         <p><strong>Guarda:</strong> 15 años</p>
+        
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Particular%20Malbec%202019%20Magnum%201.5%20Lts%202019%20(2019)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Particular%20Malbec%202019%20Magnum%201.5%20Lts%202019%20(2019)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Particular%20Malbec%202019%20Magnum%201.5%20Lts%202019%20(2019)%0A→%20Bodega:%20Bodegas%20Bianchi%0A→%20Precio:%20€67.99 / botella (1.50 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -665,179 +635,322 @@ body {
     </div>
 
     <!-- OTRA BODEGA -->
+
+  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodegas Bianchi</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodegas Bianchi</h3>
-    <div class="grid">
-      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Famiglia Bianchi Malbec  2021">
+        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Famiglia Bianchi Malbec  2021 2021">
         <h4>Famiglia Bianchi Malbec  2021</h4>
         <p>€18.49</p>
         <a href="/es/vinos/famiglia-bianchi-malbec-2021.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+          <p><strong>Famiglia Bianchi Malbec  2021</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 800.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+          <p><strong>Altura:</strong> 800 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              En nariz, presenta aromas a frambuesa, cereza y pimienta negra, con matices de vainilla y un toque herbal. En boca, es jugoso, con sabores a frutos rojos, es...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2023.jpg" alt="Famiglia Bianchi Malbec  2023">
+        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2023.jpg" alt="Famiglia Bianchi Malbec  2023 2023">
         <h4>Famiglia Bianchi Malbec  2023</h4>
         <p>€18.49</p>
         <a href="/es/vinos/famiglia-bianchi-malbec-2023.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+          <p><strong>Famiglia Bianchi Malbec  2023</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 800.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+          <p><strong>Altura:</strong> 800 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              En nariz, despliega aromas a frambuesa, cereza y pimienta negra, con matices de vainilla y hierbas frescas. En boca, es jugoso, con sabores a frutos rojos, e...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Famiglia Bianchi Malbec 2020">
+        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Famiglia Bianchi Malbec 2020 2020">
         <h4>Famiglia Bianchi Malbec 2020</h4>
         <p>€19.49</p>
         <a href="/es/vinos/famiglia-bianchi-malbec-2020.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+          <p><strong>Famiglia Bianchi Malbec 2020</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 800.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+          <p><strong>Altura:</strong> 800 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              En nariz, ofrece aromas a mora, ciruela y violetas, con notas de vainilla y especias dulces. En boca, es estructurado, con sabores a frutos negros, chocolate...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Famiglia Bianchi Malbec 2014">
+        <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Famiglia Bianchi Malbec 2014 2014">
         <h4>Famiglia Bianchi Malbec 2014</h4>
         <p>€21.49</p>
         <a href="/es/vinos/famiglia-bianchi-malbec-2014.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+          <p><strong>Famiglia Bianchi Malbec 2014</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 800.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+          <p><strong>Altura:</strong> 800 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              En nariz, despliega aromas a ciruela seca, cuero y tabaco, con notas de especias dulces y un toque ahumado. En boca, es estructurado, con sabores a frutos ne...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/gran-famiglia-malbec-2017.jpg" alt="Gran Famiglia  Malbec  2017">
+        <img src="https://www.1000malbecs.com/images/small/gran-famiglia-malbec-2017.jpg" alt="Gran Famiglia  Malbec  2017 2017">
         <h4>Gran Famiglia  Malbec  2017</h4>
         <p>€25.49</p>
         <a href="/es/vinos/gran-famiglia-malbec-2017.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+          <p><strong>Gran Famiglia  Malbec  2017</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          <p><strong>Altura:</strong> 1100 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              En nariz, despliega aromas a mora, ciruela y cuero, con notas de tabaco y especias dulces. En boca, es estructurado, con sabores a frutos negros, chocolate y...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/particular-malbec-2020.jpg" alt="Particular Malbec 2020">
+        <img src="https://www.1000malbecs.com/images/small/particular-malbec-2020.jpg" alt="Particular Malbec 2020 2020">
         <h4>Particular Malbec 2020</h4>
         <p>€27.99</p>
         <a href="/es/vinos/particular-malbec-2020.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodegas Bianchi</p>
+          <p><strong>Particular Malbec 2020</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 750.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+          <p><strong>Altura:</strong> 750 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Este Malbec se elabora con uvas de Finca Asti, Las Paredes, San Rafael, donde se obtienen uvas con muy buena concentración y tipicidad. De color rojo profund...
+            </p>
+          
         </div>
       </div>
-      
-    </div>
     
+  </div>
+
 
     <!-- OTRA REGIÓN -->
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">Otros vinos de San rafael</h3>
-      <div class="grid">
-        
+
+  <div class="region-section">
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de San rafael</h3>
+    <div class="grid">
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Casa Araujo Varietal 2023">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Casa Araujo Varietal 2023 2023">
           <h4>Casa Araujo Varietal 2023</h4>
           <p>€7.99</p>
           <a href="/es/vinos/casa-araujo-varietal-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Casa Araujo Varietal 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 13.2%</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,20%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                A la vista presenta color rojo rubí, intenso con leves destellos violáceos. De gran complejidad aromática, combina ciruelas, violetas e higos. Perfil alcanza...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Goye Malbec 2022">
+          <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Goye Malbec 2022 2022">
           <h4>Goye Malbec 2022</h4>
           <p>€9.49</p>
           <a href="/es/vinos/goye-malbec-2022.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+            <p><strong>Goye Malbec 2022</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Goyenechea</p>
             <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,00%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Rojo rubí con reflejos púrpuras, brillante y vivaz. En nariz se manifiestan frutas secas, nuez y un leve especiado. Taninos suaves y una buena presencia de m...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Casa Araujo Roble 2023">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Casa Araujo Roble 2023 2023">
           <h4>Casa Araujo Roble 2023</h4>
           <p>€10.19</p>
           <a href="/es/vinos/casa-araujo-roble-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Casa Araujo Roble 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 13.7%</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,70%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                El primer contacto que nos ofrece es un brillante color de tonalidad rubí y de buena intensidad. Luego en nariz es un vino de aromas vibrantes, con una evolu...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-mimi-2023.jpg" alt="Casa Araujo Mimi 2023">
+          <img src="https://www.1000malbecs.com/images/small/casa-araujo-mimi-2023.jpg" alt="Casa Araujo Mimi 2023 2023">
           <h4>Casa Araujo Mimi 2023</h4>
-          <p>€11.19</p>
+          <p>€13.99</p>
           <a href="/es/vinos/casa-araujo-mimi-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Casa Araujo Mimi 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 13.4%</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,40%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                En nariz encontramos el ensamble perfecto entre los aromas de frutos rojos, cerezas y moras propias del Malbec, con la nota especiada que aporta el Merlot. E...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/nucha-2023.jpg" alt="Nucha 2023">
+          <img src="https://www.1000malbecs.com/images/small/nucha-2023.jpg" alt="Nucha 2023 2023">
           <h4>Nucha 2023</h4>
           <p>€12.99</p>
           <a href="/es/vinos/nucha-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Nucha 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 14.5%</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,50%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Notas de cata: a la vista de color rojo intenso, con reflejos violáceos, brillante, joven y en nariz elegante y balanceado, combina aromas frutados propios d...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023">
+          <img src="https://www.1000malbecs.com/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023 2023">
           <h4>Graciano Reserva Blend 2023</h4>
           <p>€13.59</p>
           <a href="/es/vinos/graciano-reserva-blend-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Casa Araujo</p>
+            <p><strong>Graciano Reserva Blend 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
             <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 14.3%</p>
+            <p><strong>Altura:</strong> 520 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,30%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                A la vista nos muestra su intensa y profunda tonalidad rojo rubí. En nariz nos ofrece un encuentro elegante con aromas complejos a frutos rojos y especias, t...
+              </p>
+            
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
+
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>

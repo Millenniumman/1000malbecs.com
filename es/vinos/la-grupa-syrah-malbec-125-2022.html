@@ -180,8 +180,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,57 +515,8 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
@@ -617,30 +568,49 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/la-grupa-syrah-malbec-125-2022.jpg" alt="LA Grupa Syrah Malbec 1.25 2022">
+      <img src="https://www.1000malbecs.com/images/large/la-grupa-syrah-malbec-125-2022.jpg" alt="LA Grupa Syrah Malbec 1.25 2022 2022">
       <div class="info">
         <h1>LA Grupa Syrah Malbec 1.25 2022</h1>
-        <p><strong>Precio:</strong> €15.99 / botella (0.75 L)</p>
-        <p><i><strong>Precio por litro:</strong> €21.32 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20LA%20Grupa%20Syrah%20Malbec%201.25%202022%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-        <br>
-        <br>
         <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
         <p><strong>Región:</strong> Tupungato</p>
-        <p><strong>Altura:</strong> 700.0 msnm</p>
+        <p><strong>Altura:</strong> 700 msnm</p>
+        <p><strong>Precio:</strong> €15.99 / botella (0.75 L)</p>
         <p><strong>Volumen:</strong> 750 ml</p>
+        <p><strong>Precio por litro:</strong> €21.32 / litro</p>
+        <p><strong>Alcohol:</strong> 13,90%</p>
         
-        <p><strong>Alcohol:</strong> 13.9%</p>
         
         
         
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20LA%20Grupa%20Syrah%20Malbec%201.25%202022%20(2022)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20LA%20Grupa%20Syrah%20Malbec%201.25%202022%20(2022)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20LA%20Grupa%20Syrah%20Malbec%201.25%202022%20(2022)%0A→%20Bodega:%20Bodega%20Estancia%20Mendoza%0A→%20Precio:%20€15.99 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -658,62 +628,99 @@ body {
     </div>
 
     <!-- OTRA BODEGA -->
+
+  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Estancia Mendoza</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Estancia Mendoza</h3>
-    <div class="grid">
-      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="LA Grupa Syrah Malbec 0.75 2022">
+        <img src="https://www.1000malbecs.com/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="LA Grupa Syrah Malbec 0.75 2022 2022">
         <h4>LA Grupa Syrah Malbec 0.75 2022</h4>
         <p>€11.99</p>
         <a href="/es/vinos/la-grupa-syrah-malbec-075-2022.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
+          <p><strong>LA Grupa Syrah Malbec 0.75 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
           <p><strong>Región:</strong> Tupungato</p>
-          <p><strong>Altura:</strong> 700.0</p>
-          <p><strong>Alcohol:</strong> 13.9%</p>
+          <p><strong>Altura:</strong> 700 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,90%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              En nariz, despliega aromas a mora, ciruela y pimienta negra, con notas de violetas y un toque ahumado del Syrah. En boca, es equilibrado, con sabores a fruto...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021">
+        <img src="https://www.1000malbecs.com/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021 2021">
         <h4>Dilema Day Malbec 2021</h4>
         <p>€13.09</p>
         <a href="/es/vinos/dilema-day-malbec-2021.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
+          <p><strong>Dilema Day Malbec 2021</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Estancia Mendoza</p>
           <p><strong>Región:</strong> Tupungato</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,80%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              En nariz, presenta aromas a cereza, frambuesa y un toque de violetas, con matices herbales y una leve nota especiada. En boca, es ligero y jugoso, con sabore...
+            </p>
+          
         </div>
       </div>
-      
-    </div>
     
+  </div>
+
 
     <!-- OTRA REGIÓN -->
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">Otros vinos de Tupungato</h3>
-      <div class="grid">
-        
+
+  <div class="region-section">
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Tupungato</h3>
+    <div class="grid">
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/rutini-encuentro-barrel-blend-2020.jpg" alt="Rutini Encuentro Barrel Blend 2020">
+          <img src="https://www.1000malbecs.com/images/small/rutini-encuentro-barrel-blend-2020.jpg" alt="Rutini Encuentro Barrel Blend 2020 2020">
           <h4>Rutini Encuentro Barrel Blend 2020</h4>
           <p>€63.08</p>
           <a href="/es/vinos/rutini-encuentro-barrel-blend-2020.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Rutini Wines</p>
+            <p><strong>Rutini Encuentro Barrel Blend 2020</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
             <p><strong>Región:</strong> Tupungato</p>
-            <p><strong>Altura:</strong> 1220.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+            <p><strong>Altura:</strong> 1220 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,50%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Con un color rojo granate intenso, este vino presenta
+aromas de cerezas, guindas y confituras de moras,
+mezclados con toques de violetas, lavanda, especias y...
+              </p>
+            
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
+
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>

@@ -180,8 +180,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,57 +515,8 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
@@ -617,30 +568,49 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/kaiken-terroir-malbec-2022.jpg" alt="Kaiken Terroir Malbec 2022">
+      <img src="https://www.1000malbecs.com/images/large/kaiken-terroir-malbec-2022.jpg" alt="Kaiken Terroir Malbec 2022 2022">
       <div class="info">
         <h1>Kaiken Terroir Malbec 2022</h1>
-        <p><strong>Precio:</strong> €13.05 / botella (0.75 L)</p>
-        <p><i><strong>Precio por litro:</strong> €17.40 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Kaiken%20Terroir%20Malbec%202022%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-        <br>
-        <br>
         <p><strong>Bodega:</strong> Kaiken</p>
         <p><strong>Región:</strong> Luján de cuyo, agrelo</p>
-        <p><strong>Altura:</strong> 950.0 msnm</p>
+        <p><strong>Altura:</strong> 950 msnm</p>
+        <p><strong>Precio:</strong> €13.05 / botella (0.75 L)</p>
         <p><strong>Volumen:</strong> 750 ml</p>
-        
-        <p><strong>Alcohol:</strong> 14.2%</p>
+        <p><strong>Precio por litro:</strong> €17.40 / litro</p>
+        <p><strong>Alcohol:</strong> 14,20%</p>
         
         
         <p><strong>Guarda:</strong> 8 años</p>
+        
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Kaiken%20Terroir%20Malbec%202022%20(2022)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Kaiken%20Terroir%20Malbec%202022%20(2022)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Kaiken%20Terroir%20Malbec%202022%20(2022)%0A→%20Bodega:%20Kaiken%0A→%20Precio:%20€13.05 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -665,94 +635,165 @@ body {
     </div>
 
     <!-- OTRA BODEGA -->
+
+  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Kaiken</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Kaiken</h3>
-    <div class="grid">
-      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/kaiken-estate-malbec-reserve-2022.jpg" alt="Kaiken Estate Malbec Reserve 2022">
+        <img src="https://www.1000malbecs.com/images/small/kaiken-estate-malbec-reserve-2022.jpg" alt="Kaiken Estate Malbec Reserve 2022 2022">
         <h4>Kaiken Estate Malbec Reserve 2022</h4>
         <p>€12.05</p>
         <a href="/es/vinos/kaiken-estate-malbec-reserve-2022.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Kaiken</p>
+          <p><strong>Kaiken Estate Malbec Reserve 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Kaiken</p>
           <p><strong>Región:</strong> Luján de cuyo, agrelo</p>
-          <p><strong>Altura:</strong> 950.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+          <p><strong>Altura:</strong> 950 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Rojo con reflejos violáceos. En nariz se aprecian aromas intensos y frutales como ciruelas maduras, cerezas negras y moras. También aparecen notas especiadas...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/kaiken-terroir-cabernet-sauvignon-2021.jpg" alt="Kaiken Terroir Cabernet Sauvignon 2021">
+        <img src="https://www.1000malbecs.com/images/small/kaiken-terroir-cabernet-sauvignon-2021.jpg" alt="Kaiken Terroir Cabernet Sauvignon 2021 2021">
         <h4>Kaiken Terroir Cabernet Sauvignon 2021</h4>
         <p>€13.05</p>
         <a href="/es/vinos/kaiken-terroir-cabernet-sauvignon-2021.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Kaiken</p>
+          <p><strong>Kaiken Terroir Cabernet Sauvignon 2021</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Kaiken</p>
           <p><strong>Región:</strong> Luján de cuyo, agrelo</p>
-          <p><strong>Altura:</strong> 950.0</p>
-          <p><strong>Alcohol:</strong> 14.3%</p>
+          <p><strong>Altura:</strong> 950 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,30%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Presenta un intenso color rojo con tonos rubí. La nariz es intensa con una variada gama de aromas que le atribuyen a este vino una gran elegancia. Se destaca...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/kaiken-ultra-malbec-2021.jpg" alt="Kaiken Ultra Malbec 2021">
+        <img src="https://www.1000malbecs.com/images/small/kaiken-ultra-malbec-2021.jpg" alt="Kaiken Ultra Malbec 2021 2021">
         <h4>Kaiken Ultra Malbec 2021</h4>
         <p>€21.49</p>
         <a href="/es/vinos/kaiken-ultra-malbec-2021.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Kaiken</p>
+          <p><strong>Kaiken Ultra Malbec 2021</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Kaiken</p>
           <p><strong>Región:</strong> Luján de cuyo, agrelo</p>
-          <p><strong>Altura:</strong> 950.0</p>
-          <p><strong>Alcohol:</strong> 14.8%</p>
+          <p><strong>Altura:</strong> 950 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,80%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Un Malbec de intenso color rojo con tonos violáceos y azules. Se perciben aromas intensos a frutas morada y violetas acompañados de notas a flores blancas y ...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/kaiken-disobedience-red-blend-2020.jpg" alt="Kaiken Disobedience Red Blend 2020">
+        <img src="https://www.1000malbecs.com/images/small/kaiken-disobedience-red-blend-2020.jpg" alt="Kaiken Disobedience Red Blend 2020 2020">
         <h4>Kaiken Disobedience Red Blend 2020</h4>
         <p>€22.70</p>
         <a href="/es/vinos/kaiken-disobedience-red-blend-2020.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Kaiken</p>
+          <p><strong>Kaiken Disobedience Red Blend 2020</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Kaiken</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1250.0</p>
-          <p><strong>Alcohol:</strong> 14.5%</p>
+          <p><strong>Altura:</strong> 1250 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Deslumbra con un color rubí intenso con leve matiz violeta, brillante y profundo. Aromas intensos, equilibrados y elegantes, de expresión frutal muy precisa ...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/kaiken-disobedience-red-blend-2021.jpg" alt="Kaiken Disobedience Red Blend 2021">
+        <img src="https://www.1000malbecs.com/images/small/kaiken-disobedience-red-blend-2021.jpg" alt="Kaiken Disobedience Red Blend 2021 2021">
         <h4>Kaiken Disobedience Red Blend 2021</h4>
         <p>€22.77</p>
         <a href="/es/vinos/kaiken-disobedience-red-blend-2021.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Kaiken</p>
+          <p><strong>Kaiken Disobedience Red Blend 2021</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Kaiken</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1250.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+          <p><strong>Altura:</strong> 1250 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Deslumbra con un color rubí intenso con leve matiz violeta, brillante y profundo. Aromas intensos, equilibrados y elegantes, de expresión frutal muy precisa ...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/kaiken-ultra-malbec-magnum-1500-cc-2019.jpg" alt="Kaiken Ultra Malbec Magnum 1500 cc 2019">
+        <img src="https://www.1000malbecs.com/images/small/kaiken-ultra-malbec-magnum-1500-cc-2019.jpg" alt="Kaiken Ultra Malbec Magnum 1500 cc 2019 2019">
         <h4>Kaiken Ultra Malbec Magnum 1500 cc 2019</h4>
         <p>€44.18</p>
         <a href="/es/vinos/kaiken-ultra-malbec-magnum-1500-cc-2019.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Kaiken</p>
+          <p><strong>Kaiken Ultra Malbec Magnum 1500 cc 2019</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Kaiken</p>
           <p><strong>Región:</strong> Luján de cuyo, agrelo</p>
-          <p><strong>Altura:</strong> 950.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+          <p><strong>Altura:</strong> 950 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Un Malbec de intenso color rojo con tonos violáceos y azules. Se perciben aromas intensos a frutas morada y violetas acompañados de notas a flores blancas y ...
+            </p>
+          
         </div>
       </div>
-      
-    </div>
-    
-
-    <!-- OTRA REGIÓN -->
     
   </div>
+
+
+    <!-- OTRA REGIÓN -->
+
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>
