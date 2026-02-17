@@ -193,9 +193,10 @@
 </head>
 <body>
 <div class="language-selector">
-    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES 🇪🇸</a>
-    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
-    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN 🇬🇧</a>
+    <a aria-label="Español" class="active" data-lang="es" href="#">ES </a>
+    <a aria-label="Alemán" data-lang="de" href="#">DE </a>
+    <a aria-label="Inglés" data-lang="en" href="#">EN </a>
+</div>
 </div>
 <header class="header">
     <a href="/es/" title="Volver a la página principal">
@@ -875,39 +876,56 @@
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
 
-    // Language selector
-    const languageSelector = document.querySelector('.language-selector');
-    let lastScrollY = window.scrollY;
-    let scrollThreshold = 50;
-    if (languageSelector) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                languageSelector.classList.add('hidden');
-            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
-        });
-        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetLang = link.getAttribute('data-lang');
-                const currentPath = window.location.pathname;
-                let newPath = currentPath;
-                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
-                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
-                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
-                if (newPath !== currentPath) { window.location.href = newPath; }
-            });
-        });
-        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-        langLinks.forEach(link => {
-            if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
-        });
-    }
+    // Language selector - navegación relativa
+const languageSelector = document.querySelector('.language-selector');
+if (languageSelector) {
+    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+    
+    langLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = link.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
 
+            // Mapa de prefijos actuales posibles
+            const langPrefixes = ['/es/', '/en/', '/de/'];
+            let newPath = currentPath;
+
+            // Quitar cualquier prefijo de idioma existente
+            for (const prefix of langPrefixes) {
+                if (currentPath.startsWith(prefix)) {
+                    newPath = currentPath.replace(prefix, '/');
+                    break;
+                }
+            }
+
+            // Agregar el nuevo prefijo (excepto si es la raíz)
+            if (targetLang !== 'es') {  // asumiendo 'es' como idioma por defecto sin prefijo
+                newPath = `/${targetLang}${newPath}`;
+            }
+
+            // Normalizar (quitar doble slash, etc.)
+            newPath = newPath.replace(/\/+/g, '/');
+
+            // Si estamos en raíz y target es 'es', ir a /es/ o / según tu preferencia
+            if (newPath === '/' && targetLang === 'es') {
+                newPath = '/es/';  // o '/' si es tu home por defecto
+            }
+
+            window.location.href = newPath;
+        });
+    });
+
+    // Marcar activo según URL actual
+    const currentLang = window.location.pathname.match(/\/(es|en|de)\//)?.[1] || 'es';
+    langLinks.forEach(link => {
+        if (link.getAttribute('data-lang') === currentLang) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
     // Search functionality
     const searchInput = document.querySelector('.search-input');
     const suggestionsList = document.querySelector('.search-suggestions');
