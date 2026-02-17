@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/reserva-malbec-tannat-2022.jpg" alt="Reserva Malbec Tannat 2022 2022">
       <div class="info">
         <h1>Reserva Malbec Tannat 2022</h1>
-        <p><strong>Price:</strong> €25.14 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €33.52 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Reserva%20Malbec%20Tannat%202022%202022" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €25.14 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €33.52 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Reserva%20Malbec%20Tannat%202022%20(2022)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Reserva%20Malbec%20Tannat%202022%20(2022)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Reserva%20Malbec%20Tannat%202022%20(2022)%0A→%20Winery:%20Piattelli%20Vineyards%0A→%20Price:%20€25.14 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Piattelli Vineyards</p>
         <p><strong>Region:</strong> Cafayate</p>
-        <p><strong>Altitude:</strong> 1795.0 masl</p>
+        <p><strong>Altitude:</strong> 1795 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+        <p><strong>Alcohol:</strong> 14.50%</p>
         
         <p><strong>Awards:</strong> 92 pts James Suckling 2014</p>
         <p><strong>Aging:</strong> 5 años</p>
@@ -624,7 +646,7 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>This wine has a great impact throughout the tasting stages and its passage through the mouth is magnificent. The wine has shades of violet and outlines of black that create a fierce scarlet color. On the nose, aromas of spicy and ripe red fruits mix together with eucalyptus and fig tree notes. In the mouth, it greets you with a pleasant entry given by the ripe, firm and intense tannins, the result of a slow polyphenolic maturation. It has a high structure and acidity that is balanced in a persistent finish. Reserva Malbec Tannat 2022 from Piattelli Vineyards</p>
+          <p>Este vino tiene un gran impacto a lo largo de las etapas de degustación y su paso por la boca es magnífico. El vino tiene tonos de violeta y contornos de negro que crean una Feroz color escarlata. En la nariz se mezclan aromas de frutas rojas picantes y maduras Junto con eucaliptos y notas de higuera. En la boca, saluda con Una entrada agradable dada por los taninos maduros, firmes e intensos, la Resultado de una lenta maduración polifenólica. Tiene una estructura alta Y la acidez que se equilibran en un final persistente</p>
         </div>
 
         
@@ -638,165 +660,354 @@ body {
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Piattelli Vineyards</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Piattelli Vineyards</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
+      <h4>Premium Reserva Malbec Mendoza 2022</h4>
+      <p>€25.14</p>
+      <a href="/en/vinos/premium-reserva-malbec-mendoza-2022.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
-        <h4>Premium Reserva Malbec Mendoza 2022</h4>
-        <p>€25.14</p>
-        <a href="/en/vinos/premium-reserva-malbec-mendoza-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Piattelli Vineyards</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 940.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+      <div class="overlay">
+  <p><strong>Premium Reserva Malbec Mendoza 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 940 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      A striking, lightly smoky wine with a deep burgundy color, Premium Reserve Malbec's fruity bouquet delights the senses and warms the palate with notes of bla...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/reserva-malbec-salta-2022.jpg" alt="Reserva Malbec Salta 2022 2022">
-        <h4>Reserva Malbec Salta 2022</h4>
-        <p>€25.14</p>
-        <a href="/en/vinos/reserva-malbec-salta-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Piattelli Vineyards</p>
-          <p><strong>Region:</strong> Cafayate</p>
-          <p><strong>Altitude:</strong> 1795.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/reserva-malbec-salta-2022.jpg" alt="Reserva Malbec Salta 2022 2022">
+      <h4>Reserva Malbec Salta 2022</h4>
+      <p>€25.14</p>
+      <a href="/en/vinos/reserva-malbec-salta-2022.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-salta-2020.jpg" alt="Gran Reserva Malbec Salta 2020 2020">
-        <h4>Gran Reserva Malbec Salta 2020</h4>
-        <p>€36.70</p>
-        <a href="/en/vinos/gran-reserva-malbec-salta-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Piattelli Vineyards</p>
-          <p><strong>Region:</strong> Cafayate</p>
-          <p><strong>Altitude:</strong> 1795.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
+      <div class="overlay">
+  <p><strong>Reserva Malbec Salta 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 1795 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Purple in color with aromatic notes of ripe plum and violet, the fruity bouquet of Reserva Malbec delights the senses. The palate is marked by its structure ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
-        <h4>Gran Reserva Malbec Mendoza 2022</h4>
-        <p>€36.70</p>
-        <a href="/en/vinos/gran-reserva-malbec-mendoza-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Piattelli Vineyards</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 975.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-salta-2020.jpg" alt="Gran Reserva Malbec Salta 2020 2020">
+      <h4>Gran Reserva Malbec Salta 2020</h4>
+      <p>€36.70</p>
+      <a href="/en/vinos/gran-reserva-malbec-salta-2020.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Trinitá Gran Reserva Blend 2020 2020">
-        <h4>Trinitá Gran Reserva Blend 2020</h4>
-        <p>€49.08</p>
-        <a href="/en/vinos/trinita-gran-reserva-blend-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Piattelli Vineyards</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 1200.0</p>
-          <p><strong>Alcohol:</strong> 14.399999999999999%</p>
+      <div class="overlay">
+  <p><strong>Gran Reserva Malbec Salta 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 1795 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      This wine represents the best of crops. An intense red color and aromas of black fruits, vanilla and smoke. These aromas are transformed to give the wine gre...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/arlene-malbec-y-cabernet-sauvignon-2019.jpg" alt="Arlene Malbec y Cabernet Sauvignon 2019 2019">
-        <h4>Arlene Malbec y Cabernet Sauvignon 2019</h4>
-        <p>€49.08</p>
-        <a href="/en/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Piattelli Vineyards</p>
-          <p><strong>Region:</strong> Cafayate</p>
-          <p><strong>Altitude:</strong> 1795.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
+      <h4>Gran Reserva Malbec Mendoza 2022</h4>
+      <p>€36.70</p>
+      <a href="/en/vinos/gran-reserva-malbec-mendoza-2022.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Gran Reserva Malbec Mendoza 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 975 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      A rich, fragrant wine with a deep purple hue, the Grand Malbec Reserva envelops the senses with an exquisite bouquet of sweet and spicy plum blossoms in the ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Trinitá Gran Reserva Blend 2020 2020">
+      <h4>Trinitá Gran Reserva Blend 2020</h4>
+      <p>€49.08</p>
+      <a href="/en/vinos/trinita-gran-reserva-blend-2020.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trinitá Gran Reserva Blend 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1200 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      It offers a spicy fragrance with an intense flavor of plum, chocolate, and raspberry cream. It contains an airy texture with a cherry and Asian spice finish....
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/arlene-malbec-y-cabernet-sauvignon-2019.jpg" alt="Arlene Malbec y Cabernet Sauvignon 2019 2019">
+      <h4>Arlene Malbec y Cabernet Sauvignon 2019</h4>
+      <p>€49.08</p>
+      <a href="/en/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Arlene Malbec y Cabernet Sauvignon 2019</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 1795 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Very deep black color, aromas of
+tobacco and black fruits. In the mouth it is long and silky. Its acidity stands out and
+freshness at the end of the mouth. A...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Cafayate</h3>
-      <div class="grid">
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Cafayate</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2022.jpg" alt="Imaginate Malbec 2022 2022">
           <h4>Imaginate Malbec 2022</h4>
           <p>€54.99</p>
           <a href="/en/vinos/imaginate-malbec-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
-            <p><strong>Region:</strong> Cafayate</p>
-            <p><strong>Altitude:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Imaginate Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 2100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of raspberry, blackberry and a touch of black pepper, with nuances of violets and fresh herbs. On the palate, it is juicy, wi...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2019.jpg" alt="Imaginate Malbec 2019 2019">
           <h4>Imaginate Malbec 2019</h4>
           <p>€56.99</p>
           <a href="/en/vinos/imaginate-malbec-2019.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
-            <p><strong>Region:</strong> Cafayate</p>
-            <p><strong>Altitude:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 15.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Imaginate Malbec 2019</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 2100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 15.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of raspberry, blackberry and a touch of black pepper, with nuances of violets and fresh herbs. On the palate, it is juicy, wi...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2020.jpg" alt="Amar Vivir Malbec 2020 2020">
           <h4>Amar Vivir Malbec 2020</h4>
           <p>€112.99</p>
           <a href="/en/vinos/amar-vivir-malbec-2020.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
-            <p><strong>Region:</strong> Cafayate</p>
-            <p><strong>Altitude:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 14.099999999999998%</p>
+          
+         <div class="overlay">
+  <p><strong>Amar Vivir Malbec 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 2100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.10%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it presents aromas of cherry, plum and a touch of sweet spices, with notes of violets and a herbal touch. In the mouth, it is balanced, with fla...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2019.jpg" alt="Amar Vivir Malbec 2019 2019">
           <h4>Amar Vivir Malbec 2019</h4>
           <p>€122.99</p>
           <a href="/en/vinos/amar-vivir-malbec-2019.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
-            <p><strong>Region:</strong> Cafayate</p>
-            <p><strong>Altitude:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 15.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Amar Vivir Malbec 2019</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca & Bodega Arca Yaco</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 2100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 15.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it presents aromas of cherry, plum and a touch of sweet spices, with notes of violets and a herbal touch. In the mouth, it is balanced, with fla...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/finca-las-nubes-cabernet-malbec-2020.jpg" alt="Finca Las Nubes Cabernet Malbec 2020 2020">
           <h4>Finca Las Nubes Cabernet Malbec 2020</h4>
           <p>€15.30</p>
           <a href="/en/vinos/finca-las-nubes-cabernet-malbec-2020.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Finca Las Nubes</p>
-            <p><strong>Region:</strong> Cafayate</p>
-            <p><strong>Altitude:</strong> 1850.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Finca Las Nubes Cabernet Malbec 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca Las Nubes</p>
+  <p><strong>Region:</strong> Cafayate</p>
+  <p><strong>Altitude:</strong> 1850 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color, aromas of red fruits, peppers and spices, balanced and full-bodied in the mouth, pleasant finish. Regional foods, meats, pastas and cheese...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->

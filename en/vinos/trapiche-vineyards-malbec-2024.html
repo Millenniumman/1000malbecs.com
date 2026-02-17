@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/trapiche-vineyards-malbec-2024.jpg" alt="Trapiche Vineyards Malbec 2024 2024">
       <div class="info">
         <h1>Trapiche Vineyards Malbec 2024</h1>
-        <p><strong>Price:</strong> €6.99 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €9.32 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Trapiche%20Vineyards%20Malbec%202024%202024" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €6.99 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €9.32 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Trapiche%20Vineyards%20Malbec%202024%20(2024)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Trapiche%20Vineyards%20Malbec%202024%20(2024)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Trapiche%20Vineyards%20Malbec%202024%20(2024)%0A→%20Winery:%20Trapiche%0A→%20Price:%20€6.99 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Trapiche</p>
         <p><strong>Region:</strong> Lujan de cuyo</p>
-        <p><strong>Altitude:</strong> 900.0 masl</p>
+        <p><strong>Altitude:</strong> 900 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 14.0%</p>
+        <p><strong>Alcohol:</strong> 14.00%</p>
         
         
         <p><strong>Aging:</strong> 4 años</p>
@@ -624,120 +646,239 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Nose: plum, cherry, touches of mocha and spices. Palate: vibrant with notes of ripe plum, blackberry, sandy acidity that maintains freshness; Smooth finish with balanced tannins. Trapiche Vineyards Malbec from Trapiche</p>
+          <p>Nariz: ciruela, cereza, toques de mocha y especias. Paladar: vibrante con notas de ciruela madura, mora, acidez arenosa que mantiene frescura; final suave con taninos equilibrados.</p>
         </div>
 
         
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Trapiche</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Trapiche</h3>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
+      <h4>Trapiche Reserve Malbec 2023</h4>
+      <p>€14.99</p>
+      <a href="/en/vinos/trapiche-reserve-malbec-2023.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trapiche Reserve Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      nan
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trapiche-medalla-malbec-2022.jpg" alt="Trapiche Medalla Malbec 2022 2022">
+      <h4>Trapiche Medalla Malbec 2022</h4>
+      <p>€14.99</p>
+      <a href="/en/vinos/trapiche-medalla-malbec-2022.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trapiche Medalla Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      nan
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trapiche-gran-medalla-malbec-2018.jpg" alt="Trapiche Gran Medalla Malbec 2018 2018">
+      <h4>Trapiche Gran Medalla Malbec 2018</h4>
+      <p>€42.02</p>
+      <a href="/en/vinos/trapiche-gran-medalla-malbec-2018.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trapiche Gran Medalla Malbec 2018</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      nan
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-suarez-lastra-2010.jpg" alt="Trapiche Terroir Series Malbec Suarez Lastra 2010 2010">
+      <h4>Trapiche Terroir Series Malbec Suarez Lastra 2010</h4>
+      <p>€47.80</p>
+      <a href="/en/vinos/trapiche-terroir-series-malbec-suarez-lastra-2010.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trapiche Terroir Series Malbec Suarez Lastra 2010</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      nan
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-orellana-2012.jpg" alt="Trapiche Terroir Series Malbec Orellana 2012 2012">
+      <h4>Trapiche Terroir Series Malbec Orellana 2012</h4>
+      <p>€47.80</p>
+      <a href="/en/vinos/trapiche-terroir-series-malbec-orellana-2012.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trapiche Terroir Series Malbec Orellana 2012</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      nan
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.jpg" alt="Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013 2013">
+      <h4>Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013</h4>
+      <p>€49.80</p>
+      <a href="/en/vinos/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      nan
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Lujan de cuyo</h3>
     <div class="grid">
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
-        <h4>Trapiche Reserve Malbec 2023</h4>
-        <p>€14.99</p>
-        <a href="/en/vinos/trapiche-reserve-malbec-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Trapiche</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-medalla-malbec-2022.jpg" alt="Trapiche Medalla Malbec 2022 2022">
-        <h4>Trapiche Medalla Malbec 2022</h4>
-        <p>€14.99</p>
-        <a href="/en/vinos/trapiche-medalla-malbec-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Trapiche</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-gran-medalla-malbec-2018.jpg" alt="Trapiche Gran Medalla Malbec 2018 2018">
-        <h4>Trapiche Gran Medalla Malbec 2018</h4>
-        <p>€42.02</p>
-        <a href="/en/vinos/trapiche-gran-medalla-malbec-2018.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Trapiche</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-suarez-lastra-2010.jpg" alt="Trapiche Terroir Series Malbec Suarez Lastra 2010 2010">
-        <h4>Trapiche Terroir Series Malbec Suarez Lastra 2010</h4>
-        <p>€47.80</p>
-        <a href="/en/vinos/trapiche-terroir-series-malbec-suarez-lastra-2010.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Trapiche</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-orellana-2012.jpg" alt="Trapiche Terroir Series Malbec Orellana 2012 2012">
-        <h4>Trapiche Terroir Series Malbec Orellana 2012</h4>
-        <p>€47.80</p>
-        <a href="/en/vinos/trapiche-terroir-series-malbec-orellana-2012.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Trapiche</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.jpg" alt="Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013 2013">
-        <h4>Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013</h4>
-        <p>€49.80</p>
-        <a href="/en/vinos/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Trapiche</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
-        </div>
-      </div>
-      
-    </div>
-    
-
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Lujan de cuyo</h3>
-      <div class="grid">
-        
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/chakana-nuna-rose-2022.jpg" alt="CHAKANA Nuna Rose 2022 2022">
           <h4>CHAKANA Nuna Rose 2022</h4>
           <p>€19.99</p>
           <a href="/en/vinos/chakana-nuna-rose-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Chakana</p>
-            <p><strong>Region:</strong> Lujan de cuyo</p>
-            <p><strong>Altitude:</strong> 960.0</p>
-            <p><strong>Alcohol:</strong> 13.2%</p>
+          
+         <div class="overlay">
+  <p><strong>CHAKANA Nuna Rose 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Chakana</p>
+  <p><strong>Region:</strong> Lujan de cuyo</p>
+  <p><strong>Altitude:</strong> 960 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.20%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      nan
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->

@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/saurus-barrel-fermented-malbec-2022.jpg" alt="Saurus Barrel Fermented  Malbec 2022 2022">
       <div class="info">
         <h1>Saurus Barrel Fermented  Malbec 2022</h1>
-        <p><strong>Price:</strong> €25.49 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €33.99 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Saurus%20Barrel%20Fermented%20%20Malbec%202022%202022" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €25.49 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €33.99 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Saurus%20Barrel%20Fermented%20%20Malbec%202022%20(2022)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Saurus%20Barrel%20Fermented%20%20Malbec%202022%20(2022)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Saurus%20Barrel%20Fermented%20%20Malbec%202022%20(2022)%0A→%20Winery:%20Familia%20Schroeder%0A→%20Price:%20€25.49 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Familia Schroeder</p>
         <p><strong>Region:</strong> San patricio del chañar</p>
-        <p><strong>Altitude:</strong> 400.0 masl</p>
+        <p><strong>Altitude:</strong> 400 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+        <p><strong>Alcohol:</strong> 14.50%</p>
         
         
         
@@ -624,63 +646,114 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>On the nose, it displays aromas of cassis, blackberry and black truffle, with notes of tobacco and exotic spices. On the palate, it is opulent, with flavors of dark fruits, dark chocolate and a smoky touch. The tannins are silky, with balanced acidity. The finish is deep, with nuances of toasted oak and minerality. Pair with roast lamb, meat stew or parmesan. Saurus Barrel Fermented  Malbec 2022 from Familia Schroeder</p>
+          <p>En nariz, despliega aromas a cassis, mora y trufa negra, con notas de tabaco y especias exóticas. En boca, es opulento, con sabores a frutos negros, chocolate amargo y un toque ahumado. Los taninos son sedosos, con una acidez equilibrada. El final es profundo, con matices de roble tostado y mineralidad. Marida con cordero asado, estofado de carne o parmesano.</p>
         </div>
 
         
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Familia Schroeder</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Familia Schroeder</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/saurus-malbec-2023.jpg" alt="Saurus  Malbec 2023 2023">
+      <h4>Saurus  Malbec 2023</h4>
+      <p>€14.49</p>
+      <a href="/en/vinos/saurus-malbec-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/saurus-malbec-2023.jpg" alt="Saurus  Malbec 2023 2023">
-        <h4>Saurus  Malbec 2023</h4>
-        <p>€14.49</p>
-        <a href="/en/vinos/saurus-malbec-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Familia Schroeder</p>
-          <p><strong>Region:</strong> San patricio del chañar</p>
-          <p><strong>Altitude:</strong> 400.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+      <div class="overlay">
+  <p><strong>Saurus  Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Familia Schroeder</p>
+  <p><strong>Region:</strong> San patricio del chañar</p>
+  <p><strong>Altitude:</strong> 400 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of raspberry, cherry and white pepper, with herbal nuances and a touch of vanilla. On the palate, it is light and juicy, with...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/saurus-patagonia-select-malbec-2022.jpg" alt="Saurus Patagonia Select  Malbec 2022 2022">
-        <h4>Saurus Patagonia Select  Malbec 2022</h4>
-        <p>€18.99</p>
-        <a href="/en/vinos/saurus-patagonia-select-malbec-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Familia Schroeder</p>
-          <p><strong>Region:</strong> San patricio del chañar</p>
-          <p><strong>Altitude:</strong> 400.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/saurus-patagonia-select-malbec-2022.jpg" alt="Saurus Patagonia Select  Malbec 2022 2022">
+      <h4>Saurus Patagonia Select  Malbec 2022</h4>
+      <p>€18.99</p>
+      <a href="/en/vinos/saurus-patagonia-select-malbec-2022.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/familia-schroeder-malbec-2019.jpg" alt="Familia Schroeder  Malbec 2019 2019">
-        <h4>Familia Schroeder  Malbec 2019</h4>
-        <p>€62.99</p>
-        <a href="/en/vinos/familia-schroeder-malbec-2019.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Familia Schroeder</p>
-          <p><strong>Region:</strong> San patricio del chañar</p>
-          <p><strong>Altitude:</strong> 400.0</p>
-          <p><strong>Alcohol:</strong> 15.4%</p>
+      <div class="overlay">
+  <p><strong>Saurus Patagonia Select  Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Familia Schroeder</p>
+  <p><strong>Region:</strong> San patricio del chañar</p>
+  <p><strong>Altitude:</strong> 400 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it offers aromas of blackberry, plum and violets, with notes of vanilla and sweet spices. In the mouth, it is structured, with flavors of black ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/familia-schroeder-malbec-2019.jpg" alt="Familia Schroeder  Malbec 2019 2019">
+      <h4>Familia Schroeder  Malbec 2019</h4>
+      <p>€62.99</p>
+      <a href="/en/vinos/familia-schroeder-malbec-2019.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Familia Schroeder  Malbec 2019</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Familia Schroeder</p>
+  <p><strong>Region:</strong> San patricio del chañar</p>
+  <p><strong>Altitude:</strong> 400 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 15.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of blackberry, prune and black truffle, with notes of tobacco and sweet spices. On the palate, it is opulent, with flavors of...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
-
-    
   </div>
 
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');

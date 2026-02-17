@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/rutini-encuentro-barrel-blend-2020.jpg" alt="Rutini Encuentro Barrel Blend 2020 2020">
       <div class="info">
         <h1>Rutini Encuentro Barrel Blend 2020</h1>
-        <p><strong>Price:</strong> €63.08 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €84.11 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Rutini%20Encuentro%20Barrel%20Blend%202020%202020" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €63.08 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €84.11 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Rutini%20Encuentro%20Barrel%20Blend%202020%20(2020)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Rutini%20Encuentro%20Barrel%20Blend%202020%20(2020)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Rutini%20Encuentro%20Barrel%20Blend%202020%20(2020)%0A→%20Winery:%20Rutini%20Wines%0A→%20Price:%20€63.08 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Rutini Wines</p>
         <p><strong>Region:</strong> Tupungato</p>
-        <p><strong>Altitude:</strong> 1220.0 masl</p>
+        <p><strong>Altitude:</strong> 1220 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Alcohol:</strong> 13.50%</p>
         
         
         
@@ -624,15 +646,15 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>With an intense garnet red color, this wine presents
-aromas of cherries, sour cherries and blackberry preserves,
-mixed with touches of violets, lavender, spices and
-fresh mint. It is voluptuous and balanced, with tannins
-well integrated and a long and pleasant finish that
-reminiscent of cocoa and tobacco.
-Accompaniment Suggestions
-Roasted red meats, grilled lamb, casseroles and
-stews seasoned with herbs and spices. Rutini Encuentro Barrel Blend 2020 from Rutini Wines</p>
+          <p>Con un color rojo granate intenso, este vino presenta
+aromas de cerezas, guindas y confituras de moras,
+mezclados con toques de violetas, lavanda, especias y
+menta fresca. Es voluptuoso y equilibrado, con taninos
+bien integrados y un final largo y placentero que
+recuerda al cacao y tabaco.
+Sugerencias de acompañamiento
+Carnes rojas asadas, cordero al asador, cazuelas y
+guisos condimentados con hierbas y especias.</p>
         </div>
 
         
@@ -646,139 +668,295 @@ stews seasoned with herbs and spices. Rutini Encuentro Barrel Blend 2020 from Ru
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Rutini Wines</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Rutini Wines</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
+      <h4>Trumpeter Malbec 375 ml 2023</h4>
+      <p>€9.96</p>
+      <a href="/en/vinos/trumpeter-malbec-375-ml-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
-        <h4>Trumpeter Malbec 375 ml 2023</h4>
-        <p>€9.96</p>
-        <a href="/en/vinos/trumpeter-malbec-375-ml-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Rutini Wines</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
+      <div class="overlay">
+  <p><strong>Trumpeter Malbec 375 ml 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Blackberry, plum and a touch of spice, with soft tannins. Pairing: chorizo ​​steak, roast lamb. Trumpeter Malbec 375 ml 2023 from Rutini Wines
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-syrah-2023.jpg" alt="Trumpeter Malbec Syrah 2023 2023">
-        <h4>Trumpeter Malbec Syrah 2023</h4>
-        <p>€15.98</p>
-        <a href="/en/vinos/trumpeter-malbec-syrah-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Rutini Wines</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.1%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-syrah-2023.jpg" alt="Trumpeter Malbec Syrah 2023 2023">
+      <h4>Trumpeter Malbec Syrah 2023</h4>
+      <p>€15.98</p>
+      <a href="/en/vinos/trumpeter-malbec-syrah-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-2023.jpg" alt="Trumpeter Malbec 2023 2023">
-        <h4>Trumpeter Malbec 2023</h4>
-        <p>€15.98</p>
-        <a href="/en/vinos/trumpeter-malbec-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Rutini Wines</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.9%</p>
+      <div class="overlay">
+  <p><strong>Trumpeter Malbec Syrah 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.10%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Black fruits such as blackberry and blueberry, with black pepper and a touch of oak. Pairing: grilled meats, spicy stews. Trumpeter Malbec Syrah 2023 from Ru...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-rose-de-malbec-2024.jpg" alt="Trumpeter Reserve Rose de Malbec 2024 2024">
-        <h4>Trumpeter Reserve Rose de Malbec 2024</h4>
-        <p>€18.38</p>
-        <a href="/en/vinos/trumpeter-reserve-rose-de-malbec-2024.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Rutini Wines</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.0%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-2023.jpg" alt="Trumpeter Malbec 2023 2023">
+      <h4>Trumpeter Malbec 2023</h4>
+      <p>€15.98</p>
+      <a href="/en/vinos/trumpeter-malbec-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-malbec-2023.jpg" alt="Trumpeter Reserve Malbec 2023 2023">
-        <h4>Trumpeter Reserve Malbec 2023</h4>
-        <p>€20.72</p>
-        <a href="/en/vinos/trumpeter-reserve-malbec-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Rutini Wines</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.3%</p>
+      <div class="overlay">
+  <p><strong>Trumpeter Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.90%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Notes of blackberry, plum and violets, with a touch of vanilla from oak aging. Pairing: chorizo ​​steak, grilled lamb. Trumpeter Malbec 2023 from Rutini Wines
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-blend-2023.jpg" alt="Trumpeter Reserve Blend 2023 2023">
-        <h4>Trumpeter Reserve Blend 2023</h4>
-        <p>€20.72</p>
-        <a href="/en/vinos/trumpeter-reserve-blend-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Rutini Wines</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-rose-de-malbec-2024.jpg" alt="Trumpeter Reserve Rose de Malbec 2024 2024">
+      <h4>Trumpeter Reserve Rose de Malbec 2024</h4>
+      <p>€22.22</p>
+      <a href="/en/vinos/trumpeter-reserve-rose-de-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trumpeter Reserve Rose de Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Fresh red fruits such as raspberry and strawberry, with a floral touch. Pairing: salads, grilled fish, fruit desserts. Trumpeter Reserve Rose de Malbec 2024 ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-malbec-2023.jpg" alt="Trumpeter Reserve Malbec 2023 2023">
+      <h4>Trumpeter Reserve Malbec 2023</h4>
+      <p>€20.72</p>
+      <a href="/en/vinos/trumpeter-reserve-malbec-2023.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trumpeter Reserve Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.30%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Ripe plum, chocolate and sweet spices, with velvety tannins. Pairing: Argentine roast, mature cheeses. Trumpeter Reserve Malbec 2023 from Rutini Wines
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-blend-2023.jpg" alt="Trumpeter Reserve Blend 2023 2023">
+      <h4>Trumpeter Reserve Blend 2023</h4>
+      <p>€20.72</p>
+      <a href="/en/vinos/trumpeter-reserve-blend-2023.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Trumpeter Reserve Blend 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Bright ruby ​​red in color. This blend dazzles by
+integrate the unique qualities of each of its
+varieties. On the nose there are aromas of raspberry,
+cherry ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Tupungato</h3>
-      <div class="grid">
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Tupungato</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/la-grupa-syrah-malbec-075-2022.jpg" alt="LA Grupa Syrah Malbec 0.75 2022 2022">
           <h4>LA Grupa Syrah Malbec 0.75 2022</h4>
           <p>€11.99</p>
           <a href="/en/vinos/la-grupa-syrah-malbec-075-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Estancia Mendoza</p>
-            <p><strong>Region:</strong> Tupungato</p>
-            <p><strong>Altitude:</strong> 700.0</p>
-            <p><strong>Alcohol:</strong> 13.9%</p>
+          
+         <div class="overlay">
+  <p><strong>LA Grupa Syrah Malbec 0.75 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Estancia Mendoza</p>
+  <p><strong>Region:</strong> Tupungato</p>
+  <p><strong>Altitude:</strong> 700 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.90%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of blackberry, plum and black pepper, with notes of violets and a smoky touch of Syrah. In the mouth, it is balanced, with fl...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/dilema-day-malbec-2021.jpg" alt="Dilema Day Malbec 2021 2021">
           <h4>Dilema Day Malbec 2021</h4>
           <p>€13.09</p>
           <a href="/en/vinos/dilema-day-malbec-2021.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Estancia Mendoza</p>
-            <p><strong>Region:</strong> Tupungato</p>
-            <p><strong>Altitude:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.8%</p>
+          
+         <div class="overlay">
+  <p><strong>Dilema Day Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Estancia Mendoza</p>
+  <p><strong>Region:</strong> Tupungato</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it presents aromas of cherry, raspberry and a touch of violets, with herbal nuances and a slight spicy note. On the palate, it is light and juic...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/la-grupa-syrah-malbec-125-2022.jpg" alt="LA Grupa Syrah Malbec 1.25 2022 2022">
           <h4>LA Grupa Syrah Malbec 1.25 2022</h4>
           <p>€15.99</p>
           <a href="/en/vinos/la-grupa-syrah-malbec-125-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Estancia Mendoza</p>
-            <p><strong>Region:</strong> Tupungato</p>
-            <p><strong>Altitude:</strong> 700.0</p>
-            <p><strong>Alcohol:</strong> 13.9%</p>
+          
+         <div class="overlay">
+  <p><strong>LA Grupa Syrah Malbec 1.25 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Estancia Mendoza</p>
+  <p><strong>Region:</strong> Tupungato</p>
+  <p><strong>Altitude:</strong> 700 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.90%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of blackberry, plum and black pepper, with notes of violets and a smoky touch of Syrah. In the mouth, it is balanced, with fl...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
