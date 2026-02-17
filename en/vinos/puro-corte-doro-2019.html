@@ -185,8 +185,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -520,26 +520,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -591,22 +581,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/puro-corte-doro-2019.jpg" alt="Puro Corte d'Oro 2019 2019">
       <div class="info">
         <h1>Puro Corte d'Oro 2019</h1>
-        <p><strong>Price:</strong> €37.76 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €50.35 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Puro%20Corte%20d%27Oro%202019%202019" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €37.76 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €50.35 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Puro%20Corte%20d%27Oro%202019%20(2019)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Puro%20Corte%20d%27Oro%202019%20(2019)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Puro%20Corte%20d%27Oro%202019%20(2019)%0A→%20Winery:%20Dieter%20Meier%20and%20Family%20Wines%0A→%20Price:%20€37.76 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
         <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Altitude:</strong> 1100.0 masl</p>
+        <p><strong>Altitude:</strong> 1100 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+        <p><strong>Alcohol:</strong> 14.00%</p>
         
         
         
@@ -628,9 +650,10 @@ A distinguished blend of our high quality grapes. Of pronounced complexity and e
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Color (View): Intense ruby ​​red with violet reflections, characteristic of a young and vibrant wine with a mixture of Malbec and Cabernet Sauvignon. Aroma (Nose): Ripe red fruits, highlighting sweet cherry, with earthy notes, dried leaves and a touch of wild rosemary. The influence of oak (if used in winemaking) provides nuances of vanilla and soft spices, complementing the fruity profile of Malbec and the herbal structure of Cabernet Sauvignon.
-Flavor (Mouth):
-Concentration of fruit in the mouth, with flavors of cherry, blackberry and a touch of plum. The tannins are grainy, offering a firm but balanced texture. Good acidity provides freshness, and oak (if present) adds complexity with notes of spices and a medium, persistent and pleasant finish. Puro Corte d'Oro 2019 from Dieter Meier and Family Wines</p>
+          <p>Color (Vista): Rojo rubí intenso con reflejos violáceos, característico de un vino joven y vibrante con una mezcla de Malbec y Cabernet Sauvignon. Aroma (Nariz):Frutas rojas maduras, destacándose la cereza dulce, con notas terrosas, hojas secas y un toque de romero silvestre. La influencia del roble (si se utiliza en la vinificación) aporta matices de vainilla y especias suaves, complementando el perfil frutal del Malbec y la estructura herbal del Cabernet Sauvignon.
+Sabor (Boca):
+Concentración de fruta en boca, con sabores de cereza, mora y un toque de ciruela. Los taninos son granulados, ofreciendo una textura firme pero equilibrada. La buena acidez aporta frescura, y el roble (si presente) agrega complejidad con notas de especias y un final medio, persistente y agradable.
+</p>
         </div>
 
         
@@ -644,165 +667,363 @@ Concentration of fruit in the mouth, with flavors of cherry, blackberry and a to
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Dieter Meier and Family Wines</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Dieter Meier and Family Wines</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/puro-malbec-cabernet-2023.jpg" alt="Puro Malbec Cabernet 2023 2023">
+      <h4>Puro Malbec Cabernet 2023</h4>
+      <p>€15.99</p>
+      <a href="/en/vinos/puro-malbec-cabernet-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/puro-malbec-cabernet-2023.jpg" alt="Puro Malbec Cabernet 2023 2023">
-        <h4>Puro Malbec Cabernet 2023</h4>
-        <p>€15.99</p>
-        <a href="/en/vinos/puro-malbec-cabernet-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 14.3%</p>
+      <div class="overlay">
+  <p><strong>Puro Malbec Cabernet 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.30%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Purple core with a maroon rim.
+Tasting notes:
+Aroma: Fresh red and black fruits, dominated by notes of raspberry along with floral touches of rose pet...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2023.jpg" alt="Ojo de Agua Malbec  2023 2023">
-        <h4>Ojo de Agua Malbec  2023</h4>
-        <p>€18.36</p>
-        <a href="/en/vinos/ojo-de-agua-malbec-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2023.jpg" alt="Ojo de Agua Malbec  2023 2023">
+      <h4>Ojo de Agua Malbec  2023</h4>
+      <p>€18.36</p>
+      <a href="/en/vinos/ojo-de-agua-malbec-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2020.jpg" alt="Ojo de Agua Malbec  2020 2020">
-        <h4>Ojo de Agua Malbec  2020</h4>
-        <p>€18.36</p>
-        <a href="/en/vinos/ojo-de-agua-malbec-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+      <div class="overlay">
+  <p><strong>Ojo de Agua Malbec  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Purple with maroon reflections.  
+Aroma: Dominated by red fruits, mainly cherry and plum, with a perfume of rose petals.  
+Taste: Full of fruit on the...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/puro-rose-2023.jpg" alt="Puro Rose  2023 2023">
-        <h4>Puro Rose  2023</h4>
-        <p>€18.50</p>
-        <a href="/en/vinos/puro-rose-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 12.5%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2020.jpg" alt="Ojo de Agua Malbec  2020 2020">
+      <h4>Ojo de Agua Malbec  2020</h4>
+      <p>€18.36</p>
+      <a href="/en/vinos/ojo-de-agua-malbec-2020.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/puro-corte-2022.jpg" alt="Puro Corte 2022 2022">
-        <h4>Puro Corte 2022</h4>
-        <p>€20.76</p>
-        <a href="/en/vinos/puro-corte-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 14.6%</p>
+      <div class="overlay">
+  <p><strong>Ojo de Agua Malbec  2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Purple with maroon reflections.  
+Aroma: Dominated by red fruits, mainly cherry and plum, with a perfume of rose petals.  
+Taste: Full of fruit on the...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/puro-malbec-2022.jpg" alt="Puro Malbec 2022 2022">
-        <h4>Puro Malbec 2022</h4>
-        <p>€21.01</p>
-        <a href="/en/vinos/puro-malbec-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/puro-rose-2023.jpg" alt="Puro Rose  2023 2023">
+      <h4>Puro Rose  2023</h4>
+      <p>€18.50</p>
+      <a href="/en/vinos/puro-rose-2023.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Puro Rose  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 12.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Pink with copper reflections.  
+Aroma: Wild strawberries and raspberries, some white flowers and a young, crisp cherry profile.  
+Taste: Lively acidit...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/puro-corte-2022.jpg" alt="Puro Corte 2022 2022">
+      <h4>Puro Corte 2022</h4>
+      <p>€20.76</p>
+      <a href="/en/vinos/puro-corte-2022.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Puro Corte 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.60%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Deep, dark and intense garnet.  
+Aroma: Red fruits with a prominent note of strawberry. Earthy, with dried autumn leaves and a touch of woody wild her...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/puro-malbec-2022.jpg" alt="Puro Malbec 2022 2022">
+      <h4>Puro Malbec 2022</h4>
+      <p>€21.01</p>
+      <a href="/en/vinos/puro-malbec-2022.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Puro Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Intense and dark purple.
+Aroma: Full of concentrated blackberry and some raspberry compote. Floral background of violet and a touch of blackcurrant le...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Agrelo</h3>
-      <div class="grid">
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Agrelo</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
           <h4>Premium Reserva Malbec Mendoza 2022</h4>
           <p>€25.14</p>
           <a href="/en/vinos/premium-reserva-malbec-mendoza-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Piattelli Vineyards</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 940.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Premium Reserva Malbec Mendoza 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 940 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      A striking, lightly smoky wine with a deep burgundy color, Premium Reserve Malbec's fruity bouquet delights the senses and warms the palate with notes of bla...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Monteagrelo Malbec 2020 2020">
           <h4>Monteagrelo Malbec 2020</h4>
           <p>€29.36</p>
           <a href="/en/vinos/monteagrelo-malbec-2020.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Bressia</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 940.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Monteagrelo Malbec 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Bressia</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 940 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color with purple hues and black reflections, denoting great concentration and vivacity.
+Complex and attractive aromas of red and black fruits (s...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
           <h4>Gran Reserva Malbec Mendoza 2022</h4>
           <p>€36.70</p>
           <a href="/en/vinos/gran-reserva-malbec-mendoza-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Piattelli Vineyards</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 975.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Gran Reserva Malbec Mendoza 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 975 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      A rich, fragrant wine with a deep purple hue, the Grand Malbec Reserva envelops the senses with an exquisite bouquet of sweet and spicy plum blossoms in the ...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/bressia-profundo-blend-2020.jpg" alt="Bressia Profundo Blend 2020 2020">
           <h4>Bressia Profundo Blend 2020</h4>
           <p>€43.06</p>
           <a href="/en/vinos/bressia-profundo-blend-2020.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Bressia</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 970.0</p>
-            <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+          
+         <div class="overlay">
+  <p><strong>Bressia Profundo Blend 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Bressia</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 970 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense ruby ​​red color with purple hues and bright reflections, which reflect its concentration and vitality. Complex and elegant aromas, with notes of rip...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Trinitá Gran Reserva Blend 2020 2020">
           <h4>Trinitá Gran Reserva Blend 2020</h4>
           <p>€49.08</p>
           <a href="/en/vinos/trinita-gran-reserva-blend-2020.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Piattelli Vineyards</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 1200.0</p>
-            <p><strong>Alcohol:</strong> 14.399999999999999%</p>
+          
+         <div class="overlay">
+  <p><strong>Trinitá Gran Reserva Blend 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1200 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      It offers a spicy fragrance with an intense flavor of plum, chocolate, and raspberry cream. It contains an airy texture with a cherry and Asian spice finish....
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
