@@ -180,8 +180,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,57 +515,8 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
@@ -617,30 +568,49 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/gran-reserva-malbec-salta-2020.jpg" alt="Gran Reserva Malbec Salta 2020">
+      <img src="https://www.1000malbecs.com/images/large/gran-reserva-malbec-salta-2020.jpg" alt="Gran Reserva Malbec Salta 2020 2020">
       <div class="info">
         <h1>Gran Reserva Malbec Salta 2020</h1>
-        <p><strong>Precio:</strong> €36.70 / botella (0.75 L)</p>
-        <p><i><strong>Precio por litro:</strong> €48.93 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Gran%20Reserva%20Malbec%20Salta%202020%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-        <br>
-        <br>
         <p><strong>Bodega:</strong> Piattelli Vineyards</p>
         <p><strong>Región:</strong> Cafayate</p>
-        <p><strong>Altura:</strong> 1795.0 msnm</p>
+        <p><strong>Altura:</strong> 1795 msnm</p>
+        <p><strong>Precio:</strong> €36.70 / botella (0.75 L)</p>
         <p><strong>Volumen:</strong> 750 ml</p>
-        
-        <p><strong>Alcohol:</strong> 13.8%</p>
+        <p><strong>Precio por litro:</strong> €48.93 / litro</p>
+        <p><strong>Alcohol:</strong> 13,80%</p>
         
         <p><strong>Premios:</strong> 93 pts James Suckling 2014</p>
         <p><strong>Guarda:</strong> 8 años</p>
+        
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Gran%20Reserva%20Malbec%20Salta%202020%20(2020)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Gran%20Reserva%20Malbec%20Salta%202020%20(2020)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Gran%20Reserva%20Malbec%20Salta%202020%20(2020)%0A→%20Bodega:%20Piattelli%20Vineyards%0A→%20Precio:%20€36.70 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -665,166 +635,299 @@ body {
     </div>
 
     <!-- OTRA BODEGA -->
+
+  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Piattelli Vineyards</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Piattelli Vineyards</h3>
-    <div class="grid">
-      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022">
+        <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
         <h4>Premium Reserva Malbec Mendoza 2022</h4>
         <p>€25.14</p>
         <a href="/es/vinos/premium-reserva-malbec-mendoza-2022.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Piattelli Vineyards</p>
+          <p><strong>Premium Reserva Malbec Mendoza 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Piattelli Vineyards</p>
           <p><strong>Región:</strong> Agrelo</p>
-          <p><strong>Altura:</strong> 940.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          <p><strong>Altura:</strong> 940 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Un vino llamativo y ligeramente ahumado con un intenso color borgoña, el bouquet frutal de Premium Reserve Malbec deleita los sentidos y calienta el paladar ...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/reserva-malbec-salta-2022.jpg" alt="Reserva Malbec Salta 2022">
+        <img src="https://www.1000malbecs.com/images/small/reserva-malbec-salta-2022.jpg" alt="Reserva Malbec Salta 2022 2022">
         <h4>Reserva Malbec Salta 2022</h4>
         <p>€25.14</p>
         <a href="/es/vinos/reserva-malbec-salta-2022.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Piattelli Vineyards</p>
+          <p><strong>Reserva Malbec Salta 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Piattelli Vineyards</p>
           <p><strong>Región:</strong> Cafayate</p>
-          <p><strong>Altura:</strong> 1795.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+          <p><strong>Altura:</strong> 1795 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              De color púrpura con notas aromáticas de ciruela madura y violeta, el bouquet frutal de Reserva Malbec deleita los sentidos. La boca está marcada por su estr...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/reserva-malbec-tannat-2022.jpg" alt="Reserva Malbec Tannat 2022">
+        <img src="https://www.1000malbecs.com/images/small/reserva-malbec-tannat-2022.jpg" alt="Reserva Malbec Tannat 2022 2022">
         <h4>Reserva Malbec Tannat 2022</h4>
         <p>€25.14</p>
         <a href="/es/vinos/reserva-malbec-tannat-2022.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Piattelli Vineyards</p>
+          <p><strong>Reserva Malbec Tannat 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Piattelli Vineyards</p>
           <p><strong>Región:</strong> Cafayate</p>
-          <p><strong>Altura:</strong> 1795.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+          <p><strong>Altura:</strong> 1795 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Este vino tiene un gran impacto a lo largo de las etapas de degustación y su paso por la boca es magnífico. El vino tiene tonos de violeta y contornos de neg...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022">
+        <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
         <h4>Gran Reserva Malbec Mendoza 2022</h4>
         <p>€36.70</p>
         <a href="/es/vinos/gran-reserva-malbec-mendoza-2022.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Piattelli Vineyards</p>
+          <p><strong>Gran Reserva Malbec Mendoza 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Piattelli Vineyards</p>
           <p><strong>Región:</strong> Agrelo</p>
-          <p><strong>Altura:</strong> 975.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          <p><strong>Altura:</strong> 975 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Un vino rico y fragante con un tono púrpura profundo, el Grand Malbec Reserva envuelve los sentidos con un exquisito ramo de ciruela dulce y picante, flores ...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Trinitá Gran Reserva Blend 2020">
+        <img src="https://www.1000malbecs.com/images/small/trinita-gran-reserva-blend-2020.jpg" alt="Trinitá Gran Reserva Blend 2020 2020">
         <h4>Trinitá Gran Reserva Blend 2020</h4>
         <p>€49.08</p>
         <a href="/es/vinos/trinita-gran-reserva-blend-2020.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Piattelli Vineyards</p>
+          <p><strong>Trinitá Gran Reserva Blend 2020</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Piattelli Vineyards</p>
           <p><strong>Región:</strong> Agrelo</p>
-          <p><strong>Altura:</strong> 1200.0</p>
-          <p><strong>Alcohol:</strong> 14.399999999999999%</p>
+          <p><strong>Altura:</strong> 1200 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,40%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Ofrece una fragancia picante con un sabor intenso a ciruela, chocolate, y crema de frambuesa. Contiene una textura aireado con un acabado de cereza y especie...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/arlene-malbec-y-cabernet-sauvignon-2019.jpg" alt="Arlene Malbec y Cabernet Sauvignon 2019">
+        <img src="https://www.1000malbecs.com/images/small/arlene-malbec-y-cabernet-sauvignon-2019.jpg" alt="Arlene Malbec y Cabernet Sauvignon 2019 2019">
         <h4>Arlene Malbec y Cabernet Sauvignon 2019</h4>
         <p>€49.08</p>
         <a href="/es/vinos/arlene-malbec-y-cabernet-sauvignon-2019.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Piattelli Vineyards</p>
+          <p><strong>Arlene Malbec y Cabernet Sauvignon 2019</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Piattelli Vineyards</p>
           <p><strong>Región:</strong> Cafayate</p>
-          <p><strong>Altura:</strong> 1795.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          <p><strong>Altura:</strong> 1795 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Color negro muy profundo, aromas a
+tabaco y frutas negras. En boca es largo y sedoso. Destaca su acidez y
+frescura en el Final de boca .
+            </p>
+          
         </div>
       </div>
-      
-    </div>
     
+  </div>
+
 
     <!-- OTRA REGIÓN -->
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">Otros vinos de Cafayate</h3>
-      <div class="grid">
-        
+
+  <div class="region-section">
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Cafayate</h3>
+    <div class="grid">
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2022.jpg" alt="Imaginate Malbec 2022">
+          <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2022.jpg" alt="Imaginate Malbec 2022 2022">
           <h4>Imaginate Malbec 2022</h4>
           <p>€54.99</p>
           <a href="/es/vinos/imaginate-malbec-2022.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Imaginate Malbec 2022</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
             <p><strong>Región:</strong> Cafayate</p>
-            <p><strong>Altura:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+            <p><strong>Altura:</strong> 2100 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,00%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                En nariz, despliega aromas a frambuesa, mora y un toque de pimienta negra, con matices de violetas y hierbas frescas. En boca, es jugoso, con sabores a fruto...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2019.jpg" alt="Imaginate Malbec 2019">
+          <img src="https://www.1000malbecs.com/images/small/imaginate-malbec-2019.jpg" alt="Imaginate Malbec 2019 2019">
           <h4>Imaginate Malbec 2019</h4>
           <p>€56.99</p>
           <a href="/es/vinos/imaginate-malbec-2019.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Imaginate Malbec 2019</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
             <p><strong>Región:</strong> Cafayate</p>
-            <p><strong>Altura:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 15.0%</p>
+            <p><strong>Altura:</strong> 2100 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 15,00%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                En nariz, despliega aromas a frambuesa, mora y un toque de pimienta negra, con matices de violetas y hierbas frescas. En boca, es jugoso, con sabores a fruto...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2020.jpg" alt="Amar Vivir Malbec 2020">
+          <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2020.jpg" alt="Amar Vivir Malbec 2020 2020">
           <h4>Amar Vivir Malbec 2020</h4>
           <p>€112.99</p>
           <a href="/es/vinos/amar-vivir-malbec-2020.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Amar Vivir Malbec 2020</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
             <p><strong>Región:</strong> Cafayate</p>
-            <p><strong>Altura:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 14.099999999999998%</p>
+            <p><strong>Altura:</strong> 2100 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,10%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                En nariz, presenta aromas a cereza, ciruela y un toque de especias dulces, con notas de violetas y un dejo herbal. En boca, es equilibrado, con sabores a fru...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2019.jpg" alt="Amar Vivir Malbec 2019">
+          <img src="https://www.1000malbecs.com/images/small/amar-vivir-malbec-2019.jpg" alt="Amar Vivir Malbec 2019 2019">
           <h4>Amar Vivir Malbec 2019</h4>
           <p>€122.99</p>
           <a href="/es/vinos/amar-vivir-malbec-2019.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
+            <p><strong>Amar Vivir Malbec 2019</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca & Bodega Arca Yaco</p>
             <p><strong>Región:</strong> Cafayate</p>
-            <p><strong>Altura:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 15.0%</p>
+            <p><strong>Altura:</strong> 2100 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 15,00%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                En nariz, presenta aromas a cereza, ciruela y un toque de especias dulces, con notas de violetas y un dejo herbal. En boca, es equilibrado, con sabores a fru...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/finca-las-nubes-cabernet-malbec-2020.jpg" alt="Finca Las Nubes Cabernet Malbec 2020">
+          <img src="https://www.1000malbecs.com/images/small/finca-las-nubes-cabernet-malbec-2020.jpg" alt="Finca Las Nubes Cabernet Malbec 2020 2020">
           <h4>Finca Las Nubes Cabernet Malbec 2020</h4>
           <p>€15.30</p>
           <a href="/es/vinos/finca-las-nubes-cabernet-malbec-2020.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Finca Las Nubes</p>
+            <p><strong>Finca Las Nubes Cabernet Malbec 2020</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca Las Nubes</p>
             <p><strong>Región:</strong> Cafayate</p>
-            <p><strong>Altura:</strong> 1850.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+            <p><strong>Altura:</strong> 1850 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,50%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Color rojo intenso ,aromas a frutas rojas,pimientos y especias, en boca equilibrado y de buen cuerpo, final agradable. Comidas regionales, carnes, pastas y quesos.
+              </p>
+            
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
+
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>
