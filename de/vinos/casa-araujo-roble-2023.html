@@ -585,6 +585,18 @@ body {
     margin-left: 40px;        /* más desplazamiento en desktop */
   }
 }
+.region-section h3.grid-section-title {
+  margin-left: 300px !important;   /* mismo valor que .container margin-left */
+  padding-left: 20px;              /* opcional: pequeño extra para alinear con las tarjetas */
+  box-sizing: border-box;
+}
+
+/* Fuerza en desktop donde está el sidebar */
+@media (min-width: 769px) {
+  .region-section h3.grid-section-title {
+    margin-left: 320px !important;   /* ajusta si tu sidebar es 220px + padding 20px */
+  }
+}
 </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
@@ -642,7 +654,7 @@ body {
     €10.19 / Flasche (0.75 L)
   </p>
   
-  <p style="font-size: 11px; color: #555; margin: 6px 0 0; font-style: italic;">
+  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
     (Preis pro Liter: €13.59 / L)
   </p>
 </div>
@@ -836,11 +848,11 @@ body {
   
           </div>
         </div>
-         <!-- ← ESTE ES EL QUE FALTABA O ESTABA MAL COLOCADO -->
+      
     </div>
   </div>
 
-  !-- OTROS VINOS DE LA MISMA REGIÓN -->
+ 
 
   <div class="region-section">
     <h3 class="grid-section-title" style="color: var(--primary);">Weitere Weine aus San rafael</h3>

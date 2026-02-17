@@ -585,6 +585,18 @@ body {
     margin-left: 40px;        /* más desplazamiento en desktop */
   }
 }
+.region-section h3.grid-section-title {
+  margin-left: 300px !important;   /* mismo valor que .container margin-left */
+  padding-left: 20px;              /* opcional: pequeño extra para alinear con las tarjetas */
+  box-sizing: border-box;
+}
+
+/* Fuerza en desktop donde está el sidebar */
+@media (min-width: 769px) {
+  .region-section h3.grid-section-title {
+    margin-left: 320px !important;   /* ajusta si tu sidebar es 220px + padding 20px */
+  }
+}
 </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
@@ -642,7 +654,7 @@ body {
     €13.59 / Flasche (0.75 L)
   </p>
   
-  <p style="font-size: 11px; color: #555; margin: 6px 0 0; font-style: italic;">
+  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
     (Preis pro Liter: €18.12 / L)
   </p>
 </div>
@@ -836,11 +848,11 @@ body {
   
           </div>
         </div>
-         <!-- ← ESTE ES EL QUE FALTABA O ESTABA MAL COLOCADO -->
+      
     </div>
   </div>
 
-  <!-- OTROS VINOS DE LA MISMA REGIÓN -->
+ 
 
   <div class="region-section">
     <h3 class="grid-section-title" style="color: var(--primary);">Weitere Weine aus San rafael</h3>
@@ -851,14 +863,17 @@ body {
           <h4>Goye Malbec 2022</h4>
           <p>€9.49</p>
           <a href="/de/vinos/goye-malbec-2022.html">Kaufen</a>
+          
           <div class="overlay">
             <p><strong>Goye Malbec 2022</strong></p>
+            
             <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodega Goyenechea</p>
             <p><strong>Region:</strong> San rafael</p>
             <p><strong>Höhe:</strong> 520 m ü. NN</p>
             
             
               <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+            
             
             
             
@@ -876,14 +891,17 @@ body {
           <h4>Famiglia Bianchi Malbec  2021</h4>
           <p>€18.49</p>
           <a href="/de/vinos/famiglia-bianchi-malbec-2021.html">Kaufen</a>
+          
           <div class="overlay">
             <p><strong>Famiglia Bianchi Malbec  2021</strong></p>
+            
             <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodegas Bianchi</p>
             <p><strong>Region:</strong> San rafael</p>
             <p><strong>Höhe:</strong> 800 m ü. NN</p>
             
             
               <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+            
             
             
             
@@ -901,14 +919,17 @@ body {
           <h4>Famiglia Bianchi Malbec  2023</h4>
           <p>€18.49</p>
           <a href="/de/vinos/famiglia-bianchi-malbec-2023.html">Kaufen</a>
+          
           <div class="overlay">
             <p><strong>Famiglia Bianchi Malbec  2023</strong></p>
+            
             <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodegas Bianchi</p>
             <p><strong>Region:</strong> San rafael</p>
             <p><strong>Höhe:</strong> 800 m ü. NN</p>
             
             
               <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+            
             
             
             
@@ -926,14 +947,17 @@ body {
           <h4>Famiglia Bianchi Malbec 2020</h4>
           <p>€19.49</p>
           <a href="/de/vinos/famiglia-bianchi-malbec-2020.html">Kaufen</a>
+          
           <div class="overlay">
             <p><strong>Famiglia Bianchi Malbec 2020</strong></p>
+            
             <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodegas Bianchi</p>
             <p><strong>Region:</strong> San rafael</p>
             <p><strong>Höhe:</strong> 800 m ü. NN</p>
             
             
               <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+            
             
             
             
@@ -951,14 +975,17 @@ body {
           <h4>Quinta Generación Malbec 2022</h4>
           <p>€19.99</p>
           <a href="/de/vinos/quinta-generacion-malbec-2022.html">Kaufen</a>
+          
           <div class="overlay">
             <p><strong>Quinta Generación Malbec 2022</strong></p>
+            
             <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodega Goyenechea</p>
             <p><strong>Region:</strong> San rafael</p>
             <p><strong>Höhe:</strong> 520 m ü. NN</p>
             
             
               <p><strong>Alkohol:</strong> 14,40 % vol.</p>
+            
             
             
             
@@ -976,14 +1003,17 @@ body {
           <h4>Famiglia Bianchi Malbec 2014</h4>
           <p>€21.49</p>
           <a href="/de/vinos/famiglia-bianchi-malbec-2014.html">Kaufen</a>
+          
           <div class="overlay">
             <p><strong>Famiglia Bianchi Malbec 2014</strong></p>
+            
             <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodegas Bianchi</p>
             <p><strong>Region:</strong> San rafael</p>
             <p><strong>Höhe:</strong> 800 m ü. NN</p>
             
             
               <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+            
             
             
             
@@ -995,10 +1025,9 @@ body {
             
           </div>
         </div>
-         <!-- ← ESTE ES EL QUE FALTABA O ESTABA MAL COLOCADO -->
+      
     </div>
   </div>
-
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>

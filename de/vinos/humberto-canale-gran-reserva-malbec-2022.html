@@ -530,6 +530,73 @@ body {
     padding-top: 0 !important;
   }
 }
+/* Grid general (mantiene el comportamiento actual) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+/* Grid especial para la sección de "Weitere Weine aus Region" */
+.region-section .grid {
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  max-width: 960px;           /* ← limita el ancho total */
+  margin: 30px auto;          /* centra y da espacio */
+}
+
+/* Forzar máximo 4 columnas en pantallas grandes */
+@media (min-width: 900px) {
+  .region-section .grid {
+    grid-template-columns: repeat(4, 1fr);   /* máximo 4 columnas */
+    max-width: 1000px;                       /* ajusta según tu diseño */
+  }
+}
+
+/* En pantallas medianas/pequeñas se mantiene responsive */
+@media (max-width: 899px) {
+  .region-section .grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+}
+/* Títulos de secciones de vinos similares */
+.grid-section-title {
+  color: var(--primary);
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Alineación para el título de la bodega (izquierda por defecto) */
+.bodega-section .grid-section-title {
+  margin-left: 0;
+}
+
+/* Título de región: más a la derecha + misma altura */
+.region-section .grid-section-title {
+  margin-left: 20px;          /* ← mueve a la derecha (ajusta este valor si necesitas más/menos) */
+  margin-top: 50px;           /* misma altura que el de bodega */
+}
+
+/* Opcional: centrar si hay muchas columnas o en móvil */
+@media (min-width: 768px) {
+  .region-section .grid-section-title {
+    margin-left: 40px;        /* más desplazamiento en desktop */
+  }
+}
+.region-section h3.grid-section-title {
+  margin-left: 300px !important;   /* mismo valor que .container margin-left */
+  padding-left: 20px;              /* opcional: pequeño extra para alinear con las tarjetas */
+  box-sizing: border-box;
+}
+
+/* Fuerza en desktop donde está el sidebar */
+@media (min-width: 769px) {
+  .region-section h3.grid-section-title {
+    margin-left: 320px !important;   /* ajusta si tu sidebar es 220px + padding 20px */
+  }
+}
 </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
@@ -582,23 +649,51 @@ body {
     <img src="https://www.1000malbecs.com/images/large/humberto-canale-gran-reserva-malbec-2022.jpg" alt="Humberto Canale Gran Reserva Malbec 2022 2022">
     <div class="info">
       <h1>Humberto Canale Gran Reserva Malbec 2022</h1>
-      <p><strong>Preis:</strong> €28.94 / Flasche (0.75 L)</p>
-      <p><i><strong>Preis pro Liter:</strong> €38.59 / L</p></i>
-      
-       <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Humberto%20Canale%20Gran%20Reserva%20Malbec%202022%202022" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp Bestellen
-</a>
+<div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+  <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+    €28.94 / Flasche (0.75 L)
+  </p>
+  
+  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+    (Preis pro Liter: €38.59 / L)
+  </p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Humberto%20Canale%20Gran%20Reserva%20Malbec%202022%20(2022)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Kaufen über WhatsApp
+  </a>
+
+  <!-- Separator "oder" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    oder
+  </div>
+
+  <!-- Email Button -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interesse/Kauf]%20Humberto%20Canale%20Gran%20Reserva%20Malbec%202022%20(2022)&body=Hallo%20Team%20von%201000%20Malbecs,%0A%0Aich%20bin%20interessiert%20an%20dem%20Wein:%0A→%20Humberto%20Canale%20Gran%20Reserva%20Malbec%202022%20(2022)%0A→%20Weingut:%20Humberto%20Canale%0A→%20Preis:%20€28.94 / Flasche (0.75 L)%0A%0AIch%20würde%20gerne%20mehr%20Informationen%20erhalten%20oder%20den%20Kauf%20bestätigen.%20Vielen%20Dank!%0AMit%20freundlichen%20Grüßen,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Per E-Mail kontaktieren
+  </a>
+</div>
+
+<!-- Optional small support text -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  oder schreiben Sie direkt an <strong>ventas@1000malbecs.com</strong>
+</p>
       <br>
       <br>
       <p><strong>Weingut:</strong> Humberto Canale</p>
       <p><strong>Region:</strong> General roca</p>
-      <p><strong>Höhe:</strong> 300.0 m.ü.M.</p>
+      <p><strong>Höhe:</strong> 300 m.ü.M.</p>
       
       <p><strong>Volumen:</strong> 750 ml</p>
       
-      <p><strong>Alkohol:</strong> 13.8%</p>
+      <p><strong>Alkohol:</strong> 13,80%</p>
       
       <p><strong>Auszeichnungen:</strong> 90 pts James Suckling</p>
       <p><strong>Ausbau:</strong> 10 años</p>
@@ -635,7 +730,7 @@ body {
 
   <!-- OTROS VINOS DE LA MISMA BODEGA -->
   
-  <h3 style="color: var(--primary); margin-top: 50px;">Weitere Weine von Humberto Canale</h3>
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Weitere Weine von Humberto Canale</h3>
   <div class="grid">
     
     <div class="card">
@@ -643,72 +738,152 @@ body {
       <h4>Canale Black River Malbec 2022</h4>
       <p>€9.88</p>
       <a href="/de/vinos/canale-black-river-malbec-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Humberto Canale</p>
-        <p><strong>Region:</strong> General roca</p>
-        <p><strong>Höhe:</strong> 300.0</p>
-        <p><strong>Alkohol:</strong> 13.9%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Canale Black River Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Humberto Canale</p>
+  <p><strong>Region:</strong> General roca</p>
+  <p><strong>Höhe:</strong> 300 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 13,90 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intensives Rubinrot mit violetten Nuancen, charakteristisch für einen jungen und lebendigen Malbec. 
+
+ Intensives Bouquet mit Noten von roten und schwarzen F...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/intimo-blend-cabernet-merlot-malbec-2020.jpg" alt="Intimo Blend: Cabernet, Merlot, Malbec  2020 2020">
       <h4>Intimo Blend: Cabernet, Merlot, Malbec  2020</h4>
       <p>€12.92</p>
       <a href="/de/vinos/intimo-blend-cabernet-merlot-malbec-2020.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Humberto Canale</p>
-        <p><strong>Region:</strong> General roca</p>
-        <p><strong>Höhe:</strong> 300.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Intimo Blend: Cabernet, Merlot, Malbec  2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Humberto Canale</p>
+  <p><strong>Region:</strong> General roca</p>
+  <p><strong>Höhe:</strong> 300 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Rubinrote Farbe von sehr guter Intensität. Komplexe und elegante Nase mit der Präsenz roter Früchte, mit Noten von Vanille und Tabak im Eichenholzdurchgang. ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/intimo-malbec-2023.jpg" alt="Íntimo Malbec  2023 2023">
       <h4>Íntimo Malbec  2023</h4>
       <p>€12.92</p>
       <a href="/de/vinos/intimo-malbec-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Humberto Canale</p>
-        <p><strong>Region:</strong> General roca</p>
-        <p><strong>Höhe:</strong> 300.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Íntimo Malbec  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Humberto Canale</p>
+  <p><strong>Region:</strong> General roca</p>
+  <p><strong>Höhe:</strong> 300 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Rubinrote Farbe von sehr guter Intensität. Komplexe und elegante Nase mit der Präsenz roter Früchte, mit Noten von Vanille und Tabak im Eichenholzdurchgang. ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/humberto-canale-estate-malbec-2023.jpg" alt="Humberto Canale Estate Malbec  2023 2023">
       <h4>Humberto Canale Estate Malbec  2023</h4>
       <p>€14.94</p>
       <a href="/de/vinos/humberto-canale-estate-malbec-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Humberto Canale</p>
-        <p><strong>Region:</strong> General roca</p>
-        <p><strong>Höhe:</strong> 300.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Humberto Canale Estate Malbec  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Humberto Canale</p>
+  <p><strong>Region:</strong> General roca</p>
+  <p><strong>Höhe:</strong> 300 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Ein reiner Ausdruck des patagonischen „Terroirs“ und des argentinischen Malbec. Ein raffinierter und komplexer Stil sowohl in der Nase als auch im Mund. Die ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/humberto-canale-old-vineyard-malbec-2022.jpg" alt="Humberto Canale Old Vineyard Malbec   2022 2022">
       <h4>Humberto Canale Old Vineyard Malbec   2022</h4>
       <p>€23.78</p>
       <a href="/de/vinos/humberto-canale-old-vineyard-malbec-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Humberto Canale</p>
-        <p><strong>Region:</strong> General roca</p>
-        <p><strong>Höhe:</strong> 300.0</p>
-        <p><strong>Alkohol:</strong> 14.000000000000002%</p>
-      </div>
+<div class="overlay">
+  <p><strong>Humberto Canale Old Vineyard Malbec   2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Humberto Canale</p>
+  <p><strong>Region:</strong> General roca</p>
+  <p><strong>Höhe:</strong> 300 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Brillante violettrote Farbe mit sortentypischer Tiefe und Intensität. Aromen von frischen Pflaumen, würzige Noten, die sich mit der Präsenz von Vanille und T...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     </div>
-    
   </div>
-  
 
-  <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-  
-</div>
+ 
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
