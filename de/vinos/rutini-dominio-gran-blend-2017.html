@@ -179,8 +179,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -514,93 +514,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
-
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
-/* Grid general (mantiene el comportamiento actual) */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 18px;
-  margin-top: 30px;
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
 }
 
-/* Grid especial para la sección de "Weitere Weine aus Region" */
-.region-section .grid {
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  max-width: 960px;           /* ← limita el ancho total */
-  margin: 30px auto;          /* centra y da espacio */
-}
-
-/* Forzar máximo 4 columnas en pantallas grandes */
-@media (min-width: 900px) {
-  .region-section .grid {
-    grid-template-columns: repeat(4, 1fr);   /* máximo 4 columnas */
-    max-width: 1000px;                       /* ajusta según tu diseño */
-  }
-}
-
-/* En pantallas medianas/pequeñas se mantiene responsive */
-@media (max-width: 899px) {
-  .region-section .grid {
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  }
-}
-/* Títulos de secciones de vinos similares */
-.grid-section-title {
-  color: var(--primary);
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-/* Alineación para el título de la bodega (izquierda por defecto) */
-.bodega-section .grid-section-title {
-  margin-left: 0;
-}
-
-/* Título de región: más a la derecha + misma altura */
-.region-section .grid-section-title {
-  margin-left: 20px;          /* ← mueve a la derecha (ajusta este valor si necesitas más/menos) */
-  margin-top: 50px;           /* misma altura que el de bodega */
-}
-
-/* Opcional: centrar si hay muchas columnas o en móvil */
-@media (min-width: 768px) {
-  .region-section .grid-section-title {
-    margin-left: 40px;        /* más desplazamiento en desktop */
-  }
-}
-.region-section h3.grid-section-title {
-  margin-left: 300px !important;   /* mismo valor que .container margin-left */
-  padding-left: 20px;              /* opcional: pequeño extra para alinear con las tarjetas */
-  box-sizing: border-box;
-}
-
-/* Fuerza en desktop donde está el sidebar */
-@media (min-width: 769px) {
-  .region-section h3.grid-section-title {
-    margin-left: 320px !important;   /* ajusta si tu sidebar es 220px + padding 20px */
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
