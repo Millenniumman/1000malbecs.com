@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/finca-las-moras-sagrado-pedernal-malbec-2010.jpg" alt="Finca Las Moras Sagrado Pedernal Malbec 2010 2010">
       <div class="info">
         <h1>Finca Las Moras Sagrado Pedernal Malbec 2010</h1>
-        <p><strong>Price:</strong> €39.90 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €53.20 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Finca%20Las%20Moras%20Sagrado%20Pedernal%20Malbec%202010%202010" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €39.90 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €53.20 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Finca%20Las%20Moras%20Sagrado%20Pedernal%20Malbec%202010%20(2010)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Finca%20Las%20Moras%20Sagrado%20Pedernal%20Malbec%202010%20(2010)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Finca%20Las%20Moras%20Sagrado%20Pedernal%20Malbec%202010%20(2010)%0A→%20Winery:%20Finca%20Las%20Moras%0A→%20Price:%20€39.90 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Finca Las Moras</p>
         <p><strong>Region:</strong> Valle de pedernal</p>
-        <p><strong>Altitude:</strong> 1350.0 masl</p>
+        <p><strong>Altitude:</strong> 1350 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+        <p><strong>Alcohol:</strong> 14.50%</p>
         
         
         
@@ -624,37 +646,54 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Blackberry, cassis and black pepper, with a smoky finish. Pairing: roast lamb, spiced dishes. Perfect to accompany grilled meats, creamy risottos and strong cheeses. Finca Las Moras Sagrado Pedernal Malbec 2010 from Finca Las Moras</p>
+          <p>Mora, cassis y pimienta negra, con un final ahumado. Maridaje: cordero asado, platos con especias. Perfecto para acompañar carnes grilladas, risottos cremosos y quesos fuertes.</p>
         </div>
 
         
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Finca Las Moras</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Finca Las Moras</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg" alt="Finca Las Moras Mora Negra Malbec-Bonarda 2014 2014">
+      <h4>Finca Las Moras Mora Negra Malbec-Bonarda 2014</h4>
+      <p>€32.00</p>
+      <a href="/en/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/finca-las-moras-mora-negra-malbec-bonarda-2014.jpg" alt="Finca Las Moras Mora Negra Malbec-Bonarda 2014 2014">
-        <h4>Finca Las Moras Mora Negra Malbec-Bonarda 2014</h4>
-        <p>€32.00</p>
-        <a href="/en/vinos/finca-las-moras-mora-negra-malbec-bonarda-2014.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Finca Las Moras</p>
-          <p><strong>Region:</strong> Valle de pedernal</p>
-          <p><strong>Altitude:</strong> 1350.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
+      <div class="overlay">
+  <p><strong>Finca Las Moras Mora Negra Malbec-Bonarda 2014</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca Las Moras</p>
+  <p><strong>Region:</strong> Valle de pedernal</p>
+  <p><strong>Altitude:</strong> 1350 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      It is a presentation that goes well with a wide variety of cheeses due to its velvety texture, pastas with meats and risottos, finding its perfect point when...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
     </div>
-    
-
-    
   </div>
 
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');

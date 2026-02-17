@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/finca-la-anita-gran-corte-2021.jpg" alt="Finca La Anita Gran Corte 2021 2021">
       <div class="info">
         <h1>Finca La Anita Gran Corte 2021</h1>
-        <p><strong>Price:</strong> €30.06 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €40.08 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Finca%20La%20Anita%20Gran%20Corte%202021%202021" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €30.06 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €40.08 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Finca%20La%20Anita%20Gran%20Corte%202021%20(2021)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Finca%20La%20Anita%20Gran%20Corte%202021%20(2021)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Finca%20La%20Anita%20Gran%20Corte%202021%20(2021)%0A→%20Winery:%20Finca%20La%20Anita%0A→%20Price:%20€30.06 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Finca La Anita</p>
         <p><strong>Region:</strong> Alto agrelo</p>
-        <p><strong>Altitude:</strong> 1100.0 masl</p>
+        <p><strong>Altitude:</strong> 1100 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Alcohol:</strong> 13.50%</p>
         
         <p><strong>Awards:</strong> 92 pts James Suckling</p>
         <p><strong>Aging:</strong> 6 años</p>
@@ -624,8 +646,8 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Violet red, with black highlights. A wine of great complexity; Modern in style, it is a blend where Malbec provides freshness, Cabernet Sauvignon its balsamic notes, Petit Verdot the structure and Cabernet Franc the sparkling and lively note. The nose expresses liquor and floral notes, with ripe red and black fruit. Firm and juicy tannins. Final length. We recommend serving with red meats, especially roasted or stewed. It goes very well with mature, fragrant or spicy cheeses, such as Camembert, Brie or Manchego.
-Ready to consume, recommended storage time 6 years. Finca La Anita Gran Corte 2021 from Finca La Anita</p>
+          <p>Rojo violáceo, con destellos negros. Un vino de gran complejidad; de corte moderno, es un blend en donde el Malbec aporta frescura, el Cabernet Sauvignon sus notas  balsámicas, el Petit Verdot la estructura y el Cabernet Franc la nota chispeante y vivaz. En nariz expresa notas licorosas y florales, con fruta roja y negra maduras. Taninos firmes y jugosos. Largo final. Recomendamos servir con carnes rojas especialmente asadas o estofadas. Va muy bien con quesos curados, olorosos o picantes, como el Camembert, Brie o el Manchego.
+Listo para consumir, tiempo de guarda recomendado 6 años.</p>
         </div>
 
         
@@ -639,43 +661,77 @@ Ready to consume, recommended storage time 6 years. Finca La Anita Gran Corte 20
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Finca La Anita</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Finca La Anita</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/finca-la-anita-malbec-2021.jpg" alt="Finca La Anita Malbec 2021 2021">
+      <h4>Finca La Anita Malbec 2021</h4>
+      <p>€30.06</p>
+      <a href="/en/vinos/finca-la-anita-malbec-2021.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/finca-la-anita-malbec-2021.jpg" alt="Finca La Anita Malbec 2021 2021">
-        <h4>Finca La Anita Malbec 2021</h4>
-        <p>€30.06</p>
-        <a href="/en/vinos/finca-la-anita-malbec-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Finca La Anita</p>
-          <p><strong>Region:</strong> Alto agrelo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+      <div class="overlay">
+  <p><strong>Finca La Anita Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca La Anita</p>
+  <p><strong>Region:</strong> Alto agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Deep crimson red, with violet flashes. Delicate aromas of black and red fruits, blue flowers, red pepper and white pepper. With great presence in the mouth, ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/magna-finca-malbec-2019.jpg" alt="Magna Finca Malbec 2019 2019">
-        <h4>Magna Finca Malbec 2019</h4>
-        <p>€50.58</p>
-        <a href="/en/vinos/magna-finca-malbec-2019.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Finca La Anita</p>
-          <p><strong>Region:</strong> Alto agrelo</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/magna-finca-malbec-2019.jpg" alt="Magna Finca Malbec 2019 2019">
+      <h4>Magna Finca Malbec 2019</h4>
+      <p>€50.58</p>
+      <a href="/en/vinos/magna-finca-malbec-2019.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Magna Finca Malbec 2019</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca La Anita</p>
+  <p><strong>Region:</strong> Alto agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Ruby red with bluish tones; The entry into the mouth is exquisite, wide; very good texture of tannins, round and sweet; black red fruit, ripe red plum, black...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
     </div>
-    
-
-    
   </div>
 
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');

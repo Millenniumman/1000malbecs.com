@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/cicchitti-malbec-edicion-limitada-2016.jpg" alt="Cicchitti Malbec Edición Limitada 2016 2016">
       <div class="info">
         <h1>Cicchitti Malbec Edición Limitada 2016</h1>
-        <p><strong>Price:</strong> €37.59 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €50.12 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Cicchitti%20Malbec%20Edici%C3%B3n%20Limitada%202016%202016" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €37.59 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €50.12 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Cicchitti%20Malbec%20Edici%C3%B3n%20Limitada%202016%20(2016)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Cicchitti%20Malbec%20Edici%C3%B3n%20Limitada%202016%20(2016)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Cicchitti%20Malbec%20Edici%C3%B3n%20Limitada%202016%20(2016)%0A→%20Winery:%20Cicchitti%0A→%20Price:%20€37.59 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Cicchitti</p>
         <p><strong>Region:</strong> Guaymallen</p>
-        <p><strong>Altitude:</strong> 700.0 masl</p>
+        <p><strong>Altitude:</strong> 700 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Alcohol:</strong> 13.50%</p>
         
         
         
@@ -624,91 +646,176 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>View: deep red color with black and blue touches.
-Nose: concentrated aroma where the typical Malbec violet, ripe plums, cherries, vanilla and cassis reign.
-Mouth: round, elegant, fleshy and complex, with growing tannins. Cicchitti Malbec Edición Limitada 2016 from Cicchitti</p>
+          <p>Vista: color rojo profundo con pinceladas negras y azules.
+Nariz: aroma concentrado donde reina la típica violeta del Malbec, ciruelas maduras, cerezas, vainilla y cassis.
+Boca: redonda, elegante, carnosa y compleja, con taninos en crecimiento.</p>
         </div>
 
         
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Cicchitti</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Cicchitti</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/cicchitti-primmo-malbec-2022.jpg" alt="CICCHITTI Primmo Malbec 2022 2022">
+      <h4>CICCHITTI Primmo Malbec 2022</h4>
+      <p>€12.89</p>
+      <a href="/en/vinos/cicchitti-primmo-malbec-2022.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/cicchitti-primmo-malbec-2022.jpg" alt="CICCHITTI Primmo Malbec 2022 2022">
-        <h4>CICCHITTI Primmo Malbec 2022</h4>
-        <p>€12.89</p>
-        <a href="/en/vinos/cicchitti-primmo-malbec-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Cicchitti</p>
-          <p><strong>Region:</strong> Guaymallen</p>
-          <p><strong>Altitude:</strong> 700.0</p>
-          <p><strong>Alcohol:</strong> 14.2%</p>
+      <div class="overlay">
+  <p><strong>CICCHITTI Primmo Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+  <p><strong>Region:</strong> Guaymallen</p>
+  <p><strong>Altitude:</strong> 700 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.20%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it presents aromas of raspberry, blackberry and a touch of spices, with notes of violets and vanilla. In the mouth, it is round, with flavors of...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/cicchitti-malbec-2021.jpg" alt="CICCHITTI Malbec 2021 2021">
-        <h4>CICCHITTI Malbec 2021</h4>
-        <p>€17.99</p>
-        <a href="/en/vinos/cicchitti-malbec-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Cicchitti</p>
-          <p><strong>Region:</strong> Guaymallen</p>
-          <p><strong>Altitude:</strong> 700.0</p>
-          <p><strong>Alcohol:</strong> 14.1%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/cicchitti-malbec-2021.jpg" alt="CICCHITTI Malbec 2021 2021">
+      <h4>CICCHITTI Malbec 2021</h4>
+      <p>€17.99</p>
+      <a href="/en/vinos/cicchitti-malbec-2021.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/vos-malbec-de-malbec-2021.jpg" alt="VOS Malbec de Malbec 2021 2021">
-        <h4>VOS Malbec de Malbec 2021</h4>
-        <p>€18.99</p>
-        <a href="/en/vinos/vos-malbec-de-malbec-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Cicchitti</p>
-          <p><strong>Region:</strong> Guaymallen</p>
-          <p><strong>Altitude:</strong> 700.0</p>
-          <p><strong>Alcohol:</strong> 14.6%</p>
+      <div class="overlay">
+  <p><strong>CICCHITTI Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+  <p><strong>Region:</strong> Guaymallen</p>
+  <p><strong>Altitude:</strong> 700 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.10%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it offers aromas of leather, dried plum and black truffle, with notes of tobacco and sweet spices. On the palate, it is elegant, with flavors of...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="CICCHITTI Gran Reserva Malbec 2018 2018">
-        <h4>CICCHITTI Gran Reserva Malbec 2018</h4>
-        <p>€29.99</p>
-        <a href="/en/vinos/cicchitti-gran-reserva-malbec-2018.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Cicchitti</p>
-          <p><strong>Region:</strong> Guaymallen</p>
-          <p><strong>Altitude:</strong> 700.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/vos-malbec-de-malbec-2021.jpg" alt="VOS Malbec de Malbec 2021 2021">
+      <h4>VOS Malbec de Malbec 2021</h4>
+      <p>€18.99</p>
+      <a href="/en/vinos/vos-malbec-de-malbec-2021.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/cicchitti-blend-2016.jpg" alt="CICCHITTI Blend 2016 2016">
-        <h4>CICCHITTI Blend 2016</h4>
-        <p>€19.99</p>
-        <a href="/en/vinos/cicchitti-blend-2016.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Cicchitti</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Altitude:</strong> 958.0</p>
-          <p><strong>Alcohol:</strong> 14.299999999999999%</p>
+      <div class="overlay">
+  <p><strong>VOS Malbec de Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+  <p><strong>Region:</strong> Guaymallen</p>
+  <p><strong>Altitude:</strong> 700 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.60%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it offers aromas of blackberry, plum and vanilla, with notes of sweet spices and a smoky touch. In the mouth, it is balanced, with flavors of bl...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="CICCHITTI Gran Reserva Malbec 2018 2018">
+      <h4>CICCHITTI Gran Reserva Malbec 2018</h4>
+      <p>€29.99</p>
+      <a href="/en/vinos/cicchitti-gran-reserva-malbec-2018.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>CICCHITTI Gran Reserva Malbec 2018</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+  <p><strong>Region:</strong> Guaymallen</p>
+  <p><strong>Altitude:</strong> 700 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of cassis, blackberry and leather, with notes of tobacco and exotic spices. In the mouth, it is robust, with flavors of dark ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/cicchitti-blend-2016.jpg" alt="CICCHITTI Blend 2016 2016">
+      <h4>CICCHITTI Blend 2016</h4>
+      <p>€19.99</p>
+      <a href="/en/vinos/cicchitti-blend-2016.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>CICCHITTI Blend 2016</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 958 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.30%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      View: intense ruby ​​red color with dark violet or black reflections. Ideal to accompany grilled red meats, lamb, ham, pork, empanadas, pastas with rich sauc...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
-
-    
   </div>
 
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');

@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/chacabuco-malbec-2024.jpg" alt="Chacabuco Malbec 2024 2024">
       <div class="info">
         <h1>Chacabuco Malbec 2024</h1>
-        <p><strong>Price:</strong> €7.90 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €10.53 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Chacabuco%20Malbec%202024%202024" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €7.90 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €10.53 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Chacabuco%20Malbec%202024%20(2024)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Chacabuco%20Malbec%202024%20(2024)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Chacabuco%20Malbec%202024%20(2024)%0A→%20Winery:%20Los%20Haroldos%0A→%20Price:%20€7.90 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Los Haroldos</p>
         <p><strong>Region:</strong> Valle norte</p>
-        <p><strong>Altitude:</strong> 750.0 masl</p>
+        <p><strong>Altitude:</strong> 750 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Alcohol:</strong> 13.50%</p>
         
         
         
@@ -624,94 +646,181 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Notes of black cherry, blackberry and a touch of spice. Firm tannins, balanced. Perfect with Argentine roast or pasta with intense sauces. Chacabuco Malbec 2024 from Los Haroldos</p>
+          <p>Notas de cereza negra, mora y un toque especiado. Taninos firmes, equilibrado. Perfecto con asado argentino o pastas con salsas intensas.</p>
         </div>
 
         
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Los Haroldos</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Los Haroldos</h3>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/oro-negro-malbec-2024.jpg" alt="Oro Negro Malbec 2024 2024">
+      <h4>Oro Negro Malbec 2024</h4>
+      <p>€6.74</p>
+      <a href="/en/vinos/oro-negro-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Oro Negro Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Los Haroldos</p>
+  <p><strong>Region:</strong> Valle norte</p>
+  <p><strong>Altitude:</strong> 750 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Aromas of ripe black fruits, plums and notes of vanilla. In the mouth, soft tannins and persistent finish. Ideal with grilled red meats or aged cheeses. Oro ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
+      <h4>Los Haroldos Estate Malbec 2022</h4>
+      <p>€11.90</p>
+      <a href="/en/vinos/los-haroldos-estate-malbec-2022.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Los Haroldos Estate Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Los Haroldos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Aroma of raspberry, cassis and a hint of oak. Juicy flavor with round tannins. Pairs well with roast lamb or meat stews. Los Haroldos Estate Malbec 2022 from...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/los-haroldos-reserve-malbec-2021.jpg" alt="Los Haroldos Reserve Malbec 2021 2021">
+      <h4>Los Haroldos Reserve Malbec 2021</h4>
+      <p>€17.90</p>
+      <a href="/en/vinos/los-haroldos-reserve-malbec-2021.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Los Haroldos Reserve Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Los Haroldos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.20%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Aromas of leather, tobacco and ripe red fruits. In the mouth, medium body and long finish. Excellent with chorizo ​​steak or cured cheeses. Los Haroldos Rese...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/los-haroldos-gran-corte-blend-2020.jpg" alt="Los Haroldos Gran Corte Blend 2020 2020">
+      <h4>Los Haroldos Gran Corte Blend 2020</h4>
+      <p>€27.50</p>
+      <a href="/en/vinos/los-haroldos-gran-corte-blend-2020.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Los Haroldos Gran Corte Blend 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Los Haroldos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Cabernet Sauvignon and Merlot constitute the Heart of this great blend,
+providing a strong spicy and elegant character. At the same time, Malbec,
+Bonarda and...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Valle norte</h3>
     <div class="grid">
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/oro-negro-malbec-2024.jpg" alt="Oro Negro Malbec 2024 2024">
-        <h4>Oro Negro Malbec 2024</h4>
-        <p>€6.74</p>
-        <a href="/en/vinos/oro-negro-malbec-2024.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Los Haroldos</p>
-          <p><strong>Region:</strong> Valle norte</p>
-          <p><strong>Altitude:</strong> 750.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
-        <h4>Los Haroldos Estate Malbec 2022</h4>
-        <p>€11.90</p>
-        <a href="/en/vinos/los-haroldos-estate-malbec-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Los Haroldos</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/los-haroldos-reserve-malbec-2021.jpg" alt="Los Haroldos Reserve Malbec 2021 2021">
-        <h4>Los Haroldos Reserve Malbec 2021</h4>
-        <p>€17.90</p>
-        <a href="/en/vinos/los-haroldos-reserve-malbec-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Los Haroldos</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.2%</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/los-haroldos-gran-corte-blend-2020.jpg" alt="Los Haroldos Gran Corte Blend 2020 2020">
-        <h4>Los Haroldos Gran Corte Blend 2020</h4>
-        <p>€27.50</p>
-        <a href="/en/vinos/los-haroldos-gran-corte-blend-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Los Haroldos</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
-        </div>
-      </div>
-      
-    </div>
-    
-
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Valle norte</h3>
-      <div class="grid">
-        
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/hermandad-blend-2021.jpg" alt="Hermandad Blend 2021 2021">
           <h4>Hermandad Blend 2021</h4>
           <p>€37.60</p>
           <a href="/en/vinos/hermandad-blend-2021.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Falasco Wines</p>
-            <p><strong>Region:</strong> Valle norte</p>
-            <p><strong>Altitude:</strong> 750.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Hermandad Blend 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Falasco Wines</p>
+  <p><strong>Region:</strong> Valle norte</p>
+  <p><strong>Altitude:</strong> 750 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense Violet Red Color, very complex nose, which reveals aromas of spices, candied red fruits, cinnamon and chocolates. Palate with very good volume and st...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->

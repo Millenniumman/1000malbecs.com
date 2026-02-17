@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020 2020">
       <div class="info">
         <h1>Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020</h1>
-        <p><strong>Price:</strong> €371.51 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €495.35 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Adrianna%20Vineyard%20Mundus%20Bacillus%20Terrae%20Malbec%202020%202020" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €371.51 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €495.35 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Adrianna%20Vineyard%20Mundus%20Bacillus%20Terrae%20Malbec%202020%20(2020)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Adrianna%20Vineyard%20Mundus%20Bacillus%20Terrae%20Malbec%202020%20(2020)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Adrianna%20Vineyard%20Mundus%20Bacillus%20Terrae%20Malbec%202020%20(2020)%0A→%20Winery:%20Catena%20Zapata%0A→%20Price:%20€371.51 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Catena Zapata</p>
         <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Altitude:</strong> 1390.0 masl</p>
+        <p><strong>Altitude:</strong> 1390 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 15.0%</p>
+        <p><strong>Alcohol:</strong> 15.00%</p>
         
         <p><strong>Awards:</strong> 99 pts James Suckling</p>
         <p><strong>Aging:</strong> 15 años</p>
@@ -624,17 +646,18 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Color: Deep and bright purple, with violet reflections that denote its concentration and youth.
-Aroma: Intense and complex, with layers of ripe black fruits (blackberries, blueberries, plums), floral notes of violets and lavender, and a distinctive mineral character (wet stones, graphite, chalk). There are nuances of spices (black pepper, cloves), wild herbs (thyme, mint) and touches of French oak such as cocoa, tobacco and vanilla, contributed by its aging.
-Taste: In the mouth it is elegant, structured and vibrant, with a silky entry and a fresh acidity that balances its concentration. The tannins are fine, polished and velvety, offering a rich texture and a long, mineral and persistent finish with notes of black fruits, spices and a chalky touch. It is a wine of great depth and precision, with a unique energy derived from its terroir.
-Vinification: 100% Malbec from the Mundus Bacillus Terrae plot (living soil bacteria) in the Adrianna Vineyard, Gualtallary, Uco Valley, Mendoza, at 1,450 m altitude. Calcareous soils with active microorganisms that provide their distinctive character. Fermentation with native yeasts, cold maceration and aging for 18-24 months in French oak barrels (70-100% new).
-HeAdrianna Vineyard Mundus Bacillus Terrae Malbec 2020 , with its elegance, minerality and sophisticated structure, is ideal for dishes that highlight its complexity and depth: Premium red meats: Ojo de bife, chorizo ​​steak or grilled loin, where the fine tannins and ripe fruit complement the intensity of the meat.  
-Game meats: Venison, deer or wild boar, with red fruit or spice sauces, which harmonize with the floral and earthy notes of the wine.  
-Lamb: Baked lamb ribs with rosemary and garlic, or a Moroccan tagine with plums and almonds, highlighting the spicy and herbal notes of Malbec.  
-Mature cheeses: Parmesan, Tuscan pecorino or aged gouda, which combine with the minerality and oak nuances of the wine.  
-Dishes with truffle or mushrooms: Wild mushroom risotto with black truffle, or a pasta with porcini sauce, where the minerality and earthy notes of the wine shine.  
-Sophisticated Creole cuisine: Knife-cut meat empanadas with chimichurri, or a well-spiced locro, connecting with the Argentine character of the wine.  
-Desserts with chocolate: Dark chocolate fondant (70% cocoa or more) with red fruits, which highlights the cocoa and spice notes of Malbec. Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020 from Catena Zapata</p>
+          <p>Color: Púrpura profundo y brillante, con reflejos violáceos que denotan su concentración y juventud.
+Aroma: Intenso y complejo, con capas de frutas negras maduras (moras, arándanos, ciruelas), notas florales de violetas y lavanda, y un carácter mineral distintivo (piedras húmedas, grafito, tiza). Se perciben matices de especias (pimienta negra, clavo), hierbas silvestres (tomillo, menta) y toques de roble francés como cacao, tabaco y vainilla, aportados por su crianza.
+Sabor: En boca es elegante, estructurado y vibrante, con una entrada sedosa y una acidez fresca que equilibra su concentración. Los taninos son finos, pulidos y aterciopelados, ofreciendo una textura rica y un final largo, mineral y persistente con notas de frutas negras, especias y un toque calcáreo. Es un vino de gran profundidad y precisión, con una energía única derivada de su terruño.
+Vinificación: 100% Malbec de la parcela Mundus Bacillus Terrae (bacteria viva de la tierra) en el Viñedo Adrianna, Gualtallary, Valle de Uco, Mendoza, a 1.450 m de altitud. Suelos calcáreos con microorganismos activos que aportan su carácter distintivo. Fermentación con levaduras autóctonas, maceración en frío y crianza de 18-24 meses en barricas de roble francés (70-100% nuevas).
+El Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020, con su elegancia, mineralidad y estructura sofisticada, es ideal para platos que resalten su complejidad y profundidad:  Carnes rojas premium: Ojo de bife, bife de chorizo o lomo asado a la parrilla, donde los taninos finos y la fruta madura complementan la intensidad de la carne.  
+Carnes de caza: Venado, ciervo o jabalí, con salsas de frutos rojos o especias, que armonizan con las notas florales y terrosas del vino.  
+Cordero: Costillas de cordero al horno con romero y ajo, o un tagine marroquí con ciruelas y almendras, resaltando las notas especiadas y de hierbas del Malbec.  
+Quesos curados: Parmesano, pecorino toscano o gouda añejo, que combinan con la mineralidad y los matices de roble del vino.  
+Platos con trufa o hongos: Risotto de hongos silvestres con trufa negra, o una pasta con salsa de ceps, donde la mineralidad y las notas terrosas del vino brillan.  
+Cocina criolla sofisticada: Empanadas de carne cortada a cuchillo con chimichurri, o un locro bien especiado, conectando con el carácter argentino del vino.  
+Postres con chocolate: Fondant de chocolate amargo (70% cacao o más) con frutos rojos, que resalta las notas de cacao y especias del Malbec.
+</p>
         </div>
 
         
@@ -648,178 +671,386 @@ Desserts with chocolate: Dark chocolate fondant (70% cocoa or more) with red fru
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Catena Zapata</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Catena Zapata</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/catena-malbec-2022.jpg" alt="Catena Malbec 2022 2022">
+      <h4>Catena Malbec 2022</h4>
+      <p>€21.01</p>
+      <a href="/en/vinos/catena-malbec-2022.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/catena-malbec-2022.jpg" alt="Catena Malbec 2022 2022">
-        <h4>Catena Malbec 2022</h4>
-        <p>€21.01</p>
-        <a href="/en/vinos/catena-malbec-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Catena Zapata</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1250.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+      <div class="overlay">
+  <p><strong>Catena Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Catena Zapata</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1250 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Dark ruby ​​red with intense violet reflections. HeCatena Malbec 2022 , with its intense, balanced and voluptuous character, is very versatile for pai...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/catena-alta-malbec-2021.jpg" alt="Catena Alta Malbec 2021 2021">
-        <h4>Catena Alta Malbec 2021</h4>
-        <p>€55.05</p>
-        <a href="/en/vinos/catena-alta-malbec-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Catena Zapata</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 950.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/catena-alta-malbec-2021.jpg" alt="Catena Alta Malbec 2021 2021">
+      <h4>Catena Alta Malbec 2021</h4>
+      <p>€55.05</p>
+      <a href="/en/vinos/catena-alta-malbec-2021.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/catena-zapata-nicasia-vineyard-2021.jpg" alt="Catena Zapata Nicasia Vineyard 2021 2021">
-        <h4>Catena Zapata Nicasia Vineyard 2021</h4>
-        <p>€113.38</p>
-        <a href="/en/vinos/catena-zapata-nicasia-vineyard-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Catena Zapata</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1095.0</p>
-          <p><strong>Alcohol:</strong> 15.0%</p>
+      <div class="overlay">
+  <p><strong>Catena Alta Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Catena Zapata</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 950 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Catena Alta Malbec 2021 de Catena Zapata
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/catena-zapata-adrianna-malbec-fortuna-terrae-2021.jpg" alt="Catena Zapata Adrianna Malbec Fortuna Terrae 2021 2021">
-        <h4>Catena Zapata Adrianna Malbec Fortuna Terrae 2021</h4>
-        <p>€127.54</p>
-        <a href="/en/vinos/catena-zapata-adrianna-malbec-fortuna-terrae-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Catena Zapata</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1366.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/catena-zapata-nicasia-vineyard-2021.jpg" alt="Catena Zapata Nicasia Vineyard 2021 2021">
+      <h4>Catena Zapata Nicasia Vineyard 2021</h4>
+      <p>€113.38</p>
+      <a href="/en/vinos/catena-zapata-nicasia-vineyard-2021.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/catena-malbec-argentino-2022.jpg" alt="Catena Malbec Argentino 2022 2022">
-        <h4>Catena Malbec Argentino 2022</h4>
-        <p>€128.44</p>
-        <a href="/en/vinos/catena-malbec-argentino-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Catena Zapata</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> Not available</p>
-          <p><strong>Alcohol:</strong> 14.299999999999999%</p>
+      <div class="overlay">
+  <p><strong>Catena Zapata Nicasia Vineyard 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Catena Zapata</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1095 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 15.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Deep red with violet reflections, elegant and complex.  Color: Ruby red with violet reflections.  
+Aroma: Expressive, with ripe red fruits such as plu...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/nicolas-catena-zapata-2020.jpg" alt="Nicolas Catena Zapata 2020 2020">
-        <h4>Nicolas Catena Zapata 2020</h4>
-        <p>€139.76</p>
-        <a href="/en/vinos/nicolas-catena-zapata-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Catena Zapata</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1400.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/catena-zapata-adrianna-malbec-fortuna-terrae-2021.jpg" alt="Catena Zapata Adrianna Malbec Fortuna Terrae 2021 2021">
+      <h4>Catena Zapata Adrianna Malbec Fortuna Terrae 2021</h4>
+      <p>€127.54</p>
+      <a href="/en/vinos/catena-zapata-adrianna-malbec-fortuna-terrae-2021.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Catena Zapata Adrianna Malbec Fortuna Terrae 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Catena Zapata</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1366 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Intense cherry red with violet hues, deep and dark, reflecting its concentration. The Adrianna Vineyard Fortuna Terrae Malbec, with its elegance, fres...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/catena-malbec-argentino-2022.jpg" alt="Catena Malbec Argentino 2022 2022">
+      <h4>Catena Malbec Argentino 2022</h4>
+      <p>€128.44</p>
+      <a href="/en/vinos/catena-malbec-argentino-2022.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Catena Malbec Argentino 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Catena Zapata</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> Not available masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.30%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Intense and deep purple red with violet reflections, vibrant and concentrated.
+Aroma: Complex and expressive, dominated by ripe black fruits such as b...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/nicolas-catena-zapata-2020.jpg" alt="Nicolas Catena Zapata 2020 2020">
+      <h4>Nicolas Catena Zapata 2020</h4>
+      <p>€139.76</p>
+      <a href="/en/vinos/nicolas-catena-zapata-2020.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Nicolas Catena Zapata 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Catena Zapata</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1400 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Nicolas Catena Zapata 2020 de Catena Zapata
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Valle de uco</h3>
-      <div class="grid">
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Valle de uco</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
           <h4>Trumpeter Malbec 375 ml 2023</h4>
           <p>€9.96</p>
           <a href="/en/vinos/trumpeter-malbec-375-ml-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Rutini Wines</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.8%</p>
+          
+         <div class="overlay">
+  <p><strong>Trumpeter Malbec 375 ml 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Blackberry, plum and a touch of spice, with soft tannins. Pairing: chorizo ​​steak, roast lamb. Trumpeter Malbec 375 ml 2023 from Rutini Wines
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023 2023">
           <h4>Temático Malbec 2023</h4>
           <p>€9.99</p>
           <a href="/en/vinos/tematico-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1100.0</p>
-            <p><strong>Alcohol:</strong> 14.1%</p>
+          
+         <div class="overlay">
+  <p><strong>Temático Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Foster Lorca</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.10%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Ripe red fruit, plum, soft tannins. Ideal with pasta and white meats. Temático Malbec 2023 from Bodega Foster Lorca
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024 2024">
           <h4>Alamos Malbec 2024</h4>
           <p>€10.97</p>
           <a href="/en/vinos/alamos-malbec-2024.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Alamos</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1250.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Alamos Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Alamos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1250 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Intense purple with violet flashes, showing its vitality and concentration.  
+Aroma: Expressive nose with a memorable intensity of ripe black fruits s...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
           <h4>Los Haroldos Estate Malbec 2022</h4>
           <p>€11.90</p>
           <a href="/en/vinos/los-haroldos-estate-malbec-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Los Haroldos</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.8%</p>
+          
+         <div class="overlay">
+  <p><strong>Los Haroldos Estate Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Los Haroldos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Aroma of raspberry, cassis and a hint of oak. Juicy flavor with round tannins. Pairs well with roast lamb or meat stews. Los Haroldos Estate Malbec 2022 from...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
           <h4>Trapiche Reserve Malbec 2023</h4>
           <p>€14.99</p>
           <a href="/en/vinos/trapiche-reserve-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Trapiche</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Trapiche Reserve Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Red and black fruits, with a touch of spices and soft tannins. Pairing: grilled meats, pasta with tomato sauce. Trapiche Reserve Malbec 2023 from Trapiche
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021 2021">
           <h4>Ique Malbec 2021</h4>
           <p>€13.49</p>
           <a href="/en/vinos/ique-malbec-2021.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 950.0</p>
-            <p><strong>Alcohol:</strong> 14.4%</p>
+          
+         <div class="overlay">
+  <p><strong>Ique Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Foster Lorca</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 950 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color, with violet hues. Presence of fresh red fruits, plums, raspberries,
+currants, blackberries, blueberries. Good structure and soft tannins, ...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->

@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/bressia-profundo-blend-2020.jpg" alt="Bressia Profundo Blend 2020 2020">
       <div class="info">
         <h1>Bressia Profundo Blend 2020</h1>
-        <p><strong>Price:</strong> €43.06 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €57.41 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Bressia%20Profundo%20Blend%202020%202020" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €43.06 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €57.41 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Bressia%20Profundo%20Blend%202020%20(2020)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Bressia%20Profundo%20Blend%202020%20(2020)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Bressia%20Profundo%20Blend%202020%20(2020)%0A→%20Winery:%20Bodega%20Bressia%0A→%20Price:%20€43.06 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Bodega Bressia</p>
         <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Altitude:</strong> 970.0 masl</p>
+        <p><strong>Altitude:</strong> 970 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+        <p><strong>Alcohol:</strong> 14.50%</p>
         
         
         <p><strong>Aging:</strong> 8 años</p>
@@ -624,15 +646,17 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Intense ruby ​​red color with purple hues and bright reflections, which reflect its concentration and vitality. Complex and elegant aromas, with notes of ripe black and red fruits (blackberries, plums, raspberries), accompanied by spicy touches (pepper, cloves), florals (violets) and nuances from oak aging such as vanilla, chocolate, coffee and a slight smoky touch. It may also present mineral and herbaceous notes.
-Balanced and structured entry, with soft and well integrated tannins. It offers a silky texture, good acidity and a medium to high body. The fruit flavors are combined with notes of oak, chocolate and a long, persistent and harmonious finish. Bressia Profundo Blend is a versatile and structured wine, ideal to accompany a wide range of dishes thanks to its balance between fruit, tannins and acidity. Pairing recommendations include: Red Meats: Perfect for cuts such as tenderloin, chorizo ​​steak or Argentine roast. Its structure and tannins complement the juiciness and flavor of grilled or baked meats.
-Lamb: Harmonizes with roast or stewed lamb, especially if accompanied with herbs such as rosemary or wine reduction sauces.
-Empanadas: Ideal for meat empanadas or empanadas with intense flavors, since its fruity and spicy notes balance the seasonings.
-Mature Cheeses: Combines very well with hard cheeses such as Parmesan, aged Gouda or Manchego, highlighting its oak and fruit notes.
-Dishes with Mushrooms: Excellent with mushroom risottos, mushroom sauces or meats accompanied by mushrooms, since their earthy and spicy notes complement each other.
-Fatty Fish: It can be paired with salmon or tuna in preparations with rich or spicy sauces, thanks to its body and acidity.
-Pastas with Rich Sauces: It goes well with pasta accompanied by tomato, ragù or bolognese sauces, where its structure highlights the umami flavors.
-Desserts: It can accompany desserts with dark chocolate (50-60%) or desserts with red fruits, thanks to its fruity and vanilla notes. Bressia Profundo Blend 2020 from Bodega Bressia</p>
+          <p>Color rojo rubí intenso con tonalidades púrpuras y reflejos brillantes, que reflejan su concentración y vitalidad. Aromas complejos y elegantes, con notas de frutas negras y rojas maduras (moras, ciruelas, frambuesas), acompañadas de toques especiados (pimienta, clavo), florales (violetas) y matices de crianza en roble como vainilla, chocolate, café y un leve toque ahumado. Puede presentar también notas minerales y herbáceas.
+Entrada equilibrada y estructurada, con taninos suaves y bien integrados. Ofrece una textura sedosa, buena acidez y un cuerpo medio a alto. Los sabores frutales se combinan con notas de roble, chocolate y un final largo, persistente y armonioso. El Bressia Profundo Blend es un vino versátil y estructurado, ideal para acompañar una amplia gama de platos gracias a su equilibrio entre fruta, taninos y acidez. Las recomendaciones de maridaje incluyen:Carnes Rojas: Perfecto para cortes como lomo, bife de chorizo o asado argentino. Su estructura y taninos complementan la jugosidad y sabor de las carnes a la parrilla o al horno.
+Cordero: Armoniza con cordero asado o estofado, especialmente si se acompaña con hierbas como romero o salsas con reducción de vino.
+Empanadas: Ideal para empanadas de carne o de sabores intensos, ya que sus notas frutales y especiadas equilibran los condimentos.
+Quesos Maduros: Combina muy bien con quesos duros como parmesano, gouda añejo o manchego, resaltando sus notas de roble y fruta.
+Platos con Hongos: Excelente con risottos de setas, salsas de hongos o carnes acompañadas de champiñones, ya que sus notas terrosas y especiadas se complementan.
+Pescados Grasos: Puede maridar con salmón o atún en preparaciones con salsas ricas o especiadas, gracias a su cuerpo y acidez.
+Pastas con Salsas Ricas: Va bien con pastas acompañadas de salsas de tomate, ragú o boloñesa, donde su estructura resalta los sabores umami.
+Postres: Puede acompañar postres con chocolate amargo (50-60%) o postres con frutos rojos, gracias a sus notas frutales y de vainilla.
+
+</p>
         </div>
 
         
@@ -646,126 +670,270 @@ Desserts: It can accompany desserts with dark chocolate (50-60%) or desserts wit
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Bodega Bressia</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Bodega Bressia</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Monteagrelo Malbec 2020 2020">
+      <h4>Monteagrelo Malbec 2020</h4>
+      <p>€29.36</p>
+      <a href="/en/vinos/monteagrelo-malbec-2020.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Monteagrelo Malbec 2020 2020">
-        <h4>Monteagrelo Malbec 2020</h4>
-        <p>€29.36</p>
-        <a href="/en/vinos/monteagrelo-malbec-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodega Bressia</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 940.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+      <div class="overlay">
+  <p><strong>Monteagrelo Malbec 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Bressia</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 940 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color with purple hues and black reflections, denoting great concentration and vivacity.
+Complex and attractive aromas of red and black fruits (s...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/bressia-conjuro-blend-2016.jpg" alt="Bressia Conjuro Blend 2016 2016">
-        <h4>Bressia Conjuro Blend 2016</h4>
-        <p>€95.16</p>
-        <a href="/en/vinos/bressia-conjuro-blend-2016.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodega Bressia</p>
-          <p><strong>Region:</strong> Agrelo tupungato</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/bressia-conjuro-blend-2016.jpg" alt="Bressia Conjuro Blend 2016 2016">
+      <h4>Bressia Conjuro Blend 2016</h4>
+      <p>€95.16</p>
+      <a href="/en/vinos/bressia-conjuro-blend-2016.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Bressia Conjuro Blend 2016</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Bressia</p>
+  <p><strong>Region:</strong> Agrelo tupungato</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color with purple hues and black reflections, showing depth and vivacity. Elegant and complex aromas that harmoniously integrate ripe fruits (plu...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Agrelo</h3>
-      <div class="grid">
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Agrelo</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2023.jpg" alt="Ojo de Agua Malbec  2023 2023">
           <h4>Ojo de Agua Malbec  2023</h4>
           <p>€18.36</p>
           <a href="/en/vinos/ojo-de-agua-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 1100.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Ojo de Agua Malbec  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Purple with maroon reflections.  
+Aroma: Dominated by red fruits, mainly cherry and plum, with a perfume of rose petals.  
+Taste: Full of fruit on the...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2020.jpg" alt="Ojo de Agua Malbec  2020 2020">
           <h4>Ojo de Agua Malbec  2020</h4>
           <p>€18.36</p>
           <a href="/en/vinos/ojo-de-agua-malbec-2020.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 1100.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Ojo de Agua Malbec  2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Purple with maroon reflections.  
+Aroma: Dominated by red fruits, mainly cherry and plum, with a perfume of rose petals.  
+Taste: Full of fruit on the...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/puro-rose-2023.jpg" alt="Puro Rose  2023 2023">
           <h4>Puro Rose  2023</h4>
           <p>€18.50</p>
           <a href="/en/vinos/puro-rose-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 1100.0</p>
-            <p><strong>Alcohol:</strong> 12.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Puro Rose  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 12.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Pink with copper reflections.  
+Aroma: Wild strawberries and raspberries, some white flowers and a young, crisp cherry profile.  
+Taste: Lively acidit...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/puro-corte-2022.jpg" alt="Puro Corte 2022 2022">
           <h4>Puro Corte 2022</h4>
           <p>€20.76</p>
           <a href="/en/vinos/puro-corte-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Dieter Meier and Family Wines</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 1100.0</p>
-            <p><strong>Alcohol:</strong> 14.6%</p>
+          
+         <div class="overlay">
+  <p><strong>Puro Corte 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.60%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Deep, dark and intense garnet.  
+Aroma: Red fruits with a prominent note of strawberry. Earthy, with dried autumn leaves and a touch of woody wild her...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/premium-reserva-malbec-mendoza-2022.jpg" alt="Premium Reserva Malbec Mendoza 2022 2022">
           <h4>Premium Reserva Malbec Mendoza 2022</h4>
           <p>€25.14</p>
           <a href="/en/vinos/premium-reserva-malbec-mendoza-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Piattelli Vineyards</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 940.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Premium Reserva Malbec Mendoza 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 940 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      A striking, lightly smoky wine with a deep burgundy color, Premium Reserve Malbec's fruity bouquet delights the senses and warms the palate with notes of bla...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/gran-reserva-malbec-mendoza-2022.jpg" alt="Gran Reserva Malbec Mendoza 2022 2022">
           <h4>Gran Reserva Malbec Mendoza 2022</h4>
           <p>€36.70</p>
           <a href="/en/vinos/gran-reserva-malbec-mendoza-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Piattelli Vineyards</p>
-            <p><strong>Region:</strong> Agrelo</p>
-            <p><strong>Altitude:</strong> 975.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Gran Reserva Malbec Mendoza 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Piattelli Vineyards</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 975 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      A rich, fragrant wine with a deep purple hue, the Grand Malbec Reserva envelops the senses with an exquisite bouquet of sweet and spicy plum blossoms in the ...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->

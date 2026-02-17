@@ -185,8 +185,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -520,26 +520,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -591,22 +581,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/aruma-malbec-2023.jpg" alt="Aruma Malbec 2023 2023">
       <div class="info">
         <h1>Aruma Malbec 2023</h1>
-        <p><strong>Price:</strong> €15.76 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €21.01 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Aruma%20Malbec%202023%202023" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €15.76 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €21.01 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Aruma%20Malbec%202023%20(2023)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Aruma%20Malbec%202023%20(2023)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Aruma%20Malbec%202023%20(2023)%0A→%20Winery:%20Bodegas%20Caro%0A→%20Price:%20€15.76 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Bodegas Caro</p>
         <p><strong>Region:</strong> Valle de uco</p>
-        <p><strong>Altitude:</strong> 1200.0 masl</p>
+        <p><strong>Altitude:</strong> 1200 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 14.2%</p>
+        <p><strong>Alcohol:</strong> 14.20%</p>
         
         
         
@@ -630,9 +652,9 @@ Sauvignon. The objective of this alliance is to make a wine that combines the Fr
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Intense red color with black reflections.
-The nose is expressive, with aromas of berries, plum and black currant.
-On the palate, the wine feels round and velvety, with aromas of blueberry, blackberry and cassis, leading to a smooth and balanced finish. Aruma Malbec 2023 from Bodegas Caro</p>
+          <p>Color rojo intenso con reflejos negros.
+En nariz es expresivo, con aromas de bayas, ciruela y grosella negra.
+En boca, el vino se siente redondo y aterciopelado, con aromas de arándano, mora y cassis, que conducen a un final suave y equilibrado.</p>
         </div>
 
         
@@ -646,178 +668,391 @@ On the palate, the wine feels round and velvety, with aromas of blueberry, black
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Bodegas Caro</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Bodegas Caro</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/malbec-argentino-2023.jpg" alt="Malbec Argentino 2023 2023">
+      <h4>Malbec Argentino 2023</h4>
+      <p>€15.76</p>
+      <a href="/en/vinos/malbec-argentino-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/malbec-argentino-2023.jpg" alt="Malbec Argentino 2023 2023">
-        <h4>Malbec Argentino 2023</h4>
-        <p>€15.76</p>
-        <a href="/en/vinos/malbec-argentino-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodegas Caro</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1200.0</p>
-          <p><strong>Alcohol:</strong> 14.5%</p>
+      <div class="overlay">
+  <p><strong>Malbec Argentino 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Caro</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1200 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      The perfect introduction to the world of South American Malbec! The Argentine Malbec Bodegas Carocaptivates the nose with expressive notes of violets, black ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/malbec-argentino-2021.jpg" alt="Malbec Argentino 2021 2021">
-        <h4>Malbec Argentino 2021</h4>
-        <p>€15.76</p>
-        <a href="/en/vinos/malbec-argentino-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodegas Caro</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1200.0</p>
-          <p><strong>Alcohol:</strong> 14.5%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/malbec-argentino-2021.jpg" alt="Malbec Argentino 2021 2021">
+      <h4>Malbec Argentino 2021</h4>
+      <p>€15.76</p>
+      <a href="/en/vinos/malbec-argentino-2021.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/amancaya-2021.jpg" alt="Amancaya 2021 2021">
-        <h4>Amancaya 2021</h4>
-        <p>€24.86</p>
-        <a href="/en/vinos/amancaya-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodegas Caro</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+      <div class="overlay">
+  <p><strong>Malbec Argentino 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Caro</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1200 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      The perfect introduction to the world of South American Malbec! The Argentine Malbec Bodegas Carocaptivates the nose with expressive notes of violets, black ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/petit-caro-2021.jpg" alt="Petit Caro 2021 2021">
-        <h4>Petit Caro 2021</h4>
-        <p>€27.77</p>
-        <a href="/en/vinos/petit-caro-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodegas Caro</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Altitude:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/amancaya-2021.jpg" alt="Amancaya 2021 2021">
+      <h4>Amancaya 2021</h4>
+      <p>€24.86</p>
+      <a href="/en/vinos/amancaya-2021.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/caro-2021.jpg" alt="Caro 2021 2021">
-        <h4>Caro 2021</h4>
-        <p>€99.86</p>
-        <a href="/en/vinos/caro-2021.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodegas Caro</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 13.600000000000001%</p>
+      <div class="overlay">
+  <p><strong>Amancaya 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Caro</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color with ruby ​​reflections.
+The nose is fruity and fresh, with aromas of red fruits, strawberry and black currant.
+On the palate, the wine is ...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/caro-2019.jpg" alt="Caro 2019 2019">
-        <h4>Caro 2019</h4>
-        <p>€99.86</p>
-        <a href="/en/vinos/caro-2019.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodegas Caro</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1100.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/petit-caro-2021.jpg" alt="Petit Caro 2021 2021">
+      <h4>Petit Caro 2021</h4>
+      <p>€27.77</p>
+      <a href="/en/vinos/petit-caro-2021.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Petit Caro 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Caro</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense and velvety red color with ruby ​​reflections.
+The nose is very fruity and fresh, with aromas of red fruits, strawberry and black currant.
+On the pal...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/caro-2021.jpg" alt="Caro 2021 2021">
+      <h4>Caro 2021</h4>
+      <p>€99.86</p>
+      <a href="/en/vinos/caro-2021.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Caro 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Caro</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.60%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color with purple reflections.
+The nose is complex with notes of red fruits, figs and blueberries, with touches of finely roasted coffee. There a...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/caro-2019.jpg" alt="Caro 2019 2019">
+      <h4>Caro 2019</h4>
+      <p>€99.86</p>
+      <a href="/en/vinos/caro-2019.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Caro 2019</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Caro</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense ruby ​​red color.
+Complex aromas in which red fruits and figs are the protagonists and notes of black currant adorn
+the background. On the palate, th...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Valle de uco</h3>
-      <div class="grid">
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Valle de uco</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
           <h4>Trumpeter Malbec 375 ml 2023</h4>
           <p>€9.96</p>
           <a href="/en/vinos/trumpeter-malbec-375-ml-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Rutini Wines</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.8%</p>
+          
+         <div class="overlay">
+  <p><strong>Trumpeter Malbec 375 ml 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Blackberry, plum and a touch of spice, with soft tannins. Pairing: chorizo ​​steak, roast lamb. Trumpeter Malbec 375 ml 2023 from Rutini Wines
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023 2023">
           <h4>Temático Malbec 2023</h4>
           <p>€9.99</p>
           <a href="/en/vinos/tematico-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1100.0</p>
-            <p><strong>Alcohol:</strong> 14.1%</p>
+          
+         <div class="overlay">
+  <p><strong>Temático Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Foster Lorca</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.10%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Ripe red fruit, plum, soft tannins. Ideal with pasta and white meats. Temático Malbec 2023 from Bodega Foster Lorca
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024 2024">
           <h4>Alamos Malbec 2024</h4>
           <p>€10.97</p>
           <a href="/en/vinos/alamos-malbec-2024.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Alamos</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1250.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Alamos Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Alamos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1250 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Intense purple with violet flashes, showing its vitality and concentration.  
+Aroma: Expressive nose with a memorable intensity of ripe black fruits s...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
           <h4>Los Haroldos Estate Malbec 2022</h4>
           <p>€11.90</p>
           <a href="/en/vinos/los-haroldos-estate-malbec-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Los Haroldos</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.8%</p>
+          
+         <div class="overlay">
+  <p><strong>Los Haroldos Estate Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Los Haroldos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Aroma of raspberry, cassis and a hint of oak. Juicy flavor with round tannins. Pairs well with roast lamb or meat stews. Los Haroldos Estate Malbec 2022 from...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
           <h4>Trapiche Reserve Malbec 2023</h4>
           <p>€14.99</p>
           <a href="/en/vinos/trapiche-reserve-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Trapiche</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Trapiche Reserve Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Red and black fruits, with a touch of spices and soft tannins. Pairing: grilled meats, pasta with tomato sauce. Trapiche Reserve Malbec 2023 from Trapiche
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021 2021">
           <h4>Ique Malbec 2021</h4>
           <p>€13.49</p>
           <a href="/en/vinos/ique-malbec-2021.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Foster Lorca</p>
-            <p><strong>Region:</strong> Valle de uco</p>
-            <p><strong>Altitude:</strong> 950.0</p>
-            <p><strong>Alcohol:</strong> 14.4%</p>
+          
+         <div class="overlay">
+  <p><strong>Ique Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Foster Lorca</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 950 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color, with violet hues. Presence of fresh red fruits, plums, raspberries,
+currants, blackberries, blueberries. Good structure and soft tannins, ...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->

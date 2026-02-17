@@ -188,8 +188,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -523,26 +523,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -594,22 +584,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/bemberg-estate-la-linterna-malbec-2016.jpg" alt="Bemberg Estate La Linterna Malbec 2016 2016">
       <div class="info">
         <h1>Bemberg Estate La Linterna Malbec 2016</h1>
-        <p><strong>Price:</strong> €89.34 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €119.12 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Bemberg%20Estate%20La%20Linterna%20Malbec%202016%202016" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €89.34 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €119.12 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Bemberg%20Estate%20La%20Linterna%20Malbec%202016%20(2016)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Bemberg%20Estate%20La%20Linterna%20Malbec%202016%20(2016)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Bemberg%20Estate%20La%20Linterna%20Malbec%202016%20(2016)%0A→%20Winery:%20Bemberg%20Estate%20Wines%0A→%20Price:%20€89.34 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Bemberg Estate Wines</p>
         <p><strong>Region:</strong> Gualtallary, valle de uco</p>
-        <p><strong>Altitude:</strong> 2000.0 masl</p>
+        <p><strong>Altitude:</strong> 2000 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 13.900000000000002%</p>
+        <p><strong>Alcohol:</strong> 13.90%</p>
         
         <p><strong>Awards:</strong> DWWA 2025 - 95 pts</p>
         
@@ -636,7 +658,7 @@ Our winemakers and viticulturists examined each of the terroirs to find the perf
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Vibrant and powerful, with an intensity and purity of expression full of character. Persistent notes of blackberries and blueberries, caramelized cherries, raspberries and dried cranberries. Its fragrance of violets and roses contrasts elegantly with dried spices, licorice and herbs, on a seductive background of earthy, smoky and mineral notes. Vibrant acidity and finely structured tannins, suitably balanced by a velvety texture and chalky power. A young and energetic wine, with great character, that will gain harmony and integration after good aging in the bottle. Bemberg Estate La Linterna Malbec 2016 from Bemberg Estate Wines</p>
+          <p>Vibrante y potente, de una intensidad y pureza de expresión plenas de carácter. Persistentes notas a moras y arándanos, cerezas caramelizadas, frambuesas y arándanos rojos desecados. Su fragancia a violetas y rosas contrasta elegantemente con especias disecadas, regaliz y hierbas, sobre un seductor trasfondo de notas terrosas, ahumadas y minerales. Vibrante acidez y taninos finamente estructurados, equilibrados convenientemente por una textura aterciopelada y potencia calcárea. Un vino joven y enérgico, de gran carácter, que ganará en armonía e integración tras una buena guarda en botella.</p>
         </div>
 
         
@@ -650,69 +672,139 @@ Our winemakers and viticulturists examined each of the terroirs to find the perf
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
-    
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Gualtallary, valle de uco</h3>
-      <div class="grid">
-        
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Gualtallary, valle de uco</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-sv-malbec-ambrosia-2018.jpg" alt="Trapiche Terroir Series SV Malbec Ambrosia 2018 2018">
           <h4>Trapiche Terroir Series SV Malbec Ambrosia 2018</h4>
           <p>€62.22</p>
           <a href="/en/vinos/trapiche-terroir-series-sv-malbec-ambrosia-2018.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Trapiche</p>
-            <p><strong>Region:</strong> Gualtallary, valle de uco</p>
-            <p><strong>Altitude:</strong> 1400.0</p>
-            <p><strong>Alcohol:</strong> 15.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Trapiche Terroir Series SV Malbec Ambrosia 2018</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Gualtallary, valle de uco</p>
+  <p><strong>Altitude:</strong> 1400 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 15.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Deep red in color and ruby ​​sparkles, this Malbec delivers intense aromas of black fruits with smoky and menthol notes. Spicy graphite and liquor aromas are...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/rutini-single-vineyard-malbec-gualtallary-2021.jpg" alt="Rutini Single Vineyard Malbec Gualtallary 2021 2021">
           <h4>Rutini Single Vineyard Malbec Gualtallary 2021</h4>
           <p>€67.00</p>
           <a href="/en/vinos/rutini-single-vineyard-malbec-gualtallary-2021.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Rutini Wines</p>
-            <p><strong>Region:</strong> Gualtallary, valle de uco</p>
-            <p><strong>Altitude:</strong> 1180.0</p>
-            <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          
+         <div class="overlay">
+  <p><strong>Rutini Single Vineyard Malbec Gualtallary 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Gualtallary, valle de uco</p>
+  <p><strong>Altitude:</strong> 1180 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense black fruits, floral notes (violets) and spices, with firm tannins. Pairing: grilled red meats, hard cheeses. Rutini Single Vineyard Malbec Gualtalla...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/rutini-single-vineyard-malbec-gualtallary-2017.jpg" alt="Rutini Single Vineyard Malbec Gualtallary 2017 2017">
           <h4>Rutini Single Vineyard Malbec Gualtallary 2017</h4>
           <p>€134.00</p>
           <a href="/en/vinos/rutini-single-vineyard-malbec-gualtallary-2017.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Rutini Wines</p>
-            <p><strong>Region:</strong> Gualtallary, valle de uco</p>
-            <p><strong>Altitude:</strong> 1180.0</p>
-            <p><strong>Alcohol:</strong> 15.4%</p>
+          
+         <div class="overlay">
+  <p><strong>Rutini Single Vineyard Malbec Gualtallary 2017</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Gualtallary, valle de uco</p>
+  <p><strong>Altitude:</strong> 1180 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 15.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Evolved black fruits, floral and mineral notes, with silky tannins. Pairing: gourmet dishes, mature cheeses. Rutini Single Vineyard Malbec Gualtallary 2017 f...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/felipe-rutini-2017.jpg" alt="Felipe Rutini 2017 2017">
           <h4>Felipe Rutini 2017</h4>
           <p>€168.99</p>
           <a href="/en/vinos/felipe-rutini-2017.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Rutini Wines</p>
-            <p><strong>Region:</strong> Gualtallary, valle de uco</p>
-            <p><strong>Altitude:</strong> 1180.0</p>
-            <p><strong>Alcohol:</strong> 13.600000000000001%</p>
+          
+         <div class="overlay">
+  <p><strong>Felipe Rutini 2017</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Gualtallary, valle de uco</p>
+  <p><strong>Altitude:</strong> 1180 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.60%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      This distinguished blended wine, in which the
+Cabernet Sauvignon, develops a reinterpretation of
+the Bordeaux tradition. Its bouquet evokes aromas of
+candied...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->

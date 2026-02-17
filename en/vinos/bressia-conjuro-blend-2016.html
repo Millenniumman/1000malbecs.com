@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/bressia-conjuro-blend-2016.jpg" alt="Bressia Conjuro Blend 2016 2016">
       <div class="info">
         <h1>Bressia Conjuro Blend 2016</h1>
-        <p><strong>Price:</strong> €95.16 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €126.88 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Bressia%20Conjuro%20Blend%202016%202016" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €95.16 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €126.88 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Bressia%20Conjuro%20Blend%202016%20(2016)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Bressia%20Conjuro%20Blend%202016%20(2016)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Bressia%20Conjuro%20Blend%202016%20(2016)%0A→%20Winery:%20Bodega%20Bressia%0A→%20Price:%20€95.16 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Bodega Bressia</p>
         <p><strong>Region:</strong> Agrelo tupungato</p>
-        <p><strong>Altitude:</strong> 1100.0 masl</p>
+        <p><strong>Altitude:</strong> 1100 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Alcohol:</strong> 13.50%</p>
         
         
         <p><strong>Aging:</strong> 10 años</p>
@@ -624,12 +646,12 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Intense red color with purple hues and black reflections, showing depth and vivacity. Elegant and complex aromas that harmoniously integrate ripe fruits (plums, blackberries, black cherries), spicy notes (black pepper, mint), floral notes (violets) and touches of oak aging such as vanilla, chocolate, cocoa and smoked notes. Some highlight nuances of leather, tobacco and dark minerals.
-Wide, unctuous entry with a balanced body. It presents ripe and silky tannins, with a robust but elegant structure, good acidity and a long, persistent and seductive finish. Flavors of black fruits, chocolate, vanilla and mineral notes are perceived, with a meaty and enveloping texture. Bressia Conjuro Blend, with its powerful and balanced structure, is ideal to accompany intense and tasty dishes. Pairing recommendations include: Roasted or Grilled Meats: Perfect for cuts of beef such as chorizo ​​steak, rib eye or Argentine roast, where its tannins and fruity notes complement the juiciness of the meat. Lamb Dishes: Its complexity and body harmonize with roasted or stewed lamb, especially with herbs such as rosemary or thyme. Empanadas: Ideal with meat or spicy empanadas, since their acidity and tannins balance the spicy flavors. Intense Flavored Fish: It can accompany fish such as salmon or tuna with rich sauces, thanks to its versatile structure.
-Mature Cheeses: Combines excellently with hard cheeses such as Parmesan, Manchego or aged cheddar, highlighting the oak and fruit notes.
-Chocolates and Desserts: Its fruity profile and hints of vanilla make it ideal for desserts with dark chocolate (50-70%) or quince.
-Dishes with Mushrooms: It goes very well with red meat accompanied by mushroom sauces or mushroom risottos, since its earthy and spicy notes complement these flavors. Paellas or Spiced Rice: The richness of the wine highlights the flavors of seasoned rice or legumes.
-Additional Notes:The Bressia Conjuro Blend is a limited production wine, made with a minimalist approach that highlights the quality of the grapes and the terroir of the Uco Valley. Its potential aging is 5 to 10 years, which allows for greater evolution in the bottle. This blend is a sophisticated and seductive expression, ideal for those looking for a structured but elegant wine, perfect for a special dinner or to enjoy slowly. Bressia Conjuro Blend 2016 from Bodega Bressia</p>
+          <p> Color rojo intenso con tonalidades púrpuras y reflejos negros, mostrando profundidad y vivacidad. Aromas elegantes y complejos que integran armoniosamente frutas maduras (ciruelas, moras, cerezas negras), notas especiadas (pimienta negra, menta), florales (violetas) y toques de crianza en roble como vainilla, chocolate, cacao y ahumados. Algunos destacan matices de cuero, tabaco y minerales oscuros.
+Entrada amplia, untuosa y de cuerpo equilibrado. Presenta taninos maduros y sedosos, con una estructura robusta pero elegante, buena acidez y un final largo, persistente y seductor. Se perciben sabores de frutas negras, chocolate, vainilla y notas minerales, con una textura carnosa y envolvente. El Bressia Conjuro Blend, con su estructura potente y equilibrada, es ideal para acompañar platos intensos y sabrosos. Las recomendaciones de maridaje incluyen:Carnes Asadas o a la Parrilla: Perfecto para cortes de res como bife de chorizo, costilla o asado argentino, donde sus taninos y notas frutales complementan la jugosidad de la carne. Platos de Cordero: Su complejidad y cuerpo armonizan con cordero asado o guisado, especialmente con hierbas como romero o tomillo. Empanadas: Ideal con empanadas de carne o picantes, ya que su acidez y taninos equilibran los sabores especiados. Pescados de Sabor Intenso: Puede acompañar pescados como salmón o atún con salsas ricas, gracias a su estructura versátil.
+Quesos Maduros: Combina excelentemente con quesos duros como parmesano, manchego o cheddar añejo, resaltando las notas de roble y fruta.
+Chocolates y Postres: Su perfil frutal y toques de vainilla lo hacen ideal para postres con chocolate amargo (50-70%) o membrillo.
+Platos con Hongos: Va muy bien con carnes rojas acompañadas de salsas de hongos o risottos de setas, ya que sus notas terrosas y especiadas complementan estos sabores. Paellas o Arroces con Especias: La riqueza del vino resalta los sabores de arroces condimentados o legumbres.
+Notas Adicionales:El Bressia Conjuro Blend es un vino de producción limitada, elaborado con un enfoque minimalista que resalta la calidad de las uvas y el terroir del Valle de Uco. Su guarda potencial es de 5 a 10 años, lo que permite una mayor evolución en botella. Este blend es una expresión sofisticada y seductora, ideal para quienes buscan un vino estructurado pero elegante, perfecto para una cena especial o para disfrutar lentamente.</p>
         </div>
 
         
@@ -643,43 +665,78 @@ Additional Notes:The Bressia Conjuro Blend is a limited production wine, made wi
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Bodega Bressia</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Bodega Bressia</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Monteagrelo Malbec 2020 2020">
+      <h4>Monteagrelo Malbec 2020</h4>
+      <p>€29.36</p>
+      <a href="/en/vinos/monteagrelo-malbec-2020.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/monteagrelo-malbec-2020.jpg" alt="Monteagrelo Malbec 2020 2020">
-        <h4>Monteagrelo Malbec 2020</h4>
-        <p>€29.36</p>
-        <a href="/en/vinos/monteagrelo-malbec-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodega Bressia</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 940.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+      <div class="overlay">
+  <p><strong>Monteagrelo Malbec 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Bressia</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 940 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color with purple hues and black reflections, denoting great concentration and vivacity.
+Complex and attractive aromas of red and black fruits (s...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/bressia-profundo-blend-2020.jpg" alt="Bressia Profundo Blend 2020 2020">
-        <h4>Bressia Profundo Blend 2020</h4>
-        <p>€43.06</p>
-        <a href="/en/vinos/bressia-profundo-blend-2020.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Bodega Bressia</p>
-          <p><strong>Region:</strong> Agrelo</p>
-          <p><strong>Altitude:</strong> 970.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/bressia-profundo-blend-2020.jpg" alt="Bressia Profundo Blend 2020 2020">
+      <h4>Bressia Profundo Blend 2020</h4>
+      <p>€43.06</p>
+      <a href="/en/vinos/bressia-profundo-blend-2020.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Bressia Profundo Blend 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Bressia</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Altitude:</strong> 970 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense ruby ​​red color with purple hues and bright reflections, which reflect its concentration and vitality. Complex and elegant aromas, with notes of rip...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
     </div>
-    
-
-    
   </div>
 
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');

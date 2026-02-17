@@ -182,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -517,26 +517,16 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
@@ -588,22 +578,54 @@ body {
       <img src="https://www.1000malbecs.com/images/large/casa-araujo-mimi-2023.jpg" alt="Casa Araujo Mimi 2023 2023">
       <div class="info">
         <h1>Casa Araujo Mimi 2023</h1>
-        <p><strong>Price:</strong> €13.99 / bottle (0.75 L)</p>
-         <p><i><strong>Price per liter:</strong> €18.65 / L</p></i>
-           <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Casa%20Araujo%20Mimi%202023%202023" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order via WhatsApp
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €13.99 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €18.65 / L)
+        </p>
+      </div>
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Casa%20Araujo%20Mimi%202023%20(2023)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Casa%20Araujo%20Mimi%202023%20(2023)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Casa%20Araujo%20Mimi%202023%20(2023)%0A→%20Winery:%20Casa%20Araujo%0A→%20Price:%20€13.99 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
         <p><strong>Winery:</strong> Casa Araujo</p>
         <p><strong>Region:</strong> San rafael</p>
-        <p><strong>Altitude:</strong> 520.0 masl</p>
+        <p><strong>Altitude:</strong> 520 masl</p>
         
         <p><strong>Volume:</strong> 750 ml</p>
        
-        <p><strong>Alcohol:</strong> 13.4%</p>
+        <p><strong>Alcohol:</strong> 13.40%</p>
         
         
         
@@ -624,7 +646,7 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>On the nose we find the perfect combination between the aromas of red fruits, cherries and blackberries typical of Malbec, with the spicy note provided by Merlot. The first brings freshness and intensity, the second, finesse and elegance. The entry into the mouth is sweet, with good structure, and a persistent finish. Casa Araujo Mimi 2023 from Casa Araujo</p>
+          <p>En nariz encontramos el ensamble perfecto entre los aromas de frutos rojos, cerezas y moras propias del Malbec, con la nota especiada que aporta el Merlot. El primero aporta frescura e intensidad, el segundo, fineza y elegancia. La entrada en boca es dulce, con buena estructura, y final persistente.</p>
         </div>
 
         
@@ -638,152 +660,322 @@ body {
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Casa Araujo</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Casa Araujo</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Casa Araujo Varietal 2023 2023">
+      <h4>Casa Araujo Varietal 2023</h4>
+      <p>€7.99</p>
+      <a href="/en/vinos/casa-araujo-varietal-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Casa Araujo Varietal 2023 2023">
-        <h4>Casa Araujo Varietal 2023</h4>
-        <p>€7.99</p>
-        <a href="/en/vinos/casa-araujo-varietal-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Casa Araujo</p>
-          <p><strong>Region:</strong> San rafael</p>
-          <p><strong>Altitude:</strong> 520.0</p>
-          <p><strong>Alcohol:</strong> 13.2%</p>
+      <div class="overlay">
+  <p><strong>Casa Araujo Varietal 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Casa Araujo</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 520 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.20%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      At first glance, it has an intense ruby ​​red color with slight violet reflections. Of great aromatic complexity, it combines plums, violets and figs. Profil...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Casa Araujo Roble 2023 2023">
-        <h4>Casa Araujo Roble 2023</h4>
-        <p>€10.19</p>
-        <a href="/en/vinos/casa-araujo-roble-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Casa Araujo</p>
-          <p><strong>Region:</strong> San rafael</p>
-          <p><strong>Altitude:</strong> 520.0</p>
-          <p><strong>Alcohol:</strong> 13.7%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Casa Araujo Roble 2023 2023">
+      <h4>Casa Araujo Roble 2023</h4>
+      <p>€10.19</p>
+      <a href="/en/vinos/casa-araujo-roble-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/nucha-2023.jpg" alt="Nucha 2023 2023">
-        <h4>Nucha 2023</h4>
-        <p>€12.99</p>
-        <a href="/en/vinos/nucha-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Casa Araujo</p>
-          <p><strong>Region:</strong> San rafael</p>
-          <p><strong>Altitude:</strong> 520.0</p>
-          <p><strong>Alcohol:</strong> 14.5%</p>
+      <div class="overlay">
+  <p><strong>Casa Araujo Roble 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Casa Araujo</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 520 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.70%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      The first contact it offers us is a brilliant ruby-toned color with good intensity. Then on the nose it is a wine with vibrant aromas, with a gradual evoluti...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023 2023">
-        <h4>Graciano Reserva Blend 2023</h4>
-        <p>€13.59</p>
-        <a href="/en/vinos/graciano-reserva-blend-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Casa Araujo</p>
-          <p><strong>Region:</strong> San rafael</p>
-          <p><strong>Altitude:</strong> 520.0</p>
-          <p><strong>Alcohol:</strong> 14.3%</p>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/nucha-2023.jpg" alt="Nucha 2023 2023">
+      <h4>Nucha 2023</h4>
+      <p>€12.99</p>
+      <a href="/en/vinos/nucha-2023.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Nucha 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Casa Araujo</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 520 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Tasting notes: intense red in color, with violet reflections, bright, young and elegant and balanced on the nose, it combines fruity aromas typical of the va...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023 2023">
+      <h4>Graciano Reserva Blend 2023</h4>
+      <p>€13.59</p>
+      <a href="/en/vinos/graciano-reserva-blend-2023.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Graciano Reserva Blend 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Casa Araujo</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 520 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.30%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      At first glance it shows us its intense and deep ruby ​​red hue. On the nose it offers us an elegant encounter with complex aromas of red fruits and spices, ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from San rafael</h3>
-      <div class="grid">
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from San rafael</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Goye Malbec 2022 2022">
           <h4>Goye Malbec 2022</h4>
           <p>€9.49</p>
           <a href="/en/vinos/goye-malbec-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Goyenechea</p>
-            <p><strong>Region:</strong> San rafael</p>
-            <p><strong>Altitude:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Goye Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Goyenechea</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 520 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Ruby red with purple reflections, bright and lively. Dried fruits, nuts and a slight spice appear on the nose. Soft tannins and a good presence of wood. In t...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Famiglia Bianchi Malbec  2021 2021">
           <h4>Famiglia Bianchi Malbec  2021</h4>
           <p>€18.49</p>
           <a href="/en/vinos/famiglia-bianchi-malbec-2021.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodegas Bianchi</p>
-            <p><strong>Region:</strong> San rafael</p>
-            <p><strong>Altitude:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Famiglia Bianchi Malbec  2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Bianchi</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 800 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it presents aromas of raspberry, cherry and black pepper, with nuances of vanilla and a herbal touch. In the mouth, it is juicy, with flavors of...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2023.jpg" alt="Famiglia Bianchi Malbec  2023 2023">
           <h4>Famiglia Bianchi Malbec  2023</h4>
           <p>€18.49</p>
           <a href="/en/vinos/famiglia-bianchi-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodegas Bianchi</p>
-            <p><strong>Region:</strong> San rafael</p>
-            <p><strong>Altitude:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Famiglia Bianchi Malbec  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Bianchi</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 800 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of raspberry, cherry and black pepper, with nuances of vanilla and fresh herbs. In the mouth, it is juicy, with flavors of re...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Famiglia Bianchi Malbec 2020 2020">
           <h4>Famiglia Bianchi Malbec 2020</h4>
           <p>€19.49</p>
           <a href="/en/vinos/famiglia-bianchi-malbec-2020.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodegas Bianchi</p>
-            <p><strong>Region:</strong> San rafael</p>
-            <p><strong>Altitude:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Famiglia Bianchi Malbec 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Bianchi</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 800 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it offers aromas of blackberry, plum and violets, with notes of vanilla and sweet spices. In the mouth, it is structured, with flavors of black ...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Quinta Generación Malbec 2022 2022">
           <h4>Quinta Generación Malbec 2022</h4>
           <p>€19.99</p>
           <a href="/en/vinos/quinta-generacion-malbec-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Goyenechea</p>
-            <p><strong>Region:</strong> San rafael</p>
-            <p><strong>Altitude:</strong> 520.0</p>
-            <p><strong>Alcohol:</strong> 14.4%</p>
+          
+         <div class="overlay">
+  <p><strong>Quinta Generación Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Goyenechea</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 520 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red with purple reflections. Bright and lively. Complex and persistent aroma. At first the quality of the wood of the barrel is evident and then you ...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Famiglia Bianchi Malbec 2014 2014">
           <h4>Famiglia Bianchi Malbec 2014</h4>
           <p>€21.49</p>
           <a href="/en/vinos/famiglia-bianchi-malbec-2014.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodegas Bianchi</p>
-            <p><strong>Region:</strong> San rafael</p>
-            <p><strong>Altitude:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
+          
+         <div class="overlay">
+  <p><strong>Famiglia Bianchi Malbec 2014</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Bianchi</p>
+  <p><strong>Region:</strong> San rafael</p>
+  <p><strong>Altitude:</strong> 800 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of dried plum, leather and tobacco, with notes of sweet spices and a smoky touch. In the mouth, it is structured, with flavor...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
