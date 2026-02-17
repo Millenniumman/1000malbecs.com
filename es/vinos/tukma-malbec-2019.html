@@ -180,8 +180,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,57 +515,8 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
@@ -617,30 +568,49 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/tukma-malbec-2019.jpg" alt="Tukma Malbec 2019">
+      <img src="https://www.1000malbecs.com/images/large/tukma-malbec-2019.jpg" alt="Tukma Malbec 2019 2019">
       <div class="info">
         <h1>Tukma Malbec 2019</h1>
-        <p><strong>Precio:</strong> €19.29 / botella (0.75 L)</p>
-        <p><i><strong>Precio por litro:</strong> €25.72 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Tukma%20Malbec%202019%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-        <br>
-        <br>
         <p><strong>Bodega:</strong> Bodega Tukma</p>
         <p><strong>Región:</strong> Valle de calchaquí</p>
-        <p><strong>Altura:</strong> 1700.0 msnm</p>
+        <p><strong>Altura:</strong> 1700 msnm</p>
+        <p><strong>Precio:</strong> €19.29 / botella (0.75 L)</p>
         <p><strong>Volumen:</strong> 750 ml</p>
-        
-        <p><strong>Alcohol:</strong> 14.5%</p>
+        <p><strong>Precio por litro:</strong> €25.72 / litro</p>
+        <p><strong>Alcohol:</strong> 14,50%</p>
         
         
         <p><strong>Guarda:</strong> 5  años</p>
+        
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Tukma%20Malbec%202019%20(2019)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Tukma%20Malbec%202019%20(2019)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Tukma%20Malbec%202019%20(2019)%0A→%20Bodega:%20Bodega%20Tukma%0A→%20Precio:%20€19.29 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -665,75 +635,124 @@ body {
     </div>
 
     <!-- OTRA BODEGA -->
+
+  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Tukma</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Tukma</h3>
-    <div class="grid">
-      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/tukma-gran-corte-2017.jpg" alt="Tukma Gran Corte 2017">
+        <img src="https://www.1000malbecs.com/images/small/tukma-gran-corte-2017.jpg" alt="Tukma Gran Corte 2017 2017">
         <h4>Tukma Gran Corte 2017</h4>
         <p>€41.29</p>
         <a href="/es/vinos/tukma-gran-corte-2017.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Bodega Tukma</p>
+          <p><strong>Tukma Gran Corte 2017</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Tukma</p>
           <p><strong>Región:</strong> Valle de calchaquí</p>
-          <p><strong>Altura:</strong> 1700.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+          <p><strong>Altura:</strong> 1700 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Color rojo intenso con bordes violáceos. Notas de fruta roja madura y pimiento rojo. Sutiles aromas a vainilla y tostado debido al envejecimiento en roble. D...
+            </p>
+          
         </div>
       </div>
-      
-    </div>
     
+  </div>
+
 
     <!-- OTRA REGIÓN -->
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">Otros vinos de Valle de calchaquí</h3>
-      <div class="grid">
-        
+
+  <div class="region-section">
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Valle de calchaquí</h3>
+    <div class="grid">
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Bad Brothers Malbec Premium 2020">
+          <img src="https://www.1000malbecs.com/images/small/bad-brothers-malbec-premium-2020.jpg" alt="Bad Brothers Malbec Premium 2020 2020">
           <h4>Bad Brothers Malbec Premium 2020</h4>
           <p>€17.49</p>
           <a href="/es/vinos/bad-brothers-malbec-premium-2020.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Agustin Lanus</p>
+            <p><strong>Bad Brothers Malbec Premium 2020</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Agustin Lanus</p>
             <p><strong>Región:</strong> Valle de calchaquí</p>
-            <p><strong>Altura:</strong> 2100.0</p>
-            <p><strong>Alcohol:</strong> 14.7%</p>
+            <p><strong>Altura:</strong> 2100 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,70%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                En nariz, presenta aromas a cereza, frambuesa y pimienta negra, con matices de hierbas frescas y un toque de vainilla. En boca, es jugoso, con sabores a frut...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/el-esteco-malbec-2012.jpg" alt="El Esteco Malbec 2012">
+          <img src="https://www.1000malbecs.com/images/small/el-esteco-malbec-2012.jpg" alt="El Esteco Malbec 2012 2012">
           <h4>El Esteco Malbec 2012</h4>
           <p>€21.00</p>
           <a href="/es/vinos/el-esteco-malbec-2012.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> El Esteco</p>
+            <p><strong>El Esteco Malbec 2012</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> El Esteco</p>
             <p><strong>Región:</strong> Valle de calchaquí</p>
-            <p><strong>Altura:</strong> 1700.0</p>
-            <p><strong>Alcohol:</strong> 14.0%</p>
+            <p><strong>Altura:</strong> 1700 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,00%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Muy buena intensidad cromática, con notas rojas, rubíes, violetas y negro brillantes. Buena estructura y madurez.
+
+Su concentrado perfil aromático se centra ...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/sunal-ilogico-malbec-2020.jpg" alt="Sunal Ilogico Malbec  2020">
+          <img src="https://www.1000malbecs.com/images/small/sunal-ilogico-malbec-2020.jpg" alt="Sunal Ilogico Malbec  2020 2020">
           <h4>Sunal Ilogico Malbec  2020</h4>
           <p>€25.49</p>
           <a href="/es/vinos/sunal-ilogico-malbec-2020.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Agustin Lanus</p>
+            <p><strong>Sunal Ilogico Malbec  2020</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Agustin Lanus</p>
             <p><strong>Región:</strong> Valle de calchaquí</p>
-            <p><strong>Altura:</strong> 2200.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+            <p><strong>Altura:</strong> 2200 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,50%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                En nariz, ofrece aromas a mora, ciruela y violetas, con notas de tabaco y especias dulces. En boca, es estructurado, con sabores a frutos negros, chocolate y...
+              </p>
+            
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
+
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>

@@ -180,8 +180,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,57 +515,8 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
@@ -617,30 +568,49 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/rutini-dominio-malbec-2021.jpg" alt="Rutini Dominio Malbec 2021">
+      <img src="https://www.1000malbecs.com/images/large/rutini-dominio-malbec-2021.jpg" alt="Rutini Dominio Malbec 2021 2021">
       <div class="info">
         <h1>Rutini Dominio Malbec 2021</h1>
-        <p><strong>Precio:</strong> €31.74 / botella (0.75 L)</p>
-        <p><i><strong>Precio por litro:</strong> €42.32 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Rutini%20Dominio%20Malbec%202021%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-        <br>
-        <br>
         <p><strong>Bodega:</strong> Rutini Wines</p>
         <p><strong>Región:</strong> Valle de uco</p>
-        <p><strong>Altura:</strong> 950.0 msnm</p>
+        <p><strong>Altura:</strong> 950 msnm</p>
+        <p><strong>Precio:</strong> €31.74 / botella (0.75 L)</p>
         <p><strong>Volumen:</strong> 750 ml</p>
+        <p><strong>Precio por litro:</strong> €42.32 / litro</p>
+        <p><strong>Alcohol:</strong> 14,00%</p>
         
-        <p><strong>Alcohol:</strong> 14.000000000000002%</p>
         
         
         
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Rutini%20Dominio%20Malbec%202021%20(2021)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Rutini%20Dominio%20Malbec%202021%20(2021)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Rutini%20Dominio%20Malbec%202021%20(2021)%0A→%20Bodega:%20Rutini%20Wines%0A→%20Precio:%20€31.74 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -665,179 +635,326 @@ body {
     </div>
 
     <!-- OTRA BODEGA -->
+
+  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Rutini Wines</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Rutini Wines</h3>
-    <div class="grid">
-      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023">
+        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
         <h4>Trumpeter Malbec 375 ml 2023</h4>
         <p>€9.96</p>
         <a href="/es/vinos/trumpeter-malbec-375-ml-2023.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Rutini Wines</p>
+          <p><strong>Trumpeter Malbec 375 ml 2023</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,80%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Mora, ciruela y un toque especiado, con taninos suaves. Maridaje: bife de chorizo, cordero asado.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-syrah-2023.jpg" alt="Trumpeter Malbec Syrah 2023">
+        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-syrah-2023.jpg" alt="Trumpeter Malbec Syrah 2023 2023">
         <h4>Trumpeter Malbec Syrah 2023</h4>
         <p>€15.98</p>
         <a href="/es/vinos/trumpeter-malbec-syrah-2023.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Rutini Wines</p>
+          <p><strong>Trumpeter Malbec Syrah 2023</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.1%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,10%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Frutas negras como mora y arándano, con pimienta negra y un toque de roble. Maridaje: carnes a la brasa, guisos especiados.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-2023.jpg" alt="Trumpeter Malbec 2023">
+        <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-2023.jpg" alt="Trumpeter Malbec 2023 2023">
         <h4>Trumpeter Malbec 2023</h4>
         <p>€15.98</p>
         <a href="/es/vinos/trumpeter-malbec-2023.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Rutini Wines</p>
+          <p><strong>Trumpeter Malbec 2023</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.9%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,90%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Notas de mora, ciruela y violetas, con un toque de vainilla por crianza en roble. Maridaje: bife de chorizo, cordero a la parrilla.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-rose-de-malbec-2024.jpg" alt="Trumpeter Reserve Rose de Malbec 2024">
+        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-rose-de-malbec-2024.jpg" alt="Trumpeter Reserve Rose de Malbec 2024 2024">
         <h4>Trumpeter Reserve Rose de Malbec 2024</h4>
-        <p>€18.38</p>
+        <p>€22.22</p>
         <a href="/es/vinos/trumpeter-reserve-rose-de-malbec-2024.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Rutini Wines</p>
+          <p><strong>Trumpeter Reserve Rose de Malbec 2024</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.0%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Frutas rojas frescas como frambuesa y fresa, con un toque floral. Maridaje: ensaladas, pescados a la parrilla, postres frutales.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-malbec-2023.jpg" alt="Trumpeter Reserve Malbec 2023">
+        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-malbec-2023.jpg" alt="Trumpeter Reserve Malbec 2023 2023">
         <h4>Trumpeter Reserve Malbec 2023</h4>
         <p>€20.72</p>
         <a href="/es/vinos/trumpeter-reserve-malbec-2023.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Rutini Wines</p>
+          <p><strong>Trumpeter Reserve Malbec 2023</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.3%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,30%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Ciruela madura, chocolate y especias dulces, con taninos aterciopelados. Maridaje: asado argentino, quesos maduros.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-blend-2023.jpg" alt="Trumpeter Reserve Blend 2023">
+        <img src="https://www.1000malbecs.com/images/small/trumpeter-reserve-blend-2023.jpg" alt="Trumpeter Reserve Blend 2023 2023">
         <h4>Trumpeter Reserve Blend 2023</h4>
         <p>€20.72</p>
         <a href="/es/vinos/trumpeter-reserve-blend-2023.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Rutini Wines</p>
+          <p><strong>Trumpeter Reserve Blend 2023</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              De color rojo rubí brillante. Este blend deslumbra por
+integrar las cualidades únicas de cada una de sus
+variedades. En nariz se aprecian aromas a frambuesa,...
+            </p>
+          
         </div>
       </div>
-      
-    </div>
     
+  </div>
+
 
     <!-- OTRA REGIÓN -->
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">Otros vinos de Valle de uco</h3>
-      <div class="grid">
-        
+
+  <div class="region-section">
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Valle de uco</h3>
+    <div class="grid">
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023">
+          <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023 2023">
           <h4>Temático Malbec 2023</h4>
           <p>€9.99</p>
           <a href="/es/vinos/tematico-malbec-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+            <p><strong>Temático Malbec 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1100.0</p>
-            <p><strong>Alcohol:</strong> 14.1%</p>
+            <p><strong>Altura:</strong> 1100 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,10%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Fruta roja madura, ciruela, taninos suaves. Ideal con pastas y carnes blancas.
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024">
+          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024 2024">
           <h4>Alamos Malbec 2024</h4>
           <p>€10.97</p>
           <a href="/es/vinos/alamos-malbec-2024.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Alamos</p>
+            <p><strong>Alamos Malbec 2024</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Alamos</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1250.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+            <p><strong>Altura:</strong> 1250 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,50%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Color: Púrpura intenso con destellos violetas, mostrando su vitalidad y concentración.  
+Aroma: Nariz expresiva con una intensidad memorable de frutas negras...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022">
+          <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
           <h4>Los Haroldos Estate Malbec 2022</h4>
           <p>€11.90</p>
           <a href="/es/vinos/los-haroldos-estate-malbec-2022.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Los Haroldos</p>
+            <p><strong>Los Haroldos Estate Malbec 2022</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Los Haroldos</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.8%</p>
+            <p><strong>Altura:</strong> 1000 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,80%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Aroma a frambuesa, cassis y un dejo de roble. Sabor jugoso con taninos redondos. Marida bien con cordero asado o guisos de carne.
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023">
+          <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
           <h4>Trapiche Reserve Malbec 2023</h4>
           <p>€14.99</p>
           <a href="/es/vinos/trapiche-reserve-malbec-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Trapiche</p>
+            <p><strong>Trapiche Reserve Malbec 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+            <p><strong>Altura:</strong> 1000 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,50%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Frutas rojas y negras, con un toque de especias y taninos suaves. Maridaje: carnes a la parrilla, pastas con salsa de tomate.
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021">
+          <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021 2021">
           <h4>Ique Malbec 2021</h4>
           <p>€13.49</p>
           <a href="/es/vinos/ique-malbec-2021.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+            <p><strong>Ique Malbec 2021</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 950.0</p>
-            <p><strong>Alcohol:</strong> 14.4%</p>
+            <p><strong>Altura:</strong> 950 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14,40%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Color rojo intenso, con tonalidades violáceas. Presencia de frutos rojos frescos, ciruela, frambuesas,
+grosellas, moras, arándanos. De buena estructura y tan...
+              </p>
+            
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/pink-malbec-rosado-2023.jpg" alt="Pink Malbec Rosado 2023">
+          <img src="https://www.1000malbecs.com/images/small/pink-malbec-rosado-2023.jpg" alt="Pink Malbec Rosado 2023 2023">
           <h4>Pink Malbec Rosado 2023</h4>
           <p>€13.49</p>
           <a href="/es/vinos/pink-malbec-rosado-2023.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Foster Lorca</p>
+            <p><strong>Pink Malbec Rosado 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 950.0</p>
-            <p><strong>Alcohol:</strong> 12.8%</p>
+            <p><strong>Altura:</strong> 950 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 12,80%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Notas florales, frambuesa y cereza. Ideal con platos ligeros, ensaladas y quesos suaves.
+              </p>
+            
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
+
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>

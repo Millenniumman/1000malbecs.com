@@ -180,8 +180,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,57 +515,8 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
-  }
-}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
@@ -617,30 +568,49 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/trapiche-vineyards-malbec-2024.jpg" alt="Trapiche Vineyards Malbec 2024">
+      <img src="https://www.1000malbecs.com/images/large/trapiche-vineyards-malbec-2024.jpg" alt="Trapiche Vineyards Malbec 2024 2024">
       <div class="info">
         <h1>Trapiche Vineyards Malbec 2024</h1>
-        <p><strong>Precio:</strong> €6.99 / botella (0.75 L)</p>
-        <p><i><strong>Precio por litro:</strong> €9.32 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Trapiche%20Vineyards%20Malbec%202024%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-        <br>
-        <br>
         <p><strong>Bodega:</strong> Trapiche</p>
         <p><strong>Región:</strong> Lujan de cuyo</p>
-        <p><strong>Altura:</strong> 900.0 msnm</p>
+        <p><strong>Altura:</strong> 900 msnm</p>
+        <p><strong>Precio:</strong> €6.99 / botella (0.75 L)</p>
         <p><strong>Volumen:</strong> 750 ml</p>
-        
-        <p><strong>Alcohol:</strong> 14.0%</p>
+        <p><strong>Precio por litro:</strong> €9.32 / litro</p>
+        <p><strong>Alcohol:</strong> 14,00%</p>
         
         
         <p><strong>Guarda:</strong> 4 años</p>
+        
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Trapiche%20Vineyards%20Malbec%202024%20(2024)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Botón Email -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Trapiche%20Vineyards%20Malbec%202024%20(2024)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Trapiche%20Vineyards%20Malbec%202024%20(2024)%0A→%20Bodega:%20Trapiche%0A→%20Precio:%20€6.99 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por email
+  </a>
+</div>
+
+<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+</p>
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
         </div>
 
         <div class="section">
@@ -658,114 +628,197 @@ body {
     </div>
 
     <!-- OTRA BODEGA -->
+
+  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Trapiche</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Trapiche</h3>
-    <div class="grid">
-      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
         <h4>Trapiche Reserve Malbec 2023</h4>
         <p>€14.99</p>
         <a href="/es/vinos/trapiche-reserve-malbec-2023.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Trapiche</p>
+          <p><strong>Trapiche Reserve Malbec 2023</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Frutas rojas y negras, con un toque de especias y taninos suaves. Maridaje: carnes a la parrilla, pastas con salsa de tomate.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-medalla-malbec-2022.jpg" alt="Trapiche Medalla Malbec 2022">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-medalla-malbec-2022.jpg" alt="Trapiche Medalla Malbec 2022 2022">
         <h4>Trapiche Medalla Malbec 2022</h4>
         <p>€14.99</p>
         <a href="/es/vinos/trapiche-medalla-malbec-2022.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Trapiche</p>
+          <p><strong>Trapiche Medalla Malbec 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.8%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,80%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              De un intenso color púrpura con tonalidades violaceas, este Malbec expresa aromas concentrados de frutos rojos, ciruelas, cerezas y pasas de uvas. Se destaca...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-gran-medalla-malbec-2018.jpg" alt="Trapiche Gran Medalla Malbec 2018">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-gran-medalla-malbec-2018.jpg" alt="Trapiche Gran Medalla Malbec 2018 2018">
         <h4>Trapiche Gran Medalla Malbec 2018</h4>
         <p>€42.02</p>
         <a href="/es/vinos/trapiche-gran-medalla-malbec-2018.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Trapiche</p>
+          <p><strong>Trapiche Gran Medalla Malbec 2018</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Ciruela madura, chocolate negro y tabaco, con taninos aterciopelados. Maridaje: asado argentino, guisos de carne.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-suarez-lastra-2010.jpg" alt="Trapiche Terroir Series Malbec Suarez Lastra 2010">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-suarez-lastra-2010.jpg" alt="Trapiche Terroir Series Malbec Suarez Lastra 2010 2010">
         <h4>Trapiche Terroir Series Malbec Suarez Lastra 2010</h4>
         <p>€47.80</p>
         <a href="/es/vinos/trapiche-terroir-series-malbec-suarez-lastra-2010.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Trapiche</p>
+          <p><strong>Trapiche Terroir Series Malbec Suarez Lastra 2010</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Frutas negras evolucionadas, tabaco y cuero, con taninos suaves. Maridaje: carnes nobles, quesos añejos.
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-orellana-2012.jpg" alt="Trapiche Terroir Series Malbec Orellana 2012">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-malbec-orellana-2012.jpg" alt="Trapiche Terroir Series Malbec Orellana 2012 2012">
         <h4>Trapiche Terroir Series Malbec Orellana 2012</h4>
         <p>€47.80</p>
         <a href="/es/vinos/trapiche-terroir-series-malbec-orellana-2012.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Trapiche</p>
+          <p><strong>Trapiche Terroir Series Malbec Orellana 2012</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.499999999999998%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,50%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              De color rojo granate profundo, este Malbec expresa aromas a frutos rojos como cerezas y grosellas, e intensas notas balsámicas con recuerdos a hierbas fresc...
+            </p>
+          
         </div>
       </div>
-      
+    
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.jpg" alt="Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.jpg" alt="Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013 2013">
         <h4>Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013</h4>
         <p>€49.80</p>
         <a href="/es/vinos/trapiche-terroir-series-limited-edition-malbec-las-piedras-2013.html">Comprar</a>
+        
         <div class="overlay">
-          <p><strong>Bodega:</strong> Trapiche</p>
+          <p><strong>Trapiche Terroir Series Limited Edition Malbec Las Piedras 2013</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1000.0</p>
-          <p><strong>Alcohol:</strong> 14.000000000000002%</p>
+          <p><strong>Altura:</strong> 1000 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14,00%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Frutas negras, notas minerales y especias, con taninos firmes. Maridaje: carnes rojas, guisos especiados.
+            </p>
+          
         </div>
       </div>
-      
-    </div>
     
+  </div>
+
 
     <!-- OTRA REGIÓN -->
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">Otros vinos de Lujan de cuyo</h3>
-      <div class="grid">
-        
+
+  <div class="region-section">
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Lujan de cuyo</h3>
+    <div class="grid">
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/chakana-nuna-rose-2022.jpg" alt="CHAKANA Nuna Rose 2022">
+          <img src="https://www.1000malbecs.com/images/small/chakana-nuna-rose-2022.jpg" alt="CHAKANA Nuna Rose 2022 2022">
           <h4>CHAKANA Nuna Rose 2022</h4>
           <p>€19.99</p>
           <a href="/es/vinos/chakana-nuna-rose-2022.html">Comprar</a>
+          
           <div class="overlay">
-            <p><strong>Bodega:</strong> Chakana</p>
+            <p><strong>CHAKANA Nuna Rose 2022</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Chakana</p>
             <p><strong>Región:</strong> Lujan de cuyo</p>
-            <p><strong>Altura:</strong> 960.0</p>
-            <p><strong>Alcohol:</strong> 13.2%</p>
+            <p><strong>Altura:</strong> 960 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13,20%</p>
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Para este rosé de noir cada vendimia cosechamos tempranamente Malbec, Tannat y syrah en nuestro viñedo orgánico y biodinámico de Finca Nuna, Agrelo, Luján de...
+              </p>
+            
           </div>
         </div>
-        
-      </div>
+      
     </div>
-    
   </div>
+
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>
