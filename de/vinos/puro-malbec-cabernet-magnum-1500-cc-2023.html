@@ -530,6 +530,73 @@ body {
     padding-top: 0 !important;
   }
 }
+/* Grid general (mantiene el comportamiento actual) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+/* Grid especial para la sección de "Weitere Weine aus Region" */
+.region-section .grid {
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  max-width: 960px;           /* ← limita el ancho total */
+  margin: 30px auto;          /* centra y da espacio */
+}
+
+/* Forzar máximo 4 columnas en pantallas grandes */
+@media (min-width: 900px) {
+  .region-section .grid {
+    grid-template-columns: repeat(4, 1fr);   /* máximo 4 columnas */
+    max-width: 1000px;                       /* ajusta según tu diseño */
+  }
+}
+
+/* En pantallas medianas/pequeñas se mantiene responsive */
+@media (max-width: 899px) {
+  .region-section .grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+}
+/* Títulos de secciones de vinos similares */
+.grid-section-title {
+  color: var(--primary);
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Alineación para el título de la bodega (izquierda por defecto) */
+.bodega-section .grid-section-title {
+  margin-left: 0;
+}
+
+/* Título de región: más a la derecha + misma altura */
+.region-section .grid-section-title {
+  margin-left: 20px;          /* ← mueve a la derecha (ajusta este valor si necesitas más/menos) */
+  margin-top: 50px;           /* misma altura que el de bodega */
+}
+
+/* Opcional: centrar si hay muchas columnas o en móvil */
+@media (min-width: 768px) {
+  .region-section .grid-section-title {
+    margin-left: 40px;        /* más desplazamiento en desktop */
+  }
+}
+.region-section h3.grid-section-title {
+  margin-left: 300px !important;   /* mismo valor que .container margin-left */
+  padding-left: 20px;              /* opcional: pequeño extra para alinear con las tarjetas */
+  box-sizing: border-box;
+}
+
+/* Fuerza en desktop donde está el sidebar */
+@media (min-width: 769px) {
+  .region-section h3.grid-section-title {
+    margin-left: 320px !important;   /* ajusta si tu sidebar es 220px + padding 20px */
+  }
+}
 </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
@@ -582,23 +649,51 @@ body {
     <img src="https://www.1000malbecs.com/images/large/puro-malbec-cabernet-magnum-1500-cc-2023.jpg" alt="Puro Malbec Cabernet Magnum 1500 cc 2023 2023">
     <div class="info">
       <h1>Puro Malbec Cabernet Magnum 1500 cc 2023</h1>
-      <p><strong>Preis:</strong> €34.07 / Flasche (1.50 L)</p>
-      <p><i><strong>Preis pro Liter:</strong> €22.71 / L</p></i>
-      
-       <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Puro%20Malbec%20Cabernet%20Magnum%201500%20cc%202023%202023" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp Bestellen
-</a>
+<div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+  <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+    €34.07 / Flasche (1.50 L)
+  </p>
+  
+  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+    (Preis pro Liter: €22.71 / L)
+  </p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Puro%20Malbec%20Cabernet%20Magnum%201500%20cc%202023%20(2023)"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Kaufen über WhatsApp
+  </a>
+
+  <!-- Separator "oder" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    oder
+  </div>
+
+  <!-- Email Button -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Interesse/Kauf]%20Puro%20Malbec%20Cabernet%20Magnum%201500%20cc%202023%20(2023)&body=Hallo%20Team%20von%201000%20Malbecs,%0A%0Aich%20bin%20interessiert%20an%20dem%20Wein:%0A→%20Puro%20Malbec%20Cabernet%20Magnum%201500%20cc%202023%20(2023)%0A→%20Weingut:%20Dieter%20Meier%20and%20Family%20Wines%0A→%20Preis:%20€34.07 / Flasche (1.50 L)%0A%0AIch%20würde%20gerne%20mehr%20Informationen%20erhalten%20oder%20den%20Kauf%20bestätigen.%20Vielen%20Dank!%0AMit%20freundlichen%20Grüßen,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Per E-Mail kontaktieren
+  </a>
+</div>
+
+<!-- Optional small support text -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+  oder schreiben Sie direkt an <strong>ventas@1000malbecs.com</strong>
+</p>
       <br>
       <br>
       <p><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
       <p><strong>Region:</strong> Luján de cuyo</p>
-      <p><strong>Höhe:</strong> 1100.0 m.ü.M.</p>
+      <p><strong>Höhe:</strong> 1100 m.ü.M.</p>
       
       <p><strong>Volumen:</strong> 1500 ml</p>
       
-      <p><strong>Alkohol:</strong> 13.5%</p>
+      <p><strong>Alkohol:</strong> 13,50%</p>
       
       <p><strong>Auszeichnungen:</strong> 91 pts Falstaff</p>
       
@@ -638,7 +733,7 @@ Geschmack: Fruchtig am Gaumen mit einer Konzentration kandierter Früchte, runde
 
   <!-- OTROS VINOS DE LA MISMA BODEGA -->
   
-  <h3 style="color: var(--primary); margin-top: 50px;">Weitere Weine von Dieter Meier and Family Wines</h3>
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Weitere Weine von Dieter Meier and Family Wines</h3>
   <div class="grid">
     
     <div class="card">
@@ -646,170 +741,364 @@ Geschmack: Fruchtig am Gaumen mit einer Konzentration kandierter Früchte, runde
       <h4>Puro Malbec Cabernet 2023</h4>
       <p>€15.99</p>
       <a href="/de/vinos/puro-malbec-cabernet-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
-        <p><strong>Region:</strong> Luján de cuyo</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 14.3%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Puro Malbec Cabernet 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Höhe:</strong> 1100 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 14,30 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Farbe: Lila Kern mit kastanienbraunem Rand.
+Verkostungsnotizen:
+Aroma: Frische rote und schwarze Früchte, dominiert von Himbeernoten zusammen mit blumigen No...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2023.jpg" alt="Ojo de Agua Malbec  2023 2023">
       <h4>Ojo de Agua Malbec  2023</h4>
       <p>€18.36</p>
       <a href="/de/vinos/ojo-de-agua-malbec-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
-        <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Ojo de Agua Malbec  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Höhe:</strong> 1100 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 13,50 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Farbe: Lila mit kastanienbraunen Reflexen.  
+Aroma: Dominiert von roten Früchten, hauptsächlich Kirsche und Pflaume, mit einem Duft nach Rosenblättern.  
+Ges...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/ojo-de-agua-malbec-2020.jpg" alt="Ojo de Agua Malbec  2020 2020">
       <h4>Ojo de Agua Malbec  2020</h4>
       <p>€18.36</p>
       <a href="/de/vinos/ojo-de-agua-malbec-2020.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
-        <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 13.5%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Ojo de Agua Malbec  2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Höhe:</strong> 1100 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 13,50 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Farbe: Lila mit kastanienbraunen Reflexen.  
+Aroma: Dominiert von roten Früchten, hauptsächlich Kirsche und Pflaume, mit einem Duft nach Rosenblättern.  
+Ges...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/puro-rose-2023.jpg" alt="Puro Rose  2023 2023">
       <h4>Puro Rose  2023</h4>
       <p>€18.50</p>
       <a href="/de/vinos/puro-rose-2023.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
-        <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 12.5%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Puro Rose  2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Höhe:</strong> 1100 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 12,50 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Farbe: Rosa mit kupferfarbenen Reflexen.  
+Aroma: Walderdbeeren und Himbeeren, einige weiße Blüten und ein junges, knackiges Kirschprofil.  
+Geschmack: Lebha...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/puro-corte-2022.jpg" alt="Puro Corte 2022 2022">
       <h4>Puro Corte 2022</h4>
       <p>€20.76</p>
       <a href="/de/vinos/puro-corte-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
-        <p><strong>Region:</strong> Agrelo</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 14.6%</p>
-      </div>
-    </div>
-    
+<div class="overlay">
+  <p><strong>Puro Corte 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Agrelo</p>
+  <p><strong>Höhe:</strong> 1100 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 14,60 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Farbe: Tiefes, dunkles und intensives Granat.  
+Aroma: Rote Früchte mit einer deutlichen Erdbeernote. Erdig, mit getrockneten Herbstblättern und einem Hauch ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/puro-malbec-2022.jpg" alt="Puro Malbec 2022 2022">
       <h4>Puro Malbec 2022</h4>
       <p>€21.01</p>
       <a href="/de/vinos/puro-malbec-2022.html">Kaufen</a>
-      <div class="overlay">
-        <p><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
-        <p><strong>Region:</strong> Luján de cuyo</p>
-        <p><strong>Höhe:</strong> 1100.0</p>
-        <p><strong>Alkohol:</strong> 14.0%</p>
-      </div>
+<div class="overlay">
+  <p><strong>Puro Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Weingut:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Höhe:</strong> 1100 m ü. NN</p>
+  
+  
+    <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Farbe: Intensives und dunkles Lila.
+Aroma: Voller konzentrierter Brombeer- und etwas Himbeerkompott. Blumiger Hintergrund aus Veilchen und einem Hauch von sc...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     </div>
-    
   </div>
-  
 
-  <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-  
+ 
+
   <div class="region-section">
-    <h3 style="color: var(--primary);">Weitere Weine aus Luján de cuyo</h3>
+    <h3 class="grid-section-title" style="color: var(--primary);">Weitere Weine aus Luján de cuyo</h3>
     <div class="grid">
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/san-telmo-malbec-2024.jpg" alt="San Telmo Malbec 2024 2024">
-        <h4>San Telmo Malbec 2024</h4>
-        <p>€8.16</p>
-        <a href="/de/vinos/san-telmo-malbec-2024.html">Kaufen</a>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> San Telmo</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Höhe:</strong> Nicht verfügbar</p>
-          <p><strong>Alkohol:</strong> 13.4%</p>
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/san-telmo-malbec-2024.jpg" alt="San Telmo Malbec 2024 2024">
+          <h4>San Telmo Malbec 2024</h4>
+          <p>€8.16</p>
+          <a href="/de/vinos/san-telmo-malbec-2024.html">Kaufen</a>
+          
+          <div class="overlay">
+            <p><strong>San Telmo Malbec 2024</strong></p>
+            
+            <p style="margin-top: 8px;"><strong>Weingut:</strong> San Telmo</p>
+            <p><strong>Region:</strong> Luján de cuyo</p>
+            <p><strong>Höhe:</strong> No disponible m ü. NN</p>
+            
+            
+              <p><strong>Alkohol:</strong> 13,40 % vol.</p>
+            
+            
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Frische rote Früchte wie Kirsche und Himbeere mit weichen Tanninen. Passt zu: Nudeln mit Tomatensauce, Braten. San Telmo Malbec 2024 von San Telmo
+              </p>
+            
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023 2023">
-        <h4>Pequeña Vasija Malbec 2023</h4>
-        <p>€8.38</p>
-        <a href="/de/vinos/pequena-vasija-malbec-2023.html">Kaufen</a>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> La Rural</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Höhe:</strong> Nicht verfügbar</p>
-          <p><strong>Alkohol:</strong> 13.6%</p>
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023 2023">
+          <h4>Pequeña Vasija Malbec 2023</h4>
+          <p>€8.38</p>
+          <a href="/de/vinos/pequena-vasija-malbec-2023.html">Kaufen</a>
+          
+          <div class="overlay">
+            <p><strong>Pequeña Vasija Malbec 2023</strong></p>
+            
+            <p style="margin-top: 8px;"><strong>Weingut:</strong> La Rural</p>
+            <p><strong>Region:</strong> Luján de cuyo</p>
+            <p><strong>Höhe:</strong> No disponible m ü. NN</p>
+            
+            
+              <p><strong>Alkohol:</strong> 13,60 % vol.</p>
+            
+            
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Frische rote Früchte wie Himbeere und Kirsche mit einem Hauch von Würze. Passt zu: Braten, Nudeln mit Tomatensauce. Pequeña Vasija Malbec 2023 von La Rural
+              </p>
+            
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023 2023">
-        <h4>San Felipe Varietal Malbec 2023</h4>
-        <p>€11.52</p>
-        <a href="/de/vinos/san-felipe-varietal-malbec-2023.html">Kaufen</a>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> La Rural</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Höhe:</strong> 800.0</p>
-          <p><strong>Alkohol:</strong> 13.5%</p>
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023 2023">
+          <h4>San Felipe Varietal Malbec 2023</h4>
+          <p>€11.52</p>
+          <a href="/de/vinos/san-felipe-varietal-malbec-2023.html">Kaufen</a>
+          
+          <div class="overlay">
+            <p><strong>San Felipe Varietal Malbec 2023</strong></p>
+            
+            <p style="margin-top: 8px;"><strong>Weingut:</strong> La Rural</p>
+            <p><strong>Region:</strong> Luján de cuyo</p>
+            <p><strong>Höhe:</strong> 800 m ü. NN</p>
+            
+            
+              <p><strong>Alkohol:</strong> 13,50 % vol.</p>
+            
+            
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Verkostungsnotiz: Lebhaftes Lila mit granatroten Reflexen. Blumen (Veilchen) und frische rote Früchte (Kirschen) sind die Hauptnoten dieses ausdrucksstarken ...
+              </p>
+            
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024 2024">
-        <h4>San Felipe en Roble Malbec 2024</h4>
-        <p>€13.12</p>
-        <a href="/de/vinos/san-felipe-en-roble-malbec-2024.html">Kaufen</a>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> La Rural</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Höhe:</strong> 800.0</p>
-          <p><strong>Alkohol:</strong> 13.7%</p>
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024 2024">
+          <h4>San Felipe en Roble Malbec 2024</h4>
+          <p>€13.12</p>
+          <a href="/de/vinos/san-felipe-en-roble-malbec-2024.html">Kaufen</a>
+          
+          <div class="overlay">
+            <p><strong>San Felipe en Roble Malbec 2024</strong></p>
+            
+            <p style="margin-top: 8px;"><strong>Weingut:</strong> La Rural</p>
+            <p><strong>Region:</strong> Luján de cuyo</p>
+            <p><strong>Höhe:</strong> 800 m ü. NN</p>
+            
+            
+              <p><strong>Alkohol:</strong> 13,70 % vol.</p>
+            
+            
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Verkostungsnotiz: Purpurrot mit Pflaumenreflexen. In der Nase erscheint die charakteristische blumige Note von Veilchen, kombiniert mit lebendigen Akzenten a...
+              </p>
+            
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023 2023">
-        <h4>Septima Rose de Malbec 2023</h4>
-        <p>€14.99</p>
-        <a href="/de/vinos/septima-rose-de-malbec-2023.html">Kaufen</a>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Séptima</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Höhe:</strong> 900.0</p>
-          <p><strong>Alkohol:</strong> 12.9%</p>
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023 2023">
+          <h4>Septima Rose de Malbec 2023</h4>
+          <p>€14.99</p>
+          <a href="/de/vinos/septima-rose-de-malbec-2023.html">Kaufen</a>
+          
+          <div class="overlay">
+            <p><strong>Septima Rose de Malbec 2023</strong></p>
+            
+            <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodega Séptima</p>
+            <p><strong>Region:</strong> Luján de cuyo</p>
+            <p><strong>Höhe:</strong> 900 m ü. NN</p>
+            
+            
+              <p><strong>Alkohol:</strong> 12,90 % vol.</p>
+            
+            
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Blassrosa Farbe mit lachsfarbenem Farbton. In der Nase bietet er elegante Aromen von roten Früchten wie Kirsche, mit blumigen Noten von Lavendel, Zitrusfrüch...
+              </p>
+            
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Septima Malbec 2022 2022">
-        <h4>Septima Malbec 2022</h4>
-        <p>€15.49</p>
-        <a href="/de/vinos/septima-malbec-2022.html">Kaufen</a>
-        <div class="overlay">
-          <p><strong>Weingut:</strong> Bodega Séptima</p>
-          <p><strong>Region:</strong> Luján de cuyo</p>
-          <p><strong>Höhe:</strong> 900.0</p>
-          <p><strong>Alkohol:</strong> 14.0%</p>
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Septima Malbec 2022 2022">
+          <h4>Septima Malbec 2022</h4>
+          <p>€15.49</p>
+          <a href="/de/vinos/septima-malbec-2022.html">Kaufen</a>
+          
+          <div class="overlay">
+            <p><strong>Septima Malbec 2022</strong></p>
+            
+            <p style="margin-top: 8px;"><strong>Weingut:</strong> Bodega Séptima</p>
+            <p><strong>Region:</strong> Luján de cuyo</p>
+            <p><strong>Höhe:</strong> 900 m ü. NN</p>
+            
+            
+              <p><strong>Alkohol:</strong> 14,00 % vol.</p>
+            
+            
+            
+            
+            
+              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+                Intensive rote Farbe mit violetten Reflexen. In der Nase präsentiert er Aromen von frischen Kirschen, Erdbeermarmelade und Noten von Vanille und Toast aus de...
+              </p>
+            
+          </div>
         </div>
-      </div>
       
     </div>
   </div>
-  
-</div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
