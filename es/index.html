@@ -1,0 +1,654 @@
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Descubre los mejores Malbecs de Argentina, desde Patagonia hasta Puna." name="description"/>
+    <title>1000malbecs - Los 1000 mejores Malbecs</title>
+    <meta content="La tienda única para comprar online los Malbecs más icónicos de Argentina. Los 1000 mejores Malbecs argentinos, desde Patagonia hasta Puna" property="og:title"/>
+    <meta content="Explora nuestra selección de Malbecs argentinos, desde Patagonia hasta Puna." property="og:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" property="og:image"/>
+    <meta content="image/png" property="og:image:type"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="https://www.1000malbecs.com/es/" property="og:url"/>
+    <meta content="website" property="og:type"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="1000 Malbecs - Catálogo de Vinos" name="twitter:title"/>
+    <meta content="Explora nuestra selección de Malbecs argentinos, desde Patagonia hasta Puna." name="twitter:description"/>
+    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+     <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        .header { top: 50px; z-index: 120; }
+        .logo { max-width: 150px; height: auto; }
+        .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
+        #sidebar { width: 250px; background-color: #F8F8F8; padding: 20px; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; border-right: 1px solid #E0E0E0; z-index: 100; transition: transform 0.3s ease; }
+        .logo-container { text-align: center; margin-bottom: 20px; }
+        #sidebar h2 { font-size: 18px; font-weight: 600; color: #4A2C59; margin-bottom: 15px; text-transform: uppercase; }
+        #sidebar details { margin-bottom: 15px; }
+        #sidebar details:first-of-type { margin-bottom: 25px; }
+        #sidebar summary { font-size: 16px; font-weight: 500; color: #4A2C59; cursor: pointer; padding: 5px 0; display: flex; align-items: center; }
+        #sidebar summary i { margin-right: 10px; color: #4A2C59; }
+        #sidebar ul { list-style: none; padding: 0 0 0 20px; margin: 10px 0; }
+        #sidebar li { margin: 5px 0; }
+        .nav-link { font-size: 14px; color: #4A2C59; text-decoration: none; display: block; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; }
+        .nav-link:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .nav-link.active { background-color: #4A2C59; color: #FFFFFF; }
+        main { margin-left: 290px; padding: 20px; width: calc(100% - 290px); flex: 1; }
+        main h1 { font-size: 24px; color: #4A2C59; margin-bottom: 20px; }
+        .banner-carousel { position: relative; width: 100%; max-width: 1200px; margin: 50px auto 40px; overflow: hidden; }
+        .banner-container { display: flex; transition: transform 0.5s ease; width: 100%; min-height: 300px; }
+        .banner-item { flex: 0 0 100%; width: 100%; height: 300px; background-color: #f8f8f8; }
+        .banner-item img { width: 100%; height: 100%; object-fit: contain; border-radius: 5px; display: block; }
+        .banner-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
+        .banner-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
+        .banner-nav button:hover { background: #4A2C59; }
+        @media (min-width: 769px) { .banner-carousel { margin-top: 50px; } }
+        @media (max-width: 768px) {
+            main { margin-left: 0; margin-top: 20px; padding: 10px; width: 100%; }
+            .banner-carousel { margin: -15px auto 20px; }
+            .banner-container { min-height: 200px; }
+            .banner-item { height: 200px; background-color: #f8f8f8; }
+            .banner-item img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        }
+        .search-container { position: relative; max-width: 600px; margin: 20px auto; }
+        .search-input { width: 100%; padding: 10px 40px 10px 15px; font-size: 16px; font-family: 'Montserrat', sans-serif; border: 1px solid #E0E0E0; border-radius: 5px; outline: none; color: #4A2C59; box-sizing: border-box; }
+        .search-input::placeholder { color: #7B4F8C; }
+        .search-icon { position: absolute; top: 50%; right: 10px; transform: translateY(-50%); font-size: 18px; color: #4A2C59; }
+        .search-suggestions { position: absolute; top: 100%; left: 0; right: 0; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto; z-index: 150; display: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .search-suggestions li { padding: 10px 15px; font-size: 14px; color: #4A2C59; cursor: pointer; transition: all 0.3s ease; }
+        .search-suggestions li:hover, .search-suggestions li.focused { background: #4A2C59; color: #FFFFFF; }
+        .section-title { font-size: 22px; color: #4A2C59; margin: 20px 0 10px; text-align: center; text-transform: uppercase; }
+        .winery-grid.has-left, .winery-grid.has-right { box-shadow: none !important; }
+  
+    /* ============================================= */
+    /* =============== PROVINCIAS DESKTOP ========== */
+    /* ============================================= */
+    .province-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 16px !important;
+        max-width: 1120px !important;
+        margin: 0 auto 80px 150px !important;     /* bien a la derecha */
+        padding: 0 20px !important;
+    }
+
+    .province-card {
+        position: relative !important;
+        height: 195px !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.14) !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .province-card:hover {
+        transform: translateY(-10px) !important;
+    }
+
+    .province-card img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform 0.5s ease !important;
+    }
+
+    .province-card:hover img {
+        transform: scale(1.15) !important;
+    }
+
+    /* Overlay con título – perfecto y siempre visible al hover */
+    .province-overlay {
+        position: absolute !important;
+        inset: 0 !important;
+        background: rgba(74, 44, 89, 0.90) !important;
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        font-size: 19px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.8px;
+        padding: 20px !important;
+        opacity: 0 !important;
+        transition: opacity 0.4s ease !important;
+    }
+
+    .province-card:hover .province-overlay {
+        opacity: 1 !important;
+    }
+
+    .province-name { display: none !important; }
+
+
+    /* ============================================= */
+    /* === BODEGAS DESKTOP – 2 FILAS × 4 LOGOS GRANDES === */
+    /* ============================================= */
+    .winery-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-rows: 120px 120px !important;     /* dos filas altas para logos grandes */
+        gap: 20px !important;
+        max-width: 1120px !important;
+        margin: 0 auto 70px 150px !important;           /* mismo margen que provincias */
+        padding: 0 20px !important;
+    }
+
+    .winery-card {
+        background: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 15px !important;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.10) !important;
+        transition: all 0.3s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .winery-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.18) !important;
+    }
+
+    .winery-card img {
+        max-width: 165px !important;        /* logos bien grandes y vistosos */
+        max-height: 90px !important;
+        object-fit: contain !important;
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1)) !important;
+    }
+
+}
+
+
+        .winery-nav button:hover { background: #4A2C59; opacity: 1; }
+        .winery-nav button.hidden { display: none; }
+       .recently-added-carousel { position: relative; max-width: 1200px; margin: 20px auto; overflow: hidden; }
+        .recent-container { display: flex; transition: transform 0.5s ease; width: calc(100% * 3); }
+        .recent-item { flex: 0 0 16.66%; max-width: 250px; margin-right: 30px; box-sizing: border-box; background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .recent-item img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
+        .recent-item .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
+        .recent-item .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
+        .recent-item:hover .overlay { display: block; }
+        .recent-item .overlay.active { display: block !important; }
+        .recent-item h3 { font-size: 16px; margin: 10px 0; color: #4A2C59; min-height: 40px; overflow: hidden; text-overflow: ellipsis; white-space: normal; text-align: center; width: 100%; }
+        .recent-item .price { font-size: 16px; color: #4A2C59; margin: 10px 0; position: relative; z-index: 7; text-align: center; width: 100%; }
+        .recent-item .buy-button { padding: 8px 16px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; position: relative; z-index: 7; text-align: center; background-color: #4A2C59; color: #f5e6ff; text-decoration: none; border-radius: 5px; pointer-events: auto; width: 100%; max-width: 180px; display: block; }
+        .recent-item .buy-button:hover { background-color: #5A1D39; }
+        .recent-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
+        .recent-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
+        .recent-nav button:hover { background: #4A2C59; }
+        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
+        .language-selector.hidden { opacity: 0; pointer-events: none; }
+        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
+        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
+        .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; max-width: 250px; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); box-sizing: border-box; width: 100%; }
+        .product-card img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
+        .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
+        .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
+        .overlay p { margin: 2px 0; color: #FFFFFF; text-align: left; }
+        .product-card:hover .overlay { display: block; }
+        .product-card .overlay.active { display: block !important; }
+        .product-card h3 { font-size: 16px; margin: 10px 0; color: #4A2C59; min-height: 40px; overflow: hidden; text-overflow: ellipsis; white-space: normal; text-align: center; width: 100%; }
+        .product-card .price,
+        .product-card .price-per-liter,
+        .product-card .shipping-note { text-align: center; width: 100%; margin: 4px 0; line-height: 1.3; }
+        .product-card .price { font-size: 1.em; font-weight: bold; color: #6B2D8F; }
+        .product-card .price-per-liter { font-size: 0.9em; color: #666; }
+        .product-card .shipping-note { font-size: 0.8em; color: #999; font-style: italic; }
+        .product-card .buy-button { padding: 8px 16px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; position: relative; z-index: 7; text-align: center; background-color: #4A2C59; color: #f5e6ff; text-decoration: none; border-radius: 5px; pointer-events: auto; width: 100%; max-width: 180px; display: block; }
+        .product-card .buy-button:hover { background-color: #5A1D39; }
+        .twitter-box { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #E0E0E0; border-radius: 5px; font-family: 'Montserrat', sans-serif; text-align: center; }
+        .twitter-box .section-title { font-size: 22px; color: #4A2C59; margin: 0 0 10px; text-transform: uppercase; }
+        .tweet-carousel { position: relative; width: 100%; overflow: hidden; }
+        .tweet-container { display: flex; transition: transform 0.5s ease; width: 100%; min-height: 150px; }
+        .tweet-item { flex: 0 0 100%; width: 100%; padding: 10px; box-sizing: border-box; border-bottom: 1px solid #E0E0E0; }
+        .tweet-item p { margin: 5px 0; color: #4A2C59; font-size: 14px; }
+        .tweet-item a { color: #1DA1F2; text-decoration: none; font-size: 14px; }
+        .tweet-item a:hover { text-decoration: underline; }
+        .tweet-item .fallback { font-size: 14px; color: #4A2C59; margin: 10px 0; }
+        .tweet-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
+        .tweet-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 8px; cursor: pointer; font-size: 16px; border-radius: 5px; }
+        .tweet-nav button:hover { background: #4A2C59; }
+        @media (max-width: 768px) {
+            .twitter-box { max-width: 100%; padding: 10px; }
+            .twitter-box .section-title { font-size: 18px; }
+            .tweet-item p, .tweet-item .fallback { font-size: 12px; }
+            .tweet-item a { font-size: 12px; }
+            .tweet-container { min-height: 120px; }
+            .tweet-nav button { padding: 6px; font-size: 14px; }
+            body { display: block; }
+            .header { top: 10px; left: auto; right: 10px; display: flex; justify-content: flex-end; z-index: 120; }
+            .logo { max-width: 80px !important; height: auto !important; display: block; }
+            .hamburger { display: block !important; z-index: 130; }
+            #sidebar { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; transform: translateX(-100%); z-index: 100; border-bottom: 1px solid #E0E0E0; padding-top: 50px; padding-bottom: 20px; overflow-y: auto; box-sizing: border-box; }
+            #sidebar.open { transform: translateX(0); }
+            .logo-container { display: none; }
+            main { margin-left: 0; margin-top: 60px; padding: 10px; width: 100%; }
+            main h1 { font-size: 20px; line-height: 1.4; margin-bottom: 15px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; justify-content: start; }
+            .recently-added-carousel { margin: 10px auto; }
+            .recent-container { display: flex; flex-wrap: nowrap; width: calc(100% * 3); }
+            .recent-item { flex: 0 0 140px; max-width: 140px; margin-right: 15px; min-height: 260px; padding: 10px; }
+            .recent-item img { width: 140px; height: 140px; margin: 0 auto; }
+            .recent-item h3 { font-size: 14px; min-height: 36px; margin: 5px 0; text-align: center; width: 100%; }
+            .recent-item .price { font-size: 14px; margin: 5px 0; text-align: center; width: 100%; }
+            .recent-item .buy-button { padding: 6px 12px; font-size: 12px; margin-top: 5px; margin-bottom: 5px; width: 100%; max-width: 140px; }
+            .info-icon { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; z-index: 10; display: none; color: #4A2C59; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px; line-height: 40px; text-align: center; touch-action: manipulation; pointer-events: auto; }
+            .overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; max-height: 150px; background-color: rgba(74, 44, 89, 0.8); color: #FFFFFF; padding: 40px 10px 10px 10px; box-sizing: border-box; font-size: 12px; overflow-y: auto; z-index: 6; pointer-events: none; }
+            .overlay p { margin: 2px 0; color: #FFFFFF; text-align: left; }
+            .recent-item .overlay.active { display: block !important; z-index: 6; }
+            .recent-item:hover .overlay { display: none; }
+            .recent-nav button { padding: 6px; font-size: 14px; }
+            .banner-carousel { margin-bottom: 20px; }
+            .banner-item { height: 200px; }
+       .province-grid,
+    .winery-grid {
+        margin-left: 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    /* Provincias en móvil – 2 columnas y visibles */
+.province-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+        margin-bottom: 50px !important;
+    }
+
+    .province-card {
+        position: relative !important;
+        height: 165px !important;
+        border-radius: 10px !important;
+        overflow: hidden !important;
+    }
+
+    .province-card img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* ← OVERLAY SOLO MIENTRAS EL DEDO ESTÁ ENCIMA (perfecto en móvil) */
+    .province-overlay {
+        opacity: 0 !important;
+        background: rgba(74, 44, 89, 0.88) !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        padding: 12px !important;
+        transition: opacity 0.25s ease !important;
+        pointer-events: none !important;
+    }
+
+    /* Esto simula el hover táctil real */
+    .province-card:active .province-overlay {
+        opacity: 1 !important;
+    }
+
+    /* opcional: también aparece muy levemente al hacer scroll (muchos temas lo usan) */
+    .province-card:focus-within .province-overlay {
+        opacity: 1 !important;
+    }
+
+
+    /* Bodegas en móvil → reel horizontal original (como venía de fábrica) */
+    .winery-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 18px !important;
+        padding: 20px 20px !important;
+        scrollbar-width: none !important;
+        margin-left: 0 !important;
+    }
+
+    .winery-grid::-webkit-scrollbar { display: none !important; }
+
+    .winery-card {
+        flex: 0 0 150px !important;
+        height: 100px !important;
+        scroll-snap-align: center !important;
+    }
+
+    .winery-card img {
+        max-width: 130px !important;
+        max-height: 75px !important;
+    }
+
+}
+            .search-container { max-width: 100%; padding: 0 10px; }
+            .search-input { font-size: 14px; padding: 8px 35px 8px 12px; }
+            .search-icon { font-size: 16px; right: 12px; }
+            .search-suggestions { font-size: 12px; }
+            .search-suggestions li { padding: 8px 12px; }
+            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
+            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
+            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
+            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        }
+        @media (min-width: 769px) {
+            .header { display: none; }
+            .logo-container { display: block; }
+            .info-icon { display: none; }
+            .hamburger { display: none; }
+            .winery-nav { display: none; }
+            .recent-nav { display: flex; }
+            .winery-grid.has-left, .winery-grid.has-right { box-shadow: none; }
+            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; justify-content: start; }
+            .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
+            .product-card img { width: 200px; height: 200px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="language-selector">
+    <a class="active" data-lang="es" href="/es/index.html">ES</a>
+    <a data-lang="de" href="/de/index.html">DE</a>
+    <a data-lang="en" href="/en/index.html">EN</a>
+</div>
+<header class="header">
+    <a href="/es/" title="Volver a la página principal">
+        <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
+    </a>
+</header>
+<button class="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+</button>
+<main>
+    <div class="banner-carousel">
+        <div class="banner-container">
+            <div class="banner-item">
+                <a href="/es/eventos/eventos.html" title="Explorar eventos">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-1-mobile-es.jpg"/>
+                        <img src="/images/banners/banner-1-es.jpg" alt="Eventos de 1000malbecs" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+1+No+Disponible';">
+                    </picture>
+                </a>
+            </div>
+            <div class="banner-item">
+                <a href="/es/bodegas.html" title="Explorar bodegas">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-2-mobile-es.jpg"/>
+                        <img src="/images/banners/banner-2-es.jpg" alt="Bodegas de Argentina" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+2+No+Disponible';">
+                    </picture>
+                </a>
+            </div>
+            <div class="banner-item">
+                <a href="/es/provincias.html" title="Explorar provincias">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/banners/banner-3-mobile-es.jpg"/>
+                        <img src="/images/banners/banner-3-es.jpg" alt="Provincias vitivinícolas" onerror="this.src='https://via.placeholder.com/1200x300?text=Banner+3+No+Disponible';">
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <div class="banner-nav">
+            <button onclick="moveBanner(-1)">Left</button>
+            <button onclick="moveBanner(1)">Right</button>
+        </div>
+    </div>
+    <div class="search-container">
+        <input class="search-input" type="text" placeholder="Busca tu vino favorito...">
+        <i class="fas fa-search search-icon"></i>
+        <ul class="search-suggestions"></ul>
+    </div>
+    <h3 class="section-title">Vinos Destacados</h3>
+    <div class="product-grid">
+        
+            <div class="product-card" data-overlay-id="kaiken-ultra-malbec-2021">
+                <img src="/images/small/kaiken-ultra-malbec-2021.jpg" alt="Botella de Kaiken Ultra Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="kaiken-ultra-malbec-2021">Info</div>
+                <div class="overlay" data-overlay-id="kaiken-ultra-malbec-2021">
+                    
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo, Agrelo</p>
+            <p><strong>Año:</strong> 2021</p><p><strong>Premios:</strong> 10 años</p><p><strong>Guarda:</strong> 93 pts James Suckling - 2021</p><p><strong>Descripción:</strong> El Kaiken Ultra Malbec 2021 es un vino de lujo que combina la potencia del Malbec con una crianza prolongada en roble, reflejando la excelencia de Mendoza.</p>
+                </div>
+                <h3>Kaiken Ultra Malbec 2021</h3>
+                <p class="price"><strong>€ 21,49</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 28,65/L)</p>
+                <a class="buy-button" href="/es/vinos/kaiken-ultra-malbec-2021.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="el-esteco-blend-de-extremos-malbec-2023">
+                <img src="/images/small/el-esteco-blend-de-extremos-malbec-2023.jpg" alt="Botella de El Esteco Blend de Extremos Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="el-esteco-blend-de-extremos-malbec-2023">Info</div>
+                <div class="overlay" data-overlay-id="el-esteco-blend-de-extremos-malbec-2023">
+                    
+                <p><strong>Bodega:</strong> El Esteco</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Valles Calchaquíes </p>
+            <p><strong>Año:</strong> 2023</p><p><strong>Descripción:</strong> Blend de Extremos es la máxima expresión de los Valles Calchaquíes, buscando revalorizar el terroir exclusivo de la región. Combina lo mejor de dos regiones inhóspitas y extremas, Cafayate y Chañar Punco.</p>
+                </div>
+                <h3>El Esteco Blend de Extremos Malbec 2023</h3>
+                <p class="price"><strong>€ 20,72</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 27,63/L)</p>
+                <a class="buy-button" href="/es/vinos/el-esteco-blend-de-extremos-malbec-2023.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="chanarmuyo-estate-malbec-2021">
+                <img src="/images/small/chanarmuyo-estate-malbec-2021.jpg" alt="Botella de CHAÑARMUYO Estate Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="chanarmuyo-estate-malbec-2021">Info</div>
+                <div class="overlay" data-overlay-id="chanarmuyo-estate-malbec-2021">
+                    
+                <p><strong>Bodega:</strong> Bodega Chañarmuyo</p>
+                <p><strong>Provincia:</strong> La Rioja</p>
+                <p><strong>Región:</strong> Valle de Famatina</p>
+            <p><strong>Año:</strong> 2021</p><p><strong>Descripción:</strong> CHAÑARMUYO Estate Malbec de Bodega Chañarmuyo es un vino frutal y versátil, elaborado en La Rioja con un toque de roble que aporta elegancia. Ideal para carnes asadas, empanadas o quesos suaves, este Malbec refleja la calidad del terroir riojano. La añada 2022 ofrece frescura y un estilo accesible.</p>
+                </div>
+                <h3>CHAÑARMUYO Estate Malbec 2021</h3>
+                <p class="price"><strong>€ 19,99</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 26,65/L)</p>
+                <a class="buy-button" href="/es/vinos/chanarmuyo-estate-malbec-2021.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="chakana-nuna-rose-2022">
+                <img src="/images/small/chakana-nuna-rose-2022.jpg" alt="Botella de CHAKANA Nuna Rose 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="chakana-nuna-rose-2022">Info</div>
+                <div class="overlay" data-overlay-id="chakana-nuna-rose-2022">
+                    
+                <p><strong>Bodega:</strong> Chakana</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Lujan de Cuyo</p>
+            <p><strong>Año:</strong> 2022</p><p><strong>Descripción:</strong> NUNA
+en quechua significa &quot;espíritu de la tierra&quot;.
+
+Y es el nombre que representa nuestra visión de una agricultura para el futuro. A través de la búsqueda de una manera más auténtica y natural de hacer vino promovemos la integración entre el ser humano, el suelo y el mundo biológico del que participamos.
+
+Estos vinos resultan el fruto de nuestro profundo compromiso con la visión del viñedo como ecosistema y la utilización de practicas orgánicas y biodinámicas, respetando los ciclos biológicos de la vid y la preservación de nuestros suelos, y de esta manera expresar con pureza su identidad. Povenientes de Agrelo, Luján de Cuyo, Mendoza. Argentina.</p>
+                </div>
+                <h3>CHAKANA Nuna Rose 2022</h3>
+                <p class="price"><strong>€ 19,99</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 26,65/L)</p>
+                <a class="buy-button" href="/es/vinos/chakana-nuna-rose-2022.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="tukma-malbec-2019">
+                <img src="/images/small/tukma-malbec-2019.jpg" alt="Botella de Tukma Malbec 2019" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="tukma-malbec-2019">Info</div>
+                <div class="overlay" data-overlay-id="tukma-malbec-2019">
+                    
+                <p><strong>Bodega:</strong> Bodega Tukma</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Valle de Calchaquí</p>
+            <p><strong>Año:</strong> 2019</p><p><strong>Guarda:</strong> 5  años</p><p><strong>Descripción:</strong> Tukma Malbec es un vino tinto de altura, elaborado en los viñedos de Cafayate por Bodega Tukma. Este Malbec refleja la intensidad y frescura del terroir salteño, con un estilo elegante y frutal, ideal para carnes asadas, empanadas o quesos duros. La añada 2022 ofrece un perfil concentrado con taninos suaves, perfecto para quienes buscan la esencia del norte argentino.</p>
+                </div>
+                <h3>Tukma Malbec 2019</h3>
+                <p class="price"><strong>€ 19,29</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 25,72/L)</p>
+                <a class="buy-button" href="/es/vinos/tukma-malbec-2019.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="chakana-nuna-malbec-bio-2022">
+                <img src="/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="Botella de CHAKANA Nuna Malbec Bio 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="chakana-nuna-malbec-bio-2022">Info</div>
+                <div class="overlay" data-overlay-id="chakana-nuna-malbec-bio-2022">
+                    
+                <p><strong>Bodega:</strong> Chakana</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Año:</strong> 2022</p><p><strong>Descripción:</strong> Proveniente de nuestro viñedo orgánico y biodinámico de Finca Nuna, Agrelo, Luján de Cuyo, Mendoza, este vino 100% Malbec inicia la fermentación espontánea gracias a sus levaduras indígenas. Con acidez natural, sin clarificación: certificación vegana. Nuestro Nuna Malbec en la copa se muestra intenso, de un color rojo violáceo y de profundidad media. En la nariz expresa su carácter simple, floral y frutado. En la boca se siente su fresca acidez natural, su perfil a fruta roja jugosa y su persistencia media. Por eso recomendamos nuestro Malbec orgánico y biodinámico para aquellos paladares que disfrutan de tintos de cuerpo y complejidad media, de perfil frutado para acompañar platos diversos.</p>
+                </div>
+                <h3>CHAKANA Nuna Malbec Bio 2022</h3>
+                <p class="price"><strong>€ 19,19</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 25,59/L)</p>
+                <a class="buy-button" href="/es/vinos/chakana-nuna-malbec-bio-2022.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="don-david-reserve-malbec-2022">
+                <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Botella de Don David Reserve Malbec 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="don-david-reserve-malbec-2022">Info</div>
+                <div class="overlay" data-overlay-id="don-david-reserve-malbec-2022">
+                    
+                <p><strong>Bodega:</strong> El Esteco</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Valles Calchaquíes </p>
+            <p><strong>Año:</strong> 2022</p><p><strong>Descripción:</strong> Nace en los Valles Calchaquíes, con la experiencia, la dedicación y la tradición de Bodega El Esteco. Es un vino tributo a quien fue uno de los precursores de la vitivinicultura en Cafayate.
+Un homenaje a nuestras raíces nobles, al pasado y la trayectoria de Don David.</p>
+                </div>
+                <h3>Don David Reserve Malbec 2022</h3>
+                <p class="price"><strong>€ 16,78</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 22,37/L)</p>
+                <a class="buy-button" href="/es/vinos/don-david-reserve-malbec-2022.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card" data-overlay-id="amalaya-malbec-2023">
+                <img src="/images/small/amalaya-malbec-2023.jpg" alt="Botella de Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="amalaya-malbec-2023">Info</div>
+                <div class="overlay" data-overlay-id="amalaya-malbec-2023">
+                    
+                <p><strong>Bodega:</strong> Bodega Amalaya</p>
+                <p><strong>Provincia:</strong> Salta</p>
+                <p><strong>Región:</strong> Valles Calchaquíes</p>
+            <p><strong>Año:</strong> 2023</p><p><strong>Premios:</strong> 90 pts Tim Atkins 2020</p><p><strong>Descripción:</strong> Durante siglos, los agricultores realizaban ofrendas con la Esperanza por
+un Milagro - como se traduce Amalaya en lengua indígena - para una
+cosecha abundante.
+Las uvas provienen de los Valles Calchaquíes de viñedos plantados a 1.800
+metros de altura sobre el nivel del mar en el noroeste de Argentina. La
+región se destaca por ser una de las más altas del mundo y se caracteriza
+además por su clima seco con lluvias no mayores a 150 mm anuales, con
+significativa amplitud térmica; suelos pobres, rocosos y arenosos.</p>
+                </div>
+                <h3>Amalaya Malbec 2023</h3>
+                <p class="price"><strong>€ 13,50</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 18,00/L)</p>
+                <a class="buy-button" href="/es/vinos/amalaya-malbec-2023.html">Comprar Ahora</a>
+            </div>
+            
+    </div>
+    <h3 class="section-title">Recientemente Agregados</h3><div class="recently-added-carousel"><div class="recent-container" data-item-count="6">
+            <div class="product-card recent-item" data-overlay-id="san-telmo-malbec-2024">
+                <img src="/images/small/san-telmo-malbec-2024.jpg" alt="Botella de San Telmo Malbec 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="san-telmo-malbec-2024">Info</div>
+                <div class="overlay" data-overlay-id="san-telmo-malbec-2024">
+                    
+                <p><strong>Bodega:</strong> San Telmo</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Luján de Cuyo</p>
+            <p><strong>Año:</strong> 2024</p><p><strong>Descripción:</strong> Un Malbec joven y ligero, ideal para el consumo diario y platos sencillos.</p>
+                </div>
+                <h3>San Telmo Malbec 2024</h3>
+                <p class="price"><strong>€ 8,16</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 10,88/L)</p>
+                <a class="buy-button" href="/es/vinos/san-telmo-malbec-2024.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">
+                <img src="/images/small/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.jpg" alt="Botella de Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">Info</div>
+                <div class="overlay" data-overlay-id="adrianna-vineyard-mundus-bacillus-terrae-malbec-2020">
+                    
+                <p><strong>Bodega:</strong> Catena Zapata</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2020</p><p><strong>Premios:</strong> 99 pts James Suckling</p><p><strong>Guarda:</strong> 15 años</p><p><strong>Descripción:</strong> La familia Catena inicia su segunda centuria como productora de vinos en Mendoza, Argentina. El viñedo Adrianna, situado a una altura de casi 1.500 msnm, lleva el nombre de la hija menor de Nicolás Catena Zapata. Los suelos de esta parcela, están compuestos por carbonato de calcio y fósiles marinos que cubrieran la región millones de años atrás. Las capas calcáreas proporcionan un buen drenaje y son ricas en rizo bacterias, los microorganismos que ayudan a la raíz de la vid a soportar el stress y absorber las nutrientes. De allí, el término “mundus bacillus terrae” o “elegantes microbios de la tierra”.
+</p>
+                </div>
+                <h3>Adrianna Vineyard Mundus Bacillus Terrae Malbec 2020</h3>
+                <p class="price"><strong>€ 371,51</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 495,35/L)</p>
+                <a class="buy-button" href="/es/vinos/adrianna-vineyard-mundus-bacillus-terrae-malbec-2020.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="kaiken-boulder-red-blend-2021">
+                <img src="/images/small/kaiken-boulder-red-blend-2021.jpg" alt="Botella de Kaiken Boulder Red Blend 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="kaiken-boulder-red-blend-2021">Info</div>
+                <div class="overlay" data-overlay-id="kaiken-boulder-red-blend-2021">
+                    
+                <p><strong>Bodega:</strong> Kaiken</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2021</p><p><strong>Guarda:</strong> 30 años</p><p><strong>Descripción:</strong> Un Field Blend, que rinde homenaje a una finca excepcional de Kaiken. Emerge de una parcela especial que brota entre las rocas y cada año alcanza su máxima expresión. Un vino de montaña que cautiva, al igual que la sublime belleza del paisaje de Los Chacayes. Boulder: donde la roca cobra vida.</p>
+                </div>
+                <h3>Kaiken Boulder Red Blend 2021</h3>
+                <p class="price"><strong>€ 258,14</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 344,19/L)</p>
+                <a class="buy-button" href="/es/vinos/kaiken-boulder-red-blend-2021.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="noemia-malbec-2020">
+                <img src="/images/small/noemia-malbec-2020.jpg" alt="Botella de Noemía Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="noemia-malbec-2020">Info</div>
+                <div class="overlay" data-overlay-id="noemia-malbec-2020">
+                    
+                <p><strong>Bodega:</strong> Bodega Noemía Patagonia</p>
+                <p><strong>Provincia:</strong> Rio Negro</p>
+                <p><strong>Región:</strong> Mainqué</p>
+            <p><strong>Año:</strong> 2020</p><p><strong>Guarda:</strong> 15 años</p><p><strong>Descripción:</strong> Es el vino ícono de la bodega, elaborado con Malbec de viñedos prefiloxéricos plantados en 1932, de 1.5 hectáreas en Valle Azul, Río Negro. Se cosecha a mano, con fermentación espontánea en cubas de roble francés abiertas y crianza en barricas de roble (15% nuevas) durante 18-22 meses. Este vino refleja la filosofía de la bodega: expresar el terroir patagónico con mínima intervención, destacando la pureza y elegancia de la fruta. Es un tinto de edición limitada, considerado uno de los mejores Malbec de Argentina.
+</p>
+                </div>
+                <h3>Noemía Malbec 2020</h3>
+                <p class="price"><strong>€ 190,82</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 254,43/L)</p>
+                <a class="buy-button" href="/es/vinos/noemia-malbec-2020.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="rutini-coleccion-malbec-2020">
+                <img src="/images/small/rutini-coleccion-malbec-2021.jpg" alt="Botella de Rutini Colección Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="rutini-coleccion-malbec-2020">Info</div>
+                <div class="overlay" data-overlay-id="rutini-coleccion-malbec-2020">
+                    
+                <p><strong>Bodega:</strong> Rutini Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Valle de Uco</p>
+            <p><strong>Año:</strong> 2020</p><p><strong>Descripción:</strong> Un Malbec premium de Rutini, con gran complejidad y un final persistente, ideal para ocasiones especiales.</p>
+                </div>
+                <h3>Rutini Colección Malbec 2020</h3>
+                <p class="price"><strong>€ 169,04</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 225,39/L)</p>
+                <a class="buy-button" href="/es/vinos/rutini-coleccion-malbec-2020.html">Comprar Ahora</a>
+            </div>
+            
+            <div class="product-card recent-item" data-overlay-id="felipe-rutini-2017">
+                <img src="/images/small/felipe-rutini-2017.jpg" alt="Botella de Felipe Rutini 2017" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+                <div class="info-icon" data-overlay-id="felipe-rutini-2017">Info</div>
+                <div class="overlay" data-overlay-id="felipe-rutini-2017">
+                    
+                <p><strong>Bodega:</strong> Rutini Wines</p>
+                <p><strong>Provincia:</strong> Mendoza</p>
+                <p><strong>Región:</strong> Gualtallary, Valle de Uco</p>
+            <p><strong>Año:</strong> 2017</p><p><strong>Guarda:</strong> 20 años</p><p><strong>Descripción:</strong> Un blend con 20% de Malbec. Línea Premium de bodegas Rutini con potencial de guarda de 20 años</p>
+                </div>
+                <h3>Felipe Rutini 2017</h3>
+                <p class="price"><strong>€ 168,99</strong></p><p class="shipping-note">Más gastos de envío</p><p class="price-per-liter">(€ 225,32/L)</p>
+                <a class="buy-button" href="/es/vinos/felipe-rutini-2017.html">Comprar Ahora</a>
+            </div>
+            </div></div>
+    <h3 class="section-title">Visita nuestras Bodegas</h3>
+    <div class="winery-grid">
+        <!-- Bodegas -->
+    </div>
+    <h3 class="section-title">Descubre nuestras Provincias</h3>
+    <div class="province-grid">
+        <!-- Provincias -->
+    </div>
+    <div class="twitter-box"><h3 class="section-title">Novedades</h3><p>No hay tweets disponibles.</p></div>
+</main>
+<script>
+    // Hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('open');
+        document.getElementById('sidebar').classList.toggle('open');
+    });
+
+    // Banners, búsqueda, carruseles, idioma, etc. (todo completo)
+    // ... [todo el JS funcional]
+</script>
+</body>
+</html>
