@@ -941,44 +941,50 @@
         en: { winery: 'Winery', province: 'Province', region: 'Region' },
         de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
     };
-// Search functionality - Versión corregida, asíncrona y con debug
+// Search functionality - Versión corregida (asíncrona + con imágenes + debug)
 
 const searchInput = document.querySelector('.search-input');
 const suggestionsList = document.querySelector('.search-suggestions');
 
 let allWines = [];
 
-// Carga JSON
+// Determinar idioma actual
+const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+
+// Etiquetas por idioma
+const labels = {
+    es: { winery: 'Bodega', province: 'Provincia', region: 'Región' },
+    en: { winery: 'Winery', province: 'Province', region: 'Region' },
+    de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
+};
+
+// Cargar JSON
 async function loadWines() {
     try {
-        // Prueba estas rutas una por una si falla
-        // const jsonPath = '/data/vinos_es.json';          // producción
-        const jsonPath = 'data/vinos_es.json';              // local relativo (más común en dev)
-        // const jsonPath = './data/vinos_es.json';
-        // const jsonPath = window.location.origin + '/data/vinos_es.json';
-
-        console.log('Intentando cargar JSON desde:', jsonPath);
-
+        // Prueba esta ruta primero; si falla, cambia a './data/vinos_es.json' o absoluta
+        const jsonPath = '/data/vinos_es.json';
+        console.log('Intentando cargar:', jsonPath);
+        
         const response = await fetch(jsonPath);
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status} - ${jsonPath}`);
+            throw new Error(`Error ${response.status} al cargar ${jsonPath}`);
         }
         const data = await response.json();
-        console.log(`Éxito: ${data.length} vinos cargados`);
-        console.log('Primer vino (para debug):', data[0] || 'vacío');
+        console.log(`Cargados ${data.length} vinos`);
+        console.log('Ejemplo primer vino:', data[0] || 'vacío');
         return data;
     } catch (error) {
-        console.error('Fallo al cargar JSON:', error);
+        console.error('Error cargando JSON:', error);
         return [];
     }
 }
 
-// Todo el search
+// Inicializar búsqueda
 async function initSearch() {
     allWines = await loadWines();
 
     if (allWines.length === 0) {
-        console.warn('No hay vinos disponibles → el buscador no funcionará');
+        console.warn('No hay vinos → revisa JSON y ruta');
         return;
     }
 
@@ -989,7 +995,7 @@ async function initSearch() {
 
         if (query.length < 3) return;
 
-        console.log('Buscando:', query);
+        console.log('Búsqueda:', query);
 
         const matches = allWines
             .filter(wine => {
@@ -1004,15 +1010,16 @@ async function initSearch() {
                 return fields.includes(query);
             })
             .sort((a, b) => (a.Precio || 0) - (b.Precio || 0))
-            .slice(0, 6);
+            .slice(0, 5);
 
-        console.log('Coincidencias encontradas:', matches.length);
+        console.log('Resultados:', matches.length);
 
         if (matches.length > 0) {
             matches.forEach(wine => {
                 const li = document.createElement('li');
                 li.style.cssText = 'display:flex; align-items:center; gap:12px; padding:10px 14px; cursor:pointer; border-bottom:1px solid #eee;';
 
+                // Foto pequeña de botella
                 const img = document.createElement('img');
                 img.src = wine.Imagen || '/images/small/placeholder.jpg';
                 img.alt = wine.Nombre || 'Vino';
@@ -1030,20 +1037,20 @@ async function initSearch() {
 
                 li.appendChild(img);
                 li.appendChild(text);
-                li.dataset.url = adjustUrlForLanguage(wine.url, currentLang || 'es');
+                li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
 
-                li.onclick = () => {
-                    if (li.dataset.url && li.dataset.url !== '#') {
-                        window.location.href = li.dataset.url;
-                    }
-                };
+                li.addEventListener('click', () => {
+                    if (li.dataset.url) window.location.href = li.dataset.url;
+                });
 
                 suggestionsList.appendChild(li);
             });
             suggestionsList.style.display = 'block';
         } else {
             const li = document.createElement('li');
-            li.textContent = 'No se encontraron resultados';
+            li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
+                             currentLang === 'en' ? 'No results found' :
+                             'Keine Ergebnisse gefunden';
             li.style.padding = '12px';
             li.style.color = '#777';
             li.style.cursor = 'default';
@@ -1052,7 +1059,7 @@ async function initSearch() {
         }
     });
 
-    // Cerrar al click fuera
+    // Cerrar sugerencias al click fuera
     document.addEventListener('click', e => {
         if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
             suggestionsList.style.display = 'none';
@@ -1060,7 +1067,7 @@ async function initSearch() {
     });
 }
 
-// Lanzar
+// Lanzar al cargar página
 document.addEventListener('DOMContentLoaded', () => {
     initSearch();
 });
