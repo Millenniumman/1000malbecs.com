@@ -971,63 +971,6 @@
         console.log('Vinos cargados:', wines);
     });
 
-    // Handle search input
-   const searchInput = document.querySelector('.search-input');
-const suggestionsList = document.querySelector('.search-suggestions');
-
-let allWines = []; // variable global o en scope adecuado
-
-async function initSearch() {
-    allWines = await loadWines();
-    
-    searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-        suggestionsList.innerHTML = '';
-        
-        if (query.length < 2) {
-            suggestionsList.style.display = 'none';
-            return;
-        }
-        
-        const matches = allWines.filter(wine => 
-            wine.Nombre.toLowerCase().includes(query) ||
-            (wine.Bodega && wine.Bodega.toLowerCase().includes(query)) ||
-            (wine.Tipo && wine.Tipo.toLowerCase().includes(query))
-        ).slice(0, 8); // límite de sugerencias, ajusta si quieres
-        
-        if (matches.length === 0) {
-            suggestionsList.innerHTML = '<li>No se encontraron resultados</li>';
-        } else {
-            matches.forEach(wine => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <img src="${wine.Imagen || '/images/small/placeholder.jpg'}" 
-                         alt="${wine.Nombre}" 
-                         onerror="this.src='/images/small/placeholder.jpg';"
-                         style="width: 32px; height: 64px; object-fit: contain; margin-right: 12px; border-radius: 3px;">
-                    <div>
-                        <strong>${wine.Nombre}</strong>
-                        ${wine.Año ? ` (${wine.Año})` : ''} – ${wine.Bodega || 'Sin bodega'}
-                    </div>
-                `;
-                li.addEventListener('click', () => {
-                    window.location.href = wine.url || '#';
-                });
-                suggestionsList.appendChild(li);
-            });
-        }
-        
-        suggestionsList.style.display = 'block';
-    });
-    
-    // Cerrar sugerencias al hacer click fuera
-    document.addEventListener('click', e => {
-        if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
-            suggestionsList.style.display = 'none';
-        }
-    });
-}
-
 initSearch();
     // Handle suggestion clicks
     suggestionsList.addEventListener('click', function(e) {
