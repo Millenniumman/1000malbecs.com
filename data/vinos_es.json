@@ -2249,4 +2249,45 @@
     "Precio": 11.29,
     "url": "#"
   }
+,
+{
+  "Nombre": "La Fuerza Rojo",
+  "Bodega": "La Fuerza Vermu",
+  "Provincia": "Mendoza",
+  "Región": "",
+  "Tipo": "Vermut",
+  "Año": 2025,
+  "Precio": 24.49,
+  "url": "/es/vinos/la-fuerza-rojo.html"
+},
+{
+  "Nombre": "La Fuerza Blanco",
+  "Bodega": "La Fuerza Vermu",
+  "Provincia": "Mendoza",
+  "Región": "",
+  "Tipo": "Vermut",
+  "Año": 2025,
+  "Precio": 24.49,
+  "url": "/es/vinos/la-fuerza-blanco.html"
+},
+{
+  "Nombre": "La Fuerza Primavera",
+  "Bodega": "La Fuerza Vermu",
+  "Provincia": "Mendoza",
+  "Región": "",
+  "Tipo": "Vermut",
+  "Año": 2025,
+  "Precio": 24.49,
+  "url": "/es/vinos/la-fuerza-primavera.html"
+},
+{
+  "Nombre": "La Fuerza Sideral",
+  "Bodega": "La Fuerza Vermu",
+  "Provincia": "Mendoza",
+  "Región": "",
+  "Tipo": "Vermut",
+  "Año": 2025,
+  "Precio": 29.99,
+  "url": "/es/vinos/la-fuerza-sideral.html"
+}
 ]
