@@ -958,10 +958,10 @@ const suggestionsList = document.querySelector('.search-suggestions');
 
 let allWines = [];
 
-    // Function to fetch JSON data
+     // Function to fetch JSON data
     async function loadWines() {
         try {
-            const jsonPath = '/data/vinos_es.json';
+            const jsonPath = '/data/vinos.json';
             const response = await fetch(jsonPath);
             if (!response.ok) throw new Error(`Konnte ${jsonPath} nicht laden`);
             const data = await response.json();
@@ -1027,18 +1027,28 @@ let allWines = [];
         }
     });
 
-    // Cerrar sugerencias al click fuera
-    document.addEventListener('click', e => {
-        if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
-            suggestionsList.style.display = 'none';
+    // Keyboard navigation
+    let focusedSuggestion = -1;
+    searchInput.addEventListener('keydown', function(e) {
+        const suggestions = suggestionsList.querySelectorAll('li');
+        if (suggestions.length === 0) return;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
+            updateFocus(suggestions);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
+            updateFocus(suggestions);
+        } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
+            e.preventDefault();
+            if (suggestions[focusedSuggestion].dataset.url) {
+                window.location.href = suggestions[focusedSuggestion].dataset.url;
+            }
         }
     });
-}
 
-// Ejecutar cuando la página esté lista
-document.addEventListener('DOMContentLoaded', () => {
-    initSearch();
-});
     function updateFocus(suggestions) {
         suggestions.forEach((suggestion, index) => {
             suggestion.classList.toggle('focused', index === focusedSuggestion);
@@ -1055,7 +1065,6 @@ document.addEventListener('DOMContentLoaded', () => {
             focusedSuggestion = -1;
         }
     });
-
     // Winery grid scroll indicators
     const wineryGrid = document.querySelector('.winery-grid');
     const wineryPrev = document.querySelector('.winery-prev');
