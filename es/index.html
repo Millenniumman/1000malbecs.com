@@ -941,121 +941,122 @@
         en: { winery: 'Winery', province: 'Province', region: 'Region' },
         de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
     };
-
-    // Search functionality - BLOQUE COMPLETO Y LIMPIO
+// Search functionality - Versión corregida y estable
 
 const searchInput = document.querySelector('.search-input');
 const suggestionsList = document.querySelector('.search-suggestions');
 
 let allWines = [];
 
-     // Function to fetch JSON data
-    async function loadWines() {
-        try {
-            const jsonPath = '/data/vinos_es.json';
-            const response = await fetch(jsonPath);
-            if (!response.ok) throw new Error(`Konnte ${jsonPath} nicht laden`);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Fehler beim Laden der Weine:', error);
-            return [];
+// Función para cargar el JSON
+async function loadWines() {
+    try {
+        const jsonPath = '/data/vinos_es.json';
+        const response = await fetch(jsonPath);
+        if (!response.ok) {
+            throw new Error(`Error al cargar ${jsonPath} - Status: ${response.status}`);
         }
+        const data = await response.json();
+        console.log(`Vinos cargados: ${data.length} registros encontrados`);
+        return data;
+    } catch (error) {
+        console.error('Error cargando vinos:', error);
+        return [];
+    }
+}
+
+// Inicialización completa (carga + listeners)
+async function initSearch() {
+    allWines = await loadWines();
+
+    // Si no hay vinos, mostrar advertencia una vez
+    if (allWines.length === 0) {
+        console.warn('No se cargaron vinos → revisa la ruta /data/vinos_es.json y su contenido');
     }
 
-    // Load wines when the page loads
-    document.addEventListener('DOMContentLoaded', async () => {
-        wines = await loadWines();
-        console.log('Weine geladen:', wines);
-    });
-
-    // Handle search input
     searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
         suggestionsList.innerHTML = '';
         suggestionsList.style.display = 'none';
 
-        if (query.length >= 3) {
-            const matches = wines
-                .filter(wine => {
-                    return (
-                        wine.Nombre?.toLowerCase().includes(query) ||
-                        wine.Bodega?.toLowerCase().includes(query) ||
-                        wine.Provincia?.toLowerCase().includes(query) ||
-                        wine.Región?.toLowerCase().includes(query) ||
-                        wine.Tipo?.toLowerCase().includes(query) ||
-                        wine.Año?.toString().includes(query)
-                    );
-                })
-                .sort((a, b) => a.Precio - b.Precio)
-                .slice(0, 5);
+        if (query.length < 3) return;
 
-            if (matches.length > 0) {
-                matches.forEach(wine => {
-                    const li = document.createElement('li');
-                    li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
-                    li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
-                    suggestionsList.appendChild(li);
-                });
-                suggestionsList.style.display = 'block';
-            } else {
+        const matches = allWines
+            .filter(wine => {
+                const searchFields = [
+                    wine.Nombre,
+                    wine.Bodega,
+                    wine.Provincia,
+                    wine.Región,
+                    wine.Tipo,
+                    wine.Año?.toString()
+                ].filter(Boolean).join(' ').toLowerCase();
+                return searchFields.includes(query);
+            })
+            .sort((a, b) => (a.Precio || 0) - (b.Precio || 0))
+            .slice(0, 6);  // 6 para dar un poco más de opciones
+
+        if (matches.length > 0) {
+            matches.forEach(wine => {
                 const li = document.createElement('li');
-                li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
-                                 currentLang === 'en' ? 'No results found' :
-                                 'Keine Ergebnisse gefunden';
-                li.style.cursor = 'default';
+                li.style.display = 'flex';
+                li.style.alignItems = 'center';
+                li.style.gap = '12px';
+                li.style.padding = '8px 12px';
+                li.style.cursor = 'pointer';
+
+                // Imagen pequeña de la botella
+                const img = document.createElement('img');
+                img.src = wine.Imagen || '/images/small/placeholder.jpg';
+                img.alt = wine.Nombre || 'Vino';
+                img.onerror = () => { img.src = '/images/small/placeholder.jpg'; };
+                img.style.width = '32px';
+                img.style.height = '64px';
+                img.style.objectFit = 'contain';
+                img.style.borderRadius = '3px';
+                img.style.flexShrink = '0';
+
+                const textDiv = document.createElement('div');
+                textDiv.innerHTML = `
+                    <strong>${wine.Nombre || 'Sin nombre'}</strong><br>
+                    <small>${wine.Bodega || ''} ${wine.Año ? `(${wine.Año})` : ''}</small>
+                `;
+
+                li.appendChild(img);
+                li.appendChild(textDiv);
+                li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
+
+                li.addEventListener('click', () => {
+                    if (li.dataset.url) window.location.href = li.dataset.url;
+                });
+
                 suggestionsList.appendChild(li);
-                suggestionsList.style.display = 'block';
-            }
+            });
+            suggestionsList.style.display = 'block';
+        } else {
+            const li = document.createElement('li');
+            li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
+                             currentLang === 'en' ? 'No results found' :
+                             'Keine Ergebnisse gefunden';
+            li.style.cursor = 'default';
+            li.style.padding = '10px';
+            suggestionsList.appendChild(li);
+            suggestionsList.style.display = 'block';
         }
     });
 
-    // Handle suggestion clicks
-    suggestionsList.addEventListener('click', function(e) {
-        const li = e.target.closest('li');
-        if (li && li.dataset.url) {
-            window.location.href = li.dataset.url;
-        }
-    });
-
-    // Keyboard navigation
-    let focusedSuggestion = -1;
-    searchInput.addEventListener('keydown', function(e) {
-        const suggestions = suggestionsList.querySelectorAll('li');
-        if (suggestions.length === 0) return;
-
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
-            updateFocus(suggestions);
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
-            updateFocus(suggestions);
-        } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
-            e.preventDefault();
-            if (suggestions[focusedSuggestion].dataset.url) {
-                window.location.href = suggestions[focusedSuggestion].dataset.url;
-            }
-        }
-    });
-
-    function updateFocus(suggestions) {
-        suggestions.forEach((suggestion, index) => {
-            suggestion.classList.toggle('focused', index === focusedSuggestion);
-        });
-        if (focusedSuggestion >= 0) {
-            suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
-        }
-    }
-
-    // Hide suggestions when clicking outside
-    document.addEventListener('click', function(e) {
+    // Cerrar sugerencias al click fuera
+    document.addEventListener('click', e => {
         if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
             suggestionsList.style.display = 'none';
-            focusedSuggestion = -1;
         }
     });
+}
+
+// Ejecutar cuando la página esté lista
+document.addEventListener('DOMContentLoaded', () => {
+    initSearch();
+});
     // Winery grid scroll indicators
     const wineryGrid = document.querySelector('.winery-grid');
     const wineryPrev = document.querySelector('.winery-prev');
