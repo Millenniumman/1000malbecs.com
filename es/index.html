@@ -958,78 +958,73 @@ const suggestionsList = document.querySelector('.search-suggestions');
 
 let allWines = [];
 
-// Función para cargar el JSON
-async function loadWines() {
-    try {
-        const jsonPath = '/data/vinos_es.json';  // confirma que esta ruta sea correcta en tu servidor/local
-        const response = await fetch(jsonPath);
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status} - ${jsonPath}`);
+    // Function to fetch JSON data
+    async function loadWines() {
+        try {
+            const jsonPath = '/data/vinos_es.json';
+            const response = await fetch(jsonPath);
+            if (!response.ok) throw new Error(`Konnte ${jsonPath} nicht laden`);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Fehler beim Laden der Weine:', error);
+            return [];
         }
-        const data = await response.json();
-        console.log(`Vinos cargados exitosamente: ${data.length} registros`);
-        return data;
-    } catch (error) {
-        console.error('Error al cargar vinos_es.json:', error);
-        return [];
-    }
-}
-
-// Inicializa búsqueda y listeners
-async function initSearch() {
-    allWines = await loadWines();
-    
-    if (allWines.length === 0) {
-        console.warn('No se cargaron vinos → el buscador estará vacío');
     }
 
+    // Load wines when the page loads
+    document.addEventListener('DOMContentLoaded', async () => {
+        wines = await loadWines();
+        console.log('Weine geladen:', wines);
+    });
+
+    // Handle search input
     searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
+        const query = this.value.trim().toLowerCase();
         suggestionsList.innerHTML = '';
-        
-        if (query.length < 2) {
-            suggestionsList.style.display = 'none';
-            return;
-        }
-        
-        const matches = allWines.filter(wine => {
-            const nombre = (wine.Nombre || '').toLowerCase();
-            const bodega = (wine.Bodega || '').toLowerCase();
-            const tipo   = (wine.Tipo   || '').toLowerCase();
-            return nombre.includes(query) || bodega.includes(query) || tipo.includes(query);
-        }).slice(0, 10);  // límite de 10 sugerencias para no saturar
+        suggestionsList.style.display = 'none';
 
-        if (matches.length === 0) {
-            suggestionsList.innerHTML = '<li>No se encontraron resultados</li>';
-        } else {
-            matches.forEach(wine => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <img src="${wine.Imagen || '/images/small/placeholder.jpg'}" 
-                         alt="${wine.Nombre || 'Vino'}" 
-                         onerror="this.src='/images/small/placeholder.jpg';"
-                         style="width:32px;height:64px;object-fit:contain;margin-right:12px;border-radius:3px;">
-                    <div style="flex:1;">
-                        <strong>${wine.Nombre || 'Sin nombre'}</strong><br>
-                        <small>${wine.Año ? wine.Año + ' – ' : ''}${wine.Bodega || 'Sin bodega'}</small>
-                    </div>
-                `;
-                li.style.cursor = 'pointer';
-                li.style.display = 'flex';
-                li.style.alignItems = 'center';
-                li.style.padding = '8px 12px';
-                
-                li.addEventListener('click', () => {
-                    if (wine.url) {
-                        window.location.href = wine.url;
-                    }
+        if (query.length >= 3) {
+            const matches = wines
+                .filter(wine => {
+                    return (
+                        wine.Nombre?.toLowerCase().includes(query) ||
+                        wine.Bodega?.toLowerCase().includes(query) ||
+                        wine.Provincia?.toLowerCase().includes(query) ||
+                        wine.Región?.toLowerCase().includes(query) ||
+                        wine.Tipo?.toLowerCase().includes(query) ||
+                        wine.Año?.toString().includes(query)
+                    );
+                })
+                .sort((a, b) => a.Precio - b.Precio)
+                .slice(0, 5);
+
+            if (matches.length > 0) {
+                matches.forEach(wine => {
+                    const li = document.createElement('li');
+                    li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
+                    li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
+                    suggestionsList.appendChild(li);
                 });
-                
+                suggestionsList.style.display = 'block';
+            } else {
+                const li = document.createElement('li');
+                li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
+                                 currentLang === 'en' ? 'No results found' :
+                                 'Keine Ergebnisse gefunden';
+                li.style.cursor = 'default';
                 suggestionsList.appendChild(li);
-            });
+                suggestionsList.style.display = 'block';
+            }
         }
-        
-        suggestionsList.style.display = 'block';
+    });
+
+    // Handle suggestion clicks
+    suggestionsList.addEventListener('click', function(e) {
+        const li = e.target.closest('li');
+        if (li && li.dataset.url) {
+            window.location.href = li.dataset.url;
+        }
     });
 
     // Cerrar sugerencias al click fuera
