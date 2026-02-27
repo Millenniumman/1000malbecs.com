@@ -935,15 +935,6 @@
             if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
         });
     }
-
-    // Search functionality
-    const searchInput = document.querySelector('.search-input');
-    const suggestionsList = document.querySelector('.search-suggestions');
-    let wines = [];
-
-    // Determine current language
-    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-
     // Language-specific labels
     const labels = {
         es: { winery: 'Bodega', province: 'Provincia', region: 'Región' },
@@ -961,7 +952,7 @@ let allWines = [];
      // Function to fetch JSON data
     async function loadWines() {
         try {
-            const jsonPath = '/data/vinos.json';
+            const jsonPath = '/data/vinos_es.json';
             const response = await fetch(jsonPath);
             if (!response.ok) throw new Error(`Konnte ${jsonPath} nicht laden`);
             const data = await response.json();
