@@ -199,6 +199,23 @@
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
+    .search-suggestions li {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.search-suggestions img {
+  width: 32px;          /* muy chiquito, tipo icono */
+  height: 64px;         /* proporción botella típica */
+  object-fit: contain;
+  margin-right: 12px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.search-suggestions li:hover img {
+  transform: scale(1.1); /* zoom sutil al hover */
+}
     </style>
     
 </head>
