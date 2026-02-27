@@ -941,39 +941,47 @@
         en: { winery: 'Winery', province: 'Province', region: 'Region' },
         de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
     };
-// Search functionality - Versión final corregida (asíncrona + con imágenes)
+// Search functionality - Versión corregida, asíncrona y con debug
 
 const searchInput = document.querySelector('.search-input');
 const suggestionsList = document.querySelector('.search-suggestions');
 
 let allWines = [];
 
-// Carga el JSON
+// Carga JSON
 async function loadWines() {
     try {
-        const jsonPath = '/data/vinos_es.json';
+        // Prueba estas rutas una por una si falla
+        // const jsonPath = '/data/vinos_es.json';          // producción
+        const jsonPath = 'data/vinos_es.json';              // local relativo (más común en dev)
+        // const jsonPath = './data/vinos_es.json';
+        // const jsonPath = window.location.origin + '/data/vinos_es.json';
+
+        console.log('Intentando cargar JSON desde:', jsonPath);
+
         const response = await fetch(jsonPath);
         if (!response.ok) {
-            throw new Error(`Error HTTP ${response.status} al cargar ${jsonPath}`);
+            throw new Error(`HTTP ${response.status} - ${jsonPath}`);
         }
         const data = await response.json();
-        console.log(`Vinos cargados exitosamente: ${data.length} vinos`);
+        console.log(`Éxito: ${data.length} vinos cargados`);
+        console.log('Primer vino (para debug):', data[0] || 'vacío');
         return data;
     } catch (error) {
-        console.error('Error cargando el JSON de vinos:', error);
+        console.error('Fallo al cargar JSON:', error);
         return [];
     }
 }
 
-// Inicializa todo (carga + event listeners)
+// Todo el search
 async function initSearch() {
     allWines = await loadWines();
 
     if (allWines.length === 0) {
-        console.warn('No se cargaron vinos. Revisa la ruta /data/vinos_es.json y su contenido.');
+        console.warn('No hay vinos disponibles → el buscador no funcionará');
+        return;
     }
 
-    // Evento principal: al escribir
     searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
         suggestionsList.innerHTML = '';
@@ -981,9 +989,10 @@ async function initSearch() {
 
         if (query.length < 3) return;
 
+        console.log('Buscando:', query);
+
         const matches = allWines
             .filter(wine => {
-                // Filtrado robusto (evita errores si campo undefined)
                 const fields = [
                     wine.Nombre,
                     wine.Bodega,
@@ -994,32 +1003,24 @@ async function initSearch() {
                 ].filter(Boolean).join(' ').toLowerCase();
                 return fields.includes(query);
             })
-            .sort((a, b) => (a.Precio || 0) - (b.Precio || 0))  // orden por precio asc
-            .slice(0, 6);  // máximo 6 sugerencias
+            .sort((a, b) => (a.Precio || 0) - (b.Precio || 0))
+            .slice(0, 6);
+
+        console.log('Coincidencias encontradas:', matches.length);
 
         if (matches.length > 0) {
             matches.forEach(wine => {
                 const li = document.createElement('li');
-                li.style.display = 'flex';
-                li.style.alignItems = 'center';
-                li.style.gap = '12px';
-                li.style.padding = '10px 14px';
-                li.style.cursor = 'pointer';
-                li.style.borderBottom = '1px solid #eee';
+                li.style.cssText = 'display:flex; align-items:center; gap:12px; padding:10px 14px; cursor:pointer; border-bottom:1px solid #eee;';
 
-                // Foto chiquita de la botella
                 const img = document.createElement('img');
                 img.src = wine.Imagen || '/images/small/placeholder.jpg';
                 img.alt = wine.Nombre || 'Vino';
-                img.onerror = () => { img.src = '/images/small/placeholder.jpg'; };
-                img.style.width = '32px';
-                img.style.height = '64px';
-                img.style.objectFit = 'contain';
-                img.style.borderRadius = '4px';
-                img.style.flexShrink = '0';
+                img.onerror = () => img.src = '/images/small/placeholder.jpg';
+                img.style.cssText = 'width:32px; height:64px; object-fit:contain; border-radius:4px; flex-shrink:0;';
 
-                const textDiv = document.createElement('div');
-                textDiv.innerHTML = `
+                const text = document.createElement('div');
+                text.innerHTML = `
                     <strong>${wine.Nombre || 'Sin nombre'}</strong><br>
                     <small style="color:#666;">
                         ${wine.Bodega || ''} ${wine.Año ? `(${wine.Año})` : ''} 
@@ -1028,23 +1029,21 @@ async function initSearch() {
                 `;
 
                 li.appendChild(img);
-                li.appendChild(textDiv);
+                li.appendChild(text);
                 li.dataset.url = adjustUrlForLanguage(wine.url, currentLang || 'es');
 
-                li.addEventListener('click', () => {
+                li.onclick = () => {
                     if (li.dataset.url && li.dataset.url !== '#') {
                         window.location.href = li.dataset.url;
                     }
-                });
+                };
 
                 suggestionsList.appendChild(li);
             });
             suggestionsList.style.display = 'block';
         } else {
             const li = document.createElement('li');
-            li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
-                             currentLang === 'en' ? 'No results found' :
-                             'Keine Ergebnisse gefunden';
+            li.textContent = 'No se encontraron resultados';
             li.style.padding = '12px';
             li.style.color = '#777';
             li.style.cursor = 'default';
@@ -1061,7 +1060,7 @@ async function initSearch() {
     });
 }
 
-// Ejecutar al cargar la página
+// Lanzar
 document.addEventListener('DOMContentLoaded', () => {
     initSearch();
 });
