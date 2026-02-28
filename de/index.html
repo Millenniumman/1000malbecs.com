@@ -985,12 +985,12 @@ const suggestionsList = document.querySelector('.search-suggestions');
 let allWines = [];
 
 // Idioma actual
-const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
 
 // Cargar JSON
 async function loadWines() {
     try {
-        const jsonPath = '/data/vinos_es.json';
+        const jsonPath = '/data/vinos_de.json';
         console.log('Cargando desde:', jsonPath);
 
         const response = await fetch(jsonPath);
