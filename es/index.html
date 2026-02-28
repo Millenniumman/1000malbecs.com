@@ -941,57 +941,50 @@
         en: { winery: 'Winery', province: 'Province', region: 'Region' },
         de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
     };
-// Search functionality - Corregido: asíncrono, con imagen, logs y multilenguaje
+// Search functionality - Versión limpia y funcional (2025)
 
 const searchInput = document.querySelector('.search-input');
 const suggestionsList = document.querySelector('.search-suggestions');
 
 let allWines = [];
 
-// Idioma actual (solo una vez)
+// Idioma actual
 const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
 
-// Cargar el JSON (usa vinos.json para consistencia)
+// Cargar JSON
 async function loadWines() {
     try {
         const jsonPath = '/data/vinos_es.json';
-        const response = await fetch(jsonPath);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        console.log('Cargando desde:', jsonPath);
 
-        const text = await response.text();              // ← leer como texto
-        console.log('Primeros 300 chars recibidos:', text.substring(0, 300));
+        const response = await fetch(jsonPath);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+        }
+
+        const text = await response.text();
+        console.log('Primeros 300 chars:', text.substring(0, 300));
 
         const data = JSON.parse(text);
-        console.log('JSON parseado OK - Vinos cargados:', data.length);
+        console.log('JSON parseado OK → Vinos cargados:', data.length);
+
+        if (data.length > 0) {
+            console.log('Ejemplo primer vino:', JSON.stringify(data[0], null, 2));
+        }
+
         return data;
     } catch (error) {
-        console.error('Error al cargar/parsear JSON:', error);
+        console.error('Error al cargar o parsear JSON:', error);
         return [];
     }
 }
 
-// Intenta parsear
-try {
-    const data = JSON.parse(text);
-    // ...
-} catch (parseError) {
-    console.error('Error parseando JSON:', parseError);
-    console.error('Texto que falló:', text.substring(0, 500));
-    return [];
-}
-        return data;
-    } catch (error) {
-        console.error('Error al cargar el JSON:', error);
-        return [];
-    }
-}
-
-// Inicialización completa
+// Inicializar búsqueda
 async function initSearch() {
     allWines = await loadWines();
 
     if (allWines.length === 0) {
-        console.warn('No se cargaron vinos → el buscador no mostrará nada');
+        console.warn('No hay vinos disponibles → buscador vacío');
         return;
     }
 
@@ -1017,7 +1010,7 @@ async function initSearch() {
                 return text.includes(query);
             })
             .sort((a, b) => (a.Precio || 0) - (b.Precio || 0))
-            .slice(0, 5);
+            .slice(0, 6);
 
         console.log('Coincidencias:', matches.length);
 
@@ -1026,7 +1019,6 @@ async function initSearch() {
                 const li = document.createElement('li');
                 li.style.cssText = 'display:flex; align-items:center; gap:12px; padding:10px 14px; cursor:pointer; border-bottom:1px solid #eee;';
 
-                // Imagen chiquita de botella
                 const img = document.createElement('img');
                 img.src = wine.Imagen || '/images/small/placeholder.jpg';
                 img.alt = wine.Nombre || 'Vino';
@@ -1055,9 +1047,7 @@ async function initSearch() {
             suggestionsList.style.display = 'block';
         } else {
             const li = document.createElement('li');
-            li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
-                             currentLang === 'en' ? 'No results found' :
-                             'Keine Ergebnisse gefunden';
+            li.textContent = 'No se encontraron resultados';
             li.style.padding = '12px';
             li.style.color = '#777';
             li.style.cursor = 'default';
@@ -1066,7 +1056,6 @@ async function initSearch() {
         }
     });
 
-    // Cerrar al click fuera
     document.addEventListener('click', e => {
         if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
             suggestionsList.style.display = 'none';
@@ -1074,7 +1063,7 @@ async function initSearch() {
     });
 }
 
-// Ejecutar cuando la página esté lista
+// Lanzar
 document.addEventListener('DOMContentLoaded', () => {
     initSearch();
 });
