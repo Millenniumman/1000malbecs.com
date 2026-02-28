@@ -19,8 +19,18 @@
     <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
-    <style>
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/bedf39e1cc538fd7dc6725078/fc34b799b775fc18c97c65328.js");</script>
+<style>
+    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .header { top: 50px; z-index: 120; }
         .logo { max-width: 150px; height: auto; }
         .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
@@ -189,14 +199,31 @@
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
+            .search-suggestions li {
+              display: flex;
+              align-items: center;
+              padding: 8px 12px;
+              cursor: pointer;
+        }
+            .search-suggestions img {
+              width: 32px;          /* muy chiquito, tipo icono */
+              height: 64px;         /* proporción botella típica */
+              object-fit: contain;
+              margin-right: 12px;
+              border-radius: 4px;
+              flex-shrink: 0;
+        }
+            .search-suggestions li:hover img {
+              transform: scale(1.1); /* zoom sutil al hover */
+        }
     </style>
+    
 </head>
 <body>
 <div class="language-selector">
-    <a aria-label="Español" class="active" data-lang="es" href="#">ES </a>
-    <a aria-label="Alemán" data-lang="de" href="#">DE </a>
-    <a aria-label="Inglés" data-lang="en" href="#">EN </a>
-</div>
+    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES 🇪🇸</a>
+    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
+    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN 🇬🇧</a>
 </div>
 <header class="header">
     <a href="/es/" title="Volver a la página principal">
@@ -876,179 +903,170 @@
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
 
-    // Language selector - navegación relativa
-const languageSelector = document.querySelector('.language-selector');
-if (languageSelector) {
-    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-    
-    langLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetLang = link.getAttribute('data-lang');
-            const currentPath = window.location.pathname;
-
-            // Mapa de prefijos actuales posibles
-            const langPrefixes = ['/es/', '/en/', '/de/'];
-            let newPath = currentPath;
-
-            // Quitar cualquier prefijo de idioma existente
-            for (const prefix of langPrefixes) {
-                if (currentPath.startsWith(prefix)) {
-                    newPath = currentPath.replace(prefix, '/');
-                    break;
-                }
+    // Language selector
+    const languageSelector = document.querySelector('.language-selector');
+    let lastScrollY = window.scrollY;
+    let scrollThreshold = 50;
+    if (languageSelector) {
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                languageSelector.classList.add('hidden');
+            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                languageSelector.classList.remove('hidden');
             }
-
-            // Agregar el nuevo prefijo (excepto si es la raíz)
-            if (targetLang !== 'es') {  // asumiendo 'es' como idioma por defecto sin prefijo
-                newPath = `/${targetLang}${newPath}`;
-            }
-
-            // Normalizar (quitar doble slash, etc.)
-            newPath = newPath.replace(/\/+/g, '/');
-
-            // Si estamos en raíz y target es 'es', ir a /es/ o / según tu preferencia
-            if (newPath === '/' && targetLang === 'es') {
-                newPath = '/es/';  // o '/' si es tu home por defecto
-            }
-
-            window.location.href = newPath;
+            lastScrollY = currentScrollY;
         });
-    });
-
-    // Marcar activo según URL actual
-    const currentLang = window.location.pathname.match(/\/(es|en|de)\//)?.[1] || 'es';
-    langLinks.forEach(link => {
-        if (link.getAttribute('data-lang') === currentLang) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-    // Search functionality
-    const searchInput = document.querySelector('.search-input');
-    const suggestionsList = document.querySelector('.search-suggestions');
-    let wines = [];
-
-    // Determine current language
-    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-
+        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+        langLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLang = link.getAttribute('data-lang');
+                const currentPath = window.location.pathname;
+                let newPath = currentPath;
+                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
+                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
+                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
+                if (newPath !== currentPath) { window.location.href = newPath; }
+            });
+        });
+        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+        langLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
+        });
+    }
     // Language-specific labels
     const labels = {
         es: { winery: 'Bodega', province: 'Provincia', region: 'Región' },
         en: { winery: 'Winery', province: 'Province', region: 'Region' },
         de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
     };
+// Search functionality - Versión limpia y funcional (2025)
 
-    // Function to fetch JSON data
-    async function loadWines() {
-        try {
-            const jsonPath = '/data/vinos.json';
-            const response = await fetch(jsonPath);
-            if (!response.ok) throw new Error(`No se pudo cargar ${jsonPath}`);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error al cargar los vinos:', error);
-            return [];
+const searchInput = document.querySelector('.search-input');
+const suggestionsList = document.querySelector('.search-suggestions');
+
+let allWines = [];
+
+// Idioma actual
+const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+
+// Cargar JSON
+async function loadWines() {
+    try {
+        const jsonPath = '/data/vinos_es.json';
+        console.log('Cargando desde:', jsonPath);
+
+        const response = await fetch(jsonPath);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status} - ${response.statusText}`);
         }
+
+        const text = await response.text();
+        console.log('Primeros 300 chars:', text.substring(0, 300));
+
+        const data = JSON.parse(text);
+        console.log('JSON parseado OK → Vinos cargados:', data.length);
+
+        if (data.length > 0) {
+            console.log('Ejemplo primer vino:', JSON.stringify(data[0], null, 2));
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Error al cargar o parsear JSON:', error);
+        return [];
+    }
+}
+
+// Inicializar búsqueda
+async function initSearch() {
+    allWines = await loadWines();
+
+    if (allWines.length === 0) {
+        console.warn('No hay vinos disponibles → buscador vacío');
+        return;
     }
 
-    // Load wines when the page loads
-    document.addEventListener('DOMContentLoaded', async () => {
-        wines = await loadWines();
-        console.log('Vinos cargados:', wines);
-    });
-
-    // Handle search input
     searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
         suggestionsList.innerHTML = '';
         suggestionsList.style.display = 'none';
 
-        if (query.length >= 3) {
-            const matches = wines
-                .filter(wine => {
-                    return (
-                        wine.Nombre?.toLowerCase().includes(query) ||
-                        wine.Bodega?.toLowerCase().includes(query) ||
-                        wine.Provincia?.toLowerCase().includes(query) ||
-                        wine.Región?.toLowerCase().includes(query) ||
-                        wine.Tipo?.toLowerCase().includes(query) ||
-                        wine.Año?.toString().includes(query)
-                    );
-                })
-                .sort((a, b) => a.Precio - b.Precio)
-                .slice(0, 5);
+        if (query.length < 3) return;
 
-            if (matches.length > 0) {
-                matches.forEach(wine => {
-                    const li = document.createElement('li');
-                    li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
-                    li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
-                    suggestionsList.appendChild(li);
-                });
-                suggestionsList.style.display = 'block';
-            } else {
+        console.log('Buscando:', query);
+
+        const matches = allWines
+            .filter(wine => {
+                const text = [
+                    wine.Nombre || '',
+                    wine.Bodega || '',
+                    wine.Provincia || '',
+                    wine.Región || '',
+                    wine.Tipo || '',
+                    wine.Año?.toString() || ''
+                ].join(' ').toLowerCase();
+                return text.includes(query);
+            })
+            .sort((a, b) => (a.Precio || 0) - (b.Precio || 0))
+            .slice(0, 6);
+
+        console.log('Coincidencias:', matches.length);
+
+        if (matches.length > 0) {
+            matches.forEach(wine => {
                 const li = document.createElement('li');
-                li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
-                                 currentLang === 'en' ? 'No results found' :
-                                 'Keine Ergebnisse gefunden';
-                li.style.cursor = 'default';
+                li.style.cssText = 'display:flex; align-items:center; gap:12px; padding:10px 14px; cursor:pointer; border-bottom:1px solid #eee;';
+
+                const img = document.createElement('img');
+                img.src = wine.Imagen || '/images/small/placeholder.jpg';
+                img.alt = wine.Nombre || 'Vino';
+                img.onerror = () => img.src = '/images/small/placeholder.jpg';
+                img.style.cssText = 'width:32px; height:64px; object-fit:contain; border-radius:4px; flex-shrink:0;';
+
+                const textDiv = document.createElement('div');
+                textDiv.innerHTML = `
+                    <strong>${wine.Nombre || 'Sin nombre'}</strong><br>
+                    <small style="color:#666;">
+                        ${wine.Bodega || ''} ${wine.Año ? `(${wine.Año})` : ''}
+                        ${wine.Provincia ? ` - ${wine.Provincia}` : ''}
+                    </small>
+                `;
+
+                li.appendChild(img);
+                li.appendChild(textDiv);
+                li.dataset.url = adjustUrlForLanguage(wine.url || '#', currentLang);
+
+                li.addEventListener('click', () => {
+                    if (li.dataset.url !== '#') window.location.href = li.dataset.url;
+                });
+
                 suggestionsList.appendChild(li);
-                suggestionsList.style.display = 'block';
-            }
+            });
+            suggestionsList.style.display = 'block';
+        } else {
+            const li = document.createElement('li');
+            li.textContent = 'No se encontraron resultados';
+            li.style.padding = '12px';
+            li.style.color = '#777';
+            li.style.cursor = 'default';
+            suggestionsList.appendChild(li);
+            suggestionsList.style.display = 'block';
         }
     });
 
-    // Handle suggestion clicks
-    suggestionsList.addEventListener('click', function(e) {
-        const li = e.target.closest('li');
-        if (li && li.dataset.url) {
-            window.location.href = li.dataset.url;
-        }
-    });
-
-    // Keyboard navigation
-    let focusedSuggestion = -1;
-    searchInput.addEventListener('keydown', function(e) {
-        const suggestions = suggestionsList.querySelectorAll('li');
-        if (suggestions.length === 0) return;
-
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
-            updateFocus(suggestions);
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
-            updateFocus(suggestions);
-        } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
-            e.preventDefault();
-            if (suggestions[focusedSuggestion].dataset.url) {
-                window.location.href = suggestions[focusedSuggestion].dataset.url;
-            }
-        }
-    });
-
-    function updateFocus(suggestions) {
-        suggestions.forEach((suggestion, index) => {
-            suggestion.classList.toggle('focused', index === focusedSuggestion);
-        });
-        if (focusedSuggestion >= 0) {
-            suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
-        }
-    }
-
-    // Hide suggestions when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', e => {
         if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
             suggestionsList.style.display = 'none';
-            focusedSuggestion = -1;
         }
     });
+}
 
+// Lanzar
+document.addEventListener('DOMContentLoaded', () => {
+    initSearch();
+});
     // Winery grid scroll indicators
     const wineryGrid = document.querySelector('.winery-grid');
     const wineryPrev = document.querySelector('.winery-prev');
@@ -1083,5 +1101,6 @@ if (languageSelector) {
     }
 
 </script>
+   
 </body>
 </html>
