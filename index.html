@@ -903,44 +903,63 @@
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
 
-    // Language selector
-    const languageSelector = document.querySelector('.language-selector');
-    let lastScrollY = window.scrollY;
-    let scrollThreshold = 50;
-    if (languageSelector) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                languageSelector.classList.add('hidden');
-            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                languageSelector.classList.remove('hidden');
+   // Language selector - Versión corregida y robusta
+const languageSelector = document.querySelector('.language-selector');
+let lastScrollY = window.scrollY;
+let scrollThreshold = 50;
+
+if (languageSelector) {
+    // Ocultar al hacer scroll hacia abajo
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            languageSelector.classList.add('hidden');
+        } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+            languageSelector.classList.remove('hidden');
+        }
+        lastScrollY = currentScrollY;
+    });
+
+    // Manejo de clicks en los links
+    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+    langLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = link.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+
+            let newPath = currentPath;
+
+            // Reemplazar cualquier prefijo de idioma existente (/es/, /de/, /en/)
+            newPath = newPath.replace(/^\/(es|de|en)\//i, `/${targetLang}/`);
+
+            // Si no había prefijo (raíz / o /index.html), agregar el idioma
+            if (!newPath.startsWith(`/${targetLang}/`)) {
+                if (newPath === '/' || newPath === '/index.html' || newPath === '') {
+                    newPath = `/${targetLang}/index.html`;
+                } else {
+                    newPath = `/${targetLang}${newPath.startsWith('/') ? '' : '/'}${newPath}`;
+                }
             }
-            lastScrollY = currentScrollY;
+
+            // Redirigir si el path cambió
+            if (newPath !== currentPath) {
+                window.location.href = newPath;
+            }
         });
-        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetLang = link.getAttribute('data-lang');
-                const currentPath = window.location.pathname;
-                let newPath = currentPath;
-                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
-                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
-                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
-                if (newPath !== currentPath) { window.location.href = newPath; }
-            });
-        });
-        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
-        langLinks.forEach(link => {
-            if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
-        });
-    }
-    // Language-specific labels
-    const labels = {
-        es: { winery: 'Bodega', province: 'Provincia', region: 'Región' },
-        en: { winery: 'Winery', province: 'Province', region: 'Region' },
-        de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
-    };
+    });
+
+    // Marcar el link activo según la URL actual
+    const currentLang = window.location.pathname.match(/\/(es|de|en)\//i)?.[1]?.toLowerCase() || 'es';
+    langLinks.forEach(link => {
+        const lang = link.getAttribute('data-lang');
+        if (lang === currentLang) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
 // Search functionality - Versión limpia y funcional (2025)
 
 const searchInput = document.querySelector('.search-input');
