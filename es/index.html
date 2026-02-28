@@ -954,18 +954,21 @@ const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es
 // Cargar el JSON (usa vinos.json para consistencia)
 async function loadWines() {
     try {
-        // Ruta: prueba '/data/vinos_es.json' o 'data/vinos_es.json' si estás en local
-        const jsonPath = '/data/vinos_es.json';  // Cambia a 'data/vinos_es.json' si da 404
-        console.log('Cargando JSON desde:', jsonPath);
-
+        const jsonPath = '/data/vinos_es.json';
         const response = await fetch(jsonPath);
-        if (!response.ok) throw new Error(`Error ${response.status} - ${jsonPath}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-        const data = await response.json();
-        console.log(`Cargados ${data.length} vinos`);
-        if (data.length > 0) console.log('Ejemplo primer vino:', data[0]);
-const text = await response.text();  // lee como texto primero
-console.log('Contenido crudo recibido:', text.substring(0, 300)); // muestra los primeros 300 caracteres
+        const text = await response.text();              // ← leer como texto
+        console.log('Primeros 300 chars recibidos:', text.substring(0, 300));
+
+        const data = JSON.parse(text);
+        console.log('JSON parseado OK - Vinos cargados:', data.length);
+        return data;
+    } catch (error) {
+        console.error('Error al cargar/parsear JSON:', error);
+        return [];
+    }
+}
 
 // Intenta parsear
 try {
