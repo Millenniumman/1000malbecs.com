@@ -2229,6 +2229,7 @@
     "Precio": 9.19,
     "url": "#"
   },
+[
   {
     "Nombre": "Trapiche Impure Malbec 2024",
     "Bodega": "Trapiche",
@@ -2248,50 +2249,49 @@
     "Año": 2024,
     "Precio": 11.29,
     "url": "#"
+  },
+  {
+    "Nombre": "La Fuerza Rojo",
+    "Bodega": "La Fuerza Vermu",
+    "Provincia": "Mendoza",
+    "Región": "",
+    "Tipo": "Vermut",
+    "Año": 2025,
+    "Precio": 24.49,
+    "url": "/es/vinos/la-fuerza-rojo.html",
+    "Imagen": "/images/small/la-fuerza-rojo.jpg"
+  },
+  {
+    "Nombre": "La Fuerza Blanco",
+    "Bodega": "La Fuerza Vermu",
+    "Provincia": "Mendoza",
+    "Región": "",
+    "Tipo": "Vermut",
+    "Año": 2025,
+    "Precio": 24.49,
+    "url": "/es/vinos/la-fuerza-blanco.html",
+    "Imagen": "/images/small/la-fuerza-blanco.jpg"
+  },
+  {
+    "Nombre": "La Fuerza Primavera",
+    "Bodega": "La Fuerza Vermu",
+    "Provincia": "Mendoza",
+    "Región": "",
+    "Tipo": "Vermut",
+    "Año": 2025,
+    "Precio": 24.49,
+    "url": "/es/vinos/la-fuerza-primavera.html",
+    "Imagen": "/images/small/la-fuerza-primavera.jpg"
+  },
+  {
+    "Nombre": "La Fuerza Sideral",
+    "Bodega": "La Fuerza Vermu",
+    "Provincia": "Mendoza",
+    "Región": "",
+    "Tipo": "Vermut",
+    "Año": 2025,
+    "Precio": 29.99,
+    "url": "/es/vinos/la-fuerza-sideral.html",
+    "Imagen": "/images/small/la-fuerza-sideral.jpg"
   }
-,
-{
-  "Nombre": "La Fuerza Rojo",
-  "Bodega": "La Fuerza Vermu",
-  "Provincia": "Mendoza",
-  "Región": "",
-  "Tipo": "Vermut",
-  "Año": 2025,
-  "Precio": 24.49,
-  "url": "/es/vinos/la-fuerza-rojo.html"
-  "Imagen": "/images/small/la-fuerza-rojo.jpg"
-},
-{
-  "Nombre": "La Fuerza Blanco",
-  "Bodega": "La Fuerza Vermu",
-  "Provincia": "Mendoza",
-  "Región": "",
-  "Tipo": "Vermut",
-  "Año": 2025,
-  "Precio": 24.49,
-  "url": "/es/vinos/la-fuerza-blanco.html"
-  "Imagen": "/images/small/la-fuerza-blanco.jpg"
-},
-{
-  "Nombre": "La Fuerza Primavera",
-  "Bodega": "La Fuerza Vermu",
-  "Provincia": "Mendoza",
-  "Región": "",
-  "Tipo": "Vermut",
-  "Año": 2025,
-  "Precio": 24.49,
-  "url": "/es/vinos/la-fuerza-primavera.html"
-  "Imagen": "/images/small/la-fuerza-primavera.jpg"
-},
-{
-  "Nombre": "La Fuerza Sideral",
-  "Bodega": "La Fuerza Vermu",
-  "Provincia": "Mendoza",
-  "Región": "",
-  "Tipo": "Vermut",
-  "Año": 2025,
-  "Precio": 29.99,
-  "url": "/es/vinos/la-fuerza-sideral.html"
-  "Imagen": "/images/small/la-fuerza-sideral.jpg"
-}
 ]
