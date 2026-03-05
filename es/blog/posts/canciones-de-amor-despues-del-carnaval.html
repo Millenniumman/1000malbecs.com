@@ -257,17 +257,19 @@
         }
 .horizontal-reel-container {
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 1rem 0;           /* opcional, para que no pegue arriba/abajo */
 }
 
 .horizontal-reel {
   display: flex;
+  flex-direction: row;       /* explícito, aunque por defecto es row */
   flex-wrap: nowrap;
-  overflow-x: auto;
   gap: 1.5rem;
-  padding: 1.5rem 0;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  /* Quita overflow-x de aquí, ya no lo necesita */
 }
 
 .horizontal-reel::-webkit-scrollbar {
