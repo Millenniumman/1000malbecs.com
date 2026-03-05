@@ -255,6 +255,105 @@
                 display: none !important; /* Ocultar logo en sidebar en móvil */
             }
         }
+        .horizontal-reel-container {
+  position: relative;
+}
+
+.horizontal-reel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.5rem;               /* espacio entre tarjetas */
+  padding: 1rem 0;
+  scroll-behavior: smooth;    /* scroll suave */
+  -webkit-overflow-scrolling: touch; /* mejor experiencia en iOS */
+}
+
+/* Ocultar scrollbar en algunos navegadores para look más limpio (opcional) */
+.horizontal-reel::-webkit-scrollbar {
+  height: 8px;
+}
+.horizontal-reel::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Tarjetas con ancho fijo para que queden uniformes */
+.product-card {
+  flex: 0 0 320px;           /* ancho fijo ~320px, ajusta según prefieras */
+  width: 320px;
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px); /* lift effect al hover/tap */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Overlay (posición absoluta sobre la imagen) */
+.product-card {
+  position: relative;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.info-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+.product-card:hover .overlay,
+.product-card:active .overlay {   /* :active ayuda en algunos mobile al tap prolongado */
+  opacity: 1;
+}
+
+/* En desktop mantenemos algo de grid si quieres (opcional) */
+@media (min-width: 992px) {
+  .horizontal-reel {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    justify-content: center;
+  }
+  .product-card {
+    flex: 0 0 30%;          /* ~3 por fila en lg */
+    max-width: 360px;
+  }
+}
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
