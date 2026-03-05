@@ -400,6 +400,41 @@
     justify-content: flex-start;
   }
 }
+        /* Ajustes para overlay más grande y cómodo */
+.img-wrapper {
+  position: relative;
+  min-height: 320px;         /* ← Aumentado de 260px a 320px (o 340px si querés más) */
+  background: #f8f9fa;
+  padding: 1.5rem 1rem 1rem;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: #4a268c;
+  color: white;
+  padding: 2.5rem 2rem;      /* ← Más padding: de 2rem 1.5rem → 2.5rem 2rem */
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;          /* Mantenemos por si acaso, pero con más espacio casi no se usa */
+  pointer-events: none;
+  z-index: 10;
+  font-size: 0.97rem;        /* ← Ligeramente más grande si querés (opcional) */
+  line-height: 1.6;          /* Mejor legibilidad */
+}
+
+/* Opcional: si querés que el overlay tenga más espacio en mobile */
+@media (max-width: 991.98px) {
+  .overlay {
+    padding: 2.2rem 1.8rem;
+  }
+  .img-wrapper {
+    min-height: 340px;
+  }
+}
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -469,7 +504,7 @@
                         <h3 class="h5 mb-2">Don David Reserve Malbec 2022</h3>
                         <p class="region fw-bold small mb-2">Salta – Valles Calchaquíes</p>
                         <p class="description small mb-4">Para recordar a ese amigo aventurero que te llevó a descubrir los viñedos más altos del mundo. Intenso, especiado, con fruta negra concentrada...</p>
-                        <a href="/vinos/don-david-reserve-malbec-2022.html" class="btn btn-primary btn-sm px-4">Ver y comprar</a>
+                        <a href="/vinos/don-david-reserve-malbec-2022.html" class="btn btn-primary btn-md px-5 fw-bold">Comprar</a>
                     </div>
                 </div> <!-- Cierra product-card -->
 
@@ -490,7 +525,7 @@
                         <h3 class="h5 mb-2">CHAÑARMUYO Estate Malbec 2021</h3>
                         <p class="region fw-bold small mb-2">La Rioja – Valle de Famatina</p>
                         <p class="description small mb-3">Para esa persona querida que siempre buscaba equilibrio y calidez en la vida. Redondo, jugoso...</p>
-                        <a href="/vinos/chanarmuyo-estate-malbec-2021.html" class="btn btn-primary btn-sm">Ver y comprar</a>
+                        <a href="/vinos/chanarmuyo-estate-malbec-2021.html" class="btn btn-primary btn-md px-5 fw-bold">Comprar</a>
                     </div>
                 </div> <!-- Cierra product-card -->
 
@@ -511,7 +546,7 @@
                         <h3>Caminante de los Mundos Malbec Bio 2021</h3>
                         <p class="region fw-bold">Mendoza – Gualtallari</p>
                         <p class="description small">Para el ser especial que te enseñó a apreciar la elegancia y la precisión. Fresco, tenso...</p>
-                        <a href="/vinos/caminante-de-los-mundos-malbec-bio-2021.html" class="btn btn-primary mt-3">Ver y comprar</a>
+                        <a href="/vinos/caminante-de-los-mundos-malbec-bio-2021.html" class="btn btn-primary btn-md px-5 fw-bold">Comprar</a>
                     </div>
                 </div> <!-- Cierra product-card -->
 
@@ -532,7 +567,7 @@
                         <h3>La Mascota Malbec 2022</h3>
                         <p class="region fw-bold">Mendoza – Maipú</p>
                         <p class="description small">Para esa figura icónica en tu vida: el confiable, el que nunca falla. Potente pero equilibrado...</p>
-                        <a href="/vinos/la-mascota-malbec-2022.html" class="btn btn-primary mt-3">Ver y comprar</a>
+                        <a href="/vinos/la-mascota-malbec-2022.html" class="btn btn-primary btn-md px-5 fw-bold">Comprar</a>
                     </div>
                 </div> <!-- Cierra product-card -->
 
@@ -553,7 +588,7 @@
                         <h3>Saurus Malbec 2023</h3>
                         <p class="region fw-bold">Patagonia – San Patricio del Chañar</p>
                         <p class="description small">Para recordar a quien te mostró la belleza de lo sutil y lo fresco. Elegante, mineral...</p>
-                        <a href="/vinos/saurus-malbec-2023.html" class="btn btn-primary mt-3">Ver y comprar</a>
+                        <a href="/vinos/saurus-malbec-2023.html" class="btn btn-primary btn-md px-5 fw-bold">Comprar</a>
                     </div>
                 </div> <!-- Cierra product-card -->
             </div> <!-- Cierra horizontal-reel -->
