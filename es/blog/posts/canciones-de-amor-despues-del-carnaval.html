@@ -265,94 +265,93 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 1.5rem;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
 .horizontal-reel::-webkit-scrollbar {
-  height: 8px;
+  height: 10px;
 }
 .horizontal-reel::-webkit-scrollbar-thumb {
   background: #adb5bd;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-/* Tarjeta */
+/* Tarjeta más alta para que quepa todo */
 .product-card {
-  flex: 0 0 280px;           /* ancho base – ajustado para fotos más grandes */
-  width: 280px;
+  flex: 0 0 300px;           /* un poco más ancho para comodidad */
+  width: 300px;
   background: white;
   border-radius: 1rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
 }
 
-/* Contenedor de imagen para limitar el overlay */
-.img-container {
+/* Contenedor de imagen + overlay */
+.img-wrapper {
   position: relative;
-  height: 220px;             /* espacio reservado para foto + overlay */
-  background: #f8f9fa;       /* fondo claro opcional */
+  min-height: 260px;         /* espacio suficiente para foto 200x200 + margen */
+  background: #f8f9fa;
+  padding: 1.5rem 1rem 1rem;
 }
 
-/* Imagen del vino – máximo 200x200 */
+/* Foto visible siempre */
 .wine-img {
   max-width: 200px;
   max-height: 200px;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  display: block;
 }
 
-/* Icono info */
+/* Icono i */
 .info-icon {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
   color: white;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  z-index: 15;
-  transition: background 0.2s;
+  z-index: 20;
+  transition: all 0.2s;
 }
 
 .product-card:hover .info-icon {
   background: #5a32a3;
+  transform: scale(1.1);
 }
 
-/* Overlay violeta oscuro – solo sobre la zona de imagen + título */
+/* Overlay violeta oscuro – ahora con más altura y scroll si hace falta */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 140px;             /* deja espacio abajo para título + botón (ajusta según necesites) */
-  background: #5a32a3;       /* violeta más oscuro */
+  inset: 0;                  /* cubre todo el img-wrapper */
+  background: #4a268c;       /* violeta más oscuro */
   color: white;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  justify-content: flex-start;
+  overflow-y: auto;          /* scroll interno si el texto es muy largo */
   pointer-events: none;
-  overflow-y: auto;
   z-index: 10;
 }
 
@@ -362,37 +361,41 @@
 }
 
 .overlay p {
-  margin: 0.5rem 0;
+  margin: 0.6rem 0;
   font-size: 0.95rem;
-  line-height: 1.45;
-  color: white;              /* forzado blanco */
+  line-height: 1.5;
+  color: white;
 }
 
 .overlay strong {
-  color: #f0e8ff;            /* blanco suave para resaltar */
+  color: #f8f5ff;
 }
 
-/* Contenido inferior (siempre visible) */
-.card-content {
+/* Contenido inferior – siempre visible, más espacio abajo */
+.card-body {
+  padding: 1.25rem 1.5rem 2rem;  /* más padding abajo para "estirar" la caja */
+  background: white;
   position: relative;
   z-index: 5;
-  background: white;
-  padding: 1rem 1.25rem 1.5rem;
 }
 
-/* Ajustes responsive */
+.card-body .description {
+  min-height: 3.5rem;  /* reserva espacio para descripciones más largas */
+}
+
+/* Responsive */
 @media (max-width: 991.98px) {
   .product-card {
-    flex: 0 0 300px;
+    flex: 0 0 320px;
+  }
+  .img-wrapper {
+    min-height: 280px;
   }
 }
 
 @media (min-width: 992px) {
   .horizontal-reel {
     justify-content: flex-start;
-  }
-  .product-card {
-    flex: 0 0 280px;
   }
 }
     </style>
@@ -442,7 +445,8 @@
 <p>Y eso me dispara el siguiente pensamiento: ciertamente uno puede asociar una canción a un determinado momento de su vida, porque la escuchamos y automáticamente estamos de vuelta en ese preciso lugar. Con los vinos también podemos tener el mismo tipo de conexión, porque al final del día, seguramente lo terminamos compartiendo con alguien. O tal vez fue un regalo que recibimos y entonces al abrir la botella, traemos el recuerdo de ese instante.</p>
 <p>Como además en <strong>1000malbecs.com</strong> tenemos Malbecs de las provincias argentinas, cada uno de ellos nos puede transportar a un determinado lugar donde vamos a poder recrear nuestra historia personal. Acá va un top 5 de propuestas. Cada uno puede armar obviamente la suya.</p>
 <p>5 Malbecs para recordar el amor</p> <br>
-                
+            </div>
+            </div>         
 <div class="horizontal-reel-container mb-5">
   <div class="horizontal-reel">
 
