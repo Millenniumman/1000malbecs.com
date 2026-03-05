@@ -257,102 +257,89 @@
         }
 .horizontal-reel-container {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* evita que se vea el scroll en algunos casos */
 }
 
 .horizontal-reel {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
+  gap: 1.25rem;
+  padding: 1rem 0;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
 .horizontal-reel::-webkit-scrollbar {
-  height: 10px;
+  height: 8px;
 }
 .horizontal-reel::-webkit-scrollbar-thumb {
   background: #adb5bd;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
-/* Tarjeta más alta para que quepa todo */
+/* Tarjeta base */
 .product-card {
-  flex: 0 0 300px;           /* un poco más ancho para comodidad */
-  width: 300px;
+  flex: 0 0 240px;          /* ancho base de cada tarjeta – ajusta si quieres más/menos */
+  width: 240px;
   background: white;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
 
-/* Contenedor de imagen + overlay */
-.img-wrapper {
-  position: relative;
-  min-height: 260px;         /* espacio suficiente para foto 200x200 + margen */
-  background: #f8f9fa;
-  padding: 1.5rem 1rem 1rem;
-}
-
-/* Foto visible siempre */
+/* Imagen del vino – máximo 80x80 */
 .wine-img {
-  max-width: 200px;
-  max-height: 200px;
-  width: auto;
-  height: auto;
+  max-width: 80px;
+  max-height: 80px;
   object-fit: contain;
-  margin: 0 auto;
-  display: block;
+  margin: 1rem auto 0.5rem;
 }
 
-/* Icono i */
+/* Icono de info */
 .info-icon {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(0,0,0,0.55);
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(0,0,0,0.5);
   color: white;
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
-  z-index: 20;
-  transition: all 0.2s;
+  z-index: 10;
+  transition: background 0.2s;
 }
 
 .product-card:hover .info-icon {
-  background: #5a32a3;
-  transform: scale(1.1);
+  background: rgba(111, 66, 193, 0.9); /* violeta al hover */
 }
 
-/* Overlay violeta oscuro – ahora con más altura y scroll si hace falta */
+/* Overlay violeta */
 .overlay {
   position: absolute;
-  inset: 0;                  /* cubre todo el img-wrapper */
-  background: #4a268c;       /* violeta más oscuro */
+  inset: 0;
+  background: #6f42c1;               /* violeta principal – puedes usar #5a32a3 o #7c5bbb */
   color: white;
-  padding: 2rem 1.5rem;
-  opacity: 0;
-  transition: opacity 0.35s ease;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  overflow-y: auto;          /* scroll interno si el texto es muy largo */
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
   pointer-events: none;
-  z-index: 10;
+  overflow-y: auto;
+  border-radius: 0.75rem;
 }
 
 .product-card:hover .overlay,
@@ -361,41 +348,29 @@
 }
 
 .overlay p {
-  margin: 0.6rem 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: white;
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .overlay strong {
-  color: #f8f5ff;
+  color: #e9ecef;
 }
 
-/* Contenido inferior – siempre visible, más espacio abajo */
-.card-body {
-  padding: 1.25rem 1.5rem 2rem;  /* más padding abajo para "estirar" la caja */
-  background: white;
-  position: relative;
-  z-index: 5;
-}
-
-.card-body .description {
-  min-height: 3.5rem;  /* reserva espacio para descripciones más largas */
-}
-
-/* Responsive */
+/* Ajustes mobile */
 @media (max-width: 991.98px) {
   .product-card {
-    flex: 0 0 320px;
-  }
-  .img-wrapper {
-    min-height: 280px;
+    flex: 0 0 280px;  /* un poco más ancho en mobile para mejor legibilidad */
   }
 }
 
+/* Desktop: forzamos fila única de 5 con scroll si es necesario */
 @media (min-width: 992px) {
   .horizontal-reel {
-    justify-content: flex-start;
+    justify-content: flex-start; /* alineado a la izquierda */
+  }
+  .product-card {
+    flex: 0 0 260px;  /* tamaño optimizado para 5 en pantallas grandes */
   }
 }
     </style>
