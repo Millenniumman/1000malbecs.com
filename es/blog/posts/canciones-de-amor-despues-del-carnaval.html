@@ -257,14 +257,14 @@
         }
 .horizontal-reel-container {
   position: relative;
-  overflow: hidden; /* evita que se vea el scroll en algunos casos */
+  overflow: hidden;
 }
 
 .horizontal-reel {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  gap: 1.25rem;
+  gap: 1.5rem;
   padding: 1rem 0;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -278,68 +278,82 @@
   border-radius: 4px;
 }
 
-/* Tarjeta base */
+/* Tarjeta */
 .product-card {
-  flex: 0 0 240px;          /* ancho base de cada tarjeta – ajusta si quieres más/menos */
-  width: 240px;
+  flex: 0 0 280px;           /* ancho base – ajustado para fotos más grandes */
+  width: 280px;
   background: white;
-  border-radius: 0.75rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
+  overflow: hidden;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* Imagen del vino – máximo 80x80 */
+/* Contenedor de imagen para limitar el overlay */
+.img-container {
+  position: relative;
+  height: 220px;             /* espacio reservado para foto + overlay */
+  background: #f8f9fa;       /* fondo claro opcional */
+}
+
+/* Imagen del vino – máximo 200x200 */
 .wine-img {
-  max-width: 80px;
-  max-height: 80px;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: contain;
-  margin: 1rem auto 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Icono de info */
+/* Icono info */
 .info-icon {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: 1rem;
+  right: 1rem;
   background: rgba(0,0,0,0.5);
   color: white;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  z-index: 10;
+  z-index: 15;
   transition: background 0.2s;
 }
 
 .product-card:hover .info-icon {
-  background: rgba(111, 66, 193, 0.9); /* violeta al hover */
+  background: #5a32a3;
 }
 
-/* Overlay violeta */
+/* Overlay violeta oscuro – solo sobre la zona de imagen + título */
 .overlay {
   position: absolute;
-  inset: 0;
-  background: #6f42c1;               /* violeta principal – puedes usar #5a32a3 o #7c5bbb */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 140px;             /* deja espacio abajo para título + botón (ajusta según necesites) */
+  background: #5a32a3;       /* violeta más oscuro */
   color: white;
-  padding: 1.25rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
   overflow-y: auto;
-  border-radius: 0.75rem;
+  z-index: 10;
 }
 
 .product-card:hover .overlay,
@@ -348,29 +362,37 @@
 }
 
 .overlay p {
-  margin: 0.4rem 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: white;              /* forzado blanco */
 }
 
 .overlay strong {
-  color: #e9ecef;
+  color: #f0e8ff;            /* blanco suave para resaltar */
 }
 
-/* Ajustes mobile */
+/* Contenido inferior (siempre visible) */
+.card-content {
+  position: relative;
+  z-index: 5;
+  background: white;
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+/* Ajustes responsive */
 @media (max-width: 991.98px) {
   .product-card {
-    flex: 0 0 280px;  /* un poco más ancho en mobile para mejor legibilidad */
+    flex: 0 0 300px;
   }
 }
 
-/* Desktop: forzamos fila única de 5 con scroll si es necesario */
 @media (min-width: 992px) {
   .horizontal-reel {
-    justify-content: flex-start; /* alineado a la izquierda */
+    justify-content: flex-start;
   }
   .product-card {
-    flex: 0 0 260px;  /* tamaño optimizado para 5 en pantallas grandes */
+    flex: 0 0 280px;
   }
 }
     </style>
