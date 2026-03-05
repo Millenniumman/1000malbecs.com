@@ -273,61 +273,83 @@
 .horizontal-reel::-webkit-scrollbar {
   height: 8px;
 }
+.horizontal-reel-container {
+  position: relative;
+  overflow: hidden; /* evita que se vea el scroll en algunos casos */
+}
+
+.horizontal-reel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-reel::-webkit-scrollbar {
+  height: 8px;
+}
 .horizontal-reel::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #adb5bd;
   border-radius: 4px;
 }
 
-/* Tarjetas con ancho fijo para que queden uniformes */
+/* Tarjeta base */
 .product-card {
-  flex: 0 0 320px;           /* ancho fijo ~320px, ajusta según prefieras */
-  width: 320px;
+  flex: 0 0 240px;          /* ancho base de cada tarjeta – ajusta si quieres más/menos */
+  width: 240px;
   background: white;
-  transition: transform 0.2s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-8px); /* lift effect al hover/tap */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* Overlay (posición absoluta sobre la imagen) */
-.product-card {
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 }
 
-.product-card img {
-  display: block;
-  width: 100%;
-  height: auto;
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
 
+/* Imagen del vino – máximo 80x80 */
+.wine-img {
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: contain;
+  margin: 1rem auto 0.5rem;
+}
+
+/* Icono de info */
 .info-icon {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0,0,0,0.6);
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(0,0,0,0.5);
   color: white;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
   z-index: 10;
+  transition: background 0.2s;
 }
 
+.product-card:hover .info-icon {
+  background: rgba(111, 66, 193, 0.9); /* violeta al hover */
+}
+
+/* Overlay violeta */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.75);
+  inset: 0;
+  background: #6f42c1;               /* violeta principal – puedes usar #5a32a3 o #7c5bbb */
   color: white;
-  padding: 1.5rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -335,23 +357,38 @@
   transition: opacity 0.25s ease;
   pointer-events: none;
   overflow-y: auto;
+  border-radius: 0.75rem;
 }
 
 .product-card:hover .overlay,
-.product-card:active .overlay {   /* :active ayuda en algunos mobile al tap prolongado */
+.product-card:active .overlay {
   opacity: 1;
 }
 
-/* En desktop mantenemos algo de grid si quieres (opcional) */
+.overlay p {
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.overlay strong {
+  color: #e9ecef;
+}
+
+/* Ajustes mobile */
+@media (max-width: 991.98px) {
+  .product-card {
+    flex: 0 0 280px;  /* un poco más ancho en mobile para mejor legibilidad */
+  }
+}
+
+/* Desktop: forzamos fila única de 5 con scroll si es necesario */
 @media (min-width: 992px) {
   .horizontal-reel {
-    flex-wrap: wrap;
-    overflow-x: visible;
-    justify-content: center;
+    justify-content: flex-start; /* alineado a la izquierda */
   }
   .product-card {
-    flex: 0 0 30%;          /* ~3 por fila en lg */
-    max-width: 360px;
+    flex: 0 0 260px;  /* tamaño optimizado para 5 en pantallas grandes */
   }
 }
     </style>
@@ -402,11 +439,12 @@
 <p>Como además en <strong>1000malbecs.com</strong> tenemos Malbecs de las provincias argentinas, cada uno de ellos nos puede transportar a un determinado lugar donde vamos a poder recrear nuestra historia personal. Acá va un top 5 de propuestas. Cada uno puede armar obviamente la suya.</p>
 <p>5 Malbecs para recordar el amor<div class="horizontal-reel-container mb-4">
 <br />
-<div class="horizontal-reel">
+<div class="horizontal-reel-container mb-5">
+  <div class="horizontal-reel">
 
 <!-- 1. Don David Reserve Malbec 2022 - Salta -->
-<div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="don-david-2022">
-  <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" class="img-fluid">
+<div class="product-card text-center shadow-sm border rounded overflow-hidden">
+  <img src="/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022" class="wine-img mx-auto d-block">
   <div class="info-icon">i</div>
   <div class="overlay">
     <p><strong>Provincia:</strong> Salta</p>
@@ -415,17 +453,18 @@
     <p><strong>Notas de Cata:</strong> Color rojo vivaz con destellos violáceos. Aromas a mermeladas de ciruelas, pasas, tabaco de pipa, vainilla y tostado. Equilibrado, taninos dulces y suaves, notas de frutas secas y tabaco. Largo y agradable final.</p>
     <p><strong>Descripción:</strong> Nace en los Valles Calchaquíes, homenaje a Don David, precursor de la vitivinicultura en Cafayate. Tributo a las raíces nobles y la tradición de El Esteco.</p>
   </div>
-  <div class="p-4">
-    <h3>Don David Reserve Malbec 2022</h3>
-    <p class="region fw-bold">Salta – Valles Calchaquíes</p>
-    <p class="description small">Para recordar a ese amigo aventurero que te llevó a descubrir los viñedos más altos del mundo. Intenso, especiado, con fruta negra concentrada...</p>
-    <a href="/vinos/don-david-reserve-malbec-2022.html" class="btn btn-primary mt-3">Ver y comprar</a>
+  <div class="p-3 pt-1">
+    <h3 class="h5 mb-2">Don David Reserve Malbec 2022</h3>
+    <p class="region fw-bold small mb-2">Salta – Valles Calchaquíes</p>
+    <p class="description small mb-3">Para recordar a ese amigo aventurero que te llevó a descubrir los viñedos más altos del mundo. Intenso, especiado...</p>
+    <a href="/vinos/don-david-reserve-malbec-2022.html" class="btn btn-primary btn-sm">Ver y comprar</a>
   </div>
 </div>
 
-<!-- 2. CHAÑARMUYO Estate Malbec 2021 - La Rioja -->
-<div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="chanarmuyo-2021">
-  <img src="/images/small/chanarmuyo-estate-malbec-2021.jpg" alt="CHAÑARMUYO Estate Malbec 2021" class="img-fluid">
+<!-- Repite la misma estructura para los otros 4 vinos, cambiando solo imagen, nombre, región, descripción y link -->
+<!-- 2. CHAÑARMUYO Estate Malbec 2021 -->
+<div class="product-card text-center shadow-sm border rounded overflow-hidden">
+  <img src="/images/small/chanarmuyo-estate-malbec-2021.jpg" alt="CHAÑARMUYO Estate Malbec 2021" class="wine-img mx-auto d-block">
   <div class="info-icon">i</div>
   <div class="overlay">
     <p><strong>Provincia:</strong> La Rioja</p>
@@ -434,17 +473,18 @@
     <p><strong>Notas de Cata:</strong> Aromas a frambuesa, mora, violetas y vainilla. Redondo, sabores a frutos rojos, cacao y pimienta. Taninos suaves, acidez equilibrada, final medio con fruta fresca.</p>
     <p><strong>Descripción:</strong> Frutal y versátil con toque de roble, refleja la calidad del terroir riojano. Ideal para carnes asadas, empanadas o quesos suaves.</p>
   </div>
-  <div class="p-4">
-    <h3>CHAÑARMUYO Estate Malbec 2021</h3>
-    <p class="region fw-bold">La Rioja – Valle de Famatina</p>
-    <p class="description small">Para esa persona querida que siempre buscaba equilibrio y calidez en la vida. Redondo, jugoso...</p>
-    <a href="/vinos/chanarmuyo-estate-malbec-2021.html" class="btn btn-primary mt-3">Ver y comprar</a>
+  <div class="p-3 pt-1">
+    <h3 class="h5 mb-2">CHAÑARMUYO Estate Malbec 2021</h3>
+    <p class="region fw-bold small mb-2">La Rioja – Valle de Famatina</p>
+    <p class="description small mb-3">Para esa persona querida que siempre buscaba equilibrio y calidez en la vida. Redondo, jugoso...</p>
+    <a href="/vinos/chanarmuyo-estate-malbec-2021.html" class="btn btn-primary btn-sm">Ver y comprar</a>
   </div>
 </div>
 
+
 <!-- 3. Caminante de los Mundos Malbec Bio 2021 - Mendoza -->
 <div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="caminante-2021">
-  <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Caminante de los Mundos Malbec Bio 2021" class="img-fluid">
+  <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Caminante de los Mundos Malbec Bio 2021"  class="wine-img mx-auto d-block">
   <div class="info-icon">i</div>
   <div class="overlay">
     <p><strong>Provincia:</strong> Mendoza</p>
@@ -453,7 +493,7 @@
     <p><strong>Notas de Cata:</strong> Aromas a mora, ciruela madura, violetas, vainilla y pimienta negra. Estructurado, frutos negros, especias dulces, chocolate. Taninos moderados, acidez equilibrada, final persistente con roble y mineralidad.</p>
     <p><strong>Descripción:</strong> 100% Orgánico, Vegano y Libre de Gluten. Lotes limitados, éticamente elaborado. Certificado ECOCERT. Para quienes aprecian la pureza y la naturaleza.</p>
   </div>
-  <div class="p-4">
+  <div class="p-3 pt-1">
     <h3>Caminante de los Mundos Malbec Bio 2021</h3>
     <p class="region fw-bold">Mendoza – Gualtallari</p>
     <p class="description small">Para el ser especial que te enseñó a apreciar la elegancia y la precisión. Fresco, tenso...</p>
@@ -463,7 +503,7 @@
 
 <!-- 4. La Mascota Malbec 2022 - Mendoza (clásico) -->
 <div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="mascota-2022">
-  <img src="/images/small/la-mascota-malbec-2022.jpg" alt="La Mascota Malbec 2022" class="img-fluid">
+  <img src="/images/small/la-mascota-malbec-2022.jpg" alt="La Mascota Malbec 2022"  class="wine-img mx-auto d-block">
   <div class="info-icon">i</div>
   <div class="overlay">
     <p><strong>Provincia:</strong> Mendoza</p>
@@ -472,7 +512,7 @@
     <p><strong>Notas de Cata:</strong> Frutas rojas y negras, toque de vainilla y especias. Taninos suaves, final equilibrado.</p>
     <p><strong>Descripción:</strong> Malbec frutado y versátil. Ideal para carnes rojas, pastas con salsa boloñesa.</p>
   </div>
-  <div class="p-4">
+  <<div class="p-3 pt-1">
     <h3>La Mascota Malbec 2022</h3>
     <p class="region fw-bold">Mendoza – Maipú</p>
     <p class="description small">Para esa figura icónica en tu vida: el confiable, el que nunca falla. Potente pero equilibrado...</p>
@@ -482,7 +522,7 @@
 
 <!-- 5. Saurus Malbec 2023 - Patagonia -->
 <div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="saurus-2023">
-  <img src="/images/small/saurus-malbec-2023.jpg" alt="Saurus Malbec 2023" class="img-fluid">
+  <img src="/images/small/saurus-malbec-2023.jpg" alt="Saurus Malbec 2023"  class="wine-img mx-auto d-block">
   <div class="info-icon">i</div>
   <div class="overlay">
     <p><strong>Provincia:</strong> Neuquén (Patagonia)</p>
@@ -491,7 +531,7 @@
     <p><strong>Notas de Cata:</strong> Aromas a frambuesa, cereza, pimienta blanca, matices herbales y vainilla. Ligero y jugoso, frutos rojos frescos, especias, cacao. Taninos suaves, acidez vibrante, final corto y limpio.</p>
     <p><strong>Descripción:</strong> Joven y frutal, frescura y expresión vibrante. Ideal para asados, pizzas o embutidos.</p>
   </div>
-  <div class="p-4">
+  <div class="p-3 pt-1">
     <h3>Saurus Malbec 2023</h3>
     <p class="region fw-bold">Patagonia – San Patricio del Chañar</p>
     <p class="description small">Para recordar a quien te mostró la belleza de lo sutil y lo fresco. Elegante, mineral...</p>
