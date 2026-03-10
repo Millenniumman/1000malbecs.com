@@ -713,11 +713,11 @@
         padding: 45px 18px 25px;
     }
 }
-/* Nuevos estilos para botones de pago */
+/* Estilos para botones de pago (sin backend) */
         .payment-section {
             text-align: center;
             margin: 40px 0;
-            padding: 20px;
+            padding: 25px;
             background: #f8f8f8;
             border-radius: 10px;
             max-width: 800px;
@@ -726,37 +726,31 @@
         }
         .payment-section h3 {
             color: #4A2C59;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-        .payment-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .payment-btn {
+        .pay-link, .paypal-button {
+            display: inline-block;
             background: #4A2C59;
             color: white;
             padding: 15px 35px;
             font-size: 18px;
-            border: none;
+            text-decoration: none;
             border-radius: 8px;
-            cursor: pointer;
+            margin: 15px;
             transition: all 0.3s;
             min-width: 280px;
         }
-        .payment-btn:hover {
+        .pay-link:hover, .paypal-button:hover {
             background: #3a1f45;
             transform: translateY(-2px);
         }
-        .paypal-container {
+        .paypal-button form {
             display: inline-block;
-            margin: 15px;
         }
         @media (max-width: 768px) {
-            .payment-buttons {
-                flex-direction: column;
-                gap: 20px;
+            .pay-link, .paypal-button {
+                display: block;
+                margin: 20px auto;
             }
         }
 </style>
@@ -879,14 +873,25 @@ Y es el nombre que representa nuestra visión de...</p>
     <div style="text-align: center;">
         <a href="https://wa.me/+4915158224728?text=Quiero%20ya%20mi%20Pack%20Discovery%20Malbec" class="combo-button">Quiero ya mi Pack Discovery Malbec</a>
     </div>
-       <!-- === SECCIÓN PACK DISCOVERY + BOTÓN DE COMPRA €42.99 === -->
-    <div class="buy-section">
+  <!-- === PACK DISCOVERY + BOTÓN DE COMPRA €42.99 (debajo del pack) === -->
+    <div class="payment-section">
         <h3>Pack Discovery Malbec – €42.99 (10% OFF)</h3>
         <p>Compra única – envío incluido en Alemania</p>
 
-        <div class="payment-options">
-            <button id="buy-pack-stripe" class="pay-btn">Pagar con Stripe</button>
-            <div id="paypal-pack" class="paypal-btn-container"></div>
+        <!-- Stripe Payment Link -->
+        <a href="https://buy.stripe.com/TU_LINK_PACK_4299_AQUÍ" class="pay-link" target="_blank">
+            Pagar con tarjeta (Stripe)
+        </a>
+
+        <!-- PayPal Buy Now Button (pega el HTML generado en PayPal) -->
+        <div class="paypal-button">
+            <!-- EJEMPLO: reemplaza con el código que genera PayPal para "Buy Now" €42.99 -->
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="TU_BUTTON_ID_PACK_AQUÍ">
+                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+            </form>
         </div>
     </div>
     <div class="subscription-presentation">
@@ -911,55 +916,30 @@ Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sor
         <a href="https://wa.me/+4915158224728?text=Quiero%20Suscribirme%20por%203%20meses" class="combo-button">Quiero Suscribirme por 3 meses</a>
     </div>
 
-    <!-- Botón de suscripción por 3 meses -->
-    <div class="subscribe-section">
-        <h3>Suscripción por 3 meses – €99.99 (28% OFF)</h3>
-        <div class="payment-options">
-            <button id="subscribe-3mes-stripe" class="pay-btn">Quiero suscribirme por 3 meses</button>
-            <div id="paypal-subscribe" class="paypal-btn-container"></div>
-        </div>
+   <!-- === SUSCRIPCIÓN 3 MESES + BOTÓN === -->
+    <div class="subscription-presentation">
+        <p><b>Suscribite y asegurate un descuento de 28%!</b><br>
+Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Pagá en 3 cuotas de EUR36.66 o un único pago de EUR99,99 (28% OFF)!</p>
     </div>
-    <div class="terms-container">
-        <h2>Términos y Condiciones – Oferta Discovery Package 1000 Malbecs</h2>
-        <p>Aquí te contamos todo lo que necesitas saber sobre nuestra oferta de combos y suscripciones. Léelo con calma, que esto no es un contrato de hipoteca, pero sí queremos que tengas todo clarito antes de que te lances a disfrutar de nuestros malbecs.<br><br>
-<b>¿Qué es el Discovery Package de 1000Malbecs.com?</b><br>
-Es tu pasaporte a descubrir malbecs espectaculares sin complicaciones. Cada mes, te enviamos tres botellas de malbecs seleccionados con cariño, acompañados de un díptico con historias, curiosidades y descripciones que te harán amar cada sorbo. No somos una tienda cualquiera, somos tus curadores de momentos vinícolas. Vas a recibir además un cupón con un descuento por si quieres comprar directamente un vino que te haya gustado o quieres probar otro que no esté en la lista. A los suscriptores los tratamos mejor.<br><br>
-<b>Opciones de compra</b><br>
-1. <b>Discovery Package (compra directa)</b><br>
-• Precio: EUR 42.99 (envío bonificado).<br>
-• Fuera de la oferta, el precio sería aproximadamente EUR 46.00 + envío.<br>
-• Recibes tres botellas de malbec únicas + nuestra guía para disfrutarlos mejor + un cupón con descuentos por si quieres probar otra cosa.<br>
-• Perfecto para probar sin compromiso.<br><br>
-2. <b>Suscripción de 3 meses</b><br>
-• Opción 1: Un pago mensual de EUR 36.99 (total: EUR 110.97 en 3 meses).<br>
-• Opción 2: Un pago único de EUR 99.99 (te ahorras unos euritos).<br>
-• Cada mes, tres botellas de malbec + la guía + el cupón de descuento.<br>
-• La suscripción se renueva automáticamente, pero puedes cancelarla en cualquier momento (más abajo te contamos cómo).<br><br>
-<b>¿Qué tipo de malbecs llegan en el combo?</b><br>
-• Vinos que nos gustan: malbecs con alma, elaborados por bodegueros que saben lo que hacen.<br>
-• Precio medio en el mercado: entre EUR 12-17 por botella.<br>
-• Botellas con diseños que entran por los ojos y sabores que te conquistan.<br>
-• No elegimos cualquier vino: solo los que nos harían brindar contigo en persona.<br><br>
-<b>¿Puedo elegir los vinos?</b><br>
-No, reina mora. Esto va de sorprenderte. Nosotros buscamos, catamos y seleccionamos los mejores malbecs para que tú solo disfrutes. Si quieres repetir un vino, avísanos, pero muchos son ediciones limitadas, así que no prometemos milagros.<br><br>
-<b>Cancelación de la suscripción</b><br>
-• Puedes cancelar cuando quieras, pero los 3 meses de la suscripción están comprometidos. Por ejemplo, si te suscribes en junio, la cancelación aplica a partir de septiembre.<br>
-• Para cancelar, nos mandás un mail o un WhatsApp. Fácil y sin dramas.<br><br>
-<b>Envíos</b><br>
-• Discovery Package: Envío bonificado en toda Alemania.<br>
-• Suscripción: Envío incluido en el precio.<br>
-• Si estás de vacaciones o quieres enviar el combo a otra dirección, avísanos y lo organizamos.<br>
-• ¿Problemas con el envío? Escríbenos y lo solucionamos rapidito, como las tiendas online que nos gustan.<br><br>
-<b>¿Y si no me gusta?</b><br>
-Te va a gustar, confía. Pero si algo no te convence, contáctanos y lo hablamos. Queremos que cada botella sea una fiesta.<br><br>
-<b>Datos importantes</b><br>
-• La renovación de la suscripción es automática. Si no quieres continuar, cancela antes de que se renueve el próximo ciclo.<br>
-• Los precios incluyen impuestos, pero no cubren posibles tasas aduaneras si estás fuera de la UE.<br>
-• Nos reservamos el derecho de modificar estos términos, pero te avisaremos con tiempo.<br><br>
-<b>¿Listos para unirse a la aventura del malbec?</b><br>
-Anotate y descubre por qué 1000 Malbecs es más que vino: es una experiencia.<br><br>
-<b>¡Salud!</b><br>
-Equipo 1000 Malbecs</p>
+
+    <div class="payment-section">
+        <h3>Suscripción por 3 meses – €99.99 (28% OFF)</h3>
+
+        <!-- Stripe Payment Link para suscripción -->
+        <a href="https://buy.stripe.com/TU_LINK_SUSCRIPCION_9999_AQUÍ" class="pay-link" target="_blank">
+            Quiero suscribirme por 3 meses (Stripe)
+        </a>
+
+        <!-- PayPal Subscribe Button (pega el HTML generado en PayPal para suscripción) -->
+        <div class="paypal-button">
+            <!-- EJEMPLO: reemplaza con el código que genera PayPal para "Subscribe" -->
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="TU_BUTTON_ID_SUSCRIPCION_AQUÍ">
+                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
     </div>
     
     
