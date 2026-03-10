@@ -202,7 +202,7 @@
             position: relative;
             overflow: visible;
             max-width: 250px;
-            min-height: 360px;
+            min-height: 480px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -237,33 +237,73 @@
             pointer-events: auto;
         }
         .overlay {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            max-height: 150px;
-            background-color: rgba(74, 44, 89, 0.8) !important;
-            color: #FFFFFF;
-            padding: 40px 10px 10px 10px;
-            box-sizing: border-box;
-            font-size: 12px;
-            overflow-y: auto;
-            z-index: 6;
-            pointer-events: none;
-        }
-        .overlay p {
-            margin: 2px 0;
-            color: #FFFFFF !important;
-            visibility: visible !important;
-            text-align: left;
-        }
-        .product-card:hover .overlay {
-            display: block;
-        }
-        .product-card .overlay.active {
-            display: block !important;
-        }
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;               /* ← ocupa toda la tarjeta */
+    background-color: rgba(74, 44, 89, 0.92) !important;
+    color: #FFFFFF;
+    padding: 60px 25px 40px 25px;  /* más espacio arriba y lados */
+    box-sizing: border-box;
+    font-size: 14px;             /* texto más legible */
+    line-height: 1.5;
+    overflow-y: auto;
+    z-index: 8;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+.overlay p {
+    margin: 10px 0;
+}
+
+.description, .tasting-notes {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.4);
+}
+
+.description p:first-child,
+.tasting-notes p:first-child {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Ajuste tarjetas para que tengan más altura y quepa todo */
+.product-card {
+    min-height: 600px !important;   /* ← más alto para dar espacio */
+    padding: 25px 18px;
+}
+
+.product-card img {
+    width: 230px;
+    height: 230px;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    min-height: 55px;
+    line-height: 1.3;
+}
+
+/* Mobile: ajustamos para que siga legible */
+@media (max-width: 768px) {
+    .overlay {
+        padding: 50px 20px 30px;
+        font-size: 13.5px;
+    }
+    .product-card {
+        min-height: 480px;
+    }
+    .product-card img {
+        width: 180px;
+        height: 180px;
+    }
+}
         .product-card h3, .month-label {
             font-size: 16px;
             margin: 10px 0;
@@ -637,6 +677,44 @@
             margin-bottom: 10px;
         }
     }
+    /* Tarjeta más alta (agrandamos solo la parte visible) */
+.product-card {
+    min-height: 480px !important;   /* ← antes era ~360–420px, subilo a 480–520px según necesites */
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Overlay: ocupa toda la tarjeta, pero con scroll si el contenido es muy largo */
+.overlay {
+    height: 80%;                   /* sigue ocupando todo */
+    max-height: 80%;               /* no crece más allá de la tarjeta */
+    overflow-y: auto;               /* scroll vertical si no cabe */
+    padding: 50px 22px 30px 22px;
+    background-color: rgba(74, 44, 89, 0.92);
+    font-size: 13.8px;
+    line-height: 1.55;
+}
+
+/* Aseguramos que descripción y notas no empujen demasiado */
+.description, .tasting-notes {
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.35);
+    max-height: 40%;                /* ← limita cada sección a 40% del overlay */
+    overflow: hidden;               /* evita que crezcan descontroladamente */
+}
+
+/* En móvil, ajustamos para no romper */
+@media (max-width: 768px) {
+    .product-card {
+        min-height: 420px;          /* un poco menos en móvil */
+    }
+    .overlay {
+        padding: 45px 18px 25px;
+    }
+}
 </style>
 </head>
 <body>
@@ -701,41 +779,56 @@ Lassen Sie sich diese einzigartige Gelegenheit nicht entgehen, drei der ikonisch
                 <p><strong>Provinz:</strong> Mendoza</p>
                 <p><strong>Region:</strong> Tupungato</p>
                 <p><strong>Höhe:</strong> 1000,0</p>
-                <p><strong>Jahrgang:</strong> 2021.0</p>
-            </div>
+            <p><strong>Jahrgang:</strong> 2021</p>
+            <p><strong>Descripción:</strong></p>
+            <p>Dilema Day Malbec ist ein junger und vielseitiger Rotwein von Dilema Wines, der sich ohne...</p>
+            <p><strong>Notas de cata y maridaje:</strong></p>
+            <p>In der Nase präsentiert er Aromen von Kirsche, Himbeere und einem Hauch Veilchen, mit...</p>
+         </div>
             <h3>Dilema Day Malbec 2021</h3>
             <p class="price">13.09</p>
             <a href="/de/vinos/dilema-day-malbec-2021.html" class="buy-button">Details anzeigen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="caminante-de-los-mundos-blend-bio-2021">
-            <img src="/images/small/caminante-de-los-mundos-blend-bio-2021.jpg" alt="Weingut CAMINANTE DE LOS MUNDOS Blend bio 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="caminante-de-los-mundos-blend-bio-2021">🍷</div>
-            <div class="overlay" data-overlay-id="caminante-de-los-mundos-blend-bio-2021">
+        <div class="product-card" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
+            <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Weingut Caminante de los Mundos Malbec Bio 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">🍷</div>
+            <div class="overlay" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
                 <p><strong>Weingut:</strong> Jasmin Monet</p>
                 <p><strong>Provinz:</strong> Mendoza</p>
-                <p><strong>Region:</strong> Tupungato</p>
-                <p><strong>Höhe:</strong> 1250,0</p>
-                <p><strong>Jahrgang:</strong> 2021.0</p>
-            </div>
-            <h3>CAMINANTE DE LOS MUNDOS Blend bio 2021</h3>
-            <p class="price">14.69</p>
-            <a href="/de/vinos/caminante-de-los-mundos-blend-bio-2021.html" class="buy-button">Details anzeigen</a>
+                <p><strong>Region:</strong> Gualtalari</p>
+                <p><strong>Höhe:</strong> 1000,0</p>
+            <p><strong>Jahrgang:</strong> 2021</p>
+            <p><strong>Descripción:</strong></p>
+            <p>„CAMINANTE DE LOS MUNDOS produziert exklusive Weine, 100 % biologisch, vegan und glutenfrei....</p>
+            <p><strong>Notas de cata y maridaje:</strong></p>
+            <p>In der Nase bietet er Aromen von Brombeeren, reifen Pflaumen und Veilchen mit Noten von Vanille und...</p>
+         </div>
+            <h3>Caminante de los Mundos Malbec Bio 2021</h3>
+            <p class="price">18.19</p>
+            <a href="/de/vinos/caminante-de-los-mundos-malbec-bio-2021.html" class="buy-button">Details anzeigen</a>
         </div>
         
-        <div class="product-card" data-overlay-id="chakana-nuna-rose-bio-2022">
-            <img src="/images/small/chakana-nuna-rose-2022.jpg" alt="Weingut Chakana Nuna Rose bio 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="chakana-nuna-rose-bio-2022">🍷</div>
-            <div class="overlay" data-overlay-id="chakana-nuna-rose-bio-2022">
+        <div class="product-card" data-overlay-id="chakana-nuna-rose-2022">
+            <img src="/images/small/chakana-nuna-rose-2022.jpg" alt="Weingut CHAKANA Nuna Rose 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <div class="info-icon" data-overlay-id="chakana-nuna-rose-2022">🍷</div>
+            <div class="overlay" data-overlay-id="chakana-nuna-rose-2022">
                 <p><strong>Weingut:</strong> Einzelhandel</p>
                 <p><strong>Provinz:</strong> Mendoza</p>
                 <p><strong>Region:</strong> Lujan de Cuyo</p>
                 <p><strong>Höhe:</strong> 960,0</p>
-                <p><strong>Jahrgang:</strong> 2022.0</p>
-            </div>
-            <h3>Chakana Nuna Rose bio 2022</h3>
+            <p><strong>Jahrgang:</strong> 2022</p>
+            <p><strong>Descripción:</strong></p>
+            <p>NUNA
+Auf Quechua bedeutet es „Geist der Erde“.
+
+Und es ist der Name, der unsere Vision der...</p>
+            <p><strong>Notas de cata y maridaje:</strong></p>
+            <p>Für diesen Rosé de Noir ernten wir Malbec, Tannat und Syrah bei jeder Ernte früh in unserem...</p>
+         </div>
+            <h3>CHAKANA Nuna Rose 2022</h3>
             <p class="price">19.99</p>
-            <a href="/de/vinos/chakana-nuna-rose-bio-2022.html" class="buy-button">Details anzeigen</a>
+            <a href="/de/vinos/chakana-nuna-rose-2022.html" class="buy-button">Details anzeigen</a>
         </div>
         
     </div>
@@ -748,16 +841,16 @@ Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschu
     </div>
     <div class="subscription-grid">
         <div class="subscription-item">
-            <img src="/images/combo-1.jpg" alt="Januar Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">Januar</p>
-        </div>
-        <div class="subscription-item">
-            <img src="/images/combo-2.jpg" alt="Februar Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">Februar</p>
-        </div>
-        <div class="subscription-item">
-            <img src="/images/combo-3.jpg" alt="März Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <img src="/images/combo-1.jpg" alt="März Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
             <p class="month-label">März</p>
+        </div>
+        <div class="subscription-item">
+            <img src="/images/combo-2.jpg" alt="April Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">April</p>
+        </div>
+        <div class="subscription-item">
+            <img src="/images/combo-3.jpg" alt="Mai Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Mai</p>
         </div>
     </div>
     <div style="text-align: center;">
