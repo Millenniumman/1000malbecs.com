@@ -753,6 +753,44 @@
                 margin: 20px auto;
             }
         }
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.pay-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #4A2C59;
+    color: white;
+    padding: 20px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+.pay-option:hover {
+    background: #3a1f45;
+    transform: translateY(-3px);
+}
+.pay-option i {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.whatsapp { background: #25D366; }
+.email    { background: #4285F4; }
+.stripe   { background: #635BFF; }
+.paypal   { background: #FFC107; color: #000; }
+.paypal form { width: 100%; text-align: center; }
+@media (max-width: 768px) {
+    .payment-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 <body>
@@ -870,30 +908,42 @@ Y es el nombre que representa nuestra visión de...</p>
         </div>
         
     </div>
-    <div style="text-align: center;">
-        <a href="https://wa.me/+4915158224728?text=Quiero%20ya%20mi%20Pack%20Discovery%20Malbec" class="combo-button">Quiero ya mi Pack Discovery Malbec</a>
-    </div>
-  <!-- === PACK DISCOVERY + BOTÓN DE COMPRA €42.99 (debajo del pack) === -->
-    <div class="payment-section">
-        <h3>Pack Discovery Malbec – €42.99 (10% OFF)</h3>
-        <p>Compra única – envío incluido en Alemania</p>
+   <!-- === CAJA CON 4 OPCIONES – PACK DISCOVERY === -->
+<div class="payment-section">
+    <h3>Pack Discovery Malbec – €42.99 (10% OFF)</h3>
+    <p>Compra única – envío incluido en Alemania</p>
 
-        <!-- Stripe Payment Link -->
-        <a href="https://buy.stripe.com/TU_LINK_PACK_4299_AQUÍ" class="pay-link" target="_blank">
+    <div class="payment-grid">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/+4915158224728?text=Quiero%20comprar%20el%20Pack%20Discovery%20Malbec%20por%20EUR%2042.99" class="pay-option whatsapp">
+            <i class="fab fa-whatsapp"></i><br>
+            Comprar por WhatsApp
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:ventas@1000malbecs.com?subject=Compra%20Pack%20Discovery%20Malbec&body=Hola,%20quiero%20comprar%20el%20Pack%20Discovery%20Malbec%20por%20EUR%2042.99.%20Mi%20nombre%20es..." class="pay-option email">
+            <i class="fas fa-envelope"></i><br>
+            Comprar por email
+        </a>
+
+        <!-- Stripe -->
+        <a href="https://buy.stripe.com/TU_LINK_PACK_4299_AQUÍ" target="_blank" class="pay-option stripe">
+            <i class="fas fa-credit-card"></i><br>
             Pagar con tarjeta (Stripe)
         </a>
 
-        <!-- PayPal Buy Now Button (pega el HTML generado en PayPal) -->
-        <div class="paypal-button">
-            <!-- EJEMPLO: reemplaza con el código que genera PayPal para "Buy Now" €42.99 -->
+        <!-- PayPal -->
+        <div class="pay-option paypal">
+            <!-- Reemplaza con tu botón PayPal Buy Now generado -->
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="TU_BUTTON_ID_PACK_AQUÍ">
-                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal">
                 <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
             </form>
         </div>
     </div>
+</div>
     <div class="subscription-presentation">
         <p><b>Suscribite y asegurate un descuento de 28%!</b><br>
 Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Pagá en 3 cuotas de EUR36.66 o un único pago de EUR99,99 (28% OFF)!</p>
@@ -916,31 +966,41 @@ Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sor
         <a href="https://wa.me/+4915158224728?text=Quiero%20Suscribirme%20por%203%20meses" class="combo-button">Quiero Suscribirme por 3 meses</a>
     </div>
 
-   <!-- === SUSCRIPCIÓN 3 MESES + BOTÓN === -->
-    <div class="subscription-presentation">
-        <p><b>Suscribite y asegurate un descuento de 28%!</b><br>
-Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sorpresa. Pagá en 3 cuotas de EUR36.66 o un único pago de EUR99,99 (28% OFF)!</p>
-    </div>
+  <!-- === CAJA CON 4 OPCIONES – SUSCRIPCIÓN 3 MESES === -->
+<div class="payment-section">
+    <h3>Suscripción por 3 meses – €99.99 (28% OFF)</h3>
 
-    <div class="payment-section">
-        <h3>Suscripción por 3 meses – €99.99 (28% OFF)</h3>
-
-        <!-- Stripe Payment Link para suscripción -->
-        <a href="https://buy.stripe.com/TU_LINK_SUSCRIPCION_9999_AQUÍ" class="pay-link" target="_blank">
-            Quiero suscribirme por 3 meses (Stripe)
+    <div class="payment-grid">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/+4915158224728?text=Quiero%20suscribirme%20por%203%20meses%20al%20plan%20de%20EUR%2099.99" class="pay-option whatsapp">
+            <i class="fab fa-whatsapp"></i><br>
+            Suscribirme por WhatsApp
         </a>
 
-        <!-- PayPal Subscribe Button (pega el HTML generado en PayPal para suscripción) -->
-        <div class="paypal-button">
-            <!-- EJEMPLO: reemplaza con el código que genera PayPal para "Subscribe" -->
+        <!-- Email -->
+        <a href="mailto:ventas@1000malbecs.com?subject=Suscripción%203%20meses&body=Hola,%20quiero%20suscribirme%20al%20plan%20de%203%20meses%20por%20EUR%2099.99.%20Mi%20nombre%20es..." class="pay-option email">
+            <i class="fas fa-envelope"></i><br>
+            Suscribirme por email
+        </a>
+
+        <!-- Stripe -->
+        <a href="https://buy.stripe.com/TU_LINK_SUSCRIPCION_9999_AQUÍ" target="_blank" class="pay-option stripe">
+            <i class="fas fa-credit-card"></i><br>
+            Suscribirme con Stripe
+        </a>
+
+        <!-- PayPal -->
+        <div class="pay-option paypal">
+            <!-- Reemplaza con tu botón PayPal Subscribe generado -->
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="TU_BUTTON_ID_SUSCRIPCION_AQUÍ">
-                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal">
                 <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
             </form>
         </div>
     </div>
+</div>
     
     
 </main>
