@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Lounge de los 1000 Malbecs • Exclusivo para amantes del Malbec</title>
+  <meta name="description" content="Un espacio privado para apasionados del Malbec. Registrate gratis y accedé a catas exclusivas, descuentos únicos y envíos curados."/>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-malbec: #4A0E0E;
+      --color-wine: #8B0000;
+      --color-gold: #D4AF37;
+      --color-dark: #1A1A1A;
+      --color-light: #f8f5f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--color-dark);
+      color: var(--color-light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .hero {
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(26,26,26,0.65), rgba(26,26,26,0.75)),
+                  url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      margin-bottom: 1.2rem;
+      color: white;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    }
+
+    .hero p {
+      font-size: clamp(1.25rem, 4vw, 1.6rem);
+      margin-bottom: 2.5rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.6rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-dark);
+      border: 2px solid var(--color-gold);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--color-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      margin-left: 1.5rem;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--color-dark);
+    }
+
+    .age-gate {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .age-modal {
+      background: #111;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      border: 1px solid var(--color-gold);
+    }
+
+    .age-modal h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-gold);
+    }
+
+    .age-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .age-btn {
+      padding: 1.1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .age-yes {
+      background: var(--color-gold);
+      color: #111;
+      font-weight: bold;
+    }
+
+    .age-no {
+      background: transparent;
+      color: #ccc;
+      border: 1px solid #666;
+    }
+
+    .age-no:hover {
+      background: #222;
+    }
+
+    /* Sección beneficios */
+    .benefits {
+      padding: 6rem 1.5rem;
+      background: #0f0f0f;
+      text-align: center;
+    }
+
+    .benefits h2 {
+      font-size: 3.2rem;
+      margin-bottom: 3.5rem;
+      color: var(--color-gold);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      padding: 2.5rem 1.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.12);
+      transition: all 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      border-color: var(--color-gold);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      margin: 1.2rem 0 1rem;
+      color: var(--color-gold);
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 1.5rem 2rem;
+      background: #000;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #888;
+    }
+
+    @media (max-width: 640px) {
+      .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>El Lounge de los 1000 Malbecs</h1>
+      <p>Un espacio exclusivo para verdaderos apasionados del Malbec.<br>Registrate gratis y descubrí catas privadas, descuentos únicos y envíos curados.</p>
+      
+      <div>
+        <button class="btn btn-primary" id="joinBtn">Unirme al Lounge GRATIS</button>
+        <a href="/es/login" class="btn btn-secondary">Ya soy miembro → Iniciar sesión</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Age Gate Modal -->
+  <div class="age-gate" id="ageGate">
+    <div class="age-modal">
+      <h2>¿Tenés más de 18 años?</h2>
+      <p>Este contenido es exclusivo para mayores de edad.</p>
+      
+      <div class="age-buttons">
+        <button class="age-btn age-yes" id="ageYes">Sí, tengo +18</button>
+        <button class="age-btn age-no" id="ageNo">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beneficios -->
+  <section class="benefits">
+    <h2>¿Qué vas a encontrar en el Lounge?</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Catas exclusivas</h3>
+        <p>Catas virtuales y presenciales solo para miembros.</p>
+      </div>
+      <div class="card">
+        <h3>Descuentos especiales</h3>
+        <p>Ofertas únicas en Malbecs de autor y ediciones limitadas.</p>
+      </div>
+      <div class="card">
+        <h3>Recomendaciones personalizadas</h3>
+        <p>Descubrí vinos que realmente van con tu paladar.</p>
+      </div>
+      <div class="card">
+        <h3>Eventos privados</h3>
+        <p>Charlas con enólogos, verticales y más.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 1000 Malbecs • Celebrando el Malbec argentino</p>
+    <p><a href="/es/terminos" style="color:#aaa;">Términos</a> • <a href="/es/privacidad" style="color:#aaa;">Privacidad</a></p>
+  </footer>
+
+  <script>
+    const joinBtn = document.getElementById('joinBtn');
+    const ageGate = document.getElementById('ageGate');
+    const ageYes = document.getElementById('ageYes');
+    const ageNo = document.getElementById('ageNo');
+
+    // Mostrar age gate al clickear unirse
+    joinBtn.addEventListener('click', () => {
+      ageGate.style.display = 'flex';
+    });
+
+    // Aceptar → redirigir al registro (cambia la URL según tu estructura)
+    ageYes.addEventListener('click', () => {
+      window.location.href = '/es/registro';
+    });
+
+    // Rechazar → redirigir a google o página segura
+    ageNo.addEventListener('click', () => {
+      window.location.href = 'https://www.argentina.gob.ar/salud/consumoresponsable';
+    });
+
+    // Opcional: cerrar modal con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && ageGate.style.display === 'flex') {
+        ageGate.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
