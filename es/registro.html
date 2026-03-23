@@ -37,9 +37,11 @@
   <p id="mensaje" class="error"></p>
 
   <script>
-    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';  // ← CAMBIA por tu Supabase URL (en Dashboard → Settings → API)
-    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';  // ← Copia la anon public key del mismo lugar
-    const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
+    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';  // tu URL real
+    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';  // tu publishable key
+
+    // ← CAMBIO IMPORTANTE: renombramos a 'sb' para evitar conflicto
+    const sb = Supabase.createClient(supabaseUrl, supabaseKey);
 
     document.getElementById('registroForm').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -62,7 +64,7 @@
         return;
       }
 
-      const { data, error } = await supabase.auth.signUp({
+      const { data, error } = await sb.auth.signUp({  // ← Cambiado 'supabase' → 'sb'
         email,
         password,
         options: {
