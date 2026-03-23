@@ -14,110 +14,121 @@
       --light: #f8f5f2;
       --gray: #444;
     }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Montserrat', sans-serif;
       background: var(--malbec-dark);
       color: var(--light);
-      margin: 0;
-      padding: 0;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 120px 20px 40px;  /* ← Espacio superior para barra nav fija (ajusta según tu nav) */
     }
     .container {
-      max-width: 480px;
-      width: 90%;
-      padding: 3rem 2rem;
-      background: rgba(26, 15, 15, 0.85);
-      border-radius: 16px;
-      border: 1px solid rgba(212, 175, 55, 0.15);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
+      max-width: 520px;
+      width: 100%;
+      padding: 3.5rem 2.5rem;
+      background: rgba(26, 15, 15, 0.88);
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
     }
     h1 {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       color: var(--gold);
       text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      font-size: 3rem;
+      letter-spacing: 1px;
     }
     .subtitle {
       text-align: center;
       color: #ccc;
-      margin-bottom: 2.5rem;
-      font-size: 1.1rem;
+      margin-bottom: 2.8rem;
+      font-size: 1.15rem;
+      line-height: 1.5;
     }
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.4rem;
+      gap: 1.6rem;
     }
     label {
       font-weight: 500;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
       display: block;
       color: #ddd;
+      font-size: 0.95rem;
     }
     input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
-      padding: 1rem 1.2rem;
-      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      border-radius: 12px;
       border: 1px solid var(--gray);
       background: #111;
       color: white;
       font-size: 1rem;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
     input:focus {
       outline: none;
       border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
     }
     .checkbox-group {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
-      font-size: 0.95rem;
-      color: #ccc;
+      gap: 1rem;
+      font-size: 0.98rem;
+      color: #ddd;
     }
     .checkbox-group label {
       display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      align-items: flex-start;
+      gap: 0.8rem;
       cursor: pointer;
+      line-height: 1.4;
     }
     button {
-      margin-top: 1.5rem;
-      padding: 1.2rem;
+      margin-top: 2rem;
+      padding: 1.3rem;
       background: var(--gold);
       color: var(--malbec-dark);
       border: none;
       border-radius: 50px;
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
     button:hover {
       background: #e0c04a;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(212,175,55,0.35);
     }
     .mensaje {
       text-align: center;
-      margin-top: 1.5rem;
+      margin-top: 1.8rem;
       font-weight: 500;
+      font-size: 1.05rem;
     }
-    .error { color: #ff6b6b; }
+    .error { color: #ff8a8a; }
     .success { color: #a8e6cf; }
+
+    @media (max-width: 640px) {
+      body { padding-top: 100px; }  /* menos espacio en mobile si la nav es más chica */
+      .container { padding: 2.5rem 1.8rem; }
+      h1 { font-size: 2.4rem; }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h1>Unite al Lounge</h1>
-    <p class="subtitle">Registrate gratis y accedé a descuentos exclusivos, recomendaciones a medida y catas únicas.</p>
+    <p class="subtitle">Registrate gratis y descubrí un mundo exclusivo de Malbecs, catas privadas y descuentos únicos.</p>
 
     <form id="registroForm">
       <div>
@@ -142,8 +153,8 @@
       </div>
 
       <div class="checkbox-group">
-        <label><input type="checkbox" required> Acepto los <a href="/terminos" style="color:var(--gold);">Términos y Condiciones</a></label>
-        <label><input type="checkbox" required> Acepto la <a href="/privacidad" style="color:var(--gold);">Política de Privacidad</a></label>
+        <label><input type="checkbox" required> Acepto los <a href="/es/terminos" style="color:var(--gold);">Términos y Condiciones</a></label>
+        <label><input type="checkbox" required> Acepto la <a href="/es/privacidad" style="color:var(--gold);">Política de Privacidad</a></label>
         <label><input type="checkbox"> Quiero recibir novedades, ofertas y catas exclusivas</label>
       </div>
 
