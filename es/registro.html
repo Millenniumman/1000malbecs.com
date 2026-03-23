@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro Lounge 1000 Malbecs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background: #1A1A1A; color: #f8f5f2; padding: 2rem; max-width: 500px; margin: auto; }
+    h1 { font-family: 'Playfair Display', serif; color: #D4AF37; text-align: center; }
+    form { display: flex; flex-direction: column; gap: 1.2rem; }
+    input, select { padding: 1rem; border-radius: 8px; border: 1px solid #444; background: #222; color: white; }
+    button { background: #D4AF37; color: #1A1A1A; padding: 1rem; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+    .error { color: #ff6b6b; text-align: center; }
+    .success { color: #90ee90; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Unite al Lounge</h1>
+
+  <form id="registroForm">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="text" id="apellido" placeholder="Apellido" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Contraseña (mín 8 caracteres)" required minlength="8">
+    <input type="date" id="nacimiento" required>
+    <label><input type="checkbox" required> Acepto Términos y Condiciones</label>
+    <label><input type="checkbox" required> Acepto Política de Privacidad</label>
+    <label><input type="checkbox"> Quiero recibir novedades y ofertas</label>
+
+    <button type="submit">Registrarme GRATIS</button>
+  </form>
+
+  <p id="mensaje" class="error"></p>
+
+  <script>
+    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';  // ← CAMBIA por tu Supabase URL (en Dashboard → Settings → API)
+    const supabaseKey = 'TU_ANON_PUBLIC_KEY';  // ← Copia la anon public key del mismo lugar
+    const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
+
+    document.getElementById('registroForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const mensaje = document.getElementById('mensaje');
+      mensaje.textContent = '';
+
+      const nombre = document.getElementById('nombre').value;
+      const apellido = document.getElementById('apellido').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const nacimiento = document.getElementById('nacimiento').value;
+
+      // Validar edad +18
+      const hoy = new Date();
+      const fechaNac = new Date(nacimiento);
+      let edad = hoy.getFullYear() - fechaNac.getFullYear();
+      if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
+      if (edad < 18) {
+        mensaje.textContent = 'Debes tener al menos 18 años.';
+        return;
+      }
+
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { nombre, apellido, nacimiento },  // metadata extra
+          emailRedirectTo: 'https://1000malbecs.com/es/bienvenido'  // página después de confirmar
+        }
+      });
+
+      if (error) {
+        mensaje.textContent = error.message.includes('duplicate') ? 'El email ya está registrado.' : error.message;
+      } else {
+        mensaje.className = 'success';
+        mensaje.textContent = '¡Listo! Te enviamos un email de confirmación. Revisá tu casilla (y spam).';
+      }
+    });
+  </script>
+
+</body>
+</html>
