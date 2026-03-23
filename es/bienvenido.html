@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bienvenido al Lounge 1000 Malbecs</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background: #1A1A1A; color: #f8f5f2; text-align: center; padding: 4rem; }
+    h1 { color: #D4AF37; font-family: 'Playfair Display', serif; }
+    p { font-size: 1.2rem; max-width: 600px; margin: 2rem auto; }
+  </style>
+</head>
+<body>
+
+  <h1>¡Bienvenido al Lounge!</h1>
+  <p>Tu email ha sido confirmado correctamente.<br>Estás siendo redirigido al área exclusiva...</p>
+
+  <script>
+    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
+    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
+    const sb = supabase.createClient(supabaseUrl, supabaseKey);
+
+    // Recuperar sesión del hash de la URL (después de confirmación)
+    sb.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' || session) {
+        console.log('Usuario logueado automáticamente:', session.user);
+        // Redirigir al lounge después de 2 segundos
+        setTimeout(() => {
+          window.location.href = 'https://1000malbecs.com/es/lounge';
+        }, 2000);
+      }
+    });
+
+    // Intentar recuperar sesión manualmente si el evento no se dispara
+    sb.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        window.location.href = 'https://1000malbecs.com/es/lounge';
+      }
+    });
+  </script>
+
+</body>
+</html>
