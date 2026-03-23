@@ -3,87 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Registro Lounge 1000 Malbecs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <title>Registro | Lounge 1000 Malbecs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    body { font-family: 'Montserrat', sans-serif; background: #1A1A1A; color: #f8f5f2; padding: 2rem; max-width: 500px; margin: auto; }
-    h1 { font-family: 'Playfair Display', serif; color: #D4AF37; text-align: center; }
-    form { display: flex; flex-direction: column; gap: 1.2rem; }
-    input, select { padding: 1rem; border-radius: 8px; border: 1px solid #444; background: #222; color: white; }
-    button { background: #D4AF37; color: #1A1A1A; padding: 1rem; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; }
-    button:hover { opacity: 0.9; }
-    .error { color: #ff6b6b; text-align: center; }
-    .success { color: #90ee90; text-align: center; }
+    :root {
+      --malbec-dark: #1A0F0F;
+      --malbec-wine: #4A0E0E;
+      --gold: #D4AF37;
+      --light: #f8f5f2;
+      --gray: #444;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--malbec-dark);
+      color: var(--light);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 480px;
+      width: 90%;
+      padding: 3rem 2rem;
+      background: rgba(26, 15, 15, 0.85);
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.8rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    label {
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      display: block;
+      color: #ddd;
+    }
+    input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--gray);
+      background: #111;
+      color: white;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+    }
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      background: var(--gold);
+      color: var(--malbec-dark);
+      border: none;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #e0c04a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+    }
+    .mensaje {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-weight: 500;
+    }
+    .error { color: #ff6b6b; }
+    .success { color: #a8e6cf; }
   </style>
 </head>
 <body>
 
-  <h1>Unite al Lounge</h1>
+  <div class="container">
+    <h1>Unite al Lounge</h1>
+    <p class="subtitle">Registrate gratis y accedé a descuentos exclusivos, recomendaciones a medida y catas únicas.</p>
 
-  <form id="registroForm">
-    <input type="text" id="nombre" placeholder="Nombre" required>
-    <input type="text" id="apellido" placeholder="Apellido" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Contraseña (mín 8 caracteres)" required minlength="8">
-    <input type="date" id="nacimiento" required>
-    <label><input type="checkbox" required> Acepto Términos y Condiciones</label>
-    <label><input type="checkbox" required> Acepto Política de Privacidad</label>
-    <label><input type="checkbox"> Quiero recibir novedades y ofertas</label>
+    <form id="registroForm">
+      <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div>
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Mínimo 8 caracteres" required minlength="8">
+      </div>
+      <div>
+        <label for="nacimiento">Fecha de nacimiento</label>
+        <input type="date" id="nacimiento" required>
+      </div>
 
-    <button type="submit">Registrarme GRATIS</button>
-  </form>
+      <div class="checkbox-group">
+        <label><input type="checkbox" required> Acepto los <a href="/terminos" style="color:var(--gold);">Términos y Condiciones</a></label>
+        <label><input type="checkbox" required> Acepto la <a href="/privacidad" style="color:var(--gold);">Política de Privacidad</a></label>
+        <label><input type="checkbox"> Quiero recibir novedades, ofertas y catas exclusivas</label>
+      </div>
 
-  <p id="mensaje" class="error"></p>
+      <button type="submit">Unirme al Lounge GRATIS</button>
+    </form>
+
+    <p id="mensaje" class="mensaje error"></p>
+  </div>
 
   <script>
-  const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
-  const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
+    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
+    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
+    const sb = supabase.createClient(supabaseUrl, supabaseKey);
 
-  // ← Cambio clave: 'supabase' en minúscula (es el nombre exportado por el SDK)
-  const sb = supabase.createClient(supabaseUrl, supabaseKey);
+    document.getElementById('registroForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const mensaje = document.getElementById('mensaje');
+      mensaje.textContent = '';
+      mensaje.className = 'mensaje error';
 
-  document.getElementById('registroForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const mensaje = document.getElementById('mensaje');
-    mensaje.textContent = '';
+      const nombre = document.getElementById('nombre').value.trim();
+      const apellido = document.getElementById('apellido').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const nacimiento = document.getElementById('nacimiento').value;
 
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const nacimiento = document.getElementById('nacimiento').value;
+      if (!nombre || !apellido) {
+        mensaje.textContent = 'Completá nombre y apellido.';
+        return;
+      }
 
-    // Validar edad +18
-    const hoy = new Date();
-    const fechaNac = new Date(nacimiento);
-    let edad = hoy.getFullYear() - fechaNac.getFullYear();
-    if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
-    if (edad < 18) {
-      mensaje.textContent = 'Debes tener al menos 18 años.';
-      return;
-    }
+      const hoy = new Date();
+      const fechaNac = new Date(nacimiento);
+      let edad = hoy.getFullYear() - fechaNac.getFullYear();
+      if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
+      if (edad < 18) {
+        mensaje.textContent = 'Debes ser mayor de 18 años para unirte.';
+        return;
+      }
 
-    const { data, error } = await sb.auth.signUp({
-      email,
-      password,
-      options: {
-        data: { nombre, apellido, nacimiento },
-        emailRedirectTo: 'https://1000malbecs.com/es/bienvenido'
+      const { data, error } = await sb.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { nombre, apellido, nacimiento },
+          emailRedirectTo: 'https://1000malbecs.com/es/bienvenido'
+        }
+      });
+
+      if (error) {
+        mensaje.textContent = error.message.includes('duplicate') 
+          ? 'El email ya está registrado.' 
+          : error.message;
+      } else {
+        mensaje.className = 'mensaje success';
+        mensaje.textContent = '¡Casi listo! Revisá tu email (incluida la carpeta de spam) para confirmar tu cuenta.';
       }
     });
-
-    if (error) {
-      mensaje.textContent = error.message.includes('duplicate') 
-        ? 'El email ya está registrado.' 
-        : error.message;
-      mensaje.className = 'error';
-    } else {
-      mensaje.className = 'success';
-      mensaje.textContent = '¡Listo! Te enviamos un email de confirmación. Revisá tu casilla (y spam).';
-    }
-  });
-</script>
+  </script>
 
 </body>
 </html>
