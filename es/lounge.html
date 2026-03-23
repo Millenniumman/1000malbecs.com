@@ -175,6 +175,41 @@
     @media (max-width: 640px) {
       .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; }
     }
+    body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-light);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    /* Fondo negro SOLO para la parte superior (hero + benefits) */
+    background: var(--color-dark);
+  }
+
+  main {
+    /* Fondo blanco desde aquí hacia abajo (cubre transición + footer) */
+    background: #f8f5f2;
+    flex: 1;  /* crece para llenar el espacio restante */
+    min-height: 50vh;  /* asegura altura mínima */
+  }
+
+  .benefits {
+    padding: 6rem 1.5rem;
+    background: #0f0f0f;  /* negro solo para las 3 cajas */
+    text-align: center;
+  }
+
+  /* La transición ya no necesita fondo propio, porque main ya es blanco */
+  .transition {
+    padding: 6rem 1.5rem;
+    text-align: center;
+  }
+
+  footer {
+    /* El footer inyectado por Worker quedará sobre blanco */
+    background: #f8f5f2 !important;  /* forzamos blanco si el Worker lo pone negro */
+    color: #333;
+    padding: 4rem 1.5rem 2rem;
+  }
   </style>
 </head>
 <body>
