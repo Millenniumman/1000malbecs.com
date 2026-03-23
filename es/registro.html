@@ -37,50 +37,53 @@
   <p id="mensaje" class="error"></p>
 
   <script>
-    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';  // tu URL real
-    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';  // tu publishable key
+  const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
+  const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
 
-    // ← CAMBIO IMPORTANTE: renombramos a 'sb' para evitar conflicto
-    const sb = Supabase.createClient(supabaseUrl, supabaseKey);
+  // ← Cambio clave: 'supabase' en minúscula (es el nombre exportado por el SDK)
+  const sb = supabase.createClient(supabaseUrl, supabaseKey);
 
-    document.getElementById('registroForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const mensaje = document.getElementById('mensaje');
-      mensaje.textContent = '';
+  document.getElementById('registroForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const mensaje = document.getElementById('mensaje');
+    mensaje.textContent = '';
 
-      const nombre = document.getElementById('nombre').value;
-      const apellido = document.getElementById('apellido').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const nacimiento = document.getElementById('nacimiento').value;
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const nacimiento = document.getElementById('nacimiento').value;
 
-      // Validar edad +18
-      const hoy = new Date();
-      const fechaNac = new Date(nacimiento);
-      let edad = hoy.getFullYear() - fechaNac.getFullYear();
-      if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
-      if (edad < 18) {
-        mensaje.textContent = 'Debes tener al menos 18 años.';
-        return;
-      }
+    // Validar edad +18
+    const hoy = new Date();
+    const fechaNac = new Date(nacimiento);
+    let edad = hoy.getFullYear() - fechaNac.getFullYear();
+    if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
+    if (edad < 18) {
+      mensaje.textContent = 'Debes tener al menos 18 años.';
+      return;
+    }
 
-      const { data, error } = await sb.auth.signUp({  // ← Cambiado 'supabase' → 'sb'
-        email,
-        password,
-        options: {
-          data: { nombre, apellido, nacimiento },  // metadata extra
-          emailRedirectTo: 'https://1000malbecs.com/es/bienvenido'  // página después de confirmar
-        }
-      });
-
-      if (error) {
-        mensaje.textContent = error.message.includes('duplicate') ? 'El email ya está registrado.' : error.message;
-      } else {
-        mensaje.className = 'success';
-        mensaje.textContent = '¡Listo! Te enviamos un email de confirmación. Revisá tu casilla (y spam).';
+    const { data, error } = await sb.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { nombre, apellido, nacimiento },
+        emailRedirectTo: 'https://1000malbecs.com/es/bienvenido'
       }
     });
-  </script>
+
+    if (error) {
+      mensaje.textContent = error.message.includes('duplicate') 
+        ? 'El email ya está registrado.' 
+        : error.message;
+      mensaje.className = 'error';
+    } else {
+      mensaje.className = 'success';
+      mensaje.textContent = '¡Listo! Te enviamos un email de confirmación. Revisá tu casilla (y spam).';
+    }
+  });
+</script>
 
 </body>
 </html>
