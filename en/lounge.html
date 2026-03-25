@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1000 Experiences - The 1000 Malbecs Lounge • Exclusive for Malbec Lovers</title>
+  <meta name="description" content="A private space for true Malbec enthusiasts. Register for free and access exclusive discounts, personalized recommendations, and unique tastings & events."/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-malbec: #4A0E0E;
+      --color-wine: #8B0000;
+      --color-gold: #D4AF37;
+      --color-dark: #1A1A1A;
+      --color-light: #f8f5f2;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--color-dark);
+      color: var(--color-light);
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .hero {
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(26,26,26,0.70), rgba(26,26,26,0.80)),
+                  url('/images/cava-malbec-1000.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .hero-content { max-width: 900px; }
+    .hero h1 {
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      margin-bottom: 1.2rem;
+      color: white;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: clamp(1.25rem, 4vw, 1.6rem);
+      margin-bottom: 2.5rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.6rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-dark);
+      border: 2px solid var(--color-gold);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--color-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      margin-left: 1.5rem;
+    }
+    .btn-secondary:hover {
+      background: white;
+      color: var(--color-dark);
+    }
+
+    .age-gate {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .age-modal {
+      background: #111;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      border: 1px solid var(--color-gold);
+    }
+    .age-modal h2 { font-size: 2.4rem; margin-bottom: 1.5rem; color: var(--color-gold); }
+    .age-buttons { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+    .age-btn {
+      padding: 1.1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    .age-yes { background: var(--color-gold); color: #111; font-weight: bold; }
+    .age-no { background: transparent; color: #ccc; border: 1px solid #666; }
+    .age-no:hover { background: #222; }
+
+    .benefits {
+      padding: 6rem 1.5rem;
+      background: #0f0f0f;
+      text-align: center;
+    }
+    .benefits h2 {
+      font-size: 3.2rem;
+      margin-bottom: 3.5rem;
+      color: var(--color-gold);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: rgba(255,255,255,0.04);
+      padding: 2.8rem 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.12);
+      transition: all 0.35s ease;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      border-color: var(--color-gold);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .card h3 {
+      font-size: 1.9rem;
+      margin: 1.4rem 0 1rem;
+      color: var(--color-gold);
+    }
+
+    main {
+      background: #f8f5f2;
+      flex: 1;
+      min-height: 50vh;
+    }
+
+    footer {
+      background: #f8f5f2 !important;
+      color: #333;
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>1000 EXPERIENCES</h1>
+      <h2>The 1000 Malbecs Lounge</h2>
+      <p>An exclusive space for true Malbec lovers.<br>Register for free and discover unique discounts, personalized recommendations, and private tastings & events.</p>
+      
+      <div>
+        <button class="btn btn-primary" id="joinBtn">Join the Lounge FOR FREE</button>
+        <a href="/en/login" class="btn btn-secondary">I am already a member → Log in</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Age Gate -->
+  <div class="age-gate" id="ageGate">
+    <div class="age-modal">
+      <h2>Are you over 18 years old?</h2>
+      <p>This content is for adults only.</p>
+      <div class="age-buttons">
+        <button class="age-btn age-yes" id="ageYes">Yes, I am over 18</button>
+        <button class="age-btn age-no" id="ageNo">No</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="benefits">
+      <h2>What will you find in the Lounge?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Exclusive Discounts</h3>
+          <p>Special offers and preferential prices on author Malbecs and limited editions, only for members.</p>
+        </div>
+        <div class="card">
+          <h3>Personalized Recommendations</h3>
+          <p>Tailored suggestions according to your palate, so you always discover the perfect Malbec.</p>
+        </div>
+        <div class="card">
+          <h3>Events & Tastings</h3>
+          <p>Exclusive virtual and in-person tastings, winemaker talks, and unique experiences for members.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const joinBtn = document.getElementById('joinBtn');
+    const ageGate = document.getElementById('ageGate');
+    const ageYes = document.getElementById('ageYes');
+    const ageNo = document.getElementById('ageNo');
+
+    joinBtn.addEventListener('click', () => {
+      ageGate.style.display = 'flex';
+    });
+
+    ageYes.addEventListener('click', () => {
+      window.location.href = '/en/register';
+    });
+
+    ageNo.addEventListener('click', () => {
+      window.location.href = 'https://www.argentina.gob.ar/salud/consumoresponsable';
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && ageGate.style.display === 'flex') {
+        ageGate.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
