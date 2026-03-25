@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | 1000 Malbecs Lounge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root {
+      --malbec-dark: #1A0F0F;
+      --malbec-wine: #4A0E0E;
+      --gold: #D4AF37;
+      --light: #f8f5f2;
+      --gray: #444;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--light);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 60px;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 520px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3.5rem 2.5rem;
+      background: var(--malbec-dark);
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+      color: var(--light);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 1.2rem;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #ddd;
+      margin-bottom: 2.8rem;
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+    form { display: flex; flex-direction: column; gap: 1.6rem; }
+    label {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+    input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+      padding: 1.1rem 1.3rem;
+      border-radius: 12px;
+      border: 1px solid var(--gray);
+      background: #111;
+      color: white;
+      font-size: 1rem;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
+    }
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.98rem;
+      color: #ddd;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 1.3rem;
+      background: var(--gold);
+      color: var(--malbec-dark);
+      border: none;
+      border-radius: 50px;
+      font-size: 1.18rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e0c04a;
+      transform: translateY(-3px);
+    }
+    .mensaje {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+    .error { color: #ff8a8a; }
+    .success { color: #a8e6cf; }
+
+    @media (max-width: 768px) {
+      body { padding-top: 100px; }
+      .container { padding: 2.5rem 1.8rem; }
+      h1 { font-size: 2.4rem; }
+    }
+
+    footer {
+      background: #f8f5f2 !important;
+      color: #333 !important;
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Join the Lounge</h1>
+    <p class="subtitle">Register for free and discover an exclusive world of Malbecs, private tastings and unique discounts.</p>
+
+    <form id="registroForm">
+      <div>
+        <label for="nombre">First Name</label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div>
+        <label for="apellido">Last Name</label>
+        <input type="text" id="apellido" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Minimum 8 characters" required minlength="8">
+      </div>
+      <div>
+        <label for="nacimiento">Date of Birth</label>
+        <input type="date" id="nacimiento" required>
+      </div>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" required> I accept the <a href="/en/terms" style="color:var(--gold);">Terms and Conditions</a></label>
+        <label><input type="checkbox" required> I accept the <a href="/en/privacy" style="color:var(--gold);">Privacy Policy</a></label>
+        <label><input type="checkbox"> I want to receive news, offers and exclusive tastings</label>
+      </div>
+
+      <button type="submit">Join the Lounge FOR FREE</button>
+    </form>
+
+    <p id="mensaje" class="mensaje error"></p>
+  </div>
+
+  <script>
+    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
+    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
+    const sb = supabase.createClient(supabaseUrl, supabaseKey);
+
+    document.getElementById('registroForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const mensaje = document.getElementById('mensaje');
+      mensaje.textContent = '';
+      mensaje.className = 'mensaje error';
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const apellido = document.getElementById('apellido').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const nacimiento = document.getElementById('nacimiento').value;
+
+      if (!nombre || !apellido) {
+        mensaje.textContent = 'Please complete name and surname.';
+        return;
+      }
+
+      const hoy = new Date();
+      const fechaNac = new Date(nacimiento);
+      let edad = hoy.getFullYear() - fechaNac.getFullYear();
+      if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
+      if (edad < 18) {
+        mensaje.textContent = 'You must be at least 18 years old to join.';
+        return;
+      }
+
+      const { data, error } = await sb.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { nombre, apellido, nacimiento },
+          emailRedirectTo: 'https://1000malbecs.com/en/welcome'
+        }
+      });
+
+      if (error) {
+        mensaje.textContent = error.message.includes('duplicate') ? 'This email is already registered.' : error.message;
+      } else {
+        mensaje.className = 'mensaje success';
+        mensaje.textContent = 'Almost ready! Check your email (including spam folder) to confirm your account.';
+      }
+    });
+  </script>
+</body>
+</html>
