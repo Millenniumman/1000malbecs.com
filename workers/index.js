@@ -49,7 +49,8 @@ export default {
             about_us: "About us",
             faq: "FAQ",
             impressum: "Impressum",
-            agb: "AGB"
+            agb: "AGB",
+            datenschutz: "Datenschutz"
           }
         },
         footer: {
