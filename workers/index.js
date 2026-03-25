@@ -226,6 +226,9 @@ export default {
       { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
       { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
       { href: `/agb.html`, text: translations[lang].navbar.info_list.agb },
+      { href: `/datenschutz.html`,  text: lang === "de" ? "Datenschutz" : 
+                                 lang === "es" ? "Política de Privacidad" : 
+                                 "Privacy Policy" },
       { href: `/devoluciones.html`, text: lang === "es" ? "Política de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }
     ].map((link) => {
       const isActive = path === `/${lang}${link.href}` ? " active" : "";
