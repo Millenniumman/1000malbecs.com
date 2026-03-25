@@ -3,42 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bienvenido al Lounge 1000 Malbecs</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <title>Bienvenido al Lounge | 1000 Malbecs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Montserrat', sans-serif; background: #1A1A1A; color: #f8f5f2; text-align: center; padding: 4rem; }
-    h1 { color: #D4AF37; font-family: 'Playfair Display', serif; }
-    p { font-size: 1.2rem; max-width: 600px; margin: 2rem auto; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #1A0F0F;
+      color: #f8f5f2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      max-width: 600px;
+      background: rgba(26, 15, 15, 0.9);
+      padding: 50px 40px;
+      border-radius: 20px;
+      border: 1px solid #D4AF37;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #D4AF37;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0d0e0;
+      margin-bottom: 30px;
+    }
+    .loading {
+      color: #D4AF37;
+      font-size: 1.1rem;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
 
-  <h1>¡Bienvenido al Lounge!</h1>
-  <p>Tu email ha sido confirmado correctamente.<br>Estás siendo redirigido al área exclusiva...</p>
+  <div class="card">
+    <h1>¡Bienvenido al Lounge!</h1>
+    <p>Tu cuenta ha sido confirmada correctamente.<br>
+    Estamos preparando tu acceso exclusivo...</p>
+    
+    <div class="loading">Cargando tu experiencia personalizada...</div>
+  </div>
 
   <script>
     const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
     const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
-    const sb = supabase.createClient(supabaseUrl, supabaseKey);
+    const sb = Supabase.createClient(supabaseUrl, supabaseKey);
 
-    // Recuperar sesión del hash de la URL (después de confirmación)
-    sb.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' || session) {
-        console.log('Usuario logueado automáticamente:', session.user);
-        // Redirigir al lounge después de 2 segundos
-        setTimeout(() => {
-          window.location.href = 'https://1000malbecs.com/es/lounge';
-        }, 2000);
+    async function init() {
+      const { data: { session } } = await sb.auth.getSession();
+      
+      if (!session) {
+        window.location.href = '/es/lounge';
+        return;
       }
-    });
 
-    // Intentar recuperar sesión manualmente si el evento no se dispara
-    sb.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        window.location.href = 'https://1000malbecs.com/es/lounge';
+      const user = session.user;
+      const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
+
+      // Si el usuario aceptó recibir emails, lo agregamos a Mailchimp
+      if (wantsNewsletter && user.email) {
+        try {
+          await fetch('https://tu-proyecto.supabase.co/functions/v1/add-to-mailchimp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: user.email,
+              first_name: user.user_metadata?.nombre || '',
+              last_name: user.user_metadata?.apellido || '',
+              language: 'es'
+            })
+          });
+          console.log("Usuario agregado a Mailchimp");
+        } catch (err) {
+          console.log("Error al agregar a Mailchimp (no crítico)", err);
+        }
       }
-    });
+
+      // Redirigir al Lounge después de 2.5 segundos
+      setTimeout(() => {
+        window.location.href = '/es/lounge';
+      }, 2500);
+    }
+
+    init();
   </script>
-
 </body>
 </html>
