@@ -6,6 +6,12 @@
   <title>Bienvenido al Lounge | 1000 Malbecs</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --malbec-dark: #1A0F0F;
+      --malbec-wine: #4A0E0E;
+      --gold: #D4AF37;
+      --light: #f8f5f2;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -19,13 +25,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 140px;        /* ← Más espacio para barra de navegación fixed */
-      padding-bottom: 40px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 130px 20px 60px;     /* ← Igual que en registro, pero un poco más */
+      margin: 0;
+      overflow-x: hidden;
     }
     .card {
-      max-width: 640px;
+      max-width: 620px;
       width: 100%;
       background: rgba(26, 15, 15, 0.95);
       padding: 55px 40px;
@@ -38,32 +43,30 @@
       font-family: 'Playfair Display', serif;
       color: #D4AF37;
       font-size: 2.85rem;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     p {
-      font-size: 1.18rem;
+      font-size: 1.2rem;
       line-height: 1.7;
       color: #e0d0e0;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
     .loading {
       color: #D4AF37;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       margin-top: 15px;
     }
 
     @media (max-width: 768px) {
       body {
-        padding-top: 120px;
+        padding-top: 110px;        /* menos espacio en móvil */
         padding-left: 15px;
         padding-right: 15px;
       }
       .card {
-        padding: 40px 25px;
+        padding: 45px 25px;
       }
-      h1 {
-        font-size: 2.4rem;
-      }
+      h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
@@ -93,7 +96,6 @@
       const user = session.user;
       const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
 
-      // Agregar a Mailchimp si aceptó recibir emails
       if (wantsNewsletter && user.email) {
         try {
           await fetch('https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/add-to-mailchimp', {
@@ -112,10 +114,9 @@
         }
       }
 
-      // Redirección al Lounge
       setTimeout(() => {
         window.location.href = '/es/lounge';
-      }, 2400);
+      }, 2500);
     }
 
     handleWelcome();
