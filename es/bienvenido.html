@@ -8,7 +8,6 @@
   <style>
     :root {
       --malbec-dark: #1A0F0F;
-      --malbec-wine: #4A0E0E;
       --gold: #D4AF37;
       --light: #f8f5f2;
     }
@@ -25,7 +24,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 140px 20px 80px;     /* ← Top grande para nav fixed, laterales normales */
+      padding-left: 280px;     /* ← Espacio para la barra vertical de la izquierda */
+      padding-right: 20px;
+      padding-top: 40px;
+      padding-bottom: 40px;
       margin: 0;
       overflow-x: hidden;
     }
@@ -33,7 +35,7 @@
       max-width: 640px;
       width: 100%;
       background: rgba(26, 15, 15, 0.95);
-      padding: 55px 40px;
+      padding: 60px 45px;
       border-radius: 20px;
       border: 1px solid #D4AF37;
       box-shadow: 0 25px 70px rgba(0,0,0,0.7);
@@ -54,15 +56,16 @@
     .loading {
       color: #D4AF37;
       font-size: 1.15rem;
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       body {
-        padding: 120px 15px 60px;   /* menos padding lateral en móvil */
+        padding-left: 20px;      /* En pantallas más pequeñas la sidebar se oculta o colapsa */
+        padding-top: 40px;
       }
       .card {
-        padding: 45px 25px;
+        padding: 45px 30px;
       }
       h1 { font-size: 2.4rem; }
     }
