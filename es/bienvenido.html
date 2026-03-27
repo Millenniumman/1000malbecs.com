@@ -21,15 +21,11 @@
       background: #1A0F0F;
       color: #f8f5f2;
       min-height: 100vh;
+      margin-left: 280px;           /* ← Ancho aproximado de tu barra vertical */
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-left: 280px;     /* ← Espacio para la barra vertical de la izquierda */
-      padding-right: 20px;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      margin: 0;
-      overflow-x: hidden;
+      padding: 40px 20px;
     }
     .card {
       max-width: 640px;
@@ -59,13 +55,29 @@
       margin-top: 20px;
     }
 
+    /* Footer inyectado por el Worker */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 280px;                  /* ← Igual que el margin-left del body */
+      right: 0;
+      background: #f8f5f2 !important;
+      color: #333;
+      padding: 25px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      z-index: 100;
+    }
+
     @media (max-width: 992px) {
       body {
-        padding-left: 20px;      /* En pantallas más pequeñas la sidebar se oculta o colapsa */
-        padding-top: 40px;
+        margin-left: 0;             /* En móviles la barra suele ocultarse o colapsar */
+      }
+      footer {
+        left: 0;
       }
       .card {
-        padding: 45px 30px;
+        padding: 45px 25px;
       }
       h1 { font-size: 2.4rem; }
     }
@@ -109,9 +121,8 @@
               language: 'es'
             })
           });
-          console.log("✅ Usuario agregado a Mailchimp");
         } catch (err) {
-          console.log("⚠️ Error Mailchimp:", err);
+          console.log("Error Mailchimp:", err);
         }
       }
 
