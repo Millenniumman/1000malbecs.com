@@ -77,66 +77,85 @@
     <h1>¡Bienvenido al Lounge!</h1>
     <p>Tu cuenta ha sido confirmada correctamente.<br>
     Estamos preparando tu acceso exclusivo...</p>
-    
     <div class="loading">Cargando tu experiencia personalizada...</div>
   </div>
 
   <script>
+    console.log("🚀 Script de bienvenida cargado correctamente");
+
     const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
     const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
-    
-    // ← CORRECCIÓN AQUÍ: "supabase" con s minúscula
+
+    // Corrección clave: supabase con "s" minúscula
     const sb = supabase.createClient(supabaseUrl, supabaseKey);
 
+    console.log("✅ Cliente Supabase creado");
+
     async function handleWelcome() {
-      console.log("Iniciando página de bienvenida...");
+      console.log("🔄 Iniciando handleWelcome...");
 
-      const { data: { session }, error } = await sb.auth.getSession();
-      
-      if (error || !session) {
-        console.log("No session found, redirecting to lounge");
-        window.location.href = '/es/lounge';
-        return;
-      }
-
-      const user = session.user;
-      console.log("Usuario confirmado:", user.email);
-
-      const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
-
-      if (wantsNewsletter && user.email) {
-        console.log("Usuario quiere newsletter → llamando a Mailchimp");
-        try {
-          const response = await fetch('https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/add-to-mailchimp', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: user.email,
-              first_name: user.user_metadata?.nombre || '',
-              last_name: user.user_metadata?.apellido || '',
-              language: 'es'
-            })
-          });
-
-          if (response.ok) {
-            console.log("✅ Usuario agregado correctamente a Mailchimp");
-          } else {
-            console.log("❌ Error en respuesta de Mailchimp");
-          }
-        } catch (err) {
-          console.log("⚠️ Error al llamar a Mailchimp:", err);
+      try {
+        const { data: { session }, error } = await sb.auth.getSession();
+        
+        if (error) {
+          console.error("❌ Error al obtener sesión:", error);
+          window.location.href = '/es/lounge';
+          return;
         }
-      } else {
-        console.log("Usuario NO marcó la casilla de newsletter");
+
+        if (!session) {
+          console.log("⚠️ No hay sesión activa");
+          window.location.href = '/es/lounge';
+          return;
+        }
+
+        const user = session.user;
+        console.log("✅ Usuario confirmado:", user.email);
+
+        const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
+        console.log("¿Quiere newsletter?", wantsNewsletter);
+
+        if (wantsNewsletter && user.email) {
+          console.log("📧 Llamando a Mailchimp...");
+          try {
+            const response = await fetch('https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/add-to-mailchimp', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email: user.email,
+                first_name: user.user_metadata?.nombre || '',
+                last_name: user.user_metadata?.apellido || '',
+                language: 'es'
+              })
+            });
+
+            const result = await response.json();
+            console.log("Respuesta de Mailchimp:", result);
+
+            if (response.ok) {
+              console.log("🎉 ¡Usuario agregado correctamente a Mailchimp!");
+            } else {
+              console.log("❌ Error en Mailchimp:", result);
+            }
+          } catch (err) {
+            console.error("⚠️ Error al llamar a la función add-to-mailchimp:", err);
+          }
+        } else {
+          console.log("ℹ️ El usuario NO marcó la casilla de newsletter");
+        }
+
+      } catch (err) {
+        console.error("Error general en handleWelcome:", err);
       }
 
-      console.log("Redirigiendo al lounge en 2.5 segundos...");
+      console.log("🔄 Redirigiendo al lounge en 3 segundos...");
       setTimeout(() => {
         window.location.href = '/es/lounge';
-      }, 2500);
+      }, 3000);
     }
 
-    handleWelcome();
+    // Ejecutar cuando la página cargue
+    window.addEventListener('load', handleWelcome);
   </script>
 </body>
 </html>
