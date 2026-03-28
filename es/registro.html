@@ -189,52 +189,58 @@
     const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
     const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
     const sb = supabase.createClient(supabaseUrl, supabaseKey);
+document.getElementById('registroForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const mensaje = document.getElementById('mensaje');
+  mensaje.textContent = '';
+  mensaje.className = 'mensaje error';
 
-    document.getElementById('registroForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const mensaje = document.getElementById('mensaje');
-      mensaje.textContent = '';
-      mensaje.className = 'mensaje error';
+  const nombre = document.getElementById('nombre').value.trim();
+  const apellido = document.getElementById('apellido').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const nacimiento = document.getElementById('nacimiento').value;
 
-      const nombre = document.getElementById('nombre').value.trim();
-      const apellido = document.getElementById('apellido').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      const nacimiento = document.getElementById('nacimiento').value;
+  // ← NUEVO: Capturar si marcó la casilla
+  const wantsNewsletter = document.querySelector('.checkbox-group input[type="checkbox"]:last-child').checked;
 
-      if (!nombre || !apellido) {
-        mensaje.textContent = 'Completá nombre y apellido.';
-        return;
-      }
+  if (!nombre || !apellido) {
+    mensaje.textContent = 'Completá nombre y apellido.';
+    return;
+  }
 
-      const hoy = new Date();
-      const fechaNac = new Date(nacimiento);
-      let edad = hoy.getFullYear() - fechaNac.getFullYear();
-      if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
-      if (edad < 18) {
-        mensaje.textContent = 'Debes ser mayor de 18 años para unirte.';
-        return;
-      }
+  const hoy = new Date();
+  const fechaNac = new Date(nacimiento);
+  let edad = hoy.getFullYear() - fechaNac.getFullYear();
+  if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
+  if (edad < 18) {
+    mensaje.textContent = 'Debes ser mayor de 18 años para unirte.';
+    return;
+  }
 
-      const { data, error } = await sb.auth.signUp({
-        email,
-        password,
-        options: {
-          data: { nombre, apellido, nacimiento, language: "es"  },
-          emailRedirectTo: 'https://www.1000malbecs.com/es/bienvenido'
-        }
-      });
+  const { data, error } = await sb.auth.signUp({
+    email,
+    password,
+    options: {
+      data: { 
+        nombre, 
+        apellido, 
+        nacimiento,
+        wants_newsletter: wantsNewsletter   // ← ESTO ES LO IMPORTANTE
+      },
+      emailRedirectTo: 'https://www.1000malbecs.com/es/bienvenido'
+    }
+  });
 
-      if (error) {
-        mensaje.textContent = error.message.includes('duplicate') 
-          ? 'El email ya está registrado.' 
-          : error.message;
-      } else {
-        mensaje.className = 'mensaje success';
-        mensaje.textContent = '¡Casi listo! Revisá tu email (incluida la carpeta de spam) para confirmar tu cuenta.';
-      }
-    });
+  if (error) {
+    mensaje.textContent = error.message.includes('duplicate') 
+      ? 'El email ya está registrado.' 
+      : error.message;
+  } else {
+    mensaje.className = 'mensaje success';
+    mensaje.textContent = '¡Casi listo! Revisá tu email (incluida la carpeta de spam) para confirmar tu cuenta.';
+  }
+});
   </script>
-
-</body>
+   </body>
 </html>
