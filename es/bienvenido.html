@@ -73,7 +73,7 @@
             }
           } catch (err) {
             statusEl.innerHTML += '<br><span class="error">✗ Error de conexión</span>';
-            console.log("Error fetch:", err);
+            console.log("Error:", err);
           }
         }
 
@@ -81,7 +81,7 @@
         console.error(err);
       }
 
-      setTimeout(() => window.location.href = '/es/lounge', 3500);
+      setTimeout(() => window.location.href = '/es/lounge', 4000);
     }
 
     window.addEventListener('load', handleWelcome);
