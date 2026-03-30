@@ -28,38 +28,24 @@
       box-shadow: 0 25px 70px rgba(0,0,0,0.7);
       text-align: center;
     }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      color: #D4AF37;
-      font-size: 2.8rem;
-      margin-bottom: 25px;
-    }
-    p {
-      font-size: 1.25rem;
-      line-height: 1.7;
-      color: #e0d0e0;
-      margin-bottom: 30px;
-    }
-    .status {
-      margin: 25px 0;
-      font-size: 1.1rem;
-    }
+    h1 { font-family: 'Playfair Display', serif; color: #D4AF37; font-size: 2.8rem; margin-bottom: 25px; }
+    p { font-size: 1.25rem; line-height: 1.7; color: #e0d0e0; margin-bottom: 30px; }
+    .status { margin: 25px 0; font-size: 1.15rem; }
     .success { color: #4ade80; }
-    .error { color: #f87171; }
   </style>
 </head>
 <body>
 
   <div class="card">
     <h1>¡Bienvenido al Lounge!</h1>
-    <p id="status">Verificando tu cuenta y procesando suscripción...</p>
+    <p id="status">Verificando tu cuenta...</p>
   </div>
 
   <script>
-    console.log("🚀 Script de bienvenida cargado correctamente");
+    console.log("🚀 Script de bienvenida cargado");
 
     const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
-    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';   // ← asegúrate que sea tu anon key
+    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x'; // asegúrate que sea la anon key correcta
 
     const sb = supabase.createClient(supabaseUrl, supabaseKey);
 
@@ -67,70 +53,36 @@
       const statusEl = document.getElementById('status');
 
       try {
-        const { data: { session }, error } = await sb.auth.getSession();
+        const { data: { session } } = await sb.auth.getSession();
 
-        if (error || !session) {
-          statusEl.textContent = "No se encontró sesión activa. Redirigiendo...";
-          setTimeout(() => window.location.href = '/es/lounge', 2000);
+        if (!session) {
+          statusEl.textContent = "Redirigiendo al Lounge...";
+          setTimeout(() => window.location.href = '/es/lounge', 1500);
           return;
         }
 
         const user = session.user;
-        console.log("✅ Usuario confirmado:", user.email);
-
         const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
-        console.log("¿Quiere newsletter?", wantsNewsletter);
 
-        statusEl.textContent = "Cuenta confirmada correctamente.";
+        console.log("Usuario:", user.email);
+        console.log("Quiere newsletter:", wantsNewsletter);
 
-        if (wantsNewsletter && user.email) {
-          statusEl.innerHTML = 'Agregando a la lista de Mailchimp <span style="color:#D4AF37;">...</span>';
+        statusEl.textContent = "¡Cuenta confirmada correctamente!";
 
-          try {
-            const response = await fetch('https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/add-to-mailchimp', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                email: user.email,
-                first_name: user.user_metadata?.nombre || '',
-                last_name: user.user_metadata?.apellido || '',
-                language: 'es'
-              })
-            });
-
-            console.log("Status de respuesta:", response.status);
-
-            const result = await response.json();
-            console.log("Respuesta completa de Mailchimp:", result);
-
-            if (response.ok) {
-              statusEl.innerHTML = '<span class="success">✓ Agregado correctamente a Mailchimp</span>';
-              console.log("🎉 Éxito en Mailchimp");
-            } else {
-              statusEl.innerHTML = `<span class="error">✗ Error al agregar a Mailchimp (${response.status})</span>`;
-              console.log("❌ Error:", result);
-            }
-          } catch (fetchError) {
-            console.log("⚠️ Error en la llamada fetch:", fetchError);
-            statusEl.innerHTML = '<span class="error">✗ Error de conexión con Mailchimp</span>';
-          }
-        } else {
-          statusEl.textContent = "No se solicitó suscripción al newsletter.";
+        if (wantsNewsletter) {
+          statusEl.innerHTML += '<br><span class="status">✅ Te agregaremos al newsletter (próximamente)</span>';
         }
 
       } catch (err) {
-        console.error("Error general:", err);
-        statusEl.textContent = "Ocurrió un error al procesar la cuenta.";
+        console.error(err);
+        statusEl.textContent = "Error al procesar la cuenta.";
       }
 
-      // Redirección final
-      console.log("🔄 Redirigiendo al lounge en 4 segundos...");
       setTimeout(() => {
         window.location.href = '/es/lounge';
-      }, 4000);
+      }, 3500);
     }
 
-    // Ejecutar cuando la página esté completamente cargada
     window.addEventListener('load', handleWelcome);
   </script>
 </body>
