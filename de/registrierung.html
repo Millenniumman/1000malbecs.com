@@ -199,14 +199,20 @@
         return;
       }
 
-      const { data, error } = await sb.auth.signUp({
-        email,
-        password,
-        options: {
-          data: { nombre, apellido, nacimiento, language: "de"  },
-          emailRedirectTo: 'https://www.1000malbecs.com/de/willkommen.html'
-        }
-      });
+     const { data, error } = await sb.auth.signUp({
+  email,
+  password,
+  options: {
+    data: { 
+      nombre, 
+      apellido, 
+      nacimiento,
+      language: "de",
+      wants_newsletter: wantsNewsletter   // ✅ CLAVE
+    },
+    emailRedirectTo: 'https://www.1000malbecs.com/de/willkommen.html'
+  }
+});
 
       if (error) {
         mensaje.textContent = error.message.includes('duplicate') ? 'Diese E-Mail ist bereits registriert.' : error.message;
