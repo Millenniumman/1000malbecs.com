@@ -62,43 +62,40 @@
     async function handleWelcome() {
       const statusEl = document.getElementById('status');
 
-      // Limpiar la URL (quitar token y hash)
-      if (window.location.search || window.location.hash) {
-        window.history.replaceState({}, document.title, window.location.pathname);
-        console.log("✅ URL limpiada (token removido)");
-      }
-
       try {
+        // Obtener sesión del usuario
         const { data: { session } } = await sb.auth.getSession();
 
         if (!session) {
-          statusEl.textContent = "Redirigiendo al Lounge...";
-          setTimeout(() => window.location.href = '/es/lounge', 1500);
+          window.location.href = '/es/lounge';
           return;
         }
 
         const user = session.user;
+        const userEmail = user.email;
+        const firstName = user.user_metadata?.nombre || '';
+        const lastName = user.user_metadata?.apellido || '';
         const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
 
-        console.log("Usuario confirmado:", user.email);
-        console.log("Quiere newsletter:", wantsNewsletter);
+        statusEl.textContent = "¡Cuenta confirmada correctamente!";
 
-        statusEl.textContent = `¡Bienvenido ${user.user_metadata?.nombre || ''}! Tu cuenta ha sido confirmada.`;
-
-        // Llamada a la Edge Function
-        if (wantsNewsletter && user.email) {
+        if (wantsNewsletter && userEmail) {
           statusEl.innerHTML += '<br><span class="status">Agregando a Mailchimp...</span>';
 
           try {
+            // Fetch a Edge Function usando JWT
             const response = await fetch(
               'https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/welcome-lounge',
               {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${session.access_token}` // <-- JWT aquí
+                },
                 body: JSON.stringify({
-                  email: user.email,
-                  first_name: user.user_metadata?.nombre || '',
-                  last_name: user.user_metadata?.apellido || ''
+                  email: userEmail,
+                  first_name: firstName,
+                  last_name: lastName
                 })
               }
             );
@@ -111,24 +108,22 @@
             } else {
               statusEl.innerHTML += '<br><span class="error">✗ Error al agregar a Mailchimp</span>';
             }
+
           } catch (err) {
-            console.error("Error fetch:", err);
-            statusEl.innerHTML += '<br><span class="error">✗ Error de conexión con Mailchimp</span>';
+            statusEl.innerHTML += '<br><span class="error">✗ Error de conexión</span>';
+            console.error("Error fetch Edge Function:", err);
           }
         }
 
       } catch (err) {
-        console.error("Error general:", err);
-        statusEl.textContent = "Error al procesar la confirmación.";
+        console.error("Error en handleWelcome:", err);
       }
 
-      // Redirección final
-      setTimeout(() => {
-        window.location.href = '/es/lounge';
-      }, 4000);
+      setTimeout(() => window.location.href = '/es/lounge', 4000);
     }
 
     window.addEventListener('load', handleWelcome);
   </script>
+
 </body>
 </html>
