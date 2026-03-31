@@ -49,79 +49,91 @@
     <p id="status">Überprüfe dein Konto...</p>
   </div>
 
-  <script>
-    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
-    const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
-    const sb = supabase.createClient(supabaseUrl, supabaseKey);
+<script>
+console.log("🚀 Script de bienvenida cargado");
 
-    async function handleWelcome() {
-      const statusEl = document.getElementById('status');
+const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
+const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
+const sb = supabase.createClient(supabaseUrl, supabaseKey);
+
+// 🔥 CRÍTICO: procesar token del email correctamente
+sb.auth.onAuthStateChange((event, session) => {
+  if (session && window.location.hash.includes('access_token')) {
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+});
+
+async function handleWelcome() {
+  const statusEl = document.getElementById('status');
+
+  try {
+    // 🔥 CRÍTICO: esperar a que Supabase procese el token
+    if (window.location.hash.includes('access_token')) {
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+
+    const { data: { session } } = await sb.auth.getSession();
+
+    if (!session) {
+      window.location.href = '/de/lounge';
+      return;
+    }
+
+    const user = session.user;
+    const userEmail = user.email;
+    const firstName = user.user_metadata?.nombre || '';
+    const lastName = user.user_metadata?.apellido || '';
+    const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
+
+    console.log("Usuario:", userEmail);
+    console.log("Newsletter:", wantsNewsletter);
+
+    statusEl.textContent = "Dein Konto wurde bestätigt!";
+
+    if (wantsNewsletter && userEmail) {
+      statusEl.innerHTML += '<br><span class="status">Wird zu Mailchimp hinzugefügt...</span>';
 
       try {
-        // Obtener sesión
-        const { data: { session } } = await sb.auth.getSession();
-
-        if (!session) {
-          window.location.href = '/de/lounge';
-          return;
-        }
-
-        // Limpiar token de la URL
-        window.history.replaceState({}, document.title, window.location.pathname);
-
-        const user = session.user;
-        const email = user.email;
-        const firstName = user.user_metadata?.nombre || '';
-        const lastName = user.user_metadata?.apellido || '';
-        const wantsNewsletter = user.user_metadata?.wants_newsletter === true;
-
-        statusEl.textContent = "Dein Konto wurde bestätigt!";
-
-        if (wantsNewsletter && email) {
-          statusEl.innerHTML += '<br><span class="status">Wird zu Mailchimp hinzugefügt...</span>';
-
-          try {
-            const response = await fetch(
-              'https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/welcome-lounge',
-              {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${session.access_token}`
-                },
-                body: JSON.stringify({
-                  email: email,
-                  first_name: firstName,
-                  last_name: lastName,
-                  language: 'DE' // Segmento DE en Mailchimp
-                })
-              }
-            );
-
-            const result = await response.json();
-            console.log("Respuesta Edge Function:", result);
-
-            if (response.ok && result.success) {
-              statusEl.innerHTML += '<br><span class="success">✓ Erfolgreich zu Mailchimp hinzugefügt</span>';
-            } else {
-              statusEl.innerHTML += '<br><span class="error">✗ Fehler beim Hinzufügen zu Mailchimp</span>';
-            }
-          } catch (err) {
-            statusEl.innerHTML += '<br><span class="error">✗ Fehler beim Hinzufügen zu Mailchimp</span>';
-            console.error(err);
+        const response = await fetch(
+          'https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/welcome-lounge',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${session.access_token}`
+            },
+            body: JSON.stringify({
+              email: userEmail,
+              first_name: firstName,
+              last_name: lastName,
+              language: 'DE' // 👈 clave para segmentación
+            })
           }
+        );
+
+        const result = await response.json();
+        console.log("Respuesta Edge Function:", result);
+
+        if (response.ok) {
+          statusEl.innerHTML += '<br><span class="success">✓ Erfolgreich zu Mailchimp hinzugefügt</span>';
+        } else {
+          statusEl.innerHTML += '<br><span class="error">✗ Fehler beim Hinzufügen</span>';
         }
 
       } catch (err) {
-        console.error("Fehler in handleWelcome:", err);
-        statusEl.innerHTML += '<br><span class="error">✗ Interner Fehler</span>';
+        statusEl.innerHTML += '<br><span class="error">✗ Verbindungsfehler</span>';
+        console.error(err);
       }
-
-      // Redirigir después de 4 segundos
-      setTimeout(() => window.location.href = '/de/lounge', 4000);
     }
 
-    window.addEventListener('load', handleWelcome);
-  </script>
+  } catch (err) {
+    console.error("Error en handleWelcome:", err);
+  }
+
+  setTimeout(() => window.location.href = '/de/lounge', 4000);
+}
+
+window.addEventListener('load', handleWelcome);
+</script>
 </body>
 </html>
