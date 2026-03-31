@@ -218,19 +218,19 @@ document.getElementById('registroForm').addEventListener('submit', async (e) => 
     return;
   }
 
-  const { data, error } = await sb.auth.signUp({
-    email,
-    password,
-    options: {
-      data: { 
-        nombre, 
-        apellido, 
-        nacimiento,
-        wants_newsletter: wantsNewsletter   // ← ESTO ES LO IMPORTANTE
-      },
-      emailRedirectTo: 'https://www.1000malbecs.com/es/bienvenido'
-    }
-  });
+const { data, error } = await sb.auth.signUp({
+  email,
+  password,
+  options: {
+    data: { 
+      nombre, 
+      apellido, 
+      nacimiento,
+      wants_newsletter: wantsNewsletter 
+    },
+    emailRedirectTo: 'https://www.1000malbecs.com/es/bienvenido'   // ← URL completa y limpia
+  }
+});
 
   if (error) {
     mensaje.textContent = error.message.includes('duplicate') 
