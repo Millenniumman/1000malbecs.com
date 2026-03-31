@@ -199,7 +199,7 @@
         return;
       }
 
-     const { data, error } = await sb.auth.signUp({
+const { data, error } = await sb.auth.signUp({
   email,
   password,
   options: {
@@ -207,10 +207,9 @@
       nombre, 
       apellido, 
       nacimiento,
-      language: "de",
-      wants_newsletter: wantsNewsletter   // ✅ CLAVE
+      wants_newsletter: wantsNewsletter 
     },
-    emailRedirectTo: 'https://www.1000malbecs.com/de/willkommen.html'
+    emailRedirectTo: 'https://www.1000malbecs.com/de/willkommen'   // ← URL completa y limpia
   }
 });
 
