@@ -66,6 +66,10 @@
         // Obtener sesión del usuario
         const { data: { session } } = await sb.auth.getSession();
 
+        if (session) {
+      // 🔥 Limpia el token de la URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+        }
         if (!session) {
           window.location.href = '/es/lounge';
           return;
