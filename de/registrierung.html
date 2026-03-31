@@ -174,52 +174,47 @@
     const sb = supabase.createClient(supabaseUrl, supabaseKey);
 
     document.getElementById('registroForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const mensaje = document.getElementById('mensaje');
-      mensaje.textContent = '';
-      mensaje.className = 'mensaje error';
+  e.preventDefault();
 
-      const nombre = document.getElementById('nombre').value.trim();
-      const apellido = document.getElementById('apellido').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      const nacimiento = document.getElementById('nacimiento').value;
+  const mensaje = document.getElementById('mensaje');
+  mensaje.textContent = '';
+  mensaje.className = 'mensaje error';
 
-      if (!nombre || !apellido) {
-        mensaje.textContent = 'Bitte Vor- und Nachname ausfüllen.';
-        return;
-      }
+  const nombre = document.getElementById('nombre').value.trim();
+  const apellido = document.getElementById('apellido').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const nacimiento = document.getElementById('nacimiento').value;
 
-      const hoy = new Date();
-      const fechaNac = new Date(nacimiento);
-      let edad = hoy.getFullYear() - fechaNac.getFullYear();
-      if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
-      if (edad < 18) {
-        mensaje.textContent = 'Sie müssen mindestens 18 Jahre alt sein, um beizutreten.';
-        return;
-      }
+  // ✅ IMPORTANTE
+  const wantsNewsletter = document.querySelector(
+    '.checkbox-group input[type="checkbox"]:last-child'
+  ).checked;
 
-const { data, error } = await sb.auth.signUp({
-  email,
-  password,
-  options: {
-    data: { 
-      nombre, 
-      apellido, 
-      nacimiento,
-      wants_newsletter: wantsNewsletter 
-    },
-    emailRedirectTo: 'https://www.1000malbecs.com/de/willkommen'   // ← URL completa y limpia
+  const { data, error } = await sb.auth.signUp({
+    email,
+    password,
+    options: {
+      data: { 
+        nombre, 
+        apellido, 
+        nacimiento,
+        language: "de",                 // ✅ volver a agregar
+        wants_newsletter: wantsNewsletter
+      },
+      emailRedirectTo: 'https://www.1000malbecs.com/de/willkommen.html' // ✅ usar .html
+    }
+  });
+
+  if (error) {
+    mensaje.textContent = error.message.includes('duplicate') 
+      ? 'Diese E-Mail ist bereits registriert.' 
+      : error.message;
+  } else {
+    mensaje.className = 'mensaje success';
+    mensaje.textContent = 'Fast geschafft! Bitte überprüfen Sie Ihre E-Mail (auch Spam-Ordner), um Ihr Konto zu bestätigen.';
   }
 });
-
-      if (error) {
-        mensaje.textContent = error.message.includes('duplicate') ? 'Diese E-Mail ist bereits registriert.' : error.message;
-      } else {
-        mensaje.className = 'mensaje success';
-        mensaje.textContent = 'Fast geschafft! Bitte überprüfen Sie Ihre E-Mail (auch Spam-Ordner), um Ihr Konto zu bestätigen.';
-      }
-    });
   </script>
 </body>
 </html>
