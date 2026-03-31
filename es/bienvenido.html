@@ -64,16 +64,21 @@
 
       try {
         // Obtener sesión del usuario
-        const { data: { session } } = await sb.auth.getSession();
+      // 🔥 Primero: procesar el token de la URL
+      await sb.auth.getSessionFromUrl();
 
-        if (session) {
-      // 🔥 Limpia el token de la URL
-      window.history.replaceState({}, document.title, window.location.pathname);
-        }
-        if (!session) {
-          window.location.href = '/es/lounge';
-          return;
-        }
+// Luego obtener la sesión ya creada
+      const { data: { session } } = await sb.auth.getSession();
+
+    if (session) {
+  // 🔥 Ahora sí: limpiar la URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
+
+    if (!session) {
+  window.location.href = '/es/lounge';
+  return;
+}
 
         const user = session.user;
         const userEmail = user.email;
