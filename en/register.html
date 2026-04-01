@@ -210,9 +210,8 @@
   mensaje.textContent = error.message.includes('duplicate') 
     ? 'This email is already registered.' 
     : error.message;
-} else {
-
-  mensaje.className = 'mensaje success';
+  } else {
+    mensaje.className = 'mensaje success';
   mensaje.textContent = 'Almost ready! Check your email (including spam folder) to confirm your account.';
 }
   </script>
