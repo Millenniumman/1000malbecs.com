@@ -169,72 +169,48 @@
   </div>
 
   <script>
-    const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
+      const supabaseUrl = 'https://bnxwzlbxpgucciuvtski.supabase.co';
     const supabaseKey = 'sb_publishable_N0FWBojsv8nTNEAAJLAtcg_nPriMs3x';
     const sb = supabase.createClient(supabaseUrl, supabaseKey);
 
     document.getElementById('registroForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const mensaje = document.getElementById('mensaje');
-      mensaje.textContent = '';
-      mensaje.className = 'mensaje error';
+  e.preventDefault();
 
-      const nombre = document.getElementById('nombre').value.trim();
-      const apellido = document.getElementById('apellido').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      const nacimiento = document.getElementById('nacimiento').value;
-      const newsletter = document.getElementById('newsletter').checked;
-      if (!nombre || !apellido) {
-        mensaje.textContent = 'Please complete name and surname.';
-        return;
-      }
+  const mensaje = document.getElementById('mensaje');
+  mensaje.textContent = '';
+  mensaje.className = 'mensaje error';
 
-      const hoy = new Date();
-      const fechaNac = new Date(nacimiento);
-      let edad = hoy.getFullYear() - fechaNac.getFullYear();
-      if (hoy < new Date(hoy.getFullYear(), fechaNac.getMonth(), fechaNac.getDate())) edad--;
-      if (edad < 18) {
-        mensaje.textContent = 'You must be at least 18 years old to join.';
-        return;
-      }
-      const { data, error } = await sb.auth.signUp({
-      email,
-      password,
-      options: {
+  const nombre = document.getElementById('nombre').value.trim();
+  const apellido = document.getElementById('apellido').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const nacimiento = document.getElementById('nacimiento').value;
+
+  // ✅ IMPORTANTE
+  const wantsNewsletter = document.querySelector(
+    '.checkbox-group input[type="checkbox"]:last-child'
+  ).checked;
+
+  const { data, error } = await sb.auth.signUp({
+    email,
+    password,
+    options: {
       data: { 
-      nombre, 
-      apellido, 
-      nacimiento, 
-      language: "en",
-      wants_newsletter: newsletter // 🔥 esto es lo que faltaba
-    },
-    emailRedirectTo: 'https://1000malbecs.com/en/welcome'
-  }
-});
+        nombre, 
+        apellido, 
+        nacimiento,
+        language: "de",                 // ✅ volver a agregar
+        wants_newsletter: wantsNewsletter
+      },
+      emailRedirectTo: 'https://www.1000malbecs.com/de/willkommen.html' // ✅ usar .html
+    }
+  });
 
      if (error) {
   mensaje.textContent = error.message.includes('duplicate') 
     ? 'This email is already registered.' 
     : error.message;
 } else {
-
-  // 🚀 Llamar Edge Function (Mailchimp)
-  try {
-   await fetch('https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/welcome-lounge', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    email,
-    first_name: nombre,
-    last_name: apellido,
-    language: "EN",
-    newsletter // 🔥 nuevo
-  })
-});
-  } catch (err) {
-    console.error("Error calling Edge Function:", err);
-  }
 
   mensaje.className = 'mensaje success';
   mensaje.textContent = 'Almost ready! Check your email (including spam folder) to confirm your account.';
