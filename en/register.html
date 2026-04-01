@@ -159,7 +159,7 @@
       <div class="checkbox-group">
         <label><input type="checkbox" required> I accept the <a href="/en/AGB" style="color:var(--gold);">Terms and Conditions</a></label>
         <label><input type="checkbox" required> I accept the <a href="/en/Datenschutz" style="color:var(--gold);">Privacy Policy</a></label>
-        <label><input type="checkbox"> I want to receive news, offers and exclusive tastings</label>
+        <input type="checkbox" id="newsletter">
       </div>
 
       <button type="submit">Join the Lounge FOR FREE</button>
@@ -184,7 +184,7 @@
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const nacimiento = document.getElementById('nacimiento').value;
-
+      const newsletter = document.getElementById('newsletter').checked;
       if (!nombre || !apellido) {
         mensaje.textContent = 'Please complete name and surname.';
         return;
@@ -208,13 +208,32 @@
         }
       });
 
-      if (error) {
-        mensaje.textContent = error.message.includes('duplicate') ? 'This email is already registered.' : error.message;
-      } else {
-        mensaje.className = 'mensaje success';
-        mensaje.textContent = 'Almost ready! Check your email (including spam folder) to confirm your account.';
-      }
-    });
+     if (error) {
+  mensaje.textContent = error.message.includes('duplicate') 
+    ? 'This email is already registered.' 
+    : error.message;
+} else {
+
+  // 🚀 Llamar Edge Function (Mailchimp)
+  try {
+   await fetch('https://bnxwzlbxpgucciuvtski.supabase.co/functions/v1/welcome-lounge', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    email,
+    first_name: nombre,
+    last_name: apellido,
+    language: "EN",
+    newsletter // 🔥 nuevo
+  })
+});
+  } catch (err) {
+    console.error("Error calling Edge Function:", err);
+  }
+
+  mensaje.className = 'mensaje success';
+  mensaje.textContent = 'Almost ready! Check your email (including spam folder) to confirm your account.';
+}
   </script>
 </body>
 </html>
