@@ -198,15 +198,20 @@
         mensaje.textContent = 'You must be at least 18 years old to join.';
         return;
       }
-
       const { data, error } = await sb.auth.signUp({
-        email,
-        password,
-        options: {
-          data: { nombre, apellido, nacimiento, language: "en"  },
-          emailRedirectTo: 'https://1000malbecs.com/en/welcome'
-        }
-      });
+      email,
+      password,
+      options: {
+      data: { 
+      nombre, 
+      apellido, 
+      nacimiento, 
+      language: "en",
+      wants_newsletter: newsletter // 🔥 esto es lo que faltaba
+    },
+    emailRedirectTo: 'https://1000malbecs.com/en/welcome'
+  }
+});
 
      if (error) {
   mensaje.textContent = error.message.includes('duplicate') 
