@@ -2,31 +2,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Línea fresca y pura de Susana Balbo, ideal para restaurantes que buscan un Malbec accesible, frutado y versátil">
-  <!-- Open Graph -->
+  <meta name="description" content="Fresh and pure line of Susana Balbo, ideal for restaurants looking for an accessible, fruity and versatile Malbec Crios Malbec 2024 from Susana Balbo">
   <meta property="og:title" content="1000 Malbecs - Crios Malbec 2024">
-  <meta property="og:description" content="Línea fresca y pura de Susana Balbo, ideal para restaurantes que buscan un Malbec accesible, frutado y versátil">
+  <meta property="og:description" content="Fresh and pure line of Susana Balbo, ideal for restaurants looking for an accessible, fruity and versatile Malbec Crios Malbec 2024 from Susana Balbo">
   <meta property="og:image" content="https://www.1000malbecs.com/images/large/crios-malbec-2024.jpg">
   <meta property="og:url" content="https://www.1000malbecs.com/en/vinos/crios-malbec-2024.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
-  <meta property="og:locale" content="en_ES">
-  <!-- Twitter -->
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Crios Malbec 2024">
-  <meta name="twitter:description" content="Línea fresca y pura de Susana Balbo, ideal para restaurantes que buscan un Malbec accesible, frutado y versátil">
+  <meta name="twitter:description" content="Fresh and pure line of Susana Balbo, ideal for restaurants looking for an accessible, fruity and versatile Malbec Crios Malbec 2024 from Susana Balbo">
   <meta name="twitter:image" content="https://www.1000malbecs.com/images/large/crios-malbec-2024.jpg">
   <meta name="twitter:site" content="@1000malbecs">
-  <!-- Hreflang -->
-  
   <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/vinos/crios-malbec-2024.html">
-  
   <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/vinos/crios-malbec-2024.html">
-  
   <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/vinos/crios-malbec-2024.html">
-  
   <title>1000 Malbecs - Crios Malbec 2024</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -180,8 +182,8 @@ body {
 #sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 220px;
-  height: 70vh;
+  width: 280px;
+  height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -515,487 +517,549 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-  <!-- Tus metas, links y scripts actuales... -->
-  
-  <!-- Snippet de conversión de Google Ads -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
-          'value': 30.0,
-          'currency': 'EUR',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
 </head>
 <body>
 
-<!-- HEADER MOBILE -->
-<header class="mobile-header">
-  <button class="hamburger" aria-label="Menú" aria-expanded="false">
-    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-    </svg>
-  </button>
-  <a href="/en/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
-</header>
-
-<!-- BARRA SUPERIOR: LOGO + IDIOMAS -->
-<div class="topbar">
-  <header class="header">
-    <a href="/en/" title="1000 Malbecs">
-      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/en/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
 
-  <div class="lang-selector-desktop">
-    
-      <a href="/es/vinos/crios-malbec-2024.html" >ES</a>
-    
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/en/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/crios-malbec-2024.html">ES</a>
+      
       <a href="/en/vinos/crios-malbec-2024.html" class="active">EN</a>
-    
-      <a href="/de/vinos/crios-malbec-2024.html" >DE</a>
-    
+      
+      
+      <a href="/de/vinos/crios-malbec-2024.html">DE</a>
+      
+    </div>
   </div>
-</div>
 
-
-  <!-- SELECTOR DE IDIOMAS - MOBILE -->
+  <!-- SELECTOR MÓVIL -->
   <div class="lang-selector-mobile">
-    
-      <a href="/es/vinos/crios-malbec-2024.html" >ES</a>
-    
-      <a href="/en/vinos/crios-malbec-2024.html" class="active">EN</a>
-    
-      <a href="/de/vinos/crios-malbec-2024.html" >DE</a>
-    
+    <a href="/es/vinos/crios-malbec-2024.html">ES</a>
+    <a href="/en/vinos/crios-malbec-2024.html" class="active">EN</a>
+    <a href="/de/vinos/crios-malbec-2024.html">DE</a>
   </div>
 
-  <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
+  <!-- CONTENIDO -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/crios-malbec-2024.jpg" alt="Crios Malbec 2024">
+      <img src="https://www.1000malbecs.com/images/large/crios-malbec-2024.jpg" alt="Crios Malbec 2024 2024">
       <div class="info">
         <h1>Crios Malbec 2024</h1>
-        <p><strong>Precio:</strong> €0.00 / bottle (0.75 L)</p>
-        <p><i><strong>Precio por litro:</strong> €0.00 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Crios%20Malbec%202024%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-<br><br>
-<a href="mailto:ventas@1000malbecs.com?subject=[Compra] Crios%20Malbec%202024&body=Hola,%20estoy%20interesado/a%20en%20el%20vino%20Crios%20Malbec%202024%20().%20Quisiera%20más%20información%20o%20realizar%20la%20compra.%20Gracias!"
-   class="buy-btn" style="background: #e74c3c; margin-top: 12px;">
-  <i class="fas fa-envelope"></i> Contactar por email
-</a>
+   <!-- Precio destacado con legal pequeño -->
+      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
+        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
+          €0.00 / bottle (0.75 L)
+        </p>
+        
+        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
+          (Price per liter: €0.00 / L)
+        </p>
+      </div>
 
-<!-- Opcional: texto pequeño debajo -->
-<p style="font-size: 13px; color: #666; margin-top: 8px; text-align: center;">
-  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
-</p>
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Crios%20Malbec%202024%20(2024)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Crios%20Malbec%202024%20(2024)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Crios%20Malbec%202024%20(2024)%0A→%20Winery:%20Susana%20Balbo%0A→%20Price:%20€0.00 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
         <br>
         <br>
-        <p><strong>Bodega:</strong> Susana Balbo</p>
-        <p><strong>Región:</strong> Valle de uco</p>
-        <p><strong>Altura:</strong> 1050.0 msnm</p>
-        <p><strong>Volumen:</strong> 750 ml</p>
+        <p><strong>Winery:</strong> Susana Balbo</p>
+        <p><strong>Region:</strong> Valle de uco</p>
+        <p><strong>Altitude:</strong> 1050 masl</p>
         
-        <p><strong>Alcohol:</strong> 14.5%</p>
-        <p><strong>Acidez:</strong> 5.25 g/l g/L</p>
+        <p><strong>Volume:</strong> 750 ml</p>
+       
+        <p><strong>Alcohol:</strong> 14.50%</p>
+        <p><strong>Acidity:</strong> 5.25 g/l g/L</p>
         
         
+
+      
 
         <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/en/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
+          <strong>Shipping cost: EUR 6,99.</strong><br>
+          Free shipping on orders of 12 bottles or more. • 
+          <a href="/en/faq.html" target="_blank">+info</a><br>
+          <small><b>Sale to minors under 18 prohibited. ID check upon delivery.</b></small>
         </div>
 
         <div class="section">
-          <h2>Descripción</h2>
-          <p>Línea fresca y pura de Susana Balbo, ideal para restaurantes que buscan un Malbec accesible, frutado y versátil</p>
+          <h2>Description</h2>
+          <p>Fresh and pure line of Susana Balbo, ideal for restaurants looking for an accessible, fruity and versatile Malbec Crios Malbec 2024 from Susana Balbo</p>
         </div>
 
         <div class="section">
-          <h2>Notas de cata y maridaje</h2>
-          <p>Aromas de violetas, cerezas, frutos rojos y especias. En boca es frutado, con acidez equilibrada, notas de frutos rojos maduros y un sutil toque de roble. Textura suave y equilibrada.
-Maridaje: Carnes a la parrilla, empanadas, pastas y quesos semicurados.
-</p>
+          <h2>Tasting notes & pairing</h2>
+          <p>Aromas of violets, cherries, red fruits and spices. The palate is fruity, with balanced acidity, notes of ripe red fruits and a subtle touch of oak. Soft and balanced texture.
+Pairing: Grilled meats, empanadas, pastas and semi-cured cheeses. Crios Malbec 2024 from Susana Balbo</p>
         </div>
 
         
         <div class="section">
-          <h2>Ficha técnica</h2>
+          <h2>Technical sheet</h2>
           <p><a href="/fichas/file-a53dd95090bf11ec9b754d4a05cfeea6-489-344.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
-            Descargar PDF
+            Download PDF
           </a></p>
         </div>
         
       </div>
     </div>
 
-        <!-- OTRA BODEGA -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Susana Balbo</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Susana Balbo</h3>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/anubis-malbec-2024.jpg" alt="Anubis Malbec 2024 2024">
+      <h4>Anubis Malbec 2024</h4>
+      <p>€0.00</p>
+      <a href="/en/vinos/anubis-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Anubis Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+  <p><strong>Region:</strong> Valle de uco / luján de cuyo</p>
+  <p><strong>Altitude:</strong> 1150 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense ruby ​​color with violet reflections. Aromas of violets, cherries, strawberries, blackberries and soft spices. In the mouth it is fresh, fruity, with...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/ben-marco-malbec-2024.jpg" alt="Ben Marco Malbec 2024 2024">
+      <h4>Ben Marco Malbec 2024</h4>
+      <p>€0.00</p>
+      <a href="/en/vinos/ben-marco-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Ben Marco Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+  <p><strong>Region:</strong> Valle de uco (los chacayes)</p>
+  <p><strong>Altitude:</strong> 1110 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Tasting and pairing note:
+Aromas of black berries, violets and floral notes. In the mouth it has pronounced acidity, firm tannins, great length and freshness...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/signature-malbec-2024.jpg" alt="Signature Malbec 2024 2024">
+      <h4>Signature Malbec 2024</h4>
+      <p>€0.00</p>
+      <a href="/en/vinos/signature-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Signature Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+  <p><strong>Region:</strong> Valle de uco (paraje altamira)</p>
+  <p><strong>Altitude:</strong> 1150 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense ruby ​​color. Aromas of blueberries, blackberries, flowers and licorice. In the mouth it is intense but elegant, with round tannins and a long and re...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/osadia-de-crear-malbec-2024.jpg" alt="Osadia de Crear Malbec 2024 2024">
+      <h4>Osadia de Crear Malbec 2024</h4>
+      <p>€0.00</p>
+      <a href="/en/vinos/osadia-de-crear-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Osadia de Crear Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1300 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Dense, fleshy Malbec with vibrant fruit (red cherries, currants and plums). Fine but present tannins, excellent concentration and a very long and precise fin...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/nosotros-nomade-malbec-2020.jpg" alt="Nosotros Nomade Malbec 2020 2020">
+      <h4>Nosotros Nomade Malbec 2020</h4>
+      <p>€0.00</p>
+      <a href="/en/vinos/nosotros-nomade-malbec-2020.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Nosotros Nomade Malbec 2020</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+  <p><strong>Region:</strong> Valle de uco (gualtallary)</p>
+  <p><strong>Altitude:</strong> 1300 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Aromas of cassis, blueberries and floral notes. Excellent structure, fine tannins and great aging potential. Complex, elegant mouth with great depth.
+Pairing...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/crios-red-blend-2024.jpg" alt="Crios Red Blend 2024 2024">
+      <h4>Crios Red Blend 2024</h4>
+      <p>€0.00</p>
+      <a href="/en/vinos/crios-red-blend-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Crios Red Blend 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1150 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense ruby ​​red color with violet reflections. Aromas of ripe red fruits (cherry, strawberry, blackberry), spicy notes and soft herbs, with hints of viole...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Valle de uco</h3>
     <div class="grid">
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/anubis-malbec-2024.jpg" alt="Anubis Malbec 2024">
-        <h4>Anubis Malbec 2024</h4>
-        <p>€0.00</p>
-        <a href="/en/vinos/anubis-malbec-2024.html">Comprar</a>
-        <div class="overlay">
-          <p><strong>Anubis Malbec 2024</strong></p>
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Susana Balbo</p>
-          <p><strong>Región:</strong> Valle de uco / luján de cuyo</p>
-          <p><strong>Altura:</strong> 1150.0 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 13.5%</p>
-          
-          
-          
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
-            <p style="font-style: italic; margin-top: 8px;">
-              Color rubí intenso con reflejos violáceos. Aromas de violetas, cerezas, frutilla, moras y especias suaves. En boca es fresco, frutado, con acidez equilibrada y taninos redondos ...
-            </p>
-          
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/ben-marco-malbec-2024.jpg" alt="Ben Marco Malbec 2024">
-        <h4>Ben Marco Malbec 2024</h4>
-        <p>€0.00</p>
-        <a href="/en/vinos/ben-marco-malbec-2024.html">Comprar</a>
-        <div class="overlay">
-          <p><strong>Ben Marco Malbec 2024</strong></p>
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Susana Balbo</p>
-          <p><strong>Región:</strong> Valle de uco (los chacayes)</p>
-          <p><strong>Altura:</strong> 1110.0 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.499999999999998%</p>
-          
-          
-          
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
-            <p style="font-style: italic; margin-top: 8px;">
-              Nota de cata y maridaje:
-Aromas de bayas negras, violetas y notas florales. En boca presenta acidez pronunciada, taninos firmes, gran longitud y frescura característica del Vall...
-            </p>
-          
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/signature-malbec-2024.jpg" alt="Signature Malbec 2024">
-        <h4>Signature Malbec 2024</h4>
-        <p>€0.00</p>
-        <a href="/en/vinos/signature-malbec-2024.html">Comprar</a>
-        <div class="overlay">
-          <p><strong>Signature Malbec 2024</strong></p>
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Susana Balbo</p>
-          <p><strong>Región:</strong> Valle de uco (paraje altamira)</p>
-          <p><strong>Altura:</strong> 1150.0 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.499999999999998%</p>
-          
-          
-          
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
-            <p style="font-style: italic; margin-top: 8px;">
-              Color rubí intenso. Aromas de arándanos, moras, flores y regaliz. En boca es intenso pero elegante, con taninos redondos y un final largo y refinado.
-Maridaje: Carnes rojas, cer...
-            </p>
-          
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/osadia-de-crear-malbec-2024.jpg" alt="Osadia de Crear Malbec 2024">
-        <h4>Osadia de Crear Malbec 2024</h4>
-        <p>€0.00</p>
-        <a href="/en/vinos/osadia-de-crear-malbec-2024.html">Comprar</a>
-        <div class="overlay">
-          <p><strong>Osadia de Crear Malbec 2024</strong></p>
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Susana Balbo</p>
-          <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1300.0 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.5%</p>
-          
-          
-          
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
-            <p style="font-style: italic; margin-top: 8px;">
-              Malbec denso y carnoso con fruta vibrante (cerezas rojas, grosellas y ciruelas). Taninos finos pero presentes, excelente concentración y un final muy largo y preciso.
-Maridaje: ...
-            </p>
-          
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/nosotros-nomade-malbec-2020.jpg" alt="Nosotros Nomade Malbec 2020">
-        <h4>Nosotros Nomade Malbec 2020</h4>
-        <p>€0.00</p>
-        <a href="/en/vinos/nosotros-nomade-malbec-2020.html">Comprar</a>
-        <div class="overlay">
-          <p><strong>Nosotros Nomade Malbec 2020</strong></p>
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Susana Balbo</p>
-          <p><strong>Región:</strong> Valle de uco (gualtallary)</p>
-          <p><strong>Altura:</strong> 1300.0 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.5%</p>
-          
-          
-          
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
-            <p style="font-style: italic; margin-top: 8px;">
-              Aromas de cassis, arándanos y notas florales. Excelente estructura, taninos finos y gran potencial de guarda. Boca compleja, elegante y con gran profundidad.
-Maridaje: Carnes ro...
-            </p>
-          
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/crios-red-blend-2024.jpg" alt="Crios Red Blend 2024">
-        <h4>Crios Red Blend 2024</h4>
-        <p>€0.00</p>
-        <a href="/en/vinos/crios-red-blend-2024.html">Comprar</a>
-        <div class="overlay">
-          <p><strong>Crios Red Blend 2024</strong></p>
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Susana Balbo</p>
-          <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1150.0 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 13.5%</p>
-          
-          
-          
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
-            <p style="font-style: italic; margin-top: 8px;">
-              Color rojo rubí intenso con reflejos violáceos. Aromas de frutos rojos maduros (cereza, frutilla, mora), notas especiadas y de hierbas suaves, con toques de violetas y un sutil ...
-            </p>
-          
-        </div>
-      </div>
-      
-    </div>
-       <!-- ←←← ESTE ENDIF FALTABA -->
-
-    <!-- OTRA REGIÓN -->
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">Otros vinos de Valle de uco</h3>
-      <div class="grid">
-        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023">
+          <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
           <h4>Trumpeter Malbec 375 ml 2023</h4>
           <p>€9.96</p>
-          <a href="/en/vinos/trumpeter-malbec-375-ml-2023.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Trumpeter Malbec 375 ml 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
-            <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000.0 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 13.8%</p>
-            
-            
-            
+          <a href="/en/vinos/trumpeter-malbec-375-ml-2023.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Trumpeter Malbec 375 ml 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Rutini Wines</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Blackberry, plum and a touch of spice, with soft tannins. Pairing: chorizo ​​steak, roast lamb. Trumpeter Malbec 375 ml 2023 from Rutini Wines
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023">
+          <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023 2023">
           <h4>Temático Malbec 2023</h4>
           <p>€9.99</p>
-          <a href="/en/vinos/tematico-malbec-2023.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Temático Malbec 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1100.0 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 14.1%</p>
-            
-            
-            
+          <a href="/en/vinos/tematico-malbec-2023.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Temático Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Foster Lorca</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.10%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Ripe red fruit, plum, soft tannins. Ideal with pasta and white meats. Temático Malbec 2023 from Bodega Foster Lorca
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024">
+          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024 2024">
           <h4>Alamos Malbec 2024</h4>
           <p>€10.97</p>
-          <a href="/en/vinos/alamos-malbec-2024.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Alamos Malbec 2024</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Alamos</p>
-            <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1250.0 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 13.5%</p>
-            
-            
-            
+          <a href="/en/vinos/alamos-malbec-2024.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Alamos Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Alamos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1250 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Intense purple with violet flashes, showing its vitality and concentration.  
+Aroma: Expressive nose with a memorable intensity of ripe black fruits s...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022">
+          <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
           <h4>Los Haroldos Estate Malbec 2022</h4>
           <p>€11.90</p>
-          <a href="/en/vinos/los-haroldos-estate-malbec-2022.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Los Haroldos Estate Malbec 2022</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Los Haroldos</p>
-            <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000.0 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 13.8%</p>
-            
-            
-            
+          <a href="/en/vinos/los-haroldos-estate-malbec-2022.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Los Haroldos Estate Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Los Haroldos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Aroma of raspberry, cassis and a hint of oak. Juicy flavor with round tannins. Pairs well with roast lamb or meat stews. Los Haroldos Estate Malbec 2022 from...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023">
+          <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
           <h4>Trapiche Reserve Malbec 2023</h4>
           <p>€14.49</p>
-          <a href="/en/vinos/trapiche-reserve-malbec-2023.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Trapiche Reserve Malbec 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
-            <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000.0 msnm</p>
-            
-            
-            
-            
+          <a href="/en/vinos/trapiche-reserve-malbec-2023.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Trapiche Reserve Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Red and black fruits, with a touch of spices and soft tannins. Pairing: grilled meats, pasta with tomato sauce. Trapiche Reserve Malbec 2023 from Trapiche
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021">
+          <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021 2021">
           <h4>Ique Malbec 2021</h4>
           <p>€13.49</p>
-          <a href="/en/vinos/ique-malbec-2021.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Ique Malbec 2021</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
-            <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 950.0 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 14.4%</p>
-            
-            
-            
+          <a href="/en/vinos/ique-malbec-2021.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Ique Malbec 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Foster Lorca</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 950 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.40%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color, with violet hues. Presence of fresh red fruits, plums, raspberries,
+currants, blackberries, blueberries. Good structure and soft tannins, ...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
     </div>
-       <!-- ←←← Este también debe estar cerrado -->
+  </div>
 
-  <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
     const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.querySelector('#sidebar');
-    if (!hamburger || !sidebar) return;
+    const sidebar = document.getElementById('sidebar');
 
-    let isOpen = false;
-
-  const openMenu = () => {
-  isOpen = true;
-  hamburger.setAttribute('aria-expanded', 'true');
-  sidebar.classList.add('open');
-  // CERRAR TODOS LOS <details>
-  sidebar.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
-};
-
-    const closeMenu = () => {
-      isOpen = false;
-      hamburger.setAttribute('aria-expanded', 'false');
-      sidebar.classList.remove('open');
-      // Cerrar todos los <details>
-      sidebar.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
-    };
-
-    hamburger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      isOpen ? closeMenu() : openMenu();
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
     });
 
-    // Cerrar al tocar fuera
+    // Cerrar al hacer clic fuera
     document.addEventListener('click', (e) => {
-      if (isOpen && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-        closeMenu();
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       }
     });
+  </script>
 
-    // Cerrar al hacer scroll
-    window.addEventListener('scroll', () => {
-      if (isOpen && window.scrollY > 100) closeMenu();
-    });
-  });
-</script>
 </body>
 </html>
