@@ -612,59 +612,75 @@ body {
         <h1>Nosotros Nomade Malbec 2020</h1>
         <p><strong>Precio:</strong> €0.00 / botella (0.75 L)</p>
         <p><i><strong>Precio por litro:</strong> €0.00 / litro</p></i>
-         <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Nosotros%20Nomade%20Malbec%202020%20" 
-   onclick="return gtag_report_conversion(this.href);"
-   class="buy-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>Comprar por WhatsApp
-</a>
-<br><br>
-<a href="mailto:ventas@1000malbecs.com?subject=[Compra] Nosotros%20Nomade%20Malbec%202020&body=Hola,%20estoy%20interesado/a%20en%20el%20vino%20Nosotros%20Nomade%20Malbec%202020%20().%20Quisiera%20más%20información%20o%20realizar%20la%20compra.%20Gracias!"
-   class="buy-btn" style="background: #e74c3c; margin-top: 12px;">
-  <i class="fas fa-envelope"></i> Contactar por email
-</a>
+    <!-- Botones WhatsApp + Email -->
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20Nosotros%20Nomade%20Malbec%202020"
+     onclick="return gtag_report_conversion(this.href);"
+     class="buy-btn"
+     target="_blank"
+     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+  </a>
 
-<!-- Opcional: texto pequeño debajo -->
-<p style="font-size: 13px; color: #666; margin-top: 8px; text-align: center;">
+  <!-- Separador "o" -->
+  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+    o
+  </div>
+
+  <!-- Email Button -->
+  <a href="mailto:ventas@1000malbecs.com?subject=[Compra/Interés]%20Nosotros%20Nomade%20Malbec%202020&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Nosotros%20Nomade%20Malbec%202020%0A→%20Bodega:%20Susana%20Balbo%0A→%20Precio:%20€0.00 / botella (0.75 L)%0A%0AMe%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20o%20confirmar%20la%20compra.%20Muchas%20gracias!%0ASaludos,"
+     class="buy-btn"
+     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+    <i class="fas fa-envelope"></i> Contactar por Email
+  </a>
+</div>
+
+<!-- Texto pequeño de apoyo -->
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
   o escribe directamente a <strong>ventas@1000malbecs.com</strong>
 </p>
-        <br>
-        <br>
-        <p><strong>Bodega:</strong> Susana Balbo</p>
-        <p><strong>Región:</strong> Valle de uco (gualtallary)</p>
-        <p><strong>Altura:</strong> 1300.0 msnm</p>
-        <p><strong>Volumen:</strong> 750 ml</p>
-        
-        <p><strong>Alcohol:</strong> 14.5%</p>
-        <p><strong>Acidez:</strong> 5.4 g/l g/L</p>
-        <p><strong>Premios:</strong> 98 pts James Suckling</p>
-        
 
-        <div class="shipping">
-         <strong> Costo de envío EUR 6.99.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
-        </div>
+<br><br>
 
-        <div class="section">
-          <h2>Descripción</h2>
-          <p>Ícono de la bodega. Single Vineyard Nómade de Gualtallary, máxima expresión de altura y terruño en el Valle de Uco.</p>
-        </div>
+<p><strong>Bodega:</strong> Susana Balbo</p>
+<p><strong>Región:</strong> Valle de uco (gualtallary)</p>
+<p><strong>Altura:</strong> 1300.0 msnm</p>
+<p><strong>Volumen:</strong> 750 ml</p>
 
-        <div class="section">
-          <h2>Notas de cata y maridaje</h2>
-          <p>Aromas de cassis, arándanos y notas florales. Excelente estructura, taninos finos y gran potencial de guarda. Boca compleja, elegante y con gran profundidad.
+<p><strong>Alcohol:</strong> 14.5%</p>
+<p><strong>Acidez:</strong> 5.4 g/l g/L</p>
+<p><strong>Premios:</strong> 98 pts James Suckling</p>
+
+
+<div class="shipping">
+  <strong>Costo de envío: 6,99 €.</strong><br>
+  Envío gratis en pedidos de 12 botellas o más. • 
+  <a href="/es/faq.html" target="_blank">+info</a><br>
+  <small><b>Prohibida la venta a menores de 18 años. Se verifica ID en la entrega.</b></small>
+</div>
+
+<div class="section">
+  <h2>Descripción</h2>
+  <p>Ícono de la bodega. Single Vineyard Nómade de Gualtallary, máxima expresión de altura y terruño en el Valle de Uco.</p>
+</div>
+
+<div class="section">
+  <h2>Notas de cata y maridaje</h2>
+  <p>Aromas de cassis, arándanos y notas florales. Excelente estructura, taninos finos y gran potencial de guarda. Boca compleja, elegante y con gran profundidad.
 Maridaje: Carnes rojas de alta calidad, caza y quesos curados.
 </p>
-        </div>
+</div>
 
-        
-        <div class="section">
-          <h2>Ficha técnica</h2>
-          <p><a href="/fichas/file-a53671f09b1511ecaa562b6dcd288bc2-422-27.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
-            Descargar PDF
-          </a></p>
-        </div>
-        
-      </div>
-    </div>
+
+<div class="section">
+  <h2>Ficha técnica</h2>
+  <p><a href="/fichas/file-a53671f09b1511ecaa562b6dcd288bc2-422-27.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
+    Descargar PDF
+  </a></p>
+</div>
+
 
         <!-- OTRA BODEGA -->
     
