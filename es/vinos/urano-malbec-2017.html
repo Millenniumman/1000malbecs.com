@@ -515,8 +515,94 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+  }
+}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+  <!-- Tus metas, links y scripts actuales... -->
+  
+  <!-- Snippet de conversión de Google Ads -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
+          'value': 30.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Urano  Malbec 2017",
+  "description": "Urano - Malbec 2017 de Eral Bravo es un vino frutal y elegante, elaborado en Tupungato, Valle de Uco, con un enfoque en la frescura y la pureza del terroir. Este Malbec combina fruta vibrante con una sutil crianza en roble, ideal para carnes magras, pastas o platos vegetarianos. La añada 2017 ofr...",
+  "image": "https://www.1000malbecs.com/images/large/urano-malbec-2017.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Eral Bravo"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/es/vinos/urano-malbec-2017.html",
+    "priceCurrency": "EUR",
+    "price": "15.99 / botella (0.75 L)",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "15.99 / botella (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "%",
+  "producer": "Eral Bravo",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -568,268 +654,223 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/urano-malbec-2017.jpg" alt="Urano  Malbec 2017 2017">
+      <img src="https://www.1000malbecs.com/images/large/urano-malbec-2017.jpg" alt="Urano  Malbec 2017">
       <div class="info">
-        <h1>Urano  Malbec 2017</h1>
-        <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
-  <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
-    €15.99 / botella (0.75 L)
-  </p>
+  <h1>Urano  Malbec 2017</h1>
   
-  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
-    (Precio por Litro: €21.32 / L)
-  </p>
-</div>  
-<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
-  <!-- Botón WhatsApp -->
-  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Urano%20%20Malbec%202017%20(2017)"
-     onclick="return gtag_report_conversion(this.href);"
-     class="buy-btn"
-     target="_blank"
-     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-  </a>
+  <p><strong>Precio:</strong> €15.99 / botella (0.75 L)</p>
+  <p><strong>Precio por litro:</strong> €21.32 / litro</p>
 
-  <!-- Separador "o" -->
-  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
-    o
+  <!-- Availability claro y visible -->
+  
+    <p style="color: #f57c00; font-weight: 600;">⏳ Auf Vorbestellung (Lieferzeit ca. 7-14 Tage)</p>
+  
+
+  <!-- Botones WhatsApp + Email (mantengo tu versión en español) -->
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20Urano%20%20Malbec%202017" 
+       onclick="return gtag_report_conversion(this.href);" 
+       class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+    </a>
+
+    <!-- Separador -->
+    <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">o</div>
+
+    <!-- Email -->
+    <a href="mailto:ventas@1000malbecs.com?subject=[Compra]%20Urano%20%20Malbec%202017&body=Hola%20equipo,%0A%0AEstoy%20interesado%20en:%20Urano%20%20Malbec%202017%0A→%20Bodega:%20Eral Bravo%0A→%20Precio:%20€15.99 / botella (0.75 L)%0A%0AGracias!" 
+       class="buy-btn" style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fas fa-envelope"></i> Contactar por Email
+    </a>
   </div>
 
-  <!-- Botón Email -->
-  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Urano%20%20Malbec%202017%20(2017)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Urano%20%20Malbec%202017%20(2017)%0A→%20Bodega:%20Eral%20Bravo%0A→%20Precio:%20€15.99 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
-     class="buy-btn"
-     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fas fa-envelope"></i> Contactar por email
-  </a>
+  <p style="text-align: center; font-size: 13px; color: #666;">o escribe directamente a <strong>ventas@1000malbecs.com</strong></p>
+
+  <br><br>
+
+  <p><strong>Bodega:</strong> Eral Bravo</p>
+  <p><strong>Región:</strong> Valle de uco</p>
+  <p><strong>Altura:</strong> 1200.0 msnm</p>
+  <p><strong>Volumen:</strong> 750 ml</p>
+  <p><strong>Grundpreis:</strong> €21.32 / 0,75 l</p>   <!-- Importante para Google -->
+
+  
+  <p><strong>Acidez:</strong> 5.2 g/L</p>
+  
+  
+
+  <!-- Shipping -->
+  <div class="shipping">
+    <strong>Costo de envío: 6,99 €.</strong><br>
+    Envío gratis en pedidos de 12 botellas o más. • 
+    <a href="/es/faq.html" target="_blank">+info</a><br>
+    <small><b>Prohibida la venta a menores de 18 años. Se verifica ID en la entrega.</b></small>
+  </div>
+
+  <div class="section">
+    <h2>Descripción</h2>
+    <p>Urano - Malbec 2017 de Eral Bravo es un vino frutal y elegante, elaborado en Tupungato, Valle de Uco, con un enfoque en la frescura y la pureza del terroir. Este Malbec combina fruta vibrante con una sutil crianza en roble, ideal para carnes magras, pastas o platos vegetarianos. La añada 2017 ofrece un equilibrio perfecto para disfrutar ahora o guardar por 3-5 años.</p>
+  </div>
+
+  <div class="section">
+    <h2>Notas de cata y maridaje</h2>
+    <p>En nariz, presenta aromas a frambuesa, mora y hierbas frescas, con matices de vainilla y mineralidad. En boca, es jugoso, con sabores a frutos rojos, pimienta negra y cacao. Los taninos son suaves, con una acidez viva. El final es fresco, con notas de fruta y un toque terroso. Marida con filete de cerdo, pastas al pesto o ensaladas con queso de cabra.</p>
+  </div>
+
+  
 </div>
-
-<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
-<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
-  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
-</p>
-        
-        
-        <p><strong>Bodega:</strong> Eral Bravo</p>
-        <p><strong>Región:</strong> Valle de uco</p>
-        <p><strong>Altura:</strong> 1200 msnm</p>
-        <p><strong>Volumen:</strong> 750 ml</p>
-        <p><strong>Alcohol:</strong> 13,50%</p>
-        <p><strong>Acidez:</strong> 5.2 g/L</p>
-        
-        
-      
-        <div class="shipping">
-         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
-        </div>
-
-        <div class="section">
-          <h2>Descripción</h2>
-          <p>Urano - Malbec 2017 de Eral Bravo es un vino frutal y elegante, elaborado en Tupungato, Valle de Uco, con un enfoque en la frescura y la pureza del terroir. Este Malbec combina fruta vibrante con una sutil crianza en roble, ideal para carnes magras, pastas o platos vegetarianos. La añada 2017 ofrece un equilibrio perfecto para disfrutar ahora o guardar por 3-5 años.</p>
-        </div>
-
-        <div class="section">
-          <h2>Notas de cata y maridaje</h2>
-          <p>En nariz, presenta aromas a frambuesa, mora y hierbas frescas, con matices de vainilla y mineralidad. En boca, es jugoso, con sabores a frutos rojos, pimienta negra y cacao. Los taninos son suaves, con una acidez viva. El final es fresco, con notas de fruta y un toque terroso. Marida con filete de cerdo, pastas al pesto o ensaladas con queso de cabra.</p>
-        </div>
-
-        
-      </div>
-    </div>
-
-    <!-- OTRA BODEGA -->
-
-  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Eral Bravo</h3>
-  <div class="grid">
+        <!-- OTRA BODEGA -->
     
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Eral Bravo</h3>
+    <div class="grid">
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/eral-bravo-malbec-2017.jpg" alt="Eral Bravo  Malbec 2017 2017">
+        <img src="https://www.1000malbecs.com/images/small/eral-bravo-malbec-2017.jpg" alt="Eral Bravo  Malbec 2017">
         <h4>Eral Bravo  Malbec 2017</h4>
         <p>€25.49</p>
         <a href="/es/vinos/eral-bravo-malbec-2017.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>Eral Bravo  Malbec 2017</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> Eral Bravo</p>
           <p><strong>Región:</strong> Valle de uco</p>
-          <p><strong>Altura:</strong> 1200 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14,00%</p>
+          <p><strong>Altura:</strong> 1200.0 msnm</p>
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-              En nariz, ofrece aromas a ciruela, cassis y violetas, con notas de tabaco y mineralidad. En boca, es estructurado, con sabores a frutos negros, especias dulc...
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              En nariz, ofrece aromas a ciruela, cassis y violetas, con notas de tabaco y mineralidad. En boca, es estructurado, con sabores a frutos negros, especias dulces y chocolate. Los ...
             </p>
           
         </div>
       </div>
-    
-  </div>
-
+      
+    </div>
+       <!-- ←←← ESTE ENDIF FALTABA -->
 
     <!-- OTRA REGIÓN -->
-
-  <div class="region-section">
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Valle de uco</h3>
-    <div class="grid">
-      
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">Otros vinos de Valle de uco</h3>
+      <div class="grid">
+        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/trumpeter-malbec-375-ml-2023.jpg" alt="Trumpeter Malbec 375 ml 2023 2023">
-          <h4>Trumpeter Malbec 375 ml 2023</h4>
-          <p>€9.96</p>
-          <a href="/es/vinos/trumpeter-malbec-375-ml-2023.html">Comprar</a>
-          
+          <img src="https://www.1000malbecs.com/images/small/a-corazon-abierto-malbec-2019.jpg" alt="A Corazón Abierto Malbec 2019">
+          <h4>A Corazón Abierto Malbec 2019</h4>
+          <p>€36.06</p>
+          <a href="/es/vinos/a-corazon-abierto-malbec-2019.html">Comprar</a>
           <div class="overlay">
-            <p><strong>Trumpeter Malbec 375 ml 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Rutini Wines</p>
+            <p><strong>A Corazón Abierto Malbec 2019</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> A Corazon Abierto</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000 msnm</p>
+            <p><strong>Altura:</strong> 1280.0 msnm</p>
             
             
-              <p><strong>Alcohol:</strong> 13,80%</p>
+              <p><strong>Alcohol:</strong> 0.135%</p>
             
             
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                Mora, ciruela y un toque especiado, con taninos suaves. Maridaje: bife de chorizo, cordero asado.
-              </p>
             
           </div>
         </div>
-      
+        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023 2023">
-          <h4>Temático Malbec 2023</h4>
-          <p>€9.99</p>
-          <a href="/es/vinos/tematico-malbec-2023.html">Comprar</a>
-          
+          <img src="https://www.1000malbecs.com/images/small/a-corazon-abierto-gran-corte-2018.jpg" alt="A Corazón Abierto Gran Corte 2018">
+          <h4>A Corazón Abierto Gran Corte 2018</h4>
+          <p>€49.18</p>
+          <a href="/es/vinos/a-corazon-abierto-gran-corte-2018.html">Comprar</a>
           <div class="overlay">
-            <p><strong>Temático Malbec 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
+            <p><strong>A Corazón Abierto Gran Corte 2018</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> A Corazon Abierto</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1100 msnm</p>
+            <p><strong>Altura:</strong> 1280.0 msnm</p>
             
             
-              <p><strong>Alcohol:</strong> 14,10%</p>
+              <p><strong>Alcohol:</strong> 0.138%</p>
             
             
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                Fruta roja madura, ciruela, taninos suaves. Ideal con pastas y carnes blancas.
-              </p>
             
           </div>
         </div>
-      
+        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024 2024">
+          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-2024.jpg" alt="Alamos Malbec 2024">
           <h4>Alamos Malbec 2024</h4>
           <p>€10.97</p>
           <a href="/es/vinos/alamos-malbec-2024.html">Comprar</a>
-          
           <div class="overlay">
             <p><strong>Alamos Malbec 2024</strong></p>
             <p style="margin-top: 8px;"><strong>Bodega:</strong> Alamos</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1250 msnm</p>
+            <p><strong>Altura:</strong> 1250.0 msnm</p>
             
             
-              <p><strong>Alcohol:</strong> 13,50%</p>
+              <p><strong>Alcohol:</strong> 13.5%</p>
             
             
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                Color: Púrpura intenso con destellos violetas, mostrando su vitalidad y concentración.  
-Aroma: Nariz expresiva con una intensidad memorable de frutas negras...
-              </p>
             
           </div>
         </div>
-      
+        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/los-haroldos-estate-malbec-2022.jpg" alt="Los Haroldos Estate Malbec 2022 2022">
-          <h4>Los Haroldos Estate Malbec 2022</h4>
-          <p>€11.90</p>
-          <a href="/es/vinos/los-haroldos-estate-malbec-2022.html">Comprar</a>
-          
+          <img src="https://www.1000malbecs.com/images/small/alamos-malbec-magnum-1500-cc-2024.jpg" alt="Alamos Malbec Magnum 1500 cc 2024">
+          <h4>Alamos Malbec Magnum 1500 cc 2024</h4>
+          <p>€22.02</p>
+          <a href="/es/vinos/alamos-malbec-magnum-1500-cc-2024.html">Comprar</a>
           <div class="overlay">
-            <p><strong>Los Haroldos Estate Malbec 2022</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Los Haroldos</p>
+            <p><strong>Alamos Malbec Magnum 1500 cc 2024</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Alamos</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 13,80%</p>
+            <p><strong>Altura:</strong> 1250.0 msnm</p>
             
             
             
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                Aroma a frambuesa, cassis y un dejo de roble. Sabor jugoso con taninos redondos. Marida bien con cordero asado o guisos de carne.
-              </p>
             
           </div>
         </div>
-      
+        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/trapiche-reserve-malbec-2023.jpg" alt="Trapiche Reserve Malbec 2023 2023">
-          <h4>Trapiche Reserve Malbec 2023</h4>
-          <p>€14.99</p>
-          <a href="/es/vinos/trapiche-reserve-malbec-2023.html">Comprar</a>
-          
+          <img src="https://www.1000malbecs.com/images/small/tematico-malbec-2023.jpg" alt="Temático Malbec 2023">
+          <h4>Temático Malbec 2023</h4>
+          <p>€9.99</p>
+          <a href="/es/vinos/tematico-malbec-2023.html">Comprar</a>
           <div class="overlay">
-            <p><strong>Trapiche Reserve Malbec 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
+            <p><strong>Temático Malbec 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 1000 msnm</p>
+            <p><strong>Altura:</strong> 1100.0 msnm</p>
             
             
-              <p><strong>Alcohol:</strong> 13,50%</p>
+              <p><strong>Alcohol:</strong> 14.1%</p>
             
             
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                Frutas rojas y negras, con un toque de especias y taninos suaves. Maridaje: carnes a la parrilla, pastas con salsa de tomate.
-              </p>
             
           </div>
         </div>
-      
+        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021 2021">
+          <img src="https://www.1000malbecs.com/images/small/ique-malbec-2021.jpg" alt="Ique Malbec 2021">
           <h4>Ique Malbec 2021</h4>
           <p>€13.49</p>
           <a href="/es/vinos/ique-malbec-2021.html">Comprar</a>
-          
           <div class="overlay">
             <p><strong>Ique Malbec 2021</strong></p>
             <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Foster Lorca</p>
             <p><strong>Región:</strong> Valle de uco</p>
-            <p><strong>Altura:</strong> 950 msnm</p>
+            <p><strong>Altura:</strong> 950.0 msnm</p>
             
             
-              <p><strong>Alcohol:</strong> 14,40%</p>
+              <p><strong>Alcohol:</strong> 14.4%</p>
             
             
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                Color rojo intenso, con tonalidades violáceas. Presencia de frutos rojos frescos, ciruela, frambuesas,
-grosellas, moras, arándanos. De buena estructura y tan...
-              </p>
             
           </div>
         </div>
-      
+        
+      </div>
     </div>
-  </div>
-
+       <!-- ←←← Este también debe estar cerrado -->
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>
