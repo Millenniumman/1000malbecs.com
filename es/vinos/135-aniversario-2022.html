@@ -515,8 +515,94 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+  }
+}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+  <!-- Tus metas, links y scripts actuales... -->
+  
+  <!-- Snippet de conversión de Google Ads -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
+          'value': 30.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "135 Aniversario 2022",
+  "description": "Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega",
+  "image": "https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Bodega Goyenechea"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/es/vinos/135-aniversario-2022.html",
+    "priceCurrency": "EUR",
+    "price": "39.99 / botella (0.75 L)",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "39.99 / botella (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "0.145%",
+  "producer": "Bodega Goyenechea",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -568,291 +654,243 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="135 Aniversario 2022 2022">
+      <img src="https://www.1000malbecs.com/images/large/135-aniversario-2022.jpg" alt="135 Aniversario 2022">
       <div class="info">
-        <h1>135 Aniversario 2022</h1>
-        <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
-  <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
-    €39.99 / botella (0.75 L)
-  </p>
+  <h1>135 Aniversario 2022</h1>
   
-  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
-    (Precio por Litro: €53.32 / L)
-  </p>
-</div>  
-<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
-  <!-- Botón WhatsApp -->
-  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20135%20Aniversario%202022%20(2022)"
-     onclick="return gtag_report_conversion(this.href);"
-     class="buy-btn"
-     target="_blank"
-     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-  </a>
+  <p><strong>Precio:</strong> €39.99 / botella (0.75 L)</p>
+  <p><strong>Precio por litro:</strong> €53.32 / litro</p>
 
-  <!-- Separador "o" -->
-  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
-    o
+  <!-- Availability claro y visible -->
+  
+    <p style="color: #f57c00; font-weight: 600;">⏳ Auf Vorbestellung (Lieferzeit ca. 7-14 Tage)</p>
+  
+
+  <!-- Botones WhatsApp + Email (mantengo tu versión en español) -->
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20135%20Aniversario%202022" 
+       onclick="return gtag_report_conversion(this.href);" 
+       class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+    </a>
+
+    <!-- Separador -->
+    <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">o</div>
+
+    <!-- Email -->
+    <a href="mailto:ventas@1000malbecs.com?subject=[Compra]%20135%20Aniversario%202022&body=Hola%20equipo,%0A%0AEstoy%20interesado%20en:%20135%20Aniversario%202022%0A→%20Bodega:%20Bodega Goyenechea%0A→%20Precio:%20€39.99 / botella (0.75 L)%0A%0AGracias!" 
+       class="buy-btn" style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fas fa-envelope"></i> Contactar por Email
+    </a>
   </div>
 
-  <!-- Botón Email -->
-  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20135%20Aniversario%202022%20(2022)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20135%20Aniversario%202022%20(2022)%0A→%20Bodega:%20Bodega%20Goyenechea%0A→%20Precio:%20€39.99 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
-     class="buy-btn"
-     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fas fa-envelope"></i> Contactar por email
-  </a>
+  <p style="text-align: center; font-size: 13px; color: #666;">o escribe directamente a <strong>ventas@1000malbecs.com</strong></p>
+
+  <br><br>
+
+  <p><strong>Bodega:</strong> Bodega Goyenechea</p>
+  <p><strong>Región:</strong> San rafael</p>
+  <p><strong>Altura:</strong> 520.0 msnm</p>
+  <p><strong>Volumen:</strong> 750 ml</p>
+  <p><strong>Grundpreis:</strong> €53.32 / 0,75 l</p>   <!-- Importante para Google -->
+
+  <p><strong>Alcohol:</strong> 0.145%</p>
+  
+  
+  
+
+  <!-- Shipping -->
+  <div class="shipping">
+    <strong>Costo de envío: 6,99 €.</strong><br>
+    Envío gratis en pedidos de 12 botellas o más. • 
+    <a href="/es/faq.html" target="_blank">+info</a><br>
+    <small><b>Prohibida la venta a menores de 18 años. Se verifica ID en la entrega.</b></small>
+  </div>
+
+  <div class="section">
+    <h2>Descripción</h2>
+    <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
+  </div>
+
+  <div class="section">
+    <h2>Notas de cata y maridaje</h2>
+    <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
+  </div>
+
+  
 </div>
-
-<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
-<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
-  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
-</p>
-        
-        
-        <p><strong>Bodega:</strong> Bodega Goyenechea</p>
-        <p><strong>Región:</strong> San rafael</p>
-        <p><strong>Altura:</strong> 520 msnm</p>
-        <p><strong>Volumen:</strong> 750 ml</p>
-        <p><strong>Alcohol:</strong> 14,00%</p>
-        
-        
-        
-      
-        <div class="shipping">
-         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
-        </div>
-
-        <div class="section">
-          <h2>Descripción</h2>
-          <p>Un edición limitada creado en 2001 para celebrar el aniversario de las viñas y viñedos históricos de la bodega</p>
-        </div>
-
-        <div class="section">
-          <h2>Notas de cata y maridaje</h2>
-          <p>A la vista nos encontramos con un vino que presenta una correcta evolución relacionada a su edad, de color rojo rubí oscuro, con bordes granate, de lágrima densa. En nariz, es un vino complejo, en donde resaltan aromas terciarios; si entramos más en detalle, se percibe cassís, especias, vainilla, tabaco y fruta dulce. En boca nos sorprende un vino suave, de gran cuerpo y taninos sabrosos, que presenta un ligero calor en su largo final y excelente equilibrio. Haciendo un resumen general nos encontramos frente a un varietal de gran personalidad y fina elegancia.</p>
-        </div>
-
-        
-      </div>
-    </div>
-
-    <!-- OTRA BODEGA -->
-
-  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Goyenechea</h3>
-  <div class="grid">
+        <!-- OTRA BODEGA -->
     
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Bodega Goyenechea</h3>
+    <div class="grid">
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Goye Malbec 2022 2022">
+        <img src="https://www.1000malbecs.com/images/small/goye-malbec-2022.jpg" alt="Goye Malbec 2022">
         <h4>Goye Malbec 2022</h4>
         <p>€9.49</p>
         <a href="/es/vinos/goye-malbec-2022.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>Goye Malbec 2022</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Goyenechea</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 520 msnm</p>
+          <p><strong>Altura:</strong> 520.0 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14,00%</p>
+            <p><strong>Alcohol:</strong> 14%</p>
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-              Rojo rubí con reflejos púrpuras, brillante y vivaz. En nariz se manifiestan frutas secas, nuez y un leve especiado. Taninos suaves y una buena presencia de m...
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Rojo rubí con reflejos púrpuras, brillante y vivaz. En nariz se manifiestan frutas secas, nuez y un leve especiado. Taninos suaves y una buena presencia de madera. En boca posee...
             </p>
           
         </div>
       </div>
-    
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Quinta Generación Malbec 2022 2022">
+        <img src="https://www.1000malbecs.com/images/small/quinta-generacion-malbec-2022.jpg" alt="Quinta Generación Malbec 2022">
         <h4>Quinta Generación Malbec 2022</h4>
         <p>€19.99</p>
         <a href="/es/vinos/quinta-generacion-malbec-2022.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>Quinta Generación Malbec 2022</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Goyenechea</p>
           <p><strong>Región:</strong> San rafael</p>
-          <p><strong>Altura:</strong> 520 msnm</p>
+          <p><strong>Altura:</strong> 520.0 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14,40%</p>
+            <p><strong>Alcohol:</strong> 14.4%</p>
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-              Rojo intenso con reflejos púrpuras. Brillante y vivaz. Aroma complejo y persistente. En un primer momento se manifiesta la calidad de la madera de la barrica...
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Rojo intenso con reflejos púrpuras. Brillante y vivaz. Aroma complejo y persistente. En un primer momento se manifiesta la calidad de la madera de la barrica y luego se pueden s...
             </p>
           
         </div>
       </div>
-    
-  </div>
-
+      
+    </div>
+       <!-- ←←← ESTE ENDIF FALTABA -->
 
     <!-- OTRA REGIÓN -->
-
-  <div class="region-section">
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de San rafael</h3>
-    <div class="grid">
-      
+    
+    <div class="region-section">
+      <h3 style="color: var(--primary);">Otros vinos de San rafael</h3>
+      <div class="grid">
+        
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-varietal-2023.jpg" alt="Casa Araujo Varietal 2023 2023">
-          <h4>Casa Araujo Varietal 2023</h4>
-          <p>€7.99</p>
-          <a href="/es/vinos/casa-araujo-varietal-2023.html">Comprar</a>
-          
-          <div class="overlay">
-            <p><strong>Casa Araujo Varietal 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 13,20%</p>
-            
-            
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                A la vista presenta color rojo rubí, intenso con leves destellos violáceos. De gran complejidad aromática, combina ciruelas, violetas e higos. Perfil alcanza...
-              </p>
-            
-          </div>
-        </div>
-      
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-roble-2023.jpg" alt="Casa Araujo Roble 2023 2023">
-          <h4>Casa Araujo Roble 2023</h4>
-          <p>€10.19</p>
-          <a href="/es/vinos/casa-araujo-roble-2023.html">Comprar</a>
-          
-          <div class="overlay">
-            <p><strong>Casa Araujo Roble 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 13,70%</p>
-            
-            
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                El primer contacto que nos ofrece es un brillante color de tonalidad rubí y de buena intensidad. Luego en nariz es un vino de aromas vibrantes, con una evolu...
-              </p>
-            
-          </div>
-        </div>
-      
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/casa-araujo-mimi-2023.jpg" alt="Casa Araujo Mimi 2023 2023">
-          <h4>Casa Araujo Mimi 2023</h4>
-          <p>€13.99</p>
-          <a href="/es/vinos/casa-araujo-mimi-2023.html">Comprar</a>
-          
-          <div class="overlay">
-            <p><strong>Casa Araujo Mimi 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 13,40%</p>
-            
-            
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                En nariz encontramos el ensamble perfecto entre los aromas de frutos rojos, cerezas y moras propias del Malbec, con la nota especiada que aporta el Merlot. E...
-              </p>
-            
-          </div>
-        </div>
-      
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/nucha-2023.jpg" alt="Nucha 2023 2023">
-          <h4>Nucha 2023</h4>
-          <p>€12.99</p>
-          <a href="/es/vinos/nucha-2023.html">Comprar</a>
-          
-          <div class="overlay">
-            <p><strong>Nucha 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 14,50%</p>
-            
-            
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                Notas de cata: a la vista de color rojo intenso, con reflejos violáceos, brillante, joven y en nariz elegante y balanceado, combina aromas frutados propios d...
-              </p>
-            
-          </div>
-        </div>
-      
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva Blend 2023 2023">
-          <h4>Graciano Reserva Blend 2023</h4>
-          <p>€13.59</p>
-          <a href="/es/vinos/graciano-reserva-blend-2023.html">Comprar</a>
-          
-          <div class="overlay">
-            <p><strong>Graciano Reserva Blend 2023</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Casa Araujo</p>
-            <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 520 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 14,30%</p>
-            
-            
-            
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                A la vista nos muestra su intensa y profunda tonalidad rojo rubí. En nariz nos ofrece un encuentro elegante con aromas complejos a frutos rojos y especias, t...
-              </p>
-            
-          </div>
-        </div>
-      
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Famiglia Bianchi Malbec  2021 2021">
+          <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2021.jpg" alt="Famiglia Bianchi Malbec  2021">
           <h4>Famiglia Bianchi Malbec  2021</h4>
           <p>€18.49</p>
           <a href="/es/vinos/famiglia-bianchi-malbec-2021.html">Comprar</a>
-          
           <div class="overlay">
             <p><strong>Famiglia Bianchi Malbec  2021</strong></p>
             <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
             <p><strong>Región:</strong> San rafael</p>
-            <p><strong>Altura:</strong> 800 msnm</p>
-            
-            
-              <p><strong>Alcohol:</strong> 14,00%</p>
+            <p><strong>Altura:</strong> 800.0 msnm</p>
             
             
             
-              <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-              <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-                En nariz, presenta aromas a frambuesa, cereza y pimienta negra, con matices de vainilla y un toque herbal. En boca, es jugoso, con sabores a frutos rojos, es...
-              </p>
             
           </div>
         </div>
-      
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2023.jpg" alt="Famiglia Bianchi Malbec  2023">
+          <h4>Famiglia Bianchi Malbec  2023</h4>
+          <p>€18.49</p>
+          <a href="/es/vinos/famiglia-bianchi-malbec-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Famiglia Bianchi Malbec  2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 800.0 msnm</p>
+            
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2020.jpg" alt="Famiglia Bianchi Malbec 2020">
+          <h4>Famiglia Bianchi Malbec 2020</h4>
+          <p>€19.49</p>
+          <a href="/es/vinos/famiglia-bianchi-malbec-2020.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Famiglia Bianchi Malbec 2020</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 800.0 msnm</p>
+            
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/famiglia-bianchi-malbec-2014.jpg" alt="Famiglia Bianchi Malbec 2014">
+          <h4>Famiglia Bianchi Malbec 2014</h4>
+          <p>€21.49</p>
+          <a href="/es/vinos/famiglia-bianchi-malbec-2014.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Famiglia Bianchi Malbec 2014</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 800.0 msnm</p>
+            
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/gran-famiglia-malbec-2017.jpg" alt="Gran Famiglia  Malbec  2017">
+          <h4>Gran Famiglia  Malbec  2017</h4>
+          <p>€25.49</p>
+          <a href="/es/vinos/gran-famiglia-malbec-2017.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Gran Famiglia  Malbec  2017</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 1100.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 0.135%</p>
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/particular-malbec-2020.jpg" alt="Particular Malbec 2020">
+          <h4>Particular Malbec 2020</h4>
+          <p>€27.99</p>
+          <a href="/es/vinos/particular-malbec-2020.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Particular Malbec 2020</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Bianchi</p>
+            <p><strong>Región:</strong> San rafael</p>
+            <p><strong>Altura:</strong> 750.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 0.14%</p>
+            
+            
+            
+          </div>
+        </div>
+        
+      </div>
     </div>
-  </div>
-
+       <!-- ←←← Este también debe estar cerrado -->
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>

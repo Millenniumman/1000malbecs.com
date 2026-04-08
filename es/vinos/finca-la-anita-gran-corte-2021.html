@@ -515,8 +515,94 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+  }
+}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+  <!-- Tus metas, links y scripts actuales... -->
+  
+  <!-- Snippet de conversión de Google Ads -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
+          'value': 30.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Finca La Anita Gran Corte 2021",
+  "description": "El Finca La Anita Gran Corte 2021 es un vino de alta gama de la bodega Finca La Anita, ubicada en Alto Agrelo, Luján de Cuyo, Mendoza, Argentina. Esta bodega, fundada en 1992 por Manuel Mas y adquirida en 2016 por el enólogo suizo Bernard Fontannaz, es reconocida como pionera en la producción de ...",
+  "image": "https://www.1000malbecs.com/images/large/finca-la-anita-gran-corte-2021.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Finca La Anita"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/es/vinos/finca-la-anita-gran-corte-2021.html",
+    "priceCurrency": "EUR",
+    "price": "30.06 / botella (0.75 L)",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "30.06 / botella (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "0.14%",
+  "producer": "Finca La Anita",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -568,143 +654,137 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/finca-la-anita-gran-corte-2021.jpg" alt="Finca La Anita Gran Corte 2021 2021">
+      <img src="https://www.1000malbecs.com/images/large/finca-la-anita-gran-corte-2021.jpg" alt="Finca La Anita Gran Corte 2021">
       <div class="info">
-        <h1>Finca La Anita Gran Corte 2021</h1>
-        <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
-  <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
-    €30.06 / botella (0.75 L)
-  </p>
+  <h1>Finca La Anita Gran Corte 2021</h1>
   
-  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
-    (Precio por Litro: €40.08 / L)
-  </p>
-</div>  
-<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
-  <!-- Botón WhatsApp -->
-  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Finca%20La%20Anita%20Gran%20Corte%202021%20(2021)"
-     onclick="return gtag_report_conversion(this.href);"
-     class="buy-btn"
-     target="_blank"
-     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-  </a>
+  <p><strong>Precio:</strong> €30.06 / botella (0.75 L)</p>
+  <p><strong>Precio por litro:</strong> €40.08 / litro</p>
 
-  <!-- Separador "o" -->
-  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
-    o
+  <!-- Availability claro y visible -->
+  
+    <p style="color: #f57c00; font-weight: 600;">⏳ Auf Vorbestellung (Lieferzeit ca. 7-14 Tage)</p>
+  
+
+  <!-- Botones WhatsApp + Email (mantengo tu versión en español) -->
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20Finca%20La%20Anita%20Gran%20Corte%202021" 
+       onclick="return gtag_report_conversion(this.href);" 
+       class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+    </a>
+
+    <!-- Separador -->
+    <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">o</div>
+
+    <!-- Email -->
+    <a href="mailto:ventas@1000malbecs.com?subject=[Compra]%20Finca%20La%20Anita%20Gran%20Corte%202021&body=Hola%20equipo,%0A%0AEstoy%20interesado%20en:%20Finca%20La%20Anita%20Gran%20Corte%202021%0A→%20Bodega:%20Finca La Anita%0A→%20Precio:%20€30.06 / botella (0.75 L)%0A%0AGracias!" 
+       class="buy-btn" style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fas fa-envelope"></i> Contactar por Email
+    </a>
   </div>
 
-  <!-- Botón Email -->
-  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20Finca%20La%20Anita%20Gran%20Corte%202021%20(2021)&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20Finca%20La%20Anita%20Gran%20Corte%202021%20(2021)%0A→%20Bodega:%20Finca%20La%20Anita%0A→%20Precio:%20€30.06 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
-     class="buy-btn"
-     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fas fa-envelope"></i> Contactar por email
-  </a>
-</div>
+  <p style="text-align: center; font-size: 13px; color: #666;">o escribe directamente a <strong>ventas@1000malbecs.com</strong></p>
 
-<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
-<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
-  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
+  <br><br>
+
+  <p><strong>Bodega:</strong> Finca La Anita</p>
+  <p><strong>Región:</strong> Alto agrelo</p>
+  <p><strong>Altura:</strong> 1100.0 msnm</p>
+  <p><strong>Volumen:</strong> 750 ml</p>
+  <p><strong>Grundpreis:</strong> €40.08 / 0,75 l</p>   <!-- Importante para Google -->
+
+  <p><strong>Alcohol:</strong> 0.14%</p>
+  
+  <p><strong>Premios:</strong> 92 pts James Suckling</p>
+  <p><strong>Guarda:</strong> 6 años</p>
+
+  <!-- Shipping -->
+  <div class="shipping">
+    <strong>Costo de envío: 6,99 €.</strong><br>
+    Envío gratis en pedidos de 12 botellas o más. • 
+    <a href="/es/faq.html" target="_blank">+info</a><br>
+    <small><b>Prohibida la venta a menores de 18 años. Se verifica ID en la entrega.</b></small>
+  </div>
+
+  <div class="section">
+    <h2>Descripción</h2>
+    <p>El Finca La Anita Gran Corte 2021 es un vino de alta gama de la bodega Finca La Anita, ubicada en Alto Agrelo, Luján de Cuyo, Mendoza, Argentina. Esta bodega, fundada en 1992 por Manuel Mas y adquirida en 2016 por el enólogo suizo Bernard Fontannaz, es reconocida como pionera en la producción de vinos premium en Argentina. El Gran Corte 2021 es un blend cuidadosamente elaborado con uvas seleccionadas de los viñedos propios de la bodega (72 hectáreas), ubicados a 1100 metros de altitud en suelos aluviales y arcillosos, irrigados por el deshielo de los Andes. Este vino refleja un estilo moderno, equilibrado y elegante, combinando la frescura del Malbec con la estructura y complejidad de otras variedades, destacando la calidad del terroir de Agrelo
 </p>
-        
-        
-        <p><strong>Bodega:</strong> Finca La Anita</p>
-        <p><strong>Región:</strong> Alto agrelo</p>
-        <p><strong>Altura:</strong> 1100 msnm</p>
-        <p><strong>Volumen:</strong> 750 ml</p>
-        <p><strong>Alcohol:</strong> 13,50%</p>
-        
-        <p><strong>Premios:</strong> 92 pts James Suckling</p>
-        <p><strong>Guarda:</strong> 6 años</p>
-      
-        <div class="shipping">
-         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
-        </div>
+  </div>
 
-        <div class="section">
-          <h2>Descripción</h2>
-          <p>El Finca La Anita Gran Corte 2021 es un vino de alta gama de la bodega Finca La Anita, ubicada en Alto Agrelo, Luján de Cuyo, Mendoza, Argentina. Esta bodega, fundada en 1992 por Manuel Mas y adquirida en 2016 por el enólogo suizo Bernard Fontannaz, es reconocida como pionera en la producción de vinos premium en Argentina. El Gran Corte 2021 es un blend cuidadosamente elaborado con uvas seleccionadas de los viñedos propios de la bodega (72 hectáreas), ubicados a 1100 metros de altitud en suelos aluviales y arcillosos, irrigados por el deshielo de los Andes. Este vino refleja un estilo moderno, equilibrado y elegante, combinando la frescura del Malbec con la estructura y complejidad de otras variedades, destacando la calidad del terroir de Agrelo
-</p>
-        </div>
-
-        <div class="section">
-          <h2>Notas de cata y maridaje</h2>
-          <p>Rojo violáceo, con destellos negros. Un vino de gran complejidad; de corte moderno, es un blend en donde el Malbec aporta frescura, el Cabernet Sauvignon sus notas  balsámicas, el Petit Verdot la estructura y el Cabernet Franc la nota chispeante y vivaz. En nariz expresa notas licorosas y florales, con fruta roja y negra maduras. Taninos firmes y jugosos. Largo final. Recomendamos servir con carnes rojas especialmente asadas o estofadas. Va muy bien con quesos curados, olorosos o picantes, como el Camembert, Brie o el Manchego.
+  <div class="section">
+    <h2>Notas de cata y maridaje</h2>
+    <p>Rojo violáceo, con destellos negros. Un vino de gran complejidad; de corte moderno, es un blend en donde el Malbec aporta frescura, el Cabernet Sauvignon sus notas  balsámicas, el Petit Verdot la estructura y el Cabernet Franc la nota chispeante y vivaz. En nariz expresa notas licorosas y florales, con fruta roja y negra maduras. Taninos firmes y jugosos. Largo final. Recomendamos servir con carnes rojas especialmente asadas o estofadas. Va muy bien con quesos curados, olorosos o picantes, como el Camembert, Brie o el Manchego.
 Listo para consumir, tiempo de guarda recomendado 6 años.</p>
-        </div>
+  </div>
 
-        
-        <div class="section">
-          <h2>Ficha técnica</h2>
-          <p><a href="/fichas/ficha_finca_la_anita_gran_corte_2021.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
-            Descargar PDF
-          </a></p>
-        </div>
-        
-      </div>
-    </div>
-
-    <!-- OTRA BODEGA -->
-
-  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Finca La Anita</h3>
-  <div class="grid">
+  
+  <div class="section">
+    <h2>Ficha técnica</h2>
+    <p><a href="/fichas/ficha_finca_la_anita_gran_corte_2021.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">Descargar PDF</a></p>
+  </div>
+  
+</div>
+        <!-- OTRA BODEGA -->
     
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Finca La Anita</h3>
+    <div class="grid">
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/finca-la-anita-malbec-2021.jpg" alt="Finca La Anita Malbec 2021 2021">
+        <img src="https://www.1000malbecs.com/images/small/finca-la-anita-malbec-2021.jpg" alt="Finca La Anita Malbec 2021">
         <h4>Finca La Anita Malbec 2021</h4>
         <p>€30.06</p>
         <a href="/es/vinos/finca-la-anita-malbec-2021.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>Finca La Anita Malbec 2021</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca La Anita</p>
           <p><strong>Región:</strong> Alto agrelo</p>
-          <p><strong>Altura:</strong> 1100 msnm</p>
+          <p><strong>Altura:</strong> 1100.0 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 13,50%</p>
+            <p><strong>Alcohol:</strong> 0.14%</p>
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-              Rojo carmesí profundo, con destellos violetas. Delicados aromas de frutas negras y rojas, flores azules, pimiento rojo y pimienta blanca. De gran presencia e...
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Rojo carmesí profundo, con destellos violetas. Delicados aromas de frutas negras y rojas, flores azules, pimiento rojo y pimienta blanca. De gran presencia en boca, con taninos ...
             </p>
           
         </div>
       </div>
-    
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/magna-finca-malbec-2019.jpg" alt="Magna Finca Malbec 2019 2019">
+        <img src="https://www.1000malbecs.com/images/small/magna-finca-malbec-2019.jpg" alt="Magna Finca Malbec 2019">
         <h4>Magna Finca Malbec 2019</h4>
         <p>€50.58</p>
         <a href="/es/vinos/magna-finca-malbec-2019.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>Magna Finca Malbec 2019</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca La Anita</p>
           <p><strong>Región:</strong> Alto agrelo</p>
-          <p><strong>Altura:</strong> 1100 msnm</p>
+          <p><strong>Altura:</strong> 1100.0 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14,50%</p>
+            <p><strong>Alcohol:</strong> 0.144%</p>
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-              Rojo rubí con tonos azulados; la entrada en boca es exquisita, ancha; muy buena textura de taninos, redondos y dulces; fruta roja negra, ciruela roja madura,...
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Rojo rubí con tonos azulados; la entrada en boca es exquisita, ancha; muy buena textura de taninos, redondos y dulces; fruta roja negra, ciruela roja madura, moras y cerezas. Un...
             </p>
           
         </div>
       </div>
-    
-  </div>
-
+      
+    </div>
+       <!-- ←←← ESTE ENDIF FALTABA -->
 
     <!-- OTRA REGIÓN -->
-
+       <!-- ←←← Este también debe estar cerrado -->
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>
