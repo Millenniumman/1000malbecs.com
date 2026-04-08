@@ -521,29 +521,96 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+  <!-- Tus metas, links y scripts actuales... -->
+  
+  <!-- Snippet de conversión de Google Ads -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
+          'value': 30.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Lagarde Malbec 2022",
+  "description": "Las uvas de estos vinos varietales provienen de viñedos seleccionados, según las características y el potencial del terroir ideal para cada variedad.
+
+La línea Lagarde está compuesta por seis varietales y un vino rosado: Cabernet Sauvignon, Malbec, Syrah, Merlot, Viognier, Chardonnay y un rosado,...",
+  "image": "https://www.1000malbecs.com/images/large/lagarde-malbec-2022.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Lagarde"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/es/vinos/lagarde-malbec-2022.html",
+    "priceCurrency": "EUR",
+    "price": "19.99 / botella (0.75 L)",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "19.99 / botella (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "0.141%",
+  "producer": "Lagarde",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -597,48 +664,77 @@ body {
     <div class="product">
       <img src="https://www.1000malbecs.com/images/large/lagarde-malbec-2022.jpg" alt="Lagarde Malbec 2022">
       <div class="info">
-        <h1>Lagarde Malbec 2022</h1>
-        <p><strong>Bodega:</strong> Lagarde</p>
-        <p><strong>Región:</strong> Luján de cuyo</p>
-        <p><strong>Altura:</strong> 980.0 msnm</p>
-        <p><strong>Precio:</strong> €19.99 / botella (0.75 L)</p>
-        <p><strong>Volumen:</strong> 750 ml</p>
-        <p><strong>Precio por litro:</strong> €26.65 / litro</p>
-        <p><strong>Alcohol:</strong> 0.141%</p>
-        <p><strong>Acidez:</strong> 5.2 g/l g/L</p>
-        
-        
-        
-        <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20Lagarde%20Malbec%202022%20" 
-           class="buy-btn" target="_blank">
-          Pedir por WhatsApp
-        </a>
+  <h1>Lagarde Malbec 2022</h1>
+  
+  <p><strong>Precio:</strong> €19.99 / botella (0.75 L)</p>
+  <p><strong>Precio por litro:</strong> €26.65 / litro</p>
 
-        <div class="shipping">
-         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
-        </div>
+  <!-- Availability claro y visible -->
+  
+    <p style="color: #f57c00; font-weight: 600;">⏳ Auf Vorbestellung (Lieferzeit ca. 7-14 Tage)</p>
+  
 
-        <div class="section">
-          <h2>Descripción</h2>
-          <p>Las uvas de estos vinos varietales provienen de viñedos seleccionados, según las características y el potencial del terroir ideal para cada variedad.
+  <!-- Botones WhatsApp + Email (mantengo tu versión en español) -->
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20Lagarde%20Malbec%202022" 
+       onclick="return gtag_report_conversion(this.href);" 
+       class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+    </a>
+
+    <!-- Separador -->
+    <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">o</div>
+
+    <!-- Email -->
+    <a href="mailto:ventas@1000malbecs.com?subject=[Compra]%20Lagarde%20Malbec%202022&body=Hola%20equipo,%0A%0AEstoy%20interesado%20en:%20Lagarde%20Malbec%202022%0A→%20Bodega:%20Lagarde%0A→%20Precio:%20€19.99 / botella (0.75 L)%0A%0AGracias!" 
+       class="buy-btn" style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fas fa-envelope"></i> Contactar por Email
+    </a>
+  </div>
+
+  <p style="text-align: center; font-size: 13px; color: #666;">o escribe directamente a <strong>ventas@1000malbecs.com</strong></p>
+
+  <br><br>
+
+  <p><strong>Bodega:</strong> Lagarde</p>
+  <p><strong>Región:</strong> Luján de cuyo</p>
+  <p><strong>Altura:</strong> 980.0 msnm</p>
+  <p><strong>Volumen:</strong> 750 ml</p>
+  <p><strong>Grundpreis:</strong> €26.65 / 0,75 l</p>   <!-- Importante para Google -->
+
+  <p><strong>Alcohol:</strong> 0.141%</p>
+  <p><strong>Acidez:</strong> 5.2 g/l g/L</p>
+  
+  
+
+  <!-- Shipping -->
+  <div class="shipping">
+    <strong>Costo de envío: 6,99 €.</strong><br>
+    Envío gratis en pedidos de 12 botellas o más. • 
+    <a href="/es/faq.html" target="_blank">+info</a><br>
+    <small><b>Prohibida la venta a menores de 18 años. Se verifica ID en la entrega.</b></small>
+  </div>
+
+  <div class="section">
+    <h2>Descripción</h2>
+    <p>Las uvas de estos vinos varietales provienen de viñedos seleccionados, según las características y el potencial del terroir ideal para cada variedad.
 
 La línea Lagarde está compuesta por seis varietales y un vino rosado: Cabernet Sauvignon, Malbec, Syrah, Merlot, Viognier, Chardonnay y un rosado, elaborado con Malbec y Pinot Noir. En 2020, se incorporó por primera vez un blend de tintas. Gracias a su crianza de 8 a 12 meses en barrica de roble, los tintos logran un delicado equilibrio entre fruta y madera. Los blancos, por su parte, se destacan por su frescura y vivacidad.</p>
-        </div>
+  </div>
 
-        <div class="section">
-          <h2>Notas de cata y maridaje</h2>
-          <p>Color rojo violáceo intenso, brillante. Aromas expresivos de frutas rojas maduras (cereza, frutilla, ciruela), confituras, toques florales (violeta), y notas suaves de vainilla, chocolate y un leve ahumado o especiado por la barrica. En boca es equilibrado, con buen cuerpo medio, taninos maduros y suaves (aterciopelados), jugoso y persistente. Muy bebible, con fruta jugosa y una frescura que lo hace versátil.Maridaje sugerido (ideal según la bodega y catas):  Carnes a la parrilla o asadas (asado argentino, chorizos, vacío, bife).  
+  <div class="section">
+    <h2>Notas de cata y maridaje</h2>
+    <p>Color rojo violáceo intenso, brillante. Aromas expresivos de frutas rojas maduras (cereza, frutilla, ciruela), confituras, toques florales (violeta), y notas suaves de vainilla, chocolate y un leve ahumado o especiado por la barrica. En boca es equilibrado, con buen cuerpo medio, taninos maduros y suaves (aterciopelados), jugoso y persistente. Muy bebible, con fruta jugosa y una frescura que lo hace versátil.Maridaje sugerido (ideal según la bodega y catas):  Carnes a la parrilla o asadas (asado argentino, chorizos, vacío, bife).  
 Pastas con salsas rojas (boloñesa, ragú, tomate con carne).  
 Empanadas de carne, pizzas con ingredientes fuertes, o quesos semiduros.
 También va genial con hamburguesas, cerdo grillado o platos con algo de especias suaves. Es un compañero clásico de la mesa argentina.
 </p>
-        </div>
+  </div>
 
-        
-      </div>
-    </div>
-
-    <!-- OTRA BODEGA -->
+  
+</div>
+        <!-- OTRA BODEGA -->
     
     <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Lagarde</h3>
     <div class="grid">
@@ -649,10 +745,21 @@ También va genial con hamburguesas, cerdo grillado o platos con algo de especia
         <p>€14.50</p>
         <a href="/es/vinos/teia-malbec-by-lagarde-2020.html">Comprar</a>
         <div class="overlay">
-          <p><strong>Bodega:</strong> Lagarde</p>
+          <p><strong>Teia Malbec by Lagarde 2020</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Lagarde</p>
           <p><strong>Región:</strong> Luján de cuyo</p>
-          <p><strong>Altura:</strong> 980.0</p>
-          <p><strong>Alcohol:</strong> 0.141%</p>
+          <p><strong>Altura:</strong> 980.0 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.141%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Las uvas para Teia provienen de viñedos propios, ubicados en dos terroirs de clase mundial como son Agrelo y Perdriel. Es un vino equilibrado, con fruta roja madura (guinda, mer...
+            </p>
+          
         </div>
       </div>
       
@@ -662,10 +769,23 @@ También va genial con hamburguesas, cerdo grillado o platos con algo de especia
         <p>€23.99</p>
         <a href="/es/vinos/lagarde-organico-rose-2022.html">Comprar</a>
         <div class="overlay">
-          <p><strong>Bodega:</strong> Lagarde</p>
+          <p><strong>Lagarde Orgánico Rose 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Lagarde</p>
           <p><strong>Región:</strong> Luján de cuyo</p>
-          <p><strong>Altura:</strong> 980.0</p>
-          <p><strong>Alcohol:</strong> 0.125%</p>
+          <p><strong>Altura:</strong> 980.0 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.125%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Color rosado claro a cobrizo suave, luminoso.  
+Aromas a frutas frescas maduras (durazno, frutilla, algo de cítricos).  
+En boca refrescante, vivaz, equilibrado, con buena acide...
+            </p>
+          
         </div>
       </div>
       
@@ -675,10 +795,23 @@ También va genial con hamburguesas, cerdo grillado o platos con algo de especia
         <p>€30.99</p>
         <a href="/es/vinos/guarda-malbec-doc-2021.html">Comprar</a>
         <div class="overlay">
-          <p><strong>Bodega:</strong> Lagarde</p>
+          <p><strong>Guarda Malbec D.O.C 2021</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Lagarde</p>
           <p><strong>Región:</strong> Luján de cuyo</p>
-          <p><strong>Altura:</strong> 980.0</p>
-          <p><strong>Alcohol:</strong> 0.14%</p>
+          <p><strong>Altura:</strong> 980.0 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.14%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Crianza: 100% del vino en barricas de roble francés por 12 meses (más 12 meses en botella antes de salir al mercado).
+Potencial de guarda: Más de 10-15 años.
+Estilo: Color rojo ...
+            </p>
+          
         </div>
       </div>
       
@@ -688,10 +821,23 @@ También va genial con hamburguesas, cerdo grillado o platos con algo de especia
         <p>€30.99</p>
         <a href="/es/vinos/guarda-blend-2022.html">Comprar</a>
         <div class="overlay">
-          <p><strong>Bodega:</strong> Lagarde</p>
+          <p><strong>Guarda Blend 2022</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Lagarde</p>
           <p><strong>Región:</strong> Luján de cuyo</p>
-          <p><strong>Altura:</strong> 980.0</p>
-          <p><strong>Alcohol:</strong> 0.139%</p>
+          <p><strong>Altura:</strong> 980.0 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.139%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Crianza: 100% del vino en barricas de roble francés por 12 meses.
+Potencial de guarda: Más de 10 años.
+Estilo: Color rojo azulado oscuro intenso. Aromas complejos a frutos rojos...
+            </p>
+          
         </div>
       </div>
       
@@ -701,15 +847,27 @@ También va genial con hamburguesas, cerdo grillado o platos con algo de especia
         <p>€108.00</p>
         <a href="/es/vinos/henry-gran-guarda-no1-2019.html">Comprar</a>
         <div class="overlay">
-          <p><strong>Bodega:</strong> Lagarde</p>
+          <p><strong>Henry Gran Guarda Nº1 2019</strong></p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Lagarde</p>
           <p><strong>Región:</strong> Luján de cuyo</p>
-          <p><strong>Altura:</strong> 980.0</p>
-          <p><strong>Alcohol:</strong> 0.145%</p>
+          <p><strong>Altura:</strong> 980.0 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.145%</p>
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
+              Crianza: 18-24 meses en barricas nuevas de roble francés + 12 meses en botella antes de salir al mercado.
+Color: Rojo oscuro intenso, casi negro, con reflejos violáceos o rubí p...
+            </p>
+          
         </div>
       </div>
       
     </div>
-    
+       <!-- ←←← ESTE ENDIF FALTABA -->
 
     <!-- OTRA REGIÓN -->
     
@@ -718,67 +876,21 @@ También va genial con hamburguesas, cerdo grillado o platos con algo de especia
       <div class="grid">
         
         <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/san-telmo-malbec-2024.jpg" alt="San Telmo Malbec 2024">
-          <h4>San Telmo Malbec 2024</h4>
-          <p>€8.16</p>
-          <a href="/es/vinos/san-telmo-malbec-2024.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> San Telmo</p>
-            <p><strong>Región:</strong> Luján de cuyo</p>
-            <p><strong>Altura:</strong> No disponible</p>
-            <p><strong>Alcohol:</strong> 13.4%</p>
-          </div>
-        </div>
-        
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023">
-          <h4>Pequeña Vasija Malbec 2023</h4>
-          <p>€8.38</p>
-          <a href="/es/vinos/pequena-vasija-malbec-2023.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> La Rural</p>
-            <p><strong>Región:</strong> Luján de cuyo</p>
-            <p><strong>Altura:</strong> No disponible</p>
-            <p><strong>Alcohol:</strong> 13.6%</p>
-          </div>
-        </div>
-        
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023">
-          <h4>San Felipe Varietal Malbec 2023</h4>
-          <p>€11.52</p>
-          <a href="/es/vinos/san-felipe-varietal-malbec-2023.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> La Rural</p>
-            <p><strong>Región:</strong> Luján de cuyo</p>
-            <p><strong>Altura:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
-          </div>
-        </div>
-        
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024">
-          <h4>San Felipe en Roble Malbec 2024</h4>
-          <p>€13.12</p>
-          <a href="/es/vinos/san-felipe-en-roble-malbec-2024.html">Comprar</a>
-          <div class="overlay">
-            <p><strong>Bodega:</strong> La Rural</p>
-            <p><strong>Región:</strong> Luján de cuyo</p>
-            <p><strong>Altura:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 13.7%</p>
-          </div>
-        </div>
-        
-        <div class="card">
           <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023">
           <h4>Septima Rose de Malbec 2023</h4>
           <p>€14.99</p>
           <a href="/es/vinos/septima-rose-de-malbec-2023.html">Comprar</a>
           <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Séptima</p>
+            <p><strong>Septima Rose de Malbec 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Séptima</p>
             <p><strong>Región:</strong> Luján de cuyo</p>
-            <p><strong>Altura:</strong> 900.0</p>
-            <p><strong>Alcohol:</strong> 12.9%</p>
+            <p><strong>Altura:</strong> 900.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 12.9%</p>
+            
+            
+            
           </div>
         </div>
         
@@ -788,17 +900,98 @@ También va genial con hamburguesas, cerdo grillado o platos con algo de especia
           <p>€15.49</p>
           <a href="/es/vinos/septima-malbec-2022.html">Comprar</a>
           <div class="overlay">
-            <p><strong>Bodega:</strong> Bodega Séptima</p>
+            <p><strong>Septima Malbec 2022</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Séptima</p>
             <p><strong>Región:</strong> Luján de cuyo</p>
-            <p><strong>Altura:</strong> 900.0</p>
-            <p><strong>Alcohol:</strong> 14%</p>
+            <p><strong>Altura:</strong> 900.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14%</p>
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/petit-caro-2021.jpg" alt="Petit Caro 2021">
+          <h4>Petit Caro 2021</h4>
+          <p>€27.77</p>
+          <a href="/es/vinos/petit-caro-2021.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Petit Caro 2021</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodegas Caro</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 1000.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 0.135%</p>
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="CHAKANA Nuna Malbec Bio 2022">
+          <h4>CHAKANA Nuna Malbec Bio 2022</h4>
+          <p>€19.19</p>
+          <a href="/es/vinos/chakana-nuna-malbec-bio-2022.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>CHAKANA Nuna Malbec Bio 2022</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Chakana</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 960.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 13.7%</p>
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/cicchitti-blend-2016.jpg" alt="CICCHITTI Blend 2016">
+          <h4>CICCHITTI Blend 2016</h4>
+          <p>€19.99</p>
+          <a href="/es/vinos/cicchitti-blend-2016.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>CICCHITTI Blend 2016</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Cicchitti</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 958.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 0.143%</p>
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/puro-malbec-cabernet-2023.jpg" alt="Puro Malbec Cabernet 2023">
+          <h4>Puro Malbec Cabernet 2023</h4>
+          <p>€15.99</p>
+          <a href="/es/vinos/puro-malbec-cabernet-2023.html">Comprar</a>
+          <div class="overlay">
+            <p><strong>Puro Malbec Cabernet 2023</strong></p>
+            <p style="margin-top: 8px;"><strong>Bodega:</strong> Dieter Meier and Family Wines</p>
+            <p><strong>Región:</strong> Luján de cuyo</p>
+            <p><strong>Altura:</strong> 1100.0 msnm</p>
+            
+            
+              <p><strong>Alcohol:</strong> 14.3%</p>
+            
+            
+            
           </div>
         </div>
         
       </div>
     </div>
-    
-  </div>
+       <!-- ←←← Este también debe estar cerrado -->
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>

@@ -515,8 +515,94 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+  }
+}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+  <!-- Tus metas, links y scripts actuales... -->
+  
+  <!-- Snippet de conversión de Google Ads -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1068768833/wvD3CI6upO4bEMG80P0D',
+          'value': 30.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "La Fuerza Primavera",
+  "description": "Ni Bianco, ni Rosso, ni Rosé. Un vermú con el sabor y el perfume de la Primavera en los Andes. Flores, especias y hierbas, vino Torrontés de Mendoza y un carácter fresco y exótico para viajar al origen de La Fuerza.",
+  "image": "https://www.1000malbecs.com/images/large/la-fuerza-primavera.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "La Fuerza Vermu"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/es/vinos/la-fuerza-primavera.html",
+    "priceCurrency": "EUR",
+    "price": "21.00 / botella (0.75 L)",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "21.00 / botella (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "%",
+  "producer": "La Fuerza Vermu",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -568,92 +654,82 @@ body {
   <!-- CONTENIDO: ESPACIO PARA SIDEBAR DEL WORKER -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/la-fuerza-primavera.jpg" alt="La Fuerza Primavera 0">
+      <img src="https://www.1000malbecs.com/images/large/la-fuerza-primavera.jpg" alt="La Fuerza Primavera">
       <div class="info">
-        <h1>La Fuerza Primavera</h1>
-        <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
-  <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
-    €24.49 / botella (0.75 L)
-  </p>
+  <h1>La Fuerza Primavera</h1>
   
-  <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
-    (Precio por Litro: €32.65 / L)
-  </p>
-</div>  
-<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
-  <!-- Botón WhatsApp -->
-  <a href="https://wa.me/4915158224728?text=Hola,%20quiero%20comprar:%20La%20Fuerza%20Primavera"
-     onclick="return gtag_report_conversion(this.href);"
-     class="buy-btn"
-     target="_blank"
-     style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-  </a>
+  <p><strong>Precio:</strong> €21.00 / botella (0.75 L)</p>
+  <p><strong>Precio por litro:</strong> €28.00 / litro</p>
 
-  <!-- Separador "o" -->
-  <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
-    o
+  <!-- Availability claro y visible -->
+  
+    <p style="color: #f57c00; font-weight: 600;">⏳ Auf Vorbestellung (Lieferzeit ca. 7-14 Tage)</p>
+  
+
+  <!-- Botones WhatsApp + Email (mantengo tu versión en español) -->
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20La%20Fuerza%20Primavera" 
+       onclick="return gtag_report_conversion(this.href);" 
+       class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+    </a>
+
+    <!-- Separador -->
+    <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">o</div>
+
+    <!-- Email -->
+    <a href="mailto:ventas@1000malbecs.com?subject=[Compra]%20La%20Fuerza%20Primavera&body=Hola%20equipo,%0A%0AEstoy%20interesado%20en:%20La%20Fuerza%20Primavera%0A→%20Bodega:%20La Fuerza Vermu%0A→%20Precio:%20€21.00 / botella (0.75 L)%0A%0AGracias!" 
+       class="buy-btn" style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+      <i class="fas fa-envelope"></i> Contactar por Email
+    </a>
   </div>
 
-  <!-- Botón Email -->
-  <a href="mailto:ventas@1000malbecs.com?subject=[Interés/Compra]%20La%20Fuerza%20Primavera&body=Hola%20equipo%20de%201000%20Malbecs,%0A%0AEstoy%20interesado/a%20en%20el%20vino:%0A→%20La%20Fuerza%20Primavera%0A→%20Bodega:%20La%20Fuerza%20Vermu%0A→%20Precio:%20€24.49 / botella (0.75 L)%0A%0AQuisiera%20más%20información%20o%20confirmar%20la%20compra.%20Gracias!%0ASaludos,"
-     class="buy-btn"
-     style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
-    <i class="fas fa-envelope"></i> Contactar por email
-  </a>
+  <p style="text-align: center; font-size: 13px; color: #666;">o escribe directamente a <strong>ventas@1000malbecs.com</strong></p>
+
+  <br><br>
+
+  <p><strong>Bodega:</strong> La Fuerza Vermu</p>
+  <p><strong>Región:</strong> No disponible</p>
+  <p><strong>Altura:</strong> No disponible msnm</p>
+  <p><strong>Volumen:</strong> 750 ml</p>
+  <p><strong>Grundpreis:</strong> €28.00 / 0,75 l</p>   <!-- Importante para Google -->
+
+  
+  
+  
+  
+
+  <!-- Shipping -->
+  <div class="shipping">
+    <strong>Costo de envío: 6,99 €.</strong><br>
+    Envío gratis en pedidos de 12 botellas o más. • 
+    <a href="/es/faq.html" target="_blank">+info</a><br>
+    <small><b>Prohibida la venta a menores de 18 años. Se verifica ID en la entrega.</b></small>
+  </div>
+
+  <div class="section">
+    <h2>Descripción</h2>
+    <p>Ni Bianco, ni Rosso, ni Rosé. Un vermú con el sabor y el perfume de la Primavera en los Andes. Flores, especias y hierbas, vino Torrontés de Mendoza y un carácter fresco y exótico para viajar al origen de La Fuerza.</p>
+  </div>
+
+  <div class="section">
+    <h2>Notas de cata y maridaje</h2>
+    <p>Disfrutar con soda o agua tónica y una rodaja de pomelo. También en cocktails con agua tónica o Spriz</p>
+  </div>
+
+  
 </div>
-
-<!-- Opcional: pequeño texto de apoyo debajo (puedes quitarlo si prefieres más limpio) -->
-<p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
-  o escribe directamente a <strong>ventas@1000malbecs.com</strong>
-</p>
-        
-        
-        <p><strong>Bodega:</strong> La Fuerza Vermu</p>
-        <p><strong>Región:</strong> No disponible</p>
-        <p><strong>Altura:</strong> No disponible msnm</p>
-        <p><strong>Volumen:</strong> 750 ml</p>
-        
-        
-        
-        
-      
-        <div class="shipping">
-         <strong> Costo de envío EUR 6.49.</strong> <br>Envío gratis en pedidos de 12 botellas o más. • <a href="/es/faq.html" target="_blank">+info</a> </br><small> <b>Prohibida la venta a menores de 18 años. Chequeamos ID en delivery. </small></b>
-        </div>
-
-        <div class="section">
-          <h2>Descripción</h2>
-          <p>Ni Bianco, ni Rosso, ni Rosé. Un vermú con el sabor y el perfume de la Primavera en los Andes. Flores, especias y hierbas, vino Torrontés de Mendoza y un carácter fresco y exótico para viajar al origen de La Fuerza.</p>
-        </div>
-
-        <div class="section">
-          <h2>Notas de cata y maridaje</h2>
-          <p>Disfrutar con soda o agua tónica y una rodaja de pomelo. También en cocktails con agua tónica o Spriz</p>
-        </div>
-
-        
-        <div class="section">
-          <h2>Ficha técnica</h2>
-          <p><a href="/fichas/LF Primavera- Ficha tecnica.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
-            Descargar PDF
-          </a></p>
-        </div>
-        
-      </div>
-    </div>
-
-    <!-- OTRA BODEGA -->
-
-  <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de La Fuerza Vermu</h3>
-  <div class="grid">
+        <!-- OTRA BODEGA -->
     
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de La Fuerza Vermu</h3>
+    <div class="grid">
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/la-fuerza-rojo.jpg" alt="La Fuerza Rojo 0">
+        <img src="https://www.1000malbecs.com/images/small/la-fuerza-rojo.jpg" alt="La Fuerza Rojo">
         <h4>La Fuerza Rojo</h4>
-        <p>€24.49</p>
+        <p>€21.00</p>
         <a href="/es/vinos/la-fuerza-rojo.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>La Fuerza Rojo</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> La Fuerza Vermu</p>
@@ -663,20 +739,19 @@ body {
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
               Disfrutar con soda y una rodaja de naranja. También como base en tu cocktail favorito.
             </p>
           
         </div>
       </div>
-    
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/la-fuerza-blanco.jpg" alt="La Fuerza Blanco 0">
+        <img src="https://www.1000malbecs.com/images/small/la-fuerza-blanco.jpg" alt="La Fuerza Blanco">
         <h4>La Fuerza Blanco</h4>
-        <p>€24.49</p>
+        <p>€21.00</p>
         <a href="/es/vinos/la-fuerza-blanco.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>La Fuerza Blanco</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> La Fuerza Vermu</p>
@@ -686,20 +761,19 @@ body {
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
               Disfrutar con soda o agua tónica y una rodaja de limón. También en cocktails con agua tónica o Spriz
             </p>
           
         </div>
       </div>
-    
+      
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/la-fuerza-sideral.jpg" alt="La Fuerza Sideral 0">
+        <img src="https://www.1000malbecs.com/images/small/la-fuerza-sideral.jpg" alt="La Fuerza Sideral">
         <h4>La Fuerza Sideral</h4>
-        <p>€29.99</p>
+        <p>€25.20</p>
         <a href="/es/vinos/la-fuerza-sideral.html">Comprar</a>
-        
         <div class="overlay">
           <p><strong>La Fuerza Sideral</strong></p>
           <p style="margin-top: 8px;"><strong>Bodega:</strong> La Fuerza Vermu</p>
@@ -709,44 +783,19 @@ body {
           
           
           
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0;">
+            <p style="font-style: italic; margin-top: 8px;">
               Disfrutar directo con hielo y una rodaja de cáscara de naranja.
             </p>
           
         </div>
       </div>
-    
-  </div>
-
-
-    <!-- OTRA REGIÓN -->
-
-  <div class="region-section">
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de No disponible</h3>
-    <div class="grid">
-      
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/sin-nombre.jpg" alt="Sin nombre 0">
-          <h4>Sin nombre</h4>
-          <p>€0.00</p>
-          <a href="/es/vinos/sin-nombre.html">Comprar</a>
-          
-          <div class="overlay">
-            <p><strong>Sin nombre</strong></p>
-            <p style="margin-top: 8px;"><strong>Bodega:</strong> Desconocida</p>
-            <p><strong>Región:</strong> No disponible</p>
-            <p><strong>Altura:</strong> No disponible msnm</p>
-            
-            
-            
-            
-          </div>
-        </div>
       
     </div>
-  </div>
+       <!-- ←←← ESTE ENDIF FALTABA -->
 
+    <!-- OTRA REGIÓN -->
+       <!-- ←←← Este también debe estar cerrado -->
 
   <!-- JS: ACTIVAR SIDEBAR DEL WORKER EN MOBILE -->
 <script>
