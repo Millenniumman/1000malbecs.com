@@ -2,11 +2,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Italian word that means "yearning. " From the Memoirs of Frances Mayes "under the sun of Tuscany", the term "bramare" captures the spirit with which Viña CobosI">
+  <meta name="description" content="Italian word that means "to yearn. " From Frances Mayes' memoir "Under the Tuscan Sun", the term "Bramare" captures the spirit with which Viña Coboswas founded.">
   <meta property="og:title" content="1000 Malbecs - Bramare - Lujan de Cuyo 2022">
-  <meta property="og:description" content="Italian word that means "yearning. " From the Memoirs of Frances Mayes "under the sun of Tuscany", the term "bramare" captures the spirit with which Viña CobosI">
+  <meta property="og:description" content="Italian word that means "to yearn. " From Frances Mayes' memoir "Under the Tuscan Sun", the term "Bramare" captures the spirit with which Viña Coboswas founded.">
   <meta property="og:image" content="https://www.1000malbecs.com/images/large/bramare---lujan-de-cuyo-2022.jpg">
   <meta property="og:url" content="https://www.1000malbecs.com/en/vinos/bramare---lujan-de-cuyo-2022.html">
   <meta property="og:type" content="product">
@@ -14,7 +23,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Bramare - Lujan de Cuyo 2022">
-  <meta name="twitter:description" content="Italian word that means "yearning. " From the Memoirs of Frances Mayes "under the sun of Tuscany", the term "bramare" captures the spirit with which Viña CobosI">
+  <meta name="twitter:description" content="Italian word that means "to yearn. " From Frances Mayes' memoir "Under the Tuscan Sun", the term "Bramare" captures the spirit with which Viña Coboswas founded.">
   <meta name="twitter:image" content="https://www.1000malbecs.com/images/large/bramare---lujan-de-cuyo-2022.jpg">
   <meta name="twitter:site" content="@1000malbecs">
   <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/vinos/bramare---lujan-de-cuyo-2022.html">
@@ -508,29 +517,66 @@ body {
   .main-content { margin-top: 70px; padding: 0 15px; }
 }
 
-/* ========================================
-   EMPUJAR SIDEBAR DEL WORKER MÁS ABAJO
-   ======================================== */
-@media (min-width: 768px) {
-  /* Sidebar del Worker */
-  #sidebar {
-    top: 140px !important;     /* ← DEBAJO DEL LOGO GRANDE */
-    height: calc(100vh - 140px) !important;
-  }
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
 
-  /* Contenido principal (ajusta margen) */
-  .container,
-  #sidebar ~ .container {
-    margin-top: 160px !important;
-    margin-left: 300px !important;
-  }
-
-  /* Asegurar que no se superponga con topbar */
-  body {
-    padding-top: 0 !important;
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
   }
 }
 </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Bramare - Lujan de Cuyo 2022",
+  "description": "Italian word that means "to yearn. " From Frances Mayes' memoir "Under the Tuscan Sun", the term "Bramare" captures the spirit with which Viña Coboswas founded. It symbolizes our first step in differentiating the appellations, to demonstrate its influence on the varietal. Express the identity of ...",
+  "image": "https://www.1000malbecs.com/images/large/bramare---lujan-de-cuyo-2022.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Viña Cobos"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/en/vinos/bramare---lujan-de-cuyo-2022.html",
+    "priceCurrency": "EUR",
+    "price": "46.90 / bottle (0.75 L)",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "46.90 / bottle (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "0.15%",
+  "producer": "Viña Cobos",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -577,26 +623,70 @@ body {
   <div class="container">
     <div class="product">
       <img src="https://www.1000malbecs.com/images/large/bramare---lujan-de-cuyo-2022.jpg" alt="Bramare - Lujan de Cuyo 2022 2022">
+
       <div class="info">
         <h1>Bramare - Lujan de Cuyo 2022</h1>
+
+        <!-- Precio + disponibilidad -->
+        <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb;">
+          <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0;">
+            €46.90 / bottle (0.75 L)
+          </p>
+          <p style="font-size: 13px; color: #555; margin: 6px 0 0;">
+            Price per liter: €62.53 / L
+          </p>
+        </div>
+
+        <!-- Disponibilidad visible -->
+        
+          <p style="color: #f57c00; font-weight: 600; font-size: 16px;">⏳ Pre-order – Delivery in 7-14 days</p>
+        
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Bramare%20-%20Lujan%20de%20Cuyo%202022%20(2022)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Bramare%20-%20Lujan%20de%20Cuyo%202022%20(2022)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Bramare%20-%20Lujan%20de%20Cuyo%202022%20(2022)%0A→%20Winery:%20Vi%C3%B1a%20Cobos%0A→%20Price:%20€46.90 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
+        <br>
+        <br>
         <p><strong>Winery:</strong> Viña Cobos</p>
         <p><strong>Region:</strong> Luján de cuyo</p>
-        <p><strong>Altitude:</strong> 1002.0 masl</p>
-        <p><strong>Price:</strong> €46.90 / bottle (0.75 L)</p>
+        <p><strong>Altitude:</strong> 1002 masl</p>
+        
         <p><strong>Volume:</strong> 750 ml</p>
-        <p><strong>Price per liter:</strong> €62.53 / L</p>
-        <p><strong>Alcohol:</strong> 14.0%</p>
-        <p><strong>Acidity:</strong> 6.0 g/L</p>
+       
+        <p><strong>Alcohol:</strong> 0.15%</p>
+        
         <p><strong>Awards:</strong> 95 pts James Sucking</p>
         <p><strong>Aging:</strong> 8 años</p>
 
-        <a href="https://wa.me/4915158224728?text=Hi,%20I%20want%20to%20buy:%20Bramare%20-%20Lujan%20de%20Cuyo%202022%202022" 
-           class="buy-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Order via WhatsApp
-        </a>
+      
 
         <div class="shipping">
-          <strong>Shipping cost: EUR 6.49.</strong><br>
+          <strong>Shipping cost: EUR 6,99.</strong><br>
           Free shipping on orders of 12 bottles or more. • 
           <a href="/en/faq.html" target="_blank">+info</a><br>
           <small><b>Sale to minors under 18 prohibited. ID check upon delivery.</b></small>
@@ -604,12 +694,12 @@ body {
 
         <div class="section">
           <h2>Description</h2>
-          <p>Italian word that means "yearning. " From the Memoirs of Frances Mayes "under the sun of Tuscany", the term "bramare" captures the spirit with which Viña CobosIt was founded. It symbolizes our first step in the differentiation of the appeals, to demonstrate its influence on the varietal. Express the identity of the origin. Bramare - Lujan de Cuyo from Viña Cobos</p>
+          <p>Italian word that means "to yearn. " From Frances Mayes' memoir "Under the Tuscan Sun", the term "Bramare" captures the spirit with which Viña Coboswas founded. It symbolizes our first step in differentiating the appellations, to demonstrate its influence on the varietal. Express the identity of the origin. Bramare - Lujan de Cuyo 2022 from Viña Cobos</p>
         </div>
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Deep ruby ​​red with violet tones. Red fruit aromas, plum, graphite and floral notes. In the mouth it is round and balanced, with sweet and juicy tannins. Bramare - Lujan de Cuyo from Viña Cobos</p>
+          <p>Deep ruby ​​red color with violet tones. Aromas of red fruit, plum, graphite and floral notes. The palate is round and balanced, with sweet and juicy tannins. Bramare - Lujan de Cuyo 2022 from Viña Cobos</p>
         </div>
 
         
@@ -623,139 +713,296 @@ body {
       </div>
     </div>
 
-    <!-- VINOS SIMILARES -->
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Viña Cobos</h3>
+  <div class="grid">
     
-    <h3 style="color: var(--primary); margin-top: 50px;">More wines from Viña Cobos</h3>
-    <div class="grid">
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/felino-2023.jpg" alt="Felino 2023 2023">
+      <h4>Felino 2023</h4>
+      <p>€20.90</p>
+      <a href="/en/vinos/felino-2023.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/felino-2023.jpg" alt="Felino 2023 2023">
-        <h4>Felino 2023</h4>
-        <p>€20.90</p>
-        <a href="/en/vinos/felino-2023.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Viña Cobos</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1400.0</p>
-          <p><strong>Alcohol:</strong> 13.5%</p>
+      <div class="overlay">
+  <p><strong>Felino 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Viña Cobos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1400 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 0.14%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Purple color with bright violet reflections. Notes of black fruit, roses, blueberries. It has juicy tannins, medium body and long finish. Felino 2023 from Viña Cobos
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/bramare---valle-de-uco-2022.jpg" alt="Bramare - Valle de Uco 2022 2022">
-        <h4>Bramare - Valle de Uco 2022</h4>
-        <p>€46.90</p>
-        <a href="/en/vinos/bramare---valle-de-uco-2022.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Viña Cobos</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1200.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/bramare---valle-de-uco-2022.jpg" alt="Bramare - Valle de Uco 2022 2022">
+      <h4>Bramare - Valle de Uco 2022</h4>
+      <p>€46.90</p>
+      <a href="/en/vinos/bramare---valle-de-uco-2022.html">Buy</a>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/chanares-2018.jpg" alt="Chañares 2018 2018">
-        <h4>Chañares 2018</h4>
-        <p>€110.00</p>
-        <a href="/en/vinos/chanares-2018.html">Buy</a>
-        <div class="overlay">
-          <p><strong>Winery:</strong> Viña Cobos</p>
-          <p><strong>Region:</strong> Valle de uco</p>
-          <p><strong>Altitude:</strong> 1184.0</p>
-          <p><strong>Alcohol:</strong> 14.0%</p>
+      <div class="overlay">
+  <p><strong>Bramare - Valle de Uco 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Viña Cobos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1200 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 0.15%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Deep red with black tones. Aromas of black fruit, blueberries, plum and dark chocolate. On the palate it is complex, presents minerality, great balance and a...
+    </p>
+  
+  
+  
+          </div>
         </div>
-      </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/chanares-2018.jpg" alt="Chañares 2018 2018">
+      <h4>Chañares 2018</h4>
+      <p>€110.00</p>
+      <a href="/en/vinos/chanares-2018.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Chañares 2018</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Viña Cobos</p>
+  <p><strong>Region:</strong> Valle de uco</p>
+  <p><strong>Altitude:</strong> 1184 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 0.14%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Bright violet tones with captivating undertones. Pure aromas with notes of pink pepper, red fruits and the charm of a cedar cigar box. In the mouth, fine-gra...
+    </p>
+  
+  
+  
+          </div>
+        </div>
       
     </div>
-    
+  </div>
 
-    
-    <div class="region-section">
-      <h3 style="color: var(--primary);">More wines from Luján de cuyo</h3>
-      <div class="grid">
-        
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/san-telmo-malbec-2024.jpg" alt="San Telmo Malbec 2024 2024">
-          <h4>San Telmo Malbec 2024</h4>
-          <p>€8.16</p>
-          <a href="/en/vinos/san-telmo-malbec-2024.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> San Telmo</p>
-            <p><strong>Region:</strong> Luján de cuyo</p>
-            <p><strong>Altitude:</strong> Not available</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
-          </div>
-        </div>
-        
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023 2023">
-          <h4>Pequeña Vasija Malbec 2023</h4>
-          <p>€8.38</p>
-          <a href="/en/vinos/pequena-vasija-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> La Rural</p>
-            <p><strong>Region:</strong> Luján de cuyo</p>
-            <p><strong>Altitude:</strong> Not available</p>
-            <p><strong>Alcohol:</strong> 13.2%</p>
-          </div>
-        </div>
-        
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023 2023">
-          <h4>San Felipe Varietal Malbec 2023</h4>
-          <p>€11.52</p>
-          <a href="/en/vinos/san-felipe-varietal-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> La Rural</p>
-            <p><strong>Region:</strong> Luján de cuyo</p>
-            <p><strong>Altitude:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 13.2%</p>
-          </div>
-        </div>
-        
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024 2024">
-          <h4>San Felipe en Roble Malbec 2024</h4>
-          <p>€13.12</p>
-          <a href="/en/vinos/san-felipe-en-roble-malbec-2024.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> La Rural</p>
-            <p><strong>Region:</strong> Luján de cuyo</p>
-            <p><strong>Altitude:</strong> 800.0</p>
-            <p><strong>Alcohol:</strong> 13.2%</p>
-          </div>
-        </div>
-        
+
+  <!-- OTHER WINES FROM THE SAME REGION -->
+  
+  <div class="region-section">
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Luján de cuyo</h3>
+    <div class="grid">
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023 2023">
           <h4>Septima Rose de Malbec 2023</h4>
           <p>€14.99</p>
           <a href="/en/vinos/septima-rose-de-malbec-2023.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Séptima</p>
-            <p><strong>Region:</strong> Luján de cuyo</p>
-            <p><strong>Altitude:</strong> 900.0</p>
-            <p><strong>Alcohol:</strong> 12.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Septima Rose de Malbec 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Séptima</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 900 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 12.90%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Pale pink color with salmon hue. On the nose, it offers elegant aromas of red fruits such as cherry, with floral notes of lavender, citrus fruits such as gra...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
+      
         <div class="card">
           <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Septima Malbec 2022 2022">
           <h4>Septima Malbec 2022</h4>
           <p>€15.49</p>
           <a href="/en/vinos/septima-malbec-2022.html">Buy</a>
-          <div class="overlay">
-            <p><strong>Winery:</strong> Bodega Séptima</p>
-            <p><strong>Region:</strong> Luján de cuyo</p>
-            <p><strong>Altitude:</strong> 900.0</p>
-            <p><strong>Alcohol:</strong> 13.5%</p>
+          
+         <div class="overlay">
+  <p><strong>Septima Malbec 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Séptima</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 900 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense red color with violet reflections. On the nose, it presents aromas of fresh cherries, strawberry jam and notes of vanilla and toast from its aging in...
+    </p>
+  
+  
+  
           </div>
         </div>
-        
-      </div>
+      
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/petit-caro-2021.jpg" alt="Petit Caro 2021 2021">
+          <h4>Petit Caro 2021</h4>
+          <p>€27.77</p>
+          <a href="/en/vinos/petit-caro-2021.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Petit Caro 2021</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodegas Caro</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 1000 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 0.14%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Intense and velvety red color with ruby ​​reflections.
+The nose is very fruity and fresh, with aromas of red fruits, strawberry and black currant.
+On the pal...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/chakana-nuna-malbec-bio-2022.jpg" alt="CHAKANA Nuna Malbec Bio 2022 2022">
+          <h4>CHAKANA Nuna Malbec Bio 2022</h4>
+          <p>€19.19</p>
+          <a href="/en/vinos/chakana-nuna-malbec-bio-2022.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>CHAKANA Nuna Malbec Bio 2022</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Chakana</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 960 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.70%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it offers aromas of blackberry, cassis and fresh herbs, with a mineral touch and notes of violet. In the mouth, it is balanced, with flavors of ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/cicchitti-blend-2016.jpg" alt="CICCHITTI Blend 2016 2016">
+          <h4>CICCHITTI Blend 2016</h4>
+          <p>€19.99</p>
+          <a href="/en/vinos/cicchitti-blend-2016.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>CICCHITTI Blend 2016</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 958 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 0.14%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      View: intense ruby ​​red color with dark violet or black reflections. Ideal to accompany grilled red meats, lamb, ham, pork, empanadas, pastas with rich sauc...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+        <div class="card">
+          <img src="https://www.1000malbecs.com/images/small/puro-malbec-cabernet-2023.jpg" alt="Puro Malbec Cabernet 2023 2023">
+          <h4>Puro Malbec Cabernet 2023</h4>
+          <p>€15.99</p>
+          <a href="/en/vinos/puro-malbec-cabernet-2023.html">Buy</a>
+          
+         <div class="overlay">
+  <p><strong>Puro Malbec Cabernet 2023</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Dieter Meier and Family Wines</p>
+  <p><strong>Region:</strong> Luján de cuyo</p>
+  <p><strong>Altitude:</strong> 1100 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.30%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Color: Purple core with a maroon rim.
+Tasting notes:
+Aroma: Fresh red and black fruits, dominated by notes of raspberry along with floral touches of rose pet...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
     </div>
-    
   </div>
 
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
