@@ -530,6 +530,53 @@ body {
   }
 }
 </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "La Fuerza Primavera",
+  "description": "Neither Bianco, nor Rosso, nor Rosé. A vermouth with the flavor and perfume of Spring in the Andes. Flowers, spices and herbs, Torrontés de Mendoza wine and a fresh and exotic character to travel to the origin of La Fuerza. La Fuerza Primavera from La Fuerza Vermu",
+  "image": "https://www.1000malbecs.com/images/large/la-fuerza-primavera.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "La Fuerza Vermu"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/en/vinos/la-fuerza-primavera.html",
+    "priceCurrency": "EUR",
+    "price": "21.00 / bottle (0.75 L)",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "21.00 / bottle (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "%",
+  "producer": "La Fuerza Vermu",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -575,24 +622,30 @@ body {
   <!-- CONTENIDO -->
   <div class="container">
     <div class="product">
-      <img src="https://www.1000malbecs.com/images/large/la-fuerza-primavera.jpg" alt="La Fuerza Primavera 2025">
+      <img src="https://www.1000malbecs.com/images/large/la-fuerza-primavera.jpg" alt="La Fuerza Primavera 24">
+
       <div class="info">
         <h1>La Fuerza Primavera</h1>
-   <!-- Precio destacado con legal pequeño -->
-      <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
-        <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1;">
-          €24.49 / bottle (0.75 L)
-        </p>
+
+        <!-- Precio + disponibilidad -->
+        <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb;">
+          <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0;">
+            €21.00 / bottle (0.75 L)
+          </p>
+          <p style="font-size: 13px; color: #555; margin: 6px 0 0;">
+            Price per liter: €28.00 / L
+          </p>
+        </div>
+
+        <!-- Disponibilidad visible -->
         
-        <p style="font-size: 13px; color: #555; margin: 6px 0 0; font-style: italic;">
-          (Price per liter: €32.65 / L)
-        </p>
-      </div>
+          <p style="color: #f57c00; font-weight: 600; font-size: 16px;">⏳ Pre-order – Delivery in 7-14 days</p>
+        
 
       <!-- Botones WhatsApp + Email -->
       <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
         <!-- WhatsApp Button -->
-        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20La%20Fuerza%20Primavera%20(2025)"
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20La%20Fuerza%20Primavera%20(24)"
            onclick="return gtag_report_conversion(this.href);"
            class="buy-btn"
            target="_blank"
@@ -606,7 +659,7 @@ body {
         </div>
 
         <!-- Email Button -->
-        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20La%20Fuerza%20Primavera%20(2025)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20La%20Fuerza%20Primavera%20(2025)%0A→%20Winery:%20La%20Fuerza%20Vermu%0A→%20Price:%20€24.49 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20La%20Fuerza%20Primavera%20(24)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20La%20Fuerza%20Primavera%20(24)%0A→%20Winery:%20La%20Fuerza%20Vermu%0A→%20Price:%20€21.00 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
            class="buy-btn"
            style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
           <i class="fas fa-envelope"></i> Contact via Email
@@ -646,17 +699,9 @@ body {
 
         <div class="section">
           <h2>Tasting notes & pairing</h2>
-          <p>Serve with soda or tonic water and a fresh grapefruit wedge. Perfect for tonic-based cocktails or Spritz-style drinks.
-</p>
+          <p>Enjoy with soda or tonic water and a slice of grapefruit. Also in cocktails with tonic water or Spriz La Fuerza Primavera from La Fuerza Vermu</p>
         </div>
 
-        
-        <div class="section">
-          <h2>Technical sheet</h2>
-          <p><a href="/fichas/LF Primavera- Ficha tecnica.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
-            Download PDF
-          </a></p>
-        </div>
         
       </div>
     </div>
@@ -667,9 +712,9 @@ body {
   <div class="grid">
     
     <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/la-fuerza-rojo.jpg" alt="La Fuerza Rojo 2025">
+      <img src="https://www.1000malbecs.com/images/small/la-fuerza-rojo.jpg" alt="La Fuerza Rojo 24">
       <h4>La Fuerza Rojo</h4>
-      <p>€24.49</p>
+      <p>€21.00</p>
       <a href="/en/vinos/la-fuerza-rojo.html">Buy</a>
       
       <div class="overlay">
@@ -686,8 +731,7 @@ body {
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Enjoy with soda and an orange slice. Also great as a base for your favorite cocktail.
-
+      Enjoy with soda and a slice of orange. Also as a base in your favorite cocktail. La Fuerza Rojo from La Fuerza Vermu
     </p>
   
   
@@ -696,9 +740,9 @@ body {
         </div>
       
     <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/la-fuerza-blanco.jpg" alt="La Fuerza Blanco 2025">
+      <img src="https://www.1000malbecs.com/images/small/la-fuerza-blanco.jpg" alt="La Fuerza Blanco 24">
       <h4>La Fuerza Blanco</h4>
-      <p>€24.49</p>
+      <p>€21.00</p>
       <a href="/en/vinos/la-fuerza-blanco.html">Buy</a>
       
       <div class="overlay">
@@ -715,8 +759,7 @@ body {
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Enjoy with soda or tonic water and a lemon slice. Also perfect in cocktails with tonic water or as a Spritz.
-
+      Enjoy with soda or tonic water and a lemon wedge. Also in cocktails with tonic water or Spriz La Fuerza Blanco from La Fuerza Vermu
     </p>
   
   
@@ -725,9 +768,9 @@ body {
         </div>
       
     <div class="card">
-      <img src="https://www.1000malbecs.com/images/small/la-fuerza-sideral.jpg" alt="La Fuerza Sideral 2025">
+      <img src="https://www.1000malbecs.com/images/small/la-fuerza-sideral.jpg" alt="La Fuerza Sideral 29">
       <h4>La Fuerza Sideral</h4>
-      <p>€29.99</p>
+      <p>€25.20</p>
       <a href="/en/vinos/la-fuerza-sideral.html">Buy</a>
       
       <div class="overlay">
@@ -744,8 +787,7 @@ body {
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Serve neat over ice with a fresh orange peel garnish.
-
+      Enjoy straight with ice and a slice of orange peel. La Fuerza Sideral from La Fuerza Vermu
     </p>
   
   
@@ -759,41 +801,6 @@ body {
 
   <!-- OTHER WINES FROM THE SAME REGION -->
   
-  <div class="region-section">
-    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Not available</h3>
-    <div class="grid">
-      
-        <div class="card">
-          <img src="https://www.1000malbecs.com/images/small/no-name.jpg" alt="No name 0">
-          <h4>No name</h4>
-          <p>€0.00</p>
-          <a href="/en/vinos/no-name.html">Buy</a>
-          
-         <div class="overlay">
-  <p><strong>No name</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Unknown</p>
-  <p><strong>Region:</strong> Not available</p>
-  <p><strong>Altitude:</strong> Not available masl</p>
-  
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      nan
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
-    </div>
-  </div>
-
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');
