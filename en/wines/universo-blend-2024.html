@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Malma is a word that in the dialect of the ancient settlers of Patagonia means pride. Pride in our origin and place of belonging, in our work and its fruits, in">
+  <meta property="og:title" content="1000 Malbecs - Universo Blend 2024">
+  <meta property="og:description" content="Malma is a word that in the dialect of the ancient settlers of Patagonia means pride. Pride in our origin and place of belonging, in our work and its fruits, in">
+  <meta property="og:image" content="https://www.1000malbecs.com/images/large/universo-blend-2024.jpg">
+  <meta property="og:url" content="https://www.1000malbecs.com/en/vinos/universo-blend-2024.html">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="1000malbecs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1000 Malbecs - Universo Blend 2024">
+  <meta name="twitter:description" content="Malma is a word that in the dialect of the ancient settlers of Patagonia means pride. Pride in our origin and place of belonging, in our work and its fruits, in">
+  <meta name="twitter:image" content="https://www.1000malbecs.com/images/large/universo-blend-2024.jpg">
+  <meta name="twitter:site" content="@1000malbecs">
+  <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/vinos/universo-blend-2024.html">
+  <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/vinos/universo-blend-2024.html">
+  <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/vinos/universo-blend-2024.html">
+  <title>1000 Malbecs - Universo Blend 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+:root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
+
+body { 
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0; padding: 0; 
+  background: #fdfdfd; color: #333; 
+}
+
+/* ========================================
+   HEADER MOBILE
+   ======================================== */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: white;
+  z-index: 1300;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.hamburger {
+  background: none; border: none; cursor: pointer;
+  width: 50px; height: 50px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1301; padding: 0;
+}
+
+.hamburger-icon .line { 
+  fill: var(--primary); 
+  transition: all 0.3s ease; 
+}
+
+.hamburger[aria-expanded="true"] .top { 
+  transform: translateY(20px) rotate(45deg); 
+}
+.hamburger[aria-expanded="true"] .mid { 
+  opacity: 0; 
+}
+.hamburger[aria-expanded="true"] .bot { 
+  transform: translateY(-20px) rotate(-45deg); 
+}
+
+/* ========================================
+   HEADER DESKTOP: LOGO (arriba izquierda)
+   ======================================== */
+/* DESPUÉS (COINCIDE CON TU HTML <header class="header">) */
+.header {
+  display: none;                    /* Oculto en mobile */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1400;
+  background: white;
+  padding: 18px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: block;                 /* ← Visible en desktop */
+  }
+  .logo {
+    max-height: 64px;               /* Logo más grande */
+  }
+  .header {
+    padding: 16px 20px;
+  }
+  body {
+    padding-top: 180px;             /* Espacio para logo + navbar */
+  }
+}
+
+@media (max-width: 767px) {           /* Nota: 767px para evitar conflicto */
+  .header { display: none !important; }
+}
+
+/* ========================================
+   LOGO (mobile + desktop)
+   ======================================== */
+.logo {
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+  transition: all 0.3s ease;
+}
+
+/* Desktop: LOGO GRANDE */
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;
+    max-height: none !important;   /* ← ELIMINA EL LÍMITE */
+  }
+}
+
+/* Mobile: LOGO PEQUEÑO */
+@media (max-width: 767px) {
+  .logo {
+    height: 42px;
+    max-height: 42px;
+  }
+}
+
+/* ========================================
+   BARRA DE NAVEGACIÓN (debajo del logo)
+   ======================================== */
+.desktop-navbar {
+  position: fixed;
+  top: 90px;                    /* ← DEBAJO DEL LOGO (ajusta si querés más/menos espacio) */
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 1300;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 12px 0;
+}
+
+/* ========================================
+   DESKTOP: Activar y agrandar
+   ======================================== */
+@media (min-width: 768px) {
+  .desktop-header {
+    display: block;
+  }
+
+  .logo {
+    max-height: 64px;           /* ← Logo más grande */
+  }
+
+  .desktop-header {
+    padding: 16px 20px;
+  }
+
+  /* Aseguramos que el contenido no se superponga */
+  body {
+    padding-top: 140px;         /* ← Espacio para logo + navbar */
+  }
+}
+/* ========================================
+   SIDEBAR (Worker)
+   ======================================== */
+#sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 280px;
+  height: 100vh;
+  background: #f8f8f8;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+  z-index: 1100;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+#sidebar.open { 
+  transform: translateX(0); 
+}
+
+#sidebar .logo-container { 
+  margin-bottom: 20px; 
+  display: none; 
+}
+
+#sidebar h2 { 
+  font-size: 16px; 
+  font-weight: 600; 
+  color: var(--primary); 
+  margin: 20px 0 10px; 
+  text-transform: uppercase; 
+}
+
+#sidebar ul { 
+  list-style: none; 
+  padding: 0 0 0 10px; 
+  margin: 0; 
+}
+
+#sidebar li { 
+  margin: 6px 0; 
+}
+
+#sidebar .nav-link {
+  font-size: 15px; 
+  color: #333; 
+  text-decoration: none;
+  display: block; 
+  padding: 8px 12px; 
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#sidebar .nav-link:hover, 
+#sidebar .nav-link.active {
+  background: var(--primary); 
+  color: white;
+}
+
+/* <details> en mobile */
+#sidebar details[open] summary { 
+  color: #5A1D39; 
+}
+
+/* ========================================
+   SELECTOR DE IDIOMAS
+   ======================================== */
+.lang-selector-desktop {
+  position: fixed; top: 15px; right: 20px; z-index: 110; 
+  display: flex; gap: 8px;
+}
+
+.lang-selector-desktop a {
+  color: #666; text-decoration: none; font-weight: 600; 
+  padding: 6px 10px; border-radius: 6px; transition: all 0.3s; 
+  font-size: 14px;
+}
+
+.lang-selector-desktop a.active { 
+  background: var(--primary); color: white; 
+}
+
+.lang-selector-desktop a:hover { 
+  background: #eee; 
+}
+
+.lang-selector-mobile {
+  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
+  z-index: 110; background: white; padding: 6px 12px; 
+  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+}
+
+.lang-selector-mobile a {
+  color: var(--primary); text-decoration: none;
+}
+
+.lang-selector-mobile a.active { 
+  font-weight: 700; 
+}
+
+/* ========================================
+   CONTENIDO
+   ======================================== */
+.container {
+  max-width: 900px;
+  margin: 80px auto 40px;
+  padding: 0 20px;
+  margin-left: 300px;
+}
+
+/* ========================================
+   PRODUCTO PRINCIPAL
+   ======================================== */
+.product { 
+  display: flex; gap: 30px; background: white; 
+  padding: 30px; border-radius: 14px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+}
+
+.product img {
+  width: 360px; height: 540px; object-fit: contain; 
+  object-position: center; border-radius: 12px; 
+  border: 3px solid var(--border); background: #fff;
+}
+
+.info h1 { 
+  margin: 0 0 15px; color: var(--primary); font-size: 28px; 
+}
+
+.info p { margin: 8px 0; }
+.info strong { color: var(--primary); }
+
+.buy-btn { 
+  background: var(--whatsapp); color: white; 
+  padding: 14px 24px; text-decoration: none; 
+  border-radius: 10px; display: inline-flex; 
+  align-items: center; gap: 10px; font-weight: 600;
+  transition: all 0.3s; position: relative; z-index: 10;
+}
+
+.buy-btn:hover { 
+  background: #20B858; transform: translateY(-2px); 
+}
+
+.section {
+  background: #f9f5f7; border-left: 4px solid var(--primary); 
+  padding: 18px; margin: 20px 0; border-radius: 0 8px 8px 0; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section h2 { 
+  margin: 0 0 10px; color: var(--primary); font-size: 20px; 
+}
+
+.shipping {
+  background: #e8f5e8; border: 1px solid #4CAF50; 
+  color: #2e7d32; padding: 14px; border-radius: 8px;
+  font-size: 15px; text-align: center; margin: 20px 0;
+}
+
+.shipping a { 
+  color: #2e7d32; font-weight: 600; text-decoration: underline; 
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+  gap: 18px; margin-top: 30px; 
+}
+
+.card { 
+  border: 1px solid #eee; border-radius: 12px; 
+  padding: 14px; text-align: center; 
+  position: relative; overflow: hidden; 
+  transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.card:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+  border-color: var(--primary); 
+}
+
+.card img { 
+  width: 150px; height: 150px; object-fit: contain; 
+  border-radius: 8px; background: #fff; 
+}
+
+.card h4 { 
+  margin: 10px 0 5px; font-size: 15px; color: var(--primary); 
+}
+
+.card p { 
+  margin: 5px 0; font-weight: 600; color: #333; 
+}
+
+.card a { 
+  background: var(--primary); color: white; 
+  padding: 6px 10px; border-radius: 6px; 
+  font-size: 13px; text-decoration: none; 
+  display: inline-block; margin-top: 8px; 
+  position: relative; z-index: 10;
+}
+
+.overlay { 
+  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 45px; 
+  background: rgba(107,29,73,0.95); color: white; 
+  padding: 12px 8px; border-radius: 12px 12px 0 0; 
+  font-size: 11.5px; line-height: 1.4; text-align: left; overflow-y: auto;
+}
+
+.card:hover .overlay { display: block; }
+.overlay p { margin: 4px 0; color: white !important; }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .mobile-header { display: flex !important; }
+  .desktop-header { display: none !important; }
+  .lang-selector-desktop { display: none; }
+  .lang-selector-mobile { display: flex; }
+  .product { flex-direction: column; }
+  .product img { width: 100%; height: auto; max-height: 500px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .container { margin-top: 80px; margin-left: 0 !important; padding: 0 15px; }
+  #sidebar { top: 60px; }
+}
+
+@media (min-width: 769px) {
+  .mobile-header { display: none !important; }
+  .desktop-header { display: block !important; }
+  #sidebar { transform: translateX(0) !important; }
+  .container { margin-left: 300px; }
+}
+/* ========================================
+   TOPBAR: LOGO GRANDE + IDIOMAS
+   ======================================== */
+.topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: white;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 120px !important;     /* ← MÁS GRANDE */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+.main-content {
+  margin-top: 100px;     /* ← Debajo de topbar */
+  padding: 0 30px;
+}
+
+.product {
+  display: flex;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.product img {
+  width: 360px;
+  height: 540px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 3px solid var(--border);
+  background: #fff;
+}
+
+.info h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  color: var(--primary);
+}
+
+.info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.legal-disclaimer {
+  margin: 20px 0;
+  font-size: 12px;
+  color: #999;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* ========================================
+   DESKTOP: ACTIVAR
+   ======================================== */
+@media (min-width: 768px) {
+  .topbar {
+    display: flex !important;
+  }
+
+  /* Empujar Worker navbar */
+  nav, .navbar, [class*="nav"], header:not(.header) {
+    top: 100px !important;
+  }
+
+  .main-content {
+    margin-top: 160px !important;   /* topbar + navbar */
+  }
+
+  body {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar { display: none !important; }
+  .main-content { margin-top: 70px; padding: 0 15px; }
+}
+
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+  }
+}
+</style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Universo Blend 2024",
+  "description": "Malma is a word that in the dialect of the ancient settlers of Patagonia means pride. Pride in our origin and place of belonging, in our work and its fruits, in being the pioneer family in the region.
+
+
+The Universe line pays tribute to the Patagonian immensity reflected in the starry skies that ...",
+  "image": "https://www.1000malbecs.com/images/large/universo-blend-2024.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Bodega Malma"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.1000malbecs.com/en/vinos/universo-blend-2024.html",
+    "priceCurrency": "EUR",
+    "price": "34.99 / bottle (0.75 L)",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "6.99",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "34.99 / bottle (0.75 L)",
+      "priceCurrency": "EUR",
+      "unitCode": "LTR",
+      "unitText": "0.75 L"
+    }
+  },
+  "category": "Wine",
+  "alcoholContent": "14.30%",
+  "producer": "Bodega Malma",
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Argentina"
+  }
+}
+</script>
+</head>
+<body>
+
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      </svg>
+    </button>
+    <a href="/en/" class="logo-link">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
+  </header>
+
+  <!-- TOPBAR (DESKTOP) -->
+  <div class="topbar">
+    <header class="header">
+      <a href="/en/" title="1000 Malbecs">
+        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      </a>
+    </header>
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/universo-blend-2024.html">ES</a>
+      
+      <a href="/en/vinos/universo-blend-2024.html" class="active">EN</a>
+      
+      
+      <a href="/de/vinos/universo-blend-2024.html">DE</a>
+      
+    </div>
+  </div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/universo-blend-2024.html">ES</a>
+    <a href="/en/vinos/universo-blend-2024.html" class="active">EN</a>
+    <a href="/de/vinos/universo-blend-2024.html">DE</a>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="container">
+    <div class="product">
+      <img src="https://www.1000malbecs.com/images/large/universo-blend-2024.jpg" alt="Universo Blend 2024 2024">
+
+      <div class="info">
+        <h1>Universo Blend 2024</h1>
+
+        <!-- Precio + disponibilidad -->
+        <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb;">
+          <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0;">
+            €34.99 / bottle (0.75 L)
+          </p>
+          <p style="font-size: 13px; color: #555; margin: 6px 0 0;">
+            Price per liter: €46.65 / L
+          </p>
+        </div>
+
+        <!-- Disponibilidad visible -->
+        
+          <p style="color: #2e7d32; font-weight: 600; font-size: 16px;">✓ In stock – Ready to ship</p>
+        
+
+      <!-- Botones WhatsApp + Email -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/4915158224728?text=Hello,%20I%20would%20like%20to%20purchase:%20Universo%20Blend%202024%20(2024)"
+           onclick="return gtag_report_conversion(this.href);"
+           class="buy-btn"
+           target="_blank"
+           style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fab fa-whatsapp"></i> Buy via WhatsApp
+        </a>
+
+        <!-- Separator "or" -->
+        <div style="align-self: center; color: #555; font-weight: 500; font-size: 16px; white-space: nowrap; padding: 0 8px;">
+          or
+        </div>
+
+        <!-- Email Button -->
+        <a href="mailto:ventas@1000malbecs.com?subject=[Interest/Purchase]%20Universo%20Blend%202024%20(2024)&body=Hello%20team%20at%201000%20Malbecs,%0A%0AI%20am%20interested%20in%20the%20wine:%0A→%20Universo%20Blend%202024%20(2024)%0A→%20Winery:%20Bodega%20Malma%0A→%20Price:%20€34.99 / bottle (0.75 L)%0A%0AI%20would%20like%20more%20information%20or%20to%20confirm%20the%20purchase.%20Thank%20you!%0ABest%20regards,"
+           class="buy-btn"
+           style="background: #1E88E5; flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
+          <i class="fas fa-envelope"></i> Contact via Email
+        </a>
+      </div>
+
+      <!-- Optional small support text -->
+      <p style="text-align: center; font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 30px;">
+        or write directly to <strong>ventas@1000malbecs.com</strong>
+      </p>
+        <br>
+        <br>
+        <p><strong>Winery:</strong> Bodega Malma</p>
+        <p><strong>Region:</strong> San patricio del chañar</p>
+        <p><strong>Altitude:</strong> 300 masl</p>
+        
+        <p><strong>Volume:</strong> 750 ml</p>
+       
+        <p><strong>Alcohol:</strong> 14.30%</p>
+        <p><strong>Acidity:</strong> 5.3 g/l g/L</p>
+        
+        
+
+      
+
+        <div class="shipping">
+          <strong>Shipping cost: EUR 6,99.</strong><br>
+          Free shipping on orders of 12 bottles or more. • 
+          <a href="/en/faq.html" target="_blank">+info</a><br>
+          <small><b>Sale to minors under 18 prohibited. ID check upon delivery.</b></small>
+        </div>
+
+        <div class="section">
+          <h2>Description</h2>
+          <p>Malma is a word that in the dialect of the ancient settlers of Patagonia means pride. Pride in our origin and place of belonging, in our work and its fruits, in being the pioneer family in the region.
+
+
+The Universe line pays tribute to the Patagonian immensity reflected in the starry skies that remind us of the small and ephemeral nature of our existence and fill us with amazement and humility before the cosmos.
+That same nature that gives us the fruits so that we can make unique wines that reflect the identity of the Patagonian terroir.</p>
+        </div>
+
+        <div class="section">
+          <h2>Tasting notes & pairing</h2>
+          <p>Color: Ruby red.
+Aroma: Fruity with aroma of ripe fruits, spicy and in the background a subtle aroma of tobacco.
+Mouth: Sucrose entry, with good volume and structure thanks to the rounded tannins due to the play with the oak. Friendly wine with a long finish.</p>
+        </div>
+
+        
+        <div class="section">
+          <h2>Technical sheet</h2>
+          <p><a href="/fichas/BM-Universo-Blend17.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">
+            Download PDF
+          </a></p>
+        </div>
+        
+      </div>
+    </div>
+
+   <!-- OTHER WINES FROM THE SAME WINERY -->
+  
+  <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Bodega Malma</h3>
+  <div class="grid">
+    
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/universo-malbec-2024.jpg" alt="Universo Malbec 2024 2024">
+      <h4>Universo Malbec 2024</h4>
+      <p>€34.99</p>
+      <a href="/en/vinos/universo-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Universo Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Malma</p>
+  <p><strong>Region:</strong> San patricio del chañar</p>
+  <p><strong>Altitude:</strong> 300 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.00%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Nose: Intense and fruity, with notes of ripe plum, blackberry, violets and a mineral touch.
+Mouth: Full-bodied, juicy, with soft and round tannins. Long and ...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/chacra-la-papay-malbec-2024.jpg" alt="Chacra La Papay Malbec 2024 2024">
+      <h4>Chacra La Papay Malbec 2024</h4>
+      <p>€9.99</p>
+      <a href="/en/vinos/chacra-la-papay-malbec-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Chacra La Papay Malbec 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Malma</p>
+  <p><strong>Region:</strong> San patricio del chañar</p>
+  <p><strong>Altitude:</strong> 300 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 14.50%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Nose: Intense aromas of fresh red fruits (raspberry, cherry, plum), flowers and a slight mineral touch.
+Palate: Fresh, juicy, with good acidity and soft tann...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    <div class="card">
+      <img src="https://www.1000malbecs.com/images/small/reserva-de-familia-2024.jpg" alt="Reserva de Familia 2024 2024">
+      <h4>Reserva de Familia 2024</h4>
+      <p>€13.99</p>
+      <a href="/en/vinos/reserva-de-familia-2024.html">Buy</a>
+      
+      <div class="overlay">
+  <p><strong>Reserva de Familia 2024</strong></p>
+  
+  <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Malma</p>
+  <p><strong>Region:</strong> San patricio del chañar</p>
+  <p><strong>Altitude:</strong> 300 masl</p>
+  
+  
+    <p><strong>Alcohol:</strong> 13.80%</p>
+  
+  
+  
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      Nose: Notes of ripe plum, blackberry, cassis, violets, vanilla and a subtle touch of sweet spices.
+Mouth: Good body, ripe and round tannins, excellent balanc...
+    </p>
+  
+  
+  
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+
+      <!-- OTROS VINOS DE LA MISMA REGIÓN -->
+    
+    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de San patricio del chañar</h3>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/saurus-malbec-2023.jpg" alt="Saurus  Malbec 2023 2023">
+        <h4>Saurus  Malbec 2023</h4>
+        <p>€14.49</p>
+        <a href="/en/vinos/saurus-malbec-2023.html">Comprar</a>
+        
+        <div class="overlay">
+          <p><strong>Saurus  Malbec 2023</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Familia Schroeder</p>
+          <p><strong>Región:</strong> San patricio del chañar</p>
+          <p><strong>Altura:</strong> 400 msnm</p>
+          
+          
+          
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of raspberry, cherry and white pepper, with herbal nuances and a touch of vanilla. On the palate, it is light and juicy, with...
+    </p>
+  
+  
+  
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/saurus-patagonia-select-malbec-2022.jpg" alt="Saurus Patagonia Select  Malbec 2022 2022">
+        <h4>Saurus Patagonia Select  Malbec 2022</h4>
+        <p>€18.99</p>
+        <a href="/en/vinos/saurus-patagonia-select-malbec-2022.html">Comprar</a>
+        
+        <div class="overlay">
+          <p><strong>Saurus Patagonia Select  Malbec 2022</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Familia Schroeder</p>
+          <p><strong>Región:</strong> San patricio del chañar</p>
+          <p><strong>Altura:</strong> 400 msnm</p>
+          
+          
+          
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it offers aromas of blackberry, plum and violets, with notes of vanilla and sweet spices. In the mouth, it is structured, with flavors of black ...
+    </p>
+  
+  
+  
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/saurus-barrel-fermented-malbec-2022.jpg" alt="Saurus Barrel Fermented  Malbec 2022 2022">
+        <h4>Saurus Barrel Fermented  Malbec 2022</h4>
+        <p>€25.49</p>
+        <a href="/en/vinos/saurus-barrel-fermented-malbec-2022.html">Comprar</a>
+        
+        <div class="overlay">
+          <p><strong>Saurus Barrel Fermented  Malbec 2022</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Familia Schroeder</p>
+          <p><strong>Región:</strong> San patricio del chañar</p>
+          <p><strong>Altura:</strong> 400 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.10%</p>
+          
+          
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of cassis, blackberry and black truffle, with notes of tobacco and exotic spices. On the palate, it is opulent, with flavors ...
+    </p>
+  
+  
+  
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/familia-schroeder-malbec-2019.jpg" alt="Familia Schroeder  Malbec 2019 2019">
+        <h4>Familia Schroeder  Malbec 2019</h4>
+        <p>€62.99</p>
+        <a href="/en/vinos/familia-schroeder-malbec-2019.html">Comprar</a>
+        
+        <div class="overlay">
+          <p><strong>Familia Schroeder  Malbec 2019</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Familia Schroeder</p>
+          <p><strong>Región:</strong> San patricio del chañar</p>
+          <p><strong>Altura:</strong> 400 msnm</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.10%</p>
+          
+          
+  
+  
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+      On the nose, it displays aromas of blackberry, prune and black truffle, with notes of tobacco and sweet spices. On the palate, it is opulent, with flavors of...
+    </p>
+  
+  
+  
+        </div>
+      </div>
+      
+    </div>
+    
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+
+</body>
+</html>
