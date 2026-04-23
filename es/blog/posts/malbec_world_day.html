@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El 17 de abril celebramos el Día Mundial del Malbec en el Consulado General de la República Argentina en Frankfurt. Una velada especial con amigos, diplomáticos y amantes del vino, donde compartimos cinco Malbecs argentinos excepcionales.">
+    <meta property="og:title" content="Celebrando el Malbec World Day en el Consulado Argentino de Frankfurt - 1000 Malbecs">
+    <meta property="og:description" content="El 17 de abril celebramos el Día Mundial del Malbec en el Consulado General de la República Argentina en Frankfurt. Una velada especial con amigos, diplomáticos y amantes del vino, donde compartimos cinco Malbecs argentinos excepcionales.">
+    <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.1000malbecs.com/es/blog/posts/malbec_world_day.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Celebrando el Malbec World Day en el Consulado Argentino de Frankfurt - 1000 Malbecs">
+    <meta name="twitter:description" content="El 17 de abril celebramos el Día Mundial del Malbec en el Consulado General de la República Argentina en Frankfurt. Una velada especial con amigos, diplomáticos y amantes del vino, donde compartimos cinco Malbecs argentinos excepcionales.">
+    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
+    <link rel="canonical" href="https://www.1000malbecs.com/es/blog/posts/malbec_world_day.html">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/malbec_world_day.html">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/malbec_world_day.html">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/malbec_world_day.html">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        #sidebar {
+            display: block;
+            width: 280px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 90;
+            border-right: 1px solid #E0E0E0;
+            padding: 20px;
+            background-color: #F8F8F8;
+        }
+        .hamburger {
+            display: none;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .language-selector.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .language-selector a {
+            text-decoration: none;
+            color: #4A2C59;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-selector a:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .language-selector a.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        main {
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1280px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left;
+            color: #4A2C59;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #4A2C59;
+        }
+        .post-content h1, .post-content h2 {
+            color: #4A2C59;
+        }
+        .post-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4A2C59;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #5A1D39;
+        }
+        .header, .logo-mobile {
+            display: none;
+        }
+        #sidebar .logo-container {
+            display: block; /* Visible en escritorio */
+            margin-bottom: 20px;
+        }
+        #sidebar .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A2C59;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0 0 0 20px;
+            margin: 10px 0;
+        }
+        .nav-link {
+            font-size: 14px;
+            color: #4A2C59;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .nav-link:hover {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        .nav-link.active {
+            background-color: #4A2C59;
+            color: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            main {
+                margin-top: 80px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .main-content {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            .main-content h1 {
+                font-size: 22px;
+            }
+            .language-selector {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: 2px;
+                justify-content: center;
+                z-index: 1000;
+            }
+            .language-selector a {
+                font-size: 9px;
+                padding: 2px 4px;
+                color: #4A2C59;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+            .language-selector a:hover {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .language-selector a.active {
+                background-color: #4A2C59;
+                color: #FFFFFF;
+            }
+            .header {
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            .logo-mobile {
+                display: block;
+                max-width: 100px;
+                height: auto;
+            }
+            .hamburger {
+                display: block;
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: #4A2C59;
+                cursor: pointer;
+                padding: 10px;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 110;
+            }
+            .hamburger:hover {
+                color: #5A1D39;
+            }
+            #sidebar {
+                display: none !important;
+            }
+            #sidebar.open {
+                display: block !important;
+                width: 80%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                z-index: 100;
+                border-right: 1px solid #E0E0E0;
+                padding: 20px;
+                padding-top: 50px;
+                background-color: #F8F8F8;
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+            }
+            #sidebar .logo-container {
+                display: none !important; /* Ocultar logo en sidebar en móvil */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="language-selector">
+        <a href="/es/blog/posts/malbec_world_day.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
+        <a href="/en/blog/posts/malbec_world_day.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
+        <a href="/de/blog/posts/malbec_world_day.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
+    </div>
+    <div class="header">
+        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+    <main>
+        <div class="main-content">
+            <div class="post-content"><p>El pasado <strong>17 de abril</strong> (y ya desde el 15 en una velada previa) celebramos el <strong>Malbec World Day</strong> en el <strong>Consulado General de la República Argentina en Frankfurt</strong>. Fue una noche muy especial, llena de buena energía, diálogos y, por supuesto, excelentes Malbecs argentinos.</p>
+<p>El Cónsul General (a.i.) Frederico Franceschini nos recibió junto a un grupo de invitados que incluyó al Cónsul General de Chile, Cristóbal Bernardo Ortiz Salamovich, y al Staatssekretär Christoph Degen del Ministerio de Ciencia, Investigación, Arte y Cultura de Hesse. Fue un lindo momento de intercambio cultural y vinícola entre “vecinos” sudamericanos y amigos alemanes apasionados por el vino.</p>
+<p>La prensa alemana se hizo eco del evento. Aquí puedes leer la nota completa publicada en <strong>Hauptstadt Echo</strong>:</p>
+<p>→ <a href="https://hauptstadtecho.de/welt-malbec-tag-in-frankfurt-a-m-gefeiert/">Welt Malbec Tag in Frankfurt a.M. gefeiert</a></p>
+<p>En esta ocasión quisimos mostrar la diversidad y la altura de los Malbecs argentinos. Compartimos cinco etiquetas muy distintas entre sí, cada una con su carácter y su terruño propio. Acá va el resumen de la velada:</p>
+<h3>5 Malbecs que celebraron el Malbec World Day en Frankfurt</h3>
+<div class="horizontal-reel-container mb-4">
+  <div class="horizontal-reel">
+
+<!-- 1. Colomé Estate Malbec - Salta -->
+<div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="colome-estate">
+  <img src="https://www.1000malbecs.com/images/small/colome-estate-malbec.jpg" alt="Colomé Estate Malbec" class="img-fluid">
+  <div class="info-icon">i</div>
+  <div class="overlay">
+    <p><strong>Provincia:</strong> Salta</p>
+    <p><strong>Región:</strong> Valles Calchaquíes</p>
+    <p><strong>Altura:</strong> Blend de 1700m a 3111m</p>
+    <p><strong>Notas de Cata:</strong> Color rojo brillante e intenso. Aromas a frutas negras y rojas, notas florales y especias. En boca es fresco, con estructura compleja, elegante y gran personalidad. Taninos finos y buena acidez.</p>
+    <p><strong>Descripción:</strong> Blend de cuatro viñedos emblemáticos de Colomé (La Brava, Colomé, El Arenal y Altura Máxima). Uno de los vinos más altos del mundo, con una combinación única de potencia, frescura y mineralidad.</p>
+  </div>
+  <div class="p-4">
+    <h3>Colomé Estate Malbec</h3>
+    <p class="region fw-bold">Salta – Valles Calchaquíes</p>
+    <p class="description small">El Malbec de alturas extremas. Potente, floral y mineral. Ideal para quienes buscan complejidad y elegancia en una sola copa.</p>
+    <a href="https://www.1000malbecs.com/vinos/colome-estate-malbec.html" class="btn btn-primary mt-3">Ver y comprar</a>
+  </div>
+</div>
+
+<!-- 2. Amalaya Tinto (Malbec) - Salta -->
+<div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="amalaya-tinto">
+  <img src="https://www.1000malbecs.com/images/small/amalaya-malbec.jpg" alt="Amalaya Tinto Malbec" class="img-fluid">
+  <div class="info-icon">i</div>
+  <div class="overlay">
+    <p><strong>Provincia:</strong> Salta</p>
+    <p><strong>Región:</strong> Valles Calchaquíes</p>
+    <p><strong>Altura:</strong> 1800 m</p>
+    <p><strong>Notas de Cata:</strong> Brillante color rubí con bordes violáceos. Aromas de fresas, frambuesas, fruta madura, pimienta y elegantes notas florales. En boca sabores de fruta roja, especias y vainilla. Taninos redondos y suaves, muy buena frescura y final persistente.</p>
+    <p><strong>Descripción:</strong> Un Malbec fresco y expresivo de altura, con el carácter típico de los valles salteños. “Amalaya” significa “esperanza de un milagro” en lengua indígena.</p>
+  </div>
+  <div class="p-4">
+    <h3>Amalaya Tinto</h3>
+    <p class="region fw-bold">Salta – Valles Calchaquíes</p>
+    <p class="description small">Frutal, especiado y fresco. Perfecto para quienes aman los Malbecs vibrantes y fáciles de beber.</p>
+    <a href="https://www.1000malbecs.com/vinos/amalaya-tinto.html" class="btn btn-primary mt-3">Ver y comprar</a>
+  </div>
+</div>
+
+<!-- 3. Nucha Malbec Orgánico - Bodega Casa Araujo -->
+<div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="nucha-malbec">
+  <img src="https://www.1000malbecs.com/images/small/nucha-malbec-organico.jpg" alt="Nucha Malbec Orgánico" class="img-fluid">
+  <div class="info-icon">i</div>
+  <div class="overlay">
+    <p><strong>Provincia:</strong> Mendoza</p>
+    <p><strong>Región:</strong> Mendoza</p>
+    <p><strong>Altura:</strong> No especificada</p>
+    <p><strong>Notas de Cata:</strong> Rojo cereza profundo con matices granates. Poderosos aromas a ciruelas y moras combinados con tabaco de la madera. Taninos suaves y delicados, respeta muy bien la fruta y ofrece un final largo y placentero.</p>
+    <p><strong>Descripción:</strong> Primer Malbec orgánico de Bodega Casa Araujo. Un vino honesto, respetuoso del terruño y elaborado sin químicos, en homenaje a Nucha.</p>
+  </div>
+  <div class="p-4">
+    <h3>Nucha Malbec Orgánico</h3>
+    <p class="region fw-bold">Mendoza</p>
+    <p class="description small">Orgánico, frutado y elegante. Para quienes valoran la pureza y el respeto por la naturaleza.</p>
+    <a href="https://www.1000malbecs.com/vinos/nucha-malbec-organico.html" class="btn btn-primary mt-3">Ver y comprar</a>
+  </div>
+</div>
+
+<!-- 4. Chañarmuyo Estate Malbec - La Rioja -->
+<div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="chanarmuyo-estate">
+  <img src="https://www.1000malbecs.com/images/small/chanarmuyo-estate-malbec.jpg" alt="Chañarmuyo Estate Malbec" class="img-fluid">
+  <div class="info-icon">i</div>
+  <div class="overlay">
+    <p><strong>Provincia:</strong> La Rioja</p>
+    <p><strong>Región:</strong> Valle de Famatina</p>
+    <p><strong>Altura:</strong> 1000 msnm</p>
+    <p><strong>Notas de Cata:</strong> Aromas a frambuesa, mora, violetas y vainilla. En boca es redondo, con sabores a frutos rojos, cacao y pimienta. Taninos suaves, acidez equilibrada y final medio con fruta fresca.</p>
+    <p><strong>Descripción:</strong> Frutal y versátil, con un toque de roble que resalta la calidad del terroir riojano. Ideal para carnes asadas y quesos.</p>
+  </div>
+  <div class="p-4">
+    <h3>Chañarmuyo Estate Malbec</h3>
+    <p class="region fw-bold">La Rioja – Valle de Famatina</p>
+    <p class="description small">Redondo, jugoso y equilibrado. El Malbec riojano que siempre sorprende por su calidez.</p>
+    <a href="https://www.1000malbecs.com/vinos/chanarmuyo-estate-malbec.html" class="btn btn-primary mt-3">Ver y comprar</a>
+  </div>
+</div>
+
+<!-- 5. Chakana Nuna Malbec - Mendoza -->
+<div class="product-card text-center shadow-sm border rounded overflow-hidden" data-overlay-id="chakana-nuna">
+  <img src="https://www.1000malbecs.com/images/small/chakana-nuna-malbec.jpg" alt="Chakana Nuna Malbec" class="img-fluid">
+  <div class="info-icon">i</div>
+  <div class="overlay">
+    <p><strong>Provincia:</strong> Mendoza</p>
+    <p><strong>Región:</strong> Valle de Uco / Luján de Cuyo</p>
+    <p><strong>Altura:</strong> Variable</p>
+    <p><strong>Notas de Cata:</strong> Expresivo en fruta roja y negra, con notas florales y especias. Buena estructura, taninos maduros y final persistente.</p>
+    <p><strong>Descripción:</strong> Parte de la línea Nuna de Chakana, un Malbec que refleja la esencia biodinámica y el respeto por el terroir mendocino.</p>
+  </div>
+  <div class="p-4">
+    <h3>Chakana Nuna Malbec</h3>
+    <p class="region fw-bold">Mendoza</p>
+    <p class="description small">Elegante y auténtico. Un Malbec con alma biodinámica que transmite el espíritu de la tierra.</p>
+    <a href="https://www.1000malbecs.com/vinos/chakana-nuna-malbec.html" class="btn btn-primary mt-3">Ver y comprar</a>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<p>Fue una velada que demostró una vez más por qué el Malbec argentino sigue conquistando el mundo: por su versatilidad, su calidad y su capacidad de contar historias de diferentes rincones del país.</p>
+<p>¿Cuál de estos cinco te gustaría probar primero? ¡Salud y gracias a todos los que se sumaron a la celebración!</p></div>
+            <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
+        </div>
+    </main>
+</body>
+</html>
