@@ -8,7 +8,12 @@
     <style>
         :root { --burgundy: #4A2C59; --gold: #D4AF37; }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: #FFFFFF; color: #222222; line-height:1.6; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: #FFFFFF; 
+            color: #222222; 
+            line-height:1.6; 
+        }
 
         .hero {
             background: url('https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/qj/0f67aea2-3670-44c6-8883-c705a3f0d153.jpg') center/contain no-repeat #FFFFFF;
@@ -23,7 +28,12 @@
             margin: 0 auto;
         }
 
-        h2 { font-size: 2.15rem; color: var(--burgundy); text-align: center; margin-bottom: 25px; }
+        h2 { 
+            font-size: 2.15rem; 
+            color: var(--burgundy); 
+            text-align: center; 
+            margin-bottom: 25px; 
+        }
 
         .text-block {
             background: #f8f4f0;
@@ -34,88 +44,79 @@
             margin: 0 auto 50px;
         }
 
+        /* GRID DEGUSTACIÓN */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 22px;
         }
-        .card {
+
+        /* ESTILO PRODUCT CARD (como en tu blog) */
+        .product-card {
             background: white;
-            border: 1px solid #ddd;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
         }
-        .card:hover { transform: translateY(-8px); }
-        .card img { width: 100%; height: 225px; object-fit: cover; }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
 
-        .btn-comprar {
-            display: inline-block;
-            background: var(--burgundy);
-            color: white;
-            padding: 12px 30px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            margin-top: 12px;
-            width: 88%;
-        }
-        .btn-comprar:hover { background: #3a1f45; transform: scale(1.05); }
-
-        /* PACK DISCOVERY */
-        .pack-section {
-            background: #f8f4f0;
-            border-radius: 16px;
-            padding: 50px 40px 50px 170px;
-            margin: 70px auto;
-        }
-        .pack-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
-        }
-        .pack-card {
+        .img-wrapper {
             position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.1);
-            background: white;
+            height: 240px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .pack-card img {
-            width: 100%;
-            height: 235px;
-            object-fit: cover;
+
+        .wine-img {
+            max-width: 160px;
+            max-height: 160px;
+            object-fit: contain;
         }
 
         .overlay {
             position: absolute;
             inset: 0;
-            background: rgba(42,22,48,0.96);
+            background: rgba(74,44,89,0.95);
             color: white;
             padding: 20px;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            z-index: 5;
         }
-        .pack-card:hover .overlay { opacity: 1; }
 
-        /* Botón Ver más - por encima del overlay */
-        .ver-mas-btn {
-            position: relative;
-            z-index: 10;
-            display: inline-block;
+        .product-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .card-body {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .btn-comprar {
             background: var(--burgundy);
             color: white;
-            padding: 10px 24px;
-            font-size: 1rem;
+            padding: 12px 28px;
+            font-size: 1.02rem;
             font-weight: 600;
             border-radius: 50px;
             text-decoration: none;
+            display: inline-block;
             margin-top: 10px;
+            width: 88%;
+        }
+
+        @media (max-width: 768px) {
+            .section, .pack-section { padding-left: 20px; padding-right: 20px; }
+            .grid, .pack-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -199,11 +200,11 @@
                     <p><strong>Mendoza</strong> • Luján de Cuyo</p>
                     <p>Altura: 900 msnm</p>
                     <p><strong>Alcohol: 12.9%</strong></p>
-                    <p><strong>Descripción:</strong> Séptima Rosé de Malbec...</p>
-                    <p><strong>Notas de cata:</strong> Color rosado pálido con tonalidad salmón...</p>
+                    <p><strong>Descripción:</strong> Séptima Rosé de Malbec, parte de la línea emblema de Bodega Séptima...</p>
+                    <p><strong>Notas de cata:</strong> Color rosado pálido con tonalidad salmón. Aromas a frutos rojos...</p>
                 </div>
-                <div style="padding:15px; text-align:center; position:relative; z-index:10;">
-                    <a href="/vinos/septima-rose-de-malbec-2023.html" class="ver-mas-btn">Ver más</a>
+                <div style="padding:15px; text-align:center;">
+                    <a href="" class="ver-mas-btn">Ver más</a>
                 </div>
             </div>
             
@@ -214,11 +215,11 @@
                     <p><strong>Salta</strong> • Valles Calchaquíes</p>
                     <p>Altura: 1800 msnm</p>
                     <p><strong>Alcohol: 14.0%</strong></p>
-                    <p><strong>Descripción:</strong> Durante siglos, los agricultores realizaban ofrendas...</p>
+                    <p><strong>Descripción:</strong> Durante siglos, los agricultores realizaban ofrendas con la Esperanza por un Milagro...</p>
                     <p><strong>Notas de cata:</strong> Es un malbec cuyas uvas se cosecharon a gran altura...</p>
                 </div>
-                <div style="padding:15px; text-align:center; position:relative; z-index:10;">
-                    <a href="/vinos/amalaya-malbec-2023.html" class="ver-mas-btn">Ver más</a>
+                <div style="padding:15px; text-align:center;">
+                    <a href="" class="ver-mas-btn">Ver más</a>
                 </div>
             </div>
             
@@ -229,17 +230,16 @@
                     <p><strong>Mendoza</strong> • Luján de Cuyo, Agrelo</p>
                     <p>Altura: 950 msnm</p>
                     <p><strong>Alcohol: 14.2%</strong></p>
-                    <p><strong>Descripción:</strong> El Kaiken Terroir Malbec 2022 destaca...</p>
+                    <p><strong>Descripción:</strong> El Kaiken Terroir Malbec 2022 destaca por su expresión única del terroir mendocino...</p>
                     <p><strong>Notas de cata:</strong> En este corte se logra una combinación única...</p>
                 </div>
-                <div style="padding:15px; text-align:center; position:relative; z-index:10;">
-                    <a href="/vinos/kaiken-terroir-malbec-2022.html" class="ver-mas-btn">Ver más</a>
+                <div style="padding:15px; text-align:center;">
+                    <a href="" class="ver-mas-btn">Ver más</a>
                 </div>
             </div>
             
         </div>
 
-        <!-- BOTÓN PRINCIPAL PACK -->
         <div style="text-align:center; margin-top:50px;">
             <a href="https://wa.me/+4915158224728?text=Quiero el Pack Discovery (3 vinos) por €39,99 con envío gratis" 
                class="btn-comprar" target="_blank" style="width:auto; padding:16px 50px; font-size:1.15rem;">
