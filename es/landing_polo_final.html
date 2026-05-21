@@ -23,7 +23,7 @@
         }
 
         .section, .pack-section {
-            padding: 40px 40px 30px 170px;   /* margen izquierdo amplio */
+            padding: 40px 40px 30px 170px;
             max-width: 1480px;
             margin: 0 auto;
         }
@@ -44,79 +44,80 @@
             margin: 0 auto 50px;
         }
 
+        /* GRID DEGUSTACIÓN */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 22px;
         }
-        .card {
+
+        /* ESTILO PRODUCT CARD (como en tu blog) */
+        .product-card {
             background: white;
-            border: 1px solid #ddd;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
         }
-        .card:hover { transform: translateY(-8px); }
-        .card img { width: 100%; height: 225px; object-fit: cover; }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
 
-        .btn-comprar {
-            display: inline-block;
-            background: var(--burgundy);
-            color: white;
-            padding: 12px 30px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            margin-top: 12px;
-            width: 88%;
-        }
-        .btn-comprar:hover { background: #3a1f45; transform: scale(1.05); }
-
-        /* PACK DISCOVERY - Imágenes pequeñas (120x120) */
-        .pack-section {
-            background: #f8f4f0;
-            border-radius: 16px;
-            padding: 50px 40px 45px 170px;
-            margin: 70px auto;
-        }
-        .pack-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
-        }
-        .pack-card {
+        .img-wrapper {
             position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.1);
-            background: white;
-            padding: 15px;
+            height: 240px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .img-container {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #eee;
-        }
-        .pack-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+
+        .wine-img {
+            max-width: 160px;
+            max-height: 160px;
+            object-fit: contain;
         }
 
         .overlay {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(42,22,48,0.96));
+            inset: 0;
+            background: rgba(74,44,89,0.95);
             color: white;
-            padding: 20px 16px 18px;
-            transform: translateY(75%);
-            transition: all 0.4s ease;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .pack-card:hover .overlay { transform: translateY(0); }
+
+        .product-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .card-body {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .btn-comprar {
+            background: var(--burgundy);
+            color: white;
+            padding: 12px 28px;
+            font-size: 1.02rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            width: 88%;
+        }
+
+        @media (max-width: 768px) {
+            .section, .pack-section { padding-left: 20px; padding-right: 20px; }
+            .grid, .pack-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
@@ -133,45 +134,53 @@
         
         <div class="grid">
             
-            <div class="card">
-                <img src="https://andenweine.de/thumbnail/c2/ea/4e/1641308918/La-Cantera_01_1920x1920.jpg" alt="Casa del Bosque La Cantera Sauvignon Blanc">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="https://andenweine.de/thumbnail/c2/ea/4e/1641308918/La-Cantera_01_1920x1920.jpg" class="wine-img" alt="Casa del Bosque La Cantera Sauvignon Blanc">
+                </div>
                 <div class="card-body">
-                    <h3 style="font-size:1.05rem; margin-bottom:12px;">Casa del Bosque La Cantera Sauvignon Blanc</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <h3 style="font-size:1.05rem; margin-bottom:10px;">Casa del Bosque La Cantera Sauvignon Blanc</h3>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Casa%20del%20Bosque%20La%20Cantera%20Sauvignon%20Blanc a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
-            <div class="card">
-                <img src="/images/small/graciano-reserva-blend-2023.jpg" alt="Graciano Reserva">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="/images/small/graciano-reserva-blend-2023.jpg" class="wine-img" alt="Graciano Reserva">
+                </div>
                 <div class="card-body">
-                    <h3 style="font-size:1.05rem; margin-bottom:12px;">Graciano Reserva</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,84</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 17,13 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <h3 style="font-size:1.05rem; margin-bottom:10px;">Graciano Reserva</h3>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 22,84</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 17,13 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Graciano%20Reserva a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
-            <div class="card">
-                <img src="/images/small/amalaya-corte-unico-2024.jpg" alt="Amalaya Corte Único">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="/images/small/amalaya-corte-unico-2024.jpg" class="wine-img" alt="Amalaya Corte Único">
+                </div>
                 <div class="card-body">
-                    <h3 style="font-size:1.05rem; margin-bottom:12px;">Amalaya Corte Único</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 34,90</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 26,18 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <h3 style="font-size:1.05rem; margin-bottom:10px;">Amalaya Corte Único</h3>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 34,90</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 26,18 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Amalaya%20Corte%20Único a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
-            <div class="card">
-                <img src="/images/small/colome-autentico-malbec-2021.jpg" alt="Colomé Auténtico Malbec">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="/images/small/colome-autentico-malbec-2021.jpg" class="wine-img" alt="Colomé Auténtico Malbec">
+                </div>
                 <div class="card-body">
-                    <h3 style="font-size:1.05rem; margin-bottom:12px;">Colomé Auténtico Malbec</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 41,82</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 31,37 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <h3 style="font-size:1.05rem; margin-bottom:10px;">Colomé Auténtico Malbec</h3>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 41,82</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 31,37 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Colomé%20Auténtico%20Malbec a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
@@ -192,45 +201,51 @@
         
         <div class="pack-grid">
             
-            <div class="pack-card">
-                <div class="img-container">
-                    <img src="/images/small/sptima-ros-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="/images/small/sptima-ros-de-malbec-2023.jpg" class="wine-img" alt="Septima Rose de Malbec 2023">
                 </div>
-                <div class="overlay">
-                    <h4 style="color:var(--gold); margin-bottom:8px;">Septima Rose de Malbec 2023</h4>
+                <div class="card-body">
+                    <h3 style="font-size:1.05rem; margin-bottom:10px;">Septima Rose de Malbec 2023</h3>
                     <p><strong>Mendoza</strong> • Luján de Cuyo</p>
                     <p>Altura: 900 msnm</p>
                     <p><strong>Alcohol: 12.9%</strong></p>
+                </div>
+                <div class="overlay">
                     <p><strong>Descripción:</strong> Séptima Rosé de Malbec, parte de la línea emblema de Bodega Séptima...</p>
-                    <p><strong>Notas de cata:</strong> Color rosado pálido con tonalidad salmón. Aromas a frutos rojos...</p>
+                    <p><strong>Notas:</strong> Color rosado pálido con tonalidad salmón. Aromas a frutos rojos...</p>
                 </div>
             </div>
             
-            <div class="pack-card">
-                <div class="img-container">
-                    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="/images/small/amalaya-malbec-2023.jpg" class="wine-img" alt="Amalaya Malbec 2023">
                 </div>
-                <div class="overlay">
-                    <h4 style="color:var(--gold); margin-bottom:8px;">Amalaya Malbec 2023</h4>
+                <div class="card-body">
+                    <h3 style="font-size:1.05rem; margin-bottom:10px;">Amalaya Malbec 2023</h3>
                     <p><strong>Salta</strong> • Valles Calchaquíes</p>
                     <p>Altura: 1800 msnm</p>
                     <p><strong>Alcohol: 14.0%</strong></p>
+                </div>
+                <div class="overlay">
                     <p><strong>Descripción:</strong> Durante siglos, los agricultores realizaban ofrendas con la Esperanza por un Milagro...</p>
-                    <p><strong>Notas de cata:</strong> Es un malbec cuyas uvas se cosecharon a gran altura...</p>
+                    <p><strong>Notas:</strong> Es un malbec cuyas uvas se cosecharon a gran altura...</p>
                 </div>
             </div>
             
-            <div class="pack-card">
-                <div class="img-container">
-                    <img src="/images/small/kaiken-terroir-malbec-2022.jpg" alt="Kaiken Terroir Malbec 2022">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="/images/small/kaiken-terroir-malbec-2022.jpg" class="wine-img" alt="Kaiken Terroir Malbec 2022">
                 </div>
-                <div class="overlay">
-                    <h4 style="color:var(--gold); margin-bottom:8px;">Kaiken Terroir Malbec 2022</h4>
+                <div class="card-body">
+                    <h3 style="font-size:1.05rem; margin-bottom:10px;">Kaiken Terroir Malbec 2022</h3>
                     <p><strong>Mendoza</strong> • Luján de Cuyo, Agrelo</p>
                     <p>Altura: 950 msnm</p>
                     <p><strong>Alcohol: 14.2%</strong></p>
+                </div>
+                <div class="overlay">
                     <p><strong>Descripción:</strong> El Kaiken Terroir Malbec 2022 destaca por su expresión única del terroir mendocino...</p>
-                    <p><strong>Notas de cata:</strong> En este corte se logra una combinación única...</p>
+                    <p><strong>Notas:</strong> En este corte se logra una combinación única...</p>
                 </div>
             </div>
             
