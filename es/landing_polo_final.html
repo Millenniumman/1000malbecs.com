@@ -12,14 +12,14 @@
             font-family: 'Montserrat', sans-serif; 
             background: #FFFFFF; 
             color: #222222; 
-            line-height:1.5; 
+            line-height:1.6; 
         }
-        
+
         .hero {
             background: url('https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/qj/0f67aea2-3670-44c6-8883-c705a3f0d153.jpg') center/contain no-repeat #FFFFFF;
-            height: 38vh;
-            min-height: 320px;
-            margin-top: 80px;   /* espacio para header inyectado */
+            height: 42vh;
+            min-height: 340px;
+            margin-top: 90px; /* Espacio para header inyectado */
         }
 
         .section, .pack-section {
@@ -29,7 +29,7 @@
         }
 
         h2 { 
-            font-size: 2.1rem; 
+            font-size: 2.15rem; 
             color: var(--burgundy); 
             text-align: center; 
             margin-bottom: 25px; 
@@ -39,9 +39,9 @@
             background: #f8f4f0;
             border-left: 6px solid var(--burgundy);
             border-radius: 8px;
-            padding: 28px 40px;
+            padding: 30px 40px;
             max-width: 780px;
-            margin: 0 auto 45px;
+            margin: 0 auto 50px;
         }
 
         .grid {
@@ -51,59 +51,54 @@
         }
         .card {
             background: white;
-            border: 1px solid #ddd;
+            border: 1px solid #eee;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
         }
-        .card:hover { transform: translateY(-8px); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-
-        .card-body { padding: 20px 15px; text-align: center; }
+        .card img { width: 100%; height: 225px; object-fit: cover; }
 
         /* PACK DISCOVERY */
         .pack-section {
             background: #f8f4f0;
             border-radius: 16px;
-            padding: 50px 40px 40px 140px;
-            margin: 60px auto;
+            padding: 50px 40px 45px 140px;
+            margin: 70px auto;
         }
         .pack-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 26px;
         }
         .pack-card {
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 16px rgba(0,0,0,0.1);
         }
         .pack-card img {
             width: 100%;
-            height: 210px;
+            height: 225px;
             object-fit: cover;
         }
 
         .overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(42,22,48,0.95));
+            background: linear-gradient(transparent, rgba(42,22,48,0.96));
             color: white;
-            padding: 22px 16px 20px;
-            transform: translateY(80%);
+            padding: 25px 18px 22px;
+            transform: translateY(75%);
             transition: all 0.4s ease;
         }
         .pack-card:hover .overlay {
             transform: translateY(0);
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
             .section, .pack-section { padding-left: 20px; padding-right: 20px; }
-            .grid, .pack-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero { margin-top: 70px; height: 28vh; }
+            .grid, .pack-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+            .hero { margin-top: 70px; height: 32vh; }
         }
     </style>
 </head>
@@ -125,8 +120,8 @@
                 <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Casa+del+Bosque+La+Canter" alt="Casa del Bosque La Cantera Sauvignon Blanc">
                 <div class="card-body">
                     <h3 style="font-size:1.05rem; margin-bottom:12px;">Casa del Bosque La Cantera Sauvignon Blanc</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Casa%20del%20Bosque%20La%20Cantera%20Sauvignon%20Blanc a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
@@ -136,8 +131,8 @@
                 <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Graciano+Reserva" alt="Graciano Reserva">
                 <div class="card-body">
                     <h3 style="font-size:1.05rem; margin-bottom:12px;">Graciano Reserva</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,84</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 17,13 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 22,84</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 17,13 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Graciano%20Reserva a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
@@ -147,8 +142,8 @@
                 <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Amalaya+Corte+Único" alt="Amalaya Corte Único">
                 <div class="card-body">
                     <h3 style="font-size:1.05rem; margin-bottom:12px;">Amalaya Corte Único</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 34,90</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 26,18 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 34,90</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 26,18 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Amalaya%20Corte%20Único a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
@@ -158,8 +153,8 @@
                 <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Colomé+Auténtico+Malbec" alt="Colomé Auténtico Malbec">
                 <div class="card-body">
                     <h3 style="font-size:1.05rem; margin-bottom:12px;">Colomé Auténtico Malbec</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 41,82</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 31,37 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <p style="text-decoration:line-through; opacity:0.6;">€ 41,82</p>
+                    <p style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 31,37 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Colomé%20Auténtico%20Malbec a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
