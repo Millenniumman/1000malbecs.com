@@ -19,6 +19,7 @@
             background: url('https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/qj/0f67aea2-3670-44c6-8883-c705a3f0d153.jpg') center/contain no-repeat #FFFFFF;
             height: 38vh;
             min-height: 320px;
+            margin-top: 80px;   /* espacio para header inyectado */
         }
 
         .section, .pack-section {
@@ -102,6 +103,7 @@
         @media (max-width: 768px) {
             .section, .pack-section { padding-left: 20px; padding-right: 20px; }
             .grid, .pack-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { margin-top: 70px; height: 28vh; }
         }
     </style>
 </head>
@@ -126,7 +128,7 @@
                     <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
                     <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Casa%20del%20Bosque%20La%20Cantera%20Sauvignon%20Blanc a precio especial" 
-                       class="btn-comprar" target="_blank" style="display:inline-block; margin-top:12px; background:var(--burgundy); color:white; padding:11px 28px; border-radius:50px; text-decoration:none;">Comprar</a>
+                       class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
@@ -137,7 +139,7 @@
                     <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,84</p>
                     <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 17,13 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Graciano%20Reserva a precio especial" 
-                       class="btn-comprar" target="_blank" style="display:inline-block; margin-top:12px; background:var(--burgundy); color:white; padding:11px 28px; border-radius:50px; text-decoration:none;">Comprar</a>
+                       class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
@@ -148,7 +150,7 @@
                     <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 34,90</p>
                     <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 26,18 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Amalaya%20Corte%20Único a precio especial" 
-                       class="btn-comprar" target="_blank" style="display:inline-block; margin-top:12px; background:var(--burgundy); color:white; padding:11px 28px; border-radius:50px; text-decoration:none;">Comprar</a>
+                       class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
@@ -159,7 +161,7 @@
                     <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 41,82</p>
                     <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 31,37 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Colomé%20Auténtico%20Malbec a precio especial" 
-                       class="btn-comprar" target="_blank" style="display:inline-block; margin-top:12px; background:var(--burgundy); color:white; padding:11px 28px; border-radius:50px; text-decoration:none;">Comprar</a>
+                       class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
@@ -192,19 +194,6 @@
             </div>
             
             <div class="pack-card">
-                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Septima+Rose+de+Malbec+2023" 
-                     alt="Septima Rose de Malbec 2023">
-                <div class="overlay">
-                    <h4 style="color:var(--gold); margin-bottom:8px;">Septima Rose de Malbec 2023</h4>
-                    <p><strong>Mendoza</strong> • Luján de Cuyo</p>
-                    <p>Altura: 900 msnm</p>
-                    <p><strong>Alcohol: 12.9%</strong></p>
-                    <p><strong>Descripción:</strong> Séptima Rosé de Malbec, parte de la línea emblema de Bodega Séptima, es un vino rosado fresco y moderno e...</p>
-                    <p><strong>Notas de cata:</strong> Color rosado pálido con tonalidad salmón. En nariz, ofrece aromas elegantes a frutos rojos como cereza, c...</p>
-                </div>
-            </div>
-            
-            <div class="pack-card">
                 <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Amalaya+Malbec+2023" 
                      alt="Amalaya Malbec 2023">
                 <div class="overlay">
@@ -219,15 +208,15 @@ un Milagro - como se traduce Am...</p>
             </div>
             
             <div class="pack-card">
-                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Kaiken+Estate+Malbec+Reserve+2022" 
-                     alt="Kaiken Estate Malbec Reserve 2022">
+                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Kaiken+Terroir+Malbec+2022" 
+                     alt="Kaiken Terroir Malbec 2022">
                 <div class="overlay">
-                    <h4 style="color:var(--gold); margin-bottom:8px;">Kaiken Estate Malbec Reserve 2022</h4>
+                    <h4 style="color:var(--gold); margin-bottom:8px;">Kaiken Terroir Malbec 2022</h4>
                     <p><strong>Mendoza</strong> • Luján de Cuyo, Agrelo</p>
                     <p>Altura: 950 msnm</p>
-                    <p><strong>Alcohol: 14.0%</strong></p>
-                    <p><strong>Descripción:</strong> El Kaiken Estate Malbec Reserve 2022 es un vino tinto de Bodega Kaiken, conocido por su enfoque en la cal...</p>
-                    <p><strong>Notas de cata:</strong> Rojo con reflejos violáceos. En nariz se aprecian aromas intensos y frutales como ciruelas maduras, cerez...</p>
+                    <p><strong>Alcohol: 14.2%</strong></p>
+                    <p><strong>Descripción:</strong> El Kaiken Terroir Malbec 2022 destaca por su expresión única del terroir mendocino, con uvas Malbec culti...</p>
+                    <p><strong>Notas de cata:</strong> En este corte se logra una combinación única. Presenta un color rojo intenso con tintes violáceos. En nar...</p>
                 </div>
             </div>
             
