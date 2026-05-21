@@ -23,7 +23,7 @@
         }
 
         .section, .pack-section {
-            padding: 40px 40px 30px 140px;
+            padding: 40px 40px 30px 160px;   /* ← Más margen izquierdo */
             max-width: 1480px;
             margin: 0 auto;
         }
@@ -59,7 +59,6 @@
         .card:hover { transform: translateY(-8px); }
         .card img { width: 100%; height: 225px; object-fit: cover; }
 
-        /* BOTÓN COMPRA BORDEAUX */
         .btn-comprar {
             display: inline-block;
             background: var(--burgundy);
@@ -71,18 +70,14 @@
             text-decoration: none;
             margin-top: 12px;
             width: 88%;
-            transition: all 0.3s;
         }
-        .btn-comprar:hover {
-            background: #3a1f45;
-            transform: scale(1.05);
-        }
+        .btn-comprar:hover { background: #3a1f45; transform: scale(1.05); }
 
-        /* PACK DISCOVERY - CAJAS MÁS GRANDES */
+        /* PACK DISCOVERY */
         .pack-section {
             background: #f8f4f0;
             border-radius: 16px;
-            padding: 50px 40px 45px 140px;
+            padding: 50px 40px 45px 160px;
             margin: 70px auto;
         }
         .pack-grid {
@@ -95,11 +90,10 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 16px rgba(0,0,0,0.1);
-            background: white;
         }
         .pack-card img {
             width: 100%;
-            height: 240px;           /* ← Más grande */
+            height: 235px;
             object-fit: cover;
         }
 
@@ -111,16 +105,12 @@
             padding: 24px 18px 22px;
             transform: translateY(75%);
             transition: all 0.4s ease;
-            font-size: 0.92rem;
         }
-        .pack-card:hover .overlay {
-            transform: translateY(0);
-        }
+        .pack-card:hover .overlay { transform: translateY(0); }
 
         @media (max-width: 768px) {
             .section, .pack-section { padding-left: 20px; padding-right: 20px; }
             .grid, .pack-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero { margin-top: 70px; height: 32vh; }
         }
     </style>
 </head>
@@ -139,7 +129,8 @@
         <div class="grid">
             
             <div class="card">
-                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Casa+del+Bosque+La+Canter" alt="Casa del Bosque La Cantera Sauvignon Blanc">
+                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Casa+del+Bosque+La+Canter" 
+                     alt="Casa del Bosque La Cantera Sauvignon Blanc">
                 <div class="card-body">
                     <h3 style="font-size:1.05rem; margin-bottom:12px;">Casa del Bosque La Cantera Sauvignon Blanc</h3>
                     <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
@@ -150,33 +141,36 @@
             </div>
             
             <div class="card">
-                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Graciano+Reserva" alt="Graciano Reserva">
+                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Graciano+Reserva+Blend+2023" 
+                     alt="Graciano Reserva Blend 2023">
                 <div class="card-body">
-                    <h3 style="font-size:1.05rem; margin-bottom:12px;">Graciano Reserva</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,84</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 17,13 <span style="font-size:0.9rem;">(-25%)</span></p>
-                    <a href="https://wa.me/+4915158224728?text=Quiero una botella de Graciano%20Reserva a precio especial" 
+                    <h3 style="font-size:1.05rem; margin-bottom:12px;">Graciano Reserva Blend 2023</h3>
+                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
+                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <a href="https://wa.me/+4915158224728?text=Quiero una botella de Graciano%20Reserva%20Blend%202023 a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
             <div class="card">
-                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Amalaya+Corte+Único" alt="Amalaya Corte Único">
+                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Amalaya+Corte+Único" 
+                     alt="Amalaya Corte Único">
                 <div class="card-body">
                     <h3 style="font-size:1.05rem; margin-bottom:12px;">Amalaya Corte Único</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 34,90</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 26,18 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
+                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Amalaya%20Corte%20Único a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
             </div>
             
             <div class="card">
-                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Colomé+Auténtico+Malbec" alt="Colomé Auténtico Malbec">
+                <img src="https://via.placeholder.com/600x800/4A2C59/white?text=Colomé+Auténtico+Malbec" 
+                     alt="Colomé Auténtico Malbec">
                 <div class="card-body">
                     <h3 style="font-size:1.05rem; margin-bottom:12px;">Colomé Auténtico Malbec</h3>
-                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 41,82</p>
-                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 31,37 <span style="font-size:0.9rem;">(-25%)</span></p>
+                    <p class="precio-event" style="text-decoration:line-through; opacity:0.6;">€ 22,30</p>
+                    <p class="precio-especial" style="font-size:1.45rem; font-weight:700; color:var(--burgundy);">€ 16,73 <span style="font-size:0.9rem;">(-25%)</span></p>
                     <a href="https://wa.me/+4915158224728?text=Quiero una botella de Colomé%20Auténtico%20Malbec a precio especial" 
                        class="btn-comprar" target="_blank">Comprar</a>
                 </div>
@@ -198,7 +192,7 @@
         <div class="pack-grid">
             
             <div class="pack-card">
-                <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" 
+                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Septima+Rose+de+Malbec+2023" 
                      alt="Septima Rose de Malbec 2023">
                 <div class="overlay">
                     <h4 style="color:var(--gold); margin-bottom:8px;">Septima Rose de Malbec 2023</h4>
@@ -211,7 +205,7 @@
             </div>
             
             <div class="pack-card">
-                <img src="https://www.1000malbecs.com/images/small/amalaya-malbec-2023.jpg" 
+                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Amalaya+Malbec+2023" 
                      alt="Amalaya Malbec 2023">
                 <div class="overlay">
                     <h4 style="color:var(--gold); margin-bottom:8px;">Amalaya Malbec 2023</h4>
@@ -225,7 +219,7 @@ un Milagro - como se traduce Amalaya...</p>
             </div>
             
             <div class="pack-card">
-                <img src="https://www.1000malbecs.com/images/small/kaiken-terroir-malbec-2022.jpg" 
+                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Kaiken+Terroir+Malbec+2022" 
                      alt="Kaiken Terroir Malbec 2022">
                 <div class="overlay">
                     <h4 style="color:var(--gold); margin-bottom:8px;">Kaiken Terroir Malbec 2022</h4>
