@@ -22,7 +22,7 @@
         }
 
         .section, .pack-section {
-            padding: 35px 40px 25px 130px !important;   /* Más margen izquierdo */
+            padding: 35px 40px 25px 130px;
             max-width: 1450px;
             margin: 0 auto;
         }
@@ -43,6 +43,7 @@
             margin: 0 auto 40px;
         }
 
+        /* GRID DEGUSTACIÓN - RESPONSIVE */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -50,6 +51,7 @@
             max-width: 1250px;
             margin: 0 auto;
         }
+
         .card {
             background: white;
             border: 1px solid #ddd;
@@ -62,8 +64,41 @@
         .card img { width: 100%; height: 215px; object-fit: cover; }
 
         .card-body { padding: 18px 12px; text-align: center; }
-        .precio-event { text-decoration: line-through; opacity: 0.6; font-size: 0.95rem; }
-        .precio-especial { font-size: 1.45rem; font-weight: 700; color: var(--burgundy); margin: 8px 0; }
+
+        /* PACK DISCOVERY */
+        .pack-section {
+            background: #f8f4f0;
+            border-radius: 16px;
+            padding: 50px 40px 40px 130px;
+            margin: 60px auto;
+        }
+        .pack-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .pack-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            .section, .pack-section {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .pack-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h2 { font-size: 1.75rem; }
+            .text-block p { font-size: 1rem; }
+        }
 
         .btn-comprar {
             display: inline-block;
@@ -78,49 +113,6 @@
             transition: all 0.3s;
         }
         .btn-comprar:hover { transform: scale(1.05); background: #3a1f45; }
-
-        /* PACK DISCOVERY - Imágenes más pequeñas */
-        .pack-section {
-            background: #f8f4f0;
-            border-radius: 16px;
-            padding: 50px 40px 40px 130px;
-            margin: 60px auto;
-        }
-        .pack-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-        .pack-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background: white;
-        }
-        .pack-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-        .pack-card:hover img { transform: scale(1.08); }
-
-        .overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(42, 22, 48, 0.95));
-            color: white;
-            padding: 20px 15px 18px;
-            transform: translateY(70%);
-            opacity: 0;
-            transition: all 0.4s ease;
-            font-size: 0.88rem;
-        }
-        .pack-card:hover .overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
@@ -183,7 +175,7 @@
         </div>
     </div>
 
-    <!-- PACK DISCOVERY -->
+    <!-- PACK DISCOVERY con imágenes reales -->
     <div class="pack-section">
         <h2 style="color: var(--burgundy);">Pack Discovery - 1000 Malbecs</h2>
         <p style="text-align:center; max-width:820px; margin:0 auto 35px; font-size:1.08rem; line-height:1.7;">
@@ -196,7 +188,7 @@
         <div class="pack-grid">
             
             <div class="pack-card">
-                <img src="/images/small/amalaya-malbec-2023.jpg" 
+                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Amalaya+Malbec+2023" 
                      alt="Amalaya Malbec 2023">
                 <div class="overlay">
                     <h4 style="color:var(--gold); margin-bottom:10px;">Amalaya Malbec 2023</h4>
@@ -210,7 +202,7 @@ un Milagro - como se traduce Amalaya...</p>
             </div>
             
             <div class="pack-card">
-                <img src="/images/small/kaiken-terroir-malbec-2022.jpg" 
+                <img src="https://via.placeholder.com/400x300/4A2C59/white?text=Kaiken+Terroir+Malbec+2022" 
                      alt="Kaiken Terroir Malbec 2022">
                 <div class="overlay">
                     <h4 style="color:var(--gold); margin-bottom:10px;">Kaiken Terroir Malbec 2022</h4>
