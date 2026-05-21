@@ -8,12 +8,7 @@
     <style>
         :root { --burgundy: #4A2C59; --gold: #D4AF37; }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background: #FFFFFF; 
-            color: #222222; 
-            line-height:1.6; 
-        }
+        body { font-family: 'Montserrat', sans-serif; background: #FFFFFF; color: #222222; line-height:1.6; }
 
         .hero {
             background: url('https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/qj/0f67aea2-3670-44c6-8883-c705a3f0d153.jpg') center/contain no-repeat #FFFFFF;
@@ -28,12 +23,7 @@
             margin: 0 auto;
         }
 
-        h2 { 
-            font-size: 2.15rem; 
-            color: var(--burgundy); 
-            text-align: center; 
-            margin-bottom: 25px; 
-        }
+        h2 { font-size: 2.15rem; color: var(--burgundy); text-align: center; margin-bottom: 25px; }
 
         .text-block {
             background: #f8f4f0;
@@ -109,9 +99,23 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            z-index: 5;
         }
-        .pack-card:hover .overlay {
-            opacity: 1;
+        .pack-card:hover .overlay { opacity: 1; }
+
+        /* Botón Ver más - por encima del overlay */
+        .ver-mas-btn {
+            position: relative;
+            z-index: 10;
+            display: inline-block;
+            background: var(--burgundy);
+            color: white;
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -195,8 +199,11 @@
                     <p><strong>Mendoza</strong> • Luján de Cuyo</p>
                     <p>Altura: 900 msnm</p>
                     <p><strong>Alcohol: 12.9%</strong></p>
-                    <p><strong>Descripción:</strong> Séptima Rosé de Malbec, parte de la línea emblema de Bodega Séptima...</p>
-                    <p><strong>Notas de cata:</strong> Color rosado pálido con tonalidad salmón. Aromas a frutos rojos...</p>
+                    <p><strong>Descripción:</strong> Séptima Rosé de Malbec...</p>
+                    <p><strong>Notas de cata:</strong> Color rosado pálido con tonalidad salmón...</p>
+                </div>
+                <div style="padding:15px; text-align:center; position:relative; z-index:10;">
+                    <a href="/vinos/septima-rose-de-malbec-2023.html" class="ver-mas-btn">Ver más</a>
                 </div>
             </div>
             
@@ -207,8 +214,11 @@
                     <p><strong>Salta</strong> • Valles Calchaquíes</p>
                     <p>Altura: 1800 msnm</p>
                     <p><strong>Alcohol: 14.0%</strong></p>
-                    <p><strong>Descripción:</strong> Durante siglos, los agricultores realizaban ofrendas con la Esperanza por un Milagro...</p>
+                    <p><strong>Descripción:</strong> Durante siglos, los agricultores realizaban ofrendas...</p>
                     <p><strong>Notas de cata:</strong> Es un malbec cuyas uvas se cosecharon a gran altura...</p>
+                </div>
+                <div style="padding:15px; text-align:center; position:relative; z-index:10;">
+                    <a href="/vinos/amalaya-malbec-2023.html" class="ver-mas-btn">Ver más</a>
                 </div>
             </div>
             
@@ -219,21 +229,21 @@
                     <p><strong>Mendoza</strong> • Luján de Cuyo, Agrelo</p>
                     <p>Altura: 950 msnm</p>
                     <p><strong>Alcohol: 14.2%</strong></p>
-                    <p><strong>Descripción:</strong> El Kaiken Terroir Malbec 2022 destaca por su expresión única del terroir mendocino...</p>
+                    <p><strong>Descripción:</strong> El Kaiken Terroir Malbec 2022 destaca...</p>
                     <p><strong>Notas de cata:</strong> En este corte se logra una combinación única...</p>
+                </div>
+                <div style="padding:15px; text-align:center; position:relative; z-index:10;">
+                    <a href="/vinos/kaiken-terroir-malbec-2022.html" class="ver-mas-btn">Ver más</a>
                 </div>
             </div>
             
         </div>
 
-        <!-- BOTONES DE ACCIÓN -->
-        <div style="text-align:center; margin-top:45px;">
+        <!-- BOTÓN PRINCIPAL PACK -->
+        <div style="text-align:center; margin-top:50px;">
             <a href="https://wa.me/+4915158224728?text=Quiero el Pack Discovery (3 vinos) por €39,99 con envío gratis" 
-               class="btn-comprar" target="_blank" style="width:auto; padding:16px 45px; font-size:1.15rem; margin-right:15px;">
+               class="btn-comprar" target="_blank" style="width:auto; padding:16px 50px; font-size:1.15rem;">
                 Quiero mi Pack Discovery
-            </a>
-            <a href="#" class="btn-comprar" style="background:#666; width:auto; padding:16px 35px; font-size:1.05rem;">
-                Ver más packs
             </a>
         </div>
     </div>
