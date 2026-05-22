@@ -15,7 +15,7 @@
             line-height:1.6; 
         }
 
-        /* ==================== TOPBAR (solo logo en mobile) ==================== */
+        /* TOPBAR - Solo logo en mobile */
         .topbar {
             position: fixed;
             top: 0;
@@ -30,17 +30,14 @@
             padding: 0 20px;
             z-index: 1000;
         }
+        .logo { max-height: 42px; }
 
-        .logo {
-            max-height: 42px;
-        }
-
-        /* ==================== LANGUAGE SELECTOR (en el body, centrado) ==================== */
+        /* LANGUAGE SELECTOR - Centrado en el body */
         .lang-selector {
             text-align: center;
-            padding: 15px 0;
+            padding: 20px 0 15px;
             background: #f8f4f0;
-            margin-bottom: 30px;
+            margin-top: 75px;
         }
         .lang-selector a {
             padding: 10px 18px;
@@ -57,12 +54,10 @@
             color: white;
         }
 
-        /* ==================== CONTENIDO ==================== */
         .hero {
             background: url('https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/qj/0f67aea2-3670-44c6-8883-c705a3f0d153.jpg') center/contain no-repeat #FFFFFF;
             height: 42vh;
             min-height: 340px;
-            margin-top: 80px;
         }
 
         .section, .pack-section {
@@ -100,10 +95,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: all 0.3s;
         }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
+        .product-card:hover { transform: translateY(-8px); }
 
         .img-wrapper {
             position: relative;
@@ -120,20 +112,21 @@
             object-fit: contain;
         }
 
+        /* Overlay más pequeño */
         .overlay {
             position: absolute;
-            inset: 0;
-            background: rgba(74,44,89,0.95);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(42,22,48,0.95);
             color: white;
-            padding: 20px;
+            padding: 18px;
             opacity: 0;
-            transition: opacity 0.35s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            transition: opacity 0.4s ease;
             z-index: 5;
+            max-height: 65%;
+            overflow-y: auto;
         }
-
         .product-card:hover .overlay {
             opacity: 1;
         }
@@ -159,20 +152,20 @@
             .section, .pack-section { padding: 30px 20px; }
             .grid { grid-template-columns: repeat(2, 1fr); }
             .pack-grid { grid-template-columns: 1fr; }
-            .hero { margin-top: 75px; height: 32vh; }
+            .hero { height: 32vh; }
         }
     </style>
 </head>
 <body>
 
-    <!-- TOPBAR - Solo logo en mobile -->
+    <!-- TOPBAR -->
     <div class="topbar">
         <a href="/es/" title="1000 Malbecs">
             <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
         </a>
     </div>
 
-    <!-- LANGUAGE SELECTOR - Centrado en el body -->
+    <!-- LANGUAGE SELECTOR -->
     <div class="lang-selector">
         <a href="/es/landing_polo_final.html" class="active">ES</a>
         <a href="/en/landing_polo_final.html">EN</a>
@@ -245,7 +238,7 @@
         </div>
     </div>
 
-    <!-- PACK DISCOVERY -->
+     <!-- PACK DISCOVERY -->
     <div class="pack-section">
         <h2 style="color: var(--burgundy);">Pack Discovery - 1000 Malbecs</h2>
         <p style="text-align:center; max-width:820px; margin:0 auto 40px; font-size:1.08rem; line-height:1.7;">
@@ -269,7 +262,7 @@
                 </div>
                 <div class="overlay">
                     <p><strong>Descripción:</strong> Séptima Rosé de Malbec...</p>
-                    <p><strong>Notas:</strong> Color rosado pálido...</p>
+                    <p><strong>Notas de cata:</strong> Color rosado pálido...</p>
                 </div>
                 <div style="padding:15px; text-align:center;">
                     <a href="/es/vinos/septima-rose-de-malbec-2023.html" class="ver-mas-btn">Ver más</a>
@@ -288,7 +281,7 @@
                 </div>
                 <div class="overlay">
                     <p><strong>Descripción:</strong> Durante siglos...</p>
-                    <p><strong>Notas:</strong> Es un malbec cuyas uvas...</p>
+                    <p><strong>Notas de cata:</strong> Es un malbec cuyas uvas...</p>
                 </div>
                 <div style="padding:15px; text-align:center;">
                     <a href="/es/vinos/amalaya-malbec-2023.html" class="ver-mas-btn">Ver más</a>
@@ -307,7 +300,7 @@
                 </div>
                 <div class="overlay">
                     <p><strong>Descripción:</strong> El Kaiken Terroir...</p>
-                    <p><strong>Notas:</strong> En este corte se logra...</p>
+                    <p><strong>Notas de cata:</strong> En este corte se logra...</p>
                 </div>
                 <div style="padding:15px; text-align:center;">
                     <a href="/es/vinos/kaiken-terroir-malbec-2022.html" class="ver-mas-btn">Ver más</a>
