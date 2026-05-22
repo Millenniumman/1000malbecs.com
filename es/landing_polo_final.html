@@ -21,7 +21,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 80px;
+            height: 70px;
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             display: flex;
@@ -32,14 +32,15 @@
         }
 
         .logo {
-            max-height: 55px;
+            max-height: 42px;
+            display: none;           /* Oculto por defecto */
         }
 
-        .lang-selector-desktop {
+        .lang-selector {
             display: flex;
             gap: 8px;
         }
-        .lang-selector-desktop a {
+        .lang-selector a {
             padding: 8px 14px;
             color: #555;
             text-decoration: none;
@@ -47,23 +48,23 @@
             border-radius: 6px;
             transition: all 0.3s;
         }
-        .lang-selector-desktop a:hover,
-        .lang-selector-desktop a.active {
+        .lang-selector a:hover,
+        .lang-selector a.active {
             background: var(--burgundy);
             color: white;
         }
 
-        /* Mobile adjustments */
+        /* ==================== MOBILE ==================== */
         @media (max-width: 768px) {
-            .topbar {
-                height: 65px;
-                padding: 0 15px;
-            }
-            .logo { max-height: 42px; }
-            .lang-selector-desktop { display: none; }
+            .logo { display: block; }
+            .lang-selector { display: none; }
+            .hero { margin-top: 75px; height: 32vh; }
+            .section, .pack-section { padding-left: 20px; padding-right: 20px; }
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .pack-grid { grid-template-columns: 1fr; }
         }
 
-        /* ==================== HERO Y CONTENIDO ==================== */
+        /* ==================== CONTENIDO ==================== */
         .hero {
             background: url('https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/qj/0f67aea2-3670-44c6-8883-c705a3f0d153.jpg') center/contain no-repeat #FFFFFF;
             height: 42vh;
@@ -162,10 +163,7 @@
         }
 
         @media (max-width: 768px) {
-            .section, .pack-section { padding-left: 20px; padding-right: 20px; }
-            .grid { grid-template-columns: repeat(2, 1fr); }
-            .pack-grid { grid-template-columns: 1fr; }
-            .hero { margin-top: 80px; height: 32vh; }
+            .section, .pack-section { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -173,7 +171,7 @@
 
     <!-- TOPBAR -->
     <div class="topbar">
-        <div class="lang-selector-desktop">
+        <div class="lang-selector">
             <a href="/es/landing_polo_final.html" class="active">ES</a>
             <a href="/en/landing_polo_final.html">EN</a>
             <a href="/de/landing_polo_final.html">DE</a>
