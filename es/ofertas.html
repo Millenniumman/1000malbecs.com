@@ -1147,35 +1147,7 @@ Equipo 1000 Malbecs</p>
             stripe.redirectToCheckout({ sessionId });
         });
 
-        // PayPal para Pack Discovery
-        paypal.Buttons({
-            style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'pay' },
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{ amount: { value: '42.99', currency_code: 'EUR' } }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('¡Pago del Pack Discovery completado!');
-                });
-            }
-        }).render('#paypal-pack');
-
-        // PayPal para Suscripción 3 meses (recurrente)
-        paypal.Buttons({
-            style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
-            createSubscription: function(data, actions) {
-                return actions.subscription.create({
-                    'plan_id': 'P-XXXXXXXXXXXXXXXXXXXXXXXXXX'  // ← PLAN ID DE SUSCRIPCIÓN 3 MESES EN PAYPAL
-                });
-            },
-            onApprove: function(data, actions) {
-                alert('¡Suscripción por 3 meses activada!');
-            }
-        }).render('#paypal-subscribe');
 <script>
-    // === PAYPAL PACK DISCOVERY (compra única) ===
     paypal.Buttons({
         style: {
             shape: 'rect',
@@ -1187,7 +1159,7 @@ Equipo 1000 Malbecs</p>
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '42.99',     // Precio del Pack Discovery
+                        value: '42.99',
                         currency_code: 'EUR'
                     },
                     description: 'Pack Discovery Malbec - 1000 Malbecs'
@@ -1196,17 +1168,21 @@ Equipo 1000 Malbecs</p>
         },
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
-                alert('¡Pago completado! Gracias por tu compra 🎉');
-                // Opcional: redirigir a página de éxito
-                window.location.href = '/es/success.html';
+                
+                // Redirección a tu página de éxito
+                window.location.href = '/es/success.html?payment=paypal&order_id=' + data.orderID;
+                
             });
+        },
+        onCancel: function(data) {
+            // Opcional: redirigir al cancelar
+            window.location.href = '/es/ofertas.html';
         },
         onError: function(err) {
             console.error(err);
-            alert('Hubo un error con el pago. Inténtalo nuevamente.');
+            alert('Hubo un problema con el pago. Por favor intenta nuevamente.');
         }
     }).render('#paypal-pack-button');
 </script>
-    </script>
 </body>
 </html>
