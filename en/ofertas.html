@@ -10,14 +10,9 @@
     <!-- Stripe JS -->
     <script src="https://js.stripe.com/v3/"></script>
     <!-- PayPal JS -->
-    <script src="https://www.paypal.com/sdk/js?client-id=TU_PAYPAL_CLIENT_ID&currency=EUR&components=buttons&enable-funding=venmo" data-sdk-integration-source="button-factory"></script>
-    
-    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/es/ofertas.html">
-    
-    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/ofertas.html">
-    
-    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/ofertas.html">
-    
+   <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAA9765XMrrZR5OQYiZkkB9QuxuIHiCBwC-AGL9AoM998RausANN6JBDqTUcRQQ7oSShySFwEVmw7hHnTY&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
     <style>
@@ -1005,12 +1000,12 @@ Boca: amable y robusta con taninos dulces, equilibrada con final aterciopelado.<
 
     <!-- PayPal -->
     <div>
-  <style>.pp-92SGBXFHYWZGG{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-  <form action="https://www.paypal.com/ncp/payment/92SGBXFHYWZGG" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-    <input class="pp-92SGBXFHYWZGG" type="submit" value="Jetzt kaufen" />
-    <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
-    <section style="font-size: 0.75rem;"> Abgewickelt durch <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-  </form>
+<div id="paypal-container-92SGBXFHYWZGG"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "92SGBXFHYWZGG",
+  }).render("#paypal-container-92SGBXFHYWZGG")
+</script>
 </div>
 
 </div>
