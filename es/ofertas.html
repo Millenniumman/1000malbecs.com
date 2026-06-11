@@ -10,14 +10,10 @@
     <!-- Stripe JS -->
     <script src="https://js.stripe.com/v3/"></script>
     <!-- PayPal JS -->
-    <script src="https://www.paypal.com/sdk/js?client-id=TU_PAYPAL_CLIENT_ID&currency=EUR&components=buttons&enable-funding=venmo" data-sdk-integration-source="button-factory"></script>
-    
-    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/es/ofertas.html">
-    
-    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/ofertas.html">
-    
-    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/ofertas.html">
-    
+ <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAA9765XMrrZR5OQYiZkkB9QuxuIHiCBwC-AGL9AoM998RausANN6JBDqTUcRQQ7oSShySFwEVmw7hHnTY&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
     <style>
@@ -791,6 +787,7 @@
         grid-template-columns: 1fr;
     }
 }
+
 </style>
 </head>
 <body>
@@ -929,25 +926,39 @@ Boca: amable y robusta con taninos dulces, equilibrada con final aterciopelado.<
             <i class="fas fa-envelope"></i><br>
             Comprar por email
         </a>
-
+<div class="payment-buttons-container">
         <!-- Stripe -->
-    <a href="https://buy.stripe.com/TU_LINK_PACK_4299_AQUÍ" target="_blank" class="pay-option stripe">
-        <i class="fas fa-credit-card"></i>
+  <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+<p><b> Mit Kreditkarten bezahlen</b></p>
 
-        Pagar con tarjeta (Stripe)
-    </a>
-
-    <!-- PayPal -->
-    <div class="pay-option paypal">
-        <!-- Reemplaza con tu botón PayPal Buy Now generado -->
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="TU_BUTTON_ID_PACK_AQUÍ">
-            <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal">
-            <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-        </form>
-    </div>
+<stripe-buy-button
+  buy-button-id="buy_btn_1Tg2YyCWcVRBeV4kaqX10AM6"
+  publishable-key="pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs"
+>
+</stripe-buy-button>
+<div style="margin-top: 14px; opacity: 0.85;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-visa.svg" 
+         alt="Visa" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-mastercard.svg" 
+         alt="Mastercard" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-amex.svg" 
+         alt="American Express" height="28" style="margin: 0 6px;">
+  </div>
+  </div>
+        <!-- PayPal -->
+<div>
+  <style>.pp-XUUM9TM9UBYNS{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <p><b> Mit PayPal bezahlen </b></p>
+  <form action="https://www.paypal.com/ncp/payment/XUUM9TM9UBYNS" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-XUUM9TM9UBYNS" type="submit" value="Jetzt kaufen" />
+    <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
+    <section style="font-size: 0.75rem;"> Abgewickelt durch <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+  </form>
 </div>
+</div>
+
 
 
     <div class="subscription-presentation">
@@ -972,7 +983,7 @@ Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sor
     <div style="text-align: center;">
         <a href="https://wa.me/+4915158224728?text=Quiero%20Suscribirme%20por%203%20meses" class="combo-button">Quiero Suscribirme por 3 meses</a>
     </div>
-
+</div>
   <!-- === CAJA CON 4 OPCIONES – SUSCRIPCIÓN 3 MESES === -->
 <div class="payment-section">
     <h3>Suscripción por 3 meses – €99.99 (28% OFF)</h3>
@@ -989,29 +1000,35 @@ Recibí en tu casa durante los próximos 3 meses una caja con 3 vinos Malbec sor
             <i class="fas fa-envelope"></i><br>
             Suscribirme por email
         </a>
-
-      <!-- Stripe -->
-    <a href="https://buy.stripe.com/TU_LINK_SUSCRIPCION_9999_AQUÍ" target="_blank" class="pay-option stripe">
-        <i class="fas fa-credit-card"></i>
-
-        Suscribirme con Stripe
-    </a>
-
-    <!-- PayPal -->
-    <div class="pay-option paypal">
-        <!-- Reemplaza con tu botón PayPal Subscribe generado -->
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="TU_BUTTON_ID_SUSCRIPCION_AQUÍ">
-            <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal">
-            <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-        </form>
-    </div>
+<div class="payment-buttons-container">
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+<p><b> Mit Kreditkarten bezahlen</b></p>
+<stripe-buy-button
+  buy-button-id="buy_btn_1Tg2aPCWcVRBeV4keM8g39EU"
+  publishable-key="pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs"
+>
+</stripe-buy-button>
+  <div style="margin-top: 14px; opacity: 0.85;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-visa.svg" 
+         alt="Visa" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-mastercard.svg" 
+         alt="Mastercard" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-amex.svg" 
+         alt="American Express" height="28" style="margin: 0 6px;">
+  </div>
+  </div>
+<div>
+<style>.pp-92SGBXFHYWZGG{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<p><b> Mit PayPal bezahlen </b></p>
+<form action="https://www.paypal.com/ncp/payment/92SGBXFHYWZGG" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+<input class="pp-92SGBXFHYWZGG" type="submit" value="Jetzt kaufen" />
+<img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
+<section style="font-size: 0.75rem;"> Abgewickelt durch <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+</form>
 </div>
 </div>
-
-
-    
     <!-- Después del payment-section de suscripción -->
 <div style="text-align: center; margin-top: 60px;">
     <h3 style="color: #4A2C59;">Términos y Condiciones</h3>
