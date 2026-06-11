@@ -994,11 +994,6 @@ Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschu
             Suscribirme por email
         </a>
 <div class="payment-buttons-container">
-      <!-- Stripe -->
-   <script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
-
 <script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
@@ -1009,14 +1004,15 @@ Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschu
 >
 </stripe-buy-button>
 </div>
-        <!-- PayPal -->
-<div id="paypal-container-92SGBXFHYWZGG"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "92SGBXFHYWZGG",
-  }).render("#paypal-container-92SGBXFHYWZGG")
-</script>
-</div>
+<div>
+2  <style>.pp-92SGBXFHYWZGG{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+3  <form action="https://www.paypal.com/ncp/payment/92SGBXFHYWZGG" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+4    <input class="pp-92SGBXFHYWZGG" type="submit" value="Jetzt kaufen" />
+5    <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
+6    <section style="font-size: 0.75rem;"> Abgewickelt durch <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+7  </form>
+8</div>
+
     <!-- Después del payment-section de suscripción -->
 <div style="text-align: center; margin-top: 60px;">
     <h3 style="color: #4A2C59;">Términos y Condiciones</h3>
