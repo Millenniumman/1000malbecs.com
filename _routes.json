@@ -1,12 +1,5 @@
 {
   "version": 1,
-  "routes": [
-    {
-      "route": "/api/*",
-      "middleware": [],
-      "headers": {
-        "Cache-Control": "no-store, no-cache"
-      }
-    }
-  ]
+  "include": ["/api/*"],
+  "exclude": []
 }
