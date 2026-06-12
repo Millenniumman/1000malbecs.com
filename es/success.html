@@ -46,14 +46,12 @@
 <body>
     <div class="container">
         <div class="success-icon">🎉</div>
-        <h1>¡Gracias por tu compra!</h1>
-        <p id="mensaje">Tu pago ha sido procesado correctamente.</p>
+        <h1>¡Gracias por tu compra, <span id="customer-name">Cliente</span>!</h1>
+        <p id="mensaje">Tu pedido ha sido recibido correctamente.</p>
         
-        <div class="order-info" id="order-info" style="display:none;">
-            <strong>¡Hola <span id="customer-name">Cliente</span>!</strong><br><br>
-            <strong>Email:</strong> <span id="customer-email"></span><br>
-            <strong>Referencia:</strong> <span id="referencia"></span><br>
-            <strong>Método de pago:</strong> <span id="metodo"></span>
+        <div class="order-info">
+            <strong>Email:</strong> <span id="customer-email"></span><br><br>
+            <strong>Referencia:</strong> <span id="referencia"></span>
         </div>
 
         <p>Recibirás un email de confirmación en breve con todos los detalles.<br>
@@ -64,46 +62,17 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const sessionId = urlParams.get('session_id');      // Stripe
-        const orderId   = urlParams.get('order_id') || urlParams.get('token'); // PayPal
+        
+        const name  = urlParams.get('customer_name') || 'Cliente';
+        const email = urlParams.get('customer_email') || '';
+        const sessionId = urlParams.get('session_id');
 
-        async function loadCustomerData() {
-            if (!sessionId && !orderId) return;
+        // Mostrar datos
+        document.getElementById('customer-name').textContent = name;
+        document.getElementById('customer-email').textContent = email || 'No disponible';
+        document.getElementById('referencia').textContent = sessionId || 'Procesado';
 
-            try {
-                const res = await fetch('/api/get-order-details', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        session_id: sessionId,
-                        order_id: orderId,
-                        provider: sessionId ? 'stripe' : 'paypal'
-                    })
-                });
-
-                const data = await res.json();
-
-                if (data.success && data.customer) {
-                    const c = data.customer;
-                    
-                    document.getElementById('customer-name').textContent = c.name || 'Cliente';
-                    document.getElementById('customer-email').textContent = c.email || '';
-                    document.getElementById('referencia').textContent = c.reference || (sessionId || orderId);
-                    document.getElementById('metodo').textContent = c.method || (sessionId ? 'Stripe' : 'PayPal');
-                    
-                    document.getElementById('order-info').style.display = 'block';
-
-                    // === REGISTRAR AL USUARIO (tu flow existente) ===
-                    if (typeof registerUserAfterPurchase === 'function') {
-                        registerUserAfterPurchase(c);
-                    }
-                }
-            } catch (err) {
-                console.error("Error cargando datos del pedido:", err);
-            }
-        }
-
-        window.onload = loadCustomerData;
+        console.log("✅ Pedido recibido de:", name, email);
     </script>
 </body>
 </html>
