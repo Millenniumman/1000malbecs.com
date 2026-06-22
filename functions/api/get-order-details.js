@@ -1,5 +1,5 @@
 // functions/api/get-order-details.js
-import Stripe from 'stripe';
+// import Stripe from 'stripe';
 
 export async function onRequestPost({ request, env }) {
   try {
