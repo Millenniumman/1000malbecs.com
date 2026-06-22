@@ -1,0 +1,23 @@
+name = "1000malbecs"
+compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Esto es lo importante para resolver tu error:
+[build]
+command = ""
+
+# Marcar stripe como external para que no rompa el build
+[[build.upload.rules]]
+type = "ESModule"
+globs = ["**/*.js"]
+# O simplemente agregar esto:
+[functions]
+node_compat = true
+
+# Excluir stripe del bundle
+[build.upload]
+format = "modules"
+
+# Si tenés carpeta api o functions
+[vars]
+NODE_ENV = "production"
