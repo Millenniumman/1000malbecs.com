@@ -309,10 +309,9 @@
     overflow-x: hidden;
   }
 
-  /* Espacio extra arriba para el hamburger y language selector */
   main {
     margin: 0 auto;
-    padding: 90px 20px 40px 20px;   /* ← Más espacio arriba */
+    padding: 100px 20px 40px;   /* Más espacio arriba para hamburger */
     width: 100%;
     max-width: 1280px;
     flex: 1;
@@ -330,15 +329,15 @@
 
   .main-content h1 {
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     text-align: center;
     color: #4A2C59;
   }
 
-  /* ==================== REEL HORIZONTAL ==================== */
+  /* ==================== HORIZONTAL REEL ==================== */
   .horizontal-reel-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 30px 0 40px 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -352,7 +351,7 @@
   .horizontal-reel {
     display: flex;
     gap: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     width: max-content;
   }
 
@@ -366,7 +365,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     position: relative;
     flex-shrink: 0;
   }
@@ -375,7 +374,7 @@
     width: 200px;
     height: 200px;
     object-fit: contain;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
   .info-icon {
@@ -384,9 +383,9 @@
     right: 12px;
     font-size: 22px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 15;
     color: #4A2C59;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -402,13 +401,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(74, 44, 89, 0.92);
+    background-color: rgba(74, 44, 89, 0.90);
     color: #FFFFFF;
-    padding: 50px 15px 15px;
+    padding: 55px 15px 15px;
     box-sizing: border-box;
-    font-size: 13px;
+    font-size: 13.2px;
+    line-height: 1.45;
     overflow-y: auto;
-    z-index: 5;
+    z-index: 10;
     border-radius: 8px;
   }
 
@@ -419,7 +419,7 @@
 
   .product-card h3 {
     font-size: 16px;
-    margin: 10px 0 8px 0;
+    margin: 10px 0 8px;
     color: #4A2C59;
     text-align: center;
     min-height: 48px;
@@ -429,23 +429,25 @@
     font-size: 17px;
     font-weight: bold;
     color: #4A2C59;
-    margin: 8px 0;
+    margin: 8px 0 12px;
   }
 
   .product-card .buy-button {
     margin-top: auto;
-    padding: 10px 20px;
+    padding: 10px 24px;
     background-color: #4A2C59;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
+    width: 100%;
+    text-align: center;
   }
 
   /* ==================== MOBILE ==================== */
   @media (max-width: 768px) {
     main {
-      padding-top: 110px;   /* Más espacio para hamburger */
+      padding-top: 120px;   /* Más espacio para hamburger */
     }
 
     .horizontal-reel {
@@ -456,13 +458,9 @@
     }
 
     .product-card {
-      width: calc(50% - 10px);
+      width: calc(50% - 8px);
       flex-shrink: 1;
-      min-height: 360px;
-    }
-
-    .info-icon {
-      display: block;
+      min-height: 370px;
     }
   }
 </style>
@@ -481,6 +479,9 @@ In short, the opportunity to live a <strong>100% Argentine experience</strong> i
 <div class="products-section">
   <h2>La Dolfina Wines – Vignes des Andes</h2>
   <div class="product-grid">
+
+<div class="horizontal-reel-container">
+  <div class="horizontal-reel">
 
     <!-- 1. Blend Grand Reserve 2021 -->
     <div class="product-card" data-overlay-id="dolfina-blend">
@@ -549,11 +550,15 @@ In short, the opportunity to live a <strong>100% Argentine experience</strong> i
   </div>
 </div>
 
-<p>You can discover and taste them at our next event in <strong>Düsseldorf from July 3rd to 5th</strong>.  </p>
-<p>And of course you can also order them online anytime.</p>
-<hr />
-<p>If you want another polo day in Berlin, we’ll be waiting for you this weekend at the <strong>Polo Club Berlin Brandenburg</strong> (Dallgow-Döberitz). I’ll be behind the bar with <strong>Colomé and Chakana</strong> wines, fresh choripán and empanadas.</p>
-<p><strong>May the summer never end!</strong> 🇦🇷🍷🐎</p></div>
+You can discover and taste them at our next event in **Düsseldorf from July 3rd to 5th**.  
+
+And of course you can also order them online anytime.
+
+---
+
+If you want another polo day in Berlin, we’ll be waiting for you this weekend at the **Polo Club Berlin Brandenburg** (Dallgow-Döberitz). I’ll be behind the bar with **Colomé and Chakana** wines, fresh choripán and empanadas.
+
+**May the summer never end!** 🇦🇷🍷🐎</div>
             <a href="https://1000malbecs.com/en" class="back-link">Back to Home</a>
         </div>
     </main>
