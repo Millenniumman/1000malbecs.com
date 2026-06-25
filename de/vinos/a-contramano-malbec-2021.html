@@ -640,7 +640,26 @@ body {
 </div>
 
 
+
+  <!-- Botón AGREGAR AL CARRITO -->
+ <button onclick="addToCart({
+  id: 'a-contramano-malbec-2021',
+  name: 'A CONTRAMANO Malbec 2021',
+  price: 0.0,
+  image: 'https://www.1000malbecs.com/images/large/a-contramano-malbec-2021.jpg',
+  url: '/de/vinos/a-contramano-malbec-2021.html'
+})" 
+  style="background:#4A2C59;color:white;border:none;padding:14px 24px;border-radius:10px;font-weight:600;cursor:pointer; min-width:220px;">
+  🛒 In den Warenkorb
+</button>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+  <!-- Botones de Compra -->
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 25px 0 35px;">
+
+<br>
+<br>
+
+<p><b>Express Checkout </b></p>
   <!-- WhatsApp Button -->
   <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20A%20CONTRAMANO%20Malbec%202021%20(2021)"
      onclick="return gtag_report_conversion(this.href);"
@@ -902,5 +921,7 @@ body {
       }
     });
   </script>
+  <!-- Carrito JS -->
+<script src="/js/cart.js"></script>
 </body>
 </html>
