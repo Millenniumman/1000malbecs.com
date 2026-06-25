@@ -530,6 +530,7 @@ body {
 
   gtag('config', 'AW-1068768833');
 </script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18090475554'); </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -569,7 +570,7 @@ body {
     }
   },
   "category": "Wine",
-  "alcoholContent": "0.1%",
+  "alcoholContent": "14.8%",
   "producer": "Weinert Bodega y Cavas",
   "countryOfOrigin": {
     "@type": "Country",
@@ -580,34 +581,53 @@ body {
 </head>
 <body>
 
-<!-- HEADER MOBILE -->
+<body>
+
+<!-- ==================== HEADER MOBILE ==================== -->
 <header class="mobile-header">
-  <button class="hamburger" aria-label="Menü" aria-expanded="false">
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
     <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
       <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
       <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
       <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
     </svg>
   </button>
+  
   <a href="/de/" class="logo-link">
     <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
   </a>
+
+  <!-- CARRITO MOBILE -->
+  <a href="/de/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
 </header>
 
-<!-- TOPBAR -->
-<div class="topbar">
+<!-- ==================== TOPBAR DESKTOP ==================== -->
+<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+
+  <!-- Logo - Izquierda -->
   <header class="header">
     <a href="/de/" title="1000 Malbecs">
-      <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
-  <div class="lang-selector-desktop">
-    <a href="/es/vinos/weinert-malbec-1995.html" >ES</a>
-    <a href="/en/vinos/weinert-malbec-1995.html" >EN</a>
+
+  <!-- Selector de Idiomas - Centro -->
+  <div class="lang-selector-desktop" style="position: absolute; left: 50%; transform: translateX(-50%);">
+    <a href="/es/vinos/weinert-malbec-1995.html">ES</a>
+    <a href="/en/vinos/weinert-malbec-1995.html">EN</a>
     <a href="/de/vinos/weinert-malbec-1995.html" class="active">DE</a>
   </div>
-</div>
 
+  <!-- Carrito - Derecha -->
+  <a href="/de/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+
+</div>
 <div class="lang-selector-mobile">
   <a href="/es/vinos/weinert-malbec-1995.html" >ES</a>
   <a href="/en/vinos/weinert-malbec-1995.html" >EN</a>
@@ -640,7 +660,26 @@ body {
 </div>
 
 
-<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
+
+  <!-- Botón AGREGAR AL CARRITO -->
+ <button onclick="addToCart({
+  id: 'weinert-malbec-1995',
+  name: 'Weinert Malbec  1995',
+  price: 0.0,
+  image: 'https://www.1000malbecs.com/images/large/weinert-malbec-1995.jpg',
+  url: '/de/vinos/weinert-malbec-1995.html'
+})" 
+  style="background:#4A2C59;color:white;border:none;padding:14px 24px;border-radius:10px;font-weight:600;cursor:pointer; min-width:220px;">
+  🛒 In den Warenkorb
+</button>
+
+  <!-- Botones de Compra -->
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 25px 0 35px;">
+
+<br>
+<br>
+
+<p><b>Express Checkout </b></p>
   <!-- WhatsApp Button -->
   <a href="https://wa.me/4915158224728?text=Hallo,%20ich%20möchte%20kaufen:%20Weinert%20Malbec%20%201995%20(1995)"
      onclick="return gtag_report_conversion(this.href);"
@@ -676,7 +715,7 @@ body {
       <p><strong>Volumen:</strong> 750 ml</p>
       
                 
-        <p><strong>Alkohol:</strong> 0.1 %</p>
+        <p><strong>Alkohol:</strong> 14.8 %</p>
       
       
       
@@ -773,7 +812,7 @@ body {
   <p><strong>Höhe:</strong> 900 m ü. NN</p>
   
   
-    <p><strong>Alkohol:</strong> 0.1 % vol.</p>
+    <p><strong>Alkohol:</strong> 13.5 % vol.</p>
   
   
   
@@ -802,7 +841,7 @@ body {
   <p><strong>Höhe:</strong> 900 m ü. NN</p>
   
   
-    <p><strong>Alkohol:</strong> 0.1 % vol.</p>
+    <p><strong>Alkohol:</strong> 14.0 % vol.</p>
   
   
   
@@ -1017,5 +1056,7 @@ body {
       }
     });
   </script>
+  <!-- Carrito JS -->
+<script src="/js/cart.js"></script>
 </body>
 </html>
