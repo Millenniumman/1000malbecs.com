@@ -10,29 +10,41 @@ function updateCartCount() {
 }
 
 function addToCart(product) {
-  // product.price debe ser un número
-  const price = parseFloat(product.price);
-  
-  const existing = cart.find(item => item.id === product.id);
-  
+  console.log("Intentando agregar al carrito:", product);
+
+  var price = parseFloat(product.price);
+  if (isNaN(price)) {
+    console.error("Error: Precio inválido", product.price);
+    alert("Error: El precio no es válido");
+    return;
+  }
+
+  var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  var existing = cart.find(function(item) {
+    return item.id === product.id;
+  });
+
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
   } else {
     cart.push({
       id: product.id,
       name: product.name,
-      price: price,                    // ← Guardamos el precio como número
+      price: price,
       image: product.image,
       url: product.url,
       quantity: 1
     });
   }
-  
+
   localStorage.setItem('cart', JSON.stringify(cart));
+  console.log("Carrito guardado:", cart);
+
   updateCartCount();
-  
-  showToast(`${product.name} agregado al carrito`);
+  showToast(product.name + " agregado al carrito");
 }
+
 
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
