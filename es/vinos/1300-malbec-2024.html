@@ -537,6 +537,15 @@ body {
   }
   </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18090475554');
+</script>
 <body>
 <!-- HEADER MOBILE -->
   <header class="mobile-header">
@@ -603,6 +612,21 @@ body {
   </small>
 </div>
         <!-- Botones -->
+      <!-- Botón AGREGAR AL CARRITO -->
+  <button onclick="addToCart({
+    id: '1300-malbec-2024',
+    name: '1300 Malbec 2024',
+    price: 9.99 / botella (0.75 L),
+    image: 'https://www.1000malbecs.com/images/large/1300-malbec-2024.jpg',
+    url: '/es/vinos/1300-malbec-2024.html'
+  })" 
+    style="background: #4A2C59; color: white; border: none; padding: 14px 24px; border-radius: 10px; font-weight: 600; cursor: pointer; flex: 1; min-width: 220px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+    <i class="fas fa-cart-plus"></i> Agregar al carrito
+  </button>
+  <br>
+  <br>
+<p> <b>Express Checkout</b></p>
+      
         <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
           <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%201300%20Malbec%202024" 
              class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
@@ -853,4 +877,5 @@ body {
     </div>
     
 </body>
+<script src="/js/cart.js"></script>
 </html>
