@@ -271,6 +271,31 @@ export default {
           <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
           <ul>${infoLinks}</ul>
         </details>
+        <script>
+  // Toggle del sidebar (hamburguesa)
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    if (!hamburger || !sidebar) return;
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
+      sidebar.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('open') && 
+          !sidebar.contains(e.target) && 
+          !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
       </nav>
     `;
 
