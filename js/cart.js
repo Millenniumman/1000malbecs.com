@@ -1,4 +1,4 @@
-// js/cart.js - Versión final con envío
+// js/cart.js - Versión corregida y depurada
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCartCount() {
@@ -10,12 +10,9 @@ function updateCartCount() {
 }
 
 function addToCart(product) {
-  console.log("Intentando agregar al carrito:", product);
-
   const price = parseFloat(product.price);
   if (isNaN(price)) {
-    console.error("Error: Precio inválido", product.price);
-    alert("Error: El precio no es válido");
+    alert("Error: Precio inválido");
     return;
   }
 
@@ -37,16 +34,17 @@ function addToCart(product) {
   }
 
   localStorage.setItem('cart', JSON.stringify(cartData));
-  console.log("Carrito guardado:", cartData);
-
   updateCartCount();
   showToast(product.name + " agregado al carrito");
+
+  // Si estamos en la página del carrito, actualizamos inmediatamente
+  if (typeof renderCart === 'function') renderCart();
 }
 
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
   localStorage.setItem('cart', JSON.stringify(cart));
-  if (typeof renderCart === 'function') renderCart();
+  renderCart();
   updateCartCount();
 }
 
@@ -55,7 +53,7 @@ function changeQuantity(id, delta) {
   if (item) {
     item.quantity = Math.max(1, (item.quantity || 1) + delta);
     localStorage.setItem('cart', JSON.stringify(cart));
-    if (typeof renderCart === 'function') renderCart();
+    renderCart();
     updateCartCount();
   }
 }
@@ -73,15 +71,20 @@ function showToast(message) {
   setTimeout(() => { toast.style.opacity = '0'; }, 2500);
 }
 
-// ====================== RENDER CARRITO CON ENVÍO ======================
+// ====================== RENDER CARRITO ======================
 function renderCart() {
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
   
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if (!container || !totalEl) {
+    console.error("No se encontraron los elementos del carrito (#cart-items o #cart-total)");
+    return;
+  }
 
-  if (cart.length === 0) {
-    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos.</p></div>`;
+  let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+  if (cartData.length === 0) {
+    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos para continuar.</p></div>`;
     totalEl.innerHTML = '';
     return;
   }
@@ -90,7 +93,7 @@ function renderCart() {
   let subtotal = 0;
   let totalBottles = 0;
 
-  cart.forEach(item => {
+  cartData.forEach(item => {
     const price = parseFloat(item.price) || 0;
     const qty = item.quantity || 1;
     const itemTotal = price * qty;
@@ -117,23 +120,19 @@ function renderCart() {
       </div>`;
   });
 
-  // === LÓGICA DE ENVÍO ===
   const shippingCost = (totalBottles >= 12) ? 0 : 6.99;
   const finalTotal = subtotal + shippingCost;
 
   container.innerHTML = html;
-
+  
   totalEl.innerHTML = `
-    <div style="margin: 10px 0;">
-      Subtotal: <strong>€${subtotal.toFixed(2)}</strong>
-    </div>
-    <div style="margin: 8px 0;">
-      ${shippingCost === 0 
-        ? `<strong style="color:#27ae60;">✅ Envío gratis (12+ botellas)</strong>` 
-        : `Envío a Alemania: <strong>€6.99</strong>`}
+    <div>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></div>
+    <div>${shippingCost === 0 ? 
+      `<strong style="color:#27ae60;">✅ Envío gratis (12+ botellas)</strong>` : 
+      `Envío a Alemania: <strong>€6.99</strong>`}
     </div>
     <hr>
-    <div style="font-size: 1.6em; font-weight: 700; margin-top: 10px;">
+    <div style="font-size:1.6em; font-weight:700; margin-top:12px;">
       Total: <strong>€${finalTotal.toFixed(2)}</strong>
     </div>
   `;
@@ -142,7 +141,5 @@ function renderCart() {
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
-  if (typeof renderCart === 'function' && document.getElementById('cart-items')) {
-    renderCart();
-  }
+  renderCart();   // ← Forzamos que se ejecute siempre
 });
