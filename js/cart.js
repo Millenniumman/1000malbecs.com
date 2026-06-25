@@ -1,4 +1,4 @@
-// js/cart.js - Versión corregida con precio
+// js/cart.js - Versión final con envío
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCartCount() {
@@ -12,23 +12,21 @@ function updateCartCount() {
 function addToCart(product) {
   console.log("Intentando agregar al carrito:", product);
 
-  var price = parseFloat(product.price);
+  const price = parseFloat(product.price);
   if (isNaN(price)) {
     console.error("Error: Precio inválido", product.price);
     alert("Error: El precio no es válido");
     return;
   }
 
-  var cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
-  var existing = cart.find(function(item) {
-    return item.id === product.id;
-  });
+  const existing = cartData.find(item => item.id === product.id);
 
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
   } else {
-    cart.push({
+    cartData.push({
       id: product.id,
       name: product.name,
       price: price,
@@ -38,13 +36,12 @@ function addToCart(product) {
     });
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
-  console.log("Carrito guardado:", cart);
+  localStorage.setItem('cart', JSON.stringify(cartData));
+  console.log("Carrito guardado:", cartData);
 
   updateCartCount();
   showToast(product.name + " agregado al carrito");
 }
-
 
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
@@ -76,5 +73,75 @@ function showToast(message) {
   setTimeout(() => { toast.style.opacity = '0'; }, 2500);
 }
 
+// ====================== RENDER CARRITO CON ENVÍO ======================
+function renderCart() {
+  const container = document.getElementById('cart-items');
+  const totalEl = document.getElementById('cart-total');
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  if (cart.length === 0) {
+    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos para continuar.</p></div>`;
+    totalEl.innerHTML = '';
+    return;
+  }
+
+  let html = '';
+  let subtotal = 0;
+  let totalBottles = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    const itemTotal = price * qty;
+    
+    subtotal += itemTotal;
+    totalBottles += qty;
+
+    html += `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-info">
+          <h4>${item.name}</h4>
+          <p>€${price.toFixed(2)}</p>
+        </div>
+        <div class="quantity-controls">
+          <button onclick="changeQuantity('${item.id}', -1)">–</button>
+          <strong>${qty}</strong>
+          <button onclick="changeQuantity('${item.id}', 1)">+</button>
+        </div>
+        <div style="text-align:right; min-width:100px;">
+          <strong>€${itemTotal.toFixed(2)}</strong><br>
+          <small onclick="removeFromCart('${item.id}')" style="color:#e74c3c;cursor:pointer;">Eliminar</small>
+        </div>
+      </div>`;
+  });
+
+  // === LÓGICA DE ENVÍO ===
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shippingCost;
+
+  const shippingHTML = totalBottles >= 12 
+    ? `<strong style="color:#2e7d32;">✅ Envío gratis (12+ botellas)</strong>` 
+    : `Envío: <strong>€6.99</strong>`;
+
+  container.innerHTML = html;
+  
+  totalEl.innerHTML = `
+    <div>Subtotal: €${subtotal.toFixed(2)}</div>
+    <div>${shippingHTML}</div>
+    <hr style="margin:15px 0;">
+    <div style="font-size:1.55em; font-weight:700;">
+      Total: <strong>€${finalTotal.toFixed(2)}</strong>
+    </div>
+    ${totalBottles >= 9 && totalBottles < 12 ? 
+      `<p style="color:#e67e22; font-size:0.95em; margin-top:8px;">¡Agrega ${12 - totalBottles} botellas más para envío gratis!</p>` : ''}
+  `;
+}
+
 // Inicializar
-document.addEventListener('DOMContentLoaded', updateCartCount);
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartCount();
+  if (typeof renderCart === 'function' && document.getElementById('cart-items')) {
+    renderCart();
+  }
+});
