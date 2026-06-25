@@ -1,15 +1,18 @@
-// js/cart.js - Versión mejorada
+// js/cart.js - Versión corregida con precio
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCartCount() {
   const countEl = document.getElementById('cart-count');
   if (countEl) {
-    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    countEl.textContent = totalItems;
+    const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    countEl.textContent = total;
   }
 }
 
 function addToCart(product) {
+  // product.price debe ser un número
+  const price = parseFloat(product.price);
+  
   const existing = cart.find(item => item.id === product.id);
   
   if (existing) {
@@ -18,7 +21,7 @@ function addToCart(product) {
     cart.push({
       id: product.id,
       name: product.name,
-      price: parseFloat(product.price),
+      price: price,                    // ← Guardamos el precio como número
       image: product.image,
       url: product.url,
       quantity: 1
@@ -58,8 +61,8 @@ function showToast(message) {
   }
   toast.textContent = message;
   toast.style.opacity = '1';
-  setTimeout(() => { toast.style.opacity = '0'; }, 2800);
+  setTimeout(() => { toast.style.opacity = '0'; }, 2500);
 }
 
-// Inicializar en todas las páginas
+// Inicializar
 document.addEventListener('DOMContentLoaded', updateCartCount);
