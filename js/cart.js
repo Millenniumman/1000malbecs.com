@@ -135,7 +135,10 @@ function renderCart() {
     console.error("No se encontró el elemento #cart-total");
   }
 }
-
+// Forzar renderizado cuando se agrega algo desde otra página
+window.addEventListener('storage', function() {
+  if (typeof renderCart === 'function') renderCart();
+});
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
