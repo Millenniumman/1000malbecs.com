@@ -68,14 +68,20 @@ function showToast(message) {
 
 // ====================== RENDER CARRITO ======================
 function renderCart() {
+  console.log("🔄 renderCart() se está ejecutando...");
+
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
   
+  console.log("Elementos encontrados:", { container: !!container, totalEl: !!totalEl });
+
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log("Productos en carrito:", cart);
 
   if (cart.length === 0) {
-    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos para continuar.</p></div>`;
-    totalEl.innerHTML = '';
+    console.log("Carrito vacío");
+    if (container) container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos.</p></div>`;
+    if (totalEl) totalEl.innerHTML = '';
     return;
   }
 
@@ -110,22 +116,24 @@ function renderCart() {
       </div>`;
   });
 
-  // === LÓGICA SIMPLE DE ENVÍO ===
   const shippingCost = (totalBottles >= 12) ? 0 : 6.99;
   const finalTotal = subtotal + shippingCost;
 
-  container.innerHTML = html;
+  if (container) container.innerHTML = html;
 
-  totalEl.innerHTML = `
-    <div>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></div>
-    <div>Envío a Alemania: <strong>${shippingCost === 0 ? 'GRATIS' : '€6.99'}</strong></div>
-    <hr>
-    <div style="font-size:1.6em; font-weight:700; margin-top:10px;">
-      Total: <strong>€${finalTotal.toFixed(2)}</strong>
-    </div>
-    ${totalBottles >= 9 && totalBottles < 12 ? 
-      `<p style="color:#e67e22;">¡Agrega ${12 - totalBottles} botellas más para envío gratis!</p>` : ''}
-  `;
+  if (totalEl) {
+    totalEl.innerHTML = `
+      <div>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></div>
+      <div>Envío: <strong>${shippingCost === 0 ? 'GRATIS' : '€6.99'}</strong></div>
+      <hr>
+      <div style="font-size:1.6em; font-weight:700;">
+        Total: <strong>€${finalTotal.toFixed(2)}</strong>
+      </div>
+    `;
+    console.log("Total renderizado correctamente");
+  } else {
+    console.error("No se encontró el elemento #cart-total");
+  }
 }
 
 // Inicializar
