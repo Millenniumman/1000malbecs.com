@@ -1,0 +1,10 @@
+name = "1000malbecs"
+compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]
+
+[functions]
+node_compat = true
+
+# Ignorar stripe temporalmente
+[build.upload]
+format = "modules"

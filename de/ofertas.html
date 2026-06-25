@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- AÑADE ESTAS DOS LÍNEAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Sonderangebot - 1000 Malbecs</title>
-    <meta property="og:title" content="Sonderangebot - 1000 Malbecs">
-    <meta property="og:description" content="Entdecken Sie unser Malbec Discovery Paket mit 10% Rabatt und ein Abonnement mit zusätzlichen 15% Rabatt.">
-    <meta property="og:image" content="https://1000malbecs.com/images/combo-discovery.jpg">
-    <meta property="og:url" content="https://1000malbecs.com/de/ofertas.html">
-    <meta property="og:type" content="website">
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18148476840"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18148476840');
+</script>
     
-    <link rel="alternate" hreflang="es" href="https://1000malbecs.com/es/ofertas.html">
-    
-    <link rel="alternate" hreflang="de" href="https://1000malbecs.com/de/ofertas.html">
-    
-    <link rel="alternate" hreflang="en" href="https://1000malbecs.com/en/ofertas.html">
-    
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- PayPal JS -->
+ <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAA9765XMrrZR5OQYiZkkB9QuxuIHiCBwC-AGL9AoM998RausANN6JBDqTUcRQQ7oSShySFwEVmw7hHnTY&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
     <style>
@@ -715,6 +719,85 @@
         padding: 45px 18px 25px;
     }
 }
+/* Estilos para botones de pago (sin backend) */
+        .payment-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 25px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .payment-section h3 {
+            color: #4A2C59;
+            margin-bottom: 20px;
+        }
+        .pay-link, .paypal-button {
+            display: inline-block;
+            background: #4A2C59;
+            color: white;
+            padding: 15px 35px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 15px;
+            transition: all 0.3s;
+            min-width: 280px;
+        }
+        .pay-link:hover, .paypal-button:hover {
+            background: #3a1f45;
+            transform: translateY(-2px);
+        }
+        .paypal-button form {
+            display: inline-block;
+        }
+        @media (max-width: 768px) {
+            .pay-link, .paypal-button {
+                display: block;
+                margin: 20px auto;
+            }
+        }
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.pay-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #4A2C59;
+    color: white;
+    padding: 20px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+.pay-option:hover {
+    background: #3a1f45;
+    transform: translateY(-3px);
+}
+.pay-option i {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.whatsapp { background: #25D366; }
+.email    { background: #4285F4; }
+.stripe   { background: #635BFF; }
+.paypal   { background: #FFC107; color: #000; }
+.paypal form { width: 100%; text-align: center; }
+@media (max-width: 768px) {
+    .payment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -743,7 +826,7 @@
     </div>
     <main class="main-content">
     <div class="presentation">
-        <h1>Sonderangebot: Malbec Discovery Paket</h1>
+        <h1>Sonderangebot: Malbec Discovery Paket - Juni</h1>
         <div class="banner-container">
     <video class="combo-video" 
            autoplay 
@@ -757,147 +840,272 @@
         
         <!-- Fallback si el navegador no soporta video -->
         Tu navegador no soporta video. 
-        <img src="/images/banners/banner-ofertas-fallback.jpg" alt="Sonderangebot: Malbec Discovery Paket" style="width:100%; height:auto; object-fit:cover; border-radius:10px;">
+        <img src="/images/banners/banner-ofertas-fallback.jpg" alt="Sonderangebot: Malbec Discovery Paket - Juni" style="width:100%; height:auto; object-fit:cover; border-radius:10px;">
     </video>
 </div>
-        <p>Exklusives Angebot für begrenzte Zeit: <b>Malbec Discovery Paket 10% RABATT</b><br>
+        <p>Exklusives Angebot für begrenzte Zeit: <b>Malbec Discovery Paket Juni 10% RABATT</b><br>
 Kaufen Sie Ihr Paket jetzt für nur EUR42.99 mit kostenlosem Versand.<br>
-Lassen Sie sich diese einzigartige Gelegenheit nicht entgehen, drei der ikonischsten Malbecs Argentiniens kennenzulernen. Nur 36 Einheiten verfügbar!</p>
-        <p><b>Was enthält das Malbec Discovery Paket?</b><br>Diesmal bringen wir Ihnen 3 biologische Höhenweine, die das Beste des neuen argentinischen Malbec repräsentieren. Sie werden probieren:<br><br>
-- <b>Chakana Nuna Rosé</b>: ein frischer, lebendiger und 100% biologischer Rosé, ideal für jeden Moment.<br>
-- <b>Dilema Day Malbec</b>: ein junger, fruchtiger und ausdrucksstarker Malbec aus dem Valle de Uco – voller Energie der neuen Winzergeneration.<br>
-- <b>Caminante de los Mundos Blend Bio</b>: ein tiefer und komplexer biologischer Blend mit Noten von reifer Frucht und Gewürzen, perfekt für Liebhaber von Weinen mit Charakter.<br><br>
-<b>Mit Ihrer Bestellung erhalten Sie einen Leitfaden, um jede Flasche optimal zu genießen, sowie einen exklusiven Code für den Kauf weiterer Flaschen Ihres Lieblingsweins mit speziellem Rabatt.</b></p>
+Nur begrenzte Stückzahl!</p>
+        <p><b>Was enthält das Malbec Discovery Paket im Juni?</b><br>Drei außergewöhnliche Weine, die das Beste des argentinischen Malbec repräsentieren. Sie werden probieren:<br><br>
+- <b>Caminante de los Mundos Blend 2021</b> – Bio, elegant und komplex.<br>
+- <b>Cicchitti Blend 2016</b> – Reifer und kräftiger Blend.<br>
+- <b>Finca Gabriel Malbec 2021</b> – Fruchtig und typisch mendocino.</p>
     </div>
     <div class="product-grid">
         
-        <div class="product-card" data-overlay-id="dilema-day-malbec-2021">
-            <img src="/images/small/dilema-day-malbec-2021.jpg" alt="Weingut Dilema Day Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="dilema-day-malbec-2021">🍷</div>
-            <div class="overlay" data-overlay-id="dilema-day-malbec-2021">
-                <p><strong>Weingut:</strong> Weingut Estancia Mendoza</p>
-                <p><strong>Provinz:</strong> Mendoza</p>
-                <p><strong>Region:</strong> Tupungato</p>
-                <p><strong>Höhe:</strong> 1000,0</p>
-            <p><strong>Jahrgang:</strong> 2021</p>
-            <p><strong>Descripción:</strong></p>
-            <p>Dilema Day Malbec ist ein junger und vielseitiger Rotwein von Dilema Wines, der sich ohne...</p>
-            <p><strong>Notas de cata y maridaje:</strong></p>
-            <p>In der Nase präsentiert er Aromen von Kirsche, Himbeere und einem Hauch Veilchen, mit...</p>
-         </div>
-            <h3>Dilema Day Malbec 2021</h3>
-            <p class="price">13.09</p>
-            <a href="/de/vinos/dilema-day-malbec-2021.html" class="buy-button">Details anzeigen</a>
-        </div>
+    <div class="product-card" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
+        <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Weingut Caminante de los Mundos Malbec Bio 2021" 
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
         
-        <div class="product-card" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
-            <img src="/images/small/caminante-de-los-mundos-malbec-bio-2021.jpg" alt="Weingut Caminante de los Mundos Malbec Bio 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">🍷</div>
-            <div class="overlay" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
-                <p><strong>Weingut:</strong> Jasmin Monet</p>
-                <p><strong>Provinz:</strong> Mendoza</p>
-                <p><strong>Region:</strong> Gualtalari</p>
-                <p><strong>Höhe:</strong> 1000,0</p>
-            <p><strong>Jahrgang:</strong> 2021</p>
-            <p><strong>Descripción:</strong></p>
-            <p>„CAMINANTE DE LOS MUNDOS produziert exklusive Weine, 100 % biologisch, vegan und glutenfrei....</p>
-            <p><strong>Notas de cata y maridaje:</strong></p>
-            <p>In der Nase bietet er Aromen von Brombeeren, reifen Pflaumen und Veilchen mit Noten von Vanille und...</p>
-         </div>
-            <h3>Caminante de los Mundos Malbec Bio 2021</h3>
-            <p class="price">18.19</p>
-            <a href="/de/vinos/caminante-de-los-mundos-malbec-bio-2021.html" class="buy-button">Details anzeigen</a>
-        </div>
+        <div class="info-icon" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">🍷</div>
         
-        <div class="product-card" data-overlay-id="chakana-nuna-rose-2022">
-            <img src="/images/small/chakana-nuna-rose-2022.jpg" alt="Weingut CHAKANA Nuna Rose 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <div class="info-icon" data-overlay-id="chakana-nuna-rose-2022">🍷</div>
-            <div class="overlay" data-overlay-id="chakana-nuna-rose-2022">
-                <p><strong>Weingut:</strong> Einzelhandel</p>
-                <p><strong>Provinz:</strong> Mendoza</p>
-                <p><strong>Region:</strong> Lujan de Cuyo</p>
-                <p><strong>Höhe:</strong> 960,0</p>
-            <p><strong>Jahrgang:</strong> 2022</p>
-            <p><strong>Descripción:</strong></p>
-            <p>NUNA
-Auf Quechua bedeutet es „Geist der Erde“.
+        <div class="overlay" data-overlay-id="caminante-de-los-mundos-malbec-bio-2021">
+            <p><strong>Weingut:</strong> Jasmin Monet</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> nach Gualtala</p>
+            <p><strong>Höhe:</strong> 1000,0</p>
+            <p><strong>Jahrgang:</strong> 2021</p>
+            
+            <!-- ✅ Corregido: ahora usa los títulos traducidos -->
+            <p><strong>Beschreibung:</strong></p>
+            <p>„CAMINANTE DE LOS MUNDOS produziert exklusive Weine, 100 % biologisch, vegan und glutenfrei. Aufgrund des natürlichen Stils des Produkts werden jährlich begrenzte Mengen produziert, was zu einzigartigen und unwiederholbaren Stücken führt. Caminante de los Mundos ist weltweit durch seine ethisch hergestellten Produkte konsolidiert. Unter der Zertifizierung der von ECOCERT gewährten Bio-Produktionsstandards implementiert es ein Produktionssystem für seine Weine, das Ressourcen und Kreisläufe der Natur schützt und respektiert. Für diejenigen, die es wagen zu fliegen, Lebe und wandere durch andere Welten;
+für diejenigen, die den Wert der Natur schätzen;
+für diejenigen, die Reinheit und Adel wahrnehmen;
+Für diejenigen, die die Reise spüren, den besten Wein in unserem Universum:
+„Wanderer der Welten“</p>
+            
+            <p><strong>Verkostungs- und Paarungsnotizen:</strong></p>
+            <p>In der Nase bietet er Aromen von Brombeeren, reifen Pflaumen und Veilchen mit Noten von Vanille und einem Hauch von schwarzem Pfeffer. Im Mund ist er strukturiert, mit Aromen von schwarzen Früchten, süßen Gewürzen und einem Hauch Schokolade. Die Tannine sind mäßig, mit ausgewogener Säure. Der Abgang ist anhaltend, mit Nuancen von Eiche und Mineralität. Passt zu Streifensteak, Rindereintopf oder gereiftem Gouda.</p>
+        </div>
 
-Und es ist der Name, der unsere Vision der...</p>
-            <p><strong>Notas de cata y maridaje:</strong></p>
-            <p>Für diesen Rosé de Noir ernten wir Malbec, Tannat und Syrah bei jeder Ernte früh in unserem...</p>
-         </div>
-            <h3>CHAKANA Nuna Rose 2022</h3>
-            <p class="price">19.99</p>
-            <a href="/de/vinos/chakana-nuna-rose-2022.html" class="buy-button">Details anzeigen</a>
-        </div>
+        <h3>Caminante de los Mundos Malbec Bio 2021</h3>
+        <p class="price">18.19</p>
+        <a href="/de/vinos/caminante-de-los-mundos-malbec-bio-2021.html" class="buy-button">Details anzeigen</a>
+    </div>
+
+    <div class="product-card" data-overlay-id="cicchitti-blend-2016">
+        <img src="/images/small/cicchitti-blend-2016.jpg" alt="Weingut CICCHITTI Blend 2016" 
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
         
+        <div class="info-icon" data-overlay-id="cicchitti-blend-2016">🍷</div>
+        
+        <div class="overlay" data-overlay-id="cicchitti-blend-2016">
+            <p><strong>Weingut:</strong> Cicchitti</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> Luján de Cuyo</p>
+            <p><strong>Höhe:</strong> 958,0</p>
+            <p><strong>Jahrgang:</strong> 2016</p>
+            
+            <!-- ✅ Corregido: ahora usa los títulos traducidos -->
+            <p><strong>Beschreibung:</strong></p>
+            <p>Der Cicchitti Blend 2016, hergestellt von Bodega Cicchitti in Mendoza, Argentinien, ist ein symbolträchtiger Rotwein des Weinguts, der fast fünf Jahrhunderte Familientradition in der Weinherstellung widerspiegelt, die von italienischen Einwanderern wie Don Giuseppe Mondati übernommen und seit 1983 von José A. Cicchitti weitergeführt wurde.</p>
+            
+            <p><strong>Verkostungs- und Paarungsnotizen:</strong></p>
+            <p>Farbe: intensive rubinrote Farbe mit dunkelvioletten oder schwarzen Reflexen. Ideal zu gegrilltem rotem Fleisch, Lamm, Schinken, Schweinefleisch, Empanadas, Pasta mit reichhaltigen Saucen oder gebratenem Fisch. Seine Struktur macht ihn vielseitig für kräftige Mahlzeiten geeignet, aber seine Frische ermöglicht es, ihn allein bei einer besinnlichen Verkostung zu genießen. Bei 16-18°C servieren, um seine Komplexität zu verstärken.
+
+Nase: Unzählige Aromen von reifen roten Früchten, ausdrucksstark und selbstbewusst beim Durchlauf durch Fässer.
+Mund: freundlich und kräftig mit süßen Tanninen, ausgewogen mit samtigem Abgang.</p>
+        </div>
+
+        <h3>CICCHITTI Blend 2016</h3>
+        <p class="price">19.99</p>
+        <a href="/de/vinos/cicchitti-blend-2016.html" class="buy-button">Details anzeigen</a>
     </div>
-    <div style="text-align: center;">
-        <a href="https://wa.me/+4915158224728?text=Ich%20m%C3%B6chte%20mein%20Malbec%20Discovery%20Paket%20jetzt" class="combo-button">Ich möchte mein Malbec Discovery Paket jetzt</a>
+
+    <div class="product-card" data-overlay-id="finca-gabriel-malbec-2021">
+        <img src="/images/small/finca-gabriel-malbec-2021.jpg" alt="Weingut FINCA GABRIEL Malbec 2021" 
+             onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+        
+        <div class="info-icon" data-overlay-id="finca-gabriel-malbec-2021">🍷</div>
+        
+        <div class="overlay" data-overlay-id="finca-gabriel-malbec-2021">
+            <p><strong>Weingut:</strong> Jorge Rubio</p>
+            <p><strong>Provinz:</strong> Mendoza</p>
+            <p><strong>Region:</strong> General Alvear</p>
+            <p><strong>Höhe:</strong> 500,0</p>
+            <p><strong>Jahrgang:</strong> 2021</p>
+            
+            <!-- ✅ Corregido: ahora usa los títulos traducidos -->
+            <p><strong>Beschreibung:</strong></p>
+            <p>FINCA GABRIEL Malbec ist ein fruchtiger und ausdrucksstarker Wein, hergestellt in Mendoza mit einem frischen und modernen Stil. Dieser Malbec ist ideal für Braten, Pizza oder Würstchen und spiegelt das Mendoza-Terroir wider. Der Jahrgang 2022 bietet Lebendigkeit und ein zugängliches Profil.</p>
+            
+            <p><strong>Verkostungs- und Paarungsnotizen:</strong></p>
+            <p>In der Nase präsentiert er Aromen von Himbeere, Kirsche und einem Hauch Pfeffer, dazu Noten von Veilchen und frischen Kräutern. Im Mund ist er saftig, mit Aromen von roten Früchten, weichen Gewürzen und einem Hauch Kakao. Die Tannine sind weich, mit ausgewogener Säure. Der Abgang ist rund, mit Noten von frischen Früchten. Passt zu Choripán, Margherita-Pizza oder hausgemachtem Aufschnitt.</p>
+        </div>
+
+        <h3>FINCA GABRIEL Malbec 2021</h3>
+        <p class="price">18.19</p>
+        <a href="/de/vinos/finca-gabriel-malbec-2021.html" class="buy-button">Details anzeigen</a>
     </div>
+
+    </div>
+   <!-- === CAJA CON 4 OPCIONES – PACK DISCOVERY === -->
+<div class="payment-section">
+    <h3>Pack Discovery Malbec – €42.99 (10% OFF)</h3>
+    <p>Compra única – envío incluido en Alemania</p>
+
+    <div class="payment-grid">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/+4915158224728?text=Quiero%20comprar%20el%20Pack%20Discovery%20Malbec%20por%20EUR%2042.99" class="pay-option whatsapp">
+            <i class="fab fa-whatsapp"></i><br>
+            Comprar por WhatsApp
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:ventas@1000malbecs.com?subject=Compra%20Pack%20Discovery%20Malbec&body=Hola,%20quiero%20comprar%20el%20Pack%20Discovery%20Malbec%20por%20EUR%2042.99.%20Mi%20nombre%20es..." class="pay-option email">
+            <i class="fas fa-envelope"></i><br>
+            Comprar por email
+        </a>
+<div class="payment-buttons-container">
+        <!-- Stripe -->
+  <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+<p><b> Mit Kreditkarten bezahlen</b></p>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1Tg2YyCWcVRBeV4kaqX10AM6"
+  publishable-key="pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs"
+>
+</stripe-buy-button>
+<div style="margin-top: 14px; opacity: 0.85;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-visa.svg" 
+         alt="Visa" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-mastercard.svg" 
+         alt="Mastercard" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-amex.svg" 
+         alt="American Express" height="28" style="margin: 0 6px;">
+  </div>
+  </div>
+        <!-- PayPal -->
+<div>
+  <style>.pp-XUUM9TM9UBYNS{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <p><b> Mit PayPal bezahlen </b></p>
+  <form action="https://www.paypal.com/ncp/payment/XUUM9TM9UBYNS" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-XUUM9TM9UBYNS" type="submit" value="Jetzt kaufen" />
+    <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
+    <section style="font-size: 0.75rem;"> Abgewickelt durch <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+  </form>
+</div>
+</div>
+
+
+
     <div class="subscription-presentation">
         <p><b>Abonnieren Sie und sichern Sie sich 28% Rabatt!</b><br>
-Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschungs-Malbecs nach Hause. Zahlen Sie in 3 Raten von EUR36.66 oder eine einmalige Zahlung von EUR99,99 (28% RABATT)!</p>
+Erhalten Sie in den nächsten 3 Monaten jeden Monat eine Kiste mit 3 Überraschungs-Malbecs nach Hause.</p>
     </div>
+    
     <div class="subscription-grid">
         <div class="subscription-item">
-            <img src="/images/combo-1.jpg" alt="März Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">März</p>
+            <img src="/images/combo-junio.jpg" alt="Juni Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Juni</p>
         </div>
         <div class="subscription-item">
-            <img src="/images/combo-2.jpg" alt="April Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">April</p>
+            <img src="/images/combo-2.jpg" alt="Juli ? Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">Juli ?</p>
         </div>
         <div class="subscription-item">
-            <img src="/images/combo-3.jpg" alt="Mai Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
-            <p class="month-label">Mai</p>
+            <img src="/images/combo-3.jpg" alt="August ? Combo" onerror="this.src='https://via.placeholder.com/200x200?text=Imagen+No+Disponible';">
+            <p class="month-label">August ?</p>
         </div>
     </div>
     <div style="text-align: center;">
         <a href="https://wa.me/+4915158224728?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%203%20Monate%20abonnieren" class="combo-button">Ich möchte mich für 3 Monate abonnieren</a>
     </div>
-    <div class="terms-container">
-        <h2>Allgemeine Geschäftsbedingungen - 1000 Malbecs (Kombi-Angebot)</h2>
-        <p>Hier erklären wir dir alles, was du über unser Kombi-Angebot und Abonnements wissen musst. Lies es in Ruhe durch – es ist kein Hypothekenvertrag, aber wir wollen, dass du genau Bescheid weißt, bevor du in die Welt unserer tollen Malbecs eintauchst.<br><br>
-<b>Was ist 1000 Malbecs?</b><br>
-Dein Zugang zu großartigen Malbecs ohne Umstände. Jeden Monat schicken wir dir drei Flaschen sorgfältig ausgewählter Malbecs plus ein Booklet mit Geschichten, Fun Facts und Beschreibungen, die dich jeden Schluck lieben lassen. Wir sind kein gewöhnlicher Laden – wir sind deine Kuratoren für Weinabenteuer. Mit deiner Bestellung erhältst du außerdem einen Gutschein mit einem Rabatt, falls du einen Wein direkt kaufen möchtest oder etwas anderes ausprobieren willst. Unsere Abonnenten behandeln wir besonders gut.<br><br>
-<b>Kaufoptionen</b><br>
-1. <b>Discovery Package (Einmalkauf)</b><br>
-• Preis: EUR 42.99 (kostenloser Versand).<br>
-• Regulärer Preis außerhalb des Angebots: ca. EUR 46.00 (inklusive Versand).<br>
-• Du bekommst drei einzigartige Malbec-Flaschen + unser berühmtes Booklet + einen Gutschein mit Rabatten, falls du etwas anderes ausprobieren möchtest.<br>
-• Perfekt, um uns ohne Verpflichtungen auszuprobieren.<br><br>
-2. <b>3-Monats-Abo</b><br>
-• Option 1: Eine monatliche Zahlung von EUR 36.99 (insgesamt: EUR 110.97 für 3 Monate).<br>
-• Option 2: Einmalzahlung von EUR 99.99 (spart dir ein paar Euro).<br>
-• Jeden Monat drei Malbec-Flaschen + das Booklet + der Rabattgutschein.<br>
-• Das Abo verlängert sich automatisch, aber du kannst jederzeit kündigen (Details unten).<br><br>
-<b>Welche Malbecs kommen in die Box?</b><br>
-• Weine, die uns begeistern: Malbecs mit Seele, hergestellt von Winzern, die ihr Handwerk verstehen.<br>
-• Durchschnittlicher Marktpreis: EUR 12-17 pro Flasche.<br>
-• Flaschen mit Designs, die ins Auge fallen, und Geschmack, der dich überzeugt.<br>
-• Wir wählen nicht irgendeinen Wein – nur die, bei denen wir persönlich mit dir anstoßen würden.<br><br>
-<b>Kann ich die Weine selbst aussuchen?</b><br>
-Nein, tut uns leid! Es geht darum, dich zu überraschen. Wir suchen, probieren und wählen die besten Malbecs aus, damit du einfach genießen kannst. Möchtest du einen Wein wiederholen? Sag Bescheid, aber viele sind limitierte Editionen, also keine Garantie.<br><br>
-<b>Kündigung des Abos</b><br>
-• Du kannst jederzeit kündigen, aber das 3-Monats-Abo ist verbindlich. Beispiel: Wenn du im Juni beginnst, greift die Kündigung ab September.<br>
-• Zum Kündigen sende uns eine E-Mail oder eine WhatsApp-Nachricht. Einfach und ohne Theater.<br><br>
-<b>Versand</b><br>
-• Discovery Package: Kostenloser Versand in ganz Deutschland.<br>
-• Abo: Versand inbegriffen.<br>
-• Im Urlaub oder möchtest du die Box an eine andere Adresse schicken? Sag uns Bescheid, wir regeln das.<br>
-• Probleme mit der Lieferung? Schreib uns, und wir kümmern uns schnell darum – wie die Online-Shops, die man mag.<br><br>
-<b>Was, wenn es mir nicht gefällt?</b><br>
-Du wirst es lieben, versprochen. But if something’s off, reach out, and we’ll make it right. We want every bottle to feel like a party.<br><br>
-<b>Wichtige Infos</b><br>
-• Abos verlängern sich automatisch. Kündige vor dem nächsten Zyklus, wenn du aufhören möchtest.<br>
-• Preise enthalten Steuern, decken aber keine möglichen Zollgebühren außerhalb der EU.<br>
-• Wir können diese Bedingungen aktualisieren, informieren dich aber rechtzeitig.<br><br>
-<b>Bereit für das Malbec-Abenteuer?</b><br>
-Melde dich an und entdecke, warum 1000 Malbecs mehr als nur Wein ist – es ist ein Erlebnis.<br><br>
-<b>Prost!</b><br>
-Das 1000 Malbecs Team</p>
-    </div>
+</div>
+  <!-- === CAJA CON 4 OPCIONES – SUSCRIPCIÓN 3 MESES === -->
+<div class="payment-section">
+    <h3>Suscripción por 3 meses – €99.99 (28% OFF)</h3>
+
+    <div class="payment-grid">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/+4915158224728?text=Quiero%20suscribirme%20por%203%20meses%20al%20plan%20de%20EUR%2099.99" class="pay-option whatsapp">
+            <i class="fab fa-whatsapp"></i><br>
+            Suscribirme por WhatsApp
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:ventas@1000malbecs.com?subject=Suscripción%203%20meses&body=Hola,%20quiero%20suscribirme%20al%20plan%20de%203%20meses%20por%20EUR%2099.99.%20Mi%20nombre%20es..." class="pay-option email">
+            <i class="fas fa-envelope"></i><br>
+            Suscribirme por email
+        </a>
+<div class="payment-buttons-container">
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+<p><b> Mit Kreditkarten bezahlen</b></p>
+<stripe-buy-button
+  buy-button-id="buy_btn_1Tg2aPCWcVRBeV4keM8g39EU"
+  publishable-key="pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs"
+>
+</stripe-buy-button>
+  <div style="margin-top: 14px; opacity: 0.85;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-visa.svg" 
+         alt="Visa" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-mastercard.svg" 
+         alt="Mastercard" height="28" style="margin: 0 6px;">
+    <img src="https://cdn.jsdelivr.net/npm/credit-card-logos@1.0.5/img/card-logo-amex.svg" 
+         alt="American Express" height="28" style="margin: 0 6px;">
+  </div>
+  </div>
+<div>
+<style>.pp-92SGBXFHYWZGG{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<p><b> Mit PayPal bezahlen </b></p>
+<form action="https://www.paypal.com/ncp/payment/92SGBXFHYWZGG" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+<input class="pp-92SGBXFHYWZGG" type="submit" value="Jetzt kaufen" />
+<img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
+<section style="font-size: 0.75rem;"> Abgewickelt durch <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+</form>
+</div>
+</div>
+    <!-- Después del payment-section de suscripción -->
+<div style="text-align: center; margin-top: 60px;">
+    <h3 style="color: #4A2C59;">Términos y Condiciones</h3>
+</div>
+
+<div class="terms-container">
+    <h2>Allgemeine Geschäftsbedingungen - 1000 Malbecs (Kombi-Angebot)</h2>
+    <p>Aquí te contamos todo lo que necesitas saber sobre nuestra oferta de combos y suscripciones. Léelo con calma, que esto no es un contrato de hipoteca, pero sí queremos que tengas todo clarito antes de que te lances a disfrutar de nuestros malbecs.<br><br>
+<b>¿Qué es el Discovery Package de 1000Malbecs.com?</b><br>
+Es tu pasaporte a descubrir malbecs espectaculares sin complicaciones. Cada mes, te enviamos tres botellas de malbecs seleccionados con cariño, acompañados de un díptico con historias, curiosidades y descripciones que te harán amar cada sorbo. No somos una tienda cualquiera, somos tus curadores de momentos vinícolas. Vas a recibir además un cupón con un descuento por si quieres comprar directamente un vino que te haya gustado o quieres probar otro que no esté en la lista. A los suscriptores los tratamos mejor.<br><br>
+<b>Opciones de compra</b><br>
+1. <b>Discovery Package (compra directa)</b><br>
+• Precio: EUR 42.99 (envío bonificado).<br>
+• Fuera de la oferta, el precio sería aproximadamente EUR 46.00 + envío.<br>
+• Recibes tres botellas de malbec únicas + nuestra guía para disfrutarlos mejor + un cupón con descuentos por si quieres probar otra cosa.<br>
+• Perfecto para probar sin compromiso.<br><br>
+2. <b>Suscripción de 3 meses</b><br>
+• Opción 1: Un pago mensual de EUR 36.99 (total: EUR 110.97 en 3 meses).<br>
+• Opción 2: Un pago único de EUR 99.99 (te ahorras unos euritos).<br>
+• Cada mes, tres botellas de malbec + la guía + el cupón de descuento.<br>
+• La suscripción se renueva automáticamente, pero puedes cancelarla en cualquier momento (más abajo te contamos cómo).<br><br>
+<b>¿Qué tipo de malbecs llegan en el combo?</b><br>
+• Vinos que nos gustan: malbecs con alma, elaborados por bodegueros que saben lo que hacen.<br>
+• Precio medio en el mercado: entre EUR 12-17 por botella.<br>
+• Botellas con diseños que entran por los ojos y sabores que te conquistan.<br>
+• No elegimos cualquier vino: solo los que nos harían brindar contigo en persona.<br><br>
+<b>¿Puedo elegir los vinos?</b><br>
+No, reina mora. Esto va de sorprenderte. Nosotros buscamos, catamos y seleccionamos los mejores malbecs para que tú solo disfrutes. Si quieres repetir un vino, avísanos, pero muchos son ediciones limitadas, así que no prometemos milagros.<br><br>
+<b>Cancelación de la suscripción</b><br>
+• Puedes cancelar cuando quieras, pero los 3 meses de la suscripción están comprometidos. Por ejemplo, si te suscribes en junio, la cancelación aplica a partir de septiembre.<br>
+• Para cancelar, nos mandás un mail o un WhatsApp. Fácil y sin dramas.<br><br>
+<b>Envíos</b><br>
+• Discovery Package: Envío bonificado en toda Alemania.<br>
+• Suscripción: Envío incluido en el precio.<br>
+• Si estás de vacaciones o quieres enviar el combo a otra dirección, avísanos y lo organizamos.<br>
+• ¿Problemas con el envío? Escríbenos y lo solucionamos rapidito, como las tiendas online que nos gustan.<br><br>
+<b>¿Y si no me gusta?</b><br>
+Te va a gustar, confía. Pero si algo no te convence, contáctanos y lo hablamos. Queremos que cada botella sea una fiesta.<br><br>
+<b>Datos importantes</b><br>
+• La renovación de la suscripción es automática. Si no quieres continuar, cancela antes de que se renueve el próximo ciclo.<br>
+• Los precios incluyen impuestos, pero no cubren posibles tasas aduaneras si estás fuera de la UE.<br>
+• Nos reservamos el derecho de modificar estos términos, pero te avisaremos con tiempo.<br><br>
+<b>¿Listos para unirse a la aventura del malbec?</b><br>
+Anotate y descubre por qué 1000 Malbecs es más que vino: es una experiencia.<br><br>
+<b>¡Salud!</b><br>
+Equipo 1000 Malbecs</p>
+</div>
 </main>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -970,6 +1178,59 @@ Das 1000 Malbecs Team</p>
                 console.log('Sidebar initial state:', sidebar.style.display, sidebar.classList.contains('worker-managed'));
             }
         });
+         // Stripe (cambia por tu clave real)
+        const stripe = Stripe('pk_live_TU_PUBLISHABLE_KEY_AQUÍ');  // ← PON AQUÍ TU CLAVE PUBLICA
+
+        // Compra Pack Discovery (€42.99)
+        document.getElementById('buy-pack-stripe').addEventListener('click', async () => {
+            const response = await fetch('https://tu-backend.com/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ priceId: 'price_1XXXXXXXXXXXXXXXXXXXXXXXX' })  // ← PRICE ID DEL PACK €42.99
+            });
+            const { sessionId } = await response.json();
+            stripe.redirectToCheckout({ sessionId });
+        });
+
+        // Suscripción 3 meses
+        document.getElementById('subscribe-3mes-stripe').addEventListener('click', async () => {
+            const response = await fetch('https://tu-backend.com/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ priceId: 'price_2YYYYYYYYYYYYYYYYYYYYYYYY' })  // ← PRICE ID SUSCRIPCIÓN 3 MESES
+            });
+            const { sessionId } = await response.json();
+            stripe.redirectToCheckout({ sessionId });
+        });
+
+        // PayPal para Pack Discovery
+        paypal.Buttons({
+            style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'pay' },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{ amount: { value: '42.99', currency_code: 'EUR' } }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('¡Pago del Pack Discovery completado!');
+                });
+            }
+        }).render('#paypal-pack');
+
+        // PayPal para Suscripción 3 meses (recurrente)
+        paypal.Buttons({
+            style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
+            createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                    'plan_id': 'P-XXXXXXXXXXXXXXXXXXXXXXXXXX'  // ← PLAN ID DE SUSCRIPCIÓN 3 MESES EN PAYPAL
+                });
+            },
+            onApprove: function(data, actions) {
+                alert('¡Suscripción por 3 meses activada!');
+            }
+        }).render('#paypal-subscribe');
+
     </script>
 </body>
 </html>

@@ -532,50 +532,75 @@ body {
       }
     },
     "category": "Wine",
-    "alcoholContent": "12.8%",
+    "alcoholContent": "0.128%",
     "producer": "Bodega Salentein"
   }
   </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18090475554');
+</script>
 <body>
-<!-- HEADER MOBILE -->
-  <header class="mobile-header">
-    <button class="hamburger" aria-label="Menu" aria-expanded="false">
-      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-      </svg>
-    </button>
-    <a href="/es/" class="logo-link">
+
+<!-- ==================== HEADER MOBILE ==================== -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+  
+  <a href="/es/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  </a>
+
+  <!-- CARRITO MOBILE -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+</header>
+
+<!-- ==================== TOPBAR DESKTOP ==================== -->
+<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+
+  <!-- Logo - Izquierda -->
+  <header class="header">
+    <a href="/es/" title="1000 Malbecs">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
 
-  <!-- TOPBAR (DESKTOP) -->
-  <div class="topbar">
-    <header class="header">
-      <a href="/es/" title="1000 Malbecs">
-        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-      </a>
-    </header>
-    <div class="lang-selector-desktop">
-      <a href="/es/vinos/portillo-rose-2023.html">ES</a>
-      
-      <a href="/en/vinos/portillo-rose-2023.html">EN</a>
-      
-      
-      <a href="/de/vinos/portillo-rose-2023.html">DE</a>
-      
-    </div>
-  </div>
-
-  <!-- SELECTOR MÓVIL -->
-  <div class="lang-selector-mobile">
+  <!-- Selector de Idiomas - Centro -->
+  <div class="lang-selector-desktop" style="position: absolute; left: 50%; transform: translateX(-50%);">
     <a href="/es/vinos/portillo-rose-2023.html">ES</a>
     <a href="/en/vinos/portillo-rose-2023.html">EN</a>
     <a href="/de/vinos/portillo-rose-2023.html">DE</a>
   </div>
+
+  <!-- Carrito - Derecha -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+
+</div>
+</div>
+
+<!-- SELECTOR MÓVIL -->
+<div class="lang-selector-mobile">
+  <a href="/es/vinos/portillo-rose-2023.html">ES</a>
+  <a href="/en/vinos/portillo-rose-2023.html">EN</a>
+  <a href="/de/vinos/portillo-rose-2023.html">DE</a>
+</div>
   <div class="container">
     <div class="product">
       <img src="https://www.1000malbecs.com/images/large/portillo-rose-2023.jpg" alt="Portillo Rose 2023 2023">
@@ -603,6 +628,21 @@ body {
   </small>
 </div>
         <!-- Botones -->
+      <!-- Botón AGREGAR AL CARRITO -->
+ <button onclick="addToCart({
+  id: 'portillo-rose-2023',
+  name: 'Portillo Rose 2023',
+  price: 0.0,
+  image: 'https://www.1000malbecs.com/images/large/portillo-rose-2023.jpg',
+  url: '/es/vinos/portillo-rose-2023.html'
+})" 
+  style="background:#4A2C59;color:white;border:none;padding:14px 24px;border-radius:10px;font-weight:600;cursor:pointer;">
+  🛒 Agregar al carrito
+</button>
+  <br>
+  <br>
+<p> <b>Express Checkout</b></p>
+      
         <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
           <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20Portillo%20Rose%202023" 
              class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
@@ -628,7 +668,7 @@ body {
         <p><strong>Altura:</strong> 1100 msnm</p>
         <p><strong>Volumen:</strong> 750 ml</p>
 
-        <p><strong>Alcohol:</strong> 12.8%</p>
+        <p><strong>Alcohol:</strong> 0.128%</p>
         
         
 
@@ -672,7 +712,7 @@ Boca: Entrada muy fresca gracias a su acidez balanceada y bien marcada, paladar 
           <p><strong>Altura:</strong> 1250 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14%</p>
+            <p><strong>Alcohol:</strong> 0.14%</p>
           
 
           
@@ -700,7 +740,7 @@ En nariz, es intenso y complejo, con aromas destacados a frutos rojos, bayas neg
           <p><strong>Altura:</strong> 1250 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14%</p>
+            <p><strong>Alcohol:</strong> 0.14%</p>
           
 
           
@@ -728,7 +768,7 @@ En nariz, es intenso y complejo, con aromas destacados a frutos rojos, bayas neg
           <p><strong>Altura:</strong> 1250 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14%</p>
+            <p><strong>Alcohol:</strong> 0.14%</p>
           
 
           
@@ -756,7 +796,7 @@ En nariz, es intenso y complejo, con aromas destacados a frutos rojos, bayas neg
           <p><strong>Altura:</strong> 1250 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 145%</p>
+            <p><strong>Alcohol:</strong> 0.145%</p>
           
 
           
@@ -783,7 +823,7 @@ En nariz, es intenso y complejo, con aromas destacados a frutos rojos, bayas neg
           <p><strong>Altura:</strong> 1100 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 13.8%</p>
+            <p><strong>Alcohol:</strong> 0.138%</p>
           
 
           
@@ -812,7 +852,7 @@ Boca: Fresco y frutado. Taninos redondos. ...
           <p><strong>Altura:</strong> 1100 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 13.8%</p>
+            <p><strong>Alcohol:</strong> 0.138%</p>
           
 
           
@@ -993,5 +1033,7 @@ grosellas, moras, arándanos. De buena estructura y tan...
       
     </div>
     
+    <script src="/js/cart.js"></script>
 </body>
+
 </html>

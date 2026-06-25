@@ -537,45 +537,70 @@ body {
   }
   </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18090475554');
+</script>
 <body>
-<!-- HEADER MOBILE -->
-  <header class="mobile-header">
-    <button class="hamburger" aria-label="Menu" aria-expanded="false">
-      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-      </svg>
-    </button>
-    <a href="/es/" class="logo-link">
+
+<!-- ==================== HEADER MOBILE ==================== -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+  
+  <a href="/es/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  </a>
+
+  <!-- CARRITO MOBILE -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+</header>
+
+<!-- ==================== TOPBAR DESKTOP ==================== -->
+<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+
+  <!-- Logo - Izquierda -->
+  <header class="header">
+    <a href="/es/" title="1000 Malbecs">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
 
-  <!-- TOPBAR (DESKTOP) -->
-  <div class="topbar">
-    <header class="header">
-      <a href="/es/" title="1000 Malbecs">
-        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-      </a>
-    </header>
-    <div class="lang-selector-desktop">
-      <a href="/es/vinos/el-esteco-blend-de-extremos-malbec-2023.html">ES</a>
-      
-      <a href="/en/vinos/el-esteco-blend-de-extremos-malbec-2023.html">EN</a>
-      
-      
-      <a href="/de/vinos/el-esteco-blend-de-extremos-malbec-2023.html">DE</a>
-      
-    </div>
-  </div>
-
-  <!-- SELECTOR MÓVIL -->
-  <div class="lang-selector-mobile">
+  <!-- Selector de Idiomas - Centro -->
+  <div class="lang-selector-desktop" style="position: absolute; left: 50%; transform: translateX(-50%);">
     <a href="/es/vinos/el-esteco-blend-de-extremos-malbec-2023.html">ES</a>
     <a href="/en/vinos/el-esteco-blend-de-extremos-malbec-2023.html">EN</a>
     <a href="/de/vinos/el-esteco-blend-de-extremos-malbec-2023.html">DE</a>
   </div>
+
+  <!-- Carrito - Derecha -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+
+</div>
+</div>
+
+<!-- SELECTOR MÓVIL -->
+<div class="lang-selector-mobile">
+  <a href="/es/vinos/el-esteco-blend-de-extremos-malbec-2023.html">ES</a>
+  <a href="/en/vinos/el-esteco-blend-de-extremos-malbec-2023.html">EN</a>
+  <a href="/de/vinos/el-esteco-blend-de-extremos-malbec-2023.html">DE</a>
+</div>
   <div class="container">
     <div class="product">
       <img src="https://www.1000malbecs.com/images/large/el-esteco-blend-de-extremos-malbec-2023.jpg" alt="El Esteco Blend de Extremos Malbec 2023 2023">
@@ -603,6 +628,21 @@ body {
   </small>
 </div>
         <!-- Botones -->
+      <!-- Botón AGREGAR AL CARRITO -->
+ <button onclick="addToCart({
+  id: 'el-esteco-blend-de-extremos-malbec-2023',
+  name: 'El Esteco Blend de Extremos Malbec 2023',
+  price: 0.0,
+  image: 'https://www.1000malbecs.com/images/large/el-esteco-blend-de-extremos-malbec-2023.jpg',
+  url: '/es/vinos/el-esteco-blend-de-extremos-malbec-2023.html'
+})" 
+  style="background:#4A2C59;color:white;border:none;padding:14px 24px;border-radius:10px;font-weight:600;cursor:pointer;">
+  🛒 Agregar al carrito
+</button>
+  <br>
+  <br>
+<p> <b>Express Checkout</b></p>
+      
         <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
           <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20El%20Esteco%20Blend%20de%20Extremos%20Malbec%202023" 
              class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
@@ -725,7 +765,7 @@ Su concentrado perfil aromático se centra ...
           <p><strong>Altura:</strong> 2000 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14.5%</p>
+            <p><strong>Alcohol:</strong> 13.5%</p>
           
 
           
@@ -762,7 +802,7 @@ Concentrado perfil aromático caracterizado por notas a fruta madura, roble, pas
           <p><strong>Altura:</strong> 1800 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14%</p>
+            <p><strong>Alcohol:</strong> 14.0%</p>
           
 
           
@@ -803,13 +843,13 @@ Concentrado perfil aromático caracterizado por notas a fruta madura, roble, pas
       <div class="card">
         <img src="https://www.1000malbecs.com/images/small/colome-estate-malbec-2020.jpg" alt="Colomé Estate Malbec 2020 2020">
         <h4>Colomé Estate Malbec 2020</h4>
-        <p>€20.30</p>
+        <p>€15.95</p>
         <a href="/es/vinos/colome-estate-malbec-2020.html">Comprar</a>
         
         <div class="overlay">
           <p><strong>Colomé Estate Malbec 2020</strong></p>
           
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Colomé</p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Colome</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
           <p><strong>Altura:</strong> 3100 msnm</p>
           
@@ -831,13 +871,13 @@ c...
       <div class="card">
         <img src="https://www.1000malbecs.com/images/small/colome-autentico-malbec-2021.jpg" alt="Colomé Autentico Malbec 2021 2021">
         <h4>Colomé Autentico Malbec 2021</h4>
-        <p>€37.10</p>
+        <p>€27.99</p>
         <a href="/es/vinos/colome-autentico-malbec-2021.html">Comprar</a>
         
         <div class="overlay">
           <p><strong>Colomé Autentico Malbec 2021</strong></p>
           
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Colomé</p>
+          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Colome</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
           <p><strong>Altura:</strong> 2300 msnm</p>
           
@@ -870,7 +910,7 @@ cruj...
           <p><strong>Altura:</strong> 1800 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 14.5%</p>
+            <p><strong>Alcohol:</strong> 0.145%</p>
           
 
           
@@ -883,28 +923,24 @@ cruj...
       </div>
       
       <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/autentico-malbec-2024.jpg" alt="Autentico Malbec 2024 2024">
-        <h4>Autentico Malbec 2024</h4>
-        <p>€0.00</p>
-        <a href="/es/vinos/autentico-malbec-2024.html">Comprar</a>
+        <img src="https://www.1000malbecs.com/images/small/el-arenal-malbec-2024.jpg" alt="El Arenal Malbec 2024 2024">
+        <h4>El Arenal Malbec 2024</h4>
+        <p>€35.18</p>
+        <a href="/es/vinos/el-arenal-malbec-2024.html">Comprar</a>
         
         <div class="overlay">
-          <p><strong>Autentico Malbec 2024</strong></p>
+          <p><strong>El Arenal Malbec 2024</strong></p>
           
           <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Colome</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
-          <p><strong>Altura:</strong> 2300 msnm</p>
+          <p><strong>Altura:</strong> 2600 msnm</p>
           
-          
-            <p><strong>Alcohol:</strong> 14.5%</p>
           
 
           
             <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
             <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-              Este vino es de color intenso y lleno de aromas como cerezas, moras, higos,
-cassis y clavo de olor, con especias elegantes y notas minerales. La boca es
-cruj...
+              Color muy profundo casi negro con reflejos púrpura. Nariz elegante y compleja: fruta negra, especias, notas florales y minerales. Boca con frescura montañosa...
             </p>
           
         </div>
@@ -912,5 +948,7 @@ cruj...
       
     </div>
     
+    <script src="/js/cart.js"></script>
 </body>
+
 </html>

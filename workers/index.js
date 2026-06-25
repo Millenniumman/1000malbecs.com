@@ -159,9 +159,11 @@ export default {
         { name: "A Corazón Abierto", slug: "a-corazon-abierto" },
         { name: "Agustín Lanús", slug: "agustin-lanus" },
         { name: "Alamos", slug: "alamos" },
+        { name: "Andeluna", slug: "andeluna" },
         { name: "Bemberg Estate Wines", slug: "bemberg-estate-wines" },
         { name: "Bodega Bressia", slug: "bodega-bressia" },
         { name: "Bodega Chañarmuyo", slug: "bodega-chanarmuyo" },
+        { name: "Escorihuela Gascón", slug: "escorihuela gascon" },
         { name: "Bodega Estancia Mendoza", slug: "bodega-estancia-mendoza" },
         { name: "Bodega Foster Lorca", slug: "bodega-foster-lorca" },
         { name: "Bodega Goyenechea", slug: "bodega-goyenechea" },
@@ -192,6 +194,7 @@ export default {
         { name: "Los Haroldos", slug: "los-haroldos" },
         { name: "Luigi Bosca", slug: "luigi-bosca" },
         { name: "Mascota Vineyards", slug: "mascota-vineyards" },
+        { name: "Vignes des Andes", slug: "vignes des andes" },
         { name: "Piattelli Vineyards", slug: "piattelli-vineyards" },
         { name: "Rutini Wines", slug: "rutini-wines" },
         { name: "San Telmo", slug: "san-telmo" },
@@ -268,6 +271,31 @@ export default {
           <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
           <ul>${infoLinks}</ul>
         </details>
+        <script>
+  // Toggle del sidebar (hamburguesa)
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    if (!hamburger || !sidebar) return;
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
+      sidebar.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('open') && 
+          !sidebar.contains(e.target) && 
+          !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
       </nav>
     `;
 

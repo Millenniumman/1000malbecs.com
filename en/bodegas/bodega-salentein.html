@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1000 Malbecs - Bodega Salentein</title>
   <meta property="og:title" content="1000 Malbecs - Bodega Salentein">
-  <meta property="og:description" content="Descubre los vinos de Bodega Salentein.">
+  <meta property="og:description" content="Discover the wines of Bodega Salentein.">
   <meta property="og:image" content="https://www.1000malbecs.com/images/bodegas/bodega-salentein-1.jpg">
   <meta property="og:url" content="https://www.1000malbecs.com/en/bodegas/bodega-salentein.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Bodega Salentein">
-  <meta name="twitter:description" content="Descubre los vinos de Bodega Salentein.">
+  <meta name="twitter:description" content="Discover the wines of Bodega Salentein.">
   <meta name="twitter:image" content="https://www.1000malbecs.com/images/bodegas/bodega-salentein-1.jpg">
   <meta name="twitter:site" content="@1000malbecs">
   <meta name="twitter:creator" content="@1000malbecs">
@@ -24,9 +24,25 @@
   <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/bodegas/bodega-salentein.html">
   
   <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-  
+  body { font-family: 'Montserrat', sans-serif; }
+    .overlay p strong {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #fff !important;
+    }
+    .buy-button {
+      margin: 10px auto 5px !important;
+      padding: 10px 20px !important;
+      width: 90% !important;
+      max-width: 180px !important;
+    }
+    @media (max-width: 768px) {
+      .buy-button { padding: 8px 16px !important; font-size: 13px !important; }
+    }
     * { box-sizing: border-box; }
     body {
       font-family: 'Montserrat', sans-serif;
@@ -162,7 +178,7 @@
       background-position: center;
       border-radius: 10px;
       margin: 0 0 10px 0;
-      background-image: url('https://www.1000malbecs.com/images/bodegas/bodega-salentein-1.jpg');
+      <div class="banner" style="background-image: url('https://www.1000malbecs.com/images/bodegas/bodega-salentein-1.jpg');"></div>
     }
     .presentation {
       max-width: 800px;
@@ -201,116 +217,109 @@
       justify-content: start;
     }
     .product-card {
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 5px;
-      padding: 15px;
-      position: relative;
-      overflow: visible;
-      max-width: 250px;
-      height: 360px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 5;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-      width: 100%;
-    }
-    .product-card img {
-      height: 190px;
-      max-width: 200px;
-      object-fit: contain;
-      margin: 10px auto;
-      background-color: #FFFFFF;
-    }
-    .info-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 10;
-      display: none;
-      color: #4A2C59;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      touch-action: manipulation;
-      pointer-events: auto;
-    }
-    .overlay {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      max-height: 150px;
-      background-color: rgba(74, 44, 89, 0.8) !important;
-      color: #FFFFFF;
-      padding: 40px 10px 10px 10px;
-      box-sizing: border-box;
-      font-size: 12px;
-      overflow-y: auto;
-      z-index: 6;
-      pointer-events: none;
-    }
-    .overlay p {
-      margin: 2px 0;
-      color: #FFFFFF !important;
-      visibility: visible !important;
-      text-align: left;
-    }
-    .product-card:hover .overlay {
-      display: block;
-    }
-    .product-card .overlay.active {
-      display: block !important;
-    }
-    .product-card h3 {
-      font-size: 16px;
-      margin: 5px 0;
-      color: #4A2C59;
-      min-height: 40px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: normal;
-      text-align: center;
-      width: 100%;
-    }
-    .product-card .price {
-      font-size: 16px;
-      color: #4A2C59;
-      margin: 5px 0;
-      position: relative;
-      z-index: 7;
-      text-align: center;
-      width: 100%;
-    }
-    .product-card .buy-button {
-      padding: 8px 16px;
-      font-size: 14px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 7;
-      text-align: center;
-      background-color: #4A2C59;
-      color: #f5e6ff;
-      text-decoration: none;
-      border-radius: 5px;
-      pointer-events: auto;
-      width: 100%;
-      max-width: 180px;
-      display: block;
-    }
-    .product-card .buy-button:hover {
-      background-color: #5A1D39;
-    }
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            padding: 15px;
+            position: relative;
+            overflow: visible;
+            max-width: 300px;
+            min-height: 400px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .product-card img {
+            height: 190px;
+            max-width: 200px;
+            object-fit: contain;
+            margin:5px auto;
+            background-color: #FFFFFF;
+        }
+        .info-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            display: none;
+            color: #4A2C59;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            touch-action: manipulation;
+            pointer-events: auto;
+        }
+        .overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 180px;
+            background-color: rgba(74, 44, 89, 0.8) !important;
+            color: #FFFFFF;
+            padding: 40px 10px 10px 10px;
+            box-sizing: border-box;
+            font-size: 12px;
+            overflow-y: auto;
+            z-index: 6;
+            pointer-events: none;
+        }
+        .overlay p {
+            margin: 2px 0;
+            color: #FFFFFF !important;
+            visibility: visible !important;
+            text-align: left;
+        }
+        .product-card:hover .overlay {
+            display: block;
+        }
+        .product-card .overlay.active {
+            display: block !important;
+        }
+        .product-card h3 {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #4A2C59;
+            min-height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .product-card .buy-button {
+            padding: 4px 8px;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 7;
+            text-align: center;
+            background-color: #4A2C59;
+            color: #f5e6ff;
+            text-decoration: none;
+            border-radius: 5px;
+            pointer-events: auto;
+            width: 100%;
+            max-width: 180px;
+            display: block;
+        }
+        .product-card .buy-button:hover {
+            background-color: #5A1D39;
+        }
     .language-selector {
       position: fixed;
       top: 10px;
@@ -396,10 +405,7 @@
         min-height: 36px;
         margin: 5px 0;
       }
-      .product-card .price {
-        font-size: 14px;
-        margin: 5px 0;
-      }
+     
       .product-card .buy-button {
         padding: 6px 12px;
         font-size: 12px;
@@ -437,6 +443,25 @@
         background-color: rgba(255, 255, 255, 0.7);
       }
     }
+        .price-container {
+      text-align: center;
+      margin: 10px 0 5px;
+      line-height: 1.4;
+    }
+    .price-main {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4A2C59;
+    }
+    .price-per-liter {
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+    }
+    .shipping-note {
+      font-size: 11px;
+      color: #999;
+    }
     @media (min-width: 769px) {
       .header {
         display: none;
@@ -463,13 +488,13 @@
         max-width: 1200px;
       }
       .product-card {
-        height: 360px;
+        height: 400px;
         padding: 15px;
       }
       .product-card img {
         height: 190px;
         max-width: 200px;
-        margin: 10px auto;
+        margin: 5px auto;
       }
       .product-card h3 {
         font-size: 16px;
@@ -481,8 +506,8 @@
       .product-card .buy-button {
         padding: 8px 16px;
         font-size: 14px;
-        margin-top: 5px;
-        margin-bottom: 10px;
+        margin-top: 1px;
+        margin-bottom: 5px;
         max-width: 180px;
       }
       .info-icon {
@@ -513,42 +538,48 @@
       font-size: 11px;
       color: #999;
     }
-    @media (max-width: 768px) {
-      .price-main { font-size: 16px; }
-      .price-per-liter { font-size: 11px; }
-      .shipping-note { font-size: 10px; }
-        
-    }
+   
   </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18090475554');
+</script>
 </head>
+
 <body>
-  <div class="language-selector">
-    <a href="/en/bodegas/bodega-salentein.html" class="active" data-lang="en" aria-label="lang_en"> EN 🇬🇧</a>
+<div class="language-selector">
+    <a href="/en/bodegas/bodega-salentein.html" class="active" data-lang="en" aria-label="lang_en"> EN </a>
     
     
     <a href="/es/bodegas/bodega-salentein.html" class="" data-lang="es" aria-label="lang_es">ES 🇪🇸</a>
     
     
     
-    <a href="/de/bodegas/bodega-salentein.html" class="" data-lang="de" aria-label="lang_de">DE 🇩🇪</a>
+    <a href="/de/bodegas/bodega-salentein.html" class="" data-lang="de" aria-label="lang_de">DE </a>
     
     
     
     
   </div>
   <header class="header">
-    <a href="/en/" title="Home">
+    <a href="/en/" title="home">
       <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
     </a>
   </header>
+ 
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
-      <a href="/en/" title="Home">
+      <a href="/en/" title="home">
         <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
       </a>
     </div>
-    <h2>Wineries</h2>
+    <h2>wineries</h2>
     <ul>
       
       <li><a href="/en/bodegas/a-corazon-abierto.html" class="nav-link">A Corazon Abierto</a></li>
@@ -557,15 +588,19 @@
       
       <li><a href="/en/bodegas/alamos.html" class="nav-link">Alamos</a></li>
       
+      <li><a href="/en/bodegas/andeluna.html" class="nav-link">Andeluna</a></li>
+      
       <li><a href="/en/bodegas/bemberg-estate-wines.html" class="nav-link">Bemberg Estate Wines</a></li>
       
       <li><a href="/en/bodegas/bodega-amalaya.html" class="nav-link">Bodega Amalaya</a></li>
       
       <li><a href="/en/bodegas/bodega-bressia.html" class="nav-link">Bodega Bressia</a></li>
       
-      <li><a href="/en/bodegas/bodega-chanarmuyo.html" class="nav-link">Bodega Chanarmuyo</a></li>
+      <li><a href="/en/bodegas/bodega-chañarmuyo.html" class="nav-link">Bodega Chañarmuyo</a></li>
       
       <li><a href="/en/bodegas/bodega-colome.html" class="nav-link">Bodega Colome</a></li>
+      
+      <li><a href="/en/bodegas/bodega-colomé.html" class="nav-link">Bodega Colomé</a></li>
       
       <li><a href="/en/bodegas/bodega-estancia-mendoza.html" class="nav-link">Bodega Estancia Mendoza</a></li>
       
@@ -573,11 +608,13 @@
       
       <li><a href="/en/bodegas/bodega-goyenechea.html" class="nav-link">Bodega Goyenechea</a></li>
       
-      <li><a href="/en/bodegas/bodega-noemia-patagonia.html" class="nav-link">Bodega Noemia Patagonia</a></li>
+      <li><a href="/en/bodegas/bodega-malma.html" class="nav-link">Bodega Malma</a></li>
+      
+      <li><a href="/en/bodegas/bodega-noemía-patagonia.html" class="nav-link">Bodega Noemía Patagonia</a></li>
       
       <li><a href="/en/bodegas/bodega-salentein.html" class="nav-link">Bodega Salentein</a></li>
       
-      <li><a href="/en/bodegas/bodega-septima.html" class="nav-link">Bodega Septima</a></li>
+      <li><a href="/en/bodegas/bodega-séptima.html" class="nav-link">Bodega Séptima</a></li>
       
       <li><a href="/en/bodegas/bodega-tukma.html" class="nav-link">Bodega Tukma</a></li>
       
@@ -598,6 +635,8 @@
       <li><a href="/en/bodegas/el-esteco.html" class="nav-link">El Esteco</a></li>
       
       <li><a href="/en/bodegas/eral-bravo.html" class="nav-link">Eral Bravo</a></li>
+      
+      <li><a href="/en/bodegas/escorihuela-gascón.html" class="nav-link">Escorihuela Gascón</a></li>
       
       <li><a href="/en/bodegas/falasco-wines.html" class="nav-link">Falasco Wines</a></li>
       
@@ -639,44 +678,42 @@
       
       <li><a href="/en/bodegas/san-telmo.html" class="nav-link">San Telmo</a></li>
       
+      <li><a href="/en/bodegas/susana-balbo.html" class="nav-link">Susana Balbo</a></li>
+      
       <li><a href="/en/bodegas/trapiche.html" class="nav-link">Trapiche</a></li>
       
-      <li><a href="/en/bodegas/vina-alicia.html" class="nav-link">Vina Alicia</a></li>
+      <li><a href="/en/bodegas/vignes-des-andes.html" class="nav-link">Vignes des Andes</a></li>
       
-      <li><a href="/en/bodegas/vina-cobos.html" class="nav-link">Vina Cobos</a></li>
+      <li><a href="/en/bodegas/viña-alicia.html" class="nav-link">Viña Alicia</a></li>
+      
+      <li><a href="/en/bodegas/viña-cobos.html" class="nav-link">Viña Cobos</a></li>
       
       <li><a href="/en/bodegas/weinert-bodega-y-cavas.html" class="nav-link">Weinert Bodega y Cavas</a></li>
       
     </ul>
-    <h2>Provinces</h2>
+    <h2>provinces</h2>
     <ul>
-      
-      <li><a href="/en/provincias/.html" class="nav-link"></a></li>
-      
-      <li><a href="/en/provincias/la-rioja.html" class="nav-link">La Rioja</a></li>
-      
-      <li><a href="/en/provincias/mendoza.html" class="nav-link">Mendoza</a></li>
-      
-      <li><a href="/en/provincias/neuquén.html" class="nav-link">Neuquén</a></li>
-      
-      <li><a href="/en/provincias/rio-negro.html" class="nav-link">Rio Negro</a></li>
-      
-      <li><a href="/en/provincias/río-negro.html" class="nav-link">Río Negro</a></li>
-      
-      <li><a href="/en/provincias/salta.html" class="nav-link">Salta</a></li>
-      
-      <li><a href="/en/provincias/san-juan.html" class="nav-link">San Juan</a></li>
       
     </ul>
   </nav>
   <main class="main-content">
     <h1>Bodega Salentein</h1>
-    <!-- Banner -->
-    <div class="banner"></div>
+    <div class="banner" style="
+        background: 
+            linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url('https://www.1000malbecs.com/images/bodegas/bodega-salentein-1.jpg') center/cover no-repeat,
+            url('https://www.1000malbecs.com/images/bodegas/default-bodega.jpg') center/cover no-repeat,
+            #4A2C59;
+        height: 150px;
+        border-radius: 10px;
+        margin: 0 0 10px 0;
+        width: 100%;
+    ">
+    </div>
     <!-- Descripción de la bodega -->
     <section class="presentation">
       <h2>About Bodega Salentein</h2>
-      <p>Descubre los vinos de Bodega Salentein.</p>
+      <p>Discover the wines of Bodega Salentein.</p>
     </section>
     <!-- Vinos -->
     <section class="products-section">
@@ -684,19 +721,23 @@
       
       <div class="product-grid">
          
-  <div class="product-card" data-overlay-id="primus-malbec-2023.html">
-    <img src="https://www.1000malbecs.com/images/vinos/primus-malbec-2023.jpg" alt="Primus Malbec 2023"
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/primus-malbec-2023.jpg" alt="Primus Malbec 2023"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id="primus-malbec-2023.html">i</div>
-    <div class="overlay" data-overlay-id="primus-malbec-2023.html">
-      <p><strong>Winery:</strong> Bodega Salentein</p>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Wine:</strong> Primus Malbec 2023</p>
       <p><strong>Province:</strong> Mendoza</p>
       <p><strong>Region:</strong> Valle de Uco</p>
       <p><strong>Altitude:</strong> 1250 msnm</p>
-      <p><strong>Vintage:</strong> 2023.0</p>
+      
+      
+      <p><strong>Description:</strong> El Primus Malbec o Pr1mus Malbec es el vino tope de gama de Bodegas Salentein  Es un Malbec premium de viñedos a...</p>
+      
+      
+      
     </div>
-
-    <h3>Primus Malbec</h3>
+    <h3>Primus Malbec 2023</h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
     
@@ -706,22 +747,27 @@
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos//es/vinos/primus-malbec-2023.html" class="buy-button">Buy</a>
+   <a href="/en/vinos/primus-malbec-2023.html" class="buy-button">Buy</a>
+
   </div>
         
-  <div class="product-card" data-overlay-id="barrel-selection-malbec-magnum-15-lt-2024.html">
-    <img src="https://www.1000malbecs.com/images/vinos/barrel-selection-malbec-magnum-15-lt-2024.jpg" alt="Barrel Selection Malbec Magnum 1.5 lt 2024"
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/barrel-selection-malbec-magnum-15-lt-2024.jpg" alt="Barrel Selection Malbec Magnum 1.5 lt 2024"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id="barrel-selection-malbec-magnum-15-lt-2024.html">i</div>
-    <div class="overlay" data-overlay-id="barrel-selection-malbec-magnum-15-lt-2024.html">
-      <p><strong>Winery:</strong> Bodega Salentein</p>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Wine:</strong> Barrel Selection Malbec Magnum 1.5 lt 2024</p>
       <p><strong>Province:</strong> Mendoza</p>
       <p><strong>Region:</strong> Valle de Uco</p>
       <p><strong>Altitude:</strong> 1250 msnm</p>
-      <p><strong>Vintage:</strong> 2024.0</p>
+      
+      
+      <p><strong>Description:</strong> Este Malbec Barrel Selection de Salentein expresa con elegancia la pureza del Valle de Uco. De color rojo púrpur...</p>
+      
+      
+      
     </div>
-
-    <h3>Barrel Selection Malbec Magnum 1.5 lt</h3>
+    <h3>Barrel Selection Malbec Magnum 1.5 lt 2024</h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
     
@@ -731,22 +777,27 @@
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos//es/vinos/barrel-selection-malbec-magnum-15-lt-2024.html" class="buy-button">Buy</a>
+   <a href="/en/vinos/barrel-selection-malbec-magnum-15-lt-2024.html" class="buy-button">Buy</a>
+
   </div>
         
-  <div class="product-card" data-overlay-id="barrel-selection-malbec-2024.html">
-    <img src="https://www.1000malbecs.com/images/vinos/barrel-selection-malbec-2024.jpg" alt="Barrel Selection Malbec 2024"
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/barrel-selection-malbec-2024.jpg" alt="Barrel Selection Malbec 2024"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id="barrel-selection-malbec-2024.html">i</div>
-    <div class="overlay" data-overlay-id="barrel-selection-malbec-2024.html">
-      <p><strong>Winery:</strong> Bodega Salentein</p>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Wine:</strong> Barrel Selection Malbec 2024</p>
       <p><strong>Province:</strong> Mendoza</p>
       <p><strong>Region:</strong> Valle de Uco</p>
       <p><strong>Altitude:</strong> 1250 msnm</p>
-      <p><strong>Vintage:</strong> 2024.0</p>
+      
+      
+      <p><strong>Description:</strong> Este Malbec Barrel Selection de Salentein expresa con elegancia la pureza del Valle de Uco. De color rojo púrpur...</p>
+      
+      
+      
     </div>
-
-    <h3>Barrel Selection Malbec</h3>
+    <h3>Barrel Selection Malbec 2024</h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
     
@@ -756,22 +807,27 @@
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos//es/vinos/barrel-selection-malbec-2024.html" class="buy-button">Buy</a>
+   <a href="/en/vinos/barrel-selection-malbec-2024.html" class="buy-button">Buy</a>
+
   </div>
         
-  <div class="product-card" data-overlay-id="portillo-malbec-2023.html">
-    <img src="https://www.1000malbecs.com/images/vinos/portillo-malbec-2023.jpg" alt="Portillo Malbec 2023"
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/portillo-malbec-2023.jpg" alt="Portillo Malbec 2023"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id="portillo-malbec-2023.html">i</div>
-    <div class="overlay" data-overlay-id="portillo-malbec-2023.html">
-      <p><strong>Winery:</strong> Bodega Salentein</p>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Wine:</strong> Portillo Malbec 2023</p>
       <p><strong>Province:</strong> Mendoza</p>
       <p><strong>Region:</strong> Valle de Uco</p>
       <p><strong>Altitude:</strong> 1100 msnm</p>
-      <p><strong>Vintage:</strong> 2023.0</p>
+      
+      
+      <p><strong>Description:</strong> El Portillo Malbec es la línea de entrada/joven de Bodegas Salentein, proveniente del Valle de Uco. Es un Malbec...</p>
+      
+      
+      
     </div>
-
-    <h3>Portillo Malbec</h3>
+    <h3>Portillo Malbec 2023</h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
     
@@ -781,22 +837,27 @@
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos//es/vinos/portillo-malbec-2023.html" class="buy-button">Buy</a>
+   <a href="/en/vinos/portillo-malbec-2023.html" class="buy-button">Buy</a>
+
   </div>
         
-  <div class="product-card" data-overlay-id="portillo-magnum-15-lt-malbec-2023.html">
-    <img src="https://www.1000malbecs.com/images/vinos/portillo-magnum-15-lt-malbec-2023.jpg" alt="Portillo Magnum 1.5 lt. Malbec 2023"
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/portillo-magnum-15-lt-malbec-2023.jpg" alt="Portillo Magnum 1.5 lt. Malbec 2023"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id="portillo-magnum-15-lt-malbec-2023.html">i</div>
-    <div class="overlay" data-overlay-id="portillo-magnum-15-lt-malbec-2023.html">
-      <p><strong>Winery:</strong> Bodega Salentein</p>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Wine:</strong> Portillo Magnum 1.5 lt. Malbec 2023</p>
       <p><strong>Province:</strong> Mendoza</p>
       <p><strong>Region:</strong> Valle de Uco</p>
       <p><strong>Altitude:</strong> 1100 msnm</p>
-      <p><strong>Vintage:</strong> 2023.0</p>
+      
+      
+      <p><strong>Description:</strong> El Portillo Malbec es la línea de entrada/joven de Bodegas Salentein, proveniente del Valle de Uco. Es un Malbec...</p>
+      
+      
+      
     </div>
-
-    <h3>Portillo Magnum 1.5 lt. Malbec</h3>
+    <h3>Portillo Magnum 1.5 lt. Malbec 2023</h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
     
@@ -806,22 +867,27 @@
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos//es/vinos/portillo-magnum-15-lt-malbec-2023.html" class="buy-button">Buy</a>
+   <a href="/en/vinos/portillo-magnum-15-lt-malbec-2023.html" class="buy-button">Buy</a>
+
   </div>
         
-  <div class="product-card" data-overlay-id="portillo-rose-2023.html">
-    <img src="https://www.1000malbecs.com/images/vinos/portillo-rose-2023.jpg" alt="Portillo Rose 2023"
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/portillo-rose-2023.jpg" alt="Portillo Rose 2023"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id="portillo-rose-2023.html">i</div>
-    <div class="overlay" data-overlay-id="portillo-rose-2023.html">
-      <p><strong>Winery:</strong> Bodega Salentein</p>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Wine:</strong> Portillo Rose 2023</p>
       <p><strong>Province:</strong> Mendoza</p>
       <p><strong>Region:</strong> Valle de Uco</p>
       <p><strong>Altitude:</strong> 1100 msnm</p>
-      <p><strong>Vintage:</strong> 2023.0</p>
+      
+      
+      <p><strong>Description:</strong> El Portillo Rosé es el rosado de la línea de entrada de Bodegas Salentein, elaborado 100% con Malbec del Valle d...</p>
+      
+      
+      
     </div>
-
-    <h3>Portillo Rose</h3>
+    <h3>Portillo Rose 2023</h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
     
@@ -831,22 +897,27 @@
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos//es/vinos/portillo-rose-2023.html" class="buy-button">Buy</a>
+   <a href="/en/vinos/portillo-rose-2023.html" class="buy-button">Buy</a>
+
   </div>
         
-  <div class="product-card" data-overlay-id="barrel-selection-malbec-375-cc-2024.html">
-    <img src="https://www.1000malbecs.com/images/vinos/barrel-selection-malbec-375-cc-2024.jpg" alt="Barrel Selection Malbec 375 cc 2024"
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/barrel-selection-malbec-375-cc-2024.jpg" alt="Barrel Selection Malbec 375 cc 2024"
          onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
-    <div class="info-icon" data-overlay-id="barrel-selection-malbec-375-cc-2024.html">i</div>
-    <div class="overlay" data-overlay-id="barrel-selection-malbec-375-cc-2024.html">
-      <p><strong>Winery:</strong> Bodega Salentein</p>
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Wine:</strong> Barrel Selection Malbec 375 cc 2024</p>
       <p><strong>Province:</strong> Mendoza</p>
       <p><strong>Region:</strong> Valle de Uco</p>
       <p><strong>Altitude:</strong> 1250 msnm</p>
-      <p><strong>Vintage:</strong> 2024.0</p>
+      
+      
+      <p><strong>Description:</strong> Este Malbec Barrel Selection de Salentein expresa con elegancia la pureza del Valle de Uco. De color rojo púrpur...</p>
+      
+      
+      
     </div>
-
-    <h3>Barrel Selection Malbec 375 cc</h3>
+    <h3>Barrel Selection Malbec 375 cc 2024</h3>
 
     <!-- BLOQUE DE PRECIO NUEVO -->
     
@@ -856,7 +927,8 @@
       <div class="shipping-note">+ shipping costs</div>
     </div>
 
-    <a href="/en/vinos//es/vinos/barrel-selection-malbec-375-cc-2024.html" class="buy-button">Buy</a>
+   <a href="/en/vinos/barrel-selection-malbec-375-cc-2024.html" class="buy-button">Buy</a>
+
   </div>
         
       </div>
@@ -928,6 +1000,13 @@
         });
       }
     });
+      const lang = new URLSearchParams(window.location.search).get('lang') || 'es';
+    
+      if (lang === 'en') {
+        document.querySelectorAll('.title-about-winery').forEach(el => el.textContent = 'About the winery');
+        document.querySelectorAll('.title-products-winery').forEach(el => el.textContent = 'Products from the winery');
+      }
+
   </script>
 </body>
 </html>
