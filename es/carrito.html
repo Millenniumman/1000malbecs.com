@@ -38,10 +38,17 @@
 
   <script src="/js/cart.js"></script>
   <script>
-    // Forzar renderizado al cargar
+    // Forzar actualización del carrito al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
-      console.log("✅ Página del carrito cargada");
+      console.log("Carrito página cargada - Renderizando...");
       renderCart();
+    });
+
+    // También actualizar si la página se vuelve visible (por si viene de otra pestaña)
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') {
+        renderCart();
+      }
     });
   </script>
 </body>
