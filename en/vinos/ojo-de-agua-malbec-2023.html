@@ -11,6 +11,7 @@
 
   gtag('config', 'AW-1068768833');
 </script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18090475554'); </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The youngest wines from Ojo de Agua are our good name. The baby of the family is full of vitality, intensity and bold fruity flavors and aromas. Wines to drink ">
@@ -580,37 +581,52 @@ body {
 </head>
 <body>
 
-  <!-- HEADER MOBILE -->
-  <header class="mobile-header">
-    <button class="hamburger" aria-label="Menu" aria-expanded="false">
-      <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-        <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-        <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-        <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-      </svg>
-    </button>
-    <a href="/en/" class="logo-link">
+<!-- ==================== HEADER MOBILE ==================== -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+  
+  <a href="/en/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  </a>
+
+  <!-- CARRITO MOBILE -->
+  <a href="/en/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+</header>
+
+<!-- ==================== TOPBAR DESKTOP ==================== -->
+<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+
+  <!-- Logo - Izquierda -->
+  <header class="header">
+    <a href="/en/" title="1000 Malbecs">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
 
-  <!-- TOPBAR (DESKTOP) -->
-  <div class="topbar">
-    <header class="header">
-      <a href="/en/" title="1000 Malbecs">
-        <img src="/images/l000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-      </a>
-    </header>
-    <div class="lang-selector-desktop">
-      <a href="/es/vinos/ojo-de-agua-malbec-2023.html">ES</a>
-      
-      <a href="/en/vinos/ojo-de-agua-malbec-2023.html" class="active">EN</a>
-      
-      
-      <a href="/de/vinos/ojo-de-agua-malbec-2023.html">DE</a>
-      
-    </div>
+  <!-- Selector de Idiomas - Centro -->
+  <div class="lang-selector-desktop" style="position: absolute; left: 50%; transform: translateX(-50%);">
+    <a href="/es/vinos/ojo-de-agua-malbec-2023.html">ES</a>
+    <a href="/en/vinos/ojo-de-agua-malbec-2023.html" class="active">EN</a>
+    <a href="/de/vinos/ojo-de-agua-malbec-2023.html">DE</a>
   </div>
+
+  <!-- Carrito - Derecha -->
+  <a href="/en/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+
+</div>
+</div>
 
   <!-- SELECTOR MÓVIL -->
   <div class="lang-selector-mobile">
@@ -648,6 +664,20 @@ body {
           </small>
         </div>
         
+        <!-- Botón AGREGAR AL CARRITO -->
+<button onclick="addToCart({
+  id: 'ojo-de-agua-malbec-2023',
+  name: 'Ojo de Agua Malbec  2023',
+  price: 0.0,
+  image: 'https://www.1000malbecs.com/images/large/ojo-de-agua-malbec-2023.jpg',
+  url: '/en/vinos/ojo-de-agua-malbec-2023.html'
+})" 
+  style="background:#4A2C59;color:white;border:none;padding:14px 24px;border-radius:10px;font-weight:600;cursor:pointer; min-width:220px;">
+  🛒 Add to Cart
+</button>
+<br>
+<br>
+<p><b> Express Checkout </b></p>
 
       <!-- Botones WhatsApp + Email -->
       <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
@@ -879,7 +909,7 @@ Aroma: Full of concentrated blackberry and some raspberry compote. Floral backgr
   <p><strong>Altitude:</strong> 1100 masl</p>
   
   
-    <p><strong>Alcohol:</strong> 0.10%</p>
+    <p><strong>Alcohol:</strong> 13.50%</p>
   
   
   
@@ -920,7 +950,7 @@ Aroma: Fresh red and black fruits, dominated by notes of raspberry along with fl
           <p><strong>Altura:</strong> 940 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 0.10%</p>
+            <p><strong>Alcohol:</strong> 14.00%</p>
           
           
   
@@ -949,7 +979,7 @@ Aroma: Fresh red and black fruits, dominated by notes of raspberry along with fl
           <p><strong>Altura:</strong> 940 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 0.10%</p>
+            <p><strong>Alcohol:</strong> 14.00%</p>
           
           
   
@@ -979,7 +1009,7 @@ Complex and attractive aromas of red and black fruits (s...
           <p><strong>Altura:</strong> 975 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 0.10%</p>
+            <p><strong>Alcohol:</strong> 14.00%</p>
           
           
   
@@ -1008,7 +1038,7 @@ Complex and attractive aromas of red and black fruits (s...
           <p><strong>Altura:</strong> 970 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 0.10%</p>
+            <p><strong>Alcohol:</strong> 14.50%</p>
           
           
   
@@ -1037,7 +1067,7 @@ Complex and attractive aromas of red and black fruits (s...
           <p><strong>Altura:</strong> 1200 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 0.10%</p>
+            <p><strong>Alcohol:</strong> 14.40%</p>
           
           
   
@@ -1102,6 +1132,7 @@ Complex and attractive aromas of red and black fruits (s...
       }
     });
   </script>
-
+<!-- Carrito JS -->
+<script src="/js/cart.js"></script>
 </body>
 </html>
