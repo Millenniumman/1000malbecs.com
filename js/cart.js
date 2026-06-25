@@ -77,10 +77,11 @@ function showToast(message) {
 function renderCart() {
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
+  
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   if (cart.length === 0) {
-    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos para continuar.</p></div>`;
+    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos.</p></div>`;
     totalEl.innerHTML = '';
     return;
   }
@@ -117,24 +118,24 @@ function renderCart() {
   });
 
   // === LÓGICA DE ENVÍO ===
-  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  const shippingCost = (totalBottles >= 12) ? 0 : 6.99;
   const finalTotal = subtotal + shippingCost;
 
-  const shippingHTML = totalBottles >= 12 
-    ? `<strong style="color:#2e7d32;">✅ Envío gratis (12+ botellas)</strong>` 
-    : `Envío: <strong>€6.99</strong>`;
-
   container.innerHTML = html;
-  
+
   totalEl.innerHTML = `
-    <div>Subtotal: €${subtotal.toFixed(2)}</div>
-    <div>${shippingHTML}</div>
-    <hr style="margin:15px 0;">
-    <div style="font-size:1.55em; font-weight:700;">
+    <div style="margin: 10px 0;">
+      Subtotal: <strong>€${subtotal.toFixed(2)}</strong>
+    </div>
+    <div style="margin: 8px 0;">
+      ${shippingCost === 0 
+        ? `<strong style="color:#27ae60;">✅ Envío gratis (12+ botellas)</strong>` 
+        : `Envío a Alemania: <strong>€6.99</strong>`}
+    </div>
+    <hr>
+    <div style="font-size: 1.6em; font-weight: 700; margin-top: 10px;">
       Total: <strong>€${finalTotal.toFixed(2)}</strong>
     </div>
-    ${totalBottles >= 9 && totalBottles < 12 ? 
-      `<p style="color:#e67e22; font-size:0.95em; margin-top:8px;">¡Agrega ${12 - totalBottles} botellas más para envío gratis!</p>` : ''}
   `;
 }
 
