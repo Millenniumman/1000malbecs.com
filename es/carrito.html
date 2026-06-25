@@ -70,13 +70,13 @@
             </div>
             <div style="text-align:right; min-width:90px;">
               <strong>€${itemTotal.toFixed(2)}</strong><br>
-              <small onclick="removeFromCart('${item.id}')" style="color:#e74c3c;cursor:pointer;">Entfernen</small>
+              <small onclick="removeFromCart('${item.id}')" style="color:#e74c3c;cursor:pointer;">Eliminar</small>
             </div>
           </div>`;
       });
 
       container.innerHTML = html;
-      totalEl.innerHTML = `Gesamt: <strong>€${total.toFixed(2)}</strong>`;
+      totalEl.innerHTML = `Total: <strong>€${total.toFixed(2)}</strong>`;
     }
 
     function goToCheckout() {
