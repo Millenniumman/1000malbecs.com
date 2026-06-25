@@ -532,11 +532,20 @@ body {
       }
     },
     "category": "Wine",
-    "alcoholContent": "13.5%",
+    "alcoholContent": "0.1%",
     "producer": "Jorge Rubio"
   }
   </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18090475554');
+</script>
 <body>
 <!-- HEADER MOBILE -->
   <header class="mobile-header">
@@ -603,6 +612,21 @@ body {
   </small>
 </div>
         <!-- Botones -->
+      <!-- Botón AGREGAR AL CARRITO -->
+ <button onclick="addToCart({
+  id: 'a-contramano-malbec-2021',
+  name: 'A CONTRAMANO Malbec 2021',
+  price: 0.0,
+  image: 'https://www.1000malbecs.com/images/large/a-contramano-malbec-2021.jpg',
+  url: '/es/vinos/a-contramano-malbec-2021.html'
+})" 
+  style="background:#4A2C59;color:white;border:none;padding:14px 24px;border-radius:10px;font-weight:600;cursor:pointer;">
+  🛒 Agregar al carrito
+</button>
+  <br>
+  <br>
+<p> <b>Express Checkout</b></p>
+      
         <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
           <a href="https://wa.me/4915158224728?text=Hola,%20me%20gustar%C3%ADa%20comprar:%20A%20CONTRAMANO%20Malbec%202021" 
              class="buy-btn" target="_blank" style="flex: 1; min-width: 220px; max-width: 340px; text-align: center;">
@@ -628,7 +652,7 @@ body {
         <p><strong>Altura:</strong> 500 msnm</p>
         <p><strong>Volumen:</strong> 750 ml</p>
 
-        <p><strong>Alcohol:</strong> 13.5%</p>
+        <p><strong>Alcohol:</strong> 0.1%</p>
         
         
 
@@ -719,7 +743,7 @@ body {
           <p><strong>Altura:</strong> 500 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 13.8%</p>
+            <p><strong>Alcohol:</strong> 0.1%</p>
           
 
           
@@ -746,7 +770,7 @@ body {
           <p><strong>Altura:</strong> 500 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 13.5%</p>
+            <p><strong>Alcohol:</strong> 0.1%</p>
           
 
           
@@ -773,7 +797,7 @@ body {
           <p><strong>Altura:</strong> 500 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 13%</p>
+            <p><strong>Alcohol:</strong> 0.1%</p>
           
 
           
@@ -800,7 +824,7 @@ body {
           <p><strong>Altura:</strong> 520 msnm</p>
           
           
-            <p><strong>Alcohol:</strong> 13.5%</p>
+            <p><strong>Alcohol:</strong> 0.1%</p>
           
 
           
@@ -818,5 +842,7 @@ body {
 
     <!-- OTROS VINOS DE LA MISMA REGIÓN -->
     
+    <script src="/js/cart.js"></script>
 </body>
+
 </html>
