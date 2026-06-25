@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - 1000 Malbecs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #fdfdfd; }
+    main { max-width: 900px; margin: 100px auto 40px; padding: 20px; }
+    h1 { color: #4A2C59; text-align: center; margin-bottom: 30px; }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-right: 15px;
+    }
+    .item-info { flex: 1; }
+    .item-info h4 { margin: 0 0 5px 0; color: #4A2C59; }
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 15px;
+    }
+    .quantity-controls button {
+      width: 28px; height: 28px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .total {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: #4A2C59;
+      text-align: right;
+      margin: 30px 0;
+    }
+    .empty-cart {
+      text-align: center;
+      padding: 60px 20px;
+      color: #777;
+    }
+    .btn-checkout {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 16px;
+      background: #4A2C59;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>Tu Carrito</h1>
+    <div id="cart-items"></div>
+    <div id="cart-total" class="total"></div>
+
+    <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Ir a Pagar</a>
+    <a href="/es/" style="display:block; text-align:center; margin-top:20px; color:#666;">← Seguir comprando</a>
+  </main>
+
+  <script src="/js/cart.js"></script>
+  <script>
+    function renderCart() {
+      const container = document.getElementById('cart-items');
+      const totalEl = document.getElementById('cart-total');
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (cart.length === 0) {
+        container.innerHTML = `<div class="empty-cart"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos para continuar.</p></div>`;
+        totalEl.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        html += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-info">
+              <h4>${item.name}</h4>
+              <p>€${item.price.toFixed(2)}</p>
+            </div>
+            <div class="quantity-controls">
+              <button onclick="changeQuantity('${item.id}', -1)">–</button>
+              <span><strong>${item.quantity}</strong></span>
+              <button onclick="changeQuantity('${item.id}', 1)">+</button>
+            </div>
+            <div style="text-align:right; min-width:80px;">
+              <strong>€${itemTotal.toFixed(2)}</strong><br>
+              <small onclick="removeFromCart('${item.id}')" style="color:#e74c3c; cursor:pointer;">Eliminar</small>
+            </div>
+          </div>`;
+      });
+
+      container.innerHTML = html;
+      totalEl.innerHTML = `Total: <strong>€${total.toFixed(2)}</strong>`;
+    }
+
+    function goToCheckout() {
+      alert("Próximamente: Checkout con Stripe");
+      // Aquí más adelante llamaremos al Cloudflare Worker
+    }
+
+    // Cargar carrito al abrir la página
+    document.addEventListener('DOMContentLoaded', renderCart);
+  </script>
+</body>
+</html>
