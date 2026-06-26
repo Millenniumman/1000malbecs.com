@@ -1,4 +1,5 @@
-export default {
+// workers/index.js
+var index_default = {
   async fetch(request) {
     const url = new URL(request.url);
     const path = url.pathname;
@@ -12,20 +13,15 @@ export default {
     if (path.startsWith("/en/")) lang = "en";
     else if (path.startsWith("/de/")) lang = "de";
     else if (path.startsWith("/es/")) lang = "es";
-
-    const b2bText = lang === "es" ? "Bares y Restaurants" :
-                    lang === "en" ? "Bars & Restaurants" :
-                                    "Bars & Restaurants";
-
+    const b2bText = lang === "es" ? "Bares y Restaurants" : lang === "en" ? "Bars & Restaurants" : "Bars & Restaurants";
     const b2bLink = `
-      <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? ' active' : ''}">
+      <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? " active" : ""}">
         <i class="fas fa-utensils"></i> ${b2bText}
       </a>`;
-
     const translations = {
       es: {
         navbar: {
-          categories: "Categorías",
+          categories: "Categor\xEDas",
           provinces: "Provincias",
           wineries: "Bodegas",
           events: "Eventos",
@@ -37,7 +33,7 @@ export default {
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
-            neuquen: "Neuquén",
+            neuquen: "Neuqu\xE9n",
             salta: "Salta",
             san_juan: "San Juan"
           },
@@ -55,7 +51,7 @@ export default {
         },
         footer: {
           inquiries: "Consultas",
-          follow: "Síguenos",
+          follow: "S\xEDguenos",
           whatsapp: "+49 151 5822 4728",
           email: "federico@1000malbecs.com",
           instagram: "@1000malbecs",
@@ -72,11 +68,11 @@ export default {
           offers: "Offers",
           home: "Back to home",
           blog: "1000 Stories - Blog",
-          B2B: "Bares y Restaurants", 
+          B2B: "Bares y Restaurants",
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
-            neuquen: "Neuquén",
+            neuquen: "Neuqu\xE9n",
             salta: "Salta",
             san_juan: "San Juan"
           },
@@ -104,16 +100,16 @@ export default {
         navbar: {
           categories: "Kategorien",
           provinces: "Provinzen",
-          wineries: "Weingüter",
+          wineries: "Weing\xFCter",
           events: "Veranstaltungen",
           info: "Info",
           offers: "Angebote",
-          home: "Zurück zur Startseite",
+          home: "Zur\xFCck zur Startseite",
           blog: "1000 Geschichten - Blog",
           provinces_list: {
             la_rioja: "La Rioja",
             mendoza: "Mendoza",
-            neuquen: "Neuquén",
+            neuquen: "Neuqu\xE9n",
             salta: "Salta",
             san_juan: "San Juan"
           },
@@ -138,7 +134,6 @@ export default {
         }
       }
     };
-
     let provincias = [];
     let bodegas = [];
     try {
@@ -148,28 +143,28 @@ export default {
         provincias = navData.provincias || [];
         bodegas = navData.bodegas || [];
       }
-    } catch (e) { }
-
+    } catch (e) {
+    }
     if (provincias.length === 0) {
-      provincias = ["La Rioja", "Mendoza", "Neuquén", "Salta", "San Juan"];
+      provincias = ["La Rioja", "Mendoza", "Neuqu\xE9n", "Salta", "San Juan"];
     }
     if (bodegas.length === 0) {
       console.warn("Falling back to hardcoded bodegas");
       bodegas = [
-        { name: "A Corazón Abierto", slug: "a-corazon-abierto" },
-        { name: "Agustín Lanús", slug: "agustin-lanus" },
+        { name: "A Coraz\xF3n Abierto", slug: "a-corazon-abierto" },
+        { name: "Agust\xEDn Lan\xFAs", slug: "agustin-lanus" },
         { name: "Alamos", slug: "alamos" },
         { name: "Andeluna", slug: "andeluna" },
         { name: "Bemberg Estate Wines", slug: "bemberg-estate-wines" },
         { name: "Bodega Bressia", slug: "bodega-bressia" },
-        { name: "Bodega Chañarmuyo", slug: "bodega-chanarmuyo" },
-        { name: "Escorihuela Gascón", slug: "escorihuela gascon" },
+        { name: "Bodega Cha\xF1armuyo", slug: "bodega-chanarmuyo" },
+        { name: "Escorihuela Gasc\xF3n", slug: "escorihuela gascon" },
         { name: "Bodega Estancia Mendoza", slug: "bodega-estancia-mendoza" },
         { name: "Bodega Foster Lorca", slug: "bodega-foster-lorca" },
         { name: "Bodega Goyenechea", slug: "bodega-goyenechea" },
         { name: "Bodega Malma", slug: "bodega-malma" },
-        { name: "Bodega Noemía Patagonia", slug: "bodega-noemia-patagonia" },
-        { name: "Bodega Séptima", slug: "bodegas-septima" },
+        { name: "Bodega Noem\xEDa Patagonia", slug: "bodega-noemia-patagonia" },
+        { name: "Bodega S\xE9ptima", slug: "bodegas-septima" },
         { name: "Bodega Tukma", slug: "bodega-tukma" },
         { name: "Bodegas Bianchi", slug: "bodegas-bianchi" },
         { name: "Casa Araujo", slug: "casa-araujo" },
@@ -200,24 +195,21 @@ export default {
         { name: "San Telmo", slug: "san-telmo" },
         { name: "Susana Balbo", slug: "susana-balbo" },
         { name: "Trapiche", slug: "trapiche" },
-        { name: "Viña Alicia", slug: "vina-alicia" },
-        { name: "Viña Cobos", slug: "vina-cobos" },
+        { name: "Vi\xF1a Alicia", slug: "vina-alicia" },
+        { name: "Vi\xF1a Cobos", slug: "vina-cobos" },
         { name: "Weinert Bodega y Cavas", slug: "weinert-bodega-y-cavas" }
       ];
     }
-
     const provinciaLinks = provincias.map((prov) => {
       const slug = prov.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/[\s-]+/g, "-").replace(/^-+|-+$/g, "") || "unnamed";
       const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, "_")] || prov;
       const isActive = path === `/${lang}/provincias/${slug}.html` ? " active" : "";
       return `<li><a href="/${lang}/provincias/${slug}.html" class="nav-link${isActive}">${displayName}</a></li>`;
     }).join("");
-
     const bodegaLinks = bodegas.map((bodega) => {
       const isActive = path === `/${lang}/bodegas/${bodega.slug}.html` ? " active" : "";
       return `<li><a href="/${lang}/bodegas/${bodega.slug}.html" class="nav-link${isActive}">${bodega.name}</a></li>`;
     }).join("");
-
     const eventLinks = [
       { href: `/eventos/eventos.html`, text: translations[lang].navbar.events_list.view_events },
       { href: `/eventos/anotate.html`, text: translations[lang].navbar.events_list.sign_up }
@@ -225,21 +217,17 @@ export default {
       const isActive = path === `/${lang}${link.href}` ? " active" : "";
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
-
     const infoLinks = [
       { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
       { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
       { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
       { href: `/agb.html`, text: translations[lang].navbar.info_list.agb },
-      { href: `/datenschutz.html`,  text: lang === "de" ? "Datenschutz" : 
-                                 lang === "es" ? "Política de Privacidad" : 
-                                 "Privacy Policy" },
-      { href: `/devoluciones.html`, text: lang === "es" ? "Política de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }
+      { href: `/datenschutz.html`, text: lang === "de" ? "Datenschutz" : lang === "es" ? "Pol\xEDtica de Privacidad" : "Privacy Policy" },
+      { href: `/devoluciones.html`, text: lang === "es" ? "Pol\xEDtica de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }
     ].map((link) => {
       const isActive = path === `/${lang}${link.href}` ? " active" : "";
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
-
     const navbarHtml = `
       <nav id="sidebar">
         <div class="logo-container">
@@ -260,11 +248,11 @@ export default {
           <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
           <ul>${eventLinks}</ul>
         </details>
-        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}">
+        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? " active" : ""}">
           <i class="fas fa-tag"></i> ${translations[lang].navbar.offers}
         </a>
         ${b2bLink}
-        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}">
+        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? " active" : ""}">
           <i class="fas fa-book"></i> ${translations[lang].navbar.blog}
         </a>
         <details open>
@@ -295,13 +283,125 @@ export default {
       }
     });
   });
-</script>
+<\/script>
       </nav>
-    const finalHtml = `
-      <!DOCTYPE html>
-      <html lang="${lang}">
-      <head>
-       <head>
+    `;
+    const consentTexts = {
+      es: "Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tr\xE1fico y mostrarte publicidad personalizada. Puedes aceptar todo, rechazar o configurar tus preferencias.",
+      en: "We use cookies to improve your experience. Some are essential, others help with analytics and marketing. You can configure or reject.",
+      de: "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Einige sind essenziell, andere helfen bei Analysen und Marketing. Sie k\xF6nnen konfigurieren oder ablehnen."
+    };
+    const consentText = consentTexts[lang] || consentTexts.es;
+    const footerHtml = `
+      <footer>
+        <div class="footer-content">
+          <div class="footer-contact">
+            <p><strong>${translations[lang].footer.inquiries}:</strong></p>
+            <div class="contact-links">
+              <a href="https://wa.me/4915158224728" target="_blank" class="icon-text"><i class="fab fa-whatsapp"></i><span>${translations[lang].footer.whatsapp}</span></a>
+              <span class="separator">|</span>
+              <a href="mailto:${translations[lang].footer.email}" class="icon-text"><i class="fas fa-envelope"></i><span>${translations[lang].footer.email}</span></a>
+            </div>
+          </div>
+          <div class="footer-social">
+            <p><strong>${translations[lang].footer.follow}:</strong></p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/1000malbecs/" target="_blank" class="icon-text"><i class="fab fa-instagram"></i><span>${translations[lang].footer.instagram}</span></a>
+              <span class="separator">|</span>
+              <a href="https://x.com/1000malbecs" target="_blank" class="icon-text"><i class="fab fa-x-twitter"></i><span>${translations[lang].footer.twitter}</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner CMP con fondo Malbec (rojo vino oscuro) -->
+        <div id="consent-banner">
+          <div class="container">
+            <p id="consent-text">${consentText}</p>
+            <div class="buttons">
+              <button id="accept-all">${lang === "es" ? "Aceptar todo" : lang === "en" ? "Accept all" : "Alle akzeptieren"}</button>
+              <button id="reject-all">${lang === "es" ? "Rechazar todo" : lang === "en" ? "Reject all" : "Alle ablehnen"}</button>
+              <button id="configure">${lang === "es" ? "Configurar" : lang === "en" ? "Configure" : "Konfigurieren"}</button>
+              <button id="save-config">${lang === "es" ? "Guardar configuraci\xF3n" : lang === "en" ? "Save settings" : "Einstellungen speichern"}</button>
+            </div>
+            <div class="config-options">
+              <label><input type="checkbox" id="essential" checked disabled> ${lang === "es" ? "Cookies esenciales (siempre activas)" : lang === "en" ? "Essential cookies (always active)" : "Essenzielle Cookies (immer aktiv)"}</label>
+              <label><input type="checkbox" id="analytics"> ${lang === "es" ? "Cookies de an\xE1lisis (ej. Google Analytics)" : lang === "en" ? "Analytics cookies (e.g. Google Analytics)" : "Analyse-Cookies (z.B. Google Analytics)"}</label>
+              <label><input type="checkbox" id="marketing"> ${lang === "es" ? "Cookies de marketing/publicidad" : lang === "en" ? "Marketing/advertising cookies" : "Marketing-/Werbe-Cookies"}</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Script del Banner CMP -->
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementById('consent-banner');
+            const acceptAll = document.getElementById('accept-all');
+            const rejectAll = document.getElementById('reject-all');
+            const configure = document.getElementById('configure');
+            const saveConfig = document.getElementById('save-config');
+            const configOptions = document.querySelector('.config-options');
+
+            if (localStorage.getItem('consent')) {
+              loadConsents();
+              return;
+            }
+            banner.style.display = 'block';
+
+            acceptAll.onclick = function() {
+              saveConsent({ essential: true, analytics: true, marketing: true });
+            };
+            rejectAll.onclick = function() {
+              saveConsent({ essential: true, analytics: false, marketing: false });
+            };
+            configure.onclick = function() {
+              configOptions.style.display = 'block';
+              saveConfig.style.display = 'inline-block';
+              configure.style.display = 'none';
+            };
+            saveConfig.onclick = function() {
+              saveConsent({
+                essential: true,
+                analytics: document.getElementById('analytics').checked,
+                marketing: document.getElementById('marketing').checked
+              });
+            };
+
+            function saveConsent(consent) {
+              localStorage.setItem('consent', JSON.stringify(consent));
+              banner.style.display = 'none';
+              loadConsents();
+            }
+
+            function loadConsents() {
+              const consent = JSON.parse(localStorage.getItem('consent'));
+              if (consent.analytics) console.log('Analytics activado');
+              if (consent.marketing) console.log('Marketing activado');
+            }
+          });
+        <\/script>
+      </footer>
+    `;
+    try {
+      const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
+        headers: request.headers
+      });
+      if (!pageResponse.ok) {
+      }
+      const contentType = pageResponse.headers.get("content-type") || "";
+      if (!contentType.includes("text/html")) {
+        return pageResponse;
+      }
+      let pageHtml = await pageResponse.text();
+
+      // Detectar si la página ya tiene header propio (Home, landings, etc.)
+      const hasOwnHeader = pageHtml.includes('<header class="mobile-header">') || 
+                          pageHtml.includes('<div class="topbar">') ||
+                          pageHtml.includes('class="header"');
+
+      const html = `
+        <!DOCTYPE html>
+        <html lang="${lang}">
+        <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="stylesheet" href="/css/styles.css">
@@ -398,19 +498,16 @@ export default {
           </style>
           ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
         </head>
-
-
-      </head>
-      <body>
-        ${navbarHtml}                    <!-- Siempre inyectamos el sidebar + mobile header -->
-        
-        <div class="main-content">
-          ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
-        </div>
-        ${footerHtml}
-      </body>
-      </html>
-     `;
+        <body>
+          ${hasOwnHeader ? '' : navbarHtml}   <!-- ← Solo inyecta si NO tiene header propio -->
+          
+          <div class="main-content">
+            ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
+          </div>
+          ${footerHtml}
+        </body>
+        </html>
+      `;
       return new Response(html, {
         headers: { "Content-Type": "text/html; charset=utf-8" },
         status: pageResponse.status
@@ -424,3 +521,7 @@ export default {
     }
   }
 };
+export {
+  index_default as default
+};
+//# sourceMappingURL=index.js.map
