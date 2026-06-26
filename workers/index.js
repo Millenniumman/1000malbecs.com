@@ -2,7 +2,7 @@ export default {
 async fetch(request) {
 const url = new URL(request.url);
 const path = url.pathname;
-const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/data/navigation.json"];
+const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/carrito.html", "/data/navigation.json"];
 if (excludedPaths.some((excluded) => path.includes(excluded))) {
 return fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
 headers: request.headers
