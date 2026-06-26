@@ -240,65 +240,40 @@ const isActive = path === `/${lang}${link.href}` ? " active" : "";
 return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
 }).join("");
 
-const navbarHtml = `
-     <nav id="sidebar">
-       <div class="logo-container">
-         <a href="/${lang}/">
-           <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
-         </a>
-       </div>
-       <h2>${translations[lang].navbar.categories}</h2>
-       <details>
-         <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
-         <ul>${provinciaLinks}</ul>
-       </details>
-       <details>
-         <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
-         <ul>${bodegaLinks}</ul>
-       </details>
-       <details>
-         <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
-         <ul>${eventLinks}</ul>
-       </details>
-       <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}">
-         <i class="fas fa-tag"></i> ${translations[lang].navbar.offers}
-       </a>
-       ${b2bLink}
-       <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}">
-         <i class="fas fa-book"></i> ${translations[lang].navbar.blog}
-       </a>
-       <details open>
-         <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
-         <ul>${infoLinks}</ul>
-       </details>
-       <script>
- // Toggle del sidebar (hamburguesa)
- document.addEventListener('DOMContentLoaded', () => {
-   const hamburger = document.querySelector('.hamburger');
-   const sidebar = document.getElementById('sidebar');
-
-   if (!hamburger || !sidebar) return;
-
-   hamburger.addEventListener('click', (e) => {
-     e.stopImmediatePropagation();
-     sidebar.classList.toggle('open');
-     hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open'));
-   });
-
-   // Cerrar al hacer clic fuera
-   document.addEventListener('click', (e) => {
-     if (sidebar.classList.contains('open') && 
-         !sidebar.contains(e.target) && 
-         !hamburger.contains(e.target)) {
-       sidebar.classList.remove('open');
-       hamburger.setAttribute('aria-expanded', 'false');
-     }
-   });
- });
-</script>
-     </nav>
-   `;
-
+    const navbarHtml = `
+      <!-- SOLO SIDEBAR (navegación lateral) -->
+      <nav id="sidebar">
+        <div class="logo-container">
+          <a href="/${lang}/">
+            <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
+          </a>
+        </div>
+        <h2>${translations[lang].navbar.categories}</h2>
+        <details>
+          <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
+          <ul>${provinciaLinks}</ul>
+        </details>
+        <details>
+          <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
+          <ul>${bodegaLinks}</ul>
+        </details>
+        <details>
+          <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
+          <ul>${eventLinks}</ul>
+        </details>
+        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? " active" : ""}">
+          <i class="fas fa-tag"></i> ${translations[lang].navbar.offers}
+        </a>
+        ${b2bLink}
+        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? " active" : ""}">
+          <i class="fas fa-book"></i> ${translations[lang].navbar.blog}
+        </a>
+        <details open>
+          <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
+          <ul>${infoLinks}</ul>
+        </details>
+      </nav>
+    `;
 const consentTexts = {
 es: 'Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y mostrarte publicidad personalizada. Puedes aceptar todo, rechazar o configurar tus preferencias.',
 en: 'We use cookies to improve your experience. Some are essential, others help with analytics and marketing. You can configure or reject.',
