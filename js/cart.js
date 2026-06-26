@@ -1,3 +1,57 @@
+// js/cart.js - Versión Multilingüe
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+const translations = {
+  es: {
+    title: "Tu Carrito",
+    subtotal: "Subtotal",
+    shipping: "Envío a Alemania",
+    freeShipping: "✅ Envío gratis",
+    freeShippingCondition: "Envío gratis comprando 12 botellas o más",
+    total: "Total",
+    checkout: "Ir a Pagar",
+    continue: "← Seguir comprando",
+    remove: "Eliminar",
+    empty: "Tu carrito está vacío"
+  },
+  en: {
+    title: "Your Cart",
+    subtotal: "Subtotal",
+    shipping: "Shipping to Germany",
+    freeShipping: "✅ Free Shipping",
+    freeShippingCondition: "Free shipping on 12 bottles or more",
+    total: "Total",
+    checkout: "Proceed to Checkout",
+    continue: "← Continue Shopping",
+    remove: "Remove",
+    empty: "Your cart is empty"
+  },
+  de: {
+    title: "Ihr Warenkorb",
+    subtotal: "Zwischensumme",
+    shipping: "Versand nach Deutschland",
+    freeShipping: "✅ Versandkostenfrei",
+    freeShippingCondition: "Versandkostenfrei ab 12 Flaschen",
+    total: "Gesamt",
+    checkout: "Zur Kasse gehen",
+    continue: "← Weiter einkaufen",
+    remove: "Entfernen",
+    empty: "Ihr Warenkorb ist leer"
+  }
+};
+
+function getLang() {
+  const path = window.location.pathname;
+  if (path.startsWith('/en/')) return 'en';
+  if (path.startsWith('/de/')) return 'de';
+  return 'es';
+}
+
+function t(key) {
+  const lang = getLang();
+  return translations[lang][key] || translations.es[key];
+}
+
 // js/cart.js - Versión estable con cantidades funcionales
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -68,11 +122,10 @@ function showToast(message) {
 function renderCart() {
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
-  
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
-  if (cart.length === 0) {
-    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos para continuar.</p></div>`;
+  if (cartData.length === 0) {
+    container.innerHTML = `<div class="empty"><h2>${t('empty')}</h2><p>Agrega algunos vinos para continuar.</p></div>`;
     totalEl.innerHTML = '';
     return;
   }
@@ -81,11 +134,10 @@ function renderCart() {
   let subtotal = 0;
   let totalBottles = 0;
 
-  cart.forEach(item => {
+  cartData.forEach(item => {
     const price = parseFloat(item.price) || 0;
     const qty = item.quantity || 1;
     const itemTotal = price * qty;
-    
     subtotal += itemTotal;
     totalBottles += qty;
 
@@ -103,32 +155,27 @@ function renderCart() {
         </div>
         <div style="text-align:right; min-width:100px;">
           <strong>€${itemTotal.toFixed(2)}</strong><br>
-          <small onclick="removeFromCart('${item.id}')" style="color:#e74c3c;cursor:pointer;">Eliminar</small>
+          <small onclick="removeFromCart('${item.id}')" style="color:#e74c3c;cursor:pointer;">${t('remove')}</small>
         </div>
       </div>`;
   });
 
-  const shippingCost = (totalBottles >= 12) ? 0 : 6.99;
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
   const finalTotal = subtotal + shippingCost;
 
   container.innerHTML = html;
 
-  let shippingHTML = '';
-  if (totalBottles >= 12) {
-    shippingHTML = `<strong style="color:#27ae60;">✅ Envío gratis</strong>`;
-  } else {
-    shippingHTML = `
-      Envío a Alemania: <strong>€6.99</strong><br>
-      <span style="color:#e67e22; font-size:0.95em;">Envío gratis comprando 12 botellas o más</span>
-    `;
-  }
-
   totalEl.innerHTML = `
-    <div style="font-size:1.05em; color:#555;">Subtotal: <strong>€${subtotal.toFixed(2)}</strong></div>
-    <div style="margin:8px 0;">${shippingHTML}</div>
-    <hr style="margin:12px 0 8px 0;">
+    <div style="font-size:1.05em; color:#555;">${t('subtotal')}: <strong>€${subtotal.toFixed(2)}</strong></div>
+    <div style="margin:8px 0;">
+      ${shippingCost === 0 
+        ? `<strong style="color:#27ae60;">${t('freeShipping')}</strong>` 
+        : `${t('shipping')}: <strong>€6.99</strong>`}
+    </div>
+    ${totalBottles < 12 ? `<p style="color:#e67e22; font-size:0.95em;">${t('freeShippingCondition')}</p>` : ''}
+    <hr>
     <div style="font-size:1.65em; font-weight:700;">
-      Total: <strong>€${finalTotal.toFixed(2)}</strong>
+      ${t('total')}: <strong>€${finalTotal.toFixed(2)}</strong>
     </div>
   `;
 }
