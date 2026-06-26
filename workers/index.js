@@ -413,11 +413,6 @@ try {
 
       let pageHtml = await pageResponse.text();
 
-      // Detectar si la página ya tiene su propio header
-      const hasOwnHeader = pageHtml.includes('class="mobile-header"') || 
-                          pageHtml.includes('class="topbar"') ||
-                          pageHtml.includes('class="header"');
-
       const html = `
         <!DOCTYPE html>
     <html lang="${lang}">
@@ -527,9 +522,9 @@ try {
       ${footerHtml}
     </body>
     </html>
-  `;
+  ;
 
-return new Response(html, {
+      return new Response(html, {
         headers: { "Content-Type": "text/html; charset=utf-8" },
         status: pageResponse.status
       });
