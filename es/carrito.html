@@ -58,11 +58,6 @@
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" width="50" height="50" align="right">
     </a>
 
-    <!-- Carrito -->
-    <a href="/{{ lang }}/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
-      🛒
-      <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
-    </a>
   </header>
   <main>
     <h1>Tu Carrito</h1>
@@ -89,5 +84,24 @@
     }
   });
 </script>
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
