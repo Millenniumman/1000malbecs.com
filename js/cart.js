@@ -66,7 +66,6 @@ function showToast(message) {
   setTimeout(() => { toast.style.opacity = '0'; }, 2500);
 }
 
-// ====================== RENDER CARRITO ======================
 function renderCart() {
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
