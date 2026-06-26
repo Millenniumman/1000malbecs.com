@@ -182,7 +182,5 @@ function renderCart() {
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
-  if (typeof renderCart === 'function' && document.getElementById('cart-items')) {
-    renderCart();
-  }
+  renderCart();
 });
