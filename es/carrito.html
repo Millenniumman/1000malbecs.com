@@ -25,6 +25,26 @@
       font-size: 1.1em; font-weight: 600; text-decoration: none;
     }
     .empty { text-align: center; padding: 80px 20px; color: #777; }
+    /* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+.container {
+  max-width: 900px;
+  margin: 80px auto 40px;
+  padding: 0 20px;
+  margin-left: 320px;        /* ← Aumentado para correr contenido */
+}
+
+/* Ajuste adicional para desktop */
+@media (min-width: 769px) {
+  .container {
+    margin-left: 340px;      /* ← Más espacio a la derecha */
+  }
+  
+  .product {
+    gap: 40px;
+  }
+}
   </style>
 </head>
 <body>
