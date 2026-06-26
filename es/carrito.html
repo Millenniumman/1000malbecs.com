@@ -69,6 +69,47 @@
     transform: translateX(0) !important;
   }
 }
+    /* ==================== LOGO DESKTOP - SIEMPRE VISIBLE ==================== */
+.header {
+  display: block !important;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1400;
+  background: white;
+  padding: 18px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.logo {
+  height: 110px !important;        /* Tamaño grande y visible */
+  max-height: none !important;
+  width: auto;
+  display: block !important;
+}
+
+/* Asegurar que no se oculte nunca en desktop */
+@media (min-width: 769px) {
+  .header {
+    display: block !important;
+  }
+  
+  .logo {
+    height: 120px !important;
+  }
+  
+  /* Espacio superior para que el contenido no se superponga */
+  body {
+    padding-top: 160px !important;
+  }
+}
+
+/* Evitar que el Worker o CSS conflictivo lo oculte */
+.mobile-header .logo,
+.topbar .logo {
+  display: block !important;
+}
   </style>
 </head>
 <body>
