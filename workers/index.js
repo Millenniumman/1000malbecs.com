@@ -398,30 +398,38 @@ const footerHtml = `
    `;
 
 try {
-const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
-headers: request.headers
-});
+  const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
+    headers: request.headers
+  });
 
-if (!pageResponse.ok) {
-// Manejo de errores (404, etc.) - se mantiene igual
-// ... (tu código de 404 y error se mantiene sin cambios)
-}
+  if (!pageResponse.ok) {
+    return pageResponse;
+  }
 
-const contentType = pageResponse.headers.get("content-type") || "";
-if (!contentType.includes("text/html")) {
-return pageResponse;
-}
+  const contentType = pageResponse.headers.get("content-type") || "";
+  if (!contentType.includes("text/html")) {
+    return pageResponse;
+  }
 
-let pageHtml = await pageResponse.text();
-const html = `
-       <!DOCTYPE html>
-       <html lang="${lang}">
-       <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <link rel="stylesheet" href="/css/styles.css">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-         <style>
+  let pageHtml = await pageResponse.text();
+
+  // =====================================================
+  // DETECCIÓN: ¿La página ya tiene su propio header?
+  // =====================================================
+  const hasOwnHeader = pageHtml.includes('class="mobile-header"') || 
+                       pageHtml.includes('class="topbar"') ||
+                       pageHtml.includes('class="header"') ||
+                       pageHtml.includes('id="sidebar"');
+
+  const html = `
+    <!DOCTYPE html>
+    <html lang="${lang}">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <style>
            #sidebar .nav-link { padding-left: 20px; }
            #sidebar details > summary { padding-left: 20px; cursor: pointer; }
            #sidebar .nav-link:hover, #sidebar details > summary:hover { color: #5A1D39; background-color: #f5f5f5; }
@@ -511,27 +519,28 @@ const html = `
              }
            }
          </style>
-         ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
-       </head>
-       <body>
-         ${navbarHtml}
-         <div class="main-content">
-           ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
-         </div>
-         ${footerHtml}
-       </body>
-       </html>
-     `;
-return new Response(html, {
-headers: { "Content-Type": "text/html; charset=utf-8" },
-status: pageResponse.status
-});
+      ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
+    </head>
+    <body>
+      ${hasOwnHeader ? '' : navbarHtml}     <!-- ← Solo inyecta si la página NO tiene header propio -->
+      
+      <div class="main-content">
+        ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
+      </div>
+      ${footerHtml}
+    </body>
+    </html>
+  `;
+
+  return new Response(html, {
+    headers: { "Content-Type": "text/html; charset=utf-8" },
+    status: pageResponse.status
+  });
+
 } catch (error) {
-console.error(`Worker error: ${error.message} for URL: ${request.url}`);
-return new Response("Internal Server Error", {
-status: 500,
-headers: { "Content-Type": "text/plain" }
-});
+  console.error(`Worker error: ${error.message} for URL: ${request.url}`);
+  return new Response("Internal Server Error", {
+    status: 500,
+    headers: { "Content-Type": "text/plain" }
+  });
 }
-}
-};
