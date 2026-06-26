@@ -225,7 +225,7 @@ export default {
       const isActive = path === `/${lang}${link.href}` ? " active" : "";
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
-    
+
     const infoLinks = [
       { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
       { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
@@ -240,8 +240,7 @@ export default {
       return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
     }).join("");
 
-        const navbarHtml = `
-      <!-- SIDEBAR (siempre se inyecta) -->
+    const navbarHtml = `
       <nav id="sidebar">
         <div class="logo-container">
           <a href="/${lang}/">
@@ -261,54 +260,146 @@ export default {
           <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
           <ul>${eventLinks}</ul>
         </details>
-        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? " active" : ""}">
+        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}">
           <i class="fas fa-tag"></i> ${translations[lang].navbar.offers}
         </a>
         ${b2bLink}
-        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? " active" : ""}">
+        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}">
           <i class="fas fa-book"></i> ${translations[lang].navbar.blog}
         </a>
         <details open>
           <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
           <ul>${infoLinks}</ul>
         </details>
+        <script>
+  // Toggle del sidebar (hamburguesa)
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    if (!hamburger || !sidebar) return;
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
+      sidebar.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('open') && 
+          !sidebar.contains(e.target) && 
+          !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
       </nav>
-
-      <!-- HEADER MOBILE + CARRITO -->
-      <header class="mobile-header">
-        <button class="hamburger" aria-label="Menu" aria-expanded="false">
-          <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-            <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-            <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-            <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
-          </svg>
-        </button>
-        
-        <a href="/${lang}/" class="logo-link">
-          <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-        </a>
-
-        <!-- CARRITO -->
-        <a href="/${lang}/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
-          🛒
-          <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
-        </a>
-      </header>
-    `;
-
-    // ==================== LÓGICA DE INYECCIÓN ====================
-    let pageHtml = await pageResponse.text();
-
-    // Detectar si la página ya tiene header propio
-    const hasOwnHeader = pageHtml.includes('class="mobile-header"') || 
-                        pageHtml.includes('class="topbar"') ||
-                        pageHtml.includes('class="header"');
-
     const finalHtml = `
       <!DOCTYPE html>
       <html lang="${lang}">
       <head>
-        ... (tu head actual)
+       <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="/css/styles.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+          <style>
+            #sidebar .nav-link { padding-left: 20px; }
+            #sidebar details > summary { padding-left: 20px; cursor: pointer; }
+            #sidebar .nav-link:hover, #sidebar details > summary:hover { color: #5A1D39; background-color: #f5f5f5; }
+            #sidebar > a.nav-link { margin-bottom: 10px; }
+            #consent-banner {
+              position: fixed;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              width: 100%;
+              z-index: 9999;
+              background: #3A1F2E;  /* Fondo Malbec: rojo vino oscuro elegante */
+              color: #FFFFFF;
+              padding: 20px 30px;
+              box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+              display: none;
+            }
+            #consent-banner .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: center;
+              gap: 20px;
+            }
+            #consent-banner p {
+              margin: 0;
+              font-size: 14px;
+              color: #FFFFFF;
+            }
+            #consent-banner .buttons {
+              display: flex;
+              gap: 10px;
+              justify-content: center;
+            }
+            #consent-banner button {
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 14px;
+              color: #FFFFFF;
+              transition: background 0.3s;
+            }
+            #consent-banner #accept-all {
+              background: #006400;  /* Verde oscuro */
+            }
+            #consent-banner #accept-all:hover { background: #008000; }
+            #consent-banner #reject-all {
+              background: #8B0000;  /* Rojo oscuro */
+            }
+            #consent-banner #reject-all:hover { background: #A00000; }
+            #consent-banner #configure {
+              background: #4A2C59;  /* Tu color principal */
+            }
+            #consent-banner #configure:hover { background: #5A3C69; }
+            #consent-banner #save-config {
+              background: #00008B;
+              display: none;
+            }
+            #consent-banner #save-config:hover { background: #0000CD; }
+            #consent-banner .config-options {
+              display: none;
+              flex-direction: column;
+              gap: 10px;
+              width: 100%;
+            }
+            #consent-banner .config-options label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              color: #FFFFFF;
+            }
+            @media (max-width: 768px) {
+              #consent-banner .container {
+                flex-direction: column;
+                text-align: center;
+              }
+              #consent-banner .buttons {
+                flex-direction: column;
+                width: 100%;
+              }
+              #consent-banner button {
+                width: 100%;
+                margin: 8px 0;
+              }
+            }
+          </style>
+          ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
+        </head>
+
+
       </head>
       <body>
         ${navbarHtml}                    <!-- Siempre inyectamos el sidebar + mobile header -->
