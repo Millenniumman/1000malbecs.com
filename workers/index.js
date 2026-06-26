@@ -317,30 +317,6 @@ export default {
           <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
         </a>
       </header>
-    <!-- ==================== TOPBAR DESKTOP ==================== -->
-<div class="topbar" style="display:flex; align-items:center; justify-content:space-between; padding:0 30px; height:85px; background:white; box-shadow:0 2px 10px rgba(0,0,0,0.1); position:relative;">
-
-  <!-- Logo - Izquierda -->
-  <header class="header">
-    <a href="/${lang}/" title="1000 Malbecs">
-      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-    </a>
-  </header>
-
-  <!-- Selector de Idiomas - Centro -->
-  <div class="lang-selector-desktop" style="position:absolute; left:50%; transform:translateX(-50%); display:flex; gap:8px;">
-    <a href="/es${path.replace(/^\/(es|en|de)/, '')}">ES</a>
-    <a href="/en${path.replace(/^\/(es|en|de)/, '')}">EN</a>
-    <a href="/de${path.replace(/^\/(es|en|de)/, '')}">DE</a>
-  </div>
-
-  <!-- Carrito - Derecha -->
-  <a href="/${lang}/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.85em; margin-left:auto;">
-    🛒
-    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
-  </a>
-
-</div>
 
     const consentTexts = {
       es: 'Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y mostrarte publicidad personalizada. Puedes aceptar todo, rechazar o configurar tus preferencias.',
