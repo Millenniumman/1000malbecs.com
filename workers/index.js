@@ -1,527 +1,537 @@
-// workers/index.js
-var index_default = {
-  async fetch(request) {
-    const url = new URL(request.url);
-    const path = url.pathname;
-    const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/data/navigation.json"];
-    if (excludedPaths.some((excluded) => path.includes(excluded))) {
-      return fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
-        headers: request.headers
-      });
-    }
-    let lang = "es";
-    if (path.startsWith("/en/")) lang = "en";
-    else if (path.startsWith("/de/")) lang = "de";
-    else if (path.startsWith("/es/")) lang = "es";
-    const b2bText = lang === "es" ? "Bares y Restaurants" : lang === "en" ? "Bars & Restaurants" : "Bars & Restaurants";
-    const b2bLink = `
-      <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? " active" : ""}">
-        <i class="fas fa-utensils"></i> ${b2bText}
-      </a>`;
-    const translations = {
-      es: {
-        navbar: {
-          categories: "Categor\xEDas",
-          provinces: "Provincias",
-          wineries: "Bodegas",
-          events: "Eventos",
-          info: "Info",
-          offers: "Ofertas",
-          home: "Volver al inicio",
-          blog: "1000 Historias - Blog",
-          B2B: "Bares y Restaurants",
-          provinces_list: {
-            la_rioja: "La Rioja",
-            mendoza: "Mendoza",
-            neuquen: "Neuqu\xE9n",
-            salta: "Salta",
-            san_juan: "San Juan"
-          },
-          events_list: {
-            view_events: "Ver eventos",
-            sign_up: "Anotate"
-          },
-          info_list: {
-            about_us: "About us",
-            faq: "FAQ",
-            impressum: "Impressum",
-            agb: "AGB",
-            datenschutz: "Datenschutz"
-          }
-        },
-        footer: {
-          inquiries: "Consultas",
-          follow: "S\xEDguenos",
-          whatsapp: "+49 151 5822 4728",
-          email: "federico@1000malbecs.com",
-          instagram: "@1000malbecs",
-          twitter: "@1000malbecs"
-        }
-      },
-      en: {
-        navbar: {
-          categories: "Categories",
-          provinces: "Provinces",
-          wineries: "Wineries",
-          events: "Events",
-          info: "Info",
-          offers: "Offers",
-          home: "Back to home",
-          blog: "1000 Stories - Blog",
-          B2B: "Bares y Restaurants",
-          provinces_list: {
-            la_rioja: "La Rioja",
-            mendoza: "Mendoza",
-            neuquen: "Neuqu\xE9n",
-            salta: "Salta",
-            san_juan: "San Juan"
-          },
-          events_list: {
-            view_events: "View events",
-            sign_up: "Sign Up"
-          },
-          info_list: {
-            about_us: "About us",
-            faq: "FAQ",
-            impressum: "Impressum",
-            agb: "AGB"
-          }
-        },
-        footer: {
-          inquiries: "Inquiries",
-          follow: "Follow us",
-          whatsapp: "+49 151 5822 4728",
-          email: "federico@1000malbecs.com",
-          instagram: "@1000malbecs",
-          twitter: "@1000malbecs"
-        }
-      },
-      de: {
-        navbar: {
-          categories: "Kategorien",
-          provinces: "Provinzen",
-          wineries: "Weing\xFCter",
-          events: "Veranstaltungen",
-          info: "Info",
-          offers: "Angebote",
-          home: "Zur\xFCck zur Startseite",
-          blog: "1000 Geschichten - Blog",
-          provinces_list: {
-            la_rioja: "La Rioja",
-            mendoza: "Mendoza",
-            neuquen: "Neuqu\xE9n",
-            salta: "Salta",
-            san_juan: "San Juan"
-          },
-          events_list: {
-            view_events: "Veranstaltungen ansehen",
-            sign_up: "Anmelden"
-          },
-          info_list: {
-            about_us: "About us",
-            faq: "FAQ",
-            impressum: "Impressum",
-            agb: "AGB"
-          }
-        },
-        footer: {
-          inquiries: "Anfragen",
-          follow: "Folge uns",
-          whatsapp: "+49 151 5822 4728",
-          email: "federico@1000malbecs.com",
-          instagram: "@1000malbecs",
-          twitter: "@1000malbecs"
-        }
-      }
-    };
-    let provincias = [];
-    let bodegas = [];
-    try {
-      const navResponse = await fetch(`https://1000malbecs.com/data/navigation.json?ts=${Date.now()}`);
-      if (navResponse.ok) {
-        const navData = await navResponse.json();
-        provincias = navData.provincias || [];
-        bodegas = navData.bodegas || [];
-      }
-    } catch (e) {
-    }
-    if (provincias.length === 0) {
-      provincias = ["La Rioja", "Mendoza", "Neuqu\xE9n", "Salta", "San Juan"];
-    }
-    if (bodegas.length === 0) {
-      console.warn("Falling back to hardcoded bodegas");
-      bodegas = [
-        { name: "A Coraz\xF3n Abierto", slug: "a-corazon-abierto" },
-        { name: "Agust\xEDn Lan\xFAs", slug: "agustin-lanus" },
-        { name: "Alamos", slug: "alamos" },
-        { name: "Andeluna", slug: "andeluna" },
-        { name: "Bemberg Estate Wines", slug: "bemberg-estate-wines" },
-        { name: "Bodega Bressia", slug: "bodega-bressia" },
-        { name: "Bodega Cha\xF1armuyo", slug: "bodega-chanarmuyo" },
-        { name: "Escorihuela Gasc\xF3n", slug: "escorihuela gascon" },
-        { name: "Bodega Estancia Mendoza", slug: "bodega-estancia-mendoza" },
-        { name: "Bodega Foster Lorca", slug: "bodega-foster-lorca" },
-        { name: "Bodega Goyenechea", slug: "bodega-goyenechea" },
-        { name: "Bodega Malma", slug: "bodega-malma" },
-        { name: "Bodega Noem\xEDa Patagonia", slug: "bodega-noemia-patagonia" },
-        { name: "Bodega S\xE9ptima", slug: "bodegas-septima" },
-        { name: "Bodega Tukma", slug: "bodega-tukma" },
-        { name: "Bodegas Bianchi", slug: "bodegas-bianchi" },
-        { name: "Casa Araujo", slug: "casa-araujo" },
-        { name: "Catena Zapata", slug: "catena-zapata" },
-        { name: "Chakana", slug: "chakana" },
-        { name: "Cicchitti", slug: "cicchitti" },
-        { name: "Dieter Meier & Family Wines", slug: "dieter-meier-and-family-wines" },
-        { name: "El Esteco", slug: "el-esteco" },
-        { name: "Eral Bravo", slug: "eral-bravo" },
-        { name: "Falasco Wines", slug: "falasco-wines" },
-        { name: "Familia Schroeder", slug: "familia-schroeder" },
-        { name: "Finca La Anita", slug: "finca-la-anita" },
-        { name: "Finca & Bodega Arca Yaco", slug: "finca-bodega-arca-yaco" },
-        { name: "Finca y Bodega Vistalba", slug: "finca-y-bodega-vistalba" },
-        { name: "Finca Las Moras", slug: "finca-las-moras" },
-        { name: "Finca Las Nubes", slug: "finca-las-nubes" },
-        { name: "Humberto Canale", slug: "humberto-canale" },
-        { name: "Jasmine Monet", slug: "jasmine-monet" },
-        { name: "Jorge Rubio", slug: "jorge-rubio" },
-        { name: "Kaiken", slug: "kaiken" },
-        { name: "La Rural", slug: "la-rural" },
-        { name: "Los Haroldos", slug: "los-haroldos" },
-        { name: "Luigi Bosca", slug: "luigi-bosca" },
-        { name: "Mascota Vineyards", slug: "mascota-vineyards" },
-        { name: "Vignes des Andes", slug: "vignes des andes" },
-        { name: "Piattelli Vineyards", slug: "piattelli-vineyards" },
-        { name: "Rutini Wines", slug: "rutini-wines" },
-        { name: "San Telmo", slug: "san-telmo" },
-        { name: "Susana Balbo", slug: "susana-balbo" },
-        { name: "Trapiche", slug: "trapiche" },
-        { name: "Vi\xF1a Alicia", slug: "vina-alicia" },
-        { name: "Vi\xF1a Cobos", slug: "vina-cobos" },
-        { name: "Weinert Bodega y Cavas", slug: "weinert-bodega-y-cavas" }
-      ];
-    }
-    const provinciaLinks = provincias.map((prov) => {
-      const slug = prov.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/[\s-]+/g, "-").replace(/^-+|-+$/g, "") || "unnamed";
-      const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, "_")] || prov;
-      const isActive = path === `/${lang}/provincias/${slug}.html` ? " active" : "";
-      return `<li><a href="/${lang}/provincias/${slug}.html" class="nav-link${isActive}">${displayName}</a></li>`;
-    }).join("");
-    const bodegaLinks = bodegas.map((bodega) => {
-      const isActive = path === `/${lang}/bodegas/${bodega.slug}.html` ? " active" : "";
-      return `<li><a href="/${lang}/bodegas/${bodega.slug}.html" class="nav-link${isActive}">${bodega.name}</a></li>`;
-    }).join("");
-    const eventLinks = [
-      { href: `/eventos/eventos.html`, text: translations[lang].navbar.events_list.view_events },
-      { href: `/eventos/anotate.html`, text: translations[lang].navbar.events_list.sign_up }
-    ].map((link) => {
-      const isActive = path === `/${lang}${link.href}` ? " active" : "";
-      return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
-    }).join("");
-    const infoLinks = [
-      { href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
-      { href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
-      { href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
-      { href: `/agb.html`, text: translations[lang].navbar.info_list.agb },
-      { href: `/datenschutz.html`, text: lang === "de" ? "Datenschutz" : lang === "es" ? "Pol\xEDtica de Privacidad" : "Privacy Policy" },
-      { href: `/devoluciones.html`, text: lang === "es" ? "Pol\xEDtica de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }
-    ].map((link) => {
-      const isActive = path === `/${lang}${link.href}` ? " active" : "";
-      return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
-    }).join("");
-    const navbarHtml = `
-      <nav id="sidebar">
-        <div class="logo-container">
-          <a href="/${lang}/">
-            <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
-          </a>
-        </div>
-        <h2>${translations[lang].navbar.categories}</h2>
-        <details>
-          <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
-          <ul>${provinciaLinks}</ul>
-        </details>
-        <details>
-          <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
-          <ul>${bodegaLinks}</ul>
-        </details>
-        <details>
-          <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
-          <ul>${eventLinks}</ul>
-        </details>
-        <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? " active" : ""}">
-          <i class="fas fa-tag"></i> ${translations[lang].navbar.offers}
-        </a>
-        ${b2bLink}
-        <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? " active" : ""}">
-          <i class="fas fa-book"></i> ${translations[lang].navbar.blog}
-        </a>
-        <details open>
-          <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
-          <ul>${infoLinks}</ul>
-        </details>
-        <script>
-  // Toggle del sidebar (hamburguesa)
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.getElementById('sidebar');
+export default {
+async fetch(request) {
+const url = new URL(request.url);
+const path = url.pathname;
+const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/data/navigation.json"];
+if (excludedPaths.some((excluded) => path.includes(excluded))) {
+return fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
+headers: request.headers
+});
+}
+let lang = "es";
+if (path.startsWith("/en/")) lang = "en";
+else if (path.startsWith("/de/")) lang = "de";
+else if (path.startsWith("/es/")) lang = "es";
 
-    if (!hamburger || !sidebar) return;
+const b2bText = lang === "es" ? "Bares y Restaurants" :
+lang === "en" ? "Bars & Restaurants" :
+"Bars & Restaurants";
 
-    hamburger.addEventListener('click', (e) => {
-      e.stopImmediatePropagation();
-      sidebar.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open'));
-    });
+const b2bLink = `
+     <a href="/${lang}/b2b.html" class="nav-link${path === `/${lang}/b2b.html` ? ' active' : ''}">
+       <i class="fas fa-utensils"></i> ${b2bText}
+     </a>`;
 
-    // Cerrar al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (sidebar.classList.contains('open') && 
-          !sidebar.contains(e.target) && 
-          !hamburger.contains(e.target)) {
-        sidebar.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-<\/script>
-      </nav>
-    `;
-    const consentTexts = {
-      es: "Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tr\xE1fico y mostrarte publicidad personalizada. Puedes aceptar todo, rechazar o configurar tus preferencias.",
-      en: "We use cookies to improve your experience. Some are essential, others help with analytics and marketing. You can configure or reject.",
-      de: "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Einige sind essenziell, andere helfen bei Analysen und Marketing. Sie k\xF6nnen konfigurieren oder ablehnen."
-    };
-    const consentText = consentTexts[lang] || consentTexts.es;
-    const footerHtml = `
-      <footer>
-        <div class="footer-content">
-          <div class="footer-contact">
-            <p><strong>${translations[lang].footer.inquiries}:</strong></p>
-            <div class="contact-links">
-              <a href="https://wa.me/4915158224728" target="_blank" class="icon-text"><i class="fab fa-whatsapp"></i><span>${translations[lang].footer.whatsapp}</span></a>
-              <span class="separator">|</span>
-              <a href="mailto:${translations[lang].footer.email}" class="icon-text"><i class="fas fa-envelope"></i><span>${translations[lang].footer.email}</span></a>
-            </div>
-          </div>
-          <div class="footer-social">
-            <p><strong>${translations[lang].footer.follow}:</strong></p>
-            <div class="social-links">
-              <a href="https://www.instagram.com/1000malbecs/" target="_blank" class="icon-text"><i class="fab fa-instagram"></i><span>${translations[lang].footer.instagram}</span></a>
-              <span class="separator">|</span>
-              <a href="https://x.com/1000malbecs" target="_blank" class="icon-text"><i class="fab fa-x-twitter"></i><span>${translations[lang].footer.twitter}</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Banner CMP con fondo Malbec (rojo vino oscuro) -->
-        <div id="consent-banner">
-          <div class="container">
-            <p id="consent-text">${consentText}</p>
-            <div class="buttons">
-              <button id="accept-all">${lang === "es" ? "Aceptar todo" : lang === "en" ? "Accept all" : "Alle akzeptieren"}</button>
-              <button id="reject-all">${lang === "es" ? "Rechazar todo" : lang === "en" ? "Reject all" : "Alle ablehnen"}</button>
-              <button id="configure">${lang === "es" ? "Configurar" : lang === "en" ? "Configure" : "Konfigurieren"}</button>
-              <button id="save-config">${lang === "es" ? "Guardar configuraci\xF3n" : lang === "en" ? "Save settings" : "Einstellungen speichern"}</button>
-            </div>
-            <div class="config-options">
-              <label><input type="checkbox" id="essential" checked disabled> ${lang === "es" ? "Cookies esenciales (siempre activas)" : lang === "en" ? "Essential cookies (always active)" : "Essenzielle Cookies (immer aktiv)"}</label>
-              <label><input type="checkbox" id="analytics"> ${lang === "es" ? "Cookies de an\xE1lisis (ej. Google Analytics)" : lang === "en" ? "Analytics cookies (e.g. Google Analytics)" : "Analyse-Cookies (z.B. Google Analytics)"}</label>
-              <label><input type="checkbox" id="marketing"> ${lang === "es" ? "Cookies de marketing/publicidad" : lang === "en" ? "Marketing/advertising cookies" : "Marketing-/Werbe-Cookies"}</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Script del Banner CMP -->
-        <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            const banner = document.getElementById('consent-banner');
-            const acceptAll = document.getElementById('accept-all');
-            const rejectAll = document.getElementById('reject-all');
-            const configure = document.getElementById('configure');
-            const saveConfig = document.getElementById('save-config');
-            const configOptions = document.querySelector('.config-options');
-
-            if (localStorage.getItem('consent')) {
-              loadConsents();
-              return;
-            }
-            banner.style.display = 'block';
-
-            acceptAll.onclick = function() {
-              saveConsent({ essential: true, analytics: true, marketing: true });
-            };
-            rejectAll.onclick = function() {
-              saveConsent({ essential: true, analytics: false, marketing: false });
-            };
-            configure.onclick = function() {
-              configOptions.style.display = 'block';
-              saveConfig.style.display = 'inline-block';
-              configure.style.display = 'none';
-            };
-            saveConfig.onclick = function() {
-              saveConsent({
-                essential: true,
-                analytics: document.getElementById('analytics').checked,
-                marketing: document.getElementById('marketing').checked
-              });
-            };
-
-            function saveConsent(consent) {
-              localStorage.setItem('consent', JSON.stringify(consent));
-              banner.style.display = 'none';
-              loadConsents();
-            }
-
-            function loadConsents() {
-              const consent = JSON.parse(localStorage.getItem('consent'));
-              if (consent.analytics) console.log('Analytics activado');
-              if (consent.marketing) console.log('Marketing activado');
-            }
-          });
-        <\/script>
-      </footer>
-    `;
-    try {
-      const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
-        headers: request.headers
-      });
-      if (!pageResponse.ok) {
-      }
-      const contentType = pageResponse.headers.get("content-type") || "";
-      if (!contentType.includes("text/html")) {
-        return pageResponse;
-      }
-      let pageHtml = await pageResponse.text();
-
-      // Detectar si la página ya tiene header propio (Home, landings, etc.)
-      const hasOwnHeader = pageHtml.includes('<header class="mobile-header">') || 
-                          pageHtml.includes('<div class="topbar">') ||
-                          pageHtml.includes('class="header"');
-
-      const html = `
-        <!DOCTYPE html>
-        <html lang="${lang}">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="/css/styles.css">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-          <style>
-            #sidebar .nav-link { padding-left: 20px; }
-            #sidebar details > summary { padding-left: 20px; cursor: pointer; }
-            #sidebar .nav-link:hover, #sidebar details > summary:hover { color: #5A1D39; background-color: #f5f5f5; }
-            #sidebar > a.nav-link { margin-bottom: 10px; }
-            #consent-banner {
-              position: fixed;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              width: 100%;
-              z-index: 9999;
-              background: #3A1F2E;  /* Fondo Malbec: rojo vino oscuro elegante */
-              color: #FFFFFF;
-              padding: 20px 30px;
-              box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
-              display: none;
-            }
-            #consent-banner .container {
-              max-width: 1200px;
-              margin: 0 auto;
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              align-items: center;
-              gap: 20px;
-            }
-            #consent-banner p {
-              margin: 0;
-              font-size: 14px;
-              color: #FFFFFF;
-            }
-            #consent-banner .buttons {
-              display: flex;
-              gap: 10px;
-              justify-content: center;
-            }
-            #consent-banner button {
-              padding: 10px 20px;
-              border: none;
-              border-radius: 5px;
-              cursor: pointer;
-              font-size: 14px;
-              color: #FFFFFF;
-              transition: background 0.3s;
-            }
-            #consent-banner #accept-all {
-              background: #006400;  /* Verde oscuro */
-            }
-            #consent-banner #accept-all:hover { background: #008000; }
-            #consent-banner #reject-all {
-              background: #8B0000;  /* Rojo oscuro */
-            }
-            #consent-banner #reject-all:hover { background: #A00000; }
-            #consent-banner #configure {
-              background: #4A2C59;  /* Tu color principal */
-            }
-            #consent-banner #configure:hover { background: #5A3C69; }
-            #consent-banner #save-config {
-              background: #00008B;
-              display: none;
-            }
-            #consent-banner #save-config:hover { background: #0000CD; }
-            #consent-banner .config-options {
-              display: none;
-              flex-direction: column;
-              gap: 10px;
-              width: 100%;
-            }
-            #consent-banner .config-options label {
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              color: #FFFFFF;
-            }
-            @media (max-width: 768px) {
-              #consent-banner .container {
-                flex-direction: column;
-                text-align: center;
-              }
-              #consent-banner .buttons {
-                flex-direction: column;
-                width: 100%;
-              }
-              #consent-banner button {
-                width: 100%;
-                margin: 8px 0;
-              }
-            }
-          </style>
-          ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
-        </head>
-        <body>
-          ${hasOwnHeader ? '' : navbarHtml}   <!-- ← Solo inyecta si NO tiene header propio -->
-          
-          <div class="main-content">
-            ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
-          </div>
-          ${footerHtml}
-        </body>
-        </html>
-      `;
-      return new Response(html, {
-        headers: { "Content-Type": "text/html; charset=utf-8" },
-        status: pageResponse.status
-      });
-    } catch (error) {
-      console.error(`Worker error: ${error.message} for URL: ${request.url}`);
-      return new Response("Internal Server Error", {
-        status: 500,
-        headers: { "Content-Type": "text/plain" }
-      });
-    }
-  }
+const translations = {
+es: {
+navbar: {
+categories: "Categorías",
+provinces: "Provincias",
+wineries: "Bodegas",
+events: "Eventos",
+info: "Info",
+offers: "Ofertas",
+home: "Volver al inicio",
+blog: "1000 Historias - Blog",
+B2B: "Bares y Restaurants",
+provinces_list: {
+la_rioja: "La Rioja",
+mendoza: "Mendoza",
+neuquen: "Neuquén",
+salta: "Salta",
+san_juan: "San Juan"
+},
+events_list: {
+view_events: "Ver eventos",
+sign_up: "Anotate"
+},
+info_list: {
+about_us: "About us",
+faq: "FAQ",
+impressum: "Impressum",
+agb: "AGB",
+datenschutz: "Datenschutz"
+}
+},
+footer: {
+inquiries: "Consultas",
+follow: "Síguenos",
+whatsapp: "+49 151 5822 4728",
+email: "federico@1000malbecs.com",
+instagram: "@1000malbecs",
+twitter: "@1000malbecs"
+}
+},
+en: {
+navbar: {
+categories: "Categories",
+provinces: "Provinces",
+wineries: "Wineries",
+events: "Events",
+info: "Info",
+offers: "Offers",
+home: "Back to home",
+blog: "1000 Stories - Blog",
+B2B: "Bares y Restaurants", 
+provinces_list: {
+la_rioja: "La Rioja",
+mendoza: "Mendoza",
+neuquen: "Neuquén",
+salta: "Salta",
+san_juan: "San Juan"
+},
+events_list: {
+view_events: "View events",
+sign_up: "Sign Up"
+},
+info_list: {
+about_us: "About us",
+faq: "FAQ",
+impressum: "Impressum",
+agb: "AGB"
+}
+},
+footer: {
+inquiries: "Inquiries",
+follow: "Follow us",
+whatsapp: "+49 151 5822 4728",
+email: "federico@1000malbecs.com",
+instagram: "@1000malbecs",
+twitter: "@1000malbecs"
+}
+},
+de: {
+navbar: {
+categories: "Kategorien",
+provinces: "Provinzen",
+wineries: "Weingüter",
+events: "Veranstaltungen",
+info: "Info",
+offers: "Angebote",
+home: "Zurück zur Startseite",
+blog: "1000 Geschichten - Blog",
+provinces_list: {
+la_rioja: "La Rioja",
+mendoza: "Mendoza",
+neuquen: "Neuquén",
+salta: "Salta",
+san_juan: "San Juan"
+},
+events_list: {
+view_events: "Veranstaltungen ansehen",
+sign_up: "Anmelden"
+},
+info_list: {
+about_us: "About us",
+faq: "FAQ",
+impressum: "Impressum",
+agb: "AGB"
+}
+},
+footer: {
+inquiries: "Anfragen",
+follow: "Folge uns",
+whatsapp: "+49 151 5822 4728",
+email: "federico@1000malbecs.com",
+instagram: "@1000malbecs",
+twitter: "@1000malbecs"
+}
+}
 };
-export {
-  index_default as default
+
+let provincias = [];
+let bodegas = [];
+try {
+const navResponse = await fetch(`https://1000malbecs.com/data/navigation.json?ts=${Date.now()}`);
+if (navResponse.ok) {
+const navData = await navResponse.json();
+provincias = navData.provincias || [];
+bodegas = navData.bodegas || [];
+}
+} catch (e) { }
+
+if (provincias.length === 0) {
+provincias = ["La Rioja", "Mendoza", "Neuquén", "Salta", "San Juan"];
+}
+if (bodegas.length === 0) {
+console.warn("Falling back to hardcoded bodegas");
+bodegas = [
+{ name: "A Corazón Abierto", slug: "a-corazon-abierto" },
+{ name: "Agustín Lanús", slug: "agustin-lanus" },
+{ name: "Alamos", slug: "alamos" },
+{ name: "Andeluna", slug: "andeluna" },
+{ name: "Bemberg Estate Wines", slug: "bemberg-estate-wines" },
+{ name: "Bodega Bressia", slug: "bodega-bressia" },
+{ name: "Bodega Chañarmuyo", slug: "bodega-chanarmuyo" },
+{ name: "Escorihuela Gascón", slug: "escorihuela gascon" },
+{ name: "Bodega Estancia Mendoza", slug: "bodega-estancia-mendoza" },
+{ name: "Bodega Foster Lorca", slug: "bodega-foster-lorca" },
+{ name: "Bodega Goyenechea", slug: "bodega-goyenechea" },
+{ name: "Bodega Malma", slug: "bodega-malma" },
+{ name: "Bodega Noemía Patagonia", slug: "bodega-noemia-patagonia" },
+{ name: "Bodega Séptima", slug: "bodegas-septima" },
+{ name: "Bodega Tukma", slug: "bodega-tukma" },
+{ name: "Bodegas Bianchi", slug: "bodegas-bianchi" },
+{ name: "Casa Araujo", slug: "casa-araujo" },
+{ name: "Catena Zapata", slug: "catena-zapata" },
+{ name: "Chakana", slug: "chakana" },
+{ name: "Cicchitti", slug: "cicchitti" },
+{ name: "Dieter Meier & Family Wines", slug: "dieter-meier-and-family-wines" },
+{ name: "El Esteco", slug: "el-esteco" },
+{ name: "Eral Bravo", slug: "eral-bravo" },
+{ name: "Falasco Wines", slug: "falasco-wines" },
+{ name: "Familia Schroeder", slug: "familia-schroeder" },
+{ name: "Finca La Anita", slug: "finca-la-anita" },
+{ name: "Finca & Bodega Arca Yaco", slug: "finca-bodega-arca-yaco" },
+{ name: "Finca y Bodega Vistalba", slug: "finca-y-bodega-vistalba" },
+{ name: "Finca Las Moras", slug: "finca-las-moras" },
+{ name: "Finca Las Nubes", slug: "finca-las-nubes" },
+{ name: "Humberto Canale", slug: "humberto-canale" },
+{ name: "Jasmine Monet", slug: "jasmine-monet" },
+{ name: "Jorge Rubio", slug: "jorge-rubio" },
+{ name: "Kaiken", slug: "kaiken" },
+{ name: "La Rural", slug: "la-rural" },
+{ name: "Los Haroldos", slug: "los-haroldos" },
+{ name: "Luigi Bosca", slug: "luigi-bosca" },
+{ name: "Mascota Vineyards", slug: "mascota-vineyards" },
+{ name: "Vignes des Andes", slug: "vignes des andes" },
+{ name: "Piattelli Vineyards", slug: "piattelli-vineyards" },
+{ name: "Rutini Wines", slug: "rutini-wines" },
+{ name: "San Telmo", slug: "san-telmo" },
+{ name: "Susana Balbo", slug: "susana-balbo" },
+{ name: "Trapiche", slug: "trapiche" },
+{ name: "Viña Alicia", slug: "vina-alicia" },
+{ name: "Viña Cobos", slug: "vina-cobos" },
+{ name: "Weinert Bodega y Cavas", slug: "weinert-bodega-y-cavas" }
+];
+}
+
+const provinciaLinks = provincias.map((prov) => {
+const slug = prov.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/[\s-]+/g, "-").replace(/^-+|-+$/g, "") || "unnamed";
+const displayName = translations[lang].navbar.provinces_list[slug.replace(/-/g, "_")] || prov;
+const isActive = path === `/${lang}/provincias/${slug}.html` ? " active" : "";
+return `<li><a href="/${lang}/provincias/${slug}.html" class="nav-link${isActive}">${displayName}</a></li>`;
+}).join("");
+
+const bodegaLinks = bodegas.map((bodega) => {
+const isActive = path === `/${lang}/bodegas/${bodega.slug}.html` ? " active" : "";
+return `<li><a href="/${lang}/bodegas/${bodega.slug}.html" class="nav-link${isActive}">${bodega.name}</a></li>`;
+}).join("");
+
+const eventLinks = [
+{ href: `/eventos/eventos.html`, text: translations[lang].navbar.events_list.view_events },
+{ href: `/eventos/anotate.html`, text: translations[lang].navbar.events_list.sign_up }
+].map((link) => {
+const isActive = path === `/${lang}${link.href}` ? " active" : "";
+return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
+}).join("");
+
+const infoLinks = [
+{ href: `/about-us.html`, text: translations[lang].navbar.info_list.about_us },
+{ href: `/faq.html`, text: translations[lang].navbar.info_list.faq },
+{ href: `/impressum.html`, text: translations[lang].navbar.info_list.impressum },
+{ href: `/agb.html`, text: translations[lang].navbar.info_list.agb },
+{ href: `/datenschutz.html`,  text: lang === "de" ? "Datenschutz" : 
+lang === "es" ? "Política de Privacidad" : 
+"Privacy Policy" },
+{ href: `/devoluciones.html`, text: lang === "es" ? "Política de Devoluciones" : lang === "en" ? "Return Policy" : "Widerrufsbelehrung" }
+].map((link) => {
+const isActive = path === `/${lang}${link.href}` ? " active" : "";
+return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
+}).join("");
+
+const navbarHtml = `
+     <nav id="sidebar">
+       <div class="logo-container">
+         <a href="/${lang}/">
+           <img src="/images/1000-malbecs-logo.png" alt="1000malbecs Logo" class="logo">
+         </a>
+       </div>
+       <h2>${translations[lang].navbar.categories}</h2>
+       <details>
+         <summary><i class="fas fa-map-marker-alt"></i> ${translations[lang].navbar.provinces}</summary>
+         <ul>${provinciaLinks}</ul>
+       </details>
+       <details>
+         <summary><i class="fas fa-wine-bottle"></i> ${translations[lang].navbar.wineries}</summary>
+         <ul>${bodegaLinks}</ul>
+       </details>
+       <details>
+         <summary><i class="fas fa-calendar-alt"></i> ${translations[lang].navbar.events}</summary>
+         <ul>${eventLinks}</ul>
+       </details>
+       <a href="/${lang}/ofertas.html" class="nav-link${path === `/${lang}/ofertas.html` ? ' active' : ''}">
+         <i class="fas fa-tag"></i> ${translations[lang].navbar.offers}
+       </a>
+       ${b2bLink}
+       <a href="/${lang}/blog/index.html" class="nav-link${path === `/${lang}/blog/index.html` ? ' active' : ''}">
+         <i class="fas fa-book"></i> ${translations[lang].navbar.blog}
+       </a>
+       <details open>
+         <summary><i class="fas fa-wine-glass-alt"></i> ${translations[lang].navbar.info}</summary>
+         <ul>${infoLinks}</ul>
+       </details>
+       <script>
+ // Toggle del sidebar (hamburguesa)
+ document.addEventListener('DOMContentLoaded', () => {
+   const hamburger = document.querySelector('.hamburger');
+   const sidebar = document.getElementById('sidebar');
+
+   if (!hamburger || !sidebar) return;
+
+   hamburger.addEventListener('click', (e) => {
+     e.stopImmediatePropagation();
+     sidebar.classList.toggle('open');
+     hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+   });
+
+   // Cerrar al hacer clic fuera
+   document.addEventListener('click', (e) => {
+     if (sidebar.classList.contains('open') && 
+         !sidebar.contains(e.target) && 
+         !hamburger.contains(e.target)) {
+       sidebar.classList.remove('open');
+       hamburger.setAttribute('aria-expanded', 'false');
+     }
+   });
+ });
+</script>
+     </nav>
+   `;
+
+const consentTexts = {
+es: 'Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y mostrarte publicidad personalizada. Puedes aceptar todo, rechazar o configurar tus preferencias.',
+en: 'We use cookies to improve your experience. Some are essential, others help with analytics and marketing. You can configure or reject.',
+de: 'Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Einige sind essenziell, andere helfen bei Analysen und Marketing. Sie können konfigurieren oder ablehnen.'
 };
-//# sourceMappingURL=index.js.map
+
+const consentText = consentTexts[lang] || consentTexts.es;
+
+const footerHtml = `
+     <footer>
+       <div class="footer-content">
+         <div class="footer-contact">
+           <p><strong>${translations[lang].footer.inquiries}:</strong></p>
+           <div class="contact-links">
+             <a href="https://wa.me/4915158224728" target="_blank" class="icon-text"><i class="fab fa-whatsapp"></i><span>${translations[lang].footer.whatsapp}</span></a>
+             <span class="separator">|</span>
+             <a href="mailto:${translations[lang].footer.email}" class="icon-text"><i class="fas fa-envelope"></i><span>${translations[lang].footer.email}</span></a>
+           </div>
+         </div>
+         <div class="footer-social">
+           <p><strong>${translations[lang].footer.follow}:</strong></p>
+           <div class="social-links">
+             <a href="https://www.instagram.com/1000malbecs/" target="_blank" class="icon-text"><i class="fab fa-instagram"></i><span>${translations[lang].footer.instagram}</span></a>
+             <span class="separator">|</span>
+             <a href="https://x.com/1000malbecs" target="_blank" class="icon-text"><i class="fab fa-x-twitter"></i><span>${translations[lang].footer.twitter}</span></a>
+           </div>
+         </div>
+       </div>
+
+       <!-- Banner CMP con fondo Malbec (rojo vino oscuro) -->
+       <div id="consent-banner">
+         <div class="container">
+           <p id="consent-text">${consentText}</p>
+           <div class="buttons">
+             <button id="accept-all">${lang === 'es' ? 'Aceptar todo' : lang === 'en' ? 'Accept all' : 'Alle akzeptieren'}</button>
+             <button id="reject-all">${lang === 'es' ? 'Rechazar todo' : lang === 'en' ? 'Reject all' : 'Alle ablehnen'}</button>
+             <button id="configure">${lang === 'es' ? 'Configurar' : lang === 'en' ? 'Configure' : 'Konfigurieren'}</button>
+             <button id="save-config">${lang === 'es' ? 'Guardar configuración' : lang === 'en' ? 'Save settings' : 'Einstellungen speichern'}</button>
+           </div>
+           <div class="config-options">
+             <label><input type="checkbox" id="essential" checked disabled> ${lang === 'es' ? 'Cookies esenciales (siempre activas)' : lang === 'en' ? 'Essential cookies (always active)' : 'Essenzielle Cookies (immer aktiv)'}</label>
+             <label><input type="checkbox" id="analytics"> ${lang === 'es' ? 'Cookies de análisis (ej. Google Analytics)' : lang === 'en' ? 'Analytics cookies (e.g. Google Analytics)' : 'Analyse-Cookies (z.B. Google Analytics)'}</label>
+             <label><input type="checkbox" id="marketing"> ${lang === 'es' ? 'Cookies de marketing/publicidad' : lang === 'en' ? 'Marketing/advertising cookies' : 'Marketing-/Werbe-Cookies'}</label>
+           </div>
+         </div>
+       </div>
+
+       <!-- Script del Banner CMP -->
+       <script>
+         document.addEventListener('DOMContentLoaded', function() {
+           const banner = document.getElementById('consent-banner');
+           const acceptAll = document.getElementById('accept-all');
+           const rejectAll = document.getElementById('reject-all');
+           const configure = document.getElementById('configure');
+           const saveConfig = document.getElementById('save-config');
+           const configOptions = document.querySelector('.config-options');
+
+           if (localStorage.getItem('consent')) {
+             loadConsents();
+             return;
+           }
+           banner.style.display = 'block';
+
+           acceptAll.onclick = function() {
+             saveConsent({ essential: true, analytics: true, marketing: true });
+           };
+           rejectAll.onclick = function() {
+             saveConsent({ essential: true, analytics: false, marketing: false });
+           };
+           configure.onclick = function() {
+             configOptions.style.display = 'block';
+             saveConfig.style.display = 'inline-block';
+             configure.style.display = 'none';
+           };
+           saveConfig.onclick = function() {
+             saveConsent({
+               essential: true,
+               analytics: document.getElementById('analytics').checked,
+               marketing: document.getElementById('marketing').checked
+             });
+           };
+
+           function saveConsent(consent) {
+             localStorage.setItem('consent', JSON.stringify(consent));
+             banner.style.display = 'none';
+             loadConsents();
+           }
+
+           function loadConsents() {
+             const consent = JSON.parse(localStorage.getItem('consent'));
+             if (consent.analytics) console.log('Analytics activado');
+             if (consent.marketing) console.log('Marketing activado');
+           }
+         });
+       </script>
+     </footer>
+   `;
+
+try {
+const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
+headers: request.headers
+});
+
+if (!pageResponse.ok) {
+// Manejo de errores (404, etc.) - se mantiene igual
+// ... (tu código de 404 y error se mantiene sin cambios)
+}
+
+const contentType = pageResponse.headers.get("content-type") || "";
+if (!contentType.includes("text/html")) {
+return pageResponse;
+}
+
+let pageHtml = await pageResponse.text();
+const html = `
+       <!DOCTYPE html>
+       <html lang="${lang}">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="/css/styles.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+         <style>
+           #sidebar .nav-link { padding-left: 20px; }
+           #sidebar details > summary { padding-left: 20px; cursor: pointer; }
+           #sidebar .nav-link:hover, #sidebar details > summary:hover { color: #5A1D39; background-color: #f5f5f5; }
+           #sidebar > a.nav-link { margin-bottom: 10px; }
+           #consent-banner {
+             position: fixed;
+             bottom: 0;
+             left: 0;
+             right: 0;
+             width: 100%;
+             z-index: 9999;
+             background: #3A1F2E;  /* Fondo Malbec: rojo vino oscuro elegante */
+             color: #FFFFFF;
+             padding: 20px 30px;
+             box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+             display: none;
+           }
+           #consent-banner .container {
+             max-width: 1200px;
+             margin: 0 auto;
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-between;
+             align-items: center;
+             gap: 20px;
+           }
+           #consent-banner p {
+             margin: 0;
+             font-size: 14px;
+             color: #FFFFFF;
+           }
+           #consent-banner .buttons {
+             display: flex;
+             gap: 10px;
+             justify-content: center;
+           }
+           #consent-banner button {
+             padding: 10px 20px;
+             border: none;
+             border-radius: 5px;
+             cursor: pointer;
+             font-size: 14px;
+             color: #FFFFFF;
+             transition: background 0.3s;
+           }
+           #consent-banner #accept-all {
+             background: #006400;  /* Verde oscuro */
+           }
+           #consent-banner #accept-all:hover { background: #008000; }
+           #consent-banner #reject-all {
+             background: #8B0000;  /* Rojo oscuro */
+           }
+           #consent-banner #reject-all:hover { background: #A00000; }
+           #consent-banner #configure {
+             background: #4A2C59;  /* Tu color principal */
+           }
+           #consent-banner #configure:hover { background: #5A3C69; }
+           #consent-banner #save-config {
+             background: #00008B;
+             display: none;
+           }
+           #consent-banner #save-config:hover { background: #0000CD; }
+           #consent-banner .config-options {
+             display: none;
+             flex-direction: column;
+             gap: 10px;
+             width: 100%;
+           }
+           #consent-banner .config-options label {
+             display: flex;
+             align-items: center;
+             gap: 10px;
+             color: #FFFFFF;
+           }
+           @media (max-width: 768px) {
+             #consent-banner .container {
+               flex-direction: column;
+               text-align: center;
+             }
+             #consent-banner .buttons {
+               flex-direction: column;
+               width: 100%;
+             }
+             #consent-banner button {
+               width: 100%;
+               margin: 8px 0;
+             }
+           }
+         </style>
+         ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
+       </head>
+       <body>
+         ${navbarHtml}
+         <div class="main-content">
+           ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
+         </div>
+         ${footerHtml}
+       </body>
+       </html>
+     `;
+return new Response(html, {
+headers: { "Content-Type": "text/html; charset=utf-8" },
+status: pageResponse.status
+});
+} catch (error) {
+console.error(`Worker error: ${error.message} for URL: ${request.url}`);
+return new Response("Internal Server Error", {
+status: 500,
+headers: { "Content-Type": "text/plain" }
+});
+}
+}
+};
