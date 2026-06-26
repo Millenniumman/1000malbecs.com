@@ -52,6 +52,23 @@
     display: none !important;
   }
 }
+    /* ==================== SIDEBAR ANCHO CONTROLADO ==================== */
+#sidebar {
+  width: 280px !important;           /* Ancho fijo recomendado */
+  max-width: 85% !important;         /* No más del 85% de la pantalla */
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    width: 280px !important;
+    max-width: 85vw !important;      /* Mejor en móviles pequeños */
+  }
+  
+  #sidebar.open {
+    transform: translateX(0) !important;
+  }
+}
   </style>
 </head>
 <body>
