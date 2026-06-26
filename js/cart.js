@@ -1,40 +1,31 @@
-// js/cart.js - Versión Multilingüe
+// js/cart.js - Versión FINAL Multilingüe + Envío
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const translations = {
   es: {
-    title: "Tu Carrito",
     subtotal: "Subtotal",
     shipping: "Envío a Alemania",
     freeShipping: "✅ Envío gratis",
     freeShippingCondition: "Envío gratis comprando 12 botellas o más",
     total: "Total",
-    checkout: "Ir a Pagar",
-    continue: "← Seguir comprando",
     remove: "Eliminar",
     empty: "Tu carrito está vacío"
   },
   en: {
-    title: "Your Cart",
     subtotal: "Subtotal",
     shipping: "Shipping to Germany",
     freeShipping: "✅ Free Shipping",
     freeShippingCondition: "Free shipping on 12 bottles or more",
     total: "Total",
-    checkout: "Proceed to Checkout",
-    continue: "← Continue Shopping",
     remove: "Remove",
     empty: "Your cart is empty"
   },
   de: {
-    title: "Ihr Warenkorb",
     subtotal: "Zwischensumme",
     shipping: "Versand nach Deutschland",
     freeShipping: "✅ Versandkostenfrei",
     freeShippingCondition: "Versandkostenfrei ab 12 Flaschen",
     total: "Gesamt",
-    checkout: "Zur Kasse gehen",
-    continue: "← Weiter einkaufen",
     remove: "Entfernen",
     empty: "Ihr Warenkorb ist leer"
   }
@@ -48,13 +39,10 @@ function getLang() {
 }
 
 function t(key) {
-  const lang = getLang();
-  return translations[lang][key] || translations.es[key];
+  return translations[getLang()][key] || translations.es[key];
 }
 
-// js/cart.js - Versión estable con cantidades funcionales
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+// ==================== FUNCIONES BÁSICAS ====================
 function updateCartCount() {
   const countEl = document.getElementById('cart-count');
   if (countEl) {
@@ -86,7 +74,6 @@ function addToCart(product) {
   updateCartCount();
   showToast(product.name + " agregado al carrito");
 
-  // Si estamos en la página del carrito, actualizamos
   if (typeof renderCart === 'function') renderCart();
 }
 
@@ -119,14 +106,17 @@ function showToast(message) {
   toast.style.opacity = '1';
   setTimeout(() => { toast.style.opacity = '0'; }, 2500);
 }
+
+// ==================== RENDER CARRITO ====================
 function renderCart() {
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
-  let cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
-  if (cartData.length === 0) {
+  if (!container) return;
+
+  if (cart.length === 0) {
     container.innerHTML = `<div class="empty"><h2>${t('empty')}</h2><p>Agrega algunos vinos para continuar.</p></div>`;
-    totalEl.innerHTML = '';
+    if (totalEl) totalEl.innerHTML = '';
     return;
   }
 
@@ -134,7 +124,7 @@ function renderCart() {
   let subtotal = 0;
   let totalBottles = 0;
 
-  cartData.forEach(item => {
+  cart.forEach(item => {
     const price = parseFloat(item.price) || 0;
     const qty = item.quantity || 1;
     const itemTotal = price * qty;
@@ -179,6 +169,7 @@ function renderCart() {
     </div>
   `;
 }
+
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
