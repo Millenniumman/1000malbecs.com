@@ -398,31 +398,28 @@ const footerHtml = `
    `;
 
 try {
-  const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
-    headers: request.headers
-  });
+      const pageResponse = await fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {
+        headers: request.headers
+      });
 
-  if (!pageResponse.ok) {
-    return pageResponse;
-  }
+      if (!pageResponse.ok) {
+        return pageResponse;
+      }
 
-  const contentType = pageResponse.headers.get("content-type") || "";
-  if (!contentType.includes("text/html")) {
-    return pageResponse;
-  }
+      const contentType = pageResponse.headers.get("content-type") || "";
+      if (!contentType.includes("text/html")) {
+        return pageResponse;
+      }
 
-  let pageHtml = await pageResponse.text();
+      let pageHtml = await pageResponse.text();
 
-  // =====================================================
-  // DETECCIÓN: ¿La página ya tiene su propio header?
-  // =====================================================
-  const hasOwnHeader = pageHtml.includes('class="mobile-header"') || 
-                       pageHtml.includes('class="topbar"') ||
-                       pageHtml.includes('class="header"') ||
-                       pageHtml.includes('id="sidebar"');
+      // Detectar si la página ya tiene su propio header
+      const hasOwnHeader = pageHtml.includes('class="mobile-header"') || 
+                          pageHtml.includes('class="topbar"') ||
+                          pageHtml.includes('class="header"');
 
-  const html = `
-    <!DOCTYPE html>
+      const html = `
+        <!DOCTYPE html>
     <html lang="${lang}">
     <head>
       <meta charset="UTF-8">
@@ -532,15 +529,17 @@ try {
     </html>
   `;
 
-  return new Response(html, {
-    headers: { "Content-Type": "text/html; charset=utf-8" },
-    status: pageResponse.status
-  });
+return new Response(html, {
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+        status: pageResponse.status
+      });
 
-} catch (error) {
-  console.error(`Worker error: ${error.message} for URL: ${request.url}`);
-  return new Response("Internal Server Error", {
-    status: 500,
-    headers: { "Content-Type": "text/plain" }
-  });
-}
+    } catch (error) {
+      console.error(`Worker error: ${error.message} for URL: ${request.url}`);
+      return new Response("Internal Server Error", {
+        status: 500,
+        headers: { "Content-Type": "text/plain" }
+      });
+    }
+  }
+};
