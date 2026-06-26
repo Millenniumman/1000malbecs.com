@@ -68,20 +68,14 @@ function showToast(message) {
 
 // ====================== RENDER CARRITO ======================
 function renderCart() {
-  console.log("🔄 renderCart() se está ejecutando...");
-
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
   
-  console.log("Elementos encontrados:", { container: !!container, totalEl: !!totalEl });
-
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  console.log("Productos en carrito:", cart);
 
   if (cart.length === 0) {
-    console.log("Carrito vacío");
-    if (container) container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos.</p></div>`;
-    if (totalEl) totalEl.innerHTML = '';
+    container.innerHTML = `<div class="empty"><h2>Tu carrito está vacío</h2><p>Agrega algunos vinos para continuar.</p></div>`;
+    totalEl.innerHTML = '';
     return;
   }
 
@@ -119,26 +113,29 @@ function renderCart() {
   const shippingCost = (totalBottles >= 12) ? 0 : 6.99;
   const finalTotal = subtotal + shippingCost;
 
-  if (container) container.innerHTML = html;
+  container.innerHTML = html;
 
-  if (totalEl) {
-    totalEl.innerHTML = `
-      <div>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></div>
-      <div>Envío: <strong>${shippingCost === 0 ? 'GRATIS' : '€6.99'}</strong></div>
-      <hr>
-      <div style="font-size:1.6em; font-weight:700;">
-        Total: <strong>€${finalTotal.toFixed(2)}</strong>
-      </div>
-    `;
-    console.log("Total renderizado correctamente");
-  } else {
-    console.error("No se encontró el elemento #cart-total");
-  }
+  totalEl.innerHTML = `
+    <div style="font-size: 1.05em; color: #555;">
+      Subtotal: <strong>€${subtotal.toFixed(2)}</strong>
+    </div>
+    <div style="font-size: 1.05em; margin: 8px 0;">
+      ${shippingCost === 0 
+        ? `<strong style="color:#27ae60;">✅ Envío gratis</strong>` 
+        : `Envío a Alemania: <strong>€6.99</strong>`}
+    </div>
+    
+    ${totalBottles < 12 ? 
+      `<p style="color:#e67e22; font-size: 0.95em; margin: 8px 0;">
+        Envío gratis comprando 12 botellas o más
+      </p>` : ''}
+    
+    <hr style="margin: 12px 0;">
+    <div style="font-size: 1.65em; font-weight: 700;">
+      Total: <strong>€${finalTotal.toFixed(2)}</strong>
+    </div>
+  `;
 }
-// Forzar renderizado cuando se agrega algo desde otra página
-window.addEventListener('storage', function() {
-  if (typeof renderCart === 'function') renderCart();
-});
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
