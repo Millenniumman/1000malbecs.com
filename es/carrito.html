@@ -29,20 +29,16 @@
    CONTENIDO PRINCIPAL
    ======================================== */
 .container {
-  max-width: 900px;
-  margin: 80px auto 40px;
-  padding: 0 20px;
-  margin-left: 320px;        /* ← Aumentado para correr contenido */
+  max-width: 920px;
+  margin: 100px auto 40px;   /* también subí un poco el margen superior */
+  padding: 0 30px;
+  margin-left: 350px;        /* valor óptimo */
 }
 
-/* Ajuste adicional para desktop */
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   .container {
-    margin-left: 340px;      /* ← Más espacio a la derecha */
-  }
-  
-  .product {
-    gap: 40px;
+    margin-left: 0 !important;
+    padding: 0 15px;
   }
 }
   </style>
