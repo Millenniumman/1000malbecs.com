@@ -41,6 +41,17 @@
     padding: 0 15px;
   }
 }
+    /* Ocultar logo dentro del sidebar en mobile */
+#sidebar .logo-container {
+  display: none !important;
+}
+
+/* Opcional: solo ocultar cuando se abre desde mobile */
+@media (max-width: 768px) {
+  #sidebar .logo-container {
+    display: none !important;
+  }
+}
   </style>
 </head>
 <body>
