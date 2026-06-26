@@ -514,7 +514,7 @@ try {
       ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
     </head>
     <body>
-      ${hasOwnHeader ? '' : navbarHtml}     <!-- ← Solo inyecta si la página NO tiene header propio -->
+      ${navbarHtml}   <!-- Siempre inyectamos sidebar + mobile header -->
       
       <div class="main-content">
         ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
