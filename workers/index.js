@@ -432,6 +432,12 @@ export default {
       }
 
       let pageHtml = await pageResponse.text();
+
+      // Detectar si la página ya tiene header propio (Home, landings, etc.)
+      const hasOwnHeader = pageHtml.includes('<header class="mobile-header">') || 
+                          pageHtml.includes('<div class="topbar">') ||
+                          pageHtml.includes('class="header"');
+
       const html = `
         <!DOCTYPE html>
         <html lang="${lang}">
@@ -533,7 +539,8 @@ export default {
           ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
         </head>
         <body>
-          ${navbarHtml}
+          ${hasOwnHeader ? '' : navbarHtml}   <!-- ← Solo inyecta si NO tiene header propio -->
+          
           <div class="main-content">
             ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
           </div>
