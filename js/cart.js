@@ -72,7 +72,7 @@ function addToCart(product) {
 
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount();
-  showToast(product.name + " agregado al carrito");
+  showToast(product.name);
 
   if (typeof renderCart === 'function') renderCart();
 }
@@ -94,7 +94,18 @@ function changeQuantity(id, delta) {
   }
 }
 
-function showToast(message) {
+function showToast(productName) {
+  const lang = getLang();
+  let message = "";
+
+  if (lang === 'es') {
+    message = productName + " agregado al carrito";
+  } else if (lang === 'en') {
+    message = productName + " added to cart";
+  } else if (lang === 'de') {
+    message = productName + " in den Warenkorb gelegt";
+  }
+
   let toast = document.getElementById('toast');
   if (!toast) {
     toast = document.createElement('div');
