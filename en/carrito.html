@@ -25,6 +25,20 @@
       font-size: 1.1em; font-weight: 600; text-decoration: none;
     }
     .empty { text-align: center; padding: 80px 20px; color: #777; }
+
+    /* Contenido principal - Alineado */
+    .container {
+      max-width: 920px;
+      margin: 100px auto 40px;
+      padding: 0 30px;
+      margin-left: 350px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        margin-left: 0 !important;
+        padding: 0 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -38,52 +52,12 @@
 
   <script src="/js/cart.js"></script>
   <script>
-    function renderCart() {
-      const container = document.getElementById('cart-items');
-      const totalEl = document.getElementById('cart-total');
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      if (cart.length === 0) {
-        container.innerHTML = `<div class="empty"><h2>Your cart is empty</h2><p>Add some wines to continue.</p></div>`;
-        totalEl.innerHTML = '';
-        return;
-      }
-
-      let html = '';
-      let total = 0;
-
-      cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-
-        html += `
-          <div class="cart-item">
-            <img src="${item.image}" alt="${item.name}">
-            <div class="item-info">
-              <h4>${item.name}</h4>
-              <p>€${item.price.toFixed(2)}</p>
-            </div>
-            <div class="quantity-controls">
-              <button onclick="changeQuantity('${item.id}', -1)">–</button>
-              <strong>${item.quantity}</strong>
-              <button onclick="changeQuantity('${item.id}', 1)">+</button>
-            </div>
-            <div style="text-align:right; min-width:90px;">
-              <strong>€${itemTotal.toFixed(2)}</strong><br>
-              <small onclick="removeFromCart('${item.id}')" style="color:#e74c3c;cursor:pointer;">Remove</small>
-            </div>
-          </div>`;
-      });
-
-      container.innerHTML = html;
-      totalEl.innerHTML = `Total: <strong>€${total.toFixed(2)}</strong>`;
-    }
-
-    function goToCheckout() {
-      alert("✅ Cart is working.\n\nNext step: Stripe Checkout");
-    }
-
-    document.addEventListener('DOMContentLoaded', renderCart);
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCart();
+    });
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') renderCart();
+    });
   </script>
 </body>
 </html>
