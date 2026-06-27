@@ -38,7 +38,7 @@
     <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
-    <style>
+  <style>
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .header { top: 50px; z-index: 120; }
         .logo { max-width: 150px; height: auto; }
@@ -205,19 +205,45 @@
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
-    </style>
+     @media (max-width: 768px) {
+  .header {
+    padding-left: 55px !important;   /* ← Corre el logo a la derecha */
+  }
+  
+  .logo {
+    height: 65px !important;
+  }
+  
+  .hamburger {
+    left: 15px !important;
+    top: 18px !important;
+    z-index: 1600;
+  }
+}
+    </style>    
 </head>
 <body>
+<!-- Selector de Idiomas -->
 <div class="language-selector">
     <a aria-label="Spanisch" data-lang="es" href="/es/index.html">ES</a>
     <a aria-label="Deutsch" class="active" data-lang="de" href="/de/index.html">DE</a>
     <a aria-label="Englisch" data-lang="en" href="/en/index.html">EN</a>
 </div>
-<header class="header">
-    <a href="/de/" title="Zurück zur Hauptseite">
+
+<!-- Header con Logo + Carrito -->
+<header class="header" style="display: flex; align-items: center; justify-content: space-between; padding: 0 25px;">
+    <a href="/es/" title="Zurück zur Hauptseite">
         <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+nicht+verfügbar';">
     </a>
+    
+    <!-- Carrito pequeño y separado -->
+    <a href="/es/carrito.html" style="text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-left: 25px;">
+      🛒
+      <span id="cart-count" style="position: relative; top: -6px; margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 1px 6px; border-radius:50%;">0</span>
+    </a>
 </header>
+<!-- Hamburguesa -->
+<button class="hamburger">☰</button>
 <button class="hamburger">☰</button>
 <main>
     <div class="banner-carousel">
