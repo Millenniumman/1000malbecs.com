@@ -538,19 +538,7 @@
       font-size: 11px;
       color: #999;
     }
-    @media (min-width: 769px) {
-            .header { display: none; }
-            .logo-container { display: block; }
-            .info-icon { display: none; }
-            .hamburger { display: none; }
-            .winery-nav { display: none; }
-            .recent-nav { display: flex; }
-            .winery-grid.has-left, .winery-grid.has-right { box-shadow: none; }
-            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; justify-content: start; }
-            .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
-            .product-card img { width: 200px; height: 200px; margin: 0 auto; }
-        }
-     @media (max-width: 768px) {
+   @media (max-width: 768px) {
   .header {
     padding-left: 55px !important;   /* ← Corre el logo a la derecha */
   }
@@ -578,31 +566,40 @@
 </head>
 
 <body>
-
-<!-- Selector de Idiomas -->
 <div class="language-selector">
-    <a aria-label="Spanisch" data-lang="es" href="/es/index.html">ES</a>
-    <a aria-label="Deutsch" class="active" data-lang="de" href="/de/index.html">DE</a>
-    <a aria-label="Englisch" data-lang="en" href="/en/index.html">EN</a>
-</div>
-
+    <a href="/en/bodegas/familia-schroeder.html" class="active" data-lang="en" aria-label="lang_en"> EN </a>
+    
+    
+    <a href="/es/bodegas/familia-schroeder.html" class="" data-lang="es" aria-label="lang_es">ES 🇪🇸</a>
+    
+    
+    
+    <a href="/de/bodegas/familia-schroeder.html" class="" data-lang="de" aria-label="lang_de">DE </a>
+    
+    
+    
+    
+  </div>
 <!-- Header con Logo + Carrito -->
 <header class="header" style="display: flex; align-items: center; justify-content: space-between; padding: 0 25px;">
-    <a href="/en/" title="Zurück zur Hauptseite">
+    <a href="/de/" title="Zurück zur Hauptseite">
         <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+nicht+verfügbar';">
     </a>
     
     <!-- Carrito pequeño y separado -->
-    <a href="/en/carrito.html" style="text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-left: 25px;">
+    <a href="/de/carrito.html" style="text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-left: 25px;">
       🛒
       <span id="cart-count" style="position: relative; top: -6px; margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 1px 6px; border-radius:50%;">0</span>
     </a>
 </header>
-<!-- Hamburguesa -->
-<button class="hamburger">☰</button>
 
-
+  <button class="hamburger">☰</button>
   <nav id="sidebar">
+    <div class="logo-container">
+      <a href="/en/" title="home">
+        <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+      </a>
+    </div>
     <h2>wineries</h2>
     <ul>
       
