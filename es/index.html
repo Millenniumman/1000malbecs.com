@@ -230,40 +230,111 @@
             .search-suggestions li:hover img {
               transform: scale(1.1); /* zoom sutil al hover */
         }
-    @media (max-width: 768px) {
-  .topbar {
-    padding: 0 15px !important;
-    height: 80px !important;
-  }
-  
-  .logo {
-    height: 75px !important;
-  }
-  
-  .language-selector {
-    display: none !important;   /* Ocultar selector en mobile si querés */
-  }
-}
-    @media (min-width: 769px) {
-  .language-selector {
-    display: flex !important;
-  }
-  
-  .logo {
-    height: 110px !important;
-  }
-}
+body { 
+      font-family: 'Montserrat', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      display: flex; 
+      flex-direction: column; 
+      min-height: 100vh; 
+    }
 
-@media (max-width: 768px) {
-  .topbar {
-    padding: 0 12px !important;
-    height: 78px !important;
-  }
-  
-  .logo {
-    height: 68px !important;
-  }
-}
+    /* ==================== HEADER Y LOGO ==================== */
+    .header, .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1400;
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      height: 110px !important;
+      width: auto;
+      display: block;
+    }
+
+    /* ==================== TOPBAR DESKTOP ==================== */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      height: 100px;
+    }
+
+    /* Selector de idiomas centrado */
+    .language-selector {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    /* ==================== MOBILE ==================== */
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 0 12px;
+        height: 78px;
+      }
+
+      .logo {
+        height: 68px !important;
+      }
+
+      .language-selector {
+        display: none !important;
+      }
+
+      /* Asegurar que el hamburguesa esté bien posicionado */
+      .hamburger {
+        display: block !important;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 1500;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .language-selector {
+        display: flex !important;
+      }
+    }
+
+    /* ==================== SIDEBAR ==================== */
+    #sidebar {
+      width: 280px !important;
+      max-width: 85vw !important;
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      #sidebar .logo-container {
+        display: none !important;
+      }
+    }
+
+    /* ==================== RESTO DE TU CSS (mantengo lo importante) ==================== */
+    main { 
+      margin-left: 290px; 
+      padding: 20px; 
+      width: calc(100% - 290px); 
+      flex: 1; 
+    }
+
+    @media (max-width: 768px) {
+      main { 
+        margin-left: 0; 
+        margin-top: 90px; 
+        padding: 15px; 
+        width: 100%; 
+      }
+    }
     </style>
     
 </head>
