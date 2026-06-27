@@ -234,23 +234,32 @@
     
 </head>
 <body>
-   <!-- HEADER DESKTOP -->
-<div class="topbar-desktop" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 100px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: fixed; top: 0; left: 0; right: 0; z-index: 1500;">
+   <!-- ==================== TOPBAR DESKTOP ==================== -->
+<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
 
-  <!-- Selector de idiomas centrado -->
-  <div class="lang-selector" style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; font-weight: 600;">
-    <a href="/es{{ path.replace(/^\/(es|en|de)/, '') }}">ES</a>
-    <a href="/en{{ path.replace(/^\/(es|en|de)/, '') }}">EN</a>
-    <a href="/de{{ path.replace(/^\/(es|en|de)/, '') }}">DE</a>
+  <!-- Logo - Izquierda -->
+  <header class="header">
+    <a href="/es/" title="1000 Malbecs">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
+  </header>
+
+  <!-- Selector de Idiomas - Centro -->
+  <div class="lang-selector-desktop" style="position: absolute; left: 50%; transform: translateX(-50%);">
+    <a href="/es/vinos/1300-malbec-2024.html">ES</a>
+    <a href="/en/vinos/1300-malbec-2024.html">EN</a>
+    <a href="/de/vinos/1300-malbec-2024.html">DE</a>
   </div>
 
-  <!-- Carrito a la derecha -->
-  <a href="/{{ lang }}/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.85em;">
+  <!-- Carrito - Derecha -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto;">
     🛒
-    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;">0</span>
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
 
 </div>
+</div>
+
     <button class="hamburger">☰</button>
 <main>
     <div class="banner-carousel">
