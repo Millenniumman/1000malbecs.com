@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Warenkorb - 1000 Malbecs</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+  style>
     body { font-family: 'Montserrat', sans-serif; margin:0; padding:0; background:#fdfdfd; }
     main { max-width: 900px; margin: 120px auto 60px; padding: 20px; }
     h1 { color: #4A2C59; text-align: center; margin-bottom: 30px; }
@@ -25,48 +25,52 @@
       font-size: 1.1em; font-weight: 600; text-decoration: none;
     }
     .empty { text-align: center; padding: 80px 20px; color: #777; }
-
-    /* Contenido principal - Alineado */
-    .container {
-      max-width: 920px;
-      margin: 100px auto 40px;
-      padding: 0 30px;
-      margin-left: 350px;
-    }
-    @media (max-width: 768px) {
-      .container {
-        margin-left: 0 !important;
-        padding: 0 15px;
-      }
-    }    /* Ocultar logo dentro del sidebar en mobile */
-#sidebar .logo-container {
-  display: none !important;
+  /* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+.container {
+  max-width: 920px;
+  margin: 100px auto 40px;
+  padding: 0 30px;
+  margin-left: 350px;        /* Espacio para sidebar en desktop */
 }
 
-/* Opcional: solo ocultar cuando se abre desde mobile */
 @media (max-width: 768px) {
-  #sidebar .logo-container {
-    display: none !important;
+  .container {
+    margin-left: 0 !important;
+    padding: 0 15px;
   }
 }
-    /* ==================== SIDEBAR ANCHO CONTROLADO ==================== */
+
+/* ========================================
+   SIDEBAR (menú hamburguesa)
+   ======================================== */
 #sidebar {
-  width: 280px !important;           /* Ancho fijo recomendado */
-  max-width: 85% !important;         /* No más del 85% de la pantalla */
+  width: 280px !important;
+  max-width: 85vw !important;
   transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
   #sidebar {
     width: 280px !important;
-    max-width: 85vw !important;      /* Mejor en móviles pequeños */
   }
   
   #sidebar.open {
     transform: translateX(0) !important;
   }
 }
-    /* ==================== LOGO DESKTOP - SIEMPRE VISIBLE ==================== */
+
+/* Ocultar logo dentro del sidebar SOLO en mobile */
+@media (max-width: 768px) {
+  #sidebar .logo-container {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   HEADER Y LOGO DESKTOP
+   ======================================== */
 .header {
   display: block !important;
   position: fixed;
@@ -80,32 +84,16 @@
 }
 
 .logo {
-  height: 110px !important;        /* Tamaño grande y visible */
-  max-height: none !important;
+  height: 120px !important;
   width: auto;
   display: block !important;
 }
 
-/* Asegurar que no se oculte nunca en desktop */
-@media (min-width: 769px) {
-  .header {
-    display: block !important;
-  }
-  
-  .logo {
-    height: 120px !important;
-  }
-  
-  /* Espacio superior para que el contenido no se superponga */
-  body {
-    padding-top: 160px !important;
-  }
-}
-
-/* Evitar que el Worker o CSS conflictivo lo oculte */
+/* Asegurar logo en mobile header y topbar */
 .mobile-header .logo,
 .topbar .logo {
   display: block !important;
+  height: 80px !important;     /* Más pequeño en mobile */
 }
   </style>
 </head>
@@ -119,7 +107,6 @@
         <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
       </svg>
     </button>
-
   </header>
   <main>
     <h1>Ihr Warenkorb</h1>
