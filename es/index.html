@@ -239,19 +239,20 @@ body {
       min-height: 100vh; 
     }
 
+/* ==================== TOPBAR (Desktop) ==================== */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
-  height: 110px;
+  padding: 0 30px 0 320px;   /* ← Espacio para la sidebar vertical */
+  height: 100px;
   background: white;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1500;
+  z-index: 1400;
 }
 
 .logo {
@@ -266,7 +267,6 @@ body {
   display: flex;
   gap: 12px;
   font-weight: 600;
-  font-size: 1.05em;
 }
 
 .cart-link {
@@ -274,23 +274,6 @@ body {
   text-decoration: none;
   color: #4A2C59;
   font-size: 1.85em;
-}
-
-#cart-count {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #e74c3c;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  min-width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
 }
 
 /* ==================== MOBILE ==================== */
@@ -309,12 +292,16 @@ body {
   }
   
   .hamburger {
-    display: block !important;
     position: absolute;
     left: 15px;
-    top: 15px;
+    top: 18px;
     z-index: 1600;
   }
+}
+
+/* Asegurar que el logo del header no se superponga */
+.header .logo {
+  height: 110px;
 }
     </style>
     
