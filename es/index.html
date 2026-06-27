@@ -43,8 +43,8 @@
   gtag('config', 'AW-18148476840');
 </script>
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/bedf39e1cc538fd7dc6725078/fc34b799b775fc18c97c65328.js");</script>
-<style>
-    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+ <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .header { top: 50px; z-index: 120; }
         .logo { max-width: 150px; height: auto; }
         .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
@@ -116,9 +116,6 @@
         .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
         .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
         .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
-        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
         .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; max-width: 250px; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); box-sizing: border-box; width: 100%; }
         .product-card img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
@@ -213,122 +210,32 @@
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
-            .search-suggestions li {
-              display: flex;
-              align-items: center;
-              padding: 8px 12px;
-              cursor: pointer;
-        }
-            .search-suggestions img {
-              width: 32px;          /* muy chiquito, tipo icono */
-              height: 64px;         /* proporción botella típica */
-              object-fit: contain;
-              margin-right: 12px;
-              border-radius: 4px;
-              flex-shrink: 0;
-        }
-            .search-suggestions li:hover img {
-              transform: scale(1.1); /* zoom sutil al hover */
-        }
-body { 
-      font-family: 'Montserrat', sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      display: flex; 
-      flex-direction: column; 
-      min-height: 100vh; 
-    }
-
-/* ==================== TOPBAR (Desktop) ==================== */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px 0 320px;   /* ← Espacio para la sidebar vertical */
-  height: 100px;
-  background: white;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1400;
-}
-
-.logo {
-  height: 110px;
-  width: auto;
-}
-
-.language-selector {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  font-weight: 600;
-}
-
-.cart-link {
-  position: relative;
-  text-decoration: none;
-  color: #4A2C59;
-  font-size: 1.85em;
-}
-
-/* ==================== MOBILE ==================== */
-@media (max-width: 768px) {
-  .topbar {
-    padding: 0 15px;
-    height: 78px;
-  }
-  
-  .logo {
-    height: 68px !important;
-  }
-  
-  .language-selector {
-    display: none !important;
-  }
-  
-  .hamburger {
-    position: absolute;
-    left: 15px;
-    top: 18px;
-    z-index: 1600;
-  }
-}
-
-/* Asegurar que el logo del header no se superponga */
-.header .logo {
-  height: 110px;
-}
-    </style>
-    
+    </style>    
 </head>
 <body>
-<!-- ==================== TOPBAR (Desktop + Mobile) ==================== -->
-<div class="topbar">
-  <!-- Logo - Izquierda -->
-  <a href="/es/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
 
-  <!-- Selector de Idiomas - Centro (solo desktop) -->
-  <div class="language-selector">
-    <a href="/es/index.html" class="active">ES</a>
-    <a href="/de/index.html">DE</a>
-    <a href="/en/index.html">EN</a>
-  </div>
-
-  <!-- Carrito - Derecha -->
-  <a href="/es/carrito.html" class="cart-link">
-    🛒
-    <span id="cart-count">0</span>
-  </a>
+<!-- Selector de Idiomas -->
+<div class="language-selector">
+    <a aria-label="Spanisch" data-lang="es" href="/es/index.html">ES</a>
+    <a aria-label="Deutsch" class="active" data-lang="de" href="/de/index.html">DE</a>
+    <a aria-label="Englisch" data-lang="en" href="/en/index.html">EN</a>
 </div>
 
-    <button class="hamburger">☰</button>
+<!-- Header con Logo + Carrito -->
+<header class="header">
+    <a href="/de/" title="Zurück zur Hauptseite">
+        <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+nicht+verfügbar';">
+    </a>
+
+    <!-- Carrito (agregado a la derecha del logo) -->
+    <a href="/de/carrito.html" style="position: absolute; right: 20px; top: 20px; text-decoration: none; color: #4A2C59; font-size: 1.8em;">
+      🛒
+      <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;">0</span>
+    </a>
+</header>
+
+<!-- Hamburguesa -->
+<button class="hamburger">☰</button>
 <main>
     <div class="banner-carousel">
         <div class="banner-container">
