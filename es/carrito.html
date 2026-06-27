@@ -25,14 +25,14 @@
       font-size: 1.1em; font-weight: 600; text-decoration: none;
     }
     .empty { text-align: center; padding: 80px 20px; color: #777; }
-    /* ========================================
+  /* ========================================
    CONTENIDO PRINCIPAL
    ======================================== */
 .container {
   max-width: 920px;
-  margin: 100px auto 40px;   /* también subí un poco el margen superior */
+  margin: 100px auto 40px;
   padding: 0 30px;
-  margin-left: 350px;        /* valor óptimo */
+  margin-left: 350px;        /* Espacio para sidebar en desktop */
 }
 
 @media (max-width: 768px) {
@@ -41,35 +41,36 @@
     padding: 0 15px;
   }
 }
-    /* Ocultar logo dentro del sidebar en mobile */
-#sidebar .logo-container {
-  display: none !important;
-}
 
-/* Opcional: solo ocultar cuando se abre desde mobile */
-@media (max-width: 768px) {
-  #sidebar .logo-container {
-    display: none !important;
-  }
-}
-    /* ==================== SIDEBAR ANCHO CONTROLADO ==================== */
+/* ========================================
+   SIDEBAR (menú hamburguesa)
+   ======================================== */
 #sidebar {
-  width: 280px !important;           /* Ancho fijo recomendado */
-  max-width: 85% !important;         /* No más del 85% de la pantalla */
+  width: 280px !important;
+  max-width: 85vw !important;
   transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
   #sidebar {
     width: 280px !important;
-    max-width: 85vw !important;      /* Mejor en móviles pequeños */
   }
   
   #sidebar.open {
     transform: translateX(0) !important;
   }
 }
-    /* ==================== LOGO DESKTOP - SIEMPRE VISIBLE ==================== */
+
+/* Ocultar logo dentro del sidebar SOLO en mobile */
+@media (max-width: 768px) {
+  #sidebar .logo-container {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   HEADER Y LOGO DESKTOP
+   ======================================== */
 .header {
   display: block !important;
   position: fixed;
@@ -83,32 +84,21 @@
 }
 
 .logo {
-  height: 110px !important;        /* Tamaño grande y visible */
-  max-height: none !important;
+  height: 120px !important;
   width: auto;
   display: block !important;
 }
 
-/* Asegurar que no se oculte nunca en desktop */
-@media (min-width: 769px) {
-  .header {
-    display: block !important;
-  }
-  
-  .logo {
-    height: 120px !important;
-  }
-  
-  /* Espacio superior para que el contenido no se superponga */
-  body {
-    padding-top: 160px !important;
-  }
+/* Espacio superior para evitar superposición */
+body {
+  padding-top: 160px !important;
 }
 
-/* Evitar que el Worker o CSS conflictivo lo oculte */
+/* Asegurar logo en mobile header y topbar */
 .mobile-header .logo,
 .topbar .logo {
   display: block !important;
+  height: 80px !important;     /* Más pequeño en mobile */
 }
   </style>
 </head>
