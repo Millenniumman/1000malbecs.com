@@ -239,129 +239,106 @@ body {
       min-height: 100vh; 
     }
 
-    /* ==================== HEADER Y LOGO ==================== */
-    .header, .topbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1400;
-      background: white;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-    }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 110px;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1500;
+}
 
-    .logo {
-      height: 110px !important;
-      width: auto;
-      display: block;
-    }
+.logo {
+  height: 110px;
+  width: auto;
+}
 
-    /* ==================== TOPBAR DESKTOP ==================== */
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 30px;
-      height: 100px;
-    }
+.language-selector {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 1.05em;
+}
 
-    /* Selector de idiomas centrado */
-    .language-selector {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      font-weight: 600;
-    }
+.cart-link {
+  position: relative;
+  text-decoration: none;
+  color: #4A2C59;
+  font-size: 1.85em;
+}
 
-    /* ==================== MOBILE ==================== */
-    @media (max-width: 768px) {
-      .topbar {
-        padding: 0 12px;
-        height: 78px;
-      }
+#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #e74c3c;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 
-      .logo {
-        height: 68px !important;
-      }
-
-      .language-selector {
-        display: none !important;
-      }
-
-      /* Asegurar que el hamburguesa esté bien posicionado */
-      .hamburger {
-        display: block !important;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        z-index: 1500;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .language-selector {
-        display: flex !important;
-      }
-    }
-
-    /* ==================== SIDEBAR ==================== */
-    #sidebar {
-      width: 280px !important;
-      max-width: 85vw !important;
-      transition: transform 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      #sidebar .logo-container {
-        display: none !important;
-      }
-    }
-
-    /* ==================== RESTO DE TU CSS (mantengo lo importante) ==================== */
-    main { 
-      margin-left: 290px; 
-      padding: 20px; 
-      width: calc(100% - 290px); 
-      flex: 1; 
-    }
-
-    @media (max-width: 768px) {
-      main { 
-        margin-left: 0; 
-        margin-top: 90px; 
-        padding: 15px; 
-        width: 100%; 
-      }
-    }
+/* ==================== MOBILE ==================== */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 15px;
+    height: 78px;
+  }
+  
+  .logo {
+    height: 68px !important;
+  }
+  
+  .language-selector {
+    display: none !important;
+  }
+  
+  .hamburger {
+    display: block !important;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    z-index: 1600;
+  }
+}
     </style>
     
 </head>
 <body>
 <!-- ==================== TOPBAR (Desktop + Mobile) ==================== -->
-<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 15px; height: 85px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative;">
-
+<div class="topbar">
   <!-- Logo - Izquierda -->
-  <header class="header">
-    <a href="/es/" title="1000 Malbecs">
-      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height: 78px; width: auto;">
-    </a>
-  </header>
+  <a href="/es/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  </a>
 
-  <!-- Selector de Idiomas - Solo en Desktop -->
-  <div class="language-selector" style="display: none; position: absolute; left: 50%; transform: translateX(-50%); gap: 12px; font-weight: 600;">
+  <!-- Selector de Idiomas - Centro (solo desktop) -->
+  <div class="language-selector">
     <a href="/es/index.html" class="active">ES</a>
     <a href="/de/index.html">DE</a>
     <a href="/en/index.html">EN</a>
   </div>
 
   <!-- Carrito - Derecha -->
-  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.75em; margin-left: auto;">
+  <a href="/es/carrito.html" class="cart-link">
     🛒
-    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+    <span id="cart-count">0</span>
   </a>
-
 </div>
 
     <button class="hamburger">☰</button>
