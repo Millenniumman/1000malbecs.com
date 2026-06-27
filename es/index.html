@@ -244,29 +244,49 @@
     display: none !important;   /* Ocultar selector en mobile si querés */
   }
 }
+    @media (min-width: 769px) {
+  .language-selector {
+    display: flex !important;
+  }
+  
+  .logo {
+    height: 110px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 12px !important;
+    height: 78px !important;
+  }
+  
+  .logo {
+    height: 68px !important;
+  }
+}
     </style>
     
 </head>
 <body>
-<!-- ==================== TOPBAR DESKTOP ==================== -->
-<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 100px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative;">
+<!-- ==================== TOPBAR (Desktop + Mobile) ==================== -->
+<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 15px; height: 85px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative;">
 
   <!-- Logo - Izquierda -->
   <header class="header">
     <a href="/es/" title="1000 Malbecs">
-      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height: 110px; width: auto;">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height: 78px; width: auto;">
     </a>
   </header>
 
-  <!-- Selector de Idiomas - Centro -->
-  <div class="language-selector" style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; font-weight: 600; font-size: 1.05em;">
+  <!-- Selector de Idiomas - Solo en Desktop -->
+  <div class="language-selector" style="display: none; position: absolute; left: 50%; transform: translateX(-50%); gap: 12px; font-weight: 600;">
     <a href="/es/index.html" class="active">ES</a>
     <a href="/de/index.html">DE</a>
     <a href="/en/index.html">EN</a>
   </div>
 
   <!-- Carrito - Derecha -->
-  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.85em; margin-left: auto;">
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.75em; margin-left: auto;">
     🛒
     <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
