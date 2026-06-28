@@ -538,21 +538,7 @@
       font-size: 11px;
       color: #999;
     }
-  @media (max-width: 768px) {
-  .header {
-    padding-left: 55px !important;   /* ← Corre el logo a la derecha */
-  }
-  
-  .logo {
-    height: 65px !important;
-  }
-  
-  .hamburger {
-    left: 15px !important;
-    top: 18px !important;
-    z-index: 1600;
-  }
-}
+   
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script>
@@ -564,21 +550,52 @@
   gtag('config', 'AW-18090475554');
 </script>
 </head>
-<!-- Selector de Idiomas -->
+
+<body>
+
+<!-- Selector de Idiomas + Carrito -->
 <div class="language-selector">
-    <a aria-label="Spanisch" data-lang="es" href="/es/index.html">ES</a>
-    <a aria-label="Deutsch" class="active" data-lang="de" href="/de/index.html">DE</a>
-    <a aria-label="Englisch" data-lang="en" href="/en/index.html">EN</a>
-</div>
-
-    
-    <!-- Carrito pequeño y separado -->
-    <a href="/es/carrito.html" style="text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-left: 25px;">
-      🛒
-      <span id="cart-count" style="position: relative; top: -6px; margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 1px 6px; border-radius:50%;">0</span>
+    <a href="/de/bodegas/bemberg-estate-wines.html" 
+       class="active" 
+       data-lang="de">
+       DE
     </a>
-</header>
+    
+    
+    
+    <a href="/es/bodegas/bemberg-estate-wines.html" 
+       class="" 
+       data-lang="es">
+       ES
+    </a>
+    
+    
+    
+    
+    
+    <a href="/en/bodegas/bemberg-estate-wines.html" 
+       class="" 
+       data-lang="en">
+       EN
+    </a>
+    
+    
 
+    <!-- Carrito al lado del selector -->
+    <a href="/de/carrito.html" style="margin-left: 18px; text-decoration: none; color: #4A2C59; font-size: 1.7em;">
+      🛒
+      <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
+    </a>
+</div>
+</div>
+<br>
+<br>
+  <header class="header">
+    <a href="/de/" title="home">
+      <img src="/images/1000-malbecs-logo.png" alt="Logo 1000malbecs" class="logo">
+    </a>
+  </header>
+ 
   <button class="hamburger">☰</button>
   <nav id="sidebar">
     <div class="logo-container">
@@ -702,7 +719,7 @@
     </ul>
   </nav>
   <main class="main-content">
-    <h1>Bemberg Estate Wines</h1>
+    
     <div class="banner" style="
         background: 
             linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
