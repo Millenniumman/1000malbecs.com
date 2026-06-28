@@ -106,11 +106,33 @@
         .recent-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
         .recent-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
         .recent-nav button:hover { background: #4A2C59; }
-        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
-        .language-selector.hidden { opacity: 0; pointer-events: none; }
-        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
-        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
-        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
+        .language-selector {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.language-selector a {
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
+}
+
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
+}
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
         .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; max-width: 250px; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); box-sizing: border-box; width: 100%; }
         .product-card img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
@@ -188,11 +210,33 @@
             .search-icon { font-size: 16px; right: 12px; }
             .search-suggestions { font-size: 12px; }
             .search-suggestions li { padding: 8px 12px; }
-            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
-            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
-            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
-            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
-        }
+           .language-selector {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.language-selector a {
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
+}
+
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
+}        
         @media (min-width: 769px) {
             .header { display: none; }
             .logo-container { display: block; }
