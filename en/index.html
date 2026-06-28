@@ -224,28 +224,29 @@
     </style>    
 </head>
 <body>
-<!-- Selector de Idiomas -->
+<!-- Selector de Idiomas + Carrito -->
 <div class="language-selector">
     <a aria-label="Spanisch" data-lang="es" href="/es/index.html">ES</a>
     <a aria-label="Deutsch" class="active" data-lang="de" href="/de/index.html">DE</a>
     <a aria-label="Englisch" data-lang="en" href="/en/index.html">EN</a>
+
+    <!-- Carrito al lado del selector -->
+    <a href="/en/carrito.html" style="margin-left: 18px; text-decoration: none; color: #4A2C59; font-size: 1.7em;">
+      🛒
+      <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
+    </a>
 </div>
 
-<!-- Header con Logo + Carrito -->
-<header class="header" style="display: flex; align-items: center; justify-content: space-between; padding: 0 25px;">
+<!-- Header con Logo -->
+<header class="header">
     <a href="/en/" title="Zurück zur Hauptseite">
         <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+nicht+verfügbar';">
     </a>
-    
-    <!-- Carrito pequeño y separado -->
-    <a href="/en/carrito.html" style="text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-left: 25px;">
-      🛒
-      <span id="cart-count" style="position: relative; top: -6px; margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 1px 6px; border-radius:50%;">0</span>
-    </a>
 </header>
+
 <!-- Hamburguesa -->
 <button class="hamburger">☰</button>
-<button class="hamburger">☰</button>
+<main>
 <main>
     <div class="banner-carousel">
         <div class="banner-container">
