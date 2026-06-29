@@ -506,79 +506,6 @@ body {
     margin-right: 15px;
   }
 }
-.language-selector {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 1500;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255,255,255,0.95);
-  padding: 5px 10px;
-  border-radius: 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-}
-
-.language-selector a {
-  text-decoration: none;
-  padding: 4px 9px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 13px;
-  color: #4A2C59;
-}
-
-.language-selector a.active {
-  background: #4A2C59 !important;
-  color: white !important;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 25px;
-  height: 100px;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1400;
-}
-
-.logo {
-  height: 110px;
-  width: auto;
-}
-
-.hamburger {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #4A2C59;
-  cursor: pointer;
-  position: absolute;
-  top: 22px;
-  left: 20px;
-  z-index: 1600;
-}
-
-@media (max-width: 768px) {
-  .header {
-    height: 78px;
-    padding: 0 15px;
-  }
-  .logo {
-    height: 68px;
-  }
-  .hamburger {
-    display: block;
-  }
-}
 </style>
 
   <!-- JSON-LD -->
@@ -630,32 +557,60 @@ body {
 
   gtag('config', 'AW-1068768833');
 </script>
-<body>
 
-  <!-- Selector de Idiomas + Carrito (fijo y compacto) -->
-  <div class="language-selector">
-    <a href="/es/vinos/dilema-day-malbec-2021.html" class="active">ES</a>
-    <a href="/de/vinos/dilema-day-malbec-2021.html" class="">DE</a>
-    <a href="/en/vinos/dilema-day-malbec-2021.html" class="">EN</a>
+<!-- ==================== HEADER MOBILE ==================== -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+  
+  <a href="/es/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  </a>
 
-    <!-- Carrito al lado -->
-    <a href="/es/carrito.html" style="margin-left: 12px; text-decoration: none; color: #4A2C59; font-size: 1.65em;">
-      🛒
-      <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
-    </a>
-  </div>
+  <!-- CARRITO MOBILE -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+</header>
 
-  <!-- Header con Logo -->
+<!-- ==================== TOPBAR DESKTOP ==================== -->
+<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+
+  <!-- Logo - Izquierda -->
   <header class="header">
-    <a href="/es/" title="Volver al inicio">
+    <a href="/es/" title="1000 Malbecs">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
 
-  <!-- Hamburguesa -->
-  <button class="hamburger">☰</button>
+  <!-- Selector de Idiomas - Centro -->
+  <div class="lang-selector-desktop" style="position: absolute; left: 50%; transform: translateX(-50%);">
+    <a href="/es/vinos/dilema-day-malbec-2021.html">ES</a>
+    <a href="/en/vinos/dilema-day-malbec-2021.html">EN</a>
+    <a href="/de/vinos/dilema-day-malbec-2021.html">DE</a>
+  </div>
 
+  <!-- Carrito - Derecha -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
 
+</div>
+</div>
+
+  <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/dilema-day-malbec-2021.html">ES</a>
+    <a href="/en/vinos/dilema-day-malbec-2021.html">EN</a>
+    <a href="/de/vinos/dilema-day-malbec-2021.html">DE</a>
+  </div>
 
   <!-- Contenido de la landing -->
   <div class="main-content">
