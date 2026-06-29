@@ -325,38 +325,32 @@ Una bode...">
             background-color: #5A1D39;
         }
     .language-selector {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 50;
-      display: flex;
-      gap: 10px;
-      transition: opacity 0.3s ease;
-      max-width: 100%;
-    }
-    .language-selector.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .language-selector a {
-      text-decoration: none;
-      color: #4A2C59;
-      font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .language-selector a:hover {
-      background-color: #4A2C59;
-      color: #FFFFFF;
-    }
-    .language-selector a.active {
-      background-color: #4A2C59;
-      color: #FFFFFF;
-    }
+  position: fixed;
+  top: 15px;
+  right: 40px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255,255,255,0.95);
+  padding: 4px 8px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.language-selector a {
+  text-decoration: none;
+  padding: 3px 6px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
+}
+
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
+}
     @media (max-width: 768px) {
       .header {
         display: block;
