@@ -115,6 +115,8 @@
     <div id="cart-total" class="total"></div>
     <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Finalizar la compra</a>
     <a href="/es/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Seguir Comprando</a>
+  Ir a Pagar con Stripe
+</a>
   </main>
 
 <script src="/js/cart.js"></script>
@@ -153,5 +155,35 @@
       }
     });
   </script>
+  <script src="https://js.stripe.com/v3/"></script>
+<script>
+  const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";
+
+  async function goToCheckout() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    try {
+      const response = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cart: cart })
+      });
+
+      const session = await response.json();
+
+      const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+      stripe.redirectToCheckout({ sessionId: session.id });
+
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Hubo un error al procesar el pago. Intenta de nuevo.");
+    }
+  }
+</script>
 </body>
 </html>
