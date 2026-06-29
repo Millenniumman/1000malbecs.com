@@ -18,7 +18,43 @@ body {
   background: #fdfdfd; color: #333; 
 }
 
+/* ========================================
+   HEADER MOBILE
+   ======================================== */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: white;
+  z-index: 1300;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
 
+.hamburger {
+  background: none; border: none; cursor: pointer;
+  width: 50px; height: 50px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1301; padding: 0;
+}
+
+.hamburger-icon .line { 
+  fill: var(--primary); 
+  transition: all 0.3s ease; 
+}
+
+.hamburger[aria-expanded="true"] .top { 
+  transform: translateY(20px) rotate(45deg); 
+}
+.hamburger[aria-expanded="true"] .mid { 
+  opacity: 0; 
+}
+.hamburger[aria-expanded="true"] .bot { 
+  transform: translateY(-20px) rotate(-45deg); 
+}
 
 /* ========================================
    HEADER DESKTOP: LOGO (arriba izquierda)
@@ -185,32 +221,38 @@ body {
 /* ========================================
    SELECTOR DE IDIOMAS
    ======================================== */
-.language-selector {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 1500;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255,255,255,0.95);
-  padding: 5px 10px;
-  border-radius: 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+.lang-selector-desktop {
+  position: fixed; top: 15px; right: 20px; z-index: 110; 
+  display: flex; gap: 8px;
 }
 
-.language-selector a {
-  text-decoration: none;
-  padding: 4px 9px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 13px;
-  color: #4A2C59;
+.lang-selector-desktop a {
+  color: #666; text-decoration: none; font-weight: 600; 
+  padding: 6px 10px; border-radius: 6px; transition: all 0.3s; 
+  font-size: 14px;
 }
 
-.language-selector a.active {
-  background: #4A2C59 !important;
-  color: white !important;
+.lang-selector-desktop a.active { 
+  background: var(--primary); color: white; 
+}
+
+.lang-selector-desktop a:hover { 
+  background: #eee; 
+}
+
+.lang-selector-mobile {
+  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
+  z-index: 110; background: white; padding: 6px 12px; 
+  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+}
+
+.lang-selector-mobile a {
+  color: var(--primary); text-decoration: none;
+}
+
+.lang-selector-mobile a.active { 
+  font-weight: 700; 
 }
 
 /* ========================================
@@ -464,53 +506,78 @@ body {
     margin-right: 15px;
   }
 }
-.main-header {
+.language-selector {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.95);
+  padding: 5px 10px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.language-selector a {
+  text-decoration: none;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
+}
+
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
+}
+
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
-  height: 78px;
+  padding: 0 25px;
+  height: 100px;
   background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1500;
-}
-
-.logo-link {
-  margin-left: auto;   /* Logo a la derecha en mobile */
+  z-index: 1400;
 }
 
 .logo {
-  height: 45px;
+  height: 110px;
   width: auto;
 }
 
 .hamburger {
-  font-size: 32px;
-  color: #000;
+  display: none;
+  font-size: 28px;
   background: none;
   border: none;
+  color: #4A2C59;
   cursor: pointer;
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  z-index: 1600;
 }
 
-/* ==================== DESKTOP ==================== */
-@media (min-width: 769px) {
-  .main-header {
-    height: 100px;
-    padding: 0 30px;
+@media (max-width: 768px) {
+  .header {
+    height: 78px;
+    padding: 0 15px;
   }
-  
   .logo {
-    height: 110px;
+    height: 68px;
   }
-  
   .hamburger {
-    display: none;
+    display: block;
   }
-  
 }
 </style>
 
@@ -565,7 +632,7 @@ body {
 </script>
 <body>
 
-  <!-- Selector de Idiomas + Carrito -->
+  <!-- Selector de Idiomas + Carrito (fijo y compacto) -->
   <div class="language-selector">
     <a href="/es/vinos/amar-vivir-malbec-2020.html" class="active">ES</a>
     <a href="/de/vinos/amar-vivir-malbec-2020.html" class="">DE</a>
@@ -587,6 +654,8 @@ body {
 
   <!-- Hamburguesa -->
   <button class="hamburger">☰</button>
+
+
 
   <!-- Contenido de la landing -->
   <div class="main-content">
