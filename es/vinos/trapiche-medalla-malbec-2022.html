@@ -185,23 +185,23 @@ body {
 /* ========================================
    SELECTOR DE IDIOMAS
    ======================================== */
- .language-selector {
+.language-selector {
   position: fixed;
   top: 15px;
-  right: 30px;
+  right: 20px;
   z-index: 1500;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
   background: rgba(255,255,255,0.95);
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 30px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
 .language-selector a {
   text-decoration: none;
-  padding: 3px 6px;
+  padding: 4px 9px;
   border-radius: 20px;
   font-weight: 600;
   font-size: 13px;
@@ -563,52 +563,36 @@ body {
 
   gtag('config', 'AW-1068768833');
 </script>
+<body>
 
-
-<!-- ==================== HEADER MOBILE ==================== -->
-<header class="mobile-header">
-  <button class="hamburger">☰</button>
-
-  <!-- Caja centrada: selector + carrito -->
+  <!-- Selector de Idiomas + Carrito -->
   <div class="language-selector">
-    <a href="/es/vinos/trapiche-medalla-malbec-2022.html">ES</a>
-    <a href="/en/vinos/trapiche-medalla-malbec-2022.html">EN</a>
-    <a href="/de/vinos/trapiche-medalla-malbec-2022.html">DE</a>
+    <a href="/es/vinos/trapiche-medalla-malbec-2022.html" class="active">ES</a>
+    <a href="/de/vinos/trapiche-medalla-malbec-2022.html" class="">DE</a>
+    <a href="/en/vinos/trapiche-medalla-malbec-2022.html" class="">EN</a>
 
-    <a href="/es/carrito.html" style="margin-left: 10px; text-decoration: none; color: #4A2C59; font-size: 1.6em;">
+    <!-- Carrito al lado -->
+    <a href="/es/carrito.html" style="margin-left: 12px; text-decoration: none; color: #4A2C59; font-size: 1.65em;">
       🛒
-      <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 1px 6px; border-radius:50%;">0</span>
+      <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
     </a>
   </div>
 
-  <!-- Logo a la derecha -->
-  <a href="/es/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
-</header>
-
-<!-- ==================== TOPBAR DESKTOP ==================== -->
-<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-
-  <!-- Logo - Izquierda -->
+  <!-- Header con Logo -->
   <header class="header">
-    <a href="/es/" title="1000 Malbecs">
+    <a href="/es/" title="Volver al inicio">
       <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
     </a>
   </header>
-<!-- Selector de Idiomas + Carrito (compacto) -->
-<div class="language-selector">
-  <a href="/es/vinos/trapiche-medalla-malbec-2022.html">ES</a>
-  <a href="/en/vinos/trapiche-medalla-malbec-2022.html">EN</a>
-  <a href="/de/vinos/trapiche-medalla-malbec-2022.html">DE</a>
 
-  <!-- Carrito al lado -->
-  <a href="/es/carrito.html" style="margin-left: 15px; text-decoration: none; color: #4A2C59; font-size: 1.65em;">
-    🛒
-    <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
-  </a>
-</div>
-</div>
+  <!-- Hamburguesa -->
+  <button class="hamburger">☰</button>
+
+  <!-- Contenido de la landing -->
+  <div class="main-content">
+    
+ 
+
 
   <div class="container">
     <div class="product">
