@@ -497,13 +497,13 @@ try {
       ${footerHtml}
     </body>
     </html>
-;
-      return new Response(html, {
+    
+           return new Response(html, {
         headers: { "Content-Type": "text/html; charset=utf-8" },
         status: pageResponse.status
       });
 
-      } catch (error) {
+    } catch (error) {
       console.error(`Worker error: ${error.message} for URL: ${request.url}`);
       return new Response("Internal Server Error", {
         status: 500,
