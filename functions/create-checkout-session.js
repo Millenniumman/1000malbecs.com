@@ -1,19 +1,25 @@
-export async function onRequestPost({ request, env }) {
+async function goToCheckout() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log("Carrito enviado:", cart);
+
   try {
-    const { cart } = await request.json();
-
-    // Simulación temporal - solo para probar que funciona
-    const session = {
-      id: "cs_test_" + Math.random().toString(36).substring(2, 15)
-    };
-
-    return new Response(JSON.stringify({ id: session.id }), {
+    const response = await fetch('/create-checkout-session', {
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      status: 200
+      body: JSON.stringify({ cart: cart })
     });
 
+    const responseText = await response.text();
+    console.log("Respuesta raw del servidor:", responseText);
+
+    const session = JSON.parse(responseText);
+    console.log("Sesión parseada:", session);
+
+    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    stripe.redirectToCheckout({ sessionId: session.id });
+
   } catch (error) {
-    console.error("Error en create-checkout-session:", error);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    console.error("Error completo:", error);
+    alert("Error: " + error.message);
   }
 }
