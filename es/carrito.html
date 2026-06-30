@@ -158,7 +158,7 @@
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
-  const STRIPE_PUBLISHABLE_KEY = "pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs";   // ← Pon tu clave pública aquí
+  const STRIPE_PUBLISHABLE_KEY = "Error: stripe.redirectToCheckout: the provided sessionId is for a test mode Checkout Session, whereas Stripe.js was initialized with a live mode publishable key.";   // ← Pon tu clave pública aquí
 
  async function goToCheckout() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
