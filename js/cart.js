@@ -180,7 +180,42 @@ function renderCart() {
     </div>
   `;
 }
+// ==================== PAGO CON STRIPE ====================
+async function goToCheckout() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log("Carrito enviado:", cart);
 
+  if (cart.length === 0) {
+    alert("El carrito está vacío");
+    return;
+  }
+
+  try {
+    const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cart: cart })
+    });
+
+    console.log("Status del servidor:", response.status);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Error del servidor:", errorText);
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const session = await response.json();
+    console.log("Sesión recibida:", session);
+
+    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    stripe.redirectToCheckout({ sessionId: session.id });
+
+  } catch (error) {
+    console.error("Error completo:", error);
+    alert("Error: " + error.message);
+  }
+}
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
