@@ -2,6 +2,10 @@ export default {
 async fetch(request) {
 const url = new URL(request.url);
 const path = url.pathname;
+// Redirect root to Spanish
+  if (path === '/' || path === '') {
+    return Response.redirect('https://www.1000malbecs.com/es/', 301);
+  }
 const excludedPaths = ["/footer.html", "/anotate.html", "/gracias.html", "/data/navigation.json"];
 if (excludedPaths.some((excluded) => path.includes(excluded))) {
 return fetch(request.url.replace("https://footer-injector.federico-augspach.workers.dev", "https://1000malbecs.com"), {

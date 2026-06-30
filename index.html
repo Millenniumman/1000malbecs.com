@@ -4,10 +4,10 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="Descubre los mejores Malbecs de Argentina, desde Patagonia hasta Puna." name="description"/>
-    <title>1000malbecs - Los 1000 mejores Malbecs</title>
-    <meta content="La tienda única para comprar online los Malbecs más icónicos de Argentina. Los 1000 mejores Malbecs argentinos, desde Patagonia hasta Puna" property="og:title"/>
+    <title>1000malbecs - Los 1000 Mejores Malbecs</title>
+    <meta content="La tienda única para la compra en línea de los Malbecs más icónicos de Argentina. Los 1000 mejores Malbecs argentinos, desde Patagonia hasta Puna" property="og:title"/>
     <meta content="Explora nuestra selección de Malbecs argentinos, desde Patagonia hasta Puna." property="og:description"/>
-    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" property="og:image"/>
+    <meta content="https://www.1000malbecs.com/images/1000-malbecs-logo.png" property="og:image"/>
     <meta content="image/png" property="og:image:type"/>
     <meta content="1200" property="og:image:width"/>
     <meta content="630" property="og:image:height"/>
@@ -16,10 +16,15 @@
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="1000 Malbecs - Catálogo de Vinos" name="twitter:title"/>
     <meta content="Explora nuestra selección de Malbecs argentinos, desde Patagonia hasta Puna." name="twitter:description"/>
-    <meta content="https://www.1000malbecs.com/images/l000-malbecs-logo.png" name="twitter:image"/>
+    <meta content="https://www.1000malbecs.com/images/1000-malbecs-logo.png" name="twitter:image"/>
+    <!-- Twitter / X Cards (para mejor compatibilidad en X) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="1000malbecs.com - El one-stop shop para comprar los malbecs más icónicos de la Argentina" />
+<meta name="twitter:description" content="La tienda única para la compra en línea de los Malbecs más icónicos de Argentina. Los 1000 mejores Malbecs argentinos, desde Patagonia hasta Puna." />
+<meta name="twitter:image" content="https://www.1000malbecs.com/images/1000-malbecs-logo.png" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
-<!-- Google tag (gtag.js) -->
+   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,10 +33,18 @@
 
   gtag('config', 'AW-18090475554');
 </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18148476840"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18148476840');
+</script>
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/bedf39e1cc538fd7dc6725078/fc34b799b775fc18c97c65328.js");</script>
-<meta name="google-site-verification" content="iJ407nKwrC09YFw0JeIz2ZtbDDl77F5zEJw6VGzzg-s" />
-    <style>
-    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+ <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .header { top: 50px; z-index: 120; }
         .logo { max-width: 150px; height: auto; }
         .hamburger { display: none; font-size: 24px; background: none; border: none; color: #4A2C59; cursor: pointer; padding: 10px; position: fixed; top: 15px; left: 10px; z-index: 130; }
@@ -98,14 +111,33 @@
         .recent-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
         .recent-nav button { background: rgba(74, 44, 89, 0.7); color: #FFFFFF; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 5px; }
         .recent-nav button:hover { background: #4A2C59; }
-        .language-selector { position: fixed; top: 10px; right: 10px; z-index: 50; display: flex; gap: 10px; transition: opacity 0.3s ease; }
-        .language-selector.hidden { opacity: 0; pointer-events: none; }
-        .language-selector a { text-decoration: none; color: #4A2C59; font-size: 14px; padding: 5px 10px; border-radius: 3px; transition: all 0.3s ease; display: flex; align-items: center; gap: 5px; }
-        .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
-        .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
-        .lang-de .fa-flag { background: linear-gradient(to bottom, #000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .lang-es .fa-flag { background: linear-gradient(to bottom, #C60B1E 50%, #FFC107 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .lang-en .fa-flag { background: linear-gradient(to bottom, #00247D 50%, #FFFFFF 50%, #CF142B 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .language-selector {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.language-selector a {
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
+}
+
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
+}
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; width: 100%; justify-content: start; }
         .product-card { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 5px; padding: 15px; padding-bottom: 20px; position: relative; overflow: visible; max-width: 250px; min-height: 360px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.1); box-sizing: border-box; width: 100%; }
         .product-card img { width: 200px; height: 200px; object-fit: contain; margin: 0 auto; }
@@ -183,12 +215,34 @@
             .search-icon { font-size: 16px; right: 12px; }
             .search-suggestions { font-size: 12px; }
             .search-suggestions li { padding: 8px 12px; }
-            .language-selector { top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 2px; justify-content: center; }
-            .language-selector a { font-size: 9px; padding: 2px 4px; color: #4A2C59; border-radius: 2px; background-color: rgba(255, 255, 255, 0.7); }
-            .language-selector a:hover { background-color: #4A2C59; color: #FFFFFF; }
-            .language-selector a.active { background-color: #4A2C59; color: #FFFFFF; }
-        }
-        @media (min-width: 769px) {
+           .language-selector {
+  position: fixed;
+  top: 15px;
+  right: 80px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 3px;                    /* Menos espacio entre idiomas */
+  background: rgba(255,255,255,0.95);
+  padding: 4px 8px;           /* Más pequeño */
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.language-selector a {
+  text-decoration: none;
+  padding: 3px 6px;            /* Más compacto */
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
+}
+
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
+}
+         @media (min-width: 769px) {
             .header { display: none; }
             .logo-container { display: block; }
             .info-icon { display: none; }
@@ -200,37 +254,47 @@
             .product-card { pointer-events: auto; max-width: 250px; min-height: 360px; width: 100%; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-sizing: border-box; }
             .product-card img { width: 200px; height: 200px; margin: 0 auto; }
         }
-            .search-suggestions li {
-              display: flex;
-              align-items: center;
-              padding: 8px 12px;
-              cursor: pointer;
-        }
-            .search-suggestions img {
-              width: 32px;          /* muy chiquito, tipo icono */
-              height: 64px;         /* proporción botella típica */
-              object-fit: contain;
-              margin-right: 12px;
-              border-radius: 4px;
-              flex-shrink: 0;
-        }
-            .search-suggestions li:hover img {
-              transform: scale(1.1); /* zoom sutil al hover */
-        }
-    </style>
-    
+     @media (max-width: 768px) {
+  .header {
+    padding-left: 55px !important;   /* ← Corre el logo a la derecha */
+  }
+  
+  .logo {
+    height: 65px !important;
+  }
+  
+  .hamburger {
+    left: 15px !important;
+    top: 18px !important;
+    z-index: 1600;
+  }
+}
+    </style>    
 </head>
 <body>
+<!-- Selector de Idiomas + Carrito -->
+
+<!-- Selector de Idiomas + Carrito -->
 <div class="language-selector">
-    <a aria-label="Español" class="active" data-lang="es" href="/es/index.html">ES 🇪🇸</a>
-    <a aria-label="Alemán" data-lang="de" href="/de/index.html">DE 🇩🇪</a>
-    <a aria-label="Inglés" data-lang="en" href="/en/index.html">EN 🇬🇧</a>
+    <a aria-label="Spanisch" class="active" data-lang="es" href="/es/index.html">ES</a>
+    <a aria-label="Deutsch"  data-lang="de" href="/de/index.html">DE</a>
+    <a aria-label="Englisch"  data-lang="en" href="/en/index.html">EN</a>
+
+    <!-- Carrito al lado del selector -->
+    <a href="/en/carrito.html" style="margin-left: 18px; text-decoration: none; color: #4A2C59; font-size: 1.7em;">
+      🛒
+      <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
+    </a>
 </div>
+
+<!-- Header con Logo -->
 <header class="header">
-    <a href="/es/" title="Volver a la página principal">
-        <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+No+Disponible';">
+    <a href="/es/" title="Zurück zur Hauptseite">
+        <img alt="1000malbecs Logo" class="logo" src="/images/l000-malbecs-logo.png" onerror="this.src='https://via.placeholder.com/80x80?text=Logo+nicht+verfügbar';">
     </a>
 </header>
+
+<!-- Hamburguesa -->
 <button class="hamburger">☰</button>
 <main>
     <div class="banner-carousel">
@@ -904,63 +968,44 @@
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
 
-   // Language selector - Versión corregida y robusta
-const languageSelector = document.querySelector('.language-selector');
-let lastScrollY = window.scrollY;
-let scrollThreshold = 50;
-
-if (languageSelector) {
-    // Ocultar al hacer scroll hacia abajo
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-            languageSelector.classList.add('hidden');
-        } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-            languageSelector.classList.remove('hidden');
-        }
-        lastScrollY = currentScrollY;
-    });
-
-    // Manejo de clicks en los links
-    const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-    langLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetLang = link.getAttribute('data-lang');
-            const currentPath = window.location.pathname;
-
-            let newPath = currentPath;
-
-            // Reemplazar cualquier prefijo de idioma existente (/es/, /de/, /en/)
-            newPath = newPath.replace(/^\/(es|de|en)\//i, `/${targetLang}/`);
-
-            // Si no había prefijo (raíz / o /index.html), agregar el idioma
-            if (!newPath.startsWith(`/${targetLang}/`)) {
-                if (newPath === '/' || newPath === '/index.html' || newPath === '') {
-                    newPath = `/${targetLang}/index.html`;
-                } else {
-                    newPath = `/${targetLang}${newPath.startsWith('/') ? '' : '/'}${newPath}`;
-                }
+    // Language selector
+    const languageSelector = document.querySelector('.language-selector');
+    let lastScrollY = window.scrollY;
+    let scrollThreshold = 50;
+    if (languageSelector) {
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                languageSelector.classList.add('hidden');
+            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                languageSelector.classList.remove('hidden');
             }
-
-            // Redirigir si el path cambió
-            if (newPath !== currentPath) {
-                window.location.href = newPath;
-            }
+            lastScrollY = currentScrollY;
         });
-    });
-
-    // Marcar el link activo según la URL actual
-    const currentLang = window.location.pathname.match(/\/(es|de|en)\//i)?.[1]?.toLowerCase() || 'es';
-    langLinks.forEach(link => {
-        const lang = link.getAttribute('data-lang');
-        if (lang === currentLang) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
+        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
+        langLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLang = link.getAttribute('data-lang');
+                const currentPath = window.location.pathname;
+                let newPath = currentPath;
+                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
+                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
+                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
+                if (newPath !== currentPath) { window.location.href = newPath; }
+            });
+        });
+        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
+        langLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
+        });
+    }
+    // Language-specific labels
+    const labels = {
+        es: { winery: 'Bodega', province: 'Provincia', region: 'Región' },
+        en: { winery: 'Winery', province: 'Province', region: 'Region' },
+        de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
+    };
 // Search functionality - Versión limpia y funcional (2025)
 
 const searchInput = document.querySelector('.search-input');

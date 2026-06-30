@@ -119,7 +119,6 @@
 </a>
   </main>
 
-<script src="/js/cart.js"></script>
 <script>
   console.log("Página del carrito cargada");
 
@@ -157,39 +156,5 @@
   </script>
   <script src="https://js.stripe.com/v3/"></script>
 
-  <script>
-  const STRIPE_PUBLISHABLE_KEY = "pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE";   // ← Pon tu clave pública aquí
-
- async function goToCheckout() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  console.log("Carrito enviado:", cart);
-
-  try {
-    const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cart: cart })
-    });
-
-    console.log("Status del servidor:", response.status);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("Error del servidor:", errorText);
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const session = await response.json();
-    console.log("Sesión recibida:", session);
-
-    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-    stripe.redirectToCheckout({ sessionId: session.id });
-
-  } catch (error) {
-    console.error("Error completo:", error);
-    alert("Error: " + error.message);
-  }
-}
-</script>
 </body>
 </html>

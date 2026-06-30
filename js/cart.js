@@ -54,9 +54,11 @@ function updateCartCount() {
 }
 
 function addToCart(product) {
+  console.log("Intentando agregar:", product);   // ← Agrega este log temporal
+
   const price = parseFloat(product.price);
   if (isNaN(price)) {
-    console.error("Precio inválido");
+    console.error("Precio inválido:", product.price);
     return;
   }
 
@@ -81,7 +83,6 @@ function addToCart(product) {
 
   if (typeof renderCart === 'function') renderCart();
 }
-
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
   localStorage.setItem('cart', JSON.stringify(cart));
