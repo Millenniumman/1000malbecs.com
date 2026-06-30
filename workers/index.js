@@ -498,7 +498,7 @@ try {
     </body>
     </html>
     
-           return new Response(html, {
+                 return new Response(html, {
         headers: { "Content-Type": "text/html; charset=utf-8" },
         status: pageResponse.status
       });
