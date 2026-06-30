@@ -1,4 +1,12 @@
+# Root → Español por defecto
 / /es/ 301
-/es /es/ 301
-/en /en/ 301
-/de /de/ 301
+
+# Idiomas
+/es/ /es/index.html 200
+/en/ /en/index.html 200
+/de/ /de/index.html 200
+
+# Rutas profundas
+/es/* /es/:splat 200
+/en/* /en/:splat 200
+/de/* /de/:splat 200
