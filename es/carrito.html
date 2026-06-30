@@ -156,39 +156,40 @@
     });
   </script>
   <script src="https://js.stripe.com/v3/"></script>
-<script>
-  const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";
 
- async function goToCheckout() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  console.log("Carrito enviado:", cart);
+  script>
+  const STRIPE_PUBLISHABLE_KEY = "pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs";   // ← Pon tu clave pública aquí
 
-  try {
-    const response = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cart: cart })
-    });
+  async function goToCheckout() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log("Carrito enviado:", cart);
 
-    console.log("Status del servidor:", response.status);
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cart: cart })
+      });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("Error del servidor:", errorText);
-      throw new Error(`HTTP ${response.status}: ${errorText}`);
+      console.log("Status del servidor:", response.status);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Error del servidor:", errorText);
+        throw new Error(`HTTP ${response.status}: ${errorText}`);
+      }
+
+      const session = await response.json();
+      console.log("Sesión recibida:", session);
+
+      const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+      stripe.redirectToCheckout({ sessionId: session.id });
+
+    } catch (error) {
+      console.error("Error completo:", error);
+      alert("Error: " + error.message);
     }
-
-    const session = await response.json();
-    console.log("Sesión recibida:", session);
-
-    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-    stripe.redirectToCheckout({ sessionId: session.id });
-
-  } catch (error) {
-    console.error("Error completo:", error);
-    alert("Error: " + error.message);
   }
-}
 </script>
 </body>
 </html>
