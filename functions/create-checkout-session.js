@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe('sk_test_tu_clave_secreta_aqui');   // ← Tu clave secreta
+const stripe = new Stripe(env.STRIPE_SECRET_KEY);  // ← Tu clave secreta
 
 export async function onRequestPost({ request }) {
   try {
