@@ -10,10 +10,18 @@ async function goToCheckout() {
     });
 
     const responseText = await response.text();
-    console.log("Respuesta raw del servidor:", responseText);
+    console.log("Respuesta RAW del servidor:", responseText);
 
-    const session = JSON.parse(responseText);
-    console.log("Sesión parseada:", session);
+    // Intenta parsear
+    let session;
+    try {
+      session = JSON.parse(responseText);
+    } catch (e) {
+      console.error("No es JSON válido. Contenido:", responseText);
+      throw new Error("El servidor no devolvió JSON");
+    }
+
+    console.log("Sesión recibida:", session);
 
     const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
     stripe.redirectToCheckout({ sessionId: session.id });
