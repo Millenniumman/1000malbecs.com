@@ -273,7 +273,8 @@ return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.te
           <ul>${infoLinks}</ul>
         </details>
       </nav>
-    `;
+   `;
+
 const consentTexts = {
 es: 'Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y mostrarte publicidad personalizada. Puedes aceptar todo, rechazar o configurar tus preferencias.',
 en: 'We use cookies to improve your experience. Some are essential, others help with analytics and marketing. You can configure or reject.',
@@ -489,21 +490,23 @@ try {
       ${pageHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || ""}
     </head>
     <body>
-      ${navbarHtml}   <!-- Siempre inyectamos sidebar + mobile header -->
-      
+       ${navbarHtml}   <!-- Siempre inyectamos sidebar + mobile header -->
       <div class="main-content">
         ${pageHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageHtml}
       </div>
       ${footerHtml}
     </body>
     </html>
-    
-                 return new Response(html, {
+  `;
+
+
+
+    return new Response(html, {
         headers: { "Content-Type": "text/html; charset=utf-8" },
         status: pageResponse.status
       });
 
-    } catch (error) {
+  } catch (error) {
       console.error(`Worker error: ${error.message} for URL: ${request.url}`);
       return new Response("Internal Server Error", {
         status: 500,
@@ -513,4 +516,4 @@ try {
   }
 };
 
-
+ 
