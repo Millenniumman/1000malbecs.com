@@ -503,7 +503,7 @@ try {
         status: pageResponse.status
       });
 
-    } catch (error) {
+      } catch (error) {
       console.error(`Worker error: ${error.message} for URL: ${request.url}`);
       return new Response("Internal Server Error", {
         status: 500,
@@ -512,3 +512,5 @@ try {
     }
   }
 };
+
+export default index_default;
