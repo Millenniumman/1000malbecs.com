@@ -1,5 +1,8 @@
 {
   "version": 1,
-  "include": ["/api/*"],
-  "exclude": []
+  "description": "Routes for Functions",
+  "routes": [
+    { "route": "/create-checkout-session", "method": "POST" },
+    { "route": "/checkout", "method": "POST" }
+  ]
 }
