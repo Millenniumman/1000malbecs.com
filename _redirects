@@ -1,12 +1,12 @@
-# Root → Español por defecto
-/ /es/ 301
+# Redirect root to Spanish (default)
+ / /es/ 301
 
-# Idiomas
+# Language folders
 /es/ /es/index.html 200
 /en/ /en/index.html 200
 /de/ /de/index.html 200
 
-# Rutas profundas
+# Catch all for other pages
 /es/* /es/:splat 200
 /en/* /en/:splat 200
 /de/* /de/:splat 200
