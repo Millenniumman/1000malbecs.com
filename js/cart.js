@@ -54,18 +54,21 @@ function updateCartCount() {
 }
 
 function addToCart(product) {
-  console.log("Intentando agregar:", product);   // ← Agrega este log temporal
+  console.log("Intentando agregar:", product);
 
   const price = parseFloat(product.price);
   if (isNaN(price)) {
-    console.error("Precio inválido:", product.price);
+    console.error("Precio inválido");
     return;
   }
+
+  console.log("Precio parseado:", price);
 
   const existing = cart.find(item => item.id === product.id);
 
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
+    console.log("Cantidad actualizada");
   } else {
     cart.push({
       id: product.id,
@@ -75,9 +78,14 @@ function addToCart(product) {
       url: product.url,
       quantity: 1
     });
+    console.log("Producto agregado nuevo");
   }
 
+  console.log("Carrito antes de guardar:", cart);
+
   localStorage.setItem('cart', JSON.stringify(cart));
+  console.log("Guardado en localStorage");
+
   updateCartCount();
   showToast(product.name);
 
