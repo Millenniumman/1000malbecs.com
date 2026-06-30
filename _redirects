@@ -1,12 +1,12 @@
-# Redirect root to default language
-/ /es/index.html 301
+# Redirect root to Spanish (default)
+ / /es/ 301
 
-# Serve language-specific index pages
+# Language folders
 /es/ /es/index.html 200
 /en/ /en/index.html 200
 /de/ /de/index.html 200
 
-# Handle deeper paths
+# Catch all for other pages
 /es/* /es/:splat 200
 /en/* /en/:splat 200
 /de/* /de/:splat 200
