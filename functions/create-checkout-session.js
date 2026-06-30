@@ -1,6 +1,4 @@
-import Stripe from 'stripe';
-
-const stripe = new Stripe(env.STRIPE_SECRET_KEY);  // ← Tu clave secreta
+const stripe = require('stripe')(env.STRIPE_SECRET_KEY);
 
 export async function onRequestPost({ request }) {
   try {
