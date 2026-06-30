@@ -1,22 +1,15 @@
 export async function onRequestPost({ request, env }) {
   try {
-    const body = await request.text();
-    console.log("Body recibido:", body);
+    const { cart } = await request.json();
 
-    const { cart } = JSON.parse(body);
-    console.log("Carrito recibido:", cart);
-
-    if (!cart || cart.length === 0) {
-      throw new Error("Carrito vacío");
-    }
-
-    // Simulación temporal (para probar que el endpoint responde)
+    // Simulación temporal - solo para probar que funciona
     const session = {
-      id: "cs_test_" + Date.now()
+      id: "cs_test_" + Math.random().toString(36).substring(2, 15)
     };
 
     return new Response(JSON.stringify({ id: session.id }), {
       headers: { 'Content-Type': 'application/json' },
+      status: 200
     });
 
   } catch (error) {
