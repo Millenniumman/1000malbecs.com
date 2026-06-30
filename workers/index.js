@@ -497,7 +497,6 @@ try {
       ${footerHtml}
     </body>
     </html>
-  ;
 
       return new Response(html, {
         headers: { "Content-Type": "text/html; charset=utf-8" },
