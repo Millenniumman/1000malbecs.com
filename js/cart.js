@@ -55,7 +55,10 @@ function updateCartCount() {
 
 function addToCart(product) {
   const price = parseFloat(product.price);
-  if (isNaN(price)) return;
+  if (isNaN(price)) {
+    console.error("Precio inválido");
+    return;
+  }
 
   const existing = cart.find(item => item.id === product.id);
 
