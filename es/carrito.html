@@ -159,31 +159,36 @@
 <script>
   const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";
 
-  async function goToCheckout() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+ async function goToCheckout() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log("Carrito enviado:", cart);
 
-    if (cart.length === 0) {
-      alert("El carrito está vacío");
-      return;
+  try {
+    const response = await fetch('/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cart: cart })
+    });
+
+    console.log("Status del servidor:", response.status);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Error del servidor:", errorText);
+      throw new Error(`HTTP ${response.status}: ${errorText}`);
     }
 
-    try {
-      const response = await fetch('/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cart: cart })
-      });
+    const session = await response.json();
+    console.log("Sesión recibida:", session);
 
-      const session = await response.json();
+    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    stripe.redirectToCheckout({ sessionId: session.id });
 
-      const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-      stripe.redirectToCheckout({ sessionId: session.id });
-
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Hubo un error al procesar el pago. Intenta de nuevo.");
-    }
+  } catch (error) {
+    console.error("Error completo:", error);
+    alert("Error: " + error.message);
   }
+}
 </script>
 </body>
 </html>
