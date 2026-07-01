@@ -1,6 +1,6 @@
 {
   "name": "1000malbecs-pago",
-  "main": "worker.js",
+  "main": "index.js",
   "compatibility_date": "2025-01-01",
   "observability": {
     "enabled": true,
