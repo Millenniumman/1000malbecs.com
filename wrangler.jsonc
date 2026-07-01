@@ -1,9 +1,7 @@
 {
   "name": "footer-injector",
   "main": "workers/index.js",
-  "compatibility_date": "2025-05-25"
-}
-{
+  "compatibility_date": "2025-05-25",
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
