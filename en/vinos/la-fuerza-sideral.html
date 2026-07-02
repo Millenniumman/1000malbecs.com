@@ -518,7 +518,7 @@ body {
 }
 
 .region-section {
-  margin-left: 300px !important;
+  margin-left: 450px !important;
   margin-right: 20px;
 }
 
@@ -527,6 +527,35 @@ body {
   .region-section {
     margin-left: 15px !important;
     margin-right: 15px;
+  }
+}
+/* ========================================
+   SECCIONES "OTHER WINES"
+   ======================================== */
+.grid-section-title {
+  color: var(--primary);
+  margin-top: 50px;
+  margin-left: 20px;     /* Empuja el título a la derecha */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+  margin-left: 20px;     /* Empuja las fichas a la derecha */
+  padding-right: 20px;
+}
+
+/* En mobile */
+@media (max-width: 768px) {
+  .grid {
+    margin-left: 0;
+    padding: 0 10px;
+  }
+  
+  .grid-section-title {
+    margin-left: 0;
   }
 }
 </style>
@@ -811,41 +840,40 @@ body {
     </div>
   </div>
 
-
       <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Not available</h3>
-    <div class="grid">
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/andeluna-malbec-rose.jpg" alt="Andeluna Malbec Rose 2024">
-        <h4>Andeluna Malbec Rose</h4>
-        <p>€9.40</p>
-        <a href="/en/vinos/andeluna-malbec-rose.html">Comprar</a>
-        
-        <div class="overlay">
-          <p><strong>Andeluna Malbec Rose</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Andeluna</p>
-          <p><strong>Región:</strong> Not available</p>
-          <p><strong>Altura:</strong> Not available msnm</p>
-          
-          
-          
+    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
+
+<h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Not available</h3>
+<div class="grid">
   
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/andeluna-malbec-rose.jpg" alt="Andeluna Malbec Rose 2024">
+    <h4>Andeluna Malbec Rose</h4>
+    <p>€9.40</p>
+    <a href="/en/vinos/andeluna-malbec-rose.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Andeluna Malbec Rose</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> Andeluna</p>
+      <p><strong>Región:</strong> Not available</p>
+      <p><strong>Altura:</strong> Not available msnm</p>
+      
+      
+        
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
       nan
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
     </div>
     
+
+
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>
       const hamburger = document.querySelector('.hamburger');

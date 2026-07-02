@@ -527,7 +527,7 @@ body {
 }
 
 .region-section {
-  margin-left: 300px !important;
+  margin-left: 450px !important;
   margin-right: 20px;
 }
 
@@ -536,6 +536,35 @@ body {
   .region-section {
     margin-left: 15px !important;
     margin-right: 15px;
+  }
+}
+/* ========================================
+   SECCIONES "OTHER WINES"
+   ======================================== */
+.grid-section-title {
+  color: var(--primary);
+  margin-top: 50px;
+  margin-left: 20px;     /* Empuja el título a la derecha */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+  margin-left: 20px;     /* Empuja las fichas a la derecha */
+  padding-right: 20px;
+}
+
+/* En mobile */
+@media (max-width: 768px) {
+  .grid {
+    margin-left: 0;
+    padding: 0 10px;
+  }
+  
+  .grid-section-title {
+    margin-left: 0;
   }
 }
 </style>
@@ -781,72 +810,68 @@ These wines are the fruit of our deep commitment to the vision of the vineyard a
     </div>
   </div>
 
-
       <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Lujan de cuyo</h3>
-    <div class="grid">
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-vineyards-malbec-2024.jpg" alt="Trapiche Vineyards Malbec 2024 2024">
-        <h4>Trapiche Vineyards Malbec 2024</h4>
-        <p>€6.99</p>
-        <a href="/en/vinos/trapiche-vineyards-malbec-2024.html">Comprar</a>
-        
-        <div class="overlay">
-          <p><strong>Trapiche Vineyards Malbec 2024</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
-          <p><strong>Región:</strong> Lujan de cuyo</p>
-          <p><strong>Altura:</strong> 900 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 0.14%</p>
-          
-          
+    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
+
+<h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Lujan de cuyo</h3>
+<div class="grid">
   
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/trapiche-vineyards-malbec-2024.jpg" alt="Trapiche Vineyards Malbec 2024 2024">
+    <h4>Trapiche Vineyards Malbec 2024</h4>
+    <p>€6.99</p>
+    <a href="/en/vinos/trapiche-vineyards-malbec-2024.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Trapiche Vineyards Malbec 2024</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
+      <p><strong>Región:</strong> Lujan de cuyo</p>
+      <p><strong>Altura:</strong> 900 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 0.14%</p>
+      
+        
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
       Nose: plum, cherry, touches of mocha and spices. Palate: vibrant with notes of ripe plum, blackberry, sandy acidity that maintains freshness; soft finish wit...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/trapiche-oak-cask-malbec-2024.jpg" alt="Trapiche Oak Cask Malbec 2024 2024">
-        <h4>Trapiche Oak Cask Malbec 2024</h4>
-        <p>€9.19</p>
-        <a href="/en/vinos/trapiche-oak-cask-malbec-2024.html">Comprar</a>
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/trapiche-oak-cask-malbec-2024.jpg" alt="Trapiche Oak Cask Malbec 2024 2024">
+    <h4>Trapiche Oak Cask Malbec 2024</h4>
+    <p>€9.19</p>
+    <a href="/en/vinos/trapiche-oak-cask-malbec-2024.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Trapiche Oak Cask Malbec 2024</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
+      <p><strong>Región:</strong> Lujan de cuyo</p>
+      <p><strong>Altura:</strong> 750 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 0.14%</p>
+      
         
-        <div class="overlay">
-          <p><strong>Trapiche Oak Cask Malbec 2024</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
-          <p><strong>Región:</strong> Lujan de cuyo</p>
-          <p><strong>Altura:</strong> 750 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 0.14%</p>
-          
-          
-  
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
       Nose: plum, black cherry, touch of black pepper, espresso and wild fruits. Palate: juicy with flavors of blackberry and cassis, long finish with notes of ash...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
     </div>
     
+
+
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>
       const hamburger = document.querySelector('.hamburger');

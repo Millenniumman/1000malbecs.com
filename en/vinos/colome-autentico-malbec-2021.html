@@ -518,7 +518,7 @@ body {
 }
 
 .region-section {
-  margin-left: 300px !important;
+  margin-left: 450px !important;
   margin-right: 20px;
 }
 
@@ -527,6 +527,35 @@ body {
   .region-section {
     margin-left: 15px !important;
     margin-right: 15px;
+  }
+}
+/* ========================================
+   SECCIONES "OTHER WINES"
+   ======================================== */
+.grid-section-title {
+  color: var(--primary);
+  margin-top: 50px;
+  margin-left: 20px;     /* Empuja el título a la derecha */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+  margin-left: 20px;     /* Empuja las fichas a la derecha */
+  padding-right: 20px;
+}
+
+/* En mobile */
+@media (max-width: 768px) {
+  .grid {
+    margin-left: 0;
+    padding: 0 10px;
+  }
+  
+  .grid-section-title {
+    margin-left: 0;
   }
 }
 </style>
@@ -825,88 +854,81 @@ complex, ele...
     </div>
   </div>
 
-
       <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    
-    <h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Valles calchaquíes</h3>
-    <div class="grid">
-      
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023 2023">
-        <h4>Amalaya Malbec 2023</h4>
-        <p>€13.50</p>
-        <a href="/en/vinos/amalaya-malbec-2023.html">Comprar</a>
-        
-        <div class="overlay">
-          <p><strong>Amalaya Malbec 2023</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Amalaya</p>
-          <p><strong>Región:</strong> Valles calchaquíes</p>
-          <p><strong>Altura:</strong> 1800 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.00%</p>
-          
-          
+    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
+
+<h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Valles calchaquíes</h3>
+<div class="grid">
   
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023 2023">
+    <h4>Amalaya Malbec 2023</h4>
+    <p>€13.50</p>
+    <a href="/en/vinos/amalaya-malbec-2023.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Amalaya Malbec 2023</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Amalaya</p>
+      <p><strong>Región:</strong> Valles calchaquíes</p>
+      <p><strong>Altura:</strong> 1800 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 14.00%</p>
+      
+        
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
       It is a Malbec whose grapes were harvested at high altitudes, at Finca Las Mercedes, and which contains notable contributions of tannat and petit verdot. It ...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/finca-las-nubes-malbec-2023.jpg" alt="Finca Las Nubes Malbec 2023 2023">
-        <h4>Finca Las Nubes Malbec 2023</h4>
-        <p>€14.72</p>
-        <a href="/en/vinos/finca-las-nubes-malbec-2023.html">Comprar</a>
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/finca-las-nubes-malbec-2023.jpg" alt="Finca Las Nubes Malbec 2023 2023">
+    <h4>Finca Las Nubes Malbec 2023</h4>
+    <p>€14.72</p>
+    <a href="/en/vinos/finca-las-nubes-malbec-2023.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Finca Las Nubes Malbec 2023</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca Las Nubes</p>
+      <p><strong>Región:</strong> Valles calchaquíes</p>
+      <p><strong>Altura:</strong> 1700 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 14.20%</p>
+      
         
-        <div class="overlay">
-          <p><strong>Finca Las Nubes Malbec 2023</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Finca Las Nubes</p>
-          <p><strong>Región:</strong> Valles calchaquíes</p>
-          <p><strong>Altura:</strong> 1700 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.20%</p>
-          
-          
-  
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
       Intense red color, with violet edges, aromas of red fruits, notes of pepper, plum and spices, structured in the mouth, good volume, fleshy, very soft and rip...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022 2022">
-        <h4>Don David Reserve Malbec 2022</h4>
-        <p>€16.78</p>
-        <a href="/en/vinos/don-david-reserve-malbec-2022.html">Comprar</a>
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/don-david-reserve-malbec-2022.jpg" alt="Don David Reserve Malbec 2022 2022">
+    <h4>Don David Reserve Malbec 2022</h4>
+    <p>€16.78</p>
+    <a href="/en/vinos/don-david-reserve-malbec-2022.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Don David Reserve Malbec 2022</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> El Esteco</p>
+      <p><strong>Región:</strong> Valles calchaquíes</p>
+      <p><strong>Altura:</strong> 1700 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 14.20%</p>
+      
         
-        <div class="overlay">
-          <p><strong>Don David Reserve Malbec 2022</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> El Esteco</p>
-          <p><strong>Región:</strong> Valles calchaquíes</p>
-          <p><strong>Altura:</strong> 1700 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.20%</p>
-          
-          
-  
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
@@ -914,31 +936,28 @@ complex, ele...
 Scent
 
 Aromas of plum jams and raisins combine with note...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/el-esteco-blend-de-extremos-malbec-2023.jpg" alt="El Esteco Blend de Extremos Malbec 2023 2023">
-        <h4>El Esteco Blend de Extremos Malbec 2023</h4>
-        <p>€20.72</p>
-        <a href="/en/vinos/el-esteco-blend-de-extremos-malbec-2023.html">Comprar</a>
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/el-esteco-blend-de-extremos-malbec-2023.jpg" alt="El Esteco Blend de Extremos Malbec 2023 2023">
+    <h4>El Esteco Blend de Extremos Malbec 2023</h4>
+    <p>€20.72</p>
+    <a href="/en/vinos/el-esteco-blend-de-extremos-malbec-2023.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>El Esteco Blend de Extremos Malbec 2023</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> El Esteco</p>
+      <p><strong>Región:</strong> Valles calchaquíes</p>
+      <p><strong>Altura:</strong> 1700 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 14.70%</p>
+      
         
-        <div class="overlay">
-          <p><strong>El Esteco Blend de Extremos Malbec 2023</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> El Esteco</p>
-          <p><strong>Región:</strong> Valles calchaquíes</p>
-          <p><strong>Altura:</strong> 1700 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 14.70%</p>
-          
-          
-  
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
@@ -946,31 +965,28 @@ Aromas of plum jams and raisins combine with note...
 The nose gives off notes of red fruits and herbs such as basil.
 
 Intense and fruity, with the presence of fine tannins a...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/chanar-punco-2016.jpg" alt="Chañar Punco 2016 2016">
-        <h4>Chañar Punco 2016</h4>
-        <p>€70.62</p>
-        <a href="/en/vinos/chanar-punco-2016.html">Comprar</a>
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/chanar-punco-2016.jpg" alt="Chañar Punco 2016 2016">
+    <h4>Chañar Punco 2016</h4>
+    <p>€70.62</p>
+    <a href="/en/vinos/chanar-punco-2016.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Chañar Punco 2016</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> El Esteco</p>
+      <p><strong>Región:</strong> Valles calchaquíes</p>
+      <p><strong>Altura:</strong> 2000 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 13.50%</p>
+      
         
-        <div class="overlay">
-          <p><strong>Chañar Punco 2016</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> El Esteco</p>
-          <p><strong>Región:</strong> Valles calchaquíes</p>
-          <p><strong>Altura:</strong> 2000 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 13.50%</p>
-          
-          
-  
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
@@ -979,44 +995,41 @@ Intense and fruity, with the presence of fine tannins a...
 Concentrated aromatic profile characterized by notes of ripe fruit, oak, raisins, plums and spices.
 
 Mineral a...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
-      <div class="card">
-        <img src="https://www.1000malbecs.com/images/small/amalaya-corte-de-origen-2024.jpg" alt="Amalaya Corte de Origen 2024 2024">
-        <h4>Amalaya Corte de Origen 2024</h4>
-        <p>€19.99</p>
-        <a href="/en/vinos/amalaya-corte-de-origen-2024.html">Comprar</a>
+  <div class="card">
+    <img src="https://www.1000malbecs.com/images/small/amalaya-corte-de-origen-2024.jpg" alt="Amalaya Corte de Origen 2024 2024">
+    <h4>Amalaya Corte de Origen 2024</h4>
+    <p>€19.99</p>
+    <a href="/en/vinos/amalaya-corte-de-origen-2024.html">Comprar</a>
+    
+    <div class="overlay">
+      <p><strong>Amalaya Corte de Origen 2024</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Amalaya</p>
+      <p><strong>Región:</strong> Valles calchaquíes</p>
+      <p><strong>Altura:</strong> 1800 msnm</p>
+      
+      
+        <p><strong>Alcohol:</strong> 0.14%</p>
+      
         
-        <div class="overlay">
-          <p><strong>Amalaya Corte de Origen 2024</strong></p>
-          
-          <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Amalaya</p>
-          <p><strong>Región:</strong> Valles calchaquíes</p>
-          <p><strong>Altura:</strong> 1800 msnm</p>
-          
-          
-            <p><strong>Alcohol:</strong> 0.14%</p>
-          
-          
-  
   
     <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
     <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
       It is purple with reddish hues. On the nose, first, it has aromas with a superficial note of violet roses and, then, a fruity profile of cherry and strawberr...
-    </p>
-  
-  
+    </p>  
   
         </div>
       </div>
       
     </div>
     
+
+
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>
       const hamburger = document.querySelector('.hamburger');
