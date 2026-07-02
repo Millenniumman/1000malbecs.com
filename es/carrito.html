@@ -46,15 +46,16 @@
    SIDEBAR (menú hamburguesa)
    ======================================== */
 #sidebar {
-  width: 280px !important;
-  max-width: 85vw !important;
-  transition: transform 0.3s ease;
+  top: 70px !important;   /* Baja el sidebar para dar espacio al header mobile */
+  height: calc(100vh - 70px) !important;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   #sidebar {
-    width: 280px !important;
+    top: 0 !important;
+    height: 100vh !important;
   }
+}
   
   #sidebar.open {
     transform: translateX(0) !important;
@@ -201,6 +202,16 @@
 @media (max-width: 768px) {
   .mobile-header {
     display: flex !important;
+  }
+}
+    footer {
+  margin-top: 80px;     /* Más espacio arriba del footer en desktop */
+  padding-top: 40px;
+}
+
+@media (min-width: 769px) {
+  footer {
+    margin-top: 120px;   /* Aún más espacio en desktop */
   }
 }
   </style>
