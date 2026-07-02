@@ -190,6 +190,19 @@
   height: 48px;
   width: auto;
 }
+    /* Ocultar header mobile en desktop */
+@media (min-width: 769px) {
+  .mobile-header {
+    display: none !important;
+  }
+}
+
+/* Mostrar solo en mobile */
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex !important;
+  }
+}
   </style>
 </head>
 <body>
