@@ -263,19 +263,47 @@ body {
   background: #eee; 
 }
 
+/* ========================================
+   SELECTOR DE IDIOMAS MOBILE
+   ======================================== */
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
-  z-index: 110; background: white; padding: 6px 12px; 
-  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #eee;
 }
 
 .lang-selector-mobile a {
-  color: var(--primary); text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
 }
 
-.lang-selector-mobile a.active { 
-  font-weight: 700; 
+.lang-selector-mobile a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* En mobile ocultar el desktop */
+@media (max-width: 768px) {
+  .lang-selector-desktop {
+    display: none !important;
+  }
+  .lang-selector-mobile {
+    display: flex !important;
+  }
 }
 
 /* ========================================
@@ -631,6 +659,12 @@ The first vintage, Henry Gran Guarda N°1, was produced in 1990, marking the beg
     🛒
     <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
+    <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/henry-gran-guarda-no1-2019.html" >ES</a>
+    <a href="/en/vinos/henry-gran-guarda-no1-2019.html" class="active">EN</a>
+    <a href="/de/vinos/henry-gran-guarda-no1-2019.html" >DE</a>
+  </div>
 </header>
 
 <!-- ==================== TOPBAR DESKTOP ==================== -->
@@ -755,8 +789,7 @@ Ideal pairing: Intense red meats (roast, chorizo ​​steak, lamb), game, dishe
     </div>
 
 
-
-   <!-- OTHER WINES FROM THE SAME WINERY -->
+            <!-- OTHER WINES FROM THE SAME WINERY -->
   
   <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Lagarde</h3>
   <div class="grid">
@@ -768,29 +801,29 @@ Ideal pairing: Intense red meats (roast, chorizo ​​steak, lamb), game, dishe
       <a href="/en/vinos/teia-malbec-by-lagarde-2020.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Teia Malbec by Lagarde 2020</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
-  <p><strong>Region:</strong> Luján de cuyo</p>
-  <p><strong>Altitude:</strong> 980 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.14%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      The grapes for Teia come from its own vineyards, located in two world-class terroirs such as Agrelo and Perdriel. It is a balanced wine, with ripe red fruit ...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Teia Malbec by Lagarde 2020</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
+        <p><strong>Region:</strong> Luján de cuyo</p>
+        <p><strong>Altitude:</strong> 980 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            The grapes for Teia come from its own vineyards, located in two world-class terroirs such as Agrelo and Perdriel. It is a balanced wine, with ripe red fruit ...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/lagarde-malbec-2022.jpg" alt="Lagarde Malbec 2022 2022">
       <h4>Lagarde Malbec 2022</h4>
@@ -798,29 +831,29 @@ Ideal pairing: Intense red meats (roast, chorizo ​​steak, lamb), game, dishe
       <a href="/en/vinos/lagarde-malbec-2022.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Lagarde Malbec 2022</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
-  <p><strong>Region:</strong> Luján de cuyo</p>
-  <p><strong>Altitude:</strong> 980 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.14%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Intense, bright violet red color. Expressive aromas of ripe red fruits (cherry, strawberry, plum), jams, floral touches (violet), and soft notes of vanilla, ...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Lagarde Malbec 2022</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
+        <p><strong>Region:</strong> Luján de cuyo</p>
+        <p><strong>Altitude:</strong> 980 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Intense, bright violet red color. Expressive aromas of ripe red fruits (cherry, strawberry, plum), jams, floral touches (violet), and soft notes of vanilla, ...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/lagarde-organico-rose-2022.jpg" alt="Lagarde Orgánico Rose 2022 2022">
       <h4>Lagarde Orgánico Rose 2022</h4>
@@ -828,31 +861,31 @@ Ideal pairing: Intense red meats (roast, chorizo ​​steak, lamb), game, dishe
       <a href="/en/vinos/lagarde-organico-rose-2022.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Lagarde Orgánico Rose 2022</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
-  <p><strong>Region:</strong> Luján de cuyo</p>
-  <p><strong>Altitude:</strong> 980 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.12%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Light pink to soft, luminous copper color.  
+        <p><strong>Lagarde Orgánico Rose 2022</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
+        <p><strong>Region:</strong> Luján de cuyo</p>
+        <p><strong>Altitude:</strong> 980 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.12 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Light pink to soft, luminous copper color.  
 Aromas of fresh ripe fruits (peach, strawberry, some citrus).  
 Refreshing, lively, balanced in the mouth, with ...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/guarda-malbec-doc-2021.jpg" alt="Guarda Malbec D.O.C 2021 2021">
       <h4>Guarda Malbec D.O.C 2021</h4>
@@ -860,30 +893,30 @@ Refreshing, lively, balanced in the mouth, with ...
       <a href="/en/vinos/guarda-malbec-doc-2021.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Guarda Malbec D.O.C 2021</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
-  <p><strong>Region:</strong> Luján de cuyo</p>
-  <p><strong>Altitude:</strong> 980 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.14%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Aging: 100% of the wine in French oak barrels for 12 months (plus 12 months in the bottle before going on the market).
+        <p><strong>Guarda Malbec D.O.C 2021</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
+        <p><strong>Region:</strong> Luján de cuyo</p>
+        <p><strong>Altitude:</strong> 980 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Aging: 100% of the wine in French oak barrels for 12 months (plus 12 months in the bottle before going on the market).
 Aging potential: More than 10-15 years...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/guarda-blend-2022.jpg" alt="Guarda Blend 2022 2022">
       <h4>Guarda Blend 2022</h4>
@@ -891,199 +924,221 @@ Aging potential: More than 10-15 years...
       <a href="/en/vinos/guarda-blend-2022.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Guarda Blend 2022</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
-  <p><strong>Region:</strong> Luján de cuyo</p>
-  <p><strong>Altitude:</strong> 980 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.14%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Aging: 100% of the wine in French oak barrels for 12 months.
+        <p><strong>Guarda Blend 2022</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Lagarde</p>
+        <p><strong>Region:</strong> Luján de cuyo</p>
+        <p><strong>Altitude:</strong> 980 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Aging: 100% of the wine in French oak barrels for 12 months.
 Aging potential: More than 10 years.
 Style: Intense dark bluish red color. Complex aromas of rip...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+          </p>
+        
+        
+        
+      </div>
     </div>
+    
   </div>
 
-      <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
 
-<h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Luján de cuyo</h3>
-<div class="grid">
-  
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/san-telmo-malbec-2024.jpg" alt="San Telmo Malbec 2024 2024">
-    <h4>San Telmo Malbec 2024</h4>
-    <p>€8.16</p>
-    <a href="/en/vinos/san-telmo-malbec-2024.html">Comprar</a>
+      <!-- OTHER WINES FROM THE SAME REGION -->
     
-    <div class="overlay">
-      <p><strong>San Telmo Malbec 2024</strong></p>
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Luján de cuyo</h3>
+    <div class="grid">
       
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> San Telmo</p>
-      <p><strong>Región:</strong> Luján de cuyo</p>
-      <p><strong>Altura:</strong> Not available msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 13.40%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/san-telmo-malbec-2024.jpg" alt="San Telmo Malbec 2024 2024">
+        <h4>San Telmo Malbec 2024</h4>
+        <p>€8.16</p>
+        <a href="/en/vinos/san-telmo-malbec-2024.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Fresh red fruits such as cherry and raspberry, with soft tannins. Pairing: pasta with tomato sauce, roast meats.
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>San Telmo Malbec 2024</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> San Telmo</p>
+          <p><strong>Region:</strong> Luján de cuyo</p>
+          <p><strong>Altitude:</strong> Not available masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13.40 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Fresh red fruits such as cherry and raspberry, with soft tannins. Pairing: pasta with tomato sauce, roast meats.
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023 2023">
-    <h4>Pequeña Vasija Malbec 2023</h4>
-    <p>€8.38</p>
-    <a href="/en/vinos/pequena-vasija-malbec-2023.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Pequeña Vasija Malbec 2023</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> La Rural</p>
-      <p><strong>Región:</strong> Luján de cuyo</p>
-      <p><strong>Altura:</strong> Not available msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 13.60%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/pequena-vasija-malbec-2023.jpg" alt="Pequeña Vasija Malbec 2023 2023">
+        <h4>Pequeña Vasija Malbec 2023</h4>
+        <p>€8.38</p>
+        <a href="/en/vinos/pequena-vasija-malbec-2023.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Fresh red fruits such as raspberry and cherry, with a touch of spice. Pairing: roast meats, pasta with tomato sauce.
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Pequeña Vasija Malbec 2023</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> La Rural</p>
+          <p><strong>Region:</strong> Luján de cuyo</p>
+          <p><strong>Altitude:</strong> Not available masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13.60 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Fresh red fruits such as raspberry and cherry, with a touch of spice. Pairing: roast meats, pasta with tomato sauce.
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023 2023">
-    <h4>San Felipe Varietal Malbec 2023</h4>
-    <p>€11.52</p>
-    <a href="/en/vinos/san-felipe-varietal-malbec-2023.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>San Felipe Varietal Malbec 2023</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> La Rural</p>
-      <p><strong>Región:</strong> Luján de cuyo</p>
-      <p><strong>Altura:</strong> 800 msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 13.50%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/san-felipe-varietal-malbec-2023.jpg" alt="San Felipe Varietal Malbec 2023 2023">
+        <h4>San Felipe Varietal Malbec 2023</h4>
+        <p>€11.52</p>
+        <a href="/en/vinos/san-felipe-varietal-malbec-2023.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Tasting note: Lively purple, with garnet reflections. Flowers (violets) and fresh red fruits (cherries) are the primary notes perceived in this expressive re...
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>San Felipe Varietal Malbec 2023</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> La Rural</p>
+          <p><strong>Region:</strong> Luján de cuyo</p>
+          <p><strong>Altitude:</strong> 800 masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13.50 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Tasting note: Lively purple, with garnet reflections. Flowers (violets) and fresh red fruits (cherries) are the primary notes perceived in this expressive re...
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024 2024">
-    <h4>San Felipe en Roble Malbec 2024</h4>
-    <p>€13.12</p>
-    <a href="/en/vinos/san-felipe-en-roble-malbec-2024.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>San Felipe en Roble Malbec 2024</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> La Rural</p>
-      <p><strong>Región:</strong> Luján de cuyo</p>
-      <p><strong>Altura:</strong> 800 msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 13.70%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/san-felipe-en-roble-malbec-2024.jpg" alt="San Felipe en Roble Malbec 2024 2024">
+        <h4>San Felipe en Roble Malbec 2024</h4>
+        <p>€13.12</p>
+        <a href="/en/vinos/san-felipe-en-roble-malbec-2024.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Tasting note: Purple red, with plum reflections. The characteristic floral note of violet appears - on the nose - combined with vibrant accents of black and ...
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>San Felipe en Roble Malbec 2024</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> La Rural</p>
+          <p><strong>Region:</strong> Luján de cuyo</p>
+          <p><strong>Altitude:</strong> 800 masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 13.70 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Tasting note: Purple red, with plum reflections. The characteristic floral note of violet appears - on the nose - combined with vibrant accents of black and ...
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023 2023">
-    <h4>Septima Rose de Malbec 2023</h4>
-    <p>€14.99</p>
-    <a href="/en/vinos/septima-rose-de-malbec-2023.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Septima Rose de Malbec 2023</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Séptima</p>
-      <p><strong>Región:</strong> Luján de cuyo</p>
-      <p><strong>Altura:</strong> 900 msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 12.90%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/septima-rose-de-malbec-2023.jpg" alt="Septima Rose de Malbec 2023 2023">
+        <h4>Septima Rose de Malbec 2023</h4>
+        <p>€14.99</p>
+        <a href="/en/vinos/septima-rose-de-malbec-2023.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Pale pink color with salmon hue. On the nose, it offers elegant aromas of red fruits such as cherry, with floral notes of lavender, citrus fruits such as gra...
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Septima Rose de Malbec 2023</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Séptima</p>
+          <p><strong>Region:</strong> Luján de cuyo</p>
+          <p><strong>Altitude:</strong> 900 masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 12.90 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Pale pink color with salmon hue. On the nose, it offers elegant aromas of red fruits such as cherry, with floral notes of lavender, citrus fruits such as gra...
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Septima Malbec 2022 2022">
-    <h4>Septima Malbec 2022</h4>
-    <p>€15.49</p>
-    <a href="/en/vinos/septima-malbec-2022.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Septima Malbec 2022</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Bodega Séptima</p>
-      <p><strong>Región:</strong> Luján de cuyo</p>
-      <p><strong>Altura:</strong> 900 msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 14.00%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/septima-malbec-2022.jpg" alt="Septima Malbec 2022 2022">
+        <h4>Septima Malbec 2022</h4>
+        <p>€15.49</p>
+        <a href="/en/vinos/septima-malbec-2022.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Intense red color with violet reflections. On the nose, it presents aromas of fresh cherries, strawberry jam and notes of vanilla and toast from its aging in...
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Septima Malbec 2022</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Bodega Séptima</p>
+          <p><strong>Region:</strong> Luján de cuyo</p>
+          <p><strong>Altitude:</strong> 900 masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 14.00 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Intense red color with violet reflections. On the nose, it presents aromas of fresh cherries, strawberry jam and notes of vanilla and toast from its aging in...
+            </p>
+          
+          
+          
         </div>
       </div>
       
     </div>
     
-
 
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>

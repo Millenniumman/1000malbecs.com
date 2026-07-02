@@ -263,19 +263,47 @@ body {
   background: #eee; 
 }
 
+/* ========================================
+   SELECTOR DE IDIOMAS MOBILE
+   ======================================== */
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
-  z-index: 110; background: white; padding: 6px 12px; 
-  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #eee;
 }
 
 .lang-selector-mobile a {
-  color: var(--primary); text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
 }
 
-.lang-selector-mobile a.active { 
-  font-weight: 700; 
+.lang-selector-mobile a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* En mobile ocultar el desktop */
+@media (max-width: 768px) {
+  .lang-selector-desktop {
+    display: none !important;
+  }
+  .lang-selector-mobile {
+    display: flex !important;
+  }
 }
 
 /* ========================================
@@ -629,6 +657,12 @@ body {
     🛒
     <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
+    <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/cicchitti-malbec-edicion-limitada-2016.html" >ES</a>
+    <a href="/en/vinos/cicchitti-malbec-edicion-limitada-2016.html" class="active">EN</a>
+    <a href="/de/vinos/cicchitti-malbec-edicion-limitada-2016.html" >DE</a>
+  </div>
 </header>
 
 <!-- ==================== TOPBAR DESKTOP ==================== -->
@@ -749,8 +783,7 @@ Mouth: round, elegant, fleshy and complex, with growing tannins.</p>
     </div>
 
 
-
-   <!-- OTHER WINES FROM THE SAME WINERY -->
+            <!-- OTHER WINES FROM THE SAME WINERY -->
   
   <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Cicchitti</h3>
   <div class="grid">
@@ -762,29 +795,29 @@ Mouth: round, elegant, fleshy and complex, with growing tannins.</p>
       <a href="/en/vinos/cicchitti-primmo-malbec-2022.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>CICCHITTI Primmo Malbec 2022</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
-  <p><strong>Region:</strong> Guaymallen</p>
-  <p><strong>Altitude:</strong> 700 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 14.20%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      On the nose, it presents aromas of raspberry, blackberry and a touch of spices, with notes of violets and vanilla. In the mouth, it is round, with flavors of...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>CICCHITTI Primmo Malbec 2022</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+        <p><strong>Region:</strong> Guaymallen</p>
+        <p><strong>Altitude:</strong> 700 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 14.20 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            On the nose, it presents aromas of raspberry, blackberry and a touch of spices, with notes of violets and vanilla. In the mouth, it is round, with flavors of...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/cicchitti-malbec-2021.jpg" alt="CICCHITTI Malbec 2021 2021">
       <h4>CICCHITTI Malbec 2021</h4>
@@ -792,29 +825,29 @@ Mouth: round, elegant, fleshy and complex, with growing tannins.</p>
       <a href="/en/vinos/cicchitti-malbec-2021.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>CICCHITTI Malbec 2021</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
-  <p><strong>Region:</strong> Guaymallen</p>
-  <p><strong>Altitude:</strong> 700 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 14.10%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      On the nose, it offers aromas of leather, dried plum and black truffle, with notes of tobacco and sweet spices. On the palate, it is elegant, with flavors of...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>CICCHITTI Malbec 2021</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+        <p><strong>Region:</strong> Guaymallen</p>
+        <p><strong>Altitude:</strong> 700 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 14.10 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            On the nose, it offers aromas of leather, dried plum and black truffle, with notes of tobacco and sweet spices. On the palate, it is elegant, with flavors of...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/vos-malbec-de-malbec-2021.jpg" alt="VOS Malbec de Malbec 2021 2021">
       <h4>VOS Malbec de Malbec 2021</h4>
@@ -822,29 +855,29 @@ Mouth: round, elegant, fleshy and complex, with growing tannins.</p>
       <a href="/en/vinos/vos-malbec-de-malbec-2021.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>VOS Malbec de Malbec 2021</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
-  <p><strong>Region:</strong> Guaymallen</p>
-  <p><strong>Altitude:</strong> 700 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 14.60%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      On the nose, it offers aromas of blackberry, plum and vanilla, with notes of sweet spices and a smoky touch. In the mouth, it is balanced, with flavors of bl...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>VOS Malbec de Malbec 2021</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+        <p><strong>Region:</strong> Guaymallen</p>
+        <p><strong>Altitude:</strong> 700 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 14.60 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            On the nose, it offers aromas of blackberry, plum and vanilla, with notes of sweet spices and a smoky touch. In the mouth, it is balanced, with flavors of bl...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/cicchitti-gran-reserva-malbec-2018.jpg" alt="CICCHITTI Gran Reserva Malbec 2018 2018">
       <h4>CICCHITTI Gran Reserva Malbec 2018</h4>
@@ -852,29 +885,29 @@ Mouth: round, elegant, fleshy and complex, with growing tannins.</p>
       <a href="/en/vinos/cicchitti-gran-reserva-malbec-2018.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>CICCHITTI Gran Reserva Malbec 2018</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
-  <p><strong>Region:</strong> Guaymallen</p>
-  <p><strong>Altitude:</strong> 700 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 14.00%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      On the nose, it displays aromas of cassis, blackberry and leather, with notes of tobacco and exotic spices. In the mouth, it is robust, with flavors of dark ...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>CICCHITTI Gran Reserva Malbec 2018</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+        <p><strong>Region:</strong> Guaymallen</p>
+        <p><strong>Altitude:</strong> 700 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 14.00 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            On the nose, it displays aromas of cassis, blackberry and leather, with notes of tobacco and exotic spices. In the mouth, it is robust, with flavors of dark ...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/cicchitti-blend-2016.jpg" alt="CICCHITTI Blend 2016 2016">
       <h4>CICCHITTI Blend 2016</h4>
@@ -882,36 +915,34 @@ Mouth: round, elegant, fleshy and complex, with growing tannins.</p>
       <a href="/en/vinos/cicchitti-blend-2016.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>CICCHITTI Blend 2016</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
-  <p><strong>Region:</strong> Luján de cuyo</p>
-  <p><strong>Altitude:</strong> 958 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 13.50%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      View: intense ruby ​​red color with dark violet or black reflections. Ideal to accompany grilled red meats, lamb, ham, pork, empanadas, pastas with rich sauc...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>CICCHITTI Blend 2016</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Cicchitti</p>
+        <p><strong>Region:</strong> Luján de cuyo</p>
+        <p><strong>Altitude:</strong> 958 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 13.50 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            View: intense ruby ​​red color with dark violet or black reflections. Ideal to accompany grilled red meats, lamb, ham, pork, empanadas, pastas with rich sauc...
+          </p>
+        
+        
+        
+      </div>
     </div>
+    
   </div>
 
-      <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
 
-
+      <!-- OTHER WINES FROM THE SAME REGION -->
+    
 
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>

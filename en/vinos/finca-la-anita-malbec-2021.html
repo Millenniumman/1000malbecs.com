@@ -263,19 +263,47 @@ body {
   background: #eee; 
 }
 
+/* ========================================
+   SELECTOR DE IDIOMAS MOBILE
+   ======================================== */
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
-  z-index: 110; background: white; padding: 6px 12px; 
-  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #eee;
 }
 
 .lang-selector-mobile a {
-  color: var(--primary); text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
 }
 
-.lang-selector-mobile a.active { 
-  font-weight: 700; 
+.lang-selector-mobile a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* En mobile ocultar el desktop */
+@media (max-width: 768px) {
+  .lang-selector-desktop {
+    display: none !important;
+  }
+  .lang-selector-mobile {
+    display: flex !important;
+  }
 }
 
 /* ========================================
@@ -629,6 +657,12 @@ body {
     🛒
     <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
+    <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/finca-la-anita-malbec-2021.html" >ES</a>
+    <a href="/en/vinos/finca-la-anita-malbec-2021.html" class="active">EN</a>
+    <a href="/de/vinos/finca-la-anita-malbec-2021.html" >DE</a>
+  </div>
 </header>
 
 <!-- ==================== TOPBAR DESKTOP ==================== -->
@@ -754,8 +788,7 @@ body {
     </div>
 
 
-
-   <!-- OTHER WINES FROM THE SAME WINERY -->
+            <!-- OTHER WINES FROM THE SAME WINERY -->
   
   <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Finca La Anita</h3>
   <div class="grid">
@@ -767,29 +800,29 @@ body {
       <a href="/en/vinos/finca-la-anita-gran-corte-2021.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Finca La Anita Gran Corte 2021</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca La Anita</p>
-  <p><strong>Region:</strong> Alto agrelo</p>
-  <p><strong>Altitude:</strong> 1100 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 13.50%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Violet red, with black highlights. A wine of great complexity; Modern in style, it is a blend where Malbec provides freshness, Cabernet Sauvignon its balsami...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Finca La Anita Gran Corte 2021</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Finca La Anita</p>
+        <p><strong>Region:</strong> Alto agrelo</p>
+        <p><strong>Altitude:</strong> 1100 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 13.50 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Violet red, with black highlights. A wine of great complexity; Modern in style, it is a blend where Malbec provides freshness, Cabernet Sauvignon its balsami...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/magna-finca-malbec-2019.jpg" alt="Magna Finca Malbec 2019 2019">
       <h4>Magna Finca Malbec 2019</h4>
@@ -797,185 +830,207 @@ body {
       <a href="/en/vinos/magna-finca-malbec-2019.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Magna Finca Malbec 2019</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Finca La Anita</p>
-  <p><strong>Region:</strong> Alto agrelo</p>
-  <p><strong>Altitude:</strong> 1100 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 14.50%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Ruby red with bluish tones; The entry into the mouth is exquisite, wide; very good texture of tannins, round and sweet; black red fruit, ripe red plum, black...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Magna Finca Malbec 2019</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Finca La Anita</p>
+        <p><strong>Region:</strong> Alto agrelo</p>
+        <p><strong>Altitude:</strong> 1100 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 14.50 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Ruby red with bluish tones; The entry into the mouth is exquisite, wide; very good texture of tannins, round and sweet; black red fruit, ripe red plum, black...
+          </p>
+        
+        
+        
+      </div>
     </div>
+    
   </div>
 
-      <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
 
-<h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Alto agrelo</h3>
-<div class="grid">
-  
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-corte-gran-collection-2021.jpg" alt="Passion de Los Andes Corte Gran Collection 2021 2021">
-    <h4>Passion de Los Andes Corte Gran Collection 2021</h4>
-    <p>€32.80</p>
-    <a href="/en/vinos/passion-de-los-andes-corte-gran-collection-2021.html">Comprar</a>
+      <!-- OTHER WINES FROM THE SAME REGION -->
     
-    <div class="overlay">
-      <p><strong>Passion de Los Andes Corte Gran Collection 2021</strong></p>
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Alto agrelo</h3>
+    <div class="grid">
       
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Vignes des Andes</p>
-      <p><strong>Región:</strong> Alto agrelo</p>
-      <p><strong>Altura:</strong> 1050 msnm</p>
-      
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-corte-gran-collection-2021.jpg" alt="Passion de Los Andes Corte Gran Collection 2021 2021">
+        <h4>Passion de Los Andes Corte Gran Collection 2021</h4>
+        <p>€32.80</p>
+        <a href="/en/vinos/passion-de-los-andes-corte-gran-collection-2021.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Intense aromas of ripe black fruit, spices and toasted notes. In the mouth it is structured, with firm tannins and a long finish.
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Passion de Los Andes Corte Gran Collection 2021</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Vignes des Andes</p>
+          <p><strong>Region:</strong> Alto agrelo</p>
+          <p><strong>Altitude:</strong> 1050 masl</p>
+          
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Intense aromas of ripe black fruit, spices and toasted notes. In the mouth it is structured, with firm tannins and a long finish.
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-malbec-collection-2020.jpg" alt="Passion de Los Andes Malbec Collection 2020 2020">
-    <h4>Passion de Los Andes Malbec Collection 2020</h4>
-    <p>€24.50</p>
-    <a href="/en/vinos/passion-de-los-andes-malbec-collection-2020.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Passion de Los Andes Malbec Collection 2020</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Vignes des Andes</p>
-      <p><strong>Región:</strong> Alto agrelo</p>
-      <p><strong>Altura:</strong> 1050 msnm</p>
-      
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-malbec-collection-2020.jpg" alt="Passion de Los Andes Malbec Collection 2020 2020">
+        <h4>Passion de Los Andes Malbec Collection 2020</h4>
+        <p>€24.50</p>
+        <a href="/en/vinos/passion-de-los-andes-malbec-collection-2020.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Deep red color. Aromas of plums, blackberries, vanilla and pepper. Juicy palate with round tannins and persistent finish.
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Passion de Los Andes Malbec Collection 2020</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Vignes des Andes</p>
+          <p><strong>Region:</strong> Alto agrelo</p>
+          <p><strong>Altitude:</strong> 1050 masl</p>
+          
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Deep red color. Aromas of plums, blackberries, vanilla and pepper. Juicy palate with round tannins and persistent finish.
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-malbec-clasicos-2021.jpg" alt="Passion de Los Andes Malbec Clasicos 2021 2021">
-    <h4>Passion de Los Andes Malbec Clasicos 2021</h4>
-    <p>€17.50</p>
-    <a href="/en/vinos/passion-de-los-andes-malbec-clasicos-2021.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Passion de Los Andes Malbec Clasicos 2021</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Vignes des Andes</p>
-      <p><strong>Región:</strong> Alto agrelo</p>
-      <p><strong>Altura:</strong> 1050 msnm</p>
-      
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-malbec-clasicos-2021.jpg" alt="Passion de Los Andes Malbec Clasicos 2021 2021">
+        <h4>Passion de Los Andes Malbec Clasicos 2021</h4>
+        <p>€17.50</p>
+        <a href="/en/vinos/passion-de-los-andes-malbec-clasicos-2021.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Aromas of red and black fruits, violets and spices. Balanced, fresh and good typicity on the palate.
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Passion de Los Andes Malbec Clasicos 2021</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Vignes des Andes</p>
+          <p><strong>Region:</strong> Alto agrelo</p>
+          <p><strong>Altitude:</strong> 1050 masl</p>
+          
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Aromas of red and black fruits, violets and spices. Balanced, fresh and good typicity on the palate.
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-corte-blend-clasicos-2021.jpg" alt="Passion de Los Andes Corte Blend Clasicos 2021 2021">
-    <h4>Passion de Los Andes Corte Blend Clasicos 2021</h4>
-    <p>€17.50</p>
-    <a href="/en/vinos/passion-de-los-andes-corte-blend-clasicos-2021.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Passion de Los Andes Corte Blend Clasicos 2021</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Vignes des Andes</p>
-      <p><strong>Región:</strong> Alto agrelo</p>
-      <p><strong>Altura:</strong> 1050 msnm</p>
-      
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-corte-blend-clasicos-2021.jpg" alt="Passion de Los Andes Corte Blend Clasicos 2021 2021">
+        <h4>Passion de Los Andes Corte Blend Clasicos 2021</h4>
+        <p>€17.50</p>
+        <a href="/en/vinos/passion-de-los-andes-corte-blend-clasicos-2021.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Aromas of fine herbs and smoky notes. Good structure, balanced, with soft tannins.
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Passion de Los Andes Corte Blend Clasicos 2021</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Vignes des Andes</p>
+          <p><strong>Region:</strong> Alto agrelo</p>
+          <p><strong>Altitude:</strong> 1050 masl</p>
+          
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Aromas of fine herbs and smoky notes. Good structure, balanced, with soft tannins.
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-rose-de-malbec-2024.jpg" alt="Passion de Los Andes Rosé de Malbec 2024 2024">
-    <h4>Passion de Los Andes Rosé de Malbec 2024</h4>
-    <p>€15.50</p>
-    <a href="/en/vinos/passion-de-los-andes-rose-de-malbec-2024.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Passion de Los Andes Rosé de Malbec 2024</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Vignes des Andes</p>
-      <p><strong>Región:</strong> Alto agrelo</p>
-      <p><strong>Altura:</strong> 1050 msnm</p>
-      
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/passion-de-los-andes-rose-de-malbec-2024.jpg" alt="Passion de Los Andes Rosé de Malbec 2024 2024">
+        <h4>Passion de Los Andes Rosé de Malbec 2024</h4>
+        <p>€15.50</p>
+        <a href="/en/vinos/passion-de-los-andes-rose-de-malbec-2024.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Bright color with subtle onion skin tones. Floral and fruity aromas reminiscent of wild flowers, with notes of vanilla in the background. In the mouth it is ...
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Passion de Los Andes Rosé de Malbec 2024</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Vignes des Andes</p>
+          <p><strong>Region:</strong> Alto agrelo</p>
+          <p><strong>Altitude:</strong> 1050 masl</p>
+          
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Bright color with subtle onion skin tones. Floral and fruity aromas reminiscent of wild flowers, with notes of vanilla in the background. In the mouth it is ...
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/la-dolfina-blend-grand-reserve-2021.jpg" alt="La Dolfina Blend Grand Reserve 2021 2021">
-    <h4>La Dolfina Blend Grand Reserve 2021</h4>
-    <p>€32.80</p>
-    <a href="/en/vinos/la-dolfina-blend-grand-reserve-2021.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>La Dolfina Blend Grand Reserve 2021</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Vignes des Andes</p>
-      <p><strong>Región:</strong> Alto agrelo</p>
-      <p><strong>Altura:</strong> 1050 msnm</p>
-      
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/la-dolfina-blend-grand-reserve-2021.jpg" alt="La Dolfina Blend Grand Reserve 2021 2021">
+        <h4>La Dolfina Blend Grand Reserve 2021</h4>
+        <p>€32.80</p>
+        <a href="/en/vinos/la-dolfina-blend-grand-reserve-2021.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Intense, with ripe fruit, spices and oak notes. Polished tannins and long finish.
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>La Dolfina Blend Grand Reserve 2021</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Vignes des Andes</p>
+          <p><strong>Region:</strong> Alto agrelo</p>
+          <p><strong>Altitude:</strong> 1050 masl</p>
+          
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Intense, with ripe fruit, spices and oak notes. Polished tannins and long finish.
+            </p>
+          
+          
+          
         </div>
       </div>
       
     </div>
     
-
 
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>

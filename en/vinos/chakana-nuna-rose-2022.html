@@ -272,19 +272,47 @@ body {
   background: #eee; 
 }
 
+/* ========================================
+   SELECTOR DE IDIOMAS MOBILE
+   ======================================== */
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
-  z-index: 110; background: white; padding: 6px 12px; 
-  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #eee;
 }
 
 .lang-selector-mobile a {
-  color: var(--primary); text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
 }
 
-.lang-selector-mobile a.active { 
-  font-weight: 700; 
+.lang-selector-mobile a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* En mobile ocultar el desktop */
+@media (max-width: 768px) {
+  .lang-selector-desktop {
+    display: none !important;
+  }
+  .lang-selector-mobile {
+    display: flex !important;
+  }
 }
 
 /* ========================================
@@ -641,6 +669,12 @@ And it is the name that represents our vision of agriculture for the future. Thr
     🛒
     <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
+    <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/chakana-nuna-rose-2022.html" >ES</a>
+    <a href="/en/vinos/chakana-nuna-rose-2022.html" class="active">EN</a>
+    <a href="/de/vinos/chakana-nuna-rose-2022.html" >DE</a>
+  </div>
 </header>
 
 <!-- ==================== TOPBAR DESKTOP ==================== -->
@@ -771,8 +805,7 @@ These wines are the fruit of our deep commitment to the vision of the vineyard a
     </div>
 
 
-
-   <!-- OTHER WINES FROM THE SAME WINERY -->
+            <!-- OTHER WINES FROM THE SAME WINERY -->
   
   <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Chakana</h3>
   <div class="grid">
@@ -784,93 +817,99 @@ These wines are the fruit of our deep commitment to the vision of the vineyard a
       <a href="/en/vinos/chakana-nuna-malbec-bio-2022.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>CHAKANA Nuna Malbec Bio 2022</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Chakana</p>
-  <p><strong>Region:</strong> Luján de cuyo</p>
-  <p><strong>Altitude:</strong> 960 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 13.70%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      On the nose, it offers aromas of blackberry, cassis and fresh herbs, with a mineral touch and notes of violet. In the mouth, it is balanced, with flavors of ...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>CHAKANA Nuna Malbec Bio 2022</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Chakana</p>
+        <p><strong>Region:</strong> Luján de cuyo</p>
+        <p><strong>Altitude:</strong> 960 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 13.70 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            On the nose, it offers aromas of blackberry, cassis and fresh herbs, with a mineral touch and notes of violet. In the mouth, it is balanced, with flavors of ...
+          </p>
+        
+        
+        
+      </div>
     </div>
+    
   </div>
 
-      <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
 
-<h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Lujan de cuyo</h3>
-<div class="grid">
-  
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/trapiche-vineyards-malbec-2024.jpg" alt="Trapiche Vineyards Malbec 2024 2024">
-    <h4>Trapiche Vineyards Malbec 2024</h4>
-    <p>€6.99</p>
-    <a href="/en/vinos/trapiche-vineyards-malbec-2024.html">Comprar</a>
+      <!-- OTHER WINES FROM THE SAME REGION -->
     
-    <div class="overlay">
-      <p><strong>Trapiche Vineyards Malbec 2024</strong></p>
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Lujan de cuyo</h3>
+    <div class="grid">
       
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
-      <p><strong>Región:</strong> Lujan de cuyo</p>
-      <p><strong>Altura:</strong> 900 msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 0.14%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-vineyards-malbec-2024.jpg" alt="Trapiche Vineyards Malbec 2024 2024">
+        <h4>Trapiche Vineyards Malbec 2024</h4>
+        <p>€6.99</p>
+        <a href="/en/vinos/trapiche-vineyards-malbec-2024.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Nose: plum, cherry, touches of mocha and spices. Palate: vibrant with notes of ripe plum, blackberry, sandy acidity that maintains freshness; soft finish wit...
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Trapiche Vineyards Malbec 2024</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+          <p><strong>Region:</strong> Lujan de cuyo</p>
+          <p><strong>Altitude:</strong> 900 masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Nose: plum, cherry, touches of mocha and spices. Palate: vibrant with notes of ripe plum, blackberry, sandy acidity that maintains freshness; soft finish wit...
+            </p>
+          
+          
+          
         </div>
       </div>
       
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/trapiche-oak-cask-malbec-2024.jpg" alt="Trapiche Oak Cask Malbec 2024 2024">
-    <h4>Trapiche Oak Cask Malbec 2024</h4>
-    <p>€9.19</p>
-    <a href="/en/vinos/trapiche-oak-cask-malbec-2024.html">Comprar</a>
-    
-    <div class="overlay">
-      <p><strong>Trapiche Oak Cask Malbec 2024</strong></p>
-      
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Trapiche</p>
-      <p><strong>Región:</strong> Lujan de cuyo</p>
-      <p><strong>Altura:</strong> 750 msnm</p>
-      
-      
-        <p><strong>Alcohol:</strong> 0.14%</p>
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/trapiche-oak-cask-malbec-2024.jpg" alt="Trapiche Oak Cask Malbec 2024 2024">
+        <h4>Trapiche Oak Cask Malbec 2024</h4>
+        <p>€9.19</p>
+        <a href="/en/vinos/trapiche-oak-cask-malbec-2024.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Nose: plum, black cherry, touch of black pepper, espresso and wild fruits. Palate: juicy with flavors of blackberry and cassis, long finish with notes of ash...
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Trapiche Oak Cask Malbec 2024</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Trapiche</p>
+          <p><strong>Region:</strong> Lujan de cuyo</p>
+          <p><strong>Altitude:</strong> 750 masl</p>
+          
+          
+            <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              Nose: plum, black cherry, touch of black pepper, espresso and wild fruits. Palate: juicy with flavors of blackberry and cassis, long finish with notes of ash...
+            </p>
+          
+          
+          
         </div>
       </div>
       
     </div>
     
-
 
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>

@@ -263,19 +263,47 @@ body {
   background: #eee; 
 }
 
+/* ========================================
+   SELECTOR DE IDIOMAS MOBILE
+   ======================================== */
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
-  z-index: 110; background: white; padding: 6px 12px; 
-  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #eee;
 }
 
 .lang-selector-mobile a {
-  color: var(--primary); text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
 }
 
-.lang-selector-mobile a.active { 
-  font-weight: 700; 
+.lang-selector-mobile a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* En mobile ocultar el desktop */
+@media (max-width: 768px) {
+  .lang-selector-desktop {
+    display: none !important;
+  }
+  .lang-selector-mobile {
+    display: flex !important;
+  }
 }
 
 /* ========================================
@@ -629,6 +657,12 @@ body {
     🛒
     <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
+    <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/la-fuerza-blanco.html" >ES</a>
+    <a href="/en/vinos/la-fuerza-blanco.html" class="active">EN</a>
+    <a href="/de/vinos/la-fuerza-blanco.html" >DE</a>
+  </div>
 </header>
 
 <!-- ==================== TOPBAR DESKTOP ==================== -->
@@ -747,8 +781,7 @@ body {
     </div>
 
 
-
-   <!-- OTHER WINES FROM THE SAME WINERY -->
+            <!-- OTHER WINES FROM THE SAME WINERY -->
   
   <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from La Fuerza Vermu</h3>
   <div class="grid">
@@ -760,27 +793,27 @@ body {
       <a href="/en/vinos/la-fuerza-rojo.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>La Fuerza Rojo</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> La Fuerza Vermu</p>
-  <p><strong>Region:</strong> Not available</p>
-  <p><strong>Altitude:</strong> Not available masl</p>
-  
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Enjoy with soda and a slice of orange. Also as a base in your favorite cocktail.
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>La Fuerza Rojo</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> La Fuerza Vermu</p>
+        <p><strong>Region:</strong> Not available</p>
+        <p><strong>Altitude:</strong> Not available masl</p>
+        
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Enjoy with soda and a slice of orange. Also as a base in your favorite cocktail.
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/la-fuerza-primavera.jpg" alt="La Fuerza Primavera 0">
       <h4>La Fuerza Primavera</h4>
@@ -788,27 +821,27 @@ body {
       <a href="/en/vinos/la-fuerza-primavera.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>La Fuerza Primavera</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> La Fuerza Vermu</p>
-  <p><strong>Region:</strong> Not available</p>
-  <p><strong>Altitude:</strong> Not available masl</p>
-  
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Enjoy with soda or tonic water and a slice of grapefruit. Also in cocktails with tonic water or Spriz
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>La Fuerza Primavera</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> La Fuerza Vermu</p>
+        <p><strong>Region:</strong> Not available</p>
+        <p><strong>Altitude:</strong> Not available masl</p>
+        
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Enjoy with soda or tonic water and a slice of grapefruit. Also in cocktails with tonic water or Spriz
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/la-fuerza-sideral.jpg" alt="La Fuerza Sideral 0">
       <h4>La Fuerza Sideral</h4>
@@ -816,63 +849,65 @@ body {
       <a href="/en/vinos/la-fuerza-sideral.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>La Fuerza Sideral</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> La Fuerza Vermu</p>
-  <p><strong>Region:</strong> Not available</p>
-  <p><strong>Altitude:</strong> Not available masl</p>
-  
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Enjoy straight with ice and a slice of orange peel.
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>La Fuerza Sideral</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> La Fuerza Vermu</p>
+        <p><strong>Region:</strong> Not available</p>
+        <p><strong>Altitude:</strong> Not available masl</p>
+        
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Enjoy straight with ice and a slice of orange peel.
+          </p>
+        
+        
+        
+      </div>
     </div>
+    
   </div>
 
-      <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
 
-<h3 style="color: var(--primary); margin-top: 50px;">Otros vinos de Not available</h3>
-<div class="grid">
-  
-  <div class="card">
-    <img src="https://www.1000malbecs.com/images/small/andeluna-malbec-rose.jpg" alt="Andeluna Malbec Rose 2024">
-    <h4>Andeluna Malbec Rose</h4>
-    <p>€9.40</p>
-    <a href="/en/vinos/andeluna-malbec-rose.html">Comprar</a>
+      <!-- OTHER WINES FROM THE SAME REGION -->
     
-    <div class="overlay">
-      <p><strong>Andeluna Malbec Rose</strong></p>
+    <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Not available</h3>
+    <div class="grid">
       
-      <p style="margin-top: 8px;"><strong>Bodega:</strong> Andeluna</p>
-      <p><strong>Región:</strong> Not available</p>
-      <p><strong>Altura:</strong> Not available msnm</p>
-      
-      
+      <div class="card">
+        <img src="https://www.1000malbecs.com/images/small/andeluna-malbec-rose.jpg" alt="Andeluna Malbec Rose 2024">
+        <h4>Andeluna Malbec Rose</h4>
+        <p>€9.40</p>
+        <a href="/en/vinos/andeluna-malbec-rose.html">Buy</a>
         
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      nan
-    </p>  
-  
+        <div class="overlay">
+          <p><strong>Andeluna Malbec Rose</strong></p>
+          
+          <p style="margin-top: 8px;"><strong>Winery:</strong> Andeluna</p>
+          <p><strong>Region:</strong> Not available</p>
+          <p><strong>Altitude:</strong> Not available masl</p>
+          
+          
+          
+          
+          
+          
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+            <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+              nan
+            </p>
+          
+          
+          
         </div>
       </div>
       
     </div>
     
-
 
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>

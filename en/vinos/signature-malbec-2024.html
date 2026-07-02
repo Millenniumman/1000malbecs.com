@@ -263,19 +263,47 @@ body {
   background: #eee; 
 }
 
+/* ========================================
+   SELECTOR DE IDIOMAS MOBILE
+   ======================================== */
 .lang-selector-mobile {
-  position: fixed; top: 70px; left: 50%; transform: translateX(-50%); 
-  z-index: 110; background: white; padding: 6px 12px; 
-  border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: none; gap: 8px; font-weight: 600; font-size: 12px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #eee;
 }
 
 .lang-selector-mobile a {
-  color: var(--primary); text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
 }
 
-.lang-selector-mobile a.active { 
-  font-weight: 700; 
+.lang-selector-mobile a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* En mobile ocultar el desktop */
+@media (max-width: 768px) {
+  .lang-selector-desktop {
+    display: none !important;
+  }
+  .lang-selector-mobile {
+    display: flex !important;
+  }
 }
 
 /* ========================================
@@ -629,6 +657,12 @@ body {
     🛒
     <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
   </a>
+    <!-- SELECTOR MÓVIL -->
+  <div class="lang-selector-mobile">
+    <a href="/es/vinos/signature-malbec-2024.html" >ES</a>
+    <a href="/en/vinos/signature-malbec-2024.html" class="active">EN</a>
+    <a href="/de/vinos/signature-malbec-2024.html" >DE</a>
+  </div>
 </header>
 
 <!-- ==================== TOPBAR DESKTOP ==================== -->
@@ -755,8 +789,7 @@ Pairing: Red meat, pork, poultry and stuffed pasta.</p>
     </div>
 
 
-
-   <!-- OTHER WINES FROM THE SAME WINERY -->
+            <!-- OTHER WINES FROM THE SAME WINERY -->
   
   <h3 class="grid-section-title" style="color: var(--primary); margin-top: 50px;">Other wines from Susana Balbo</h3>
   <div class="grid">
@@ -768,29 +801,29 @@ Pairing: Red meat, pork, poultry and stuffed pasta.</p>
       <a href="/en/vinos/anubis-malbec-2024.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Anubis Malbec 2024</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
-  <p><strong>Region:</strong> Valle de uco / luján de cuyo</p>
-  <p><strong>Altitude:</strong> 1150 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.14%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Intense ruby ​​color with violet reflections. Aromas of violets, cherries, strawberries, blackberries and soft spices. In the mouth it is fresh, fruity, with...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Anubis Malbec 2024</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+        <p><strong>Region:</strong> Valle de uco / luján de cuyo</p>
+        <p><strong>Altitude:</strong> 1150 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Intense ruby ​​color with violet reflections. Aromas of violets, cherries, strawberries, blackberries and soft spices. In the mouth it is fresh, fruity, with...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/crios-malbec-2024.jpg" alt="Crios Malbec 2024 2024">
       <h4>Crios Malbec 2024</h4>
@@ -798,27 +831,27 @@ Pairing: Red meat, pork, poultry and stuffed pasta.</p>
       <a href="/en/vinos/crios-malbec-2024.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Crios Malbec 2024</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
-  <p><strong>Region:</strong> Valle de uco</p>
-  <p><strong>Altitude:</strong> 1050 masl</p>
-  
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Aromas of violets, cherries, red fruits and spices. The palate is fruity, with balanced acidity, notes of ripe red fruits and a subtle touch of oak. Soft and...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Crios Malbec 2024</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+        <p><strong>Region:</strong> Valle de uco</p>
+        <p><strong>Altitude:</strong> 1050 masl</p>
+        
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Aromas of violets, cherries, red fruits and spices. The palate is fruity, with balanced acidity, notes of ripe red fruits and a subtle touch of oak. Soft and...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/ben-marco-malbec-2024.jpg" alt="Ben Marco Malbec 2024 2024">
       <h4>Ben Marco Malbec 2024</h4>
@@ -826,30 +859,30 @@ Pairing: Red meat, pork, poultry and stuffed pasta.</p>
       <a href="/en/vinos/ben-marco-malbec-2024.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Ben Marco Malbec 2024</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
-  <p><strong>Region:</strong> Valle de uco (los chacayes)</p>
-  <p><strong>Altitude:</strong> 1110 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.14%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Tasting and pairing note:
+        <p><strong>Ben Marco Malbec 2024</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+        <p><strong>Region:</strong> Valle de uco (los chacayes)</p>
+        <p><strong>Altitude:</strong> 1110 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Tasting and pairing note:
 Aromas of black berries, violets and floral notes. In the mouth it has pronounced acidity, firm tannins, great length and freshness...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/osadia-de-crear-malbec-2024.jpg" alt="Osadia de Crear Malbec 2024 2024">
       <h4>Osadia de Crear Malbec 2024</h4>
@@ -857,27 +890,27 @@ Aromas of black berries, violets and floral notes. In the mouth it has pronounce
       <a href="/en/vinos/osadia-de-crear-malbec-2024.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Osadia de Crear Malbec 2024</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
-  <p><strong>Region:</strong> Valle de uco</p>
-  <p><strong>Altitude:</strong> 1300 masl</p>
-  
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Dense, fleshy Malbec with vibrant fruit (red cherries, currants and plums). Fine but present tannins, excellent concentration and a very long and precise fin...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Osadia de Crear Malbec 2024</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+        <p><strong>Region:</strong> Valle de uco</p>
+        <p><strong>Altitude:</strong> 1300 masl</p>
+        
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Dense, fleshy Malbec with vibrant fruit (red cherries, currants and plums). Fine but present tannins, excellent concentration and a very long and precise fin...
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/nosotros-nomade-malbec-2020.jpg" alt="Nosotros Nomade Malbec 2020 2020">
       <h4>Nosotros Nomade Malbec 2020</h4>
@@ -885,28 +918,28 @@ Aromas of black berries, violets and floral notes. In the mouth it has pronounce
       <a href="/en/vinos/nosotros-nomade-malbec-2020.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Nosotros Nomade Malbec 2020</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
-  <p><strong>Region:</strong> Valle de uco (gualtallary)</p>
-  <p><strong>Altitude:</strong> 1300 masl</p>
-  
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Aromas of cassis, blueberries and floral notes. Excellent structure, fine tannins and great aging potential. Complex, elegant mouth with great depth.
+        <p><strong>Nosotros Nomade Malbec 2020</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+        <p><strong>Region:</strong> Valle de uco (gualtallary)</p>
+        <p><strong>Altitude:</strong> 1300 masl</p>
+        
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Aromas of cassis, blueberries and floral notes. Excellent structure, fine tannins and great aging potential. Complex, elegant mouth with great depth.
 Pairing...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+          </p>
+        
+        
+        
+      </div>
+    </div>
+    
     <div class="card">
       <img src="https://www.1000malbecs.com/images/small/crios-red-blend-2024.jpg" alt="Crios Red Blend 2024 2024">
       <h4>Crios Red Blend 2024</h4>
@@ -914,36 +947,34 @@ Pairing...
       <a href="/en/vinos/crios-red-blend-2024.html">Buy</a>
       
       <div class="overlay">
-  <p><strong>Crios Red Blend 2024</strong></p>
-  
-  <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
-  <p><strong>Region:</strong> Valle de uco</p>
-  <p><strong>Altitude:</strong> 1150 masl</p>
-  
-  
-    <p><strong>Alcohol:</strong> 0.14%</p>
-  
-  
-  
-  
-  
-    <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
-    <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
-      Intense ruby ​​red color with violet reflections. Aromas of ripe red fruits (cherry, strawberry, blackberry), spicy notes and soft herbs, with hints of viole...
-    </p>
-  
-  
-  
-          </div>
-        </div>
-      
+        <p><strong>Crios Red Blend 2024</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Winery:</strong> Susana Balbo</p>
+        <p><strong>Region:</strong> Valle de uco</p>
+        <p><strong>Altitude:</strong> 1150 masl</p>
+        
+        
+          <p><strong>Alcohol:</strong> 0.14 % vol.</p>
+        
+        
+        
+        
+        
+          <hr style="border-color: rgba(255,255,255,0.3); margin: 10px 0 8px;">
+          <p style="font-style: italic; margin-top: 6px; line-height: 1.35;">
+            Intense ruby ​​red color with violet reflections. Aromas of ripe red fruits (cherry, strawberry, blackberry), spicy notes and soft herbs, with hints of viole...
+          </p>
+        
+        
+        
+      </div>
     </div>
+    
   </div>
 
-      <!-- OTROS VINOS DE LA MISMA REGIÓN -->
-    <!-- OTROS VINOS DE LA MISMA REGIÓN -->
 
-
+      <!-- OTHER WINES FROM THE SAME REGION -->
+    
 
       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
     <script>
