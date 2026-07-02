@@ -1,22 +1,15 @@
 {
-  "name": "footer-injector",
-  "main": "workers/index.js",
-  "compatibility_date": "2025-05-25"
-}
-{
+  "name": "1000malbecs-pago",
+  "main": "index.js",
+  "compatibility_date": "2025-01-01",
   "observability": {
-    "enabled": false,
+    "enabled": true,
     "head_sampling_rate": 1,
     "logs": {
       "enabled": true,
       "head_sampling_rate": 1,
       "persist": true,
       "invocation_logs": true
-    },
-    "traces": {
-      "enabled": false,
-      "persist": true,
-      "head_sampling_rate": 1
     }
   }
 }
