@@ -76,86 +76,87 @@
       background: #f8f8f8;
       border-radius: 10px;
     }
+    * Mantengo los mismos estilos que te di antes (los resumo para no repetir) */
+    
+    h1 { color: #4A2C59; font-size: 2.2em; margin-bottom: 15px; }
+
   </style>
 </head>
 <body>
+  <body>
   <main>
     <div class="icon">🎉</div>
-    <h1 id="thank-title">¡Gracias por tu compra!</h1>
-    <p id="thank-subtitle">Tu pedido ha sido confirmado y está siendo preparado.</p>
+    <h1 id="thank-title">Vielen Dank für deinen Kauf!</h1>
+    <p id="thank-subtitle">Deine Bestellung wurde bestätigt.</p>
 
     <div class="order-number">
-      Pedido #<span id="order-number">123456</span>
+      Bestellung #<span id="order-number">WIRD GELADEN...</span>
     </div>
 
     <div class="summary" id="order-summary">
-      <!-- Aquí se inyectará el resumen vía JavaScript -->
+      <p>Lade Bestelldetails...</p>
     </div>
 
     <div>
-      <a href="#" onclick="downloadInvoice()" class="btn btn-primary">Descargar Factura</a>
-      <a href="/{{ lang }}/" class="btn btn-secondary">Volver a la Tienda</a>
+      <a href="#" onclick="downloadInvoice()" class="btn btn-primary">Rechnung herunterladen</a>
+      <a href="/de/" class="btn btn-secondary">Zurück zum Shop</a>
     </div>
 
-    <!-- Invitación a crear cuenta -->
-    <div class="create-account">
-      <h3 id="account-title">¿Quieres ver el estado de tu pedido fácilmente?</h3>
-      <p id="account-text">Crea tu cuenta en 10 segundos usando este email y guarda tus direcciones.</p>
-      <a href="/register.html?email=cliente@email.com" class="btn btn-primary">Crear mi cuenta</a>
+    <div class="create-account" style="margin-top:40px; padding:20px; background:#f8f8f8; border-radius:10px;">
+      <h3 id="account-title">Konto erstellen?</h3>
+      <p id="account-text">Für einfache Nachverfolgung und zukünftige Bestellungen.</p>
+      <a href="#" id="create-account-btn" class="btn btn-primary">Konto erstellen</a>
     </div>
   </main>
 
+<script src="https://js.stripe.com/v3/"></script>
 <script>
-// Datos de ejemplo (los reemplazarás con datos reales del pago)
-const orderData = {
-  orderId: "PO-20260703-4782",
-  total: "€248.50",
-  items: [
-    { name: "Malbec Reserva", qty: 2, price: "€42.00" },
-    { name: "Polo Edition Especial", qty: 1, price: "€89.00" }
-  ]
-};
+// === CONFIGURA TU CLAVE PUBLICA DE STRIPE ===
+const stripe = Stripe('pk_live_tu_clave_publica_aqui');   // ← Cambia esto
 
-function renderOrderSummary() {
-  let html = `<h3>Resumen del pedido</h3>`;
-  orderData.items.forEach(item => {
-    html += `<p>${item.qty} × ${item.name} — ${item.price}</p>`;
-  });
-  html += `<hr><p><strong>Total: ${orderData.total}</strong></p>`;
-  document.getElementById('order-summary').innerHTML = html;
-  document.getElementById('order-number').textContent = orderData.orderId;
-}
+async function retrieveSession() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionId = urlParams.get('session_id');
 
-// Cambiar idioma
-function setThankYouLanguage(lang) {
-  if (lang === 'es') {
-    document.getElementById('thank-title').textContent = '¡Gracias por tu compra!';
-    document.getElementById('thank-subtitle').textContent = 'Tu pedido ha sido confirmado y está siendo preparado.';
-    document.getElementById('account-title').textContent = '¿Quieres ver el estado de tu pedido fácilmente?';
-    document.getElementById('account-text').textContent = 'Crea tu cuenta en 10 segundos usando este email y guarda tus direcciones.';
-  } else if (lang === 'en') {
-    document.getElementById('thank-title').textContent = 'Thank you for your purchase!';
-    document.getElementById('thank-subtitle').textContent = 'Your order has been confirmed and is being prepared.';
-    document.getElementById('account-title').textContent = 'Want to track your order easily?';
-    document.getElementById('account-text').textContent = 'Create your account in 10 seconds using this email.';
-  } else { // de
-    document.getElementById('thank-title').textContent = 'Vielen Dank für deinen Kauf!';
-    document.getElementById('thank-subtitle').textContent = 'Deine Bestellung wurde bestätigt und wird vorbereitet.';
-    document.getElementById('account-title').textContent = 'Möchtest du deine Bestellung einfach verfolgen?';
-    document.getElementById('account-text').textContent = 'Erstelle dein Konto in 10 Sekunden mit dieser E-Mail.';
+  if (!sessionId) {
+    document.getElementById('order-summary').innerHTML = "<p style='color:red;'>Error: No se encontró sesión de pago.</p>";
+    return;
+  }
+
+  try {
+    // Aquí normalmente harías una llamada a TU BACKEND para verificar la sesión
+    // Ejemplo con fetch (recomendado):
+    const response = await fetch('/api/retrieve-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ session_id: sessionId })
+    });
+
+    const data = await response.json();
+
+    // Rellenar la página
+    document.getElementById('order-number').textContent = data.orderId || sessionId.slice(-8);
+    document.getElementById('create-account-btn').href = `/register.html?email=${encodeURIComponent(data.customer_email)}`;
+
+    let html = `<h3>Bestellübersicht</h3>`;
+    data.items.forEach(item => {
+      html += `<p>${item.quantity} × ${item.description} — €${item.amount/100}</p>`;
+    });
+    html += `<hr><p><strong>Gesamt: €${data.total/100}</strong></p>`;
+    document.getElementById('order-summary').innerHTML = html;
+
+  } catch (error) {
+    console.error(error);
+    document.getElementById('order-summary').innerHTML = "<p>Es gab ein Problem beim Laden der Bestellung.</p>";
   }
 }
 
-// Inicializar
+// Ejecutar al cargar
 document.addEventListener('DOMContentLoaded', () => {
   const lang = document.documentElement.lang || 'de';
-  setThankYouLanguage(lang);
-  renderOrderSummary();
+  // Aquí puedes llamar a setThankYouLanguage(lang) si quieres multi-idioma completo
+  retrieveSession();
 });
-
-function downloadInvoice() {
-  alert("Descargando factura... (aquí conectarías con tu backend)");
-}
 </script>
 </body>
 </html>
