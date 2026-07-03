@@ -270,6 +270,65 @@
     <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Finalizar la compra</a>
     <a href="/es/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Seguir Comprando</a>
   </main>
+<!-- === NUEVAS OPCIONES DE COMPRA === -->
+      <div class="checkout-options">
+        <h2 id="checkout-title">¿Cómo deseas continuar?</h2>
+        
+        <a href="#" onclick="goToCheckout('guest')" class="option-btn btn-guest" id="btn-guest">
+          Comprar como invitado
+        </a>
+        
+        <a href="#" onclick="goToCheckout('register')" class="option-btn btn-register" id="btn-register">
+          Registrarme y comprar
+        </a>
+      </div>
+
+      <a href="/es/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Seguir Comprando</a>
+    </main>
+
+<script src="/js/cart.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+// Función para cambiar idioma del carrito
+function setCartLanguage(lang) {
+  if (lang === 'es') {
+    document.getElementById('cart-title').textContent = 'Tu Carrito';
+    document.getElementById('checkout-title').textContent = '¿Cómo deseas continuar?';
+    document.getElementById('btn-guest').textContent = 'Comprar como invitado';
+    document.getElementById('btn-register').textContent = 'Registrarme y comprar';
+  } 
+  else if (lang === 'en') {
+    document.getElementById('cart-title').textContent = 'Your Cart';
+    document.getElementById('checkout-title').textContent = 'How would you like to proceed?';
+    document.getElementById('btn-guest').textContent = 'Continue as Guest';
+    document.getElementById('btn-register').textContent = 'Register and Buy';
+  } 
+  else { // de
+    document.getElementById('cart-title').textContent = 'Dein Warenkorb';
+    document.getElementById('checkout-title').textContent = 'Wie möchtest du fortfahren?';
+    document.getElementById('btn-guest').textContent = 'Als Gast kaufen';
+    document.getElementById('btn-register').textContent = 'Registrieren und kaufen';
+  }
+}
+
+// Función para ir al checkout
+function goToCheckout(type) {
+  if (type === 'guest') {
+    window.location.href = '/checkout.html?mode=guest';
+  } else {
+    window.location.href = '/checkout.html?mode=register';
+  }
+}
+
+// Detectar idioma actual
+document.addEventListener('DOMContentLoaded', function() {
+  const lang = document.documentElement.lang || 'de';
+  setCartLanguage(lang);
+  
+  if (typeof renderCart === 'function') renderCart();
+});
+</script>
 
 <script src="/js/cart.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
