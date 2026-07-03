@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias por tu compra - 1000 Malbecs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 700px;
+      margin: 100px auto 60px;
+      padding: 20px;
+      text-align: center;
+    }
+    .icon {
+      font-size: 72px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #4A2C59;
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+    .order-number {
+      background: #f8f8f8;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 20px 0;
+      font-weight: 600;
+      color: #4A2C59;
+    }
+    .summary {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: left;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      margin: 10px 8px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-primary {
+      background: #4A2C59;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #5A1D39;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #4A2C59;
+      border: 2px solid #4A2C59;
+    }
+    .create-account {
+      margin-top: 40px;
+      padding: 20px;
+      background: #f8f8f8;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="icon">🎉</div>
+    <h1 id="thank-title">¡Gracias por tu compra!</h1>
+    <p id="thank-subtitle">Tu pedido ha sido confirmado y está siendo preparado.</p>
+
+    <div class="order-number">
+      Pedido #<span id="order-number">123456</span>
+    </div>
+
+    <div class="summary" id="order-summary">
+      <!-- Aquí se inyectará el resumen vía JavaScript -->
+    </div>
+
+    <div>
+      <a href="#" onclick="downloadInvoice()" class="btn btn-primary">Descargar Factura</a>
+      <a href="/{{ lang }}/" class="btn btn-secondary">Volver a la Tienda</a>
+    </div>
+
+    <!-- Invitación a crear cuenta -->
+    <div class="create-account">
+      <h3 id="account-title">¿Quieres ver el estado de tu pedido fácilmente?</h3>
+      <p id="account-text">Crea tu cuenta en 10 segundos usando este email y guarda tus direcciones.</p>
+      <a href="/register.html?email=cliente@email.com" class="btn btn-primary">Crear mi cuenta</a>
+    </div>
+  </main>
+
+<script>
+// Datos de ejemplo (los reemplazarás con datos reales del pago)
+const orderData = {
+  orderId: "PO-20260703-4782",
+  total: "€248.50",
+  items: [
+    { name: "Malbec Reserva", qty: 2, price: "€42.00" },
+    { name: "Polo Edition Especial", qty: 1, price: "€89.00" }
+  ]
+};
+
+function renderOrderSummary() {
+  let html = `<h3>Resumen del pedido</h3>`;
+  orderData.items.forEach(item => {
+    html += `<p>${item.qty} × ${item.name} — ${item.price}</p>`;
+  });
+  html += `<hr><p><strong>Total: ${orderData.total}</strong></p>`;
+  document.getElementById('order-summary').innerHTML = html;
+  document.getElementById('order-number').textContent = orderData.orderId;
+}
+
+// Cambiar idioma
+function setThankYouLanguage(lang) {
+  if (lang === 'es') {
+    document.getElementById('thank-title').textContent = '¡Gracias por tu compra!';
+    document.getElementById('thank-subtitle').textContent = 'Tu pedido ha sido confirmado y está siendo preparado.';
+    document.getElementById('account-title').textContent = '¿Quieres ver el estado de tu pedido fácilmente?';
+    document.getElementById('account-text').textContent = 'Crea tu cuenta en 10 segundos usando este email y guarda tus direcciones.';
+  } else if (lang === 'en') {
+    document.getElementById('thank-title').textContent = 'Thank you for your purchase!';
+    document.getElementById('thank-subtitle').textContent = 'Your order has been confirmed and is being prepared.';
+    document.getElementById('account-title').textContent = 'Want to track your order easily?';
+    document.getElementById('account-text').textContent = 'Create your account in 10 seconds using this email.';
+  } else { // de
+    document.getElementById('thank-title').textContent = 'Vielen Dank für deinen Kauf!';
+    document.getElementById('thank-subtitle').textContent = 'Deine Bestellung wurde bestätigt und wird vorbereitet.';
+    document.getElementById('account-title').textContent = 'Möchtest du deine Bestellung einfach verfolgen?';
+    document.getElementById('account-text').textContent = 'Erstelle dein Konto in 10 Sekunden mit dieser E-Mail.';
+  }
+}
+
+// Inicializar
+document.addEventListener('DOMContentLoaded', () => {
+  const lang = document.documentElement.lang || 'de';
+  setThankYouLanguage(lang);
+  renderOrderSummary();
+});
+
+function downloadInvoice() {
+  alert("Descargando factura... (aquí conectarías con tu backend)");
+}
+</script>
+</body>
+</html>
