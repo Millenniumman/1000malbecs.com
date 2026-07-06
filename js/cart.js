@@ -1,6 +1,6 @@
 // js/cart.js - Versión FINAL Multilingüe + Envío
 // ==================== STRIPE ====================
-const STRIPE_PUBLISHABLE_KEY = "pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE";   // ← Cambia por tu clave de test
+const STRIPE_PUBLISHABLE_KEY = "pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs";   // ← Cambia por tu clave de test
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const translations = {
