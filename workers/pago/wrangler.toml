@@ -2,5 +2,5 @@ name = "1000malbecs-pago"
 main = "index.js"
 compatibility_date = "2025-07-01"
 
-# Variables sensibles (mejor usar wrangler secret)
-# STRIPE_SECRET_KEY se configura con wrangler secret
+# Ignorar configuración padre
+no_bundle = true
