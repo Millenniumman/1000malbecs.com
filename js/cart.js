@@ -195,9 +195,20 @@ function renderCart() {
   `;
 }
 // ==================== PAGO CON STRIPE ====================
-// ==================== goToCheckout - PRODUCTOS (Pago Único) ====================
 async function goToCheckout() {
-  const cart = getCart(); 
+  
+  // 1. Obtener el carrito (ajusta según cómo tengas guardado el carrito)
+  let cart = [];
+  
+  if (typeof getCart === 'function') {
+    cart = getCart();
+  } else if (typeof window.cart !== 'undefined') {
+    cart = window.cart;                    // Alternativa común
+  } else if (localStorage.getItem('cart')) {
+    cart = JSON.parse(localStorage.getItem('cart'));
+  }
+
+  console.log("Carrito actual:", cart);
 
   if (!cart || cart.length === 0) {
     alert("El carrito está vacío");
@@ -205,7 +216,7 @@ async function goToCheckout() {
   }
 
   try {
-    console.log("🛒 Enviando carrito:", cart);
+    console.log("Enviando al Worker...");
 
     const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
       method: 'POST',
@@ -213,27 +224,26 @@ async function goToCheckout() {
       body: JSON.stringify({
         cart: cart,
         language: document.documentElement.lang || 'de',
-        isSubscription: false   // ← Muy importante: false porque son productos
+        isSubscription: false
       })
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Error del servidor');
+      const err = await response.json();
+      throw new Error(err.error || 'Error del servidor');
     }
 
     const data = await response.json();
 
     if (data.url) {
-      console.log("✅ Redirigiendo a Stripe:", data.url);
       window.location.href = data.url;
     } else {
-      throw new Error("No se recibió URL de pago");
+      throw new Error("No se recibió la URL de Stripe");
     }
 
   } catch (error) {
-    console.error("❌ Error en checkout:", error);
-    alert("Hubo un problema al procesar el pago.\n\n" + error.message);
+    console.error("Error en checkout:", error);
+    alert("Error al procesar el pago:\n" + error.message);
   }
 }
 // Inicializar
