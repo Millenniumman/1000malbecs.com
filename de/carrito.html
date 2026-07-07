@@ -277,41 +277,50 @@
 
   <script src="/js/cart.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
-  <script>
-    const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";
+<script>
+  // const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";   ← Puedes dejarla o borrarla, ya no la usamos
 
-    async function goToCheckout() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  async function goToCheckout() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-      if (cart.length === 0) {
-        alert("Ihr Warenkorb ist leer");
-        return;
-      }
-
-      try {
-        const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ cart: cart })
-        });
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`HTTP ${response.status}`);
-        }
-
-        const session = await response.json();
-
-        const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-        stripe.redirectToCheckout({ sessionId: session.id });
-
-      } catch (error) {
-        console.error("Error:", error);
-        alert("Es gab ein Fehler bei der Zahlung. Bitte versuchen Sie es erneut.");
-      }
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
     }
-  </script>
 
+    try {
+      console.log("🛒 Enviando carrito:", cart);
+
+      const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          cart: cart,
+          language: document.documentElement.lang || 'de',
+          isSubscription: false
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Error del servidor');
+      }
+
+      const data = await response.json();
+
+      if (data.url) {
+        console.log("Redirecting to Stripe:", data.url);
+        window.location.href = data.url;
+      } else {
+        throw new Error("No se recibió URL de pago");
+      }
+
+    } catch (error) {
+      console.error("❌ Error completo:", error);
+      alert("Error al procesar el pago:\n" + error.message);
+    }
+  }
+</script>
   <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');
