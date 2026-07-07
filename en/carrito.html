@@ -302,7 +302,7 @@
   </script>
   <script src="https://js.stripe.com/v3/"></script>
 <script>
-  const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";
+  // const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";   ← Puedes dejarla o borrarla, ya no la usamos
 
   async function goToCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -313,22 +313,36 @@
     }
 
     try {
-      const response = await fetch('/create-checkout-session', {
+      console.log("🛒 Enviando carrito:", cart);
+
+      const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cart: cart })
+        body: JSON.stringify({
+          cart: cart,
+          language: document.documentElement.lang || 'de',
+          isSubscription: false
+        })
       });
 
-      const session = await response.json();
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Error del servidor');
+      }
 
-      const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-      stripe.redirectToCheckout({ sessionId: session.id });
+      const data = await response.json();
+
+      if (data.url) {
+        console.log("Redirecting to Stripe:", data.url);
+        window.location.href = data.url;
+      } else {
+        throw new Error("No se recibió URL de pago");
+      }
 
     } catch (error) {
-      console.error("Error:", error);
-      alert("Hubo un error al procesar el pago. Intenta de nuevo.");
+      console.error("❌ Error completo:", error);
+      alert("Error al procesar el pago:\n" + error.message);
     }
   }
-</script>
-</body>
+</script></body>
 </html>
