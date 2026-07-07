@@ -26,53 +26,45 @@ export default {
         const totalBottles = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
         const shippingCost = totalBottles >= 12 ? 0 : 699;
 
-        console.log(`Total botellas: ${totalBottles} | Envío: ${shippingCost} centavos`);
+        const formData = new URLSearchParams();
+        formData.append('mode', isSubscription ? 'subscription' : 'payment');
+        formData.append('success_url', successUrl);
+        formData.append('cancel_url', cancelUrl);
 
-        const sessionData = {
-          mode: isSubscription ? 'subscription' : 'payment',
-          payment_method_types: ['card'],
-          success_url: successUrl,
-          cancel_url: cancelUrl,
+        // Line items
+        cart.forEach((item, index) => {
+          if (isSubscription) {
+            formData.append(`line_items[${index}][price]`, item.priceId);
+          } else {
+            formData.append(`line_items[${index}][price_data][currency]`, 'eur');
+            formData.append(`line_items[${index}][price_data][product_data][name]`, item.name);
+            formData.append(`line_items[${index}][price_data][unit_amount]`, Math.round(item.price * 100));
+          }
+          formData.append(`line_items[${index}][quantity]`, item.quantity || 1);
+        });
 
-          line_items: cart.map(item => ({
-            price_data: {
-              currency: 'eur',
-              product_data: { name: item.name },
-              unit_amount: Math.round(item.price * 100),
-            },
-            quantity: item.quantity || 1,
-          })),
+        // Envío
+        formData.append('shipping_address_collection[allowed_countries][0]', 'ES');
+        formData.append('shipping_address_collection[allowed_countries][1]', 'DE');
+        formData.append('shipping_address_collection[allowed_countries][2]', 'FR');
 
-          shipping_address_collection: {
-            allowed_countries: ['ES', 'DE', 'FR', 'IT', 'PT', 'BE', 'NL', 'AT', 'LU', 'CH']
-          },
-
-          shipping_options: [{
-            shipping_rate_data: {
-              type: 'fixed_amount',
-              fixed_amount: { amount: shippingCost, currency: 'eur' },
-              display_name: shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)',
-              delivery_estimate: {
-                minimum: { unit: 'business_day', value: 3 },
-                maximum: { unit: 'business_day', value: 7 },
-              }
-            }
-          }]
-        };
+        formData.append('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
+        formData.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', shippingCost);
+        formData.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'eur');
+        formData.append('shipping_options[0][shipping_rate_data][display_name]', shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)');
 
         const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body: JSON.stringify(sessionData),
+          body: formData,
         });
 
         const session = await stripeResponse.json();
 
         if (session.error) {
-          console.error("Stripe Error:", session.error);
           throw new Error(session.error.message);
         }
 
