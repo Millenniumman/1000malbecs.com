@@ -52,7 +52,14 @@ export default {
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', shippingCost);
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'eur');
         formData.append('shipping_options[0][shipping_rate_data][display_name]', shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)');
+        // Después de agregar los line_items y shipping_options
 
+        formData.append('payment_intent_data[description]', 'Compra en 1000 Malbecs');
+        formData.append('payment_intent_data[statement_descriptor]', '1000MALBECS');
+
+// Opcional: nombre más claro para el checkout
+        formData.append('custom_text[submit][message]', 'Pagar ahora con tarjeta segura');
+        
         const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
           method: 'POST',
           headers: {
