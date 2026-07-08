@@ -5,9 +5,15 @@ export default {
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     };
+
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { headers: corsHeaders });
+    }
+
     if (request.method === 'POST') {
       try {
-        const { cart, language = 'de', isSubscription = false } = await request.json();
+        const body = await request.json();
+        const { cart, language = 'de', isSubscription = false } = body;
 
         if (!cart || !Array.isArray(cart) || cart.length === 0) {
           throw new Error("El carrito está vacío");
@@ -28,8 +34,8 @@ export default {
             formData.append(`line_items[${index}][price]`, item.priceId);
           } else {
             formData.append(`line_items[${index}][price_data][currency]`, 'eur');
-            formData.append(`line_items[${index}][price_data][product_data][name]`, item.name);
-            formData.append(`line_items[${index}][price_data][unit_amount]`, Math.round(item.price * 100));
+            formData.append(`line_items[${index}][price_data][product_data][name]`, item.name || 'Producto');
+            formData.append(`line_items[${index}][price_data][unit_amount]`, Math.round((item.price || 0) * 100));
           }
           formData.append(`line_items[${index}][quantity]`, item.quantity || 1);
         });
@@ -40,24 +46,17 @@ export default {
 
         formData.append('shipping_address_collection[allowed_countries][0]', 'ES');
         formData.append('shipping_address_collection[allowed_countries][1]', 'DE');
-        formData.append('shipping_address_collection[allowed_countries][2]', 'FR');
-        formData.append('shipping_address_collection[allowed_countries][3]', 'IT');
-        formData.append('shipping_address_collection[allowed_countries][4]', 'PT');
-
         formData.append('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', shippingCost);
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'eur');
         formData.append('shipping_options[0][shipping_rate_data][display_name]', shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)');
 
-        // Corrección del título
+        // Corrección título
         formData.append('payment_intent_data[description]', 'Compra en 1000 Malbecs');
         formData.append('payment_intent_data[statement_descriptor]', '1000MALBECS');
-        formData.append('invoice_creation[enabled]', 'true');
-        formData.append('invoice_creation[invoice_data][description]', 'Compra de vinos - 1000 Malbecs');
 
         console.log(`Total botellas: ${totalBottles} | Envío: ${shippingCost/100}€`);
 
-        // === FETCH A STRIPE ===
         const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
           method: 'POST',
           headers: {
@@ -86,7 +85,7 @@ export default {
           status: 400,
           headers: corsHeaders 
         });
-      } 
+      }
     }
 
     return new Response('Method not allowed', { status: 405, headers: corsHeaders });
