@@ -5,11 +5,6 @@ export default {
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     };
-
-    if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: corsHeaders });
-    }
-
     if (request.method === 'POST') {
       try {
         const { cart, language = 'de', isSubscription = false } = await request.json();
@@ -22,8 +17,7 @@ export default {
         const successUrl = `${baseUrl}/${language}/gracias.html?session_id={CHECKOUT_SESSION_ID}`;
         const cancelUrl = `${baseUrl}/${language}/carrito.html`;
 
-      
-                const formData = new URLSearchParams();
+        const formData = new URLSearchParams();
         formData.append('mode', isSubscription ? 'subscription' : 'payment');
         formData.append('success_url', successUrl);
         formData.append('cancel_url', cancelUrl);
@@ -55,13 +49,24 @@ export default {
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'eur');
         formData.append('shipping_options[0][shipping_rate_data][display_name]', shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)');
 
-        // === CORRECCIÓN DEL TÍTULO "Pay Discovery Package" ===
+        // Corrección del título
         formData.append('payment_intent_data[description]', 'Compra en 1000 Malbecs');
         formData.append('payment_intent_data[statement_descriptor]', '1000MALBECS');
         formData.append('invoice_creation[enabled]', 'true');
         formData.append('invoice_creation[invoice_data][description]', 'Compra de vinos - 1000 Malbecs');
 
         console.log(`Total botellas: ${totalBottles} | Envío: ${shippingCost/100}€`);
+
+        // === FETCH A STRIPE ===
+        const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formData,
+        });
+
         const session = await stripeResponse.json();
 
         if (session.error) {
@@ -81,7 +86,7 @@ export default {
           status: 400,
           headers: corsHeaders 
         });
-      }
+      } 
     }
 
     return new Response('Method not allowed', { status: 405, headers: corsHeaders });
