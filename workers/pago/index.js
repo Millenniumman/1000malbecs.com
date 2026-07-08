@@ -20,7 +20,7 @@ export default {
         }
 
         const baseUrl = 'https://www.1000malbecs.com';
-        const successUrl = `${baseUrl}/${language}/gracias.html?session_id={CHECKOUT_SESSION_ID}`;
+        const successUrl = `${baseUrl}/${language}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`;
         const cancelUrl = `${baseUrl}/${language}/carrito.html`;
 
         const formData = new URLSearchParams();
