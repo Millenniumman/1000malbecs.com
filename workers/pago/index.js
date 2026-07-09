@@ -54,6 +54,8 @@ export default {
         formData.append('mode', isSubscription ? 'subscription' : 'payment');
         formData.append('success_url', successUrl);
         formData.append('cancel_url', cancelUrl);
+        formData.append('customer_creation', 'always');
+        formData.append('customer_update', 'name,email');  // Forzar actualización
 
         // Forzar recolección de email
         formData.append('customer_creation', 'always');
