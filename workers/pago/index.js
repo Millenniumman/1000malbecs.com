@@ -10,25 +10,8 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
-    if (request.method === 'POST') {
-      try {
-        const body = await request.json();
-        const { cart, language = 'de', isSubscription = false } = body;
-
-        if (!cart || !Array.isArray(cart) || cart.length === 0) {
-          throw new Error("El carrito está vacío");
-        }
-
-        const baseUrl = 'https://www.1000malbecs.com';
-        const successUrl = `${baseUrl}/${language}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`;
-        const cancelUrl = `${baseUrl}/${language}/carrito.html`;
-
-        const formData = new URLSearchParams();
-        formData.append('mode', isSubscription ? 'subscription' : 'payment');
-        formData.append('success_url', successUrl);
-        formData.append('cancel_url', cancelUrl);
-// === RUTA PARA RECUPERAR SESIÓN ===
-    if (request.url.endsWith('/get-session')) {
+    // ====================== GET SESSION ======================
+    if (request.url.endsWith('/get-session') && request.method === 'POST') {
       try {
         const { session_id } = await request.json();
 
@@ -42,17 +25,19 @@ export default {
 
         const session = await stripeResponse.json();
 
+        if (session.error) throw new Error(session.error.message);
+
         return new Response(JSON.stringify({
           id: session.id,
-          total: session.amount_total,
+          total: session.amount_total || 0,
           currency: session.currency,
           customer_email: session.customer_details?.email,
           shipping_details: session.shipping_details,
-          items: session.line_items?.data.map(item => ({
+          items: session.line_items?.data ? session.line_items.data.map(item => ({
             quantity: item.quantity,
-            description: item.description,
+            description: item.description || item.price?.product?.name,
             amount: item.amount_total
-          })) || []
+          })) : []
         }), {
           headers: { 
             'Content-Type': 'application/json',
@@ -67,6 +52,25 @@ export default {
         });
       }
     }
+
+    // ====================== CREATE CHECKOUT SESSION ======================
+    if (request.method === 'POST') {
+      try {
+        const { cart, language = 'de', isSubscription = false } = await request.json();
+
+        if (!cart || !Array.isArray(cart) || cart.length === 0) {
+          throw new Error("El carrito está vacío");
+        }
+
+        const baseUrl = 'https://www.1000malbecs.com';
+        const successUrl = `${baseUrl}/${language}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`;
+        const cancelUrl = `${baseUrl}/${language}/carrito.html`;
+
+        const formData = new URLSearchParams();
+        formData.append('mode', isSubscription ? 'subscription' : 'payment');
+        formData.append('success_url', successUrl);
+        formData.append('cancel_url', cancelUrl);
+
         // Line items
         cart.forEach((item, index) => {
           if (isSubscription) {
@@ -90,7 +94,6 @@ export default {
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'eur');
         formData.append('shipping_options[0][shipping_rate_data][display_name]', shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)');
 
-        // Corrección título
         formData.append('payment_intent_data[description]', 'Compra en 1000 Malbecs');
         formData.append('payment_intent_data[statement_descriptor]', '1000MALBECS');
 
