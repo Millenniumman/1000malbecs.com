@@ -31,7 +31,9 @@ export default {
             description: item.description,
             amount: item.amount_total
           })) : []
-        }), { headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+        }), {
+          headers: { 'Content-Type': 'application/json', ...corsHeaders }
+        });
       } catch (e) {
         return new Response(JSON.stringify({ error: e.message }), { status: 400, headers: corsHeaders });
       }
@@ -85,7 +87,7 @@ export default {
 
         // EMAIL
         try {
-          console.log("Intentando enviar email...");
+          console.log("Intentando enviar email a ventas...");
           const emailRes = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
@@ -96,10 +98,10 @@ export default {
               from: '1000 Malbecs <no-reply@1000malbecs.com>',
               to: ['ventas@1000malbecs.com'],
               subject: `Nuevo Pedido #${session.id.slice(-8)}`,
-              html: `<h2>Nuevo Pedido</h2><p>Total: €${(session.amount_total / 100).toFixed(2)}</p>`
+              html: `<h2>Nuevo Pedido</h2><p>Total: €${(session.amount_total / 100).toFixed(2)}</p><p>Cliente: ${session.customer_details?.email || 'Sin email'}</p>`
             })
           });
-          console.log("Email response status:", emailRes.status);
+          console.log("Email status:", emailRes.status);
         } catch (e) {
           console.error("Error email:", e.message);
         }
