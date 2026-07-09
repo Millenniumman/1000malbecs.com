@@ -50,11 +50,15 @@ export default {
         const successUrl = `${baseUrl}/${language}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`;
         const cancelUrl = `${baseUrl}/${language}/carrito.html`;
 
-        const formData = new URLSearchParams();
+          const formData = new URLSearchParams();
         formData.append('mode', isSubscription ? 'subscription' : 'payment');
         formData.append('success_url', successUrl);
         formData.append('cancel_url', cancelUrl);
 
+        // Forzar recolección de email
+        formData.append('customer_creation', 'always');
+
+        // Line items
         cart.forEach((item, index) => {
           formData.append(`line_items[${index}][price_data][currency]`, 'eur');
           formData.append(`line_items[${index}][price_data][product_data][name]`, item.name);
