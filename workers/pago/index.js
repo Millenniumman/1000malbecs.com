@@ -85,50 +85,48 @@ export default {
 
         if (session.error) throw new Error(session.error.message);
 
-                // === EMAIL MEJORADO ===
-        try {
-          console.log("Enviando email mejorado...");
+          // Email para el cliente (si tenemos su email)
+          if (customerEmail) {
+            await fetch('https://api.resend.com/emails', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                from: '1000 Malbecs <no-reply@1000malbecs.com>',
+                to: [customerEmail],
+                subject: `Confirmación de tu pedido #${orderNumber}`,
+                html: `
+                  <h2>¡Gracias por tu compra!</h2>
+                  <p>Tu pedido ha sido confirmado.</p>
+                  <p><strong>Nº de Pedido:</strong> ${session.id}</p>
+                  <p><strong>Total pagado:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
+                  <p>Te enviaremos un email cuando tu pedido sea enviado.</p>
+                  <p>Saludos,<br>Equipo 1000 Malbecs</p>
+                `
+              })
+            });
+            console.log("Email enviado al cliente:", customerEmail);
+          }
 
-          await fetch('https://api.resend.com/emails', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              from: '1000 Malbecs <no-reply@1000malbecs.com>',
-              to: ['ventas@1000malbecs.com'],
-              subject: `Nuevo Pedido Recibido #${session.id.slice(-8)}`,
-              html: `
-                <h2>Nuevo Pedido - 1000 Malbecs</h2>
-                <p><strong>Nº Pedido:</strong> ${session.id}</p>
-                <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
-                <p><strong>Email del cliente:</strong> ${session.customer_details?.email || 'No proporcionado'}</p>
-                <p><strong>Nombre:</strong> ${session.customer_details?.name || 'No proporcionado'}</p>
-                <hr>
-                <p>Revisa Stripe Dashboard para ver detalles completos y dirección de envío.</p>
-              `
-            })
-          });
+          console.log("Emails enviados correctamente");
+        } catch (e) {
+          console.error("Error enviando emails:", e.message);
+        }
 
           console.log("✅ Email enviado correctamente");
         } catch (e) {
           console.error("Error enviando email:", e.message);
-        }
-          console.log("Email status:", emailRes.status);
-        } catch (e) {
-          console.error("Error email:", e.message);
         }
 
         return new Response(JSON.stringify({ url: session.url }), {
           headers: { 'Content-Type': 'application/json', ...corsHeaders }
         });
 
-      } catch (error) {
-        console.error("Error:", error);
-        return new Response(JSON.stringify({ error: error.message }), { status: 400, headers: corsHeaders });
-      }
     }
+
+  
 
     return new Response('Method not allowed', { status: 405, headers: corsHeaders });
   }
