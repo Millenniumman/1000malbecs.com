@@ -85,10 +85,11 @@ export default {
 
         if (session.error) throw new Error(session.error.message);
 
-        // EMAIL
+                // === EMAIL MEJORADO ===
         try {
-          console.log("Intentando enviar email a ventas...");
-          const emailRes = await fetch('https://api.resend.com/emails', {
+          console.log("Enviando email mejorado...");
+
+          await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${env.RESEND_API_KEY}`,
@@ -97,10 +98,23 @@ export default {
             body: JSON.stringify({
               from: '1000 Malbecs <no-reply@1000malbecs.com>',
               to: ['ventas@1000malbecs.com'],
-              subject: `Nuevo Pedido #${session.id.slice(-8)}`,
-              html: `<h2>Nuevo Pedido</h2><p>Total: €${(session.amount_total / 100).toFixed(2)}</p><p>Cliente: ${session.customer_details?.email || 'Sin email'}</p>`
+              subject: `Nuevo Pedido Recibido #${session.id.slice(-8)}`,
+              html: `
+                <h2>Nuevo Pedido - 1000 Malbecs</h2>
+                <p><strong>Nº Pedido:</strong> ${session.id}</p>
+                <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
+                <p><strong>Email del cliente:</strong> ${session.customer_details?.email || 'No proporcionado'}</p>
+                <p><strong>Nombre:</strong> ${session.customer_details?.name || 'No proporcionado'}</p>
+                <hr>
+                <p>Revisa Stripe Dashboard para ver detalles completos y dirección de envío.</p>
+              `
             })
           });
+
+          console.log("✅ Email enviado correctamente");
+        } catch (e) {
+          console.error("Error enviando email:", e.message);
+        }
           console.log("Email status:", emailRes.status);
         } catch (e) {
           console.error("Error email:", e.message);
