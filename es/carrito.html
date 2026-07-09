@@ -268,12 +268,28 @@
     <div id="cart-items"></div>
     <div id="cart-total" class="total"></div>
      <div style="margin: 20px 0; text-align: center;">
-  <label for="customer-email">Email para la confirmación:</label><br>
-  <input type="email" id="customer-email" placeholder="tu@email.com" style="padding:10px; width:80%; max-width:400px; margin-top:8px;">
+    
+    
+ <div id="checkout-section">
+  <a href="#" id="main-checkout-btn" class="btn-checkout" onclick="showCheckoutOptions()">
+    Finalizar la compra
+  </a>
 </div>
-    <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Finalizar la compra</a>
-    <a href="/es/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Seguir Comprando</a>
-  </main>
+
+<!-- Opciones que aparecen al hacer clic -->
+<div id="checkout-options" style="display:none; margin-top:30px;">
+  <h3 style="color:#4A2C59; margin-bottom:20px;">¿Cómo deseas continuar?</h3>
+  
+  <a href="#" onclick="goToCheckout('guest')" class="option-btn btn-guest" style="display:block; margin:12px auto; max-width:420px;">
+    Comprar como invitado
+  </a>
+  
+  <a href="#" onclick="goToCheckout('register')" class="option-btn btn-register" style="display:block; margin:12px auto; max-width:420px;">
+    Registrarme y comprar
+  </a>
+  <a href="/es/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Seguir Comprando</a>
+</div>
+   </main>
 <script src="/js/cart.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 
