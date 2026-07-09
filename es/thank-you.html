@@ -42,23 +42,7 @@
     </div>
   </main>
 
-<script>
-async function retrieveSession() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const sessionId = urlParams.get('session_id');
-
-  if (!sessionId) return;
-
-  try {
-    const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/get-session', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ session_id: sessionId })
-    });
-
-    const data = await response.json();
-
-    document.getElementById('order-number').textContent = data.id?.slice(-8) || sessionId.slice(-8);
+document.getElementById('order-number').textContent = data.id?.slice(-8) || sessionId.slice(-8);
 
     let html = `<h3>Resumen del pedido</h3>`;
     if (data.items) {
@@ -82,11 +66,15 @@ async function retrieveSession() {
     } else {
       document.getElementById('shipping-info').innerHTML = `<p>No se encontró dirección de envío.</p>`;
     }
-  } catch (e) {
-    console.error(e);
-    // Vaciar carrito
+   // Vaciar carrito
     localStorage.removeItem('cart');
     console.log("Carrito vaciado después de la compra");
+  } catch (e) {
+    console.error(e);
+  }
+}   
+  
+ 
 
 document.addEventListener('DOMContentLoaded', retrieveSession);
   }
