@@ -102,9 +102,11 @@ export default {
           throw new Error(session.error.message);
         }
 
-        // === ENVIAR EMAIL A VENTAS ===
+               // === ENVIAR EMAIL A VENTAS ===
         try {
-          await fetch('https://api.resend.com/emails', {
+          console.log("Intentando enviar email a ventas...");
+
+          const emailResponse = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${env.RESEND_API_KEY}`,
@@ -113,21 +115,27 @@ export default {
             body: JSON.stringify({
               from: '1000 Malbecs <no-reply@1000malbecs.com>',
               to: ['ventas@1000malbecs.com'],
-              subject: `Nuevo Pedido Recibido #${session.id.slice(-8)}`,
+              subject: `Nuevo Pedido #${session.id.slice(-8)}`,
               html: `
-                <h2>Nuevo Pedido - 1000 Malbecs</h2>
-                <p><strong>Nº Pedido:</strong> ${session.id}</p>
+                <h2>Nuevo Pedido Recibido</h2>
+                <p><strong>Pedido:</strong> ${session.id}</p>
                 <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
-                <p><strong>Email cliente:</strong> ${session.customer_details?.email || 'No disponible'}</p>
-                <hr>
-                <p>Revisa Stripe para más detalles.</p>
+                <p><strong>Cliente:</strong> ${session.customer_details?.email || 'Sin email'}</p>
               `
             })
           });
-          console.log("✅ Email enviado a ventas@1000malbecs.com");
+
+          const emailResult = await emailResponse.json();
+          console.log("Respuesta de Resend:", emailResult);
+
+          if (emailResponse.ok) {
+            console.log("✅ Email enviado correctamente a ventas@1000malbecs.com");
+          } else {
+            console.error("❌ Error en Resend:", emailResult);
+          }
         } catch (emailError) {
-          console.error("Error enviando email:", emailError);
-        }
+          console.error("Error al intentar enviar email:", emailError);
+        } 
 
         return new Response(JSON.stringify({ url: session.url }), {
           headers: { 
