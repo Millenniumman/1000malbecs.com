@@ -84,10 +84,14 @@ async function retrieveSession() {
     }
   } catch (e) {
     console.error(e);
-  }
-}
+    // Vaciar carrito
+    localStorage.removeItem('cart');
+    console.log("Carrito vaciado después de la compra");
 
 document.addEventListener('DOMContentLoaded', retrieveSession);
+  }
+}
+      
 
 function downloadInvoice() {
   alert("Descargando factura...");
