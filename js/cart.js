@@ -80,13 +80,10 @@ function addToCart(product) {
     return;
   }
 
-  console.log("Precio parseado:", price);
-
   const existing = cart.find(item => item.id === product.id);
 
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
-    console.log("Cantidad actualizada");
   } else {
     cart.push({
       id: product.id,
@@ -96,18 +93,16 @@ function addToCart(product) {
       url: product.url,
       quantity: 1
     });
-    console.log("Producto agregado nuevo");
   }
 
-  console.log("Carrito antes de guardar:", cart);
-
   localStorage.setItem('cart', JSON.stringify(cart));
-  console.log("Guardado en localStorage");
 
+  // Actualizaciones importantes
   updateCartCount();
-  showToast(product.name);
+  renderCart();           // Si estás en la página del carrito
+  showMiniCart();         // ← Abre el mini-cart
 
-  if (typeof renderCart === 'function') renderCart();
+  showToast(product.name);
 }
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
