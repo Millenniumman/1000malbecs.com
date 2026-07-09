@@ -71,7 +71,9 @@ export default {
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', shippingCost);
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'eur');
         formData.append('shipping_options[0][shipping_rate_data][display_name]', shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)');
-
+        if (customer_email) {
+          formData.append('customer_email', customer_email);
+        }
         const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
           method: 'POST',
           headers: {
