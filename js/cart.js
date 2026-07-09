@@ -212,56 +212,37 @@ function renderCart() {
     </div>
   `;
 }
-// ==================== PAGO CON STRIPE ====================
 async function goToCheckout() {
-  
-  // 1. Obtener el carrito (ajusta según cómo tengas guardado el carrito)
-  let cart = [];
-  
-  if (typeof getCart === 'function') {
-    cart = getCart();
-  } else if (typeof window.cart !== 'undefined') {
-    cart = window.cart;                    // Alternativa común
-  } else if (localStorage.getItem('cart')) {
-    cart = JSON.parse(localStorage.getItem('cart'));
-  }
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const customerEmail = document.getElementById('customer-email')?.value.trim();
 
-  console.log("Carrito actual:", cart);
-
-  if (!cart || cart.length === 0) {
+  if (cart.length === 0) {
     alert("El carrito está vacío");
     return;
   }
 
   try {
-    console.log("Enviando al Worker...");
-
     const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         cart: cart,
         language: document.documentElement.lang || 'de',
-        isSubscription: false
+        isSubscription: false,
+        customer_email: customerEmail || null   // ← Enviamos el email
       })
     });
 
-    if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error || 'Error del servidor');
-    }
-
     const data = await response.json();
+
+    if (data.error) throw new Error(data.error);
 
     if (data.url) {
       window.location.href = data.url;
-    } else {
-      throw new Error("No se recibió la URL de Stripe");
     }
 
   } catch (error) {
-    console.error("Error en checkout:", error);
-    alert("Error al procesar el pago:\n" + error.message);
+    alert("Error: " + error.message);
   }
 }
 // Inicializar
