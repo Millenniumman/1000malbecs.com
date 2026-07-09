@@ -11,15 +11,13 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
-    // ====================== GET SESSION ======================
+    // GET SESSION
     if (request.url.endsWith('/get-session') && request.method === 'POST') {
       try {
         const { session_id } = await request.json();
-
         const stripeResponse = await fetch(`https://api.stripe.com/v1/checkout/sessions/${session_id}?expand[]=line_items`, {
           headers: { 'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}` },
         });
-
         const session = await stripeResponse.json();
 
         return new Response(JSON.stringify({
@@ -33,28 +31,18 @@ export default {
             description: item.description,
             amount: item.amount_total
           })) : []
-        }), {
-          headers: { 
-            'Content-Type': 'application/json',
-            ...corsHeaders 
-          }
-        });
-      } catch (error) {
-        return new Response(JSON.stringify({ error: error.message }), { 
-          status: 400, 
-          headers: corsHeaders 
-        });
+        }), { headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+      } catch (e) {
+        return new Response(JSON.stringify({ error: e.message }), { status: 400, headers: corsHeaders });
       }
     }
 
-    // ====================== CREATE CHECKOUT SESSION ======================
+    // CREATE CHECKOUT
     if (request.method === 'POST') {
       try {
         const { cart, language = 'de', isSubscription = false } = await request.json();
 
-        if (!cart || !Array.isArray(cart) || cart.length === 0) {
-          throw new Error("El carrito está vacío");
-        }
+        if (!cart || cart.length === 0) throw new Error("Carrito vacío");
 
         const baseUrl = 'https://www.1000malbecs.com';
         const successUrl = `${baseUrl}/${language}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`;
@@ -65,15 +53,13 @@ export default {
         formData.append('success_url', successUrl);
         formData.append('cancel_url', cancelUrl);
 
-        // Line items
         cart.forEach((item, index) => {
           formData.append(`line_items[${index}][price_data][currency]`, 'eur');
-          formData.append(`line_items[${index}][price_data][product_data][name]`, item.name || 'Producto');
-          formData.append(`line_items[${index}][price_data][unit_amount]`, Math.round((item.price || 0) * 100));
+          formData.append(`line_items[${index}][price_data][product_data][name]`, item.name);
+          formData.append(`line_items[${index}][price_data][unit_amount]`, Math.round(item.price * 100));
           formData.append(`line_items[${index}][quantity]`, item.quantity || 1);
         });
 
-        // Envío
         const totalBottles = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
         const shippingCost = totalBottles >= 12 ? 0 : 699;
 
@@ -83,9 +69,6 @@ export default {
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', shippingCost);
         formData.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'eur');
         formData.append('shipping_options[0][shipping_rate_data][display_name]', shippingCost === 0 ? 'Envío Gratis' : 'Envío Estándar (6,99€)');
-
-        formData.append('payment_intent_data[description]', 'Compra en 1000 Malbecs');
-        formData.append('payment_intent_data[statement_descriptor]', '1000MALBECS');
 
         const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
           method: 'POST',
@@ -98,54 +81,36 @@ export default {
 
         const session = await stripeResponse.json();
 
-        if (session.error) {
-          throw new Error(session.error.message);
-        }
-        // === ENVIAR EMAIL A VENTAS ===
+        if (session.error) throw new Error(session.error.message);
+
+        // EMAIL
         try {
-          console.log("Intentando enviar email a ventas@1000malbecs.com...");
-
-          if (!env.RESEND_API_KEY) {
-            console.error("❌ RESEND_API_KEY no está configurada");
-          } else {
-            const emailResponse = await fetch('https://api.resend.com/emails', {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                from: '1000 Malbecs <no-reply@1000malbecs.com>',
-                to: ['ventas@1000malbecs.com'],
-                subject: `Nuevo Pedido #${session.id.slice(-8)}`,
-                html: `
-                  <h2>Nuevo Pedido - 1000 Malbecs</h2>
-                  <p><strong>Pedido:</strong> ${session.id}</p>
-                  <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
-                  <p><strong>Cliente:</strong> ${session.customer_details?.email || 'Sin email'}</p>
-                `
-              })
-            });
-
-            const emailText = await emailResponse.text();
-            console.log("Respuesta Resend:", emailResponse.status, emailText);
-          }
-        } catch (emailError) {
-          console.error("Error enviando email:", emailError.message);
+          console.log("Intentando enviar email...");
+          const emailRes = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: '1000 Malbecs <no-reply@1000malbecs.com>',
+              to: ['ventas@1000malbecs.com'],
+              subject: `Nuevo Pedido #${session.id.slice(-8)}`,
+              html: `<h2>Nuevo Pedido</h2><p>Total: €${(session.amount_total / 100).toFixed(2)}</p>`
+            })
+          });
+          console.log("Email response status:", emailRes.status);
+        } catch (e) {
+          console.error("Error email:", e.message);
         }
+
         return new Response(JSON.stringify({ url: session.url }), {
-          headers: { 
-            'Content-Type': 'application/json',
-            ...corsHeaders 
-          }
+          headers: { 'Content-Type': 'application/json', ...corsHeaders }
         });
 
       } catch (error) {
-        console.error("Error en Worker:", error);
-        return new Response(JSON.stringify({ error: error.message }), { 
-          status: 400,
-          headers: corsHeaders 
-        });
+        console.error("Error:", error);
+        return new Response(JSON.stringify({ error: error.message }), { status: 400, headers: corsHeaders });
       }
     }
 
