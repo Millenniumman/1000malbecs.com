@@ -112,7 +112,33 @@ export default {
         const session = await stripeResponse.json();
 
         if (session.error) throw new Error(session.error.message);
+ // === ENVIAR EMAIL DE CONFIRMACIÓN ===
+        try {
+          const emailResponse = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: '1000 Malbecs <no-reply@1000malbecs.com>',
+              to: ['ventas@1000malbecs.com'],
+              subject: `Nuevo Pedido Recibido #${session.id.slice(-8)}`,
+              html: `
+                <h2>Nuevo Pedido - 1000 Malbecs</h2>
+                <p><strong>Nº de Pedido:</strong> ${session.id}</p>
+                <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
+                <p><strong>Email del cliente:</strong> ${session.customer_details?.email || 'No disponible'}</p>
+                <hr>
+                <p>Revisa el dashboard de Stripe para más detalles.</p>
+              `
+            })
+          });
 
+          console.log("Email enviado a ventas@1000malbecs.com");
+        } catch (emailError) {
+          console.error("Error enviando email:", emailError);
+        }
         return new Response(JSON.stringify({ url: session.url }), {
           headers: { 
             'Content-Type': 'application/json',
