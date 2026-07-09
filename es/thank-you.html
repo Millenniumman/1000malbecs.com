@@ -112,22 +112,27 @@ async function retrieveSession() {
         html += `<p>${item.quantity} × ${item.description || 'Producto'} — €${(item.amount/100).toFixed(2)}</p>`;
       });
     }
-    html += `<hr><p><strong>Total: €${(data.total || 0).toFixed(2)}</strong></p>`;
+    html += `<hr><p><strong>Total: €${((data.total || 0) / 100).toFixed(2)}</strong></p>`;
     document.getElementById('order-summary').innerHTML = html;
 
-    // Dirección de envío
-    if (data.shipping_details) {
+        // Dirección de envío
+    if (data.shipping_details && data.shipping_details.address) {
       const sd = data.shipping_details;
       document.getElementById('shipping-info').innerHTML = `
         <strong>Dirección de envío:</strong><br>
         ${sd.name || 'Sin nombre'}<br>
-        ${sd.address?.line1 || ''}<br>
-        ${sd.address?.line2 ? sd.address.line2 + '<br>' : ''}
-        ${sd.address?.city || ''}, ${sd.address?.postal_code || ''}<br>
-        ${sd.address?.country || ''}
+        ${sd.address.line1 || ''}<br>
+        ${sd.address.line2 ? sd.address.line2 + '<br>' : ''}
+        ${sd.address.city || ''} ${sd.address.postal_code || ''}<br>
+        ${sd.address.country || ''}
+      `;
+    } else if (data.shipping_details) {
+      document.getElementById('shipping-info').innerHTML = `
+        <strong>Dirección de envío:</strong><br>
+        ${data.shipping_details.name || 'Sin nombre'}
       `;
     } else {
-      document.getElementById('shipping-info').innerHTML = `<p>No se encontró dirección de envío.</p>`;
+      document.getElementById('shipping-info').innerHTML = `<p><em>No se recibió dirección de envío.</em></p>`;
     }
 
     // Vaciar carrito
