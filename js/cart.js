@@ -245,6 +245,51 @@ async function goToCheckout() {
     alert("Error: " + error.message);
   }
 }
+function showMiniCart() {
+  const miniCart = document.getElementById('mini-cart');
+  renderMiniCartItems();
+  miniCart.classList.add('open');
+}
+
+function closeMiniCart() {
+  document.getElementById('mini-cart').classList.remove('open');
+}
+
+function renderMiniCartItems() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const container = document.getElementById('mini-cart-items');
+  let html = '';
+
+  if (cart.length === 0) {
+    html = '<p>Tu carrito está vacío</p>';
+  } else {
+    cart.forEach(item => {
+      html += `
+        <div style="display:flex; margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+          <div style="flex:1;">
+            <strong>${item.name}</strong><br>
+            Cantidad: ${item.quantity} × €${item.price}
+          </div>
+          <div style="text-align:right;">
+            €${(item.price * item.quantity).toFixed(2)}
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  container.innerHTML = html;
+  document.getElementById('mini-cart-count').textContent = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  document.getElementById('mini-cart-total').textContent = '€' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
+}
+
+// Llamar cuando se agrega algo al carrito
+function addToCart(item) {
+  // Tu código actual para agregar al carrito...
+
+  // Después de agregar:
+  showMiniCart();
+}
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
