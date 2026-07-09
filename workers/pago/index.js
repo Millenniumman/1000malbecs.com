@@ -50,17 +50,11 @@ export default {
         const successUrl = `${baseUrl}/${language}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`;
         const cancelUrl = `${baseUrl}/${language}/carrito.html`;
 
-          const formData = new URLSearchParams();
+        const formData = new URLSearchParams();
         formData.append('mode', isSubscription ? 'subscription' : 'payment');
         formData.append('success_url', successUrl);
         formData.append('cancel_url', cancelUrl);
-        formData.append('customer_creation', 'always');
-        formData.append('customer_update', 'name,email');  // Forzar actualización
 
-        // Forzar recolección de email
-        formData.append('customer_creation', 'always');
-
-        // Line items
         cart.forEach((item, index) => {
           formData.append(`line_items[${index}][price_data][currency]`, 'eur');
           formData.append(`line_items[${index}][price_data][product_data][name]`, item.name);
@@ -91,25 +85,27 @@ export default {
 
         if (session.error) throw new Error(session.error.message);
 
-                // === EMAILS MEJORADOS ===
+        // === EMAILS ===
         try {
           const customerEmail = session.customer_details?.email;
           const orderNumber = session.id.slice(-8);
           const totalAmount = (session.amount_total / 100).toFixed(2);
 
-          const emailHTML = `
+          let productsHTML = '<li>No se encontraron productos</li>';
+          if (session.line_items && session.line_items.data) {
+            productsHTML = session.line_items.data.map(item => `
+              <li>${item.quantity} × ${item.description} — €${(item.amount_total / 100).toFixed(2)}</li>
+            `).join('');
+          }
+
+          const baseEmailHTML = `
             <h2>Nuevo Pedido Recibido</h2>
             <p><strong>Nº Pedido:</strong> ${session.id}</p>
             <p><strong>Total:</strong> €${totalAmount}</p>
             <p><strong>Cliente:</strong> ${customerEmail || 'Sin email'}</p>
             <hr>
             <h3>Productos:</h3>
-            <ul>
-              ${session.line_items?.data ? session.line_items.data.map(item => `
-                <li>${item.quantity} × ${item.description} — €${(item.amount_total / 100).toFixed(2)}</li>
-              `).join('') : '<li>No se encontraron productos</li>'}
-            </ul>
-            <p><strong>Envío:</strong> ${totalBottles >= 12 ? 'Gratis' : '6,99€'}</p>
+            <ul>${productsHTML}</ul>
           `;
 
           // Email para ventas
@@ -123,7 +119,7 @@ export default {
               from: '1000 Malbecs <no-reply@1000malbecs.com>',
               to: ['ventas@1000malbecs.com'],
               subject: `Nuevo Pedido #${orderNumber}`,
-              html: emailHTML
+              html: baseEmailHTML
             })
           });
 
@@ -155,6 +151,7 @@ export default {
         } catch (e) {
           console.error("Error enviando emails:", e.message);
         }
+
         return new Response(JSON.stringify({ url: session.url }), {
           headers: { 'Content-Type': 'application/json', ...corsHeaders }
         });
