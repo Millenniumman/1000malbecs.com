@@ -85,7 +85,32 @@ export default {
 
         if (session.error) throw new Error(session.error.message);
 
-          // Email para el cliente (si tenemos su email)
+        // === EMAILS ===
+        try {
+          const customerEmail = session.customer_details?.email;
+          const orderNumber = session.id.slice(-8);
+
+          // Email para ventas
+          await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: '1000 Malbecs <no-reply@1000malbecs.com>',
+              to: ['ventas@1000malbecs.com'],
+              subject: `Nuevo Pedido #${orderNumber}`,
+              html: `
+                <h2>Nuevo Pedido Recibido</h2>
+                <p><strong>Pedido:</strong> ${session.id}</p>
+                <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
+                <p><strong>Cliente:</strong> ${customerEmail || 'Sin email'}</p>
+              `
+            })
+          });
+
+          // Email para el cliente
           if (customerEmail) {
             await fetch('https://api.resend.com/emails', {
               method: 'POST',
@@ -102,31 +127,27 @@ export default {
                   <p>Tu pedido ha sido confirmado.</p>
                   <p><strong>Nº de Pedido:</strong> ${session.id}</p>
                   <p><strong>Total pagado:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
-                  <p>Te enviaremos un email cuando tu pedido sea enviado.</p>
+                  <p>Te avisaremos cuando enviemos tu pedido.</p>
                   <p>Saludos,<br>Equipo 1000 Malbecs</p>
                 `
               })
             });
-            console.log("Email enviado al cliente:", customerEmail);
           }
 
-          console.log("Emails enviados correctamente");
+          console.log("Emails enviados");
         } catch (e) {
           console.error("Error enviando emails:", e.message);
-        }
-
-          console.log("✅ Email enviado correctamente");
-        } catch (e) {
-          console.error("Error enviando email:", e.message);
         }
 
         return new Response(JSON.stringify({ url: session.url }), {
           headers: { 'Content-Type': 'application/json', ...corsHeaders }
         });
 
+      } catch (error) {
+        console.error("Error:", error);
+        return new Response(JSON.stringify({ error: error.message }), { status: 400, headers: corsHeaders });
+      }
     }
-
-  
 
     return new Response('Method not allowed', { status: 405, headers: corsHeaders });
   }
