@@ -46,11 +46,29 @@ function t(key) {
 
 // ==================== FUNCIONES BÁSICAS ====================
 function updateCartCount() {
-  const countEl = document.getElementById('cart-count');
-  if (countEl) {
-    const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    countEl.textContent = total;
-  }
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  
+  // Actualiza todos los posibles contadores
+  const countElements = document.querySelectorAll('.cart-count, #cart-count, #mobile-cart-count');
+  countElements.forEach(el => {
+    el.textContent = totalItems;
+    if (totalItems > 0) {
+      el.style.display = 'inline-block';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+
+// Llamar en varios momentos
+document.addEventListener('DOMContentLoaded', updateCartCount);
+window.addEventListener('storage', updateCartCount);
+
+// Si usas botones de agregar al carrito
+function addToCart(item) {
+  // ... tu código actual de agregar
+  updateCartCount();   // ← Asegúrate de llamar esto después de agregar
 }
 
 function addToCart(product) {
