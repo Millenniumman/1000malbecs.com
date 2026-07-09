@@ -10,49 +10,69 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
-    // ====================== GET SESSION ======================
-    if (request.url.endsWith('/get-session') && request.method === 'POST') {
-      try {
-        const { session_id } = await request.json();
+   async function retrieveSession() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionId = urlParams.get('session_id');
 
-        if (!session_id) throw new Error("No session_id provided");
+  console.log("Session ID recibido:", sessionId);
 
-        const stripeResponse = await fetch(`https://api.stripe.com/v1/checkout/sessions/${session_id}?expand[]=line_items`, {
-          headers: {
-            'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
-          },
-        });
+  if (!sessionId) {
+    document.getElementById('order-number').textContent = "ERROR";
+    document.getElementById('order-summary').innerHTML = "<p style='color:red;'>No se encontró el ID de la sesión.</p>";
+    return;
+  }
 
-        const session = await stripeResponse.json();
+  try {
+    console.log("Llamando a /get-session...");
 
-        if (session.error) throw new Error(session.error.message);
+    const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/get-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ session_id: sessionId })
+    });
 
-        return new Response(JSON.stringify({
-          id: session.id,
-          total: session.amount_total || 0,
-          currency: session.currency,
-          customer_email: session.customer_details?.email,
-          shipping_details: session.shipping_details,
-          items: session.line_items?.data ? session.line_items.data.map(item => ({
-            quantity: item.quantity,
-            description: item.description || item.price?.product?.name,
-            amount: item.amount_total
-          })) : []
-        }), {
-          headers: { 
-            'Content-Type': 'application/json',
-            ...corsHeaders 
-          }
-        });
-      } catch (error) {
-        console.error("Error get-session:", error);
-        return new Response(JSON.stringify({ error: error.message }), { 
-          status: 400, 
-          headers: corsHeaders 
-        });
-      }
+    console.log("Respuesta del Worker:", response.status);
+
+    const data = await response.json();
+    console.log("Datos recibidos:", data);
+
+    // Número de pedido
+    document.getElementById('order-number').textContent = data.id?.slice(-8) || sessionId.slice(-8);
+
+    // Resumen
+    let html = `<h3>Resumen del pedido</h3>`;
+    if (data.items && data.items.length > 0) {
+      data.items.forEach(item => {
+        html += `<p>${item.quantity} × ${item.description || 'Producto'} — €${(item.amount/100).toFixed(2)}</p>`;
+      });
+    }
+    html += `<hr><p><strong>Total: €${(data.total || 0).toFixed(2)}</strong></p>`;
+    document.getElementById('order-summary').innerHTML = html;
+
+    // Dirección de envío
+    if (data.shipping_details) {
+      const sd = data.shipping_details;
+      document.getElementById('shipping-info').innerHTML = `
+        <strong>Dirección de envío:</strong><br>
+        ${sd.name || 'Sin nombre'}<br>
+        ${sd.address?.line1 || ''}<br>
+        ${sd.address?.city || ''}, ${sd.address?.postal_code || ''}<br>
+        ${sd.address?.country || ''}
+      `;
+    } else {
+      document.getElementById('shipping-info').innerHTML = `<p>No se encontró dirección de envío.</p>`;
     }
 
+    // Vaciar carrito
+    localStorage.removeItem('cart');
+
+  } catch (e) {
+    console.error("Error completo:", e);
+    document.getElementById('order-summary').innerHTML = `<p style='color:red;'>Error al cargar los detalles.<br>${e.message}</p>`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', retrieveSession);
     // ====================== CREATE CHECKOUT SESSION ======================
     if (request.method === 'POST') {
       try {
