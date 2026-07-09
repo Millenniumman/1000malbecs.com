@@ -1,16 +1,16 @@
 export default {
   async fetch(request, env) {
-    const corsHeaders = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+        const corsHeaders = {
+      'Access-Control-Allow-Origin': 'https://www.1000malbecs.com',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Credentials': 'true'
     };
 
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders });
     }
-
-   async function retrieveSession() {
+async function retrieveSession() {
   const urlParams = new URLSearchParams(window.location.search);
   const sessionId = urlParams.get('session_id');
 
