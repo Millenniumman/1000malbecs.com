@@ -101,42 +101,38 @@ export default {
         if (session.error) {
           throw new Error(session.error.message);
         }
-
-               // === ENVIAR EMAIL A VENTAS ===
+        // === ENVIAR EMAIL A VENTAS ===
         try {
-          console.log("Intentando enviar email a ventas...");
+          console.log("Intentando enviar email a ventas@1000malbecs.com...");
 
-          const emailResponse = await fetch('https://api.resend.com/emails', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              from: '1000 Malbecs <no-reply@1000malbecs.com>',
-              to: ['ventas@1000malbecs.com'],
-              subject: `Nuevo Pedido #${session.id.slice(-8)}`,
-              html: `
-                <h2>Nuevo Pedido Recibido</h2>
-                <p><strong>Pedido:</strong> ${session.id}</p>
-                <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
-                <p><strong>Cliente:</strong> ${session.customer_details?.email || 'Sin email'}</p>
-              `
-            })
-          });
-
-          const emailResult = await emailResponse.json();
-          console.log("Respuesta de Resend:", emailResult);
-
-          if (emailResponse.ok) {
-            console.log("✅ Email enviado correctamente a ventas@1000malbecs.com");
+          if (!env.RESEND_API_KEY) {
+            console.error("❌ RESEND_API_KEY no está configurada");
           } else {
-            console.error("❌ Error en Resend:", emailResult);
+            const emailResponse = await fetch('https://api.resend.com/emails', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                from: '1000 Malbecs <no-reply@1000malbecs.com>',
+                to: ['ventas@1000malbecs.com'],
+                subject: `Nuevo Pedido #${session.id.slice(-8)}`,
+                html: `
+                  <h2>Nuevo Pedido - 1000 Malbecs</h2>
+                  <p><strong>Pedido:</strong> ${session.id}</p>
+                  <p><strong>Total:</strong> €${(session.amount_total / 100).toFixed(2)}</p>
+                  <p><strong>Cliente:</strong> ${session.customer_details?.email || 'Sin email'}</p>
+                `
+              })
+            });
+
+            const emailText = await emailResponse.text();
+            console.log("Respuesta Resend:", emailResponse.status, emailText);
           }
         } catch (emailError) {
-          console.error("Error al intentar enviar email:", emailError);
-        } 
-
+          console.error("Error enviando email:", emailError.message);
+        }
         return new Response(JSON.stringify({ url: session.url }), {
           headers: { 
             'Content-Type': 'application/json',
