@@ -27,7 +27,46 @@ export default {
         formData.append('mode', isSubscription ? 'subscription' : 'payment');
         formData.append('success_url', successUrl);
         formData.append('cancel_url', cancelUrl);
+// === RUTA PARA RECUPERAR SESIÓN ===
+    if (request.url.endsWith('/get-session')) {
+      try {
+        const { session_id } = await request.json();
 
+        if (!session_id) throw new Error("No session_id provided");
+
+        const stripeResponse = await fetch(`https://api.stripe.com/v1/checkout/sessions/${session_id}?expand[]=line_items`, {
+          headers: {
+            'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
+          },
+        });
+
+        const session = await stripeResponse.json();
+
+        return new Response(JSON.stringify({
+          id: session.id,
+          total: session.amount_total,
+          currency: session.currency,
+          customer_email: session.customer_details?.email,
+          shipping_details: session.shipping_details,
+          items: session.line_items?.data.map(item => ({
+            quantity: item.quantity,
+            description: item.description,
+            amount: item.amount_total
+          })) || []
+        }), {
+          headers: { 
+            'Content-Type': 'application/json',
+            ...corsHeaders 
+          }
+        });
+      } catch (error) {
+        console.error("Error get-session:", error);
+        return new Response(JSON.stringify({ error: error.message }), { 
+          status: 400, 
+          headers: corsHeaders 
+        });
+      }
+    }
         // Line items
         cart.forEach((item, index) => {
           if (isSubscription) {
