@@ -95,7 +95,7 @@ export default {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              from: '1000 Malbecs <no-reply@1000malbecs.com>',
+              from: '1000 Malbecs <info@1000malbecs.com>',
               to: ['ventas@1000malbecs.com'],
               subject: `Nuevo Pedido #${session.id.slice(-8)}`,
               html: `<h2>Nuevo Pedido</h2><p>Total: €${(session.amount_total / 100).toFixed(2)}</p><p>Cliente: ${session.customer_details?.email || 'Sin email'}</p>`
