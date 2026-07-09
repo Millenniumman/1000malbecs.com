@@ -69,15 +69,18 @@ async function retrieveSession() {
     html += `<hr><p><strong>Total: €${(data.total || 0).toFixed(2)}</strong></p>`;
     document.getElementById('order-summary').innerHTML = html;
 
-    if (data.shipping_details) {
+        if (data.shipping_details) {
       const sd = data.shipping_details;
       document.getElementById('shipping-info').innerHTML = `
         <strong>Dirección de envío:</strong><br>
-        ${sd.name || ''}<br>
+        ${sd.name || 'Sin nombre'}<br>
         ${sd.address?.line1 || ''}<br>
+        ${sd.address?.line2 ? sd.address.line2 + '<br>' : ''}
         ${sd.address?.city || ''}, ${sd.address?.postal_code || ''}<br>
         ${sd.address?.country || ''}
       `;
+    } else {
+      document.getElementById('shipping-info').innerHTML = `<p>No se encontró dirección de envío.</p>`;
     }
   } catch (e) {
     console.error(e);
