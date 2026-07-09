@@ -1,36 +1,12 @@
-// js/cart.js - Versión FINAL Multilingüe + Envío
-// ==================== STRIPE ====================
-const STRIPE_PUBLISHABLE_KEY = "pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE";   // ← Cambia por tu clave de test
+// js/cart.js - Versión FINAL
+const STRIPE_PUBLISHABLE_KEY = "pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE";
+
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const translations = {
-  es: {
-    subtotal: "Subtotal",
-    shipping: "Envío a Alemania",
-    freeShipping: "✅ Envío gratis",
-    freeShippingCondition: "Envío gratis comprando 12 botellas o más",
-    total: "Total",
-    remove: "Eliminar",
-    empty: "Tu carrito está vacío"
-  },
-  en: {
-    subtotal: "Subtotal",
-    shipping: "Shipping to Germany",
-    freeShipping: "✅ Free Shipping",
-    freeShippingCondition: "Free shipping on 12 bottles or more",
-    total: "Total",
-    remove: "Remove",
-    empty: "Your cart is empty"
-  },
-  de: {
-    subtotal: "Zwischensumme",
-    shipping: "Versand nach Deutschland",
-    freeShipping: "✅ Versandkostenfrei",
-    freeShippingCondition: "Versandkostenfrei ab 12 Flaschen",
-    total: "Gesamt",
-    remove: "Entfernen",
-    empty: "Ihr Warenkorb ist leer"
-  }
+  es: { subtotal: "Subtotal", shipping: "Envío a Alemania", freeShipping: "✅ Envío gratis", freeShippingCondition: "Envío gratis comprando 12 botellas o más", total: "Total", remove: "Eliminar", empty: "Tu carrito está vacío" },
+  en: { subtotal: "Subtotal", shipping: "Shipping to Germany", freeShipping: "✅ Free Shipping", freeShippingCondition: "Free shipping on 12 bottles or more", total: "Total", remove: "Remove", empty: "Your cart is empty" },
+  de: { subtotal: "Zwischensumme", shipping: "Versand nach Deutschland", freeShipping: "✅ Versandkostenfrei", freeShippingCondition: "Versandkostenfrei ab 12 Flaschen", total: "Gesamt", remove: "Entfernen", empty: "Ihr Warenkorb ist leer" }
 };
 
 function getLang() {
@@ -44,33 +20,59 @@ function t(key) {
   return translations[getLang()][key] || translations.es[key];
 }
 
-// ==================== FUNCIONES BÁSICAS ====================
+// ==================== UPDATE CART COUNT ====================
 function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-  
-  // Actualiza todos los posibles contadores
-  const countElements = document.querySelectorAll('.cart-count, #cart-count, #mobile-cart-count');
-  countElements.forEach(el => {
+  document.querySelectorAll('.cart-count, #cart-count, #mobile-cart-count').forEach(el => {
     el.textContent = totalItems;
-    if (totalItems > 0) {
-      el.style.display = 'inline-block';
-    } else {
-      el.style.display = 'none';
-    }
+    el.style.display = totalItems > 0 ? 'inline-block' : 'none';
   });
 }
 
-// Llamar en varios momentos
-document.addEventListener('DOMContentLoaded', updateCartCount);
-window.addEventListener('storage', updateCartCount);
-
-// Si usas botones de agregar al carrito
-function addToCart(item) {
-  // ... tu código actual de agregar
-  updateCartCount();   // ← Asegúrate de llamar esto después de agregar
+// ==================== MINI CART ====================
+function showMiniCart() {
+  const miniCart = document.getElementById('mini-cart');
+  if (miniCart) {
+    renderMiniCartItems();
+    miniCart.classList.add('open');
+  }
 }
 
+function closeMiniCart() {
+  const miniCart = document.getElementById('mini-cart');
+  if (miniCart) miniCart.classList.remove('open');
+}
+
+function renderMiniCartItems() {
+  const container = document.getElementById('mini-cart-items');
+  if (!container) return;
+
+  let html = '';
+
+  if (cart.length === 0) {
+    html = '<p style="text-align:center; padding:20px;">Tu carrito está vacío</p>';
+  } else {
+    cart.forEach(item => {
+      html += `
+        <div style="display:flex; margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+          <div style="flex:1;">
+            <strong>${item.name}</strong><br>
+            Cantidad: ${item.quantity} × €${item.price}
+          </div>
+          <div style="text-align:right;">
+            €${(item.price * item.quantity).toFixed(2)}
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  container.innerHTML = html;
+  document.getElementById('mini-cart-count').textContent = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  document.getElementById('mini-cart-total').textContent = '€' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
+}
+
+// ==================== ADD TO CART ====================
 function addToCart(product) {
   console.log("Intentando agregar:", product);
 
@@ -97,13 +99,13 @@ function addToCart(product) {
 
   localStorage.setItem('cart', JSON.stringify(cart));
 
-  // Actualizaciones importantes
   updateCartCount();
-  renderCart();           // Si estás en la página del carrito
-  showMiniCart();         // ← Abre el mini-cart
-
+  renderCart();
+  showMiniCart();           // ← Abre el mini-cart
   showToast(product.name);
 }
+
+// ==================== OTRAS FUNCIONES ====================
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
   localStorage.setItem('cart', JSON.stringify(cart));
@@ -123,15 +125,7 @@ function changeQuantity(id, delta) {
 
 function showToast(productName) {
   const lang = getLang();
-  let message = "";
-
-  if (lang === 'es') {
-    message = productName + " agregado al carrito";
-  } else if (lang === 'en') {
-    message = productName + " added to cart";
-  } else if (lang === 'de') {
-    message = productName + " in den Warenkorb gelegt";
-  }
+  let message = productName + (lang === 'de' ? " in den Warenkorb gelegt" : lang === 'en' ? " added to cart" : " agregado al carrito");
 
   let toast = document.getElementById('toast');
   if (!toast) {
@@ -196,9 +190,7 @@ function renderCart() {
   totalEl.innerHTML = `
     <div style="font-size:1.05em; color:#555;">${t('subtotal')}: <strong>€${subtotal.toFixed(2)}</strong></div>
     <div style="margin:8px 0;">
-      ${shippingCost === 0 
-        ? `<strong style="color:#27ae60;">${t('freeShipping')}</strong>` 
-        : `${t('shipping')}: <strong>€6.99</strong>`}
+      ${shippingCost === 0 ? `<strong style="color:#27ae60;">${t('freeShipping')}</strong>` : `${t('shipping')}: <strong>€6.99</strong>`}
     </div>
     ${totalBottles < 12 ? `<p style="color:#e67e22; font-size:0.95em;">${t('freeShippingCondition')}</p>` : ''}
     <hr>
@@ -207,10 +199,9 @@ function renderCart() {
     </div>
   `;
 }
-async function goToCheckout() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const customerEmail = document.getElementById('customer-email')?.value.trim();
 
+// ==================== CHECKOUT ====================
+async function goToCheckout() {
   if (cart.length === 0) {
     alert("El carrito está vacío");
     return;
@@ -222,9 +213,8 @@ async function goToCheckout() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         cart: cart,
-        language: document.documentElement.lang || 'de',
-        isSubscription: false,
-        customer_email: customerEmail || null   // ← Enviamos el email
+        language: getLang(),
+        isSubscription: false
       })
     });
 
@@ -235,58 +225,13 @@ async function goToCheckout() {
     if (data.url) {
       window.location.href = data.url;
     }
-
   } catch (error) {
     alert("Error: " + error.message);
   }
 }
-function showMiniCart() {
-  const miniCart = document.getElementById('mini-cart');
-  renderMiniCartItems();
-  miniCart.classList.add('open');
-}
 
-function closeMiniCart() {
-  document.getElementById('mini-cart').classList.remove('open');
-}
-
-function renderMiniCartItems() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const container = document.getElementById('mini-cart-items');
-  let html = '';
-
-  if (cart.length === 0) {
-    html = '<p>Tu carrito está vacío</p>';
-  } else {
-    cart.forEach(item => {
-      html += `
-        <div style="display:flex; margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
-          <div style="flex:1;">
-            <strong>${item.name}</strong><br>
-            Cantidad: ${item.quantity} × €${item.price}
-          </div>
-          <div style="text-align:right;">
-            €${(item.price * item.quantity).toFixed(2)}
-          </div>
-        </div>
-      `;
-    });
-  }
-
-  container.innerHTML = html;
-  document.getElementById('mini-cart-count').textContent = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-  document.getElementById('mini-cart-total').textContent = '€' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
-}
-
-// Llamar cuando se agrega algo al carrito
-function addToCart(item) {
-  // Tu código actual para agregar al carrito...
-
-  // Después de agregar:
-  showMiniCart();
-}
-// Inicializar
+// ==================== INICIALIZACIÓN ====================
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
-  renderCart();
+  if (typeof renderCart === 'function') renderCart();
 });
