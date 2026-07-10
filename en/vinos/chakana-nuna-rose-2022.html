@@ -603,6 +603,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)) !important;
     gap: 18px;
  }
+/* Contador del carrito - Global */
 .cart-count {
   position: absolute;
   top: -6px;
@@ -618,6 +619,22 @@ body {
   align-items: center;
   justify-content: center;
   line-height: 1;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+/* Para mobile */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+  }
+  
+  .cart-count {
+    top: -8px;
+    right: -8px;
+    font-size: 11px;
+    min-width: 16px;
+    height: 16px;
   }
 }
 </style>
