@@ -632,20 +632,43 @@ body {
   background: #4A2C59;
   color: white;
   border: none;
-  padding: 18px 30px;
+  padding: 18px 32px;
   border-radius: 12px;
   font-size: 18px;
   font-weight: 700;
   width: 100%;
-  max-width: 360px;
+  max-width: 380px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(74,44,89,0.3);
-  transition: all 0.2s;
+  box-shadow: 0 5px 20px rgba(74,44,89,0.35);
+  transition: all 0.3s ease;
+  margin: 10px 0 20px;
 }
 
 .btn-add-to-cart:hover {
   background: #6B1D49;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(74,44,89,0.4);
+}
+/* Forzar apertura en desktop */
+@media (min-width: 769px) {
+  .mini-cart {
+    width: 420px;
+    right: -450px;
+    box-shadow: -15px 0 40px rgba(0,0,0,0.3);
+  }
+  
+  .mini-cart.open {
+    right: 0;
+  }
+  
+  /* Asegurar que esté por encima de todo */
+  .mini-cart, .mini-cart * {
+    z-index: 99999 !important;
+  }
+  
+  .topbar, .header, .desktop-navbar {
+    z-index: 9999;
+  }
 }
 </style>
 
@@ -1036,7 +1059,7 @@ Maridaj...
         Total: <strong id="mini-cart-total">€0.00</strong>
       </div>
       <button onclick="goToCheckout()" class="btn-checkout">Finalizar Compra</button>
-      <a href="/carrito.html" class="btn-secondary">Ver Carrito Completo</a>
+      <a href="/es/carrito.html" class="btn-secondary">Ver Carrito Completo</a>
     </div>
   </div>
 </div>
