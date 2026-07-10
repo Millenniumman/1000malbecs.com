@@ -538,43 +538,53 @@ body {
     min-width: 16px;
     height: 16px;
   }
-/* ==================== MINI CART DRAWER ==================== */
+/* ==================== MINI CART DRAWER - RESPONSIVE ==================== */
 .mini-cart {
   position: fixed;
   top: 0;
-  right: -450px;
-  width: 420px;
+  right: -100%;
+  width: 100%;
+  max-width: 420px;
   height: 100vh;
   background: white;
-  box-shadow: -12px 0 40px rgba(0,0,0,0.35);
+  box-shadow: -10px 0 35px rgba(0,0,0,0.3);
   z-index: 99999;
-  transition: right 0.4s ease;
+  transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .mini-cart.open {
   right: 0;
 }
 
+/* Desktop */
+@media (min-width: 768px) {
+  .mini-cart {
+    width: 420px;
+    right: -450px;
+  }
+  .mini-cart.open {
+    right: 0;
+  }
+}
+
 .mini-cart-header {
   background: #4A2C59;
   color: white;
-  padding: 20px;
+  padding: 20px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.45rem;
+  font-size: 1.4rem;
 }
 
 .close-btn {
   background: none;
   border: none;
   color: white;
-  font-size: 32px;
+  font-size: 30px;
   cursor: pointer;
-  padding: 0 10px;
 }
 
 .mini-cart-items {
@@ -590,37 +600,55 @@ body {
 }
 
 .mini-cart-total {
-  font-size: 1.65rem;
+  font-size: 1.6rem;
   text-align: right;
   margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.btn-checkout, .btn-secondary {
-  width: 100%;
-  padding: 16px;
-  border-radius: 12px;
-  font-size: 1.15rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 12px;
 }
 
 .btn-checkout {
   background: #4A2C59;
   color: white;
   border: none;
+  width: 100%;
+  padding: 18px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-bottom: 12px;
   cursor: pointer;
 }
 
 .btn-secondary {
-  background: white;
-  color: #555;
-  border: 2px solid #ccc;
-  text-decoration: none;
   display: block;
+  text-align: center;
+  padding: 14px;
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+}
+.btn-add-to-cart {
+  background: #4A2C59;
+  color: white;
+  border: none;
+  padding: 18px 30px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 360px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(74,44,89,0.3);
+  transition: all 0.2s;
+}
+
+.btn-add-to-cart:hover {
+  background: #6B1D49;
+  transform: translateY(-2px);
 }
 </style>
+
 </style>
 
   <!-- JSON-LD -->
@@ -764,7 +792,7 @@ body {
   class="btn-add-to-cart"
   data-id="septima-rose-de-malbec-2023"
   data-name="Septima Rose de Malbec 2023"
-  data-price="14.99"
+  data-price="14.99/botella(0.75L)"
   data-image="https://www.1000malbecs.com/images/large/septima-rose-de-malbec-2023.jpg"
   data-url="/es/vinos/septima-rose-de-malbec-2023.html">
   🛒 Agregar al carrito
