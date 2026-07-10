@@ -50,38 +50,51 @@ function renderMiniCartItems() {
   const container = document.getElementById('mini-cart-items');
   if (!container) return;
 
-  let html = '';
+  let html = `<div style="text-align:center; padding:15px 0 25px; font-size:1.35rem; color:#4A2C59; font-weight:700;">¡Agregado al carrito!</div>`;
+
   let subtotal = 0;
   let totalBottles = 0;
 
-  if (cart.length === 0) {
-    html = `<p style="text-align:center; padding:40px 20px; color:#777;">Tu carrito está vacío</p>`;
-  } else {
-    cart.forEach((item, index) => {
-      const price = parseFloat(item.price) || 0;
-      const qty = item.quantity || 1;
-      const itemTotal = price * qty;
-      subtotal += itemTotal;
-      totalBottles += qty;
+  cart.forEach((item, index) => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    const itemTotal = price * qty;
+    subtotal += itemTotal;
+    totalBottles += qty;
 
-      html += `
-        <div class="mini-cart-item">
-          <img src="${item.image}" alt="${item.name}">
-          <div class="item-info">
-            <strong>${item.name}</strong><br>
-            <small>€${price.toFixed(2)} × ${qty}</small>
-          </div>
-          <div class="item-total">
-            €${itemTotal.toFixed(2)}
-            <span onclick="removeFromCart('${item.id}')" class="remove-btn">✕</span>
-          </div>
-        </div>`;
-    });
-  }
+    html += `
+      <div class="mini-cart-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-details">
+          <strong>${item.name}</strong><br>
+          <small>€${price.toFixed(2)} × ${qty}</small>
+        </div>
+        <div class="item-total">
+          €${itemTotal.toFixed(2)}
+          <span onclick="removeFromCart('${item.id}')" class="remove-btn">✕</span>
+        </div>
+      </div>`;
+  });
 
   container.innerHTML = html;
 
-  // Total y envío
+  const shipping = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shipping;
+  const toFreeShipping = Math.max(0, 12 - totalBottles);
+
+  document.getElementById('mini-cart-count').textContent = totalBottles;
+  document.getElementById('mini-cart-total').innerHTML = `
+    <div style="margin-bottom:12px;">
+      Subtotal: <strong>€${subtotal.toFixed(2)}</strong>
+    </div>
+    ${shipping === 0 
+      ? `<strong style="color:#27ae60;">✅ Envío gratis!</strong>` 
+      : `<small style="color:#e67e22;">Gasta ${toFreeShipping} botellas más para envío gratis</small>`}
+    <hr style="margin:10px 0 12px;">
+    <strong style="font-size:1.45rem;">Total: €${finalTotal.toFixed(2)}</strong>
+  `;
+}
+// Total y envío
   const shipping = totalBottles >= 12 ? 0 : 6.99;
   const finalTotal = subtotal + shipping;
 
