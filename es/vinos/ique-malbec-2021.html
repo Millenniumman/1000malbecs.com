@@ -490,6 +490,103 @@ body {
   }
 }
 
+
+/* ==================== MINI CART DRAWER - ULTRA FORZADO ==================== */
+.mini-cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: white;
+  box-shadow: -12px 0 50px rgba(0,0,0,0.4);
+  z-index: 999999 !important;           /* Máximo posible */
+  transition: right 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mini-cart.open {
+  right: 0;
+}
+
+/* Desktop específico */
+@media (min-width: 769px) {
+  .mini-cart {
+    width: 420px;
+    right: -450px;
+  }
+  .mini-cart.open {
+    right: 0;
+  }
+}
+
+/* Forzar que esté por encima de TODO */
+.mini-cart,
+.mini-cart * {
+  z-index: 999999 !important;
+}
+
+.topbar, 
+.header, 
+.desktop-navbar, 
+#sidebar,
+.mobile-header {
+  z-index: 9990 !important;
+}
+
+.btn-add-to-cart {
+  background: #4A2C59;
+  color: white;
+  border: none;
+  padding: 18px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 380px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(74,44,89,0.35);
+  transition: all 0.3s ease;
+  margin: 10px 0 20px;
+}
+
+.btn-add-to-cart:hover {
+  background: #6B1D49;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(74,44,89,0.4);
+}
+/* Forzar apertura en desktop */
+@media (min-width: 769px) {
+  .mini-cart {
+    width: 420px;
+    right: -450px;
+    box-shadow: -15px 0 40px rgba(0,0,0,0.3);
+  }
+  
+  .mini-cart.open {
+    right: 0;
+  }
+  
+  /* Asegurar que esté por encima de todo */
+  .mini-cart, .mini-cart * {
+    z-index: 99999 !important;
+  }
+  
+  .topbar, .header, .desktop-navbar {
+    z-index: 9999;
+  }
+}
+@media (min-width: 769px) {
+  .btn-add-to-cart {
+    padding: 20px 40px;
+    font-size: 19px;
+    max-width: 100%;
+    margin: 15px 0 25px;
+  }
+}
 @media (max-width: 767px) {
   .topbar { display: none !important; }
   .main-content { margin-top: 70px; padding: 0 15px; }
@@ -539,157 +636,6 @@ body {
     min-width: 16px;
     height: 16px;
   }
-/* ==================== MINI CART DRAWER - RESPONSIVE ==================== */
-.mini-cart {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 100%;
-  max-width: 420px;
-  height: 100vh;
-  background: white;
-  box-shadow: -10px 0 35px rgba(0,0,0,0.3);
-  z-index: 99999;
-  transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-  display: flex;
-  flex-direction: column;
-}
-
-.mini-cart.open {
-  right: 0;
-}
-
-/* Desktop - más fuerte */
-@media (min-width: 769px) {
-  .mini-cart {
-    width: 420px;
-    right: -450px;
-    box-shadow: -15px 0 45px rgba(0,0,0,0.35);
-  }
-  .mini-cart.open {
-    right: 0;
-  }
-}
-
-/* Forzar prioridad máxima */
-.mini-cart, 
-.mini-cart * {
-  z-index: 99999 !important;
-}
-
-.topbar, .header, .desktop-navbar, #sidebar {
-  z-index: 9990 !important;
-}
-
-/* Resto de estilos del drawer */
-.mini-cart-header {
-  background: #4A2C59;
-  color: white;
-  padding: 20px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.4rem;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.mini-cart-items {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.mini-cart-footer {
-  padding: 20px;
-  border-top: 1px solid #ddd;
-  background: #f9f9f9;
-}
-
-.mini-cart-total {
-  font-size: 1.6rem;
-  text-align: right;
-  margin-bottom: 20px;
-}
-
-.btn-checkout {
-  background: #4A2C59;
-  color: white;
-  border: none;
-  width: 100%;
-  padding: 18px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  cursor: pointer;
-}
-
-.btn-secondary {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  color: #555;
-  text-decoration: none;
-  font-weight: 600;
-  border: 2px solid #ccc;
-  border-radius: 12px;
-}
-.btn-add-to-cart {
-  background: #4A2C59;
-  color: white;
-  border: none;
-  padding: 18px 32px;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 700;
-  width: 100%;
-  max-width: 380px;
-  cursor: pointer;
-  box-shadow: 0 5px 20px rgba(74,44,89,0.35);
-  transition: all 0.3s ease;
-  margin: 10px 0 20px;
-}
-
-.btn-add-to-cart:hover {
-  background: #6B1D49;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(74,44,89,0.4);
-}
-/* Forzar apertura en desktop */
-@media (min-width: 769px) {
-  .mini-cart {
-    width: 420px;
-    right: -450px;
-    box-shadow: -15px 0 40px rgba(0,0,0,0.3);
-  }
-  
-  .mini-cart.open {
-    right: 0;
-  }
-  
-  /* Asegurar que esté por encima de todo */
-  .mini-cart, .mini-cart * {
-    z-index: 99999 !important;
-  }
-  
-  .topbar, .header, .desktop-navbar {
-    z-index: 9999;
-  }
-}
-@media (min-width: 769px) {
-  .btn-add-to-cart {
-    max-width: 100%;
-    padding: 20px 40px;
-    font-size: 19px;
-  }
-}
 </style>
 
 </style>
