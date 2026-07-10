@@ -559,17 +559,29 @@ body {
   right: 0;
 }
 
-/* Desktop */
-@media (min-width: 768px) {
+/* Desktop - más fuerte */
+@media (min-width: 769px) {
   .mini-cart {
     width: 420px;
     right: -450px;
+    box-shadow: -15px 0 45px rgba(0,0,0,0.35);
   }
   .mini-cart.open {
     right: 0;
   }
 }
 
+/* Forzar prioridad máxima */
+.mini-cart, 
+.mini-cart * {
+  z-index: 99999 !important;
+}
+
+.topbar, .header, .desktop-navbar, #sidebar {
+  z-index: 9990 !important;
+}
+
+/* Resto de estilos del drawer */
 .mini-cart-header {
   background: #4A2C59;
   color: white;
@@ -669,6 +681,13 @@ body {
   
   .topbar, .header, .desktop-navbar {
     z-index: 9999;
+  }
+}
+@media (min-width: 769px) {
+  .btn-add-to-cart {
+    max-width: 100%;
+    padding: 20px 40px;
+    font-size: 19px;
   }
 }
 </style>
