@@ -92,21 +92,6 @@ function renderMiniCartItems() {
     <strong style="font-size:1.5rem;">Total: €${finalTotal.toFixed(2)}</strong>
   `;
 }
-// Total y envío
-  const shipping = totalBottles >= 12 ? 0 : 6.99;
-  const finalTotal = subtotal + shipping;
-
-  document.getElementById('mini-cart-count').textContent = totalBottles;
-  document.getElementById('mini-cart-total').innerHTML = `
-    Subtotal: <strong>€${subtotal.toFixed(2)}</strong><br>
-    ${shipping === 0 
-      ? '<strong style="color:#27ae60;">✅ Envío gratis (12+ botellas)</strong>' 
-      : `Envío a Alemania: <strong>€${shipping.toFixed(2)}</strong>`}
-    <hr style="margin:8px 0;">
-    <strong style="font-size:1.4rem;">Total: €${finalTotal.toFixed(2)}</strong>
-  `;
-}
-
 
 // ==================== ADD TO CART ====================
 function addToCart(product) {
