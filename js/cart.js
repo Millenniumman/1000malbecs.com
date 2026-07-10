@@ -51,29 +51,51 @@ function renderMiniCartItems() {
   if (!container) return;
 
   let html = '';
+  let subtotal = 0;
+  let totalBottles = 0;
 
   if (cart.length === 0) {
-    html = '<p style="text-align:center; padding:20px;">Tu carrito está vacío</p>';
+    html = `<p style="text-align:center; padding:40px 20px; color:#777;">Tu carrito está vacío</p>`;
   } else {
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      const itemTotal = price * qty;
+      subtotal += itemTotal;
+      totalBottles += qty;
+
       html += `
-        <div style="display:flex; margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
-          <div style="flex:1;">
+        <div class="mini-cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div class="item-info">
             <strong>${item.name}</strong><br>
-            Cantidad: ${item.quantity} × €${item.price}
+            <small>€${price.toFixed(2)} × ${qty}</small>
           </div>
-          <div style="text-align:right;">
-            €${(item.price * item.quantity).toFixed(2)}
+          <div class="item-total">
+            €${itemTotal.toFixed(2)}
+            <span onclick="removeFromCart('${item.id}')" class="remove-btn">✕</span>
           </div>
-        </div>
-      `;
+        </div>`;
     });
   }
 
   container.innerHTML = html;
-  document.getElementById('mini-cart-count').textContent = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-  document.getElementById('mini-cart-total').textContent = '€' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
+
+  // Total y envío
+  const shipping = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shipping;
+
+  document.getElementById('mini-cart-count').textContent = totalBottles;
+  document.getElementById('mini-cart-total').innerHTML = `
+    Subtotal: <strong>€${subtotal.toFixed(2)}</strong><br>
+    ${shipping === 0 
+      ? '<strong style="color:#27ae60;">✅ Envío gratis (12+ botellas)</strong>' 
+      : `Envío a Alemania: <strong>€${shipping.toFixed(2)}</strong>`}
+    <hr style="margin:8px 0;">
+    <strong style="font-size:1.4rem;">Total: €${finalTotal.toFixed(2)}</strong>
+  `;
 }
+
 
 // ==================== ADD TO CART ====================
 function addToCart(product) {
