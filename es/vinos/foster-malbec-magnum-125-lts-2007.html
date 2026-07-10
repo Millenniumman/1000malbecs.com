@@ -677,20 +677,16 @@ body {
     • <a href="/es/faq.html" target="_blank" style="color: #2e7d32;">+info</a>
   </small>
 </div>
-        <!-- Botones -->
-      <!-- Botón AGREGAR AL CARRITO -->
- <button onclick="addToCart({
-  id: 'foster-malbec-magnum-125-lts-2007',
-  name: 'Foster  Malbec Magnum 1.25 lts 2007',
-  price: parseFloat('59.99/botella(1.25L)') || 0,
-  image: 'https://www.1000malbecs.com/images/large/foster-malbec-magnum-125-lts-2007.jpg',
-  url: '/es/vinos/foster-malbec-magnum-125-lts-2007.html'
-})" 
-  style="background:#4A2C59;color:white;border:none;padding:16px 28px;border-radius:10px;font-weight:600;cursor:pointer;font-size:16px;min-width:240px;flex:1;">
+      <!-- Botón AGREGAR AL CARRITO - VERSIÓN CORRECTA -->
+<button 
+  class="btn-add-to-cart"
+  data-id="foster-malbec-magnum-125-lts-2007"
+  data-name="Foster  Malbec Magnum 1.25 lts 2007"
+  data-price="59.99/botella(1.25L)"
+  data-image="https://www.1000malbecs.com/images/large/foster-malbec-magnum-125-lts-2007.jpg"
+  data-url="/es/vinos/foster-malbec-magnum-125-lts-2007.html">
   🛒 Agregar al carrito
 </button>
-  <br>
-  <br>
 <p> <b>Express Checkout</b></p>
       
         <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 25px 0 30px;">
@@ -1121,6 +1117,25 @@ En boca, el vino se siente redondo y aterciopel...
   console.log("Página cargada - Inicializando carrito");
   // Llamada inicial si es necesario
   if (typeof updateCartCount === 'function') updateCartCount();
+</script>
+<script>
+// Delegación de eventos para todos los botones "Agregar al carrito"
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('btn-add-to-cart')) {
+    const btn = e.target;
+    
+    const product = {
+      id: btn.dataset.id,
+      name: btn.dataset.name,
+      price: btn.dataset.price,
+      image: btn.dataset.image,
+      url: btn.dataset.url
+    };
+
+    // Llamamos a la función que ya tienes en cart.js
+    addToCart(product);
+  }
+});
 </script>
 </body>
 </html>
