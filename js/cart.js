@@ -36,7 +36,7 @@ function showMiniCart() {
     renderMiniCartItems();
     miniCart.classList.add('open');
   } else {
-    console.warn("Mini-cart HTML no encontrado");
+    console.warn("Mini-cart HTML no encontrado en la página");
   }
 }
 
