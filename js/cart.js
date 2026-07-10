@@ -20,6 +20,40 @@ function t(key) {
   return translations[getLang()][key] || translations.es[key];
 }
 
+
+function addToCart(product) {
+  console.log("Intentando agregar:", product);
+
+  const price = parseFloat(product.price);
+  if (isNaN(price)) {
+    console.error("Precio inválido");
+    return;
+  }
+
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    existing.quantity = (existing.quantity || 1) + 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: price,
+      image: product.image,
+      url: product.url,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // === ACTUALIZACIONES IMPORTANTES ===
+  updateCartCount();
+  renderCart();           // Si estás en la página del carrito
+  showMiniCart();         // ← Abre el mini-cart automáticamente
+
+  showToast(product.name);
+}
 // ==================== UPDATE CART COUNT ====================
 function updateCartCount() {
   const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
@@ -70,39 +104,6 @@ function renderMiniCartItems() {
   container.innerHTML = html;
   document.getElementById('mini-cart-count').textContent = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
   document.getElementById('mini-cart-total').textContent = '€' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
-}
-
-// ==================== ADD TO CART ====================
-function addToCart(product) {
-  console.log("Intentando agregar:", product);
-
-  const price = parseFloat(product.price);
-  if (isNaN(price)) {
-    console.error("Precio inválido");
-    return;
-  }
-
-  const existing = cart.find(item => item.id === product.id);
-
-  if (existing) {
-    existing.quantity = (existing.quantity || 1) + 1;
-  } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      price: price,
-      image: product.image,
-      url: product.url,
-      quantity: 1
-    });
-  }
-
-  localStorage.setItem('cart', JSON.stringify(cart));
-
-  updateCartCount();
-  renderCart();
-  showMiniCart();           // ← Abre el mini-cart
-  showToast(product.name);
 }
 
 // ==================== OTRAS FUNCIONES ====================
