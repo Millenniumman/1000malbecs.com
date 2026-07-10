@@ -1040,10 +1040,14 @@ variedades. En nariz se aprecian aromas a frambuesa,...
         hamburger.setAttribute('aria-expanded', 'false');
       }
     });
-   <!-- Carrito JS -->
-<script src="/js/cart.js">
-console.log("Llamando showMiniCart()");
-showMiniCart();
+    </script>
+     <!-- Carrito JS -->
+<script src="/js/cart.js"></script>
+
+<script>
+  console.log("Página cargada - Inicializando carrito");
+  // Llamada inicial si es necesario
+  if (typeof updateCartCount === 'function') updateCartCount();
 </script>
 </body>
 </html>
