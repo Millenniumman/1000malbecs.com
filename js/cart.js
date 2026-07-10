@@ -50,12 +50,15 @@ function renderMiniCartItems() {
   const container = document.getElementById('mini-cart-items');
   if (!container) return;
 
-  let html = `<div style="text-align:center; padding:15px 0 25px; font-size:1.35rem; color:#4A2C59; font-weight:700;">¡Agregado al carrito!</div>`;
+  let html = `
+    <div style="background:#4A2C59; color:white; padding:18px 20px; font-size:1.4rem; font-weight:700; text-align:center;">
+      ¡Agregado al carrito!
+    </div>`;
 
   let subtotal = 0;
   let totalBottles = 0;
 
-  cart.forEach((item, index) => {
+  cart.forEach(item => {
     const price = parseFloat(item.price) || 0;
     const qty = item.quantity || 1;
     const itemTotal = price * qty;
@@ -64,15 +67,12 @@ function renderMiniCartItems() {
 
     html += `
       <div class="mini-cart-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div class="item-details">
+        <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
+        <div class="item-info">
           <strong>${item.name}</strong><br>
-          <small>€${price.toFixed(2)} × ${qty}</small>
+          <small>Cantidad: ${qty} × €${price.toFixed(2)}</small>
         </div>
-        <div class="item-total">
-          €${itemTotal.toFixed(2)}
-          <span onclick="removeFromCart('${item.id}')" class="remove-btn">✕</span>
-        </div>
+        <div class="item-price">€${itemTotal.toFixed(2)}</div>
       </div>`;
   });
 
@@ -80,8 +80,16 @@ function renderMiniCartItems() {
 
   const shipping = totalBottles >= 12 ? 0 : 6.99;
   const finalTotal = subtotal + shipping;
-  const toFreeShipping = Math.max(0, 12 - totalBottles);
+  const missingForFree = Math.max(0, 12 - totalBottles);
 
+  document.getElementById('mini-cart-total').innerHTML = `
+    Subtotal: <strong>€${subtotal.toFixed(2)}</strong><br>
+    ${missingForFree > 0 
+      ? `<small style="color:#e67e22;">Gasta ${missingForFree} botellas más y obtén envío gratis</small><br>` 
+      : `<strong style="color:#27ae60;">✅ Envío gratis</strong><br>`}
+    <strong style="font-size:1.45rem; color:#4A2C59;">Total: €${finalTotal.toFixed(2)}</strong>
+  `;
+}
   document.getElementById('mini-cart-count').textContent = totalBottles;
   document.getElementById('mini-cart-total').innerHTML = `
     <div style="margin-bottom:12px;">
