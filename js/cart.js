@@ -78,9 +78,16 @@ function renderMiniCartItems() {
 function addToCart(product) {
   console.log("Intentando agregar:", product);
 
-  const price = parseFloat(product.price);
+  let price = parseFloat(product.price);
+  
+  // Si sigue teniendo texto, limpiamos de nuevo
   if (isNaN(price)) {
-    console.error("Precio inválido");
+    price = parseFloat(product.price.toString().replace(/[^0-9.]/g, ''));
+  }
+
+  if (isNaN(price) || price <= 0) {
+    console.error("Precio inválido:", product.price);
+    alert("Error: precio no válido");
     return;
   }
 
@@ -94,7 +101,7 @@ function addToCart(product) {
       name: product.name,
       price: price,
       image: product.image,
-      url: product.url,
+      url: product.url || '#',
       quantity: 1
     });
   }
@@ -102,11 +109,11 @@ function addToCart(product) {
   localStorage.setItem('cart', JSON.stringify(cart));
 
   updateCartCount();
-  renderCart();
-  showMiniCart();         // Abre el mini-cart
+  renderMiniCartItems();   // ← Mejor usar esta que ya tienes
+  showMiniCart();          // ← Abre el drawer
+
   showToast(product.name);
 }
-
 // ==================== OTRAS FUNCIONES ====================
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
