@@ -1383,24 +1383,37 @@ currants, blackberries, blueberries. Good structure and soft tannins, ...
   <!-- Carrito JS -->
   <script src="/js/cart.js"></script>
 
+  <!-- Delegación de eventos para "Agregar al carrito" -->
   <script>
-    console.log("Página DE cargada - Inicializando carrito");
-    if (typeof updateCartCount === 'function') updateCartCount();
+    console.log("Página cargada - Inicializando carrito");
 
-    // Delegación para botones "In den Warenkorb"
-    document.addEventListener('click', function(e) {
-      if (e.target.classList.contains('btn-add-to-cart')) {
-        const btn = e.target;
-        const product = {
-          id: btn.dataset.id,
-          name: btn.dataset.name,
-          price: btn.dataset.price,
-          image: btn.dataset.image,
-          url: btn.dataset.url
-        };
-        addToCart(product);
+    // Esperamos a que cart.js cargue completamente
+    window.addEventListener('load', () => {
+      if (typeof updateCartCount === 'function') {
+        updateCartCount();
       }
+
+      // Delegación para botones Agregar al carrito
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-add-to-cart')) {
+          const btn = e.target;
+          const product = {
+            id: btn.dataset.id,
+            name: btn.dataset.name,
+            price: btn.dataset.price,
+            image: btn.dataset.image,
+            url: btn.dataset.url
+          };
+          if (typeof addToCart === 'function') {
+            addToCart(product);
+          } else {
+            console.error("addToCart no está definida");
+          }
+        }
+      });
     });
   </script>
+</body>
+</html>
 </body>
 </html>
