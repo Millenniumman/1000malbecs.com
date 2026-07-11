@@ -8,7 +8,7 @@ const translations = {
     subtotal: "Subtotal", 
     shipping: "Envío a Alemania", 
     freeShipping: "✅ Envío gratis", 
-    freeShippingCondition: "Gasta {missing} botellas más y obtén envío gratis",
+    freeShippingCondition: "Agrega {missing} botellas más y obtén envío gratis",
     total: "Total", 
     remove: "Eliminar", 
     empty: "Tu carrito está vacío" 
@@ -18,7 +18,7 @@ const translations = {
     subtotal: "Subtotal", 
     shipping: "Shipping to Germany", 
     freeShipping: "✅ Free Shipping", 
-    freeShippingCondition: "Spend {missing} more bottles and get free shipping",
+    freeShippingCondition: "Add {missing} more bottles and get free shipping",
     total: "Total", 
     remove: "Remove", 
     empty: "Your cart is empty" 
