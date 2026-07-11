@@ -382,3 +382,166 @@ p, li, a, blockquote, code, pre {
         font-size: 14px;
     }
 }
+:root { 
+  --primary: #6B1D49; 
+  --whatsapp: #25D366; 
+  --border: #d4af37; 
+}
+
+body { 
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0; padding: 0; 
+  background: #fdfdfd; color: #333; 
+}
+
+/* ==================== HEADER MOBILE ==================== */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: white;
+  z-index: 1300;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.hamburger {
+  background: none; border: none; cursor: pointer;
+  width: 50px; height: 50px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1301;
+}
+
+/* ==================== HEADER + LOGO + TOPBAR ==================== */
+.header, .topbar {
+  position: fixed;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  z-index: 1600;
+}
+
+.logo {
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+/* ==================== MINI CART DRAWER ==================== */
+.mini-cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: white;
+  box-shadow: -12px 0 50px rgba(0,0,0,0.35);
+  z-index: 999999;
+  transition: right 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-cart.open { right: 0; }
+
+@media (min-width: 769px) {
+  .mini-cart {
+    max-width: 400px;
+    right: -420px;
+  }
+}
+
+.mini-cart-header {
+  background: #4A2C59;
+  color: white;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.mini-cart-item {
+  display: flex;
+  gap: 15px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.mini-cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.item-info { flex: 1; }
+.item-info strong { font-size: 1.1rem; display: block; }
+.item-price { font-weight: 700; font-size: 1.2rem; }
+
+.mini-cart-footer {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+.btn-checkout {
+  background: #4A2C59;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.btn-secondary {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+}
+
+/* ==================== BOTÓN AGREGAR AL CARRITO ==================== */
+.btn-add-to-cart {
+  background: #4A2C59;
+  color: white;
+  border: none;
+  padding: 18px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 380px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(74,44,89,0.35);
+  transition: all 0.3s ease;
+  margin: 10px 0 20px;
+}
+
+.btn-add-to-cart:hover {
+  background: #6B1D49;
+  transform: translateY(-3px);
+}
+
+/* ==================== OTRAS SECCIONES (grid, cards, responsive, etc.) ==================== */
+ /* ... (el resto de tu CSS: .grid, .card, .product, responsive, etc.) ... */
