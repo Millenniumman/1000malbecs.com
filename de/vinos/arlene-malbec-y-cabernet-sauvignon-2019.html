@@ -509,56 +509,6 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .topbar { display: none !important; }
-  .main-content { margin-top: 70px; padding: 0 15px; }
-}
-
-.region-section {
-  margin-left: 300px !important;
-  margin-right: 20px;
-}
-
-/* Móvil */
-@media (max-width: 768px) {
-  .region-section {
-    margin-left: 15px !important;
-    margin-right: 15px;
- }
-/* Contador del carrito - Global */
-.cart-count {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: #e74c3c;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  min-width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  box-shadow: 0 0 3px rgba(0,0,0,0.3);
-}
-
-/* Para mobile */
-@media (max-width: 768px) {
-  .region-section {
-    margin-left: 15px !important;
-    margin-right: 15px;
-  }
-  
-  .cart-count {
-    top: -8px;
-    right: -8px;
-    font-size: 11px;
-    min-width: 16px;
-    height: 16px;
-  }
-}
 
 /* ==================== MINI CART DRAWER - ULTRA FORZADO ==================== */
 .mini-cart {
@@ -566,26 +516,21 @@ body {
   top: 0;
   right: -100%;
   width: 100%;
-  max-width: 420px;
+  max-width: 380px;           /* Más chico */
   height: 100vh;
   background: white;
-  box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+  box-shadow: -12px 0 50px rgba(0,0,0,0.35);
   z-index: 999999;
   transition: right 0.4s ease;
   display: flex;
   flex-direction: column;
 }
 
-.mini-cart.open {
-  right: 0;
-}
+.mini-cart.open { right: 0; }
 
-/* Desktop */
 @media (min-width: 769px) {
-  .mini-cart {
-    max-width: 400px;
-    right: -420px;
-  }
+  .mini-cart { max-width: 380px; right: -400px; }
+  .mini-cart.open { right: 0; }
 }
 
 .mini-cart-header {
@@ -800,6 +745,8 @@ body {
     min-width: 16px;
     height: 16px;
   }
+</style>
+
 </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
