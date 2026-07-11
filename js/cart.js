@@ -2,11 +2,37 @@
 const STRIPE_PUBLISHABLE_KEY = "pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE";
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 const translations = {
-  es: { subtotal: "Subtotal", shipping: "Envío a Alemania", freeShipping: "✅ Envío gratis", freeShippingCondition: "Envío gratis comprando 12 botellas o más", total: "Total", remove: "Eliminar", empty: "Tu carrito está vacío" },
-  en: { subtotal: "Subtotal", shipping: "Shipping to Germany", freeShipping: "✅ Free Shipping", freeShippingCondition: "Free shipping on 12 bottles or more", total: "Total", remove: "Remove", empty: "Your cart is empty" },
-  de: { subtotal: "Zwischensumme", shipping: "Versand nach Deutschland", freeShipping: "✅ Versandkostenfrei", freeShippingCondition: "Versandkostenfrei ab 12 Flaschen", total: "Gesamt", remove: "Entfernen", empty: "Ihr Warenkorb ist leer" }
+  es: { 
+    added: "¡Agregado al carrito!",
+    subtotal: "Subtotal", 
+    shipping: "Envío a Alemania", 
+    freeShipping: "✅ Envío gratis", 
+    freeShippingCondition: "Gasta {missing} botellas más y obtén envío gratis",
+    total: "Total", 
+    remove: "Eliminar", 
+    empty: "Tu carrito está vacío" 
+  },
+  en: { 
+    added: "Added to your cart!",
+    subtotal: "Subtotal", 
+    shipping: "Shipping to Germany", 
+    freeShipping: "✅ Free Shipping", 
+    freeShippingCondition: "Spend {missing} more bottles and get free shipping",
+    total: "Total", 
+    remove: "Remove", 
+    empty: "Your cart is empty" 
+  },
+  de: { 
+    added: "Zum Warenkorb hinzugefügt!",
+    subtotal: "Zwischensumme", 
+    shipping: "Versand nach Deutschland", 
+    freeShipping: "✅ Versandkostenfrei", 
+    freeShippingCondition: "Kaufen Sie {missing} Flaschen mehr und erhalten Sie kostenlosen Versand",
+    total: "Gesamt", 
+    remove: "Entfernen", 
+    empty: "Ihr Warenkorb ist leer" 
+  }
 };
 
 function getLang() {
@@ -50,9 +76,12 @@ function renderMiniCartItems() {
   const container = document.getElementById('mini-cart-items');
   if (!container) return;
 
+  const lang = getLang();
+  const t = translations[lang] || translations.es;
+
   let html = `
     <div style="background:#4A2C59; color:white; padding:18px 20px; font-size:1.4rem; font-weight:700; text-align:center;">
-      ¡Agregado al carrito!
+      ${t.added}
     </div>`;
 
   let subtotal = 0;
@@ -67,10 +96,10 @@ function renderMiniCartItems() {
 
     html += `
       <div class="mini-cart-item">
-        <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
+        <img src="${item.image}" alt="${item.name}">
         <div class="item-info">
           <strong>${item.name}</strong><br>
-          <small>Cantidad: ${qty} × €${price.toFixed(2)}</small>
+          <small>${qty} × €${price.toFixed(2)}</small>
         </div>
         <div class="item-price">€${itemTotal.toFixed(2)}</div>
       </div>`;
@@ -83,16 +112,15 @@ function renderMiniCartItems() {
   const missingForFree = Math.max(0, 12 - totalBottles);
 
   document.getElementById('mini-cart-count').textContent = totalBottles;
-    document.getElementById('mini-cart-total').innerHTML = `
-    <div>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></div>
+  document.getElementById('mini-cart-total').innerHTML = `
+    ${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong><br>
     ${missingForFree > 0 
-      ? `<small style="color:#e67e22;">Gasta ${missingForFree} botellas más y obtén envío gratis</small>` 
-      : `<strong style="color:#27ae60;">✅ Envío gratis</strong>`}
-    <hr style="margin:10px 0 8px;">
-    <strong style="font-size:1.55rem; color:#4A2C59;">Total: €${finalTotal.toFixed(2)}</strong>
+      ? `<small style="color:#e67e22;">${t.freeShippingCondition.replace('{missing}', missingForFree)}</small>` 
+      : `<strong style="color:#27ae60;">${t.freeShipping}</strong>`}
+    <hr style="margin:10px 0;">
+    <strong style="font-size:1.55rem; color:#4A2C59;">${t.total}: €${finalTotal.toFixed(2)}</strong>
   `;
 }
-
 // ==================== ADD TO CART ====================
 function addToCart(product) {
   console.log("Intentando agregar:", product);
