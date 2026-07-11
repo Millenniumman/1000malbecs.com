@@ -553,6 +553,247 @@ body {
     height: 16px;
   }
 }
+
+/* ==================== MINI CART DRAWER - ULTRA FORZADO ==================== */
+.mini-cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: white;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+  z-index: 999999;
+  transition: right 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-cart.open {
+  right: 0;
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .mini-cart {
+    max-width: 400px;
+    right: -420px;
+  }
+}
+
+.mini-cart-header {
+  background: #4A2C59;
+  color: white;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.35rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Foto del producto en el mini-cart */
+.mini-cart-item {
+  display: flex;
+  gap: 15px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.mini-cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+  background: #f9f9f9;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info strong {
+  font-size: 1.1rem;
+  display: block;
+  line-height: 1.3;
+}
+
+.item-price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.remove-btn {
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Mensaje "Added to your cart!" */
+.mini-cart-items > div:first-child {
+  font-size: 1.4rem;
+  color: #4A2C59;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.mini-cart-footer {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+.btn-checkout {
+  background: #4A2C59;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+}
+
+/* Forzar que esté por encima de TODO */
+.mini-cart,
+.mini-cart * {
+  z-index: 999999 !important;
+}
+
+.topbar, 
+.header, 
+.desktop-navbar, 
+#sidebar,
+.mobile-header {
+  z-index: 9990 !important;
+}
+
+.btn-add-to-cart {
+  background: #4A2C59;
+  color: white;
+  border: none;
+  padding: 18px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 380px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(74,44,89,0.35);
+  transition: all 0.3s ease;
+  margin: 10px 0 20px;
+}
+
+.btn-add-to-cart:hover {
+  background: #6B1D49;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(74,44,89,0.4);
+}
+/* Forzar apertura en desktop */
+@media (min-width: 769px) {
+  .mini-cart {
+    width: 420px;
+    right: -450px;
+    box-shadow: -15px 0 40px rgba(0,0,0,0.3);
+  }
+  
+  .mini-cart.open {
+    right: 0;
+  }
+  
+  /* Asegurar que esté por encima de todo */
+  .mini-cart, .mini-cart * {
+    z-index: 99999 !important;
+  }
+  
+  .topbar, .header, .desktop-navbar {
+    z-index: 9999;
+  }
+}
+@media (min-width: 769px) {
+  .btn-add-to-cart {
+    padding: 20px 40px;
+    font-size: 19px;
+    max-width: 100%;
+    margin: 15px 0 25px;
+  }
+}
+@media (max-width: 767px) {
+  .topbar { display: none !important; }
+  .main-content { margin-top: 70px; padding: 0 15px; }
+}
+
+.region-section {
+  margin-left: 300px !important;
+  margin-right: 20px;
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+}
+/* Contador del carrito - Global */
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #e74c3c;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+/* Para mobile */
+@media (max-width: 768px) {
+  .region-section {
+    margin-left: 15px !important;
+    margin-right: 15px;
+  }
+  
+  .cart-count {
+    top: -8px;
+    right: -8px;
+    font-size: 11px;
+    min-width: 16px;
+    height: 16px;
+  }
 </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
@@ -693,15 +934,13 @@ body {
 
 
 
-  <!-- Botón AGREGAR AL CARRITO -->
-<button onclick="addToCart({
-  id: 'vina-alicia-malbec-2012',
-  name: 'Viña Alicia Malbec 2012',
-  price: parseFloat('57.99/Flasche(0.75L)') || 0,
-  image: 'https://www.1000malbecs.com/images/large/vina-alicia-malbec-2012.jpg',
-  url: '/de/vinos/vina-alicia-malbec-2012.html'
-})" 
-  style="background:#4A2C59;color:white;border:none;padding:16px 28px;border-radius:10px;font-weight:600;cursor:pointer;font-size:16px;min-width:240px;flex:1;">
+<button 
+  class="btn-add-to-cart"
+  data-id="vina-alicia-malbec-2012"
+  data-name="Viña Alicia Malbec 2012"
+  data-price="57.99/Flasche(0.75L)"
+  data-image="https://www.1000malbecs.com/images/large/vina-alicia-malbec-2012.jpg"
+  data-url="/de/vinos/vina-alicia-malbec-2012.html">
   🛒 In den Warenkorb
 </button>
   <!-- Botones de Compra -->
@@ -1082,8 +1321,8 @@ body {
       <div class="mini-cart-total">
         Total: <strong id="mini-cart-total">€0.00</strong>
       </div>
-      <button onclick="goToCheckout()" class="btn-checkout">Finalizar Compra</button>
-      <a href="/de/carrito.html" class="btn-secondary">Ver Carrito Completo</a>
+      <button onclick="goToCheckout()" class="btn-checkout">Zur Kasee Gehen</button>
+      <a href="/de/carrito.html" class="btn-secondary">Warenkorb ansehen</a>
     </div>
   </div>
 </div>
@@ -1105,8 +1344,10 @@ body {
         hamburger.setAttribute('aria-expanded', 'false');
       }
     });
-  </script>
   <!-- Carrito JS -->
-<script src="/js/cart.js"></script>
+<script src="/js/cart.js">
+console.log("Llamando showMiniCart()");
+showMiniCart();
+</script>
 </body>
 </html>
