@@ -83,13 +83,13 @@ function renderMiniCartItems() {
   const missingForFree = Math.max(0, 12 - totalBottles);
 
   document.getElementById('mini-cart-count').textContent = totalBottles;
-  document.getElementById('mini-cart-total').innerHTML = `
-    Subtotal: <strong>€${subtotal.toFixed(2)}</strong><br>
+    document.getElementById('mini-cart-total').innerHTML = `
+    <div>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></div>
     ${missingForFree > 0 
       ? `<small style="color:#e67e22;">Gasta ${missingForFree} botellas más y obtén envío gratis</small>` 
       : `<strong style="color:#27ae60;">✅ Envío gratis</strong>`}
-    <hr style="margin:10px 0;">
-    <strong style="font-size:1.5rem;">Total: €${finalTotal.toFixed(2)}</strong>
+    <hr style="margin:10px 0 8px;">
+    <strong style="font-size:1.55rem; color:#4A2C59;">Total: €${finalTotal.toFixed(2)}</strong>
   `;
 }
 
