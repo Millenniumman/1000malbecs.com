@@ -113,18 +113,6 @@ function renderMiniCartItems() {
 
   document.getElementById('mini-cart-count').textContent = totalBottles;
 
-  // ← ESTA ES LA LÍNEA CORRECTA (sin duplicado)
-  document.getElementById('mini-cart-total').innerHTML = `
-    ${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong><br>
-    ${missingForFree > 0 
-      ? `<small style="color:#e67e22;">${t.freeShippingCondition.replace('{missing}', missingForFree)}</small>` 
-      : `<strong style="color:#27ae60;">${t.freeShipping}</strong>`}
-    <hr style="margin:10px 0;">
-    <strong style="font-size:1.55rem; color:#4A2C59;">${t.total}: €${finalTotal.toFixed(2)}</strong>
-  `;
-}
-
-  document.getElementById('mini-cart-count').textContent = totalBottles;
   document.getElementById('mini-cart-total').innerHTML = `
     ${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong><br>
     ${missingForFree > 0 
