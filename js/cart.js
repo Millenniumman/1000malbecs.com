@@ -99,7 +99,7 @@ function renderMiniCartItems() {
         <img src="${item.image}" alt="${item.name}">
         <div class="item-info">
           <strong>${item.name}</strong><br>
-          <small>${qty} × €${price.toFixed(2)}</small>
+          <small>Cantidad: ${qty} × €${price.toFixed(2)}</small>
         </div>
         <div class="item-price">€${itemTotal.toFixed(2)}</div>
       </div>`;
@@ -110,6 +110,19 @@ function renderMiniCartItems() {
   const shipping = totalBottles >= 12 ? 0 : 6.99;
   const finalTotal = subtotal + shipping;
   const missingForFree = Math.max(0, 12 - totalBottles);
+
+  document.getElementById('mini-cart-count').textContent = totalBottles;
+
+  // ← ESTA ES LA LÍNEA CORRECTA (sin duplicado)
+  document.getElementById('mini-cart-total').innerHTML = `
+    ${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong><br>
+    ${missingForFree > 0 
+      ? `<small style="color:#e67e22;">${t.freeShippingCondition.replace('{missing}', missingForFree)}</small>` 
+      : `<strong style="color:#27ae60;">${t.freeShipping}</strong>`}
+    <hr style="margin:10px 0;">
+    <strong style="font-size:1.55rem; color:#4A2C59;">${t.total}: €${finalTotal.toFixed(2)}</strong>
+  `;
+}
 
   document.getElementById('mini-cart-count').textContent = totalBottles;
   document.getElementById('mini-cart-total').innerHTML = `
