@@ -1276,20 +1276,20 @@ Aroma: Rote Früchte mit einer deutlichen Erdbeernote. Erdig, mit getrockneten H
 <div id="mini-cart" class="mini-cart">
   <div class="mini-cart-content">
     <div class="mini-cart-header">
-      <h3>Tu Carrito (<span id="mini-cart-count">0</span>)</h3>
+      <h3>Ihr Warenkorb (<span id="mini-cart-count">0</span>)</h3>
       <button onclick="closeMiniCart()" class="close-btn">✕</button>
     </div>
     <div id="mini-cart-items" class="mini-cart-items"></div>
     <div class="mini-cart-footer">
       <div class="mini-cart-total">
-        Total: <strong id="mini-cart-total">€0.00</strong>
+        Gesamt: <strong id="mini-cart-total">€0.00</strong>
       </div>
-      <button onclick="goToCheckout()" class="btn-checkout">Zur Kasee Gehen</button>
+      <button onclick="goToCheckout()" class="btn-checkout">Zur Kasse</button>
       <a href="/de/carrito.html" class="btn-secondary">Warenkorb ansehen</a>
     </div>
   </div>
 </div>
-  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+    <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');
     const sidebar = document.getElementById('sidebar');
@@ -1300,17 +1300,36 @@ Aroma: Rote Früchte mit einer deutlichen Erdbeernote. Erdig, mit getrockneten H
       sidebar.classList.toggle('open');
     });
 
-    // Cerrar al hacer clic fuera
+    // Cerrar sidebar al hacer clic fuera
     document.addEventListener('click', (e) => {
       if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
         sidebar.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
       }
     });
+  </script>
+
   <!-- Carrito JS -->
-<script src="/js/cart.js">
-console.log("Llamando showMiniCart()");
-showMiniCart();
-</script>
+  <script src="/js/cart.js"></script>
+
+  <script>
+    console.log("Página DE cargada - Inicializando carrito");
+    if (typeof updateCartCount === 'function') updateCartCount();
+
+    // Delegación para botones "In den Warenkorb"
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('btn-add-to-cart')) {
+        const btn = e.target;
+        const product = {
+          id: btn.dataset.id,
+          name: btn.dataset.name,
+          price: btn.dataset.price,
+          image: btn.dataset.image,
+          url: btn.dataset.url
+        };
+        addToCart(product);
+      }
+    });
+  </script>
 </body>
 </html>
