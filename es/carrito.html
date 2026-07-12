@@ -304,8 +304,9 @@
     
     
  <div id="checkout-section">
-  <a href="#" id="main-checkout-btn" class="btn-checkout" onclick="showCheckoutOptions()">
-    Finalizar la compra
+  <button onclick="goToCheckout()" class="btn-checkout">
+  {% if lang == 'es' %}Finalizar Compra{% elif lang == 'en' %}Proceed to Checkout{% else %}Zur Kasse{% endif %}
+</button>
   </a>
 </div>
 
