@@ -264,8 +264,8 @@ async function goToCheckout() {
     return;
   }
 
-  // Por ahora redirigimos a una página de checkout (puedes cambiarla después)
-  window.location.href = `/{{ lang }}/checkout.html`;
+  const currentLang = getLang ? getLang() : 'es';
+  window.location.href = `/${currentLang}/checkout.html`;
 }
 
 // ==================== INICIALIZACIÓN ====================
