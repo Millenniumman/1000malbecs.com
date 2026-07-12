@@ -304,25 +304,30 @@
     
     
  <div id="checkout-section">
-  <button onclick="goToCheckout()" class="btn-checkout">
-  {% if lang == 'es' %}Finalizar Compra{% elif lang == 'en' %}Proceed to Checkout{% else %}Zur Kasse{% endif %}
-</button>
-  </a>
+  <button onclick="showCheckoutOptions()" class="btn-checkout">
+    {% if lang == 'es' %}Finalizar Compra{% elif lang == 'en' %}Proceed to Checkout{% else %}Zur Kasse{% endif %}
+  </button>
 </div>
 
 <!-- Opciones que aparecen al hacer clic -->
 <div id="checkout-options" style="display:none; margin-top:30px;">
-  <h3 style="color:#4A2C59; margin-bottom:20px;">¿Cómo deseas continuar?</h3>
+  <h3 style="color:#4A2C59; margin-bottom:20px; text-align:center;">
+    {% if lang == 'es' %}¿Cómo deseas continuar?{% elif lang == 'en' %}How would you like to continue?{% else %}Wie möchten Sie fortfahren?{% endif %}
+  </h3>
   
-  <a href="#" onclick="goToCheckout('guest')" class="option-btn btn-guest" style="display:block; margin:12px auto; max-width:420px;">
-    Comprar como invitado
-  </a>
+  <button onclick="goToCheckout('guest')" class="option-btn btn-guest" style="display:block; margin:12px auto; max-width:420px; width:100%;">
+    {% if lang == 'es' %}Comprar como invitado{% elif lang == 'en' %}Continue as Guest{% else %}Als Gast kaufen{% endif %}
+  </button>
   
-  <a href="#" onclick="goToCheckout('register')" class="option-btn btn-register" style="display:block; margin:12px auto; max-width:420px;">
-    Registrarme y comprar
+  <button onclick="goToCheckout('register')" class="option-btn btn-register" style="display:block; margin:12px auto; max-width:420px; width:100%;">
+    {% if lang == 'es' %}Registrarme y comprar{% elif lang == 'en' %}Register and Buy{% else %}Registrieren und kaufen{% endif %}
+  </button>
+  
+  <a href="/{{ lang }}/" style="display:block; text-align:center; margin-top:25px; color:#666; text-decoration:none;">
+    ← {% if lang == 'es' %}Seguir Comprando{% elif lang == 'en' %}Continue Shopping{% else %}Weiter einkaufen{% endif %}
   </a>
-  <a href="/es/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Seguir Comprando</a>
 </div>
+     </div>
    </main>
 <script src="/js/cart.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
