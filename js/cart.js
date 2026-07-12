@@ -72,56 +72,6 @@ function closeMiniCart() {
   if (miniCart) miniCart.classList.remove('open');
 }
 
-function renderMiniCartItems() {
-  const container = document.getElementById('mini-cart-items');
-  if (!container) return;
-
-  const lang = getLang();
-  const t = translations[lang] || translations.es;
-
-  let html = `
-    <div style="background:#4A2C59; color:white; padding:18px 20px; font-size:1.4rem; font-weight:700; text-align:center;">
-      ${t.added}
-    </div>`;
-
-  let subtotal = 0;
-  let totalBottles = 0;
-
-  cart.forEach(item => {
-    const price = parseFloat(item.price) || 0;
-    const qty = item.quantity || 1;
-    const itemTotal = price * qty;
-    subtotal += itemTotal;
-    totalBottles += qty;
-
-    html += `
-      <div class="mini-cart-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div class="item-info">
-          <strong>${item.name}</strong><br>
-          <small>Cantidad: ${qty} × €${price.toFixed(2)}</small>
-        </div>
-        <div class="item-price">€${itemTotal.toFixed(2)}</div>
-      </div>`;
-  });
-
-  container.innerHTML = html;
-
-  const shipping = totalBottles >= 12 ? 0 : 6.99;
-  const finalTotal = subtotal + shipping;
-  const missingForFree = Math.max(0, 12 - totalBottles);
-
-  document.getElementById('mini-cart-count').textContent = totalBottles;
-
-  document.getElementById('mini-cart-total').innerHTML = `
-    ${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong><br>
-    ${missingForFree > 0 
-      ? `<small style="color:#e67e22;">${t.freeShippingCondition.replace('{missing}', missingForFree)}</small>` 
-      : `<strong style="color:#27ae60;">${t.freeShipping}</strong>`}
-    <hr style="margin:10px 0;">
-    <strong style="font-size:1.55rem; color:#4A2C59;">${t.total}: €${finalTotal.toFixed(2)}</strong>
-  `;
-}
 // ==================== ADD TO CART ====================
 function addToCart(product) {
   console.log("Intentando agregar:", product);
@@ -298,7 +248,7 @@ function renderMiniCartItems() {
         <img src="${item.image}" alt="${item.name}">
         <div class="item-info">
           <strong>${item.name}</strong><br>
-          <small>Cantidad: ${qty} × €${price.toFixed(2)}</small>
+          <small>${qty} × €${price.toFixed(2)}</small>
         </div>
         <div class="item-price">€${itemTotal.toFixed(2)}</div>
       </div>`;
@@ -311,7 +261,6 @@ function renderMiniCartItems() {
   const missingForFree = Math.max(0, 12 - totalBottles);
 
   document.getElementById('mini-cart-count').textContent = totalBottles;
-
   document.getElementById('mini-cart-total').innerHTML = `
     ${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong><br>
     ${missingForFree > 0 
@@ -320,7 +269,8 @@ function renderMiniCartItems() {
     <hr style="margin:10px 0;">
     <strong style="font-size:1.55rem; color:#4A2C59;">${t.total}: €${finalTotal.toFixed(2)}</strong>
   `;
-}// ==================== CHECKOUT ====================
+}}
+// ==================== CHECKOUT ====================
 async function goToCheckout() {
   if (cart.length === 0) {
     alert("El carrito está vacío");
