@@ -264,27 +264,8 @@ async function goToCheckout() {
     return;
   }
 
-  try {
-    const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        cart: cart,
-        language: getLang(),
-        isSubscription: false
-      })
-    });
-
-    const data = await response.json();
-
-    if (data.error) throw new Error(data.error);
-
-    if (data.url) {
-      window.location.href = data.url;
-    }
-  } catch (error) {
-    alert("Error: " + error.message);
-  }
+  // Por ahora redirigimos a una página de checkout (puedes cambiarla después)
+  window.location.href = `/{{ lang }}/checkout.html`;
 }
 
 // ==================== INICIALIZACIÓN ====================
