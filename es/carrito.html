@@ -329,26 +329,7 @@
 </div>
      </div>
    </main>
-<script src="/js/cart.js"></script>
-<script src="https://js.stripe.com/v3/"></script>
-
-<script>
-  console.log("Página del carrito cargada");
-
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOMContentLoaded → renderCart()");
-    if (typeof renderCart === 'function') renderCart();
-  });
-
-  document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'visible' && typeof renderCart === 'function') {
-      renderCart();
-    }
-  });
-  
-</script>
-
-  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+    <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');
     const sidebar = document.getElementById('sidebar');
@@ -368,4 +349,25 @@
       });
     }
     </script>
+<script src="/js/cart.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  console.log("Página del carrito cargada");
+
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOMContentLoaded → renderCart()");
+    if (typeof renderCart === 'function') renderCart();
+  });
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible' && typeof renderCart === 'function') {
+      renderCart();
+    }
+  });
+  
+</script>
+
+</body>
+</html>
 
