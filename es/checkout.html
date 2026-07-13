@@ -175,7 +175,31 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   }
- 
+ /* MOBILE - Fuerza una sola columna */
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0 !important;
+      padding: 0 15px;
+    }
+
+    .checkout-grid {
+      display: flex !important;
+      flex-direction: column-reverse !important;
+      gap: 30px;
+    }
+
+    .payment-buttons {
+      display: grid;
+      grid-template-columns: 1fr !important;
+      gap: 12px;
+    }
+
+    .payment-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.05rem;
+    }
+  }
   </style>
 </head>
 <body>
