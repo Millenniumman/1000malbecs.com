@@ -274,7 +274,26 @@
     <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Zur Kasse gehen</a>
     <a href="/de/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Weiter einkaufen</a>
   </main>
+  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
 
+    if (hamburger && sidebar) {
+      hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+        sidebar.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+          sidebar.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
   <script src="/js/cart.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
 <script>
@@ -321,25 +340,6 @@
     }
   }
 </script>
-  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.getElementById('sidebar');
 
-    if (hamburger && sidebar) {
-      hamburger.addEventListener('click', () => {
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !expanded);
-        sidebar.classList.toggle('open');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-          sidebar.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-  </script>
 </body>
 </html>
