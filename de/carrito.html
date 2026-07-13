@@ -274,72 +274,54 @@
     <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Zur Kasse gehen</a>
     <a href="/de/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Weiter einkaufen</a>
   </main>
-  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+<!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');
     const sidebar = document.getElementById('sidebar');
 
-    if (hamburger && sidebar) {
-      hamburger.addEventListener('click', () => {
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !expanded);
-        sidebar.classList.toggle('open');
-      });
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
 
-      document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-          sidebar.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
   </script>
-  <script src="/js/cart.js"></script>
-  <script src="https://js.stripe.com/v3/"></script>
+ <script src="/js/cart.js"></script>
+
 <script>
-  // const STRIPE_PUBLISHABLE_KEY = "{{ stripe_publishable_key }}";   ← Puedes dejarla o borrarla, ya no la usamos
+  console.log("Página del carrito cargada");
 
-  async function goToCheckout() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    if (cart.length === 0) {
-      alert("El carrito está vacío");
-      return;
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof renderCart === 'function') {
+      renderCart();
     }
-
-    try {
-      console.log("🛒 Enviando carrito:", cart);
-
-      const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          cart: cart,
-          language: document.documentElement.lang || 'de',
-          isSubscription: false
-        })
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || 'Error del servidor');
-      }
-
-      const data = await response.json();
-
-      if (data.url) {
-        console.log("Redirecting to Stripe:", data.url);
-        window.location.href = data.url;
-      } else {
-        throw new Error("No se recibió URL de pago");
-      }
-
-    } catch (error) {
-      console.error("❌ Error completo:", error);
-      alert("Error al procesar el pago:\n" + error.message);
+    if (typeof updateCartCount === 'function') {
+      updateCartCount();
     }
-  }
+  });
+
+  // Delegación para botones (por si hay)
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-add-to-cart')) {
+      const btn = e.target;
+      const product = {
+        id: btn.dataset.id,
+        name: btn.dataset.name,
+        price: btn.dataset.price,
+        image: btn.dataset.image,
+        url: btn.dataset.url
+      };
+      if (typeof addToCart === 'function') addToCart(product);
+    }
+  });
 </script>
-
+  
 </body>
 </html>
