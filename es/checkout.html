@@ -324,24 +324,36 @@
     }
     </script>
 <script src="/js/cart.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
 <script>
-  // ==================== FUNCIONES DE PAGO ====================
-  function payWithStripe() {
-    alert("Redirigiendo a Stripe...");
+  let stripe;
+  let cardElement;
+function showStripeForm() {
+    const container = document.getElementById('stripe-form-container');
+    container.style.display = 'block';
+
+    if (!stripe) {
+      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
+      const elements = stripe.elements();
+      cardElement = elements.create('card', { style: { base: { fontSize: '16px' } } });
+      cardElement.mount('#card-element');
+    }
   }
 
-  function payWithPayPal() {
-    alert("Redirigiendo a PayPal...");
-  }
+  async function payWithStripeCard() {
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+    });
 
-  function payWithApplePay() {
-    alert("Redirigiendo a Apple Pay...");
+    if (error) {
+      document.getElementById('card-errors').textContent = error.message;
+    } else {
+      alert("Pago procesado (simulación). ID: " + paymentMethod.id);
+    }
   }
-
-  function payWithGooglePay() {
-    alert("Redirigiendo a Google Pay...");
-  }
-
+  
   function payWithWhatsApp() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (cart.length === 0) {
@@ -410,49 +422,6 @@
     const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = url;
   }
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-  let stripe;
-  let cardElement;
-
-  function showStripeForm() {
-    const container = document.getElementById('stripe-form-container');
-    container.style.display = 'block';
-
-    if (!stripe) {
-      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
-      const elements = stripe.elements();
-      cardElement = elements.create('card', { style: { base: { fontSize: '16px' } } });
-      cardElement.mount('#card-element');
-    }
-  }
-
-  async function payWithStripeCard() {
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: cardElement,
-    });
-
-    if (error) {
-      document.getElementById('card-errors').textContent = error.message;
-    } else {
-      alert("Pago procesado (simulación). ID: " + paymentMethod.id);
-    }
-  }
-
-  async function payWithStripeCard() {
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: cardElement,
-    });
-
-    if (error) {
-      document.getElementById('card-errors').textContent = error.message;
-    } else {
-      alert("Pago procesado (simulación). PaymentMethod ID: " + paymentMethod.id);
-      // Aquí enviarías el paymentMethod.id a tu backend
-    }
-  }
   function showPaymentButtons() {
     const container = document.getElementById('payment-buttons');
     let html = '';
@@ -489,8 +458,7 @@
     container.innerHTML = html;
   }
 
-// ==================== RENDER RESUMEN ====================
-  function renderCheckoutSummary() {
+function renderCheckoutSummary() {
     const container = document.getElementById('checkout-items');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     let html = '';
@@ -518,7 +486,6 @@
     document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
     document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
   }
-
   window.onload = function() {
     showPaymentButtons();
     renderCheckoutSummary();
