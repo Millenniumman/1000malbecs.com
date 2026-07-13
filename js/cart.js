@@ -2,28 +2,39 @@
 const STRIPE_PUBLISHABLE_KEY = "pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE";
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 const translations = {
   es: { 
     added: "¡Agregado al carrito!",
     subtotal: "Subtotal", 
     freeShipping: "✅ Envío gratis", 
     freeShippingCondition: "Agrega {missing} botellas más y obtén envío gratis",
-    total: "Total" 
+    total: "Total",
+    remove: "Eliminar",
+    empty: "Tu carrito está vacío",
+    emptyMessage: "Agrega algunos vinos para continuar.",
+    continueShopping: "Seguir comprando"
   },
   en: { 
     added: "Added to your cart!",
     subtotal: "Subtotal", 
     freeShipping: "✅ Free Shipping", 
     freeShippingCondition: "Add {missing} more bottles and get free shipping",
-    total: "Total" 
+    total: "Total",
+    remove: "Remove",
+    empty: "Your cart is empty",
+    emptyMessage: "Add some wines to continue.",
+    continueShopping: "Continue Shopping"
   },
   de: { 
     added: "Zum Warenkorb hinzugefügt!",
     subtotal: "Zwischensumme", 
     freeShipping: "✅ Versandkostenfrei", 
     freeShippingCondition: "Kaufen Sie {missing} Flaschen mehr und erhalten Sie kostenlosen Versand",
-    total: "Gesamt" 
+    total: "Gesamt",
+    remove: "Entfernen",
+    empty: "Ihr Warenkorb ist leer",
+    emptyMessage: "Fügen Sie einige Weine hinzu, um fortzufahren.",
+    continueShopping: "Weiter einkaufen"
   }
 };
 
@@ -118,11 +129,18 @@ function renderCart() {
   const lang = getLang();
   const t = translations[lang] || translations.es;
 
-  if (cart.length === 0) {
-    container.innerHTML = `<div class="empty" style="text-align:center; padding:40px;">
-      <h2>${t.empty}</h2>
-      <p>Agrega algunos vinos para continuar.</p>
-    </div>`;
+    if (cart.length === 0) {
+    const lang = getLang();
+    const t = translations[lang] || translations.es;
+
+    container.innerHTML = `
+      <div style="text-align:center; padding:60px 20px;">
+        <h2 style="color:#4A2C59;">${t.empty}</h2>
+        <p style="color:#666; margin-top:10px;">${t.emptyMessage}</p>
+        <a href="/${lang}/" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#4A2C59; color:white; text-decoration:none; border-radius:8px;">
+          ${t.continueShopping}
+        </a>
+      </div>`;
     if (totalEl) totalEl.innerHTML = '';
     return;
   }
