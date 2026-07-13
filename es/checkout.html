@@ -235,11 +235,12 @@
   <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
   
   <div class="payment-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-   <button onclick="payWithStripe()" class="payment-btn" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem; display:flex; align-items:center; justify-content:center; gap:8px;">
-  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968890.png" alt="Visa" style="height:22px;">
-  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968951.png" alt="Mastercard" style="height:22px;">
-  Tarjeta
-</button>
+  <button onclick="payWithGooglePay()" class="payment-btn" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+      Google Pay
+    </button>
+    <button onclick="payWithApplePay()" class="payment-btn" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+       Apple Pay
+    </button>
     <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:14px 20px; border:none; border-radius:8px; font-size:1rem; display:flex; align-items:center; justify-content:center; gap:8px;">
       <img src="/images/logos/PayPal-Logo-White-RGB.png" alt="PayPal" style="height:22px;">
     </button>
@@ -388,6 +389,18 @@ function payWithEmail() {
   const subject = "Pedido - " + cart.map(i => i.name).join(", ");
   const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = url;
+}
+  function payWithGooglePay() {
+  alert("Redirigiendo a Google Pay...");
+  // Integración real de Google Pay aquí
+}
+
+function payWithApplePay() {
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    alert("Redirigiendo a Apple Pay...");
+  } else {
+    alert("Apple Pay solo disponible en dispositivos Apple.");
+  }
 }
   function renderCheckoutSummary() {
     const container = document.getElementById('checkout-items');
