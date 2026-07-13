@@ -355,53 +355,95 @@
   const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
 }
-
-function payWithEmail() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  if (cart.length === 0) {
-    alert("El carrito está vacío");
-    return;
+<script src="/js/cart.js"></script>
+<script>
+  // ==================== FUNCIONES DE PAGO ====================
+  function payWithStripe() {
+    alert("Redirigiendo a Stripe...");
   }
 
-  let totalBottles = 0;
-  let body = "Hola equipo de 1000 Malbecs,\n\nQuiero realizar el siguiente pedido:\n\n";
-  let subtotal = 0;
-
-  cart.forEach(item => {
-    const price = parseFloat(item.price) || 0;
-    const qty = item.quantity || 1;
-    body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-    subtotal += price * qty;
-    totalBottles += qty;
-  });
-
-  const shipping = totalBottles >= 12 ? 0 : 6.99;
-  const finalTotal = subtotal + shipping;
-
-  body += `\nSubtotal: €${subtotal.toFixed(2)}`;
-  if (shipping === 0) {
-    body += `\n✅ Envío GRATIS (12+ botellas)`;
-  } else {
-    body += `\nEnvío a Alemania: €${shipping.toFixed(2)}`;
+  function payWithPayPal() {
+    alert("Redirigiendo a PayPal...");
   }
-  body += `\n\nTotal: €${finalTotal.toFixed(2)}\n\nGracias!`;
 
-  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
-  const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = url;
-}
-  function payWithGooglePay() {
-  alert("Redirigiendo a Google Pay...");
-  // Integración real de Google Pay aquí
-}
-
-function payWithApplePay() {
-  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+  function payWithApplePay() {
     alert("Redirigiendo a Apple Pay...");
-  } else {
-    alert("Apple Pay solo disponible en dispositivos Apple.");
   }
-}
+
+  function payWithGooglePay() {
+    alert("Redirigiendo a Google Pay...");
+  }
+
+  function payWithWhatsApp() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    let message = "Hola, quiero comprar desde 1000 Malbecs:\n\n";
+    let subtotal = 0;
+    let totalBottles = 0;
+
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+      subtotal += price * qty;
+      totalBottles += qty;
+    });
+
+    const shipping = totalBottles >= 12 ? 0 : 6.99;
+    const finalTotal = subtotal + shipping;
+
+    message += `\nSubtotal: €${subtotal.toFixed(2)}`;
+    if (shipping === 0) {
+      message += `\n✅ Envío GRATIS`;
+    } else {
+      message += `\nEnvío: €${shipping.toFixed(2)}`;
+    }
+    message += `\n\nTotal: €${finalTotal.toFixed(2)}\n\n¿Podemos confirmar el pedido?`;
+
+    const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  function payWithEmail() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    let body = "Hola equipo de 1000 Malbecs,\n\nQuiero realizar el siguiente pedido:\n\n";
+    let subtotal = 0;
+    let totalBottles = 0;
+
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+      subtotal += price * qty;
+      totalBottles += qty;
+    });
+
+    const shipping = totalBottles >= 12 ? 0 : 6.99;
+    const finalTotal = subtotal + shipping;
+
+    body += `\nSubtotal: €${subtotal.toFixed(2)}`;
+    if (shipping === 0) {
+      body += `\n✅ Envío GRATIS (12+ botellas)`;
+    } else {
+      body += `\nEnvío a Alemania: €${shipping.toFixed(2)}`;
+    }
+    body += `\n\nTotal: €${finalTotal.toFixed(2)}\n\nGracias!`;
+
+    const subject = "Pedido - " + cart.map(i => i.name).join(", ");
+    const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = url;
+  }
+
+  // ==================== RENDER RESUMEN ====================
   function renderCheckoutSummary() {
     const container = document.getElementById('checkout-items');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -431,57 +473,9 @@ function payWithApplePay() {
     document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
   }
 
-  window.onload = renderCheckoutSummary;
-
-  function showPaymentButtons() {
-    const container = document.getElementById('payment-buttons');
-    let html = '';
-
-    // PayPal siempre
-    html += `
-      <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
-        PayPal
-      </button>`;
-
-    // Apple Pay solo en iOS / Safari
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent) || /Macintosh/.test(navigator.userAgent)) {
-      html += `
-        <button onclick="payWithApplePay()" class="payment-btn" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
-           Apple Pay
-        </button>`;
-    } else {
-      // Google Pay en Android / Chrome / otros
-      html += `
-        <button onclick="payWithGooglePay()" class="payment-btn" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
-          Google Pay
-        </button>`;
-    }
-
-    // WhatsApp y Transferencia siempre
-    html += `
-      <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
-        📱 WhatsApp
-      </button>
-      <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
-        ✉️ Transferencia Bancaria
-      </button>`;
-
-    container.innerHTML = html;
-  }
-
-  // Funciones de pago (mantén las que ya tenías)
-  function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
-  function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
-  function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
-  function payWithWhatsApp() { /* tu función actual */ }
-  function payWithEmail() { /* tu función actual */ }
-
-  // Inicializar
+  // Inicializar todo
   window.onload = function() {
     showPaymentButtons();
     renderCheckoutSummary();
   };
-
 </script>
-</body>
-</html>
