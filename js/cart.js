@@ -264,7 +264,15 @@ function showToast(productName) {
   toast.style.opacity = '1';
   setTimeout(() => { toast.style.opacity = '0'; }, 2500);
 }
+async function goToCheckout() {
+  if (cart.length === 0) {
+    alert("El carrito está vacío");
+    return;
+  }
 
+  const currentLang = getLang ? getLang() : 'es';
+  window.location.href = `/${currentLang}/checkout.html`;
+}
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
