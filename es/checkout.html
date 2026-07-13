@@ -318,6 +318,41 @@
     </script>
 <script src="/js/cart.js"></script>
 <script>
+    function showPaymentButtons() {
+    const container = document.getElementById('payment-buttons');
+    let html = '';
+
+    // PayPal siempre
+    html += `
+      <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+        PayPal
+      </button>`;
+
+    // Apple Pay solo en iOS / Safari
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) || /Macintosh/.test(navigator.userAgent)) {
+      html += `
+        <button onclick="payWithApplePay()" class="payment-btn" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+           Apple Pay
+        </button>`;
+    } else {
+      // Google Pay en Android / Chrome / otros
+      html += `
+        <button onclick="payWithGooglePay()" class="payment-btn" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+          Google Pay
+        </button>`;
+    }
+
+    // WhatsApp y Transferencia siempre
+    html += `
+      <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+        📱 WhatsApp
+      </button>
+      <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+        ✉️ Transferencia Bancaria
+      </button>`;
+
+    container.innerHTML = html;
+  }
   function payWithStripe() {
     alert("Redirigiendo a Stripe...");
   }
