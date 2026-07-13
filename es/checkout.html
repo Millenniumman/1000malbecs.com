@@ -59,21 +59,21 @@
       <!-- COLUMNA IZQUIERDA -->
       <div>
         <!-- EXPRESS CHECKOUT -->
-      <!-- MÉTODOS DE PAGO -->
+<!-- MÉTODOS DE PAGO -->
 <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
   <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
   
-  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
-    <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
-      💳 Tarjeta de Crédito / Débito
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+    <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem;">
+      💳 Tarjeta de Crédito
     </button>
-    <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
+    <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem;">
       PayPal
     </button>
-    <button onclick="payWithWhatsApp()" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
+    <button onclick="payWithWhatsApp()" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem;">
       📱 WhatsApp
     </button>
-    <button onclick="payWithEmail()" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
+    <button onclick="payWithEmail()" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem;">
       ✉️ Transferencia Bancaria
     </button>
   </div>
@@ -163,6 +163,7 @@
 
     window.onload = renderCheckoutSummary;
   </script>
+  <script>
   function payWithWhatsApp() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   let message = "Hola, quiero comprar:\n\n";
