@@ -37,12 +37,6 @@
 <body>
 
 <!-- HEADER -->
-<div class="topbar" style="display:flex; align-items:center; justify-content:space-between; padding:0 30px; height:100px; background:white; box-shadow:0 2px 12px rgba(0,0,0,0.1);">
-  <header class="header">
-    <a href="/es/">
-      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height:80px;">
-    </a>
-  </header>
 
   <!-- Carrito arriba a la derecha -->
   <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.9em; margin-left: auto;">
@@ -126,6 +120,42 @@
   </div>
 
   <script src="/js/cart.js"></script>
+    <script>
+  function payWithWhatsApp() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let message = "Hola, quiero comprar:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+    total += price * qty;
+  });
+
+  message += `\nTotal: €${total.toFixed(2)}`;
+  const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+function payWithEmail() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let body = "Hola equipo,\n\nQuiero comprar:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+    total += price * qty;
+  });
+
+  body += `\nTotal: €${total.toFixed(2)}\n\nGracias!`;
+  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
+  const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = url;
+}
+    </script>
   <script>
     function renderCheckoutSummary() {
       const container = document.getElementById('checkout-items');
@@ -163,40 +193,6 @@
 
     window.onload = renderCheckoutSummary;
   </script>
-  <script>
-  function payWithWhatsApp() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let message = "Hola, quiero comprar:\n\n";
-  let total = 0;
 
-  cart.forEach(item => {
-    const price = parseFloat(item.price) || 0;
-    const qty = item.quantity || 1;
-    message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-    total += price * qty;
-  });
-
-  message += `\nTotal: €${total.toFixed(2)}`;
-  const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
-}
-
-function payWithEmail() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let body = "Hola equipo,\n\nQuiero comprar:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    const price = parseFloat(item.price) || 0;
-    const qty = item.quantity || 1;
-    body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-    total += price * qty;
-  });
-
-  body += `\nTotal: €${total.toFixed(2)}\n\nGracias!`;
-  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
-  const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = url;
-}
 </body>
 </html>
