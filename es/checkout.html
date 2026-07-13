@@ -354,7 +354,25 @@
       </div>
     </div>
   </div>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
 
+    if (hamburger && sidebar) {
+      hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+        sidebar.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+          sidebar.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    </script>
 <script src="/js/cart.js"></script>
 <script>
   function payWithStripe() {
