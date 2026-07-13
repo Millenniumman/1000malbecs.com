@@ -129,78 +129,91 @@
     </div>
   </div>
 
-  <script src="/js/cart.js"></script>
-    <script>
+<script src="/js/cart.js"></script>
+<script>
+  function payWithStripe() {
+    alert("Redirigiendo a Stripe...");
+  }
+
+  function payWithPayPal() {
+    alert("Redirigiendo a PayPal...");
+  }
+
   function payWithWhatsApp() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let message = "Hola, quiero comprar:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    const price = parseFloat(item.price) || 0;
-    const qty = item.quantity || 1;
-    message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-    total += price * qty;
-  });
-
-  message += `\nTotal: €${total.toFixed(2)}`;
-  const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
-}
-
-function payWithEmail() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let body = "Hola equipo,\n\nQuiero comprar:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    const price = parseFloat(item.price) || 0;
-    const qty = item.quantity || 1;
-    body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-    total += price * qty;
-  });
-
-  body += `\nTotal: €${total.toFixed(2)}\n\nGracias!`;
-  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
-  const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = url;
-}
-    function renderCheckoutSummary() {
-      const container = document.getElementById('checkout-items');
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let html = '';
-      let subtotal = 0;
-
-      cart.forEach(item => {
-        const price = parseFloat(item.price) || 0;
-        const qty = item.quantity || 1;
-        subtotal += price * qty;
-        html += `
-          <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
-            <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:6px;">
-            <div style="flex:1;">
-              <strong>${item.name}</strong><br>
-              <small>${qty} × €${price.toFixed(2)}</small>
-            </div>
-            <div style="font-weight:600;">€${(price * qty).toFixed(2)}</div>
-          </div>`;
-      });
-
-      container.innerHTML = html;
-
-      const shipping = subtotal >= 120 ? 0 : 6.99;
-      document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
-      document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
-      document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
     }
 
-    function payWithStripe() { alert("Redirigiendo a Stripe..."); }
-    function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
-    function payWithWhatsApp() { alert("Abriendo WhatsApp..."); }
-    function payWithEmail() { alert("Mostrando datos de transferencia..."); }
+    let message = "Hola, quiero comprar desde 1000 Malbecs:\n\n";
+    let total = 0;
 
-    window.onload = renderCheckoutSummary;
-  </script>
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+      total += price * qty;
+    });
 
+    message += `\nTotal: €${total.toFixed(2)}\n\n¿Podemos confirmar el pedido?`;
+    const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  function payWithEmail() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    let body = "Hola equipo de 1000 Malbecs,\n\nQuiero realizar el siguiente pedido:\n\n";
+    let total = 0;
+
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+      total += price * qty;
+    });
+
+    body += `\nTotal: €${total.toFixed(2)}\n\nGracias!`;
+    const subject = "Pedido - " + cart.map(i => i.name).join(", ");
+    const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = url;
+  }
+
+  function renderCheckoutSummary() {
+    const container = document.getElementById('checkout-items');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let html = '';
+    let subtotal = 0;
+
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      subtotal += price * qty;
+      html += `
+        <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
+          <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:6px;">
+          <div style="flex:1;">
+            <strong>${item.name}</strong><br>
+            <small>${qty} × €${price.toFixed(2)}</small>
+          </div>
+          <div style="font-weight:600;">€${(price * qty).toFixed(2)}</div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+
+    const shipping = subtotal >= 120 ? 0 : 6.99;
+    document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
+    document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
+    document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
+  }
+
+  window.onload = renderCheckoutSummary;
+</script>
 </body>
 </html>
