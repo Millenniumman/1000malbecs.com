@@ -36,19 +36,20 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <div class="topbar">
-    <header class="header">
-      <a href="/es/">
-        <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-      </a>
-    </header>
-    <!-- Carrito arriba a la derecha -->
-    <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto; padding-right: 30px;">
-      🛒
-      <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+<!-- HEADER -->
+<div class="topbar" style="display:flex; align-items:center; justify-content:space-between; padding:0 30px; height:100px; background:white; box-shadow:0 2px 12px rgba(0,0,0,0.1);">
+  <header class="header">
+    <a href="/es/">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height:80px;">
     </a>
-  </div>
+  </header>
+
+  <!-- Carrito arriba a la derecha -->
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.9em; margin-left: auto;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
+</div>
 
   <div class="main-content" style="margin: 60px auto; padding: 0 20px;">
     <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">Checkout</h1>
@@ -58,24 +59,25 @@
       <!-- COLUMNA IZQUIERDA -->
       <div>
         <!-- EXPRESS CHECKOUT -->
-        <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
-          <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
-          
-          <div class="payment-buttons">
-            <button onclick="payWithStripe()" class="payment-btn" style="background:#635BFF; color:white;">
-              💳 Tarjeta de Crédito
-            </button>
-            <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">
-              PayPal
-            </button>
-            <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">
-              WhatsApp
-            </button>
-            <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">
-              Transferencia Bancaria
-            </button>
-          </div>
-        </div>
+      <!-- MÉTODOS DE PAGO -->
+<div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
+  <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
+  
+  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+    <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
+      💳 Tarjeta de Crédito / Débito
+    </button>
+    <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
+      PayPal
+    </button>
+    <button onclick="payWithWhatsApp()" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
+      📱 WhatsApp
+    </button>
+    <button onclick="payWithEmail()" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">
+      ✉️ Transferencia Bancaria
+    </button>
+  </div>
+</div>
 
         <!-- CONTACTO -->
         <div style="margin-bottom:30px;">
@@ -161,5 +163,39 @@
 
     window.onload = renderCheckoutSummary;
   </script>
+  function payWithWhatsApp() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let message = "Hola, quiero comprar:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+    total += price * qty;
+  });
+
+  message += `\nTotal: €${total.toFixed(2)}`;
+  const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+function payWithEmail() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let body = "Hola equipo,\n\nQuiero comprar:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+    total += price * qty;
+  });
+
+  body += `\nTotal: €${total.toFixed(2)}\n\nGracias!`;
+  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
+  const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = url;
+}
 </body>
 </html>
