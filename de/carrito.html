@@ -210,6 +210,23 @@
   text-align: right;
   margin: 30px 0 20px;
 }
+     /* Alinear el resumen de productos a la derecha */
+#cart-items {
+  margin-left: 20px;           /* Empuja todo a la derecha */
+  max-width: 800px;
+}
+
+.cart-item {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Opcional: más espacio en mobile */
+@media (max-width: 768px) {
+  #cart-items {
+    margin-left: 0;
+  }
+}
 .btn-checkout {
   display: block;
   width: 100%;
