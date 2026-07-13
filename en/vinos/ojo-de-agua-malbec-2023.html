@@ -1351,60 +1351,60 @@ Complex and attractive aromas of red and black fruits (s...
   </div>
 </div>
 
-       <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+        <!-- 1. Primero el sidebar -->
   <script>
     const hamburger = document.querySelector('.hamburger');
     const sidebar = document.getElementById('sidebar');
 
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !expanded);
-      sidebar.classList.toggle('open');
-    });
+    if (hamburger && sidebar) {
+      hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+        sidebar.classList.toggle('open');
+      });
 
-    // Cerrar sidebar al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-        sidebar.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
-
-  <!-- Carrito JS -->
-  <script src="/js/cart.js"></script>
-
-  <!-- Delegación de eventos para "Agregar al carrito" -->
-  <script>
-    console.log("Página cargada - Inicializando carrito");
-
-    // Esperamos a que cart.js cargue completamente
-    window.addEventListener('load', () => {
-      if (typeof updateCartCount === 'function') {
-        updateCartCount();
-      }
-
-      // Delegación para botones Agregar al carrito
-      document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-add-to-cart')) {
-          const btn = e.target;
-          const product = {
-            id: btn.dataset.id,
-            name: btn.dataset.name,
-            price: btn.dataset.price,
-            image: btn.dataset.image,
-            url: btn.dataset.url
-          };
-          if (typeof addToCart === 'function') {
-            addToCart(product);
-          } else {
-            console.error("addToCart no está definida");
-          }
+      document.addEventListener('click', (e) => {
+        if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+          sidebar.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
         }
       });
+    }
+  </script>
+
+  <!-- 2. Luego cart.js -->
+  <script src="/js/cart.js"></script>
+
+  <!-- 3. Finalmente la delegación segura -->
+  <script>
+    console.log("Página cargada - Configurando carrito");
+
+    function setupAddToCart() {
+      if (typeof addToCart === 'function') {
+        document.addEventListener('click', function(e) {
+          if (e.target.classList.contains('btn-add-to-cart')) {
+            const btn = e.target;
+            const product = {
+              id: btn.dataset.id,
+              name: btn.dataset.name,
+              price: btn.dataset.price,
+              image: btn.dataset.image,
+              url: btn.dataset.url
+            };
+            addToCart(product);
+          }
+        });
+        console.log("✅ Delegación de addToCart configurada");
+      } else {
+        console.warn("addToCart aún no disponible, reintentando...");
+        setTimeout(setupAddToCart, 300);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      if (typeof updateCartCount === 'function') updateCartCount();
+      setupAddToCart();
     });
   </script>
-</body>
-</html>
 </body>
 </html>
