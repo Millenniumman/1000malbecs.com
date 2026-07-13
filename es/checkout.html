@@ -8,14 +8,13 @@
 </head>
 <body>
 
-  <!-- HEADER (igual que en producto) -->
+  <!-- HEADER (igual que en las otras páginas) -->
   <div class="topbar">
     <header class="header">
       <a href="/{{ lang }}/">
         <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
       </a>
     </header>
-
     <a href="/{{ lang }}/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto; padding-right: 30px;">
       🛒
       <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
@@ -23,99 +22,86 @@
   </div>
 
   <div class="main-content" style="max-width: 1100px; margin: 40px auto; padding: 0 20px;">
-    <h1 style="text-align: center; margin-bottom: 40px; color: #4A2C59;">Checkout</h1>
+    <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">
+      {% if lang == 'es' %}Checkout{% elif lang == 'en' %}Checkout{% else %}Kasse{% endif %}
+    </h1>
 
-    <!-- EXPRESS CHECKOUT -->
-    <div style="background: #f9f9f9; padding: 30px; border-radius: 16px; margin-bottom: 40px;">
-      <h3 style="text-align: center; margin-bottom: 20px;">Express Checkout</h3>
-      
-      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <button onclick="payWithStripe()" class="btn-checkout" style="background: #635BFF; min-width: 220px;">
-          Pagar con Tarjeta (Stripe)
-        </button>
-        <button onclick="payWithPayPal()" class="btn-checkout" style="background: #00457C; min-width: 220px;">
-          PayPal
-        </button>
-        <button onclick="payWithApplePay()" class="btn-checkout" style="background: black; color: white; min-width: 220px;">
-           Apple Pay
-        </button>
-        <button onclick="payWithGooglePay()" class="btn-checkout" style="background: #4285F4; min-width: 220px;">
-          Google Pay
-        </button>
-      </div>
-    </div>
+    <div style="display: grid; grid-template-columns: 1fr 420px; gap: 50px; align-items: start;">
 
-    <div style="display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start;">
-
-      <!-- IZQUIERDA: Formulario -->
+      <!-- COLUMNA IZQUIERDA -->
       <div>
-        <!-- Contacto -->
-        <div style="margin-bottom: 30px;">
-          <h3>Contact Information</h3>
-          <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:10px;">
+
+        <!-- EXPRESS CHECKOUT -->
+        <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
+          <h3 style="text-align:center; margin-bottom:20px;">
+            {% if lang == 'es' %}Express Checkout{% elif lang == 'en' %}Express Checkout{% else %}Express Checkout{% endif %}
+          </h3>
           
-          <label style="display:block; margin-bottom:8px;">
-            <input type="checkbox" id="createAccount"> Crear cuenta con esta dirección de email
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <button onclick="payWithStripe()" class="btn-checkout" style="background:#635BFF; min-width:200px;">Tarjeta (Stripe)</button>
+            <button onclick="payWithPayPal()" class="btn-checkout" style="background:#00457C; min-width:200px;">PayPal</button>
+            <button onclick="payWithApplePay()" class="btn-checkout" style="background:black; color:white; min-width:200px;"> Apple Pay</button>
+            <button onclick="payWithGooglePay()" class="btn-checkout" style="background:#4285F4; min-width:200px;">Google Pay</button>
+          </div>
+        </div>
+
+        <!-- CONTACTO -->
+        <div style="margin-bottom:30px;">
+          <h3>{% if lang == 'es' %}Contacto{% elif lang == 'en' %}Contact{% else %}Kontakt{% endif %}</h3>
+          <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px;">
+          <label style="display:block; margin-top:10px;">
+            <input type="checkbox" id="createAccount"> 
+            {% if lang == 'es' %}Crear cuenta con este email{% elif lang == 'en' %}Create an account with this email{% else %}Konto mit dieser E-Mail erstellen{% endif %}
           </label>
         </div>
 
-        <!-- Envío -->
-        <div style="margin-bottom: 30px;">
-          <h3>Shipping Address</h3>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-            <input type="text" placeholder="First Name" id="firstName">
-            <input type="text" placeholder="Last Name" id="lastName">
-          </div>
-          <input type="text" placeholder="Address" id="address" style="width:100%; margin-top:12px;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top:12px;">
-            <input type="text" placeholder="City" id="city">
-            <input type="text" placeholder="Postal Code" id="postalCode">
-            <input type="text" placeholder="Country" id="country" value="Germany">
-          </div>
-        </div>
-
-        <!-- Método de pago -->
+        <!-- ENTREGA -->
         <div>
-          <h3>Payment Method</h3>
-          <div style="border:1px solid #ddd; border-radius:12px; padding:20px;">
-            <label style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-              <input type="radio" name="payment" value="stripe" checked> Credit / Debit Card (Stripe)
-            </label>
-            <label style="display:flex; align-items:center; gap:10px;">
-              <input type="radio" name="payment" value="paypal"> PayPal
-            </label>
+          <h3>{% if lang == 'es' %}Entrega{% elif lang == 'en' %}Delivery{% else %}Lieferung{% endif %}</h3>
+          <div style="display:flex; gap:15px; margin-bottom:20px;">
+            <div style="flex:1; border:2px solid #4A2C59; border-radius:12px; padding:20px; text-align:center; cursor:pointer;">
+              <strong>{% if lang == 'es' %}Enviar a domicilio{% elif lang == 'en' %}Ship to address{% else %}An Adresse liefern{% endif %}</strong>
+            </div>
+            <div style="flex:1; border:1px solid #ddd; border-radius:12px; padding:20px; text-align:center; cursor:pointer; opacity:0.6;">
+              <strong>{% if lang == 'es' %}Recoger en tienda{% elif lang == 'en' %}Click & Collect{% else %}Abholung im Laden{% endif %}</strong>
+            </div>
+          </div>
+
+          <!-- Formulario de dirección (puedes expandirlo después) -->
+          <input type="text" placeholder="Dirección" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:8px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <input type="text" placeholder="Ciudad">
+            <input type="text" placeholder="Código Postal">
           </div>
         </div>
       </div>
 
-      <!-- DERECHA: Resumen del pedido -->
+      <!-- COLUMNA DERECHA - RESUMEN DEL PEDIDO -->
       <div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
-        <h3 style="margin-bottom:20px;">Order Summary</h3>
-        
+        <h3 style="margin-bottom:20px;">
+          {% if lang == 'es' %}Resumen del pedido{% elif lang == 'en' %}Order Summary{% else %}Bestellübersicht{% endif %}
+        </h3>
+
         <div id="checkout-items"></div>
 
-        <div style="border-top:1px solid #ddd; margin:20px 0; padding-top:15px;">
+        <div style="border-top:1px solid #ddd; margin-top:20px; padding-top:15px;">
           <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
             <span>Subtotal</span>
             <span id="checkout-subtotal">€0.00</span>
           </div>
           <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-            <span>Shipping</span>
+            <span>{% if lang == 'es' %}Envío{% elif lang == 'en' %}Shipping{% else %}Versand{% endif %}</span>
             <span id="checkout-shipping">€6.99</span>
           </div>
-          <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.2rem; margin-top:10px;">
+          <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.3rem; margin-top:15px;">
             <span>Total</span>
             <span id="checkout-total">€0.00</span>
           </div>
         </div>
 
-        <button onclick="completeCheckout()" class="btn-checkout" style="width:100%; margin-top:15px;">
-          Complete Purchase
+        <button onclick="completeCheckout()" class="btn-checkout" style="width:100%; margin-top:25px;">
+          {% if lang == 'es' %}Finalizar Compra{% elif lang == 'en' %}Complete Purchase{% else %}Kauf abschließen{% endif %}
         </button>
-
-        <p style="text-align:center; font-size:0.9rem; margin-top:15px; color:#666;">
-          Secure checkout powered by Stripe
-        </p>
       </div>
 
     </div>
@@ -123,7 +109,6 @@
 
   <script src="/js/cart.js"></script>
   <script>
-    // Renderiza el resumen del pedido
     function renderCheckoutSummary() {
       const container = document.getElementById('checkout-items');
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -155,19 +140,17 @@
 
       container.innerHTML = html;
 
-      const shipping = subtotal >= 120 ? 0 : 6.99; // ejemplo: envío gratis +12 botellas
+      const shipping = subtotal >= 120 ? 0 : 6.99;
       document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
-      document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Free' : `€${shipping.toFixed(2)}`;
+      document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
       document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
     }
 
     function completeCheckout() {
-      // Aquí iría la lógica real de Stripe / PayPal
-      alert("Procesando pago... (aquí conectaremos Stripe)");
-      // window.location.href = "/success.html";
+      alert("Redirigiendo a pago con Stripe...");
+      // Aquí iría la integración real con Stripe
     }
 
-    // Inicializar
     window.onload = function() {
       if (typeof updateCartCount === 'function') updateCartCount();
       renderCheckoutSummary();
