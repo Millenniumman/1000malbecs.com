@@ -135,55 +135,74 @@
     alert("Redirigiendo a Stripe...");
   }
 
-  function payWithPayPal() {
-    alert("Redirigiendo a PayPal...");
-  }
-
   function payWithWhatsApp() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if (cart.length === 0) {
-      alert("El carrito está vacío");
-      return;
-    }
-
-    let message = "Hola, quiero comprar desde 1000 Malbecs:\n\n";
-    let total = 0;
-
-    cart.forEach(item => {
-      const price = parseFloat(item.price) || 0;
-      const qty = item.quantity || 1;
-      message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-      total += price * qty;
-    });
-
-    message += `\nTotal: €${total.toFixed(2)}\n\n¿Podemos confirmar el pedido?`;
-    const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if (cart.length === 0) {
+    alert("El carrito está vacío");
+    return;
   }
 
-  function payWithEmail() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if (cart.length === 0) {
-      alert("El carrito está vacío");
-      return;
-    }
+  let totalBottles = 0;
+  let message = "Hola, quiero comprar desde 1000 Malbecs:\n\n";
+  let subtotal = 0;
 
-    let body = "Hola equipo de 1000 Malbecs,\n\nQuiero realizar el siguiente pedido:\n\n";
-    let total = 0;
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+    subtotal += price * qty;
+    totalBottles += qty;
+  });
 
-    cart.forEach(item => {
-      const price = parseFloat(item.price) || 0;
-      const qty = item.quantity || 1;
-      body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-      total += price * qty;
-    });
+  const shipping = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shipping;
 
-    body += `\nTotal: €${total.toFixed(2)}\n\nGracias!`;
-    const subject = "Pedido - " + cart.map(i => i.name).join(", ");
-    const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = url;
+  message += `\nSubtotal: €${subtotal.toFixed(2)}`;
+  if (shipping === 0) {
+    message += `\n✅ Envío GRATIS (12+ botellas)`;
+  } else {
+    message += `\nEnvío: €${shipping.toFixed(2)}`;
+  }
+  message += `\n\nTotal: €${finalTotal.toFixed(2)}\n\n¿Podemos confirmar el pedido?`;
+
+  const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+function payWithEmail() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if (cart.length === 0) {
+    alert("El carrito está vacío");
+    return;
   }
 
+  let totalBottles = 0;
+  let body = "Hola equipo de 1000 Malbecs,\n\nQuiero realizar el siguiente pedido:\n\n";
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+    subtotal += price * qty;
+    totalBottles += qty;
+  });
+
+  const shipping = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shipping;
+
+  body += `\nSubtotal: €${subtotal.toFixed(2)}`;
+  if (shipping === 0) {
+    body += `\n✅ Envío GRATIS (12+ botellas)`;
+  } else {
+    body += `\nEnvío a Alemania: €${shipping.toFixed(2)}`;
+  }
+  body += `\n\nTotal: €${finalTotal.toFixed(2)}\n\nGracias!`;
+
+  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
+  const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = url;
+}
   function renderCheckoutSummary() {
     const container = document.getElementById('checkout-items');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
