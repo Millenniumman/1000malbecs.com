@@ -42,13 +42,18 @@
         <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
           <h3 style="text-align:center; margin-bottom:20px;">Express Checkout</h3>
           
-          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
-            <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">PayPal</button>
-            <button onclick="payWithApplePay()" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;"> Apple Pay</button>
-            <button onclick="payWithGooglePay()" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Google Pay</button>
-            <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Tarjeta (Stripe)</button>
-          </div>
-        </div>
+          <<!-- EXPRESS CHECKOUT -->
+<div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
+  <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
+  
+  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+    <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Pagar con Tarjeta (Stripe)</button>
+    <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">PayPal</button>
+    <button onclick="payWithWhatsApp()" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">WhatsApp</button>
+    <button onclick="payWithEmail()" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Transferencia Bancaria</button>
+  </div>
+</div>
+      
 
         <!-- CONTACTO -->
         <div style="margin-bottom:30px;">
@@ -74,33 +79,26 @@
       </div>
 
       <!-- COLUMNA DERECHA - RESUMEN -->
-      <div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
-        <h3>Resumen del pedido</h3>
-        
-        <div id="checkout-items"></div>
+<div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
+  <h3>Resumen del pedido</h3>
+  
+  <div id="checkout-items"></div>
 
-        <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
-          <div style="display:flex; justify-content:space-between;">
-            <span>Subtotal</span>
-            <span id="checkout-subtotal">€0.00</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; margin:8px 0;">
-            <span>Envío</span>
-            <span id="checkout-shipping">Gratis</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
-            <span>Total</span>
-            <span id="checkout-total">€0.00</span>
-          </div>
-        </div>
-
-        <button onclick="completeCheckout()" class="btn-checkout" style="width:100%; margin-top:25px;">
-          Finalizar Compra
-        </button>
-      </div>
+  <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
+    <div style="display:flex; justify-content:space-between;">
+      <span>Subtotal</span>
+      <span id="checkout-subtotal">€0.00</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; margin:8px 0;">
+      <span>Envío</span>
+      <span id="checkout-shipping">Gratis</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
+      <span>Total</span>
+      <span id="checkout-total">€0.00</span>
     </div>
   </div>
-
+</div>
   <script src="/js/cart.js"></script>
   <script>
     function renderCheckoutSummary() {
