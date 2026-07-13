@@ -155,8 +155,6 @@ function payWithEmail() {
   const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = url;
 }
-    </script>
-  <script>
     function renderCheckoutSummary() {
       const container = document.getElementById('checkout-items');
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
