@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- HEADER (igual que en las otras páginas) -->
+  <!-- HEADER -->
   <div class="topbar">
     <header class="header">
       <a href="/{{ lang }}/">
@@ -16,85 +16,57 @@
       </a>
     </header>
     <a href="/{{ lang }}/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto; padding-right: 30px;">
-      🛒
-      <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+      🛒 <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
     </a>
   </div>
 
-  <div class="main-content" style="max-width: 1100px; margin: 40px auto; padding: 0 20px;">
+  <div class="main-content" style="max-width: 1100px; margin: 60px auto; padding: 0 20px;">
     <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">
       {% if lang == 'es' %}Checkout{% elif lang == 'en' %}Checkout{% else %}Kasse{% endif %}
     </h1>
 
-    <div style="display: grid; grid-template-columns: 1fr 420px; gap: 50px; align-items: start;">
+    <div style="display: grid; grid-template-columns: 1fr 420px; gap: 50px;">
 
       <!-- COLUMNA IZQUIERDA -->
       <div>
-
-        <!-- EXPRESS CHECKOUT -->
-        <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
-          <h3 style="text-align:center; margin-bottom:20px;">
-            {% if lang == 'es' %}Express Checkout{% elif lang == 'en' %}Express Checkout{% else %}Express Checkout{% endif %}
-          </h3>
-          
-          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-            <button onclick="payWithStripe()" class="btn-checkout" style="background:#635BFF; min-width:200px;">Tarjeta (Stripe)</button>
-            <button onclick="payWithPayPal()" class="btn-checkout" style="background:#00457C; min-width:200px;">PayPal</button>
-            <button onclick="payWithApplePay()" class="btn-checkout" style="background:black; color:white; min-width:200px;"> Apple Pay</button>
-            <button onclick="payWithGooglePay()" class="btn-checkout" style="background:#4285F4; min-width:200px;">Google Pay</button>
-          </div>
+        <h3 style="margin-bottom:20px;">
+          {% if lang == 'es' %}Express Checkout{% elif lang == 'en' %}Express Checkout{% else %}Express Checkout{% endif %}
+        </h3>
+        
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px;">
+          <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;">PayPal</button>
+          <button onclick="payWithApplePay()" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;"> Apple Pay</button>
+          <button onclick="payWithGooglePay()" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;">Google Pay</button>
+          <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;">Tarjeta</button>
         </div>
 
-        <!-- CONTACTO -->
-        <div style="margin-bottom:30px;">
-          <h3>{% if lang == 'es' %}Contacto{% elif lang == 'en' %}Contact{% else %}Kontakt{% endif %}</h3>
-          <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px;">
-          <label style="display:block; margin-top:10px;">
-            <input type="checkbox" id="createAccount"> 
-            {% if lang == 'es' %}Crear cuenta con este email{% elif lang == 'en' %}Create an account with this email{% else %}Konto mit dieser E-Mail erstellen{% endif %}
-          </label>
-        </div>
+        <h3 style="margin-bottom:15px;">{% if lang == 'es' %}Contacto{% elif lang == 'en' %}Contact{% else %}Kontakt{% endif %}</h3>
+        <input type="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:20px;">
 
-        <!-- ENTREGA -->
-        <div>
-          <h3>{% if lang == 'es' %}Entrega{% elif lang == 'en' %}Delivery{% else %}Lieferung{% endif %}</h3>
-          <div style="display:flex; gap:15px; margin-bottom:20px;">
-            <div style="flex:1; border:2px solid #4A2C59; border-radius:12px; padding:20px; text-align:center; cursor:pointer;">
-              <strong>{% if lang == 'es' %}Enviar a domicilio{% elif lang == 'en' %}Ship to address{% else %}An Adresse liefern{% endif %}</strong>
-            </div>
-            <div style="flex:1; border:1px solid #ddd; border-radius:12px; padding:20px; text-align:center; cursor:pointer; opacity:0.6;">
-              <strong>{% if lang == 'es' %}Recoger en tienda{% elif lang == 'en' %}Click & Collect{% else %}Abholung im Laden{% endif %}</strong>
-            </div>
-          </div>
-
-          <!-- Formulario de dirección (puedes expandirlo después) -->
-          <input type="text" placeholder="Dirección" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:8px;">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-            <input type="text" placeholder="Ciudad">
-            <input type="text" placeholder="Código Postal">
-          </div>
+        <h3 style="margin-bottom:15px;">{% if lang == 'es' %}Entrega{% elif lang == 'en' %}Delivery{% else %}Lieferung{% endif %}</h3>
+        <div style="display:flex; gap:15px;">
+          <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center;">Envío a domicilio</div>
+          <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center;">Click & Collect</div>
         </div>
       </div>
 
-      <!-- COLUMNA DERECHA - RESUMEN DEL PEDIDO -->
+      <!-- COLUMNA DERECHA - RESUMEN -->
       <div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
-        <h3 style="margin-bottom:20px;">
-          {% if lang == 'es' %}Resumen del pedido{% elif lang == 'en' %}Order Summary{% else %}Bestellübersicht{% endif %}
-        </h3>
-
+        <h3 style="margin-bottom:20px;">{% if lang == 'es' %}Resumen del pedido{% elif lang == 'en' %}Order Summary{% else %}Bestellübersicht{% endif %}</h3>
+        
         <div id="checkout-items"></div>
 
-        <div style="border-top:1px solid #ddd; margin-top:20px; padding-top:15px;">
-          <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+        <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
+          <div style="display:flex; justify-content:space-between;">
             <span>Subtotal</span>
             <span id="checkout-subtotal">€0.00</span>
           </div>
-          <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <div style="display:flex; justify-content:space-between; margin:8px 0;">
             <span>{% if lang == 'es' %}Envío{% elif lang == 'en' %}Shipping{% else %}Versand{% endif %}</span>
-            <span id="checkout-shipping">€6.99</span>
+            <span id="checkout-shipping">Gratis</span>
           </div>
-          <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.3rem; margin-top:15px;">
-            <span>Total</span>
+          <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
+            <span>{% if lang == 'es' %}Total{% elif lang == 'en' %}Total{% else %}Gesamt{% endif %}</span>
             <span id="checkout-total">€0.00</span>
           </div>
         </div>
@@ -103,7 +75,6 @@
           {% if lang == 'es' %}Finalizar Compra{% elif lang == 'en' %}Complete Purchase{% else %}Kauf abschließen{% endif %}
         </button>
       </div>
-
     </div>
   </div>
 
@@ -112,12 +83,6 @@
     function renderCheckoutSummary() {
       const container = document.getElementById('checkout-items');
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      if (cart.length === 0) {
-        container.innerHTML = '<p>Tu carrito está vacío.</p>';
-        return;
-      }
-
       let html = '';
       let subtotal = 0;
 
@@ -125,7 +90,6 @@
         const price = parseFloat(item.price) || 0;
         const qty = item.quantity || 1;
         subtotal += price * qty;
-
         html += `
           <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
             <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:6px;">
@@ -134,8 +98,7 @@
               <small>${qty} × €${price.toFixed(2)}</small>
             </div>
             <div style="font-weight:600;">€${(price * qty).toFixed(2)}</div>
-          </div>
-        `;
+          </div>`;
       });
 
       container.innerHTML = html;
@@ -147,14 +110,10 @@
     }
 
     function completeCheckout() {
-      alert("Redirigiendo a pago con Stripe...");
-      // Aquí iría la integración real con Stripe
+      alert("Redirigiendo a pago...");
     }
 
-    window.onload = function() {
-      if (typeof updateCartCount === 'function') updateCartCount();
-      renderCheckoutSummary();
-    }
+    window.onload = renderCheckoutSummary;
   </script>
 </body>
 </html>
