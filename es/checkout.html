@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,48 +11,61 @@
   <!-- HEADER -->
   <div class="topbar">
     <header class="header">
-      <a href="/{{ lang }}/">
+      <a href="/es/">
         <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
       </a>
     </header>
-    <a href="/{{ lang }}/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto; padding-right: 30px;">
-      🛒 <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+    <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto; padding-right: 30px;">
+      🛒
+      <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
     </a>
   </div>
 
   <div class="main-content" style="max-width: 1100px; margin: 60px auto; padding: 0 20px;">
-    <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">
-      {% if lang == 'es' %}Checkout{% elif lang == 'en' %}Checkout{% else %}Kasse{% endif %}
-    </h1>
+    <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">Checkout</h1>
 
     <div style="display: grid; grid-template-columns: 1fr 420px; gap: 50px;">
 
       <!-- COLUMNA IZQUIERDA -->
       <div>
-        <h3 style="margin-bottom:20px;">
-          {% if lang == 'es' %}Express Checkout{% elif lang == 'en' %}Express Checkout{% else %}Express Checkout{% endif %}
-        </h3>
-        
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px;">
-          <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;">PayPal</button>
-          <button onclick="payWithApplePay()" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;"> Apple Pay</button>
-          <button onclick="payWithGooglePay()" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;">Google Pay</button>
-          <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:180px;">Tarjeta</button>
+        <!-- EXPRESS CHECKOUT -->
+        <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
+          <h3 style="text-align:center; margin-bottom:20px;">Express Checkout</h3>
+          
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+            <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">PayPal</button>
+            <button onclick="payWithApplePay()" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;"> Apple Pay</button>
+            <button onclick="payWithGooglePay()" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Google Pay</button>
+            <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Tarjeta (Stripe)</button>
+          </div>
         </div>
 
-        <h3 style="margin-bottom:15px;">{% if lang == 'es' %}Contacto{% elif lang == 'en' %}Contact{% else %}Kontakt{% endif %}</h3>
-        <input type="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:20px;">
+        <!-- CONTACTO -->
+        <div style="margin-bottom:30px;">
+          <h3>Contacto</h3>
+          <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px;">
+          <label>
+            <input type="checkbox" id="createAccount"> Crear cuenta con este email
+          </label>
+        </div>
 
-        <h3 style="margin-bottom:15px;">{% if lang == 'es' %}Entrega{% elif lang == 'en' %}Delivery{% else %}Lieferung{% endif %}</h3>
-        <div style="display:flex; gap:15px;">
-          <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center;">Envío a domicilio</div>
-          <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center;">Click & Collect</div>
+        <!-- ENTREGA -->
+        <div>
+          <h3>Entrega</h3>
+          <div style="display:flex; gap:15px; margin-bottom:20px;">
+            <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
+              Enviar a domicilio
+            </div>
+            <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer; opacity:0.6;">
+              Click & Collect
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- COLUMNA DERECHA - RESUMEN -->
       <div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
-        <h3 style="margin-bottom:20px;">{% if lang == 'es' %}Resumen del pedido{% elif lang == 'en' %}Order Summary{% else %}Bestellübersicht{% endif %}</h3>
+        <h3>Resumen del pedido</h3>
         
         <div id="checkout-items"></div>
 
@@ -62,17 +75,17 @@
             <span id="checkout-subtotal">€0.00</span>
           </div>
           <div style="display:flex; justify-content:space-between; margin:8px 0;">
-            <span>{% if lang == 'es' %}Envío{% elif lang == 'en' %}Shipping{% else %}Versand{% endif %}</span>
+            <span>Envío</span>
             <span id="checkout-shipping">Gratis</span>
           </div>
           <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
-            <span>{% if lang == 'es' %}Total{% elif lang == 'en' %}Total{% else %}Gesamt{% endif %}</span>
+            <span>Total</span>
             <span id="checkout-total">€0.00</span>
           </div>
         </div>
 
         <button onclick="completeCheckout()" class="btn-checkout" style="width:100%; margin-top:25px;">
-          {% if lang == 'es' %}Finalizar Compra{% elif lang == 'en' %}Complete Purchase{% else %}Kauf abschließen{% endif %}
+          Finalizar Compra
         </button>
       </div>
     </div>
@@ -110,7 +123,8 @@
     }
 
     function completeCheckout() {
-      alert("Redirigiendo a pago...");
+      alert("Procesando pago...");
+      // Aquí conectarás Stripe o PayPal
     }
 
     window.onload = renderCheckoutSummary;
