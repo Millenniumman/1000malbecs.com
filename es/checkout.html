@@ -404,43 +404,6 @@
     window.location.href = url;
   }
 
-  // ==================== RENDER RESUMEN ====================
-  function renderCheckoutSummary() {
-    const container = document.getElementById('checkout-items');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let html = '';
-    let subtotal = 0;
-
-    cart.forEach(item => {
-      const price = parseFloat(item.price) || 0;
-      const qty = item.quantity || 1;
-      subtotal += price * qty;
-      html += `
-        <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
-          <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:6px;">
-          <div style="flex:1;">
-            <strong>${item.name}</strong><br>
-            <small>${qty} × €${price.toFixed(2)}</small>
-          </div>
-          <div style="font-weight:600;">€${(price * qty).toFixed(2)}</div>
-        </div>`;
-    });
-
-    container.innerHTML = html;
-
-    const shipping = subtotal >= 120 ? 0 : 6.99;
-    document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
-    document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
-    document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
-  }
-
-  // Inicializar todo
-  window.onload = function() {
-    showPaymentButtons();
-    renderCheckoutSummary();
-  };
-</script>
-  <script>
   function showPaymentButtons() {
     const container = document.getElementById('payment-buttons');
     let html = '';
@@ -477,18 +440,43 @@
     container.innerHTML = html;
   }
 
-  // Funciones de pago (mantén las que ya tenías)
-  function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
-  function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
-  function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
-  function payWithWhatsApp() { /* tu función actual */ }
-  function payWithEmail() { /* tu función actual */ }
+// ==================== RENDER RESUMEN ====================
+  function renderCheckoutSummary() {
+    const container = document.getElementById('checkout-items');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let html = '';
+    let subtotal = 0;
 
-  // Inicializar
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      subtotal += price * qty;
+      html += `
+        <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
+          <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:6px;">
+          <div style="flex:1;">
+            <strong>${item.name}</strong><br>
+            <small>${qty} × €${price.toFixed(2)}</small>
+          </div>
+          <div style="font-weight:600;">€${(price * qty).toFixed(2)}</div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+
+    const shipping = subtotal >= 120 ? 0 : 6.99;
+    document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
+    document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
+    document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
+  }
+
+  // Inicializar todo
   window.onload = function() {
     showPaymentButtons();
     renderCheckoutSummary();
   };
+
+
 </script>
 </body>
 </html>
