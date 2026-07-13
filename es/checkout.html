@@ -6,16 +6,15 @@
   <title>Checkout - 1000 Malbecs</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-  .main-content {
-  margin-left: 320px !important;   /* Empuja todo a la derecha */
-  max-width: 1100px;
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 0 !important;
-  }
-}
+    .main-content {
+      margin-left: 320px !important;
+      max-width: 1100px;
+    }
+    @media (max-width: 768px) {
+      .main-content {
+        margin-left: 0 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -33,7 +32,7 @@
     </a>
   </div>
 
-  <div class="main-content" style="max-width: 1100px; margin: 60px auto; padding: 0 20px;">
+  <div class="main-content" style="margin: 60px auto; padding: 0 20px;">
     <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">Checkout</h1>
 
     <div style="display: grid; grid-template-columns: 1fr 420px; gap: 50px;">
@@ -42,20 +41,14 @@
       <div>
         <!-- EXPRESS CHECKOUT -->
         <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
-          <h3 style="text-align:center; margin-bottom:20px;">Express Checkout</h3>
-          
-          <<!-- EXPRESS CHECKOUT -->
-<div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
-  <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
-  
-  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
-    <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Pagar con Tarjeta (Stripe)</button>
-    <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">PayPal</button>
-    <button onclick="payWithWhatsApp()" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">WhatsApp</button>
-    <button onclick="payWithEmail()" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Transferencia Bancaria</button>
-  </div>
-</div>
-      
+          <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+            <button onclick="payWithStripe()" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Pagar con Tarjeta (Stripe)</button>
+            <button onclick="payWithPayPal()" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">PayPal</button>
+            <button onclick="payWithWhatsApp()" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">WhatsApp</button>
+            <button onclick="payWithEmail()" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.1rem; min-width:200px;">Transferencia Bancaria</button>
+          </div>
+        </div>
 
         <!-- CONTACTO -->
         <div style="margin-bottom:30px;">
@@ -78,30 +71,31 @@
             </div>
           </div>
         </div>
-        </div>
-
+      </div>
 
       <!-- COLUMNA DERECHA - RESUMEN -->
-<div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
-  <h3>Resumen del pedido</h3>
-  
-  <div id="checkout-items"></div>
+      <div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
+        <h3>Resumen del pedido</h3>
+        <div id="checkout-items"></div>
 
-  <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
-    <div style="display:flex; justify-content:space-between;">
-      <span>Subtotal</span>
-      <span id="checkout-subtotal">€0.00</span>
-    </div>
-    <div style="display:flex; justify-content:space-between; margin:8px 0;">
-      <span>Envío</span>
-      <span id="checkout-shipping">Gratis</span>
-    </div>
-    <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
-      <span>Total</span>
-      <span id="checkout-total">€0.00</span>
+        <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
+          <div style="display:flex; justify-content:space-between;">
+            <span>Subtotal</span>
+            <span id="checkout-subtotal">€0.00</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin:8px 0;">
+            <span>Envío</span>
+            <span id="checkout-shipping">Gratis</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
+            <span>Total</span>
+            <span id="checkout-total">€0.00</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+
   <script src="/js/cart.js"></script>
   <script>
     function renderCheckoutSummary() {
@@ -135,7 +129,6 @@
 
     function completeCheckout() {
       alert("Procesando pago...");
-      // Aquí conectarás Stripe o PayPal
     }
 
     window.onload = renderCheckoutSummary;
