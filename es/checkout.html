@@ -283,25 +283,25 @@
       </div>
 
       <!-- COLUMNA DERECHA - RESUMEN -->
-      <div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
-        <h3>Resumen del pedido</h3>
-        <div id="checkout-items"></div>
+<div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
+  <h3>Resumen del pedido</h3>
+  <div id="checkout-items"></div>
 
-        <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
-          <div style="display:flex; justify-content:space-between;">
-            <span>Subtotal</span>
-            <span id="checkout-subtotal">€0.00</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; margin:8px 0;">
-            <span>Envío</span>
-            <span id="checkout-shipping">Gratis</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
-            <span>Total</span>
-            <span id="checkout-total">€0.00</span>
-          </div>
-        </div>
-      </div>
+  <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
+    <div style="display:flex; justify-content:space-between;">
+      <span>Subtotal</span>
+      <span id="checkout-subtotal">€0.00</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; margin:8px 0;">
+      <span>Envío</span>
+      <span id="checkout-shipping">Gratis</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
+      <span>Total</span>
+      <span id="checkout-total">€0.00</span>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 <script>
@@ -420,12 +420,23 @@
     container.style.display = 'block';
 
     if (!stripe) {
-      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE'); // ← Cambia esto
+      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
       const elements = stripe.elements();
-      cardElement = elements.create('card', {
-        style: { base: { fontSize: '16px', color: '#32325d' } }
-      });
+      cardElement = elements.create('card', { style: { base: { fontSize: '16px' } } });
       cardElement.mount('#card-element');
+    }
+  }
+
+  async function payWithStripeCard() {
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+    });
+
+    if (error) {
+      document.getElementById('card-errors').textContent = error.message;
+    } else {
+      alert("Pago procesado (simulación). ID: " + paymentMethod.id);
     }
   }
 
@@ -500,7 +511,7 @@
         </div>`;
     });
 
-    container.innerHTML = html;
+    container.innerHTML = html || '<p>El carrito está vacío.</p>';
 
     const shipping = subtotal >= 120 ? 0 : 6.99;
     document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
@@ -508,11 +519,9 @@
     document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
   }
 
-  // Inicializar todo
   window.onload = function() {
     showPaymentButtons();
     renderCheckoutSummary();
   };
-
 </body>
   </html>
