@@ -210,7 +210,27 @@ function addToCart(product) {
   renderMiniCartItems();
   showMiniCart();
 }
+// ==================== FUNCIONES PARA LA PÁGINA DEL CARRITO ====================
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+  updateCartCount();
+}
 
+function changeQuantity(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.quantity = Math.max(1, (item.quantity || 1) + delta);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+    updateCartCount();
+  }
+}
+
+// Hacerlas globales para que funcionen los onclick
+window.removeFromCart = removeFromCart;
+window.changeQuantity = changeQuantity;
 function showToast(productName) {
   const lang = getLang();
   let message = productName + (lang === 'de' ? " in den Warenkorb gelegt" : lang === 'en' ? " added to cart" : " agregado al carrito");
