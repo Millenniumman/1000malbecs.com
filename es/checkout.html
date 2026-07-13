@@ -233,8 +233,8 @@
 <!-- MÉTODOS DE PAGO -->
 <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
   <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
-  
-  <div class="payment-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+  <div id="payment-buttons" class="payment-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+
   <button onclick="payWithGooglePay()" class="payment-btn" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
       Google Pay
     </button>
@@ -432,6 +432,56 @@ function payWithApplePay() {
   }
 
   window.onload = renderCheckoutSummary;
+
+  function showPaymentButtons() {
+    const container = document.getElementById('payment-buttons');
+    let html = '';
+
+    // PayPal siempre
+    html += `
+      <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+        PayPal
+      </button>`;
+
+    // Apple Pay solo en iOS / Safari
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) || /Macintosh/.test(navigator.userAgent)) {
+      html += `
+        <button onclick="payWithApplePay()" class="payment-btn" style="background:black; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+           Apple Pay
+        </button>`;
+    } else {
+      // Google Pay en Android / Chrome / otros
+      html += `
+        <button onclick="payWithGooglePay()" class="payment-btn" style="background:#4285F4; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+          Google Pay
+        </button>`;
+    }
+
+    // WhatsApp y Transferencia siempre
+    html += `
+      <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+        📱 WhatsApp
+      </button>
+      <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
+        ✉️ Transferencia Bancaria
+      </button>`;
+
+    container.innerHTML = html;
+  }
+
+  // Funciones de pago (mantén las que ya tenías)
+  function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
+  function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
+  function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
+  function payWithWhatsApp() { /* tu función actual */ }
+  function payWithEmail() { /* tu función actual */ }
+
+  // Inicializar
+  window.onload = function() {
+    showPaymentButtons();
+    renderCheckoutSummary();
+  };
+
 </script>
 </body>
 </html>
