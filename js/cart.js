@@ -373,7 +373,7 @@ window.renderCheckoutCart = renderCheckoutCart;
 // ==================== HACER GLOBALES ====================
 window.showPaymentButtons = showPaymentButtons;
 window.startStripePayment = startStripePayment;
-
+window.payWithStripeCard = payWithStripeCard;
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
