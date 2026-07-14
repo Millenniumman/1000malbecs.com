@@ -330,18 +330,6 @@
   let stripe;
   let cardElement;
 
-  function showPaymentButtons() {
-    const container = document.getElementById('payment-buttons');
-    let html = '';
-
-    html += `<button onclick="showStripeForm()" class="payment-btn" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">💳 Stripe (Tarjetas, Apple Pay, Google Pay)</button>`;
-    html += `<button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">PayPal</button>`;
-    html += `<button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">📱 WhatsApp</button>`;
-    html += `<button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">✉️ Transferencia Bancaria</button>`;
-
-    container.innerHTML = html;
-  }
-
   function showStripeForm() {
     const container = document.getElementById('stripe-form-container');
     container.style.display = 'block';
