@@ -430,42 +430,7 @@
     const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = url;
   }
- // ==================== MOSTRAR BOTONES APPLE PAY / GOOGLE PAY ====================
-function showPaymentButtons() {
-  console.log("%cshowPaymentButtons ejecutada", "color:#27ae60; font-weight:bold");
-
-  // === AJUSTA ESTOS SELECTORES según tu HTML ===
-  const applePayBtn  = document.getElementById('apple-pay-button');
-  const googlePayBtn = document.getElementById('google-pay-button');
-  const paymentSection = document.getElementById('payment-methods') || 
-                         document.getElementById('stripe-payment');
-
-  // Evitar error si los elementos no existen
-  if (!applePayBtn && !googlePayBtn) {
-    console.warn("⚠️ No se encontraron botones de Apple Pay / Google Pay");
-    return;
-  }
-
-  // Mostrar la sección completa de pago
-  if (paymentSection) {
-    paymentSection.style.display = 'block';
-  }
-
-  // Detectar soporte y mostrar los botones correspondientes
-  const isApplePaySupported = window.ApplePaySession && ApplePaySession.canMakePayments();
-  const isGooglePaySupported = true; // Stripe suele manejar esto internamente
-
-  if (applePayBtn) {
-    applePayBtn.style.display = isApplePaySupported ? 'block' : 'none';
-  }
-
-  if (googlePayBtn) {
-    googlePayBtn.style.display = 'block';   // Stripe muestra Google Pay si está disponible
-  }
-
-  console.log("Apple Pay soportado:", isApplePaySupported);
-}
-  // ==================== RENDER RESUMEN ====================
+   // ==================== RENDER RESUMEN ====================
   function renderCheckoutSummary() {
     const container = document.getElementById('checkout-items');
     if (!container) {
