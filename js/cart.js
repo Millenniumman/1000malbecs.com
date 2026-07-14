@@ -269,28 +269,6 @@ function showPaymentButtons() {
 // ==================== INICIAR PAGO CON STRIPE ====================
 // ==================== INICIAR PAGO CON STRIPE ====================
 // ==================== BOTÓN PRINCIPAL STRIPE ====================
-function startStripePayment() {
-  const formContainer = document.getElementById('stripe-form-container');
-  
-  if (!formContainer) {
-    alert("No se encontró el formulario de pago");
-    return;
-  }
-
-  // Mostrar el formulario
-  formContainer.style.display = 'block';
-
-  // Inicializar Stripe si aún no está
-  if (!stripe) {
-    initializeStripe();
-  }
-
-  // Scroll suave hacia el formulario
-  formContainer.scrollIntoView({ 
-    behavior: "smooth",
-    block: "center"
-  });
-}
 // Función auxiliar para calcular total
 function calculateTotal() {
   let subtotal = 0;
