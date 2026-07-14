@@ -139,70 +139,7 @@
       font-size: 1.15rem;
     }
   }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
-    .main-content {
-      margin-left: 0 !important;
-      padding: 0 15px;
-    }
-
-    /* En mobile: resumen arriba, botones abajo */
-    .checkout-grid {
-      display: flex;
-      flex-direction: column-reverse;
-      gap: 30px;
-    }
-
-    /* Botones más grandes en mobile */
-    .payment-btn {
-      padding: 16px;
-      font-size: 1.05rem;
-      width: 100%;
-    }
-  }
-
-  /* Estilo general de botones */
-  .payment-btn {
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .payment-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
- /* MOBILE - Fuerza una sola columna */
- 
-  @media (max-width: 768px) {
-    .main-content {
-      margin-left: 0 !important;
-      margin-top: 90px;
-      padding: 0 15px;
-    }
-
-    .checkout-grid {
-      display: flex !important;
-      flex-direction: column-reverse !important;
-      gap: 30px;
-    }
-
-
-/* Botones de pago */
-#payment-methods button {
-  width: 100%;
-  max-width: 100%;
-  padding: 16px 20px;
-  font-size: 1.1rem;
-}
-    /* ========================================
-   RESUMEN DEL CARRITO EN CHECKOUT
-   ======================================== */
-
-#checkout-items {
+    #checkout-items {
   margin: 20px 0;
 }
 
@@ -253,6 +190,71 @@
   gap: 50px;
   align-items: start;
 }
+
+
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0 !important;
+      padding: 0 15px;
+    }
+
+    /* En mobile: resumen arriba, botones abajo */
+    .checkout-grid {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+
+    /* Botones más grandes en mobile */
+    .payment-btn {
+      padding: 16px;
+      font-size: 1.05rem;
+      width: 100%;
+    }
+  }
+
+  /* Estilo general de botones */
+  .payment-btn {
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .payment-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+    
+ /* MOBILE - Fuerza una sola columna */
+ 
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0 !important;
+      margin-top: 90px;
+      padding: 0 15px;
+    }
+
+    .checkout-grid {
+      display: flex !important;
+      flex-direction: column-reverse !important;
+      gap: 30px;
+    }
+
+
+/* Botones de pago */
+#payment-methods button {
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+}
+    /* ========================================
+   RESUMEN DEL CARRITO EN CHECKOUT
+   ======================================== */
 
 @media (max-width: 768px) {
   .checkout-grid {
