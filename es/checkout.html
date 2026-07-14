@@ -124,6 +124,54 @@
         margin-left: 280px !important;
       }
     }
+    /* ========================================
+   LAYOUT CHECKOUT
+   ======================================== */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Mobile: Resumen ARRIBA + Botones ABAJO */
+@media (max-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Esto invierte el orden: resumen primero */
+  .right-column { order: 1; }
+  .left-column { order: 2; }
+}
+
+/* Botones todos del mismo tamaño */
+.payment-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.payment-btn {
+  width: 100% !important;
+  min-height: 68px;           /* Altura mínima igual para todos */
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.payment-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
   </style>
 </head>
 <body>
