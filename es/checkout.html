@@ -190,16 +190,57 @@
       gap: 30px;
     }
 
-    .payment-buttons {
-      grid-template-columns: 1fr !important;
-      gap: 10px;
-    }
+   #checkout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
 
-    .payment-btn {
-      padding: 14px;
-      font-size: 0.95rem;
-    }
-  }
+.checkout-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.checkout-item:last-child {
+  border-bottom: none;
+}
+
+.checkout-item img {
+  width: 70px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.05rem;
+}
+
+.item-details p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.item-price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+/* Botones de pago */
+#payment-methods button {
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+}
   </style>
 </head>
 <body>
@@ -431,41 +472,65 @@
     window.location.href = url;
   }
    // ==================== RENDER RESUMEN ====================
-  function renderCheckoutSummary() {
-    const container = document.getElementById('checkout-items');
-    if (!container) {
-      console.error("No se encontró #checkout-items");
-      return;
-    }
-
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let html = '';
-    let subtotal = 0;
-
-    cart.forEach(item => {
-      const price = parseFloat(item.price) || 0;
-      const qty = item.quantity || 1;
-      subtotal += price * qty;
-      html += `
-        <div style="display:flex; gap:15px; margin-bottom:15px; align-items:center;">
-          <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:6px;">
-          <div style="flex:1;">
-            <strong>${item.name}</strong><br>
-            <small>${qty} × €${price.toFixed(2)}</small>
-          </div>
-          <div style="font-weight:600;">€${(price * qty).toFixed(2)}</div>
-        </div>`;
-    });
-
-    container.innerHTML = html || '<p style="text-align:center; color:#666;">El carrito está vacío.</p>';
-
-    const shipping = subtotal >= 120 ? 0 : 6.99;
-    document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
-    document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
-    document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
+  function renderCheckoutCart() {
+  const container = document.getElementById('checkout-items');
+  if (!container) {
+    console.error("❌ No se encontró #checkout-items");
+    return;
   }
+
+  const lang = getLang();
+  const t = translations[lang] || translations.es;
+
+  if (cart.length === 0) {
+    container.innerHTML = `<p style="text-align:center; padding:50px;">${t.empty}</p>`;
+    return;
+  }
+
+  let html = '';
+  let subtotal = 0;
+  let totalBottles = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    const itemTotal = price * qty;
+    subtotal += itemTotal;
+    totalBottles += qty;
+
+    html += `
+      <div class="checkout-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-details">
+          <h4>${item.name}</h4>
+          <p>${qty} × €${price.toFixed(2)}</p>
+        </div>
+        <div class="item-price">
+          €${itemTotal.toFixed(2)}
+        </div>
+      </div>`;
+  });
+
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shippingCost;
+
+  container.innerHTML = html;
+
+  // Actualizar totales
+  document.getElementById('checkout-subtotal') && 
+    (document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`);
+  
+  const shippingEl = document.getElementById('checkout-shipping');
+  if (shippingEl) {
+    shippingEl.innerHTML = shippingCost === 0 
+      ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
+      : `Envío: <strong>€${shippingCost.toFixed(2)}</strong>`;
+  }
+
+  document.getElementById('checkout-total') && 
+    (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
+}
 </script>
-  // Inicializar
   <script>
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof renderCheckoutCart === 'function') renderCheckoutCart();
