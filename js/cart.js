@@ -246,33 +246,59 @@ function changeQuantity(id, delta) {
 }
 
 // ==================== FUNCIONES PARA CHECKOUT ====================
+// ==================== MOSTRAR BOTONES DE PAGO (Apple Pay, Google Pay, etc.) ====================
 function showPaymentButtons() {
   console.log("%cshowPaymentButtons ejecutada", "color:#27ae60; font-weight:bold");
 
-  const applePayBtn  = document.getElementById('apple-pay-button');
-  const googlePayBtn = document.getElementById('google-pay-button');
+  // Busca la sección de métodos de pago
   const paymentSection = document.getElementById('payment-methods') || 
-                         document.getElementById('payment-section');
+                         document.getElementById('payment-section') ||
+                         document.querySelector('.payment-methods');
 
-  if (paymentSection) paymentSection.style.display = 'block';
-
-  // Detección más segura de Apple Pay
-  let appleSupported = false;
-  if (window.ApplePaySession) {
-    try {
-      appleSupported = ApplePaySession.canMakePayments();
-    } catch(e) {}
+  if (!paymentSection) {
+    console.warn("⚠️ No se encontró #payment-methods en checkout.html");
+    return;
   }
 
-  if (applePayBtn) {
-    applePayBtn.style.display = appleSupported ? 'block' : 'none';
-  }
-  if (googlePayBtn) {
-    googlePayBtn.style.display = 'block';
-  }
+  paymentSection.style.display = 'block';
 
-  console.log("Apple Pay soportado:", appleSupported);
+  // Aquí puedes poner lógica futura de Apple Pay / Google Pay
+  console.log("Sección de pago mostrada correctamente");
 }
+
+// ==================== INICIAR PAGO CON STRIPE ====================
+// ==================== INICIAR PAGO CON STRIPE ====================
+function startStripePayment() {
+  if (cart.length === 0) {
+    alert("El carrito está vacío");
+    return;
+  }
+
+  // Aquí irás integrando Stripe.js más adelante
+  console.log("🚀 Iniciando pago con Stripe... Total:", calculateTotal());
+
+  // Ejemplo temporal (mientras configuras Stripe Elements)
+  alert("✅ Redirigiendo al checkout seguro de Stripe...\n\n(Aquí conectarás Payment Request API para Apple/Google Pay)");
+
+  // Cuando tengas Stripe configurado, aquí llamarás:
+  // stripe.confirmPayment() o paymentRequest.show()
+}
+
+// Función auxiliar para calcular total
+function calculateTotal() {
+  let subtotal = 0;
+  let bottles = 0;
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    subtotal += price * qty;
+    bottles += qty;
+  });
+  const shipping = bottles >= 12 ? 0 : 6.99;
+  return subtotal + shipping;
+}
+
+
 // ==================== IR AL CHECKOUT ====================
 function goToCheckout() {
   if (cart.length === 0) {
@@ -359,6 +385,9 @@ window.showMiniCart = showMiniCart;
 window.closeMiniCart = closeMiniCart;
 window.goToCheckout = goToCheckout;
 window.renderCheckoutCart = renderCheckoutCart;
+// ==================== HACER GLOBALES ====================
+window.showPaymentButtons = showPaymentButtons;
+window.startStripePayment = startStripePayment;
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
