@@ -414,7 +414,7 @@ if (hamburger && sidebar) {
   });
 }
 
-// ==================== STRIPE ====================
+// ==================== STRIPE PAYMENT ====================
 let stripe;
 let cardElement;
 
@@ -430,17 +430,30 @@ function initializeStripe() {
   cardElement.mount('#card-element');
 }
 
-async function payWithStripeCard() {
-  const email = document.getElementById('email').value;
-  if (!email) {
-    alert("Por favor ingresa tu email");
+function startStripePayment() {
+  const formContainer = document.getElementById('stripe-form-container');
+  
+  if (!formContainer) {
+    alert("No se encontró el formulario de pago");
     return;
   }
 
+  formContainer.style.display = 'block';
+
+  if (!stripe) {
+    initializeStripe();
+  }
+
+  formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+async function payWithStripeCard() {
   if (!cardElement) {
-    alert("Por favor carga el formulario de tarjeta primero");
+    alert("Por favor espera a que cargue el formulario");
     return;
   }
+
+  const email = document.getElementById('email').value || "";
 
   const { error, paymentMethod } = await stripe.createPaymentMethod({
     type: 'card',
@@ -451,11 +464,11 @@ async function payWithStripeCard() {
   if (error) {
     document.getElementById('card-errors').textContent = error.message;
   } else {
-    console.log("PaymentMethod creado:", paymentMethod);
-    alert("✅ Pago simulado correctamente\nID: " + paymentMethod.id);
-    // sendOrderToServer(paymentMethod.id);  // descomenta cuando tengas backend
+    alert("✅ Pago simulado correctamente\nPaymentMethod ID: " + paymentMethod.id);
+    // Aquí luego llamarás a tu backend
   }
-}
+} 
+  
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
@@ -582,24 +595,7 @@ async function payWithStripeCard() {
     (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
 }
 </script>
-// ==================== BOTÓN PRINCIPAL STRIPE ====================
-function startStripePayment() {
-  const stripeContainer = document.getElementById('stripe-form-container');
-  
-  if (stripeContainer) {
-    stripeContainer.style.display = 'block';
-    
-    // Inicializar Stripe si aún no está
-    if (!stripe) {
-      initializeStripe();
-    }
-    
-    // Opcional: hacer scroll suave hasta el formulario
-    stripeContainer.scrollIntoView({ behavior: "smooth" });
-  } else {
-    alert("Formulario de pago no encontrado");
-  }
-}
+
   
   <script>
 document.addEventListener('DOMContentLoaded', () => {
