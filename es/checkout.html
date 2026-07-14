@@ -233,14 +233,27 @@
           <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
             PayPal
           </button>
-          
-           <button id="apple-pay-button" class="payment-btn apple-pay" style="display:none;">
-    <img src="/img/apple-pay.svg" alt="Apple Pay">
+      
+  
+  <button onclick="startStripePayment()" 
+          style="width:100%; max-width:420px; padding:18px 24px; font-size:1.1rem; font-weight:600; 
+                 background:#000; color:white; border:none; border-radius:12px; cursor:pointer;
+                 display:flex; align-items:center; justify-content:center; gap:12px; margin:0 auto;">
+    
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" 
+         alt="Apple Pay" style="height:28px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Google_Pay_Logo.svg" 
+         alt="Google Pay" style="height:24px;">
+    <span style="margin:0 8px; color:#888;">•</span>
+    <span style="font-size:1.35rem;">💳</span>
+    
+    <span style="margin-left:10px;">Pagar con Stripe</span>
   </button>
 
-  <button id="google-pay-button" class="payment-btn google-pay">
-    <img src="/img/google-pay.svg" alt="Google Pay">
-  </button>
+  <p style="text-align:center; margin-top:12px; font-size:0.9rem; color:#666;">
+    Aceptamos Apple Pay, Google Pay y todas las tarjetas
+  </p>
+</div>
           
           <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem;">
             📱 WhatsApp
