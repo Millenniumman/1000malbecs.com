@@ -334,7 +334,7 @@
     container.style.display = 'block';
 
     if (!stripe) {
-      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE'); // ← Tu clave real
+      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
       const elements = stripe.elements();
       cardElement = elements.create('card', { style: { base: { fontSize: '16px' } } });
       cardElement.mount('#card-element');
@@ -351,13 +351,12 @@
       document.getElementById('card-errors').textContent = error.message;
     } else {
       alert("Pago procesado (simulación). ID: " + paymentMethod.id);
-      // Aquí enviarías paymentMethod.id al backend
     }
   }
 
-  function payWithPayPal() {
-    alert("Redirigiendo a PayPal...");
-  }
+  function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
+  function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
+  function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
 
   function payWithWhatsApp() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -382,11 +381,8 @@
     const finalTotal = subtotal + shipping;
 
     message += `\nSubtotal: €${subtotal.toFixed(2)}`;
-    if (shipping === 0) {
-      message += `\n✅ Envío GRATIS`;
-    } else {
-      message += `\nEnvío: €${shipping.toFixed(2)}`;
-    }
+    if (shipping === 0) message += `\n✅ Envío GRATIS`;
+    else message += `\nEnvío: €${shipping.toFixed(2)}`;
     message += `\n\nTotal: €${finalTotal.toFixed(2)}\n\n¿Podemos confirmar el pedido?`;
 
     const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
@@ -416,11 +412,8 @@
     const finalTotal = subtotal + shipping;
 
     body += `\nSubtotal: €${subtotal.toFixed(2)}`;
-    if (shipping === 0) {
-      body += `\n✅ Envío GRATIS (12+ botellas)`;
-    } else {
-      body += `\nEnvío a Alemania: €${shipping.toFixed(2)}`;
-    }
+    if (shipping === 0) body += `\n✅ Envío GRATIS (12+ botellas)`;
+    else body += `\nEnvío a Alemania: €${shipping.toFixed(2)}`;
     body += `\n\nTotal: €${finalTotal.toFixed(2)}\n\nGracias!`;
 
     const subject = "Pedido - " + cart.map(i => i.name).join(", ");
@@ -431,6 +424,11 @@
   // ==================== RENDER RESUMEN ====================
   function renderCheckoutSummary() {
     const container = document.getElementById('checkout-items');
+    if (!container) {
+      console.error("No se encontró #checkout-items");
+      return;
+    }
+
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     let html = '';
     let subtotal = 0;
@@ -450,7 +448,7 @@
         </div>`;
     });
 
-    container.innerHTML = html || '<p>El carrito está vacío.</p>';
+    container.innerHTML = html || '<p style="text-align:center; color:#666;">El carrito está vacío.</p>';
 
     const shipping = subtotal >= 120 ? 0 : 6.99;
     document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`;
