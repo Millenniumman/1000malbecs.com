@@ -195,6 +195,7 @@ function changeQuantity(id, delta) {
 // Hacerlas globales para que funcionen los onclick
 window.removeFromCart = removeFromCart;
 window.changeQuantity = changeQuantity;
+window.showPaymentButtons = showPaymentButtons;
 function showToast(productName) {
   const lang = getLang();
   let message = productName + (lang === 'de' ? " in den Warenkorb gelegt" : lang === 'en' ? " added to cart" : " agregado al carrito");
@@ -219,6 +220,7 @@ async function goToCheckout() {
   const currentLang = getLang ? getLang() : 'es';
   window.location.href = `/${currentLang}/checkout.html`;
 }
+
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
