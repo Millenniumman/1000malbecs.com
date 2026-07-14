@@ -324,12 +324,13 @@
   let stripe;
   let cardElement;
 
+  // ==================== FUNCIONES DE PAGO ====================
   function showStripeForm() {
     const container = document.getElementById('stripe-form-container');
     container.style.display = 'block';
 
     if (!stripe) {
-      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
+      stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE'); // ← Tu clave real
       const elements = stripe.elements();
       cardElement = elements.create('card', { style: { base: { fontSize: '16px' } } });
       cardElement.mount('#card-element');
@@ -346,8 +347,14 @@
       document.getElementById('card-errors').textContent = error.message;
     } else {
       alert("Pago procesado (simulación). ID: " + paymentMethod.id);
+      // Aquí enviarías paymentMethod.id al backend
     }
-  }  
+  }
+
+  function payWithPayPal() {
+    alert("Redirigiendo a PayPal...");
+  }
+
   function payWithWhatsApp() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (cart.length === 0) {
@@ -416,8 +423,9 @@
     const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = url;
   }
-  
-function renderCheckoutSummary() {
+
+  // ==================== RENDER RESUMEN ====================
+  function renderCheckoutSummary() {
     const container = document.getElementById('checkout-items');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     let html = '';
@@ -445,9 +453,12 @@ function renderCheckoutSummary() {
     document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Gratis' : `€${shipping.toFixed(2)}`;
     document.getElementById('checkout-total').textContent = `€${(subtotal + shipping).toFixed(2)}`;
   }
+
+  // Inicializar
   window.onload = function() {
     showPaymentButtons();
     renderCheckoutSummary();
   };
+</script>
 </body>
-  </html>
+</html>
