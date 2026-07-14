@@ -336,7 +336,7 @@
     </button>
     
   </div>
-</div>>
+</div>
 
       <!-- Stripe Form -->
       <div id="stripe-form-container" style="display:none; padding:20px; background:white; border:1px solid #ddd; border-radius:12px;">
@@ -582,6 +582,25 @@ async function payWithStripeCard() {
     (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
 }
 </script>
+// ==================== BOTÓN PRINCIPAL STRIPE ====================
+function startStripePayment() {
+  const stripeContainer = document.getElementById('stripe-form-container');
+  
+  if (stripeContainer) {
+    stripeContainer.style.display = 'block';
+    
+    // Inicializar Stripe si aún no está
+    if (!stripe) {
+      initializeStripe();
+    }
+    
+    // Opcional: hacer scroll suave hasta el formulario
+    stripeContainer.scrollIntoView({ behavior: "smooth" });
+  } else {
+    alert("Formulario de pago no encontrado");
+  }
+}
+  
   <script>
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof renderCheckoutCart === 'function') renderCheckoutCart();
