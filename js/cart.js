@@ -268,22 +268,29 @@ function showPaymentButtons() {
 
 // ==================== INICIAR PAGO CON STRIPE ====================
 // ==================== INICIAR PAGO CON STRIPE ====================
+// ==================== BOTÓN PRINCIPAL STRIPE ====================
 function startStripePayment() {
-  if (cart.length === 0) {
-    alert("El carrito está vacío");
+  const formContainer = document.getElementById('stripe-form-container');
+  
+  if (!formContainer) {
+    alert("No se encontró el formulario de pago");
     return;
   }
 
-  // Aquí irás integrando Stripe.js más adelante
-  console.log("🚀 Iniciando pago con Stripe... Total:", calculateTotal());
+  // Mostrar el formulario
+  formContainer.style.display = 'block';
 
-  // Ejemplo temporal (mientras configuras Stripe Elements)
-  alert("✅ Redirigiendo al checkout seguro de Stripe...\n\n(Aquí conectarás Payment Request API para Apple/Google Pay)");
+  // Inicializar Stripe si aún no está
+  if (!stripe) {
+    initializeStripe();
+  }
 
-  // Cuando tengas Stripe configurado, aquí llamarás:
-  // stripe.confirmPayment() o paymentRequest.show()
+  // Scroll suave hacia el formulario
+  formContainer.scrollIntoView({ 
+    behavior: "smooth",
+    block: "center"
+  });
 }
-
 // Función auxiliar para calcular total
 function calculateTotal() {
   let subtotal = 0;
