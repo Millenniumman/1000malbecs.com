@@ -204,8 +204,7 @@
 </head>
 <body>
 
-<!-- HEADER -->
-
+<!-- HEADER MOBILE -->
 <header class="mobile-header">
   <button class="hamburger" aria-label="Menu" aria-expanded="false">
     <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
@@ -214,96 +213,91 @@
       <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
     </svg>
   </button>
-
-  <!-- Logo en el medio o derecha -->
-  <a href="/{{ lang }}/" class="logo-link" style="margin-left: auto; margin-right: 15px;">
+  <a href="/es/" class="logo-link" style="margin-left: auto; margin-right: 15px;">
     <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height: 48px;">
   </a>
+</header>
 
+<!-- HEADER DESKTOP -->
+<div class="topbar">
+  <header class="header">
+    <a href="/es/">
+      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+    </a>
   </header>
-  <div class="main-content" style="margin: 60px auto; padding: 0 20px;">
-    <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">Checkout</h1>
-
-    <div class="checkout-grid" style="display: grid; grid-template-columns: 1fr 420px; gap: 50px;">
-
-      <!-- COLUMNA IZQUIERDA -->
-      <div>
-        <!-- EXPRESS CHECKOUT -->
-<!-- MÉTODOS DE PAGO -->
-<!-- MÉTODOS DE PAGO -->
-<div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
-  <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
-  <div id="payment-buttons" class="payment-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-
-  <button onclick="showStripeForm()" class="payment-btn" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem; display:flex; align-items:center; justify-content:center; gap:10px;">
-      Google Pay
-    </button>
-    <button onclick="showStripeForm()" class="payment-btn" style="background:#635BFF; color:white; padding:16px 24px; border:none; border-radius:8px; font-size:1.05rem; display:flex; align-items:center; justify-content:center; gap:10px;">
-       Apple Pay
-    </button>
-    <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:14px 20px; border:none; border-radius:8px; font-size:1rem; display:flex; align-items:center; justify-content:center; gap:8px;">
-      <img src="/images/logos/PayPal-Logo-White-RGB.png" alt="PayPal" style="height:22px;">
-    </button>
-    <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white; padding:14px 20px; border:none; border-radius:8px; font-size:1rem;">
-      📱 WhatsApp
-    </button>
-    <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white; padding:14px 20px; border:none; border-radius:8px; font-size:1rem;">
-      ✉️ Transferencia
-    </button>
-  </div>
+  <a href="/es/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto; padding-right: 30px;">
+    🛒
+    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
+  </a>
 </div>
-          <!-- Contenedor Stripe Elements -->
-  <div id="stripe-form-container" style="display:none; margin-top:25px; padding:20px; background:white; border:1px solid #ddd; border-radius:12px;">
-    <div id="card-element" style="padding:12px; border:1px solid #ccc; border-radius:8px;"></div>
-    <button onclick="payWithStripeCard()" style="margin-top:15px; width:100%; padding:14px; background:#635BFF; color:white; border:none; border-radius:8px; font-weight:600;">Pagar Ahora</button>
-    <div id="card-errors" style="color:red; margin-top:10px; text-align:center;"></div>
-  </div>
-</div>
-        <!-- CONTACTO -->
-        <div style="margin-bottom:30px;">
-          <h3>Contacto</h3>
-          <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px;">
-          <label>
-            <input type="checkbox" id="createAccount"> Crear cuenta con este email
-          </label>
+
+<div class="main-content">
+  <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">Checkout</h1>
+
+  <div class="checkout-grid">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div>
+      <!-- MÉTODOS DE PAGO -->
+      <div style="background:#f9f9f9; padding:30px; border-radius:16px; margin-bottom:40px;">
+        <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
+        <div id="payment-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <!-- JS lo llena -->
         </div>
 
-        <!-- ENTREGA -->
-        <div>
-          <h3>Entrega</h3>
-          <div style="display:flex; gap:15px; margin-bottom:20px;">
-            <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
-              Enviar a domicilio
-            </div>
-            <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer; opacity:0.6;">
-              Click & Collect
-            </div>
-          </div>
+        <!-- Stripe Form -->
+        <div id="stripe-form-container" style="display:none; margin-top:25px; padding:20px; background:white; border:1px solid #ddd; border-radius:12px;">
+          <div id="card-element" style="padding:12px; border:1px solid #ccc; border-radius:8px;"></div>
+          <button onclick="payWithStripeCard()" style="margin-top:15px; width:100%; padding:14px; background:#635BFF; color:white; border:none; border-radius:8px; font-weight:600;">Pagar Ahora</button>
+          <div id="card-errors" style="color:red; margin-top:10px; text-align:center;"></div>
         </div>
       </div>
 
-      <!-- COLUMNA DERECHA - RESUMEN -->
-<div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
-  <h3>Resumen del pedido</h3>
-  <div id="checkout-items"></div>
+      <!-- CONTACTO -->
+      <div style="margin-bottom:30px;">
+        <h3>Contacto</h3>
+        <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px;">
+        <label>
+          <input type="checkbox" id="createAccount"> Crear cuenta con este email
+        </label>
+      </div>
 
-  <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
-    <div style="display:flex; justify-content:space-between;">
-      <span>Subtotal</span>
-      <span id="checkout-subtotal">€0.00</span>
+      <!-- ENTREGA -->
+      <div>
+        <h3>Entrega</h3>
+        <div style="display:flex; gap:15px; margin-bottom:20px;">
+          <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
+            Enviar a domicilio
+          </div>
+          <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer; opacity:0.6;">
+            Click & Collect
+          </div>
+        </div>
+      </div>
     </div>
-    <div style="display:flex; justify-content:space-between; margin:8px 0;">
-      <span>Envío</span>
-      <span id="checkout-shipping">Gratis</span>
-    </div>
-    <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
-      <span>Total</span>
-      <span id="checkout-total">€0.00</span>
+
+    <!-- COLUMNA DERECHA - RESUMEN -->
+    <div style="background:#f9f9f9; padding:25px; border-radius:16px; position:sticky; top:20px;">
+      <h3>Resumen del pedido</h3>
+      <div id="checkout-items"></div>
+
+      <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
+        <div style="display:flex; justify-content:space-between;">
+          <span>Subtotal</span>
+          <span id="checkout-subtotal">€0.00</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin:8px 0;">
+          <span>Envío</span>
+          <span id="checkout-shipping">Gratis</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
+          <span>Total</span>
+          <span id="checkout-total">€0.00</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-    </div>
-  </div>
 <script>
     const hamburger = document.querySelector('.hamburger');
     const sidebar = document.getElementById('sidebar');
