@@ -254,6 +254,21 @@ function showPaymentButtons() {
     container.style.display = 'block';
   }
 }
+// ==================== IR AL CHECKOUT ====================
+function goToCheckout() {
+  if (cart.length === 0) {
+    const lang = getLang();
+    alert(lang === 'es' ? "El carrito está vacío" : 
+          lang === 'de' ? "Ihr Warenkorb ist leer" : 
+          "Your cart is empty");
+    return;
+  }
+
+  const currentLang = getLang();
+  window.location.href = `/${currentLang}/checkout.html`;
+}
+
+// Hacerla global para que funcione el onclick del botón "Pagar"
 
 // Hacer funciones globales
 window.addToCart = addToCart;
@@ -262,6 +277,7 @@ window.changeQuantity = changeQuantity;
 window.showPaymentButtons = showPaymentButtons;
 window.showMiniCart = showMiniCart;
 window.closeMiniCart = closeMiniCart;
+window.goToCheckout = goToCheckout;
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
