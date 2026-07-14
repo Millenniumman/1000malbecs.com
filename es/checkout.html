@@ -439,6 +439,93 @@
       alert("Pago procesado (simulación). ID: " + paymentMethod.id);
     }
   }
+  <script src="https://js.stripe.com/v3/"></script>
+
+<script>
+// Variables globales
+let stripe;
+let cardElement;
+
+// Inicializar Stripe
+function initializeStripe() {
+  stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
+  
+  const elements = stripe.elements();
+  cardElement = elements.create('card', {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+      }
+    }
+  });
+  cardElement.mount('#card-element');
+}
+
+// Pago con tarjeta
+async function payWithStripeCard() {
+  const name = document.getElementById('customer-name').value || "Cliente";
+  const email = document.getElementById('email').value;
+
+  if (!email) {
+    alert("Por favor ingresa tu email");
+    return;
+  }
+
+  const { error, paymentMethod } = await stripe.createPaymentMethod({
+    type: 'card',
+    card: cardElement,
+    billing_details: {
+      name: name,
+      email: email
+    }
+  });
+
+  if (error) {
+    document.getElementById('card-errors').textContent = error.message;
+  } else {
+    console.log("PaymentMethod creado:", paymentMethod);
+    alert("✅ Pago procesado correctamente (simulación)\nPaymentMethod ID: " + paymentMethod.id);
+    
+    // Aquí luego enviarás los datos al backend
+    sendOrderToServer(paymentMethod.id);
+  }
+}
+
+// Función para enviar todo al servidor (futuro)
+function sendOrderToServer(paymentMethodId) {
+  const orderData = {
+    cart: JSON.parse(localStorage.getItem('cart')),
+    customer: {
+      email: document.getElementById('email').value,
+      name: document.getElementById('customer-name') ? document.getElementById('customer-name').value : "",
+      address: document.getElementById('address') ? document.getElementById('address').value : ""
+    },
+    shipping: {
+      method: "standard",
+      cost: 6.99
+    },
+    paymentMethodId: paymentMethodId,
+    total: document.getElementById('checkout-total').textContent
+  };
+
+  console.log("📦 Datos del pedido:", orderData);
+  // Aquí harás fetch a tu backend (/create-payment-intent)
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCheckoutCart();
+  showPaymentButtons();
+  
+  // Inicializar Stripe cuando se muestre el formulario
+  const stripeContainer = document.getElementById('stripe-form-container');
+  if (stripeContainer) {
+    stripeContainer.addEventListener('click', () => {
+      if (!stripe) initializeStripe();
+    }, { once: true });
+  }
+});
+</script>
 
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
