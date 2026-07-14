@@ -309,31 +309,34 @@
     <!-- COLUMNA IZQUIERDA -->
     <div class="left-column">
 
-      <!-- MÉTODOS DE PAGO -->
-      <div style="background:#f9f9f9; padding:30px; border-radius:16px;">
-        <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
-        
-        <div class="payment-buttons">
-          <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
-          
-        <button onclick="startStripePayment()" class="payment-btn" 
-        style="background:#000; color:white; grid-column: 1 / -1;">
+<!-- MÉTODOS DE PAGO -->
+<div style="background:#f9f9f9; padding:30px; border-radius:16px;">
+  <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
   
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" 
-       alt="Apple Pay" style="height:28px;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Google_Pay_Logo.svg" 
-       alt="Google Pay" style="height:24px;">
-  <span style="font-size:1.4rem;">💳</span>
-  <span>Pagar con Stripe</span>
-</button>
-          
-          <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">📱 WhatsApp</button>
-          
-          <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white; grid-column: 1 / -1;">
-            ✉️ Transferencia Bancaria
-          </button>
-        </div>
-      </div>
+  <div class="payment-buttons">
+    
+    <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">
+      PayPal
+    </button>
+    
+    <button onclick="startStripePayment()" class="payment-btn" 
+            style="background:#000; color:white; display:flex; align-items:center; justify-content:center; gap:10px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay" style="height:26px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Google_Pay_Logo.svg" alt="Google Pay" style="height:22px;">
+      <span style="font-size:1.3rem;">💳</span>
+      <span>Pagar con Stripe</span>
+    </button>
+    
+    <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">
+      📱 WhatsApp
+    </button>
+    
+    <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">
+      ✉️ Transferencia Bancaria
+    </button>
+    
+  </div>
+</div>>
 
       <!-- Stripe Form -->
       <div id="stripe-form-container" style="display:none; padding:20px; background:white; border:1px solid #ddd; border-radius:12px;">
