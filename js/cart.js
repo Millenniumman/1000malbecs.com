@@ -268,7 +268,69 @@ function goToCheckout() {
   window.location.href = `/${currentLang}/checkout.html`;
 }
 
-// Hacerla global para que funcione el onclick del botón "Pagar"
+// ==================== RENDER PARA CHECKOUT ====================
+function renderCheckoutCart() {
+  const container = document.getElementById('checkout-cart-items');
+  const subtotalEl = document.getElementById('checkout-subtotal');
+  const shippingEl = document.getElementById('checkout-shipping');
+  const totalEl = document.getElementById('checkout-total');
+  const totalBottlesEl = document.getElementById('checkout-total-bottles');
+
+  if (!container) {
+    console.warn("No se encontró #checkout-cart-items");
+    return;
+  }
+
+  const lang = getLang();
+  const t = translations[lang] || translations.es;
+
+  if (cart.length === 0) {
+    container.innerHTML = `<p style="text-align:center; padding:40px;">${t.empty}</p>`;
+    if (subtotalEl) subtotalEl.textContent = '€0.00';
+    if (totalEl) totalEl.textContent = '€0.00';
+    return;
+  }
+
+  let html = '';
+  let subtotal = 0;
+  let totalBottles = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    const itemTotal = price * qty;
+    subtotal += itemTotal;
+    totalBottles += qty;
+
+    html += `
+      <div class="checkout-item">
+        <img src="${item.image}" alt="${item.name}" style="width:60px; height:80px; object-fit:cover;">
+        <div style="flex:1;">
+          <strong>${item.name}</strong><br>
+          <small>${qty} × €${price.toFixed(2)}</small>
+        </div>
+        <div style="text-align:right;">
+          <strong>€${itemTotal.toFixed(2)}</strong>
+        </div>
+      </div>`;
+  });
+
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shippingCost;
+
+  container.innerHTML = html;
+
+  if (subtotalEl) subtotalEl.textContent = `€${subtotal.toFixed(2)}`;
+  if (shippingEl) {
+    shippingEl.innerHTML = shippingCost === 0 
+      ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
+      : `Envío: <strong>€${shippingCost.toFixed(2)}</strong>`;
+  }
+  if (totalEl) totalEl.textContent = `€${finalTotal.toFixed(2)}`;
+  if (totalBottlesEl) totalBottlesEl.textContent = totalBottles;
+}
+
+// Hacerla global
 
 // Hacer funciones globales
 window.addToCart = addToCart;
@@ -278,6 +340,7 @@ window.showPaymentButtons = showPaymentButtons;
 window.showMiniCart = showMiniCart;
 window.closeMiniCart = closeMiniCart;
 window.goToCheckout = goToCheckout;
+window.renderCheckoutCart = renderCheckoutCart;
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
