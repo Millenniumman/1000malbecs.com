@@ -247,12 +247,31 @@ function changeQuantity(id, delta) {
 
 // ==================== FUNCIONES PARA CHECKOUT ====================
 function showPaymentButtons() {
-  console.log("%cshowPaymentButtons ejecutada", "color: #27ae60; font-weight: bold");
-  // Aquí pondrás tu código de Stripe más adelante
-  const container = document.getElementById('payment-container') || document.getElementById('payment-buttons');
-  if (container) {
-    container.style.display = 'block';
+  console.log("%cshowPaymentButtons ejecutada", "color:#27ae60; font-weight:bold");
+
+  const applePayBtn  = document.getElementById('apple-pay-button');
+  const googlePayBtn = document.getElementById('google-pay-button');
+  const paymentSection = document.getElementById('payment-methods') || 
+                         document.getElementById('payment-section');
+
+  if (paymentSection) paymentSection.style.display = 'block';
+
+  // Detección más segura de Apple Pay
+  let appleSupported = false;
+  if (window.ApplePaySession) {
+    try {
+      appleSupported = ApplePaySession.canMakePayments();
+    } catch(e) {}
   }
+
+  if (applePayBtn) {
+    applePayBtn.style.display = appleSupported ? 'block' : 'none';
+  }
+  if (googlePayBtn) {
+    googlePayBtn.style.display = 'block';
+  }
+
+  console.log("Apple Pay soportado:", appleSupported);
 }
 // ==================== IR AL CHECKOUT ====================
 function goToCheckout() {
