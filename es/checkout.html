@@ -458,27 +458,69 @@ function startStripePayment() {
   }
 
   formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
-}async function payWithStripeCard() {
-  if (!cardElement) {
-    alert("Por favor espera a que cargue el formulario");
+}
+  async function payWithStripeCard() {
+  const email = document.getElementById('email').value.trim();
+  const name = document.getElementById('customer-name').value.trim() || "Cliente";
+  const address = document.getElementById('address').value.trim();
+  const postalCode = document.getElementById('postal-code').value.trim();
+  const city = document.getElementById('city').value.trim();
+
+  if (!email) {
+    alert("Por favor ingresa tu email");
     return;
   }
 
-  const email = document.getElementById('email').value || "";
-
-  const { error, paymentMethod } = await stripe.createPaymentMethod({
-    type: 'card',
-    card: cardElement,
-    billing_details: { email: email }
-  });
-
-  if (error) {
-    document.getElementById('card-errors').textContent = error.message;
-  } else {
-    alert("✅ Pago simulado correctamente\nPaymentMethod ID: " + paymentMethod.id);
-    // Aquí luego llamarás a tu backend
+  if (!cardElement) {
+    alert("El formulario de tarjeta no está listo");
+    return;
   }
-} 
+
+  try {
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+      billing_details: { 
+        name: name,
+        email: email 
+      }
+    });
+
+    if (error) {
+      document.getElementById('card-errors').textContent = error.message;
+      return;
+    }
+
+    // === ÉXITO SIMULADO (por ahora) ===
+    console.log("✅ Pago exitoso - PaymentMethod:", paymentMethod.id);
+
+    // Crear objeto del pedido
+    const orderData = {
+      orderId: "ORD-" + Date.now().toString().slice(-8),
+      date: new Date().toLocaleDateString('es-ES'),
+      customer: { name, email, address, postalCode, city },
+      items: JSON.parse(localStorage.getItem('cart')),
+      total: document.getElementById('checkout-total').textContent,
+      paymentMethod: "Stripe",
+      status: "Pagado"
+    };
+
+    // Guardar en localStorage temporalmente
+    localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+    // Mostrar mensaje de éxito
+    alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.\n\nTe enviaremos un email con los detalles.`);
+
+    // Redirigir a página de confirmación
+    setTimeout(() => {
+      window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+    }, 800);
+
+  } catch (err) {
+    console.error(err);
+    alert("Hubo un error procesando el pago. Inténtalo nuevamente.");
+  }
+}
   
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
