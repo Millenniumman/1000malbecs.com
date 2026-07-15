@@ -612,6 +612,10 @@ function startStripePayment() {
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof renderCheckoutCart === 'function') renderCheckoutCart();
   if (typeof showPaymentButtons === 'function') showPaymentButtons();
+  // Actualizar monto cuando se abre el formulario
+document.getElementById('final-total-amount') && 
+  (document.getElementById('final-total-amount').textContent = 
+   document.getElementById('checkout-total').textContent.replace('€','').trim());
 });
 </script>
 
