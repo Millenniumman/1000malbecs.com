@@ -434,22 +434,20 @@ function initializeStripe() {
 }
 
 function startStripePayment() {
-  const formContainer = document.getElementById('stripe-form-container');
-  
-  if (!formContainer) {
-    alert("No se encontró el formulario de pago");
-    return;
+  const form = document.getElementById('stripe-checkout-form');
+  if (form) {
+    form.style.display = 'block';
+    form.scrollIntoView({ behavior: "smooth" });
+    
+    if (!stripe) initializeStripe();
+    
+    // Actualizar monto final
+    const totalEl = document.getElementById('checkout-total');
+    if (totalEl) {
+      document.getElementById('final-total-amount').textContent = totalEl.textContent.replace('€', '');
+    }
   }
-
-  formContainer.style.display = 'block';
-
-  if (!stripe) {
-    initializeStripe();
-  }
-
-  formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
 }
-
 async function payWithStripeCard() {
   if (!cardElement) {
     alert("Por favor espera a que cargue el formulario");
