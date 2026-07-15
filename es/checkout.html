@@ -434,19 +434,26 @@ function initializeStripe() {
 }
 
 function startStripePayment() {
-  const form = document.getElementById('stripe-checkout-form');
-  if (form) {
-    form.style.display = 'block';
-    form.scrollIntoView({ behavior: "smooth" });
-    
-    if (!stripe) initializeStripe();
-    
-    // Actualizar monto final
-    const totalEl = document.getElementById('checkout-total');
-    if (totalEl) {
-      document.getElementById('final-total-amount').textContent = totalEl.textContent.replace('€', '');
-    }
+  // Busca cualquiera de estos IDs (más flexible)
+  let formContainer = document.getElementById('stripe-checkout-form') || 
+                      document.getElementById('stripe-form-container');
+
+  if (!formContainer) {
+    console.error("Formulario de pago no encontrado. Revisa el HTML");
+    alert("Error: No se encontró el formulario de pago");
+    return;
   }
+
+  formContainer.style.display = 'block';
+  
+  if (typeof initializeStripe === 'function' && !stripe) {
+    initializeStripe();
+  }
+
+  formContainer.scrollIntoView({ 
+    behavior: "smooth", 
+    block: "center" 
+  });
 }
 async function payWithStripeCard() {
   if (!cardElement) {
