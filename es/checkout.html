@@ -310,41 +310,44 @@
     <div class="left-column">
 
 <!-- MÉTODOS DE PAGO -->
+<!-- MÉTODOS DE PAGO + FORMULARIO DE ENVÍO -->
 <div style="background:#f9f9f9; padding:30px; border-radius:16px;">
-  <h3 style="text-align:center; margin-bottom:20px;">Métodos de Pago</h3>
+  <h3 style="text-align:center; margin-bottom:25px;">Finalizar Compra</h3>
   
-  <div class="payment-buttons">
+  <div class="payment-buttons" style="margin-bottom:30px;">
+    <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
+    <button onclick="startStripePayment()" class="payment-btn" style="background:#000; color:white;">Pagar con Stripe</button>
+    <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">📱 WhatsApp</button>
+    <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">✉️ Transferencia</button>
+  </div>
+
+  <!-- FORMULARIO DE ENVÍO + TARJETA (se muestra al elegir Stripe) -->
+  <div id="stripe-checkout-form" style="display:none; background:white; padding:25px; border-radius:12px; border:1px solid #ddd;">
     
-    <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">
-      PayPal
+    <h4 style="margin-bottom:20px;">📍 Dirección de Entrega</h4>
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+      <input type="text" id="customer-name" placeholder="Nombre completo" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="email" id="email" placeholder="Email" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+    </div>
+    
+    <input type="text" id="address" placeholder="Dirección completa" style="margin-top:15px; padding:12px; width:100%; border:1px solid #ccc; border-radius:8px;">
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
+      <input type="text" id="postal-code" placeholder="Código Postal" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="text" id="city" placeholder="Ciudad" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+    </div>
+
+    <h4 style="margin:25px 0 15px 0;">💳 Datos de la Tarjeta</h4>
+    <div id="card-element" style="padding:14px; border:1px solid #ccc; border-radius:8px; background:#fafafa;"></div>
+    <div id="card-errors" style="color:red; margin-top:8px; min-height:20px;"></div>
+
+    <button onclick="payWithStripeCard()" 
+            style="margin-top:25px; width:100%; padding:16px; background:#635BFF; color:white; border:none; border-radius:10px; font-size:1.1rem; font-weight:600;">
+      Pagar €<span id="final-total-amount">0.00</span>
     </button>
-    
-    <button onclick="startStripePayment()" class="payment-btn" 
-            style="background:#000; color:white; display:flex; align-items:center; justify-content:center; gap:10px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay" style="height:26px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Google_Pay_Logo.svg" alt="Google Pay" style="height:22px;">
-      <span style="font-size:1.3rem;">💳</span>
-      <span>Pagar con Stripe</span>
-    </button>
-    
-    <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">
-      📱 WhatsApp
-    </button>
-    
-    <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">
-      ✉️ Transferencia Bancaria
-    </button>
-    
   </div>
 </div>
-
-      <!-- Stripe Form -->
-      <div id="stripe-form-container" style="display:none; padding:20px; background:white; border:1px solid #ddd; border-radius:12px;">
-        <div id="card-element" style="padding:12px; border:1px solid #ccc; border-radius:8px;"></div>
-        <button onclick="payWithStripeCard()" style="margin-top:15px; width:100%; padding:14px; background:#635BFF; color:white; border:none; border-radius:8px; font-weight:600;">Pagar Ahora</button>
-        <div id="card-errors" style="color:red; margin-top:10px; text-align:center;"></div>
-      </div>
-
       <!-- CONTACTO y ENTREGA -->
       <div style="margin-bottom:30px;">
         <h3>Contacto</h3>
