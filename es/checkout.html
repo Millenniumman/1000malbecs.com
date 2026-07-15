@@ -316,7 +316,10 @@
   
   <div class="payment-buttons" style="margin-bottom:30px;">
     <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
-    <button onclick="startStripePayment()" class="payment-btn" style="background:#000; color:white;">Pagar con Stripe</button>
+   <button onclick="payWithStripeCard()" 
+        style="margin-top:25px; width:100%; padding:16px; background:#635BFF; color:white; border:none; border-radius:10px; font-size:1.1rem; font-weight:600;">
+  Pagar €<span id="final-total-amount">0.00</span>
+Pagar con Tarjeta</button>
     <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">📱 WhatsApp</button>
     <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">✉️ Transferencia</button>
   </div>
@@ -434,28 +437,31 @@ function initializeStripe() {
 }
 
 function startStripePayment() {
-  // Busca cualquiera de estos IDs (más flexible)
   let formContainer = document.getElementById('stripe-checkout-form') || 
                       document.getElementById('stripe-form-container');
 
   if (!formContainer) {
-    console.error("Formulario de pago no encontrado. Revisa el HTML");
-    alert("Error: No se encontró el formulario de pago");
+    alert("No se encontró el formulario de pago");
     return;
   }
 
   formContainer.style.display = 'block';
-  
+
   if (typeof initializeStripe === 'function' && !stripe) {
     initializeStripe();
   }
 
-  formContainer.scrollIntoView({ 
-    behavior: "smooth", 
-    block: "center" 
-  });
-}
-async function payWithStripeCard() {
+  // === ACTUALIZAR MONTO ===
+  const totalEl = document.getElementById('checkout-total');
+  const amountSpan = document.getElementById('final-total-amount');
+  
+  if (totalEl && amountSpan) {
+    let totalText = totalEl.textContent.replace('€', '').trim();
+    amountSpan.textContent = totalText;
+  }
+
+  formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+}async function payWithStripeCard() {
   if (!cardElement) {
     alert("Por favor espera a que cargue el formulario");
     return;
