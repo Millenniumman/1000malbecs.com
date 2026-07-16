@@ -425,13 +425,15 @@ function initializeStripe() {
   if (stripe) return;
   
   stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
-  const elements = stripe.elements();
-  
-  cardElement = elements.create('card', {
-    style: { base: { fontSize: '16px', color: '#32325d' } }
-  });
-  cardElement.mount('#card-element');
-}
+  / Al inicializar Stripe Elements
+const elements = stripe.elements();
+
+const cardElement = elements.create('card', {
+  style: { /* tus estilos */ },
+  hidePostalCode: true   // ← ESTO ES LO MÁS IMPORTANTE
+});
+
+cardElement.mount('#card-element');   // el div donde va la tarjeta
 
 function startStripePayment() {
   let formContainer = document.getElementById('stripe-checkout-form') || 
