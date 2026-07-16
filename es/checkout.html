@@ -417,22 +417,19 @@ if (hamburger && sidebar) {
   });
 }
   </script>
-<!-- ==================== STRIPE secret ==================== -->
-// === CLIENT SECRET TEMPORAL PARA PRUEBAS ===
+<!-- ==================== STRIPE PAYMENT ==================== -->
+<script>
+// Variables globales
+let stripe;
+let cardElement;
 let clientSecret = null;
 
-// Función para simular clientSecret (mientras no tengas backend)
+// ==================== CLIENT SECRET TEMPORAL PARA PRUEBAS ====================
 async function getTestClientSecret() {
-  // Este es un clientSecret de prueba de Stripe
   clientSecret = "pi_3Qxyz1234567890_secret_ABCDEF1234567890"; 
   console.log("✅ ClientSecret de prueba cargado");
   return true;
 }
-  <!-- ==================== STRIPE PAYMENT ==================== -->
-<script>
-  let stripe;
-let cardElement;
-let clientSecret;   // ← Debe venir de tu backend
 
 // ==================== INICIALIZACIÓN ====================
 function initializeStripe() {
@@ -459,9 +456,13 @@ function initializeStripe() {
 
 // ==================== ABRIR FORMULARIO ====================
 async function startStripePayment() {
-  const formContainer = ... 
+  const formContainer = document.getElementById('stripe-checkout-form') || 
+                        document.getElementById('stripe-form-container');
 
-  if (!formContainer) return;
+  if (!formContainer) {
+    alert("No se encontró el formulario de pago");
+    return;
+  }
 
   // Obtener clientSecret (temporal)
   if (!clientSecret) {
@@ -470,9 +471,9 @@ async function startStripePayment() {
 
   formContainer.style.display = 'block';
 
-  if (!stripe) initializeStripe();
-
- 
+  if (!stripe) {
+    initializeStripe();
+  }
 
   // Actualizar monto
   const totalEl = document.getElementById('checkout-total');
@@ -505,7 +506,7 @@ async function payWithStripeCard() {
   }
 
   if (!clientSecret) {
-    alert("Error: clientSecret no encontrado. Contacta al administrador.");
+    alert("Error: clientSecret no encontrado.");
     return;
   }
 
@@ -556,10 +557,10 @@ async function payWithStripeCard() {
   }
 }
 
-// Hacerlas globales
+// Hacer globales
 window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
-window.initializeStripe = initializeStripe;   // por si acaso
+window.initializeStripe = initializeStripe;
 
 console.log("✅ Stripe functions loaded");
 </script>
