@@ -350,8 +350,7 @@ window.goToCheckout = goToCheckout;
 window.renderCheckoutCart = renderCheckoutCart;
 window.showPaymentButtons = showPaymentButtons;
 window.calculateTotal = calculateTotal;
-window.startStripePayment = startStripePayment;
-window.payWithStripeCard = payWithStripeCard;
+
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
