@@ -244,32 +244,8 @@ function changeQuantity(id, delta) {
     updateCartCount();
   }
 }
-
 // ==================== FUNCIONES PARA CHECKOUT ====================
-// ==================== MOSTRAR BOTONES DE PAGO (Apple Pay, Google Pay, etc.) ====================
-function showPaymentButtons() {
-  console.log("%cshowPaymentButtons ejecutada", "color:#27ae60; font-weight:bold");
 
-  // Busca la sección de métodos de pago
-  const paymentSection = document.getElementById('payment-methods') || 
-                         document.getElementById('payment-section') ||
-                         document.querySelector('.payment-methods');
-
-  if (!paymentSection) {
-    console.warn("⚠️ No se encontró #payment-methods en checkout.html");
-    return;
-  }
-
-  paymentSection.style.display = 'block';
-
-  // Aquí puedes poner lógica futura de Apple Pay / Google Pay
-  console.log("Sección de pago mostrada correctamente");
-}
-
-// ==================== INICIAR PAGO CON STRIPE ====================
-// ==================== INICIAR PAGO CON STRIPE ====================
-// ==================== BOTÓN PRINCIPAL STRIPE ====================
-// Función auxiliar para calcular total
 function calculateTotal() {
   let subtotal = 0;
   let bottles = 0;
@@ -283,40 +259,17 @@ function calculateTotal() {
   return subtotal + shipping;
 }
 
-
-// ==================== IR AL CHECKOUT ====================
-function goToCheckout() {
-  if (cart.length === 0) {
-    const lang = getLang();
-    alert(lang === 'es' ? "El carrito está vacío" : 
-          lang === 'de' ? "Ihr Warenkorb ist leer" : 
-          "Your cart is empty");
-    return;
-  }
-
-  const currentLang = getLang();
-  window.location.href = `/${currentLang}/checkout.html`;
-}
-
-// ==================== RENDER PARA CHECKOUT ====================
-// ==================== RENDER PARA CHECKOUT ====================
 // ==================== RENDER PARA CHECKOUT ====================
 function renderCheckoutCart() {
   const container = document.getElementById('checkout-items');
-  
-  const subtotalEl = document.getElementById('checkout-subtotal') ||
-                     document.getElementById('subtotal');
-  const shippingEl = document.getElementById('checkout-shipping') ||
-                     document.getElementById('shipping');
-  const totalEl = document.getElementById('checkout-total') ||
-                  document.getElementById('total');
+  const subtotalEl = document.getElementById('checkout-subtotal') || document.getElementById('subtotal');
+  const shippingEl = document.getElementById('checkout-shipping') || document.getElementById('shipping');
+  const totalEl = document.getElementById('checkout-total') || document.getElementById('total');
 
   if (!container) {
-    console.error("❌ No se encontró #checkout-items");
+    console.warn("⚠️ No se encontró #checkout-items");
     return;
   }
-
-  console.log("✅ Renderizando carrito en #checkout-items");
 
   const lang = getLang();
   const t = translations[lang] || translations.es;
@@ -361,21 +314,20 @@ function renderCheckoutCart() {
   }
   if (totalEl) totalEl.textContent = `€${finalTotal.toFixed(2)}`;
 }
-// Hacer funciones globales
+
+// Hacer globales solo las funciones necesarias
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.changeQuantity = changeQuantity;
-window.showPaymentButtons = showPaymentButtons;
 window.showMiniCart = showMiniCart;
 window.closeMiniCart = closeMiniCart;
 window.goToCheckout = goToCheckout;
 window.renderCheckoutCart = renderCheckoutCart;
-// ==================== HACER GLOBALES ====================
 window.showPaymentButtons = showPaymentButtons;
-window.startStripePayment = startStripePayment;
-window.payWithStripeCard = payWithStripeCard;
+window.calculateTotal = calculateTotal;
+
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
-  console.log("✅ Carrito cargado correctamente");
+  console.log("✅ cart.js cargado correctamente");
 });
