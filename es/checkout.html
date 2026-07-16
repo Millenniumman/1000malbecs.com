@@ -691,6 +691,12 @@ document.getElementById('final-total-amount') &&
    document.getElementById('checkout-total').textContent.replace('€','').trim());
 });
 </script>
-
+window.startStripePayment = startStripePayment;
+window.payWithStripeCard = payWithStripeCard;
+window.payWithPayPal = payWithPayPal;
+window.payWithApplePay = payWithApplePay;
+window.payWithGooglePay = payWithGooglePay;
+window.payWithWhatsApp = payWithWhatsApp;
+window.payWithEmail = payWithEmail;
 </body>
 </html>
