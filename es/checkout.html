@@ -417,8 +417,18 @@ if (hamburger && sidebar) {
   });
 }
   </script>
-<!-- ==================== STRIPE PAYMENT ==================== -->
-<!-- ==================== STRIPE PAYMENT ==================== -->
+<!-- ==================== STRIPE secret ==================== -->
+// === CLIENT SECRET TEMPORAL PARA PRUEBAS ===
+let clientSecret = null;
+
+// Función para simular clientSecret (mientras no tengas backend)
+async function getTestClientSecret() {
+  // Este es un clientSecret de prueba de Stripe
+  clientSecret = "pi_3Qxyz1234567890_secret_ABCDEF1234567890"; 
+  console.log("✅ ClientSecret de prueba cargado");
+  return true;
+}
+  <!-- ==================== STRIPE PAYMENT ==================== -->
 <script>
   let stripe;
 let cardElement;
@@ -448,20 +458,21 @@ function initializeStripe() {
 }
 
 // ==================== ABRIR FORMULARIO ====================
-function startStripePayment() {
-  const formContainer = document.getElementById('stripe-checkout-form') || 
-                        document.getElementById('stripe-form-container');
+async function startStripePayment() {
+  const formContainer = ... 
 
-  if (!formContainer) {
-    alert("No se encontró el formulario de pago");
-    return;
+  if (!formContainer) return;
+
+  // Obtener clientSecret (temporal)
+  if (!clientSecret) {
+    await getTestClientSecret();
   }
 
   formContainer.style.display = 'block';
 
-  if (!stripe) {
-    initializeStripe();
-  }
+  if (!stripe) initializeStripe();
+
+ 
 
   // Actualizar monto
   const totalEl = document.getElementById('checkout-total');
