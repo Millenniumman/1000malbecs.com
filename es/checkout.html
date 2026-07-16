@@ -416,10 +416,11 @@ if (hamburger && sidebar) {
     }
   });
 }
-
+  </script>
 <!-- ==================== STRIPE PAYMENT ==================== -->
 <!-- ==================== STRIPE PAYMENT ==================== -->
-let stripe;
+<script>
+  let stripe;
 let cardElement;
 let clientSecret;   // ← Debe venir de tu backend
 
@@ -551,6 +552,7 @@ window.initializeStripe = initializeStripe;   // por si acaso
 
 console.log("✅ Stripe functions loaded");
 </script>
+  <script>
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
