@@ -270,7 +270,20 @@ function goToCheckout() {
   const currentLang = getLang();
   window.location.href = `/${currentLang}/checkout.html`;
 }
+function showPaymentButtons() {
+  console.log("%cshowPaymentButtons ejecutada", "color:#27ae60; font-weight:bold");
 
+  const paymentSection = document.getElementById('payment-methods') || 
+                         document.getElementById('payment-section') ||
+                         document.querySelector('.payment-methods');
+
+  if (!paymentSection) {
+    console.warn("⚠️ No se encontró sección de métodos de pago");
+    return;
+  }
+
+  paymentSection.style.display = 'block';
+}
 // ==================== RENDER PARA CHECKOUT ====================
 function renderCheckoutCart() {
   const container = document.getElementById('checkout-items');
