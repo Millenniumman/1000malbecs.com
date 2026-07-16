@@ -10,33 +10,37 @@ export default {
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders });
     }
-// === NUEVO: Crear PaymentIntent para formulario integrado ===
-if (request.url.endsWith('/create-payment-intent') && request.method === 'POST') {
-  try {
-    const { amount } = await request.json();
+    // ==================== CREATE PAYMENT INTENT (para formulario integrado) ====================
+    if (request.url.endsWith('/create-payment-intent') && request.method === 'POST') {
+      try {
+        const { amount } = await request.json();
 
-    const stripe = new Stripe(env.STRIPE_SECRET_KEY);   // o env.stripe_secret_key
+        if (!amount || amount < 100) {
+          throw new Error("Monto inválido");
+        }
 
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: Math.round(amount),   // en centavos
-      currency: 'eur',
-      automatic_payment_methods: { enabled: true },
-    });
+        const stripe = new Stripe(env.STRIPE_SECRET_KEY);   // o env.stripe_secret_key según tu variable
 
-    return new Response(JSON.stringify({
-      clientSecret: paymentIntent.client_secret
-    }), {
-      headers: { 'Content-Type': 'application/json', ...corsHeaders }
-    });
+        const paymentIntent = await stripe.paymentIntents.create({
+          amount: Math.round(amount),
+          currency: 'eur',
+          automatic_payment_methods: { enabled: true },
+        });
 
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), { 
-      status: 400, 
-      headers: corsHeaders 
-    });
-  }
-}
-    // GET SESSION
+        return new Response(JSON.stringify({ 
+          clientSecret: paymentIntent.client_secret 
+        }), {
+          headers: { 'Content-Type': 'application/json', ...corsHeaders }
+        });
+
+      } catch (error) {
+        console.error("Error creando PaymentIntent:", error);
+        return new Response(JSON.stringify({ error: error.message }), { 
+          status: 400, 
+          headers: corsHeaders 
+        });
+      }
+    }    // GET SESSION
     if (request.url.endsWith('/get-session') && request.method === 'POST') {
       try {
         const { session_id } = await request.json();
