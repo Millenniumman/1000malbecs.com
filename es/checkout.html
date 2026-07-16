@@ -678,6 +678,13 @@ console.log("✅ Stripe functions loaded");
   document.getElementById('checkout-total') && 
     (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
 }
+window.startStripePayment = startStripePayment;
+window.payWithStripeCard = payWithStripeCard;
+window.payWithPayPal = payWithPayPal;
+window.payWithApplePay = payWithApplePay;
+window.payWithGooglePay = payWithGooglePay;
+window.payWithWhatsApp = payWithWhatsApp;
+window.payWithEmail = payWithEmail;
 </script>
 
   
@@ -691,12 +698,6 @@ document.getElementById('final-total-amount') &&
    document.getElementById('checkout-total').textContent.replace('€','').trim());
 });
 </script>
-window.startStripePayment = startStripePayment;
-window.payWithStripeCard = payWithStripeCard;
-window.payWithPayPal = payWithPayPal;
-window.payWithApplePay = payWithApplePay;
-window.payWithGooglePay = payWithGooglePay;
-window.payWithWhatsApp = payWithWhatsApp;
-window.payWithEmail = payWithEmail;
+
 </body>
 </html>
