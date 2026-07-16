@@ -258,6 +258,18 @@ function calculateTotal() {
   const shipping = bottles >= 12 ? 0 : 6.99;
   return subtotal + shipping;
 }
+function goToCheckout() {
+  if (cart.length === 0) {
+    const lang = getLang();
+    alert(lang === 'es' ? "El carrito está vacío" : 
+          lang === 'de' ? "Ihr Warenkorb ist leer" : 
+          "Your cart is empty");
+    return;
+  }
+
+  const currentLang = getLang();
+  window.location.href = `/${currentLang}/checkout.html`;
+}
 
 // ==================== RENDER PARA CHECKOUT ====================
 function renderCheckoutCart() {
