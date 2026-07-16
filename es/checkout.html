@@ -456,6 +456,32 @@ async function getTestClientSecret() {
   }
 }
 
+  // ==================== CREAR PAYMENT INTENT ====================
+async function createPaymentIntent() {
+  const total = calculateTotal(); // función que viene de cart.js
+
+  try {
+    const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: Math.round(total * 100) })
+    });
+
+    const data = await response.json();
+
+    if (data.clientSecret) {
+      clientSecret = data.clientSecret;
+      console.log("✅ clientSecret recibido del Worker");
+      return true;
+    } else {
+      throw new Error(data.error || "No se recibió clientSecret");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error al preparar el pago. Inténtalo de nuevo.");
+    return false;
+  }
+}
 // ==================== INICIALIZACIÓN ====================
 function initializeStripe() {
   if (stripe) return;
