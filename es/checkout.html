@@ -459,15 +459,26 @@ function startStripePayment() {
 
   formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
 }
-  async function payWithStripeCard() {
+ async function payWithStripeCard() {
   const email = document.getElementById('email').value.trim();
   const name = document.getElementById('customer-name').value.trim() || "Cliente";
   const address = document.getElementById('address').value.trim();
   const postalCode = document.getElementById('postal-code').value.trim();
   const city = document.getElementById('city').value.trim();
 
+  // === PAÍS (por ahora fijo en Alemania) ===
+  const country = "DE";   // ← Cambia a "ES", "FR", etc. cuando expandas
+
   if (!email) {
     alert("Por favor ingresa tu email");
+    return;
+  }
+  if (!postalCode) {
+    alert("Por favor ingresa el código postal");
+    return;
+  }
+  if (!city) {
+    alert("Por favor ingresa la ciudad");
     return;
   }
 
@@ -477,20 +488,36 @@ function startStripePayment() {
   }
 
   try {
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: cardElement,
-      billing_details: { 
-        name: name,
-        email: email 
+    const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: cardElement,
+        billing_details: {
+          name: name,
+          email: email,
+          address: {
+            line1: address,
+            city: city,
+            postal_code: postalCode,
+            country: country          // ← Muy importante
+          }
+        }
       }
     });
 
     if (error) {
-      document.getElementById('card-errors').textContent = error.message;
-      return;
+      console.error(error);
+      alert(error.message || "Error al procesar el pago");
+    } else {
+      console.log("✅ Pago confirmado:", paymentIntent);
+      // Aquí redirige a página de éxito o llama a tu función de éxito
+      alert("¡Pago realizado con éxito!");
+      // window.location.href = "/success";
     }
-
+  } catch (err) {
+    console.error(err);
+    alert("Ocurrió un error inesperado");
+  }
+}
     // === ÉXITO SIMULADO (por ahora) ===
     console.log("✅ Pago exitoso - PaymentMethod:", paymentMethod.id);
 
