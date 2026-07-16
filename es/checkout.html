@@ -541,6 +541,8 @@ async function payWithStripeCard() {
     alert("Hubo un error procesando el pago. Inténtalo nuevamente.");
   }
 }  
+  window.startStripePayment = startStripePayment;
+window.payWithStripeCard = payWithStripeCard;
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
