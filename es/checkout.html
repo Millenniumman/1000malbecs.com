@@ -418,10 +418,36 @@ if (hamburger && sidebar) {
 }
 
 <!-- ==================== STRIPE PAYMENT ==================== -->
+<!-- ==================== STRIPE PAYMENT ==================== -->
 <script>
 let stripe;
 let cardElement;
-let clientSecret;   // ← Asegúrate de tener esto desde tu backend
+let clientSecret;   // ← Debe venir de tu backend
+
+// ==================== INICIALIZACIÓN ====================
+function initializeStripe() {
+  if (stripe) return;
+
+  stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
+
+  const elements = stripe.elements();
+
+  cardElement = elements.create('card', {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        '::placeholder': { color: '#aab7c4' }
+      }
+    },
+    hidePostalCode: true
+  });
+
+  cardElement.mount('#card-element');
+}
+
+// ==================== ABRIR FORMULARIO ====================
 function startStripePayment() {
   const formContainer = document.getElementById('stripe-checkout-form') || 
                         document.getElementById('stripe-form-container');
@@ -448,29 +474,7 @@ function startStripePayment() {
   formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-function initializeStripe() {
-  if (stripe) return;
-
-  stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
-
-  const elements = stripe.elements();
-
-  cardElement = elements.create('card', {
-    style: {
-      base: {
-        fontSize: '16px',
-        color: '#32325d',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        '::placeholder': { color: '#aab7c4' }
-      }
-    },
-    hidePostalCode: true
-  });
-
-  cardElement.mount('#card-element');
-}
-
-
+// ==================== PROCESAR PAGO ====================
 async function payWithStripeCard() {
   const email = document.getElementById('email').value.trim();
   const name = document.getElementById('customer-name').value.trim() || "Cliente";
@@ -485,7 +489,7 @@ async function payWithStripeCard() {
   }
 
   if (!cardElement) {
-    alert("El formulario de tarjeta no está listo. Intenta abrir el formulario nuevamente.");
+    alert("El formulario de tarjeta no está listo. Abre el formulario nuevamente.");
     return;
   }
 
@@ -517,7 +521,6 @@ async function payWithStripeCard() {
     } else {
       console.log("✅ Pago confirmado:", paymentIntent);
 
-      // === ÉXITO ===
       const orderData = {
         orderId: "ORD-" + Date.now().toString().slice(-8),
         date: new Date().toLocaleDateString('es-ES'),
@@ -540,9 +543,15 @@ async function payWithStripeCard() {
     console.error(err);
     alert("Hubo un error procesando el pago. Inténtalo nuevamente.");
   }
-}  
-  window.startStripePayment = startStripePayment;
+}
+
+// Hacerlas globales
+window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
+window.initializeStripe = initializeStripe;   // por si acaso
+
+console.log("✅ Stripe functions loaded");
+</script>
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
