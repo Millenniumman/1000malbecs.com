@@ -422,29 +422,6 @@ if (hamburger && sidebar) {
 let stripe;
 let cardElement;
 let clientSecret;   // ← Asegúrate de tener esto desde tu backend
-
-function initializeStripe() {
-  if (stripe) return;
-
-  stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
-
-  const elements = stripe.elements();
-
-  cardElement = elements.create('card', {
-    style: {
-      base: {
-        fontSize: '16px',
-        color: '#32325d',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        '::placeholder': { color: '#aab7c4' }
-      }
-    },
-    hidePostalCode: true
-  });
-
-  cardElement.mount('#card-element');
-}
-
 function startStripePayment() {
   const formContainer = document.getElementById('stripe-checkout-form') || 
                         document.getElementById('stripe-form-container');
@@ -470,6 +447,29 @@ function startStripePayment() {
 
   formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
 }
+
+function initializeStripe() {
+  if (stripe) return;
+
+  stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
+
+  const elements = stripe.elements();
+
+  cardElement = elements.create('card', {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        '::placeholder': { color: '#aab7c4' }
+      }
+    },
+    hidePostalCode: true
+  });
+
+  cardElement.mount('#card-element');
+}
+
 
 async function payWithStripeCard() {
   const email = document.getElementById('email').value.trim();
