@@ -417,12 +417,14 @@ if (hamburger && sidebar) {
   });
 }
 
-// ==================== STRIPE PAYMENT ====================
+<!-- ==================== STRIPE PAYMENT ==================== -->
+<script>
 let stripe;
 let cardElement;
+let clientSecret;   // ← Asegúrate de tener esto desde tu backend
 
 function initializeStripe() {
-  if (stripe) return; // ya está inicializado
+  if (stripe) return;
 
   stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
 
@@ -434,20 +436,18 @@ function initializeStripe() {
         fontSize: '16px',
         color: '#32325d',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        '::placeholder': {
-          color: '#aab7c4'
-        }
+        '::placeholder': { color: '#aab7c4' }
       }
     },
-    hidePostalCode: true   // Ocultamos el código postal de Stripe
+    hidePostalCode: true
   });
 
   cardElement.mount('#card-element');
 }
 
 function startStripePayment() {
-  let formContainer = document.getElementById('stripe-checkout-form') || 
-                      document.getElementById('stripe-form-container');
+  const formContainer = document.getElementById('stripe-checkout-form') || 
+                        document.getElementById('stripe-form-container');
 
   if (!formContainer) {
     alert("No se encontró el formulario de pago");
@@ -456,47 +456,41 @@ function startStripePayment() {
 
   formContainer.style.display = 'block';
 
-  // Inicializamos Stripe solo la primera vez
   if (!stripe) {
     initializeStripe();
   }
 
-  // === ACTUALIZAR MONTO ===
+  // Actualizar monto
   const totalEl = document.getElementById('checkout-total');
   const amountSpan = document.getElementById('final-total-amount');
   
   if (totalEl && amountSpan) {
-    let totalText = totalEl.textContent.replace('€', '').trim();
-    amountSpan.textContent = totalText;
+    amountSpan.textContent = totalEl.textContent.replace('€', '').trim();
   }
 
   formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
 }
- async function payWithStripeCard() {
+
+async function payWithStripeCard() {
   const email = document.getElementById('email').value.trim();
   const name = document.getElementById('customer-name').value.trim() || "Cliente";
   const address = document.getElementById('address').value.trim();
   const postalCode = document.getElementById('postal-code').value.trim();
   const city = document.getElementById('city').value.trim();
+  const country = "DE";
 
-  // === PAÍS (por ahora fijo en Alemania) ===
-  const country = "DE";   // ← Cambia a "ES", "FR", etc. cuando expandas
-
-  if (!email) {
-    alert("Por favor ingresa tu email");
-    return;
-  }
-  if (!postalCode) {
-    alert("Por favor ingresa el código postal");
-    return;
-  }
-  if (!city) {
-    alert("Por favor ingresa la ciudad");
+  if (!email || !postalCode || !city) {
+    alert("Por favor completa email, código postal y ciudad");
     return;
   }
 
   if (!cardElement) {
-    alert("El formulario de tarjeta no está listo");
+    alert("El formulario de tarjeta no está listo. Intenta abrir el formulario nuevamente.");
+    return;
+  }
+
+  if (!clientSecret) {
+    alert("Error: clientSecret no encontrado. Contacta al administrador.");
     return;
   }
 
@@ -511,7 +505,7 @@ function startStripePayment() {
             line1: address,
             city: city,
             postal_code: postalCode,
-            country: country          // ← Muy importante
+            country: country
           }
         }
       }
@@ -522,46 +516,31 @@ function startStripePayment() {
       alert(error.message || "Error al procesar el pago");
     } else {
       console.log("✅ Pago confirmado:", paymentIntent);
-      // Aquí redirige a página de éxito o llama a tu función de éxito
-      alert("¡Pago realizado con éxito!");
-      // window.location.href = "/success";
+
+      // === ÉXITO ===
+      const orderData = {
+        orderId: "ORD-" + Date.now().toString().slice(-8),
+        date: new Date().toLocaleDateString('es-ES'),
+        customer: { name, email, address, postalCode, city, country },
+        items: JSON.parse(localStorage.getItem('cart') || '[]'),
+        total: document.getElementById('checkout-total').textContent,
+        paymentMethod: "Stripe",
+        status: "Pagado"
+      };
+
+      localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+      alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
+
+      setTimeout(() => {
+        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+      }, 800);
     }
-  } catch (err) {
-    console.error(err);
-    alert("Ocurrió un error inesperado");
-  }
-}
-    // === ÉXITO SIMULADO (por ahora) ===
-    console.log("✅ Pago exitoso - PaymentMethod:", paymentMethod.id);
-
-    // Crear objeto del pedido
-    const orderData = {
-      orderId: "ORD-" + Date.now().toString().slice(-8),
-      date: new Date().toLocaleDateString('es-ES'),
-      customer: { name, email, address, postalCode, city },
-      items: JSON.parse(localStorage.getItem('cart')),
-      total: document.getElementById('checkout-total').textContent,
-      paymentMethod: "Stripe",
-      status: "Pagado"
-    };
-
-    // Guardar en localStorage temporalmente
-    localStorage.setItem('lastOrder', JSON.stringify(orderData));
-
-    // Mostrar mensaje de éxito
-    alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.\n\nTe enviaremos un email con los detalles.`);
-
-    // Redirigir a página de confirmación
-    setTimeout(() => {
-      window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
-    }, 800);
-
   } catch (err) {
     console.error(err);
     alert("Hubo un error procesando el pago. Inténtalo nuevamente.");
   }
-}
-  
+}  
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
