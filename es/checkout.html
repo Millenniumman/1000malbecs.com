@@ -422,18 +422,28 @@ let stripe;
 let cardElement;
 
 function initializeStripe() {
-  if (stripe) return;
-  
+  if (stripe) return; // ya está inicializado
+
   stripe = Stripe('pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE');
-  / Al inicializar Stripe Elements
-const elements = stripe.elements();
 
-const cardElement = elements.create('card', {
-  style: { /* tus estilos */ },
-  hidePostalCode: true   // ← ESTO ES LO MÁS IMPORTANTE
-});
+  const elements = stripe.elements();
 
-cardElement.mount('#card-element');   // el div donde va la tarjeta
+  cardElement = elements.create('card', {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        '::placeholder': {
+          color: '#aab7c4'
+        }
+      }
+    },
+    hidePostalCode: true   // Ocultamos el código postal de Stripe
+  });
+
+  cardElement.mount('#card-element');
+}
 
 function startStripePayment() {
   let formContainer = document.getElementById('stripe-checkout-form') || 
@@ -446,7 +456,8 @@ function startStripePayment() {
 
   formContainer.style.display = 'block';
 
-  if (typeof initializeStripe === 'function' && !stripe) {
+  // Inicializamos Stripe solo la primera vez
+  if (!stripe) {
     initializeStripe();
   }
 
