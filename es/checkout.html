@@ -607,10 +607,7 @@ window.payWithStripeCard = payWithStripeCard;
 console.log("✅ Stripe functions loaded");
 </script> 
 <script>
-  function payWithPayPal() {
-  alert("⏳ Cargando PayPal...");
-  initPayPal();   // Esto cargará el botón real
-}
+ 
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
 
@@ -676,74 +673,8 @@ console.log("✅ Stripe functions loaded");
     const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = url;
   }
-   // ==================== RENDER RESUMEN ====================
-  function renderCheckoutCart() {
-  const container = document.getElementById('checkout-items');
-  if (!container) {
-    console.error("❌ No se encontró #checkout-items");
-    return;
-  }
-
-  const lang = getLang();
-  const t = translations[lang] || translations.es;
-
-  if (cart.length === 0) {
-    container.innerHTML = `<p style="text-align:center; padding:50px;">${t.empty}</p>`;
-    return;
-  }
-
-  let html = '';
-  let subtotal = 0;
-  let totalBottles = 0;
-
-  cart.forEach(item => {
-    const price = parseFloat(item.price) || 0;
-    const qty = item.quantity || 1;
-    const itemTotal = price * qty;
-    subtotal += itemTotal;
-    totalBottles += qty;
-
-    html += `
-      <div class="checkout-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div class="item-details">
-          <h4>${item.name}</h4>
-          <p>${qty} × €${price.toFixed(2)}</p>
-        </div>
-        <div class="item-price">
-          €${itemTotal.toFixed(2)}
-        </div>
-      </div>`;
-  });
-
-  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
-  const finalTotal = subtotal + shippingCost;
-
-  container.innerHTML = html;
-
-  // Actualizar totales
-  document.getElementById('checkout-subtotal') && 
-    (document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`);
-  
-  const shippingEl = document.getElementById('checkout-shipping');
-  if (shippingEl) {
-    shippingEl.innerHTML = shippingCost === 0 
-      ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
-      : `Envío: <strong>€${shippingCost.toFixed(2)}</strong>`;
-  }
-
-  document.getElementById('checkout-total') && 
-    (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
-}
-window.startStripePayment = startStripePayment;
-window.payWithStripeCard = payWithStripeCard;
-window.payWithPayPal = payWithPayPal;
-window.payWithApplePay = payWithApplePay;
-window.payWithGooglePay = payWithGooglePay;
-window.payWithWhatsApp = payWithWhatsApp;
-window.payWithEmail = payWithEmail;
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
 // Función principal para PayPal
@@ -872,6 +803,76 @@ function renderPayPalButton() {
   // Inicializar PayPal cuando se carga la página o se abre el checkout
   document.addEventListener('DOMContentLoaded', initPayPal);
 </script>
+<script>
+  
+   // ==================== RENDER RESUMEN ====================
+  function renderCheckoutCart() {
+  const container = document.getElementById('checkout-items');
+  if (!container) {
+    console.error("❌ No se encontró #checkout-items");
+    return;
+  }
+
+  const lang = getLang();
+  const t = translations[lang] || translations.es;
+
+  if (cart.length === 0) {
+    container.innerHTML = `<p style="text-align:center; padding:50px;">${t.empty}</p>`;
+    return;
+  }
+
+  let html = '';
+  let subtotal = 0;
+  let totalBottles = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    const itemTotal = price * qty;
+    subtotal += itemTotal;
+    totalBottles += qty;
+
+    html += `
+      <div class="checkout-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-details">
+          <h4>${item.name}</h4>
+          <p>${qty} × €${price.toFixed(2)}</p>
+        </div>
+        <div class="item-price">
+          €${itemTotal.toFixed(2)}
+        </div>
+      </div>`;
+  });
+
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shippingCost;
+
+  container.innerHTML = html;
+
+  // Actualizar totales
+  document.getElementById('checkout-subtotal') && 
+    (document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`);
+  
+  const shippingEl = document.getElementById('checkout-shipping');
+  if (shippingEl) {
+    shippingEl.innerHTML = shippingCost === 0 
+      ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
+      : `Envío: <strong>€${shippingCost.toFixed(2)}</strong>`;
+  }
+
+  document.getElementById('checkout-total') && 
+    (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
+}
+window.startStripePayment = startStripePayment;
+window.payWithStripeCard = payWithStripeCard;
+window.payWithPayPal = payWithPayPal;
+window.payWithApplePay = payWithApplePay;
+window.payWithGooglePay = payWithGooglePay;
+window.payWithWhatsApp = payWithWhatsApp;
+window.payWithEmail = payWithEmail;
+</script>
+
   
   <script>
 document.addEventListener('DOMContentLoaded', () => {
