@@ -514,12 +514,21 @@ async function payWithStripeCard() {
   const address = document.getElementById('address').value.trim();
   const postalCode = document.getElementById('postal-code').value.trim();
   const city = document.getElementById('city').value.trim();
+  const phone = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
   const country = "DE";
 
   if (!email || !postalCode || !city) {
-    alert("Por favor completa todos los campos");
+    alert("Por favor completa los campos obligatorios");
     return;
   }
+
+  // Calcular shipping cost (igual que en cart.js)
+  let totalBottles = 0;
+  const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+  cartItems.forEach(item => {
+    totalBottles += item.quantity || 1;
+  });
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
 
   try {
     const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
@@ -528,6 +537,7 @@ async function payWithStripeCard() {
         billing_details: {
           name: name,
           email: email,
+          phone: phone,
           address: {
             line1: address,
             city: city,
@@ -543,18 +553,25 @@ async function payWithStripeCard() {
     } else {
       console.log("✅ Pago confirmado:", paymentIntent);
 
-      // Crear orderData
-const orderData = {
-  orderId: "ORD-" + Date.now().toString().slice(-8),
-  date: new Date().toLocaleDateString('es-ES'),
-  customer: { name, email, address, postalCode, city, country },
-  items: JSON.parse(localStorage.getItem('cart') || '[]'),
-  total: document.getElementById('checkout-total').textContent,
-  shippingCost: shippingCost || 0,        // ← Agrega esto
-  paymentMethod: "Stripe",
-  status: "Pagado",
-  paymentIntentId: paymentIntent.id
-};
+      const orderData = {
+        orderId: "ORD-" + Date.now().toString().slice(-8),
+        date: new Date().toLocaleDateString('es-ES'),
+        customer: { 
+          name, 
+          email, 
+          phone, 
+          address, 
+          postalCode, 
+          city, 
+          country 
+        },
+        items: cartItems,
+        total: document.getElementById('checkout-total').textContent,
+        shippingCost: shippingCost,           // ← Ahora está definido
+        paymentMethod: "Stripe",
+        status: "Pagado",
+        paymentIntentId: paymentIntent.id
+      };
 
       localStorage.setItem('lastOrder', JSON.stringify(orderData));
 
@@ -581,7 +598,7 @@ const orderData = {
     alert("Error al confirmar el pago");
   }
 }
-// Hacer globales
+  // Hacer globales
 window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 
