@@ -419,45 +419,14 @@ if (hamburger && sidebar) {
   </script>
 <!-- ==================== STRIPE PAYMENT ==================== -->
 <script>
-// Variables globales
+// Variables
 let stripe;
 let cardElement;
 let clientSecret = null;
 
-// ==================== CLIENT SECRET TEMPORAL PARA PRUEBAS ====================
-async function getTestClientSecret() {
-  try {
-    const response = await fetch('https://api.stripe.com/v1/payment_intents', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer pk_test_51TbKblCWcVRBeV4k9R59XaDL0oltLt812ixqD5gejGX2RfI3zcazk9f44NEC4XARyIwkuqfqDzy2y3nAfPJ1I8oV00GiQ3cgSE', // tu pk_test
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: new URLSearchParams({
-        amount: '2999',           // 29.99€
-        currency: 'eur',
-        'automatic_payment_methods[enabled]': 'true'
-      })
-    });
-
-    const data = await response.json();
-    
-    if (data.client_secret) {
-      clientSecret = data.client_secret;
-      console.log("✅ ClientSecret real de prueba creado");
-      return true;
-    } else {
-      throw new Error("No se recibió client_secret");
-    }
-  } catch (err) {
-    console.error(err);
-    alert("Error al crear PaymentIntent de prueba");
-    return false;
-  }
-}
-
+// ==================== CREAR PAYMENT INTENT (desde tu Worker) ====================
 async function createPaymentIntent() {
-  const total = calculateTotal();
+  const total = calculateTotal ? calculateTotal() : 2999; // fallback
 
   try {
     const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/create-payment-intent', {
@@ -470,17 +439,18 @@ async function createPaymentIntent() {
 
     if (data.clientSecret) {
       clientSecret = data.clientSecret;
-      console.log("✅ clientSecret recibido");
+      console.log("✅ clientSecret recibido correctamente");
       return true;
     } else {
-      throw new Error("No se recibió clientSecret");
+      throw new Error(data.error || "No se recibió clientSecret");
     }
   } catch (err) {
-    console.error(err);
-    alert("Error al preparar el pago");
+    console.error("Error creando PaymentIntent:", err);
+    alert("Error al preparar el pago: " + err.message);
     return false;
   }
 }
+
 // ==================== INICIALIZACIÓN ====================
 function initializeStripe() {
   if (stripe) return;
@@ -506,29 +476,23 @@ function initializeStripe() {
 
 // ==================== ABRIR FORMULARIO ====================
 async function startStripePayment() {
-  const formContainer = document.getElementById('stripe-checkout-form') || 
-                        document.getElementById('stripe-form-container');
+  const formContainer = document.getElementById('stripe-checkout-form') || document.getElementById('stripe-form-container');
 
   if (!formContainer) {
     alert("No se encontró el formulario de pago");
     return;
   }
 
-  // Obtener clientSecret (temporal)
-  if (!clientSecret) {
-    await getTestClientSecret();
-  }
+  const success = await createPaymentIntent();
+  if (!success) return;
 
   formContainer.style.display = 'block';
 
-  if (!stripe) {
-    initializeStripe();
-  }
+  if (!stripe) initializeStripe();
 
   // Actualizar monto
   const totalEl = document.getElementById('checkout-total');
   const amountSpan = document.getElementById('final-total-amount');
-  
   if (totalEl && amountSpan) {
     amountSpan.textContent = totalEl.textContent.replace('€', '').trim();
   }
@@ -538,6 +502,11 @@ async function startStripePayment() {
 
 // ==================== PROCESAR PAGO ====================
 async function payWithStripeCard() {
+  if (!clientSecret) {
+    alert("El pago no está preparado. Abre el formulario nuevamente.");
+    return;
+  }
+
   const email = document.getElementById('email').value.trim();
   const name = document.getElementById('customer-name').value.trim() || "Cliente";
   const address = document.getElementById('address').value.trim();
@@ -546,17 +515,7 @@ async function payWithStripeCard() {
   const country = "DE";
 
   if (!email || !postalCode || !city) {
-    alert("Por favor completa email, código postal y ciudad");
-    return;
-  }
-
-  if (!cardElement) {
-    alert("El formulario de tarjeta no está listo. Abre el formulario nuevamente.");
-    return;
-  }
-
-  if (!clientSecret) {
-    alert("Error: clientSecret no encontrado.");
+    alert("Por favor completa todos los campos");
     return;
   }
 
@@ -565,54 +524,29 @@ async function payWithStripeCard() {
       payment_method: {
         card: cardElement,
         billing_details: {
-          name: name,
-          email: email,
-          address: {
-            line1: address,
-            city: city,
-            postal_code: postalCode,
-            country: country
-          }
+          name,
+          email,
+          address: { line1: address, city, postal_code: postalCode, country }
         }
       }
     });
 
     if (error) {
-      console.error(error);
-      alert(error.message || "Error al procesar el pago");
+      alert(error.message);
     } else {
-      console.log("✅ Pago confirmado:", paymentIntent);
-
-      const orderData = {
-        orderId: "ORD-" + Date.now().toString().slice(-8),
-        date: new Date().toLocaleDateString('es-ES'),
-        customer: { name, email, address, postalCode, city, country },
-        items: JSON.parse(localStorage.getItem('cart') || '[]'),
-        total: document.getElementById('checkout-total').textContent,
-        paymentMethod: "Stripe",
-        status: "Pagado"
-      };
-
-      localStorage.setItem('lastOrder', JSON.stringify(orderData));
-
-      alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
-
-      setTimeout(() => {
-        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
-      }, 800);
+      alert("¡Pago exitoso!");
+      // Aquí puedes guardar el pedido
     }
   } catch (err) {
-    console.error(err);
-    alert("Hubo un error procesando el pago. Inténtalo nuevamente.");
+    alert("Error al confirmar el pago");
   }
 }
 
-// Hacer globales
+// Globales
 window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
-window.initializeStripe = initializeStripe;
 
-console.log("✅ Stripe functions loaded");
+console.log("✅ Stripe listo");
 </script>
   <script>
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
