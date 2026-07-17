@@ -91,8 +91,11 @@ export default {
           })
         });
 
- // Email para el cliente
+               // Email para el cliente
         if (order.customer.email) {
+          const shippingCost = order.shippingCost || 0;
+          const isFreeShipping = shippingCost === 0;
+
           await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
@@ -104,37 +107,40 @@ export default {
               to: [order.customer.email],
               subject: `Confirmación de tu pedido #${orderNumber}`,
               html: `
-                <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
-                  <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000 Malbecs" style="width: 180px; margin: 20px 0;">
+                <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; line-height: 1.6;">
+                  <img src="https://www.1000malbecs.com/iamges/1000-malbecs-logo.png" alt="1000 Malbecs" style="width: 180px; margin: 20px 0;">
                   
                   <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
                   <p>Tu pedido ha sido confirmado correctamente.</p>
                   
-                  <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                  <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 25px 0;">
                     <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
-                    <p><strong>Total pagado:</strong> ${totalAmount}</p>
                     <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
+                    <p><strong>Total pagado:</strong> ${totalAmount}</p>
+                    ${isFreeShipping 
+                      ? `<p style="color: #27ae60; font-weight: bold;">✅ Envío GRATIS</p>` 
+                      : `<p><strong>Envío:</strong> €${shippingCost.toFixed(2)}</p>`}
                   </div>
 
                   <h3>Productos comprados:</h3>
-                  <ul style="padding-left: 20px;">
+                  <ul style="padding-left: 20px; line-height: 1.8;">
                     ${productsHTML}
                   </ul>
 
                   <p>Te avisaremos cuando enviemos tu pedido.</p>
+                  
                   <p style="color: #666; font-size: 0.9em;">Si tienes cualquier duda, contáctanos a <a href="mailto:ventas@1000malbecs.com">ventas@1000malbecs.com</a></p>
                   
                   <hr style="margin: 30px 0;">
                   <p style="text-align: center; color: #999; font-size: 0.85em;">
                     Gracias por elegir 1000 Malbecs<br>
-                    Argentina, un click away
+                    Argentina, a click away
                   </p>
                 </div>
               `
             })
           });
         }
-
         return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
 
       } catch (error) {
