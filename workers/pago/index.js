@@ -52,7 +52,78 @@ export default {
           headers: corsHeaders 
         });
       }
-    }   
+    }  
+    // ==================== SEND ORDER EMAILS ====================
+    if (request.url.endsWith('/send-order-emails') && request.method === 'POST') {
+      try {
+        const order = await request.json();
+
+        const orderNumber = order.orderId || "SIN-ID";
+        const totalAmount = order.total || "0.00";
+
+        let productsHTML = (order.items || []).map(item => `
+          <li>${item.quantity || 1} × ${item.name} — €${(item.price * (item.quantity || 1)).toFixed(2)}</li>
+        `).join('');
+
+        const emailHTML = `
+          <h2>Nuevo Pedido Recibido</h2>
+          <p><strong>Nº Pedido:</strong> ${orderNumber}</p>
+          <p><strong>Total:</strong> ${totalAmount}</p>
+          <p><strong>Cliente:</strong> ${order.customer.name} (${order.customer.email})</p>
+          <p><strong>Dirección:</strong> ${order.customer.address}, ${order.customer.city} ${order.customer.postalCode}</p>
+          <hr>
+          <h3>Productos:</h3>
+          <ul>${productsHTML}</ul>
+        `;
+
+        // Email para ventas
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: '1000 Malbecs <no-reply@1000malbecs.com>',
+            to: ['ventas@1000malbecs.com'],
+            subject: `Nuevo Pedido #${orderNumber}`,
+            html: emailHTML
+          })
+        });
+
+        // Email para el cliente
+        if (order.customer.email) {
+          await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: '1000 Malbecs <no-reply@1000malbecs.com>',
+              to: [order.customer.email],
+              subject: `Confirmación de tu pedido #${orderNumber}`,
+              html: `
+                <h2>¡Gracias por tu compra!</h2>
+                <p>Tu pedido ha sido confirmado correctamente.</p>
+                <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
+                <p><strong>Total pagado:</strong> ${totalAmount}</p>
+                <p>Te avisaremos cuando enviemos tu pedido.</p>
+                <p>Saludos,<br>Equipo 1000 Malbecs</p>
+              `
+            })
+          });
+        }
+
+        return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
+
+      } catch (error) {
+        console.error("Error enviando emails:", error);
+        return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: corsHeaders });
+      }
+    }
+
+
     // GET SESSION
     if (request.url.endsWith('/get-session') && request.method === 'POST') {
       try {
