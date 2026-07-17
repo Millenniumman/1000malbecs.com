@@ -92,7 +92,7 @@ ${isFreeShipping
           </div>
         `;
 
-                      // Email para el cliente
+                     // Email para el cliente
         if (order.customer.email) {
           const shippingCost = order.shippingCost || 0;
           const isFreeShipping = shippingCost === 0;
@@ -117,28 +117,30 @@ ${isFreeShipping
                   <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
                   <p>Tu pedido ha sido confirmado correctamente.</p>
 
+                  <!-- Contenedor principal -->
                   <div style="background: #f8f8f8; padding: 25px; border-radius: 8px; margin: 25px 0;">
+
                     <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
                     <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
-                  </div>
 
-                  <h3>Productos comprados:</h3>
-                  <div style="margin-bottom: 20px;">
-                    ${productsHTML}
-                  </div>
+                    <h3 style="margin-top: 25px;">Productos comprados:</h3>
+                    <div style="margin-bottom: 20px;">
+                      ${productsHTML}
+                    </div>
 
-                  <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
-                    <div style="display: flex; justify-content: space-between; padding: 6px 0;">
-                      <span>Subtotal</span>
-                      <span>€${subtotal.toFixed(2)}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 6px 0;">
-                      <span>Envío</span>
-                      <span>${isFreeShipping ? 'GRATIS' : '€' + shippingCost.toFixed(2)}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 10px 0; font-size: 1.25em; font-weight: bold; border-top: 2px solid #4A2C59; margin-top: 10px;">
-                      <span>Total pagado</span>
-                      <span>€${(subtotal + shippingCost).toFixed(2)}</span>
+                    <div style="border-top: 2px solid #ddd; padding-top: 15px;">
+                      <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+                        <span>Subtotal</span>
+                        <span>€${subtotal.toFixed(2)}</span>
+                      </div>
+                      <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+                        <span>Envío</span>
+                        <span>${isFreeShipping ? 'GRATIS' : '€' + shippingCost.toFixed(2)}</span>
+                      </div>
+                      <div style="display: flex; justify-content: space-between; padding: 12px 0; font-size: 1.25em; font-weight: bold; border-top: 2px solid #4A2C59; margin-top: 10px;">
+                        <span>Total pagado</span>
+                        <span>€${(subtotal + shippingCost).toFixed(2)}</span>
+                      </div>
                     </div>
                   </div>
 
@@ -156,9 +158,7 @@ ${isFreeShipping
               `
             })
           });
-        }
-
-        // Email para ventas (con teléfono)
+        }        // Email para ventas (con teléfono)
         const emailHTMLSeller = `
           <h2>Nuevo Pedido Recibido</h2>
           <p><strong>Nº Pedido:</strong> ${orderNumber}</p>
