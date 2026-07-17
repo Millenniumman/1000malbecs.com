@@ -738,7 +738,84 @@ window.payWithGooglePay = payWithGooglePay;
 window.payWithWhatsApp = payWithWhatsApp;
 window.payWithEmail = payWithEmail;
 </script>
+<script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
+<script>
+  function initPayPal() {
+    if (typeof paypal === 'undefined') return;
+
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'blue',
+        layout: 'vertical',
+        label: 'paypal'
+      },
+      createOrder: async function(data, actions) {
+        const total = calculateTotal();   // tu función existente
+
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: total.toFixed(2),
+              currency_code: 'EUR'
+            },
+            description: 'Pedido 1000 Malbecs'
+          }]
+        });
+      },
+
+      onApprove: async function(data, actions) {
+        try {
+          const order = await actions.order.capture();
+          console.log("✅ Pago PayPal aprobado:", order);
+
+          // Crear orderData similar al de Stripe
+          const orderData = {
+            orderId: "PP-" + order.id.slice(-8),
+            date: new Date().toLocaleDateString('es-ES'),
+            customer: { 
+              name: order.payer?.name?.given_name + " " + order.payer?.name?.surname || "Cliente PayPal",
+              email: order.payer?.email_address || ""
+            },
+            items: JSON.parse(localStorage.getItem('cart') || '[]'),
+            total: document.getElementById('checkout-total').textContent,
+            shippingCost: 0, // calcular si quieres
+            paymentMethod: "PayPal",
+            status: "Pagado",
+            paymentId: order.id
+          };
+
+          localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+          // Enviar email (opcional - puedes llamar al mismo endpoint)
+          try {
+            await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(orderData)
+            });
+          } catch (e) {}
+
+          alert("¡Pago con PayPal realizado con éxito!");
+          window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+
+        } catch (err) {
+          console.error(err);
+          alert("Error al confirmar el pago con PayPal");
+        }
+      },
+
+      onError: function(err) {
+        console.error(err);
+        alert("Error en el proceso de pago con PayPal");
+      }
+    }).render('#paypal-button-container');
+  }
+
+  // Inicializar PayPal cuando se carga la página o se abre el checkout
+  document.addEventListener('DOMContentLoaded', initPayPal);
+</script>
   
   <script>
 document.addEventListener('DOMContentLoaded', () => {
