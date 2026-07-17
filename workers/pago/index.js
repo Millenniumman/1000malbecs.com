@@ -92,13 +92,25 @@ ${isFreeShipping
           </div>
         `;
 
-                     // Email para el cliente
+                 // Email para el cliente
         if (order.customer.email) {
           const shippingCost = order.shippingCost || 0;
           const isFreeShipping = shippingCost === 0;
           const subtotal = order.items.reduce((sum, item) => {
             return sum + (parseFloat(item.price) || 0) * (item.quantity || 1);
           }, 0);
+
+          // Productos con monto alineado a la derecha
+          let productsHTML = (order.items || []).map(item => {
+            const qty = item.quantity || 1;
+            const price = parseFloat(item.price) || 0;
+            const itemTotal = price * qty;
+            return `
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee;">
+                <span>${qty} × ${item.name}</span>
+                <span style="font-weight: 500;">€${itemTotal.toFixed(2)}</span>
+              </div>`;
+          }).join('');
 
           await fetch('https://api.resend.com/emails', {
             method: 'POST',
@@ -112,23 +124,20 @@ ${isFreeShipping
               subject: `Confirmación de tu pedido #${orderNumber}`,
               html: `
                 <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-                  <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000 Malbecs" style="width: 180px; margin: 30px 0 20px;">
+                  <img src="https://www.1000malbecs.com/logo.png" alt="1000 Malbecs" style="width: 180px; margin: 30px 0 20px;">
 
                   <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
                   <p>Tu pedido ha sido confirmado correctamente.</p>
 
-                  <!-- Contenedor principal -->
                   <div style="background: #f8f8f8; padding: 25px; border-radius: 8px; margin: 25px 0;">
 
                     <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
                     <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
 
-                    <h3 style="margin-top: 25px;">Productos comprados:</h3>
-                    <div style="margin-bottom: 20px;">
-                      ${productsHTML}
-                    </div>
+                    <h3 style="margin: 25px 0 15px;">Productos comprados:</h3>
+                    ${productsHTML}
 
-                    <div style="border-top: 2px solid #ddd; padding-top: 15px;">
+                    <div style="border-top: 2px solid #ddd; padding-top: 15px; margin-top: 15px;">
                       <div style="display: flex; justify-content: space-between; padding: 6px 0;">
                         <span>Subtotal</span>
                         <span>€${subtotal.toFixed(2)}</span>
@@ -158,7 +167,8 @@ ${isFreeShipping
               `
             })
           });
-        }        // Email para ventas (con teléfono)
+        }        
+        // Email para ventas (con teléfono)
         const emailHTMLSeller = `
           <h2>Nuevo Pedido Recibido</h2>
           <p><strong>Nº Pedido:</strong> ${orderNumber}</p>
