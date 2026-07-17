@@ -40,7 +40,39 @@ export default {
           headers: corsHeaders 
         });
       }
-    }    // GET SESSION
+    }    
+        // ==================== CREATE PAYMENT INTENT ====================
+    if (request.url.endsWith('/create-payment-intent') && request.method === 'POST') {
+      try {
+        const { amount } = await request.json();
+
+        if (!amount || amount < 100) {
+          throw new Error("Monto inválido");
+        }
+
+        const stripe = new Stripe(env.STRIPE_SECRET_KEY);
+
+        const paymentIntent = await stripe.paymentIntents.create({
+          amount: Math.round(amount),
+          currency: 'eur',
+          automatic_payment_methods: { enabled: true },
+        });
+
+        return new Response(JSON.stringify({ 
+          clientSecret: paymentIntent.client_secret 
+        }), {
+          headers: { 'Content-Type': 'application/json', ...corsHeaders }
+        });
+
+      } catch (error) {
+        console.error("Error creando PaymentIntent:", error);
+        return new Response(JSON.stringify({ error: error.message }), { 
+          status: 400, 
+          headers: corsHeaders 
+        });
+      }
+    }
+    // GET SESSION
     if (request.url.endsWith('/get-session') && request.method === 'POST') {
       try {
         const { session_id } = await request.json();
