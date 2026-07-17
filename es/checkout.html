@@ -676,12 +676,16 @@ console.log("✅ Stripe functions loaded");
     window.location.href = url;
   }
 </script>
-<!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
-// Función para iniciar PayPal
 function payWithPayPal() {
+  // Cerrar formulario de Stripe si está abierto
+  const stripeForm = document.getElementById('stripe-checkout-form');
+  if (stripeForm) {
+    stripeForm.style.display = 'none';
+  }
+
   const container = document.getElementById('paypal-button-container');
   if (!container) {
     alert("No se encontró el contenedor de PayPal");
@@ -699,8 +703,6 @@ function payWithPayPal() {
     }
   }, 500);
 }
-
-// Función que renderiza el botón
 function renderPayPalButton() {
   const container = document.getElementById('paypal-button-container');
   if (!container) return;
@@ -749,6 +751,9 @@ function renderPayPalButton() {
         const order = await actions.order.capture();
         console.log("✅ Pago PayPal exitoso:", order);
 
+        // Cerrar ventana de PayPal
+        if (actions && actions.order) actions.order.close();
+
         const cart = JSON.parse(localStorage.getItem('cart') || '[]');
         let totalBottles = 0;
         cart.forEach(item => totalBottles += item.quantity || 1);
@@ -759,7 +764,12 @@ function renderPayPalButton() {
           date: new Date().toLocaleDateString('es-ES'),
           customer: {
             name: (order.payer?.name?.given_name || "") + " " + (order.payer?.name?.surname || "Cliente"),
-            email: order.payer?.email_address || ""
+            email: order.payer?.email_address || "",
+            phone: order.payer?.phone?.phone_number?.national_number || "No proporcionado",
+            address: order.purchase_units[0]?.shipping?.address?.address_line_1 || "Dirección de PayPal",
+            city: order.purchase_units[0]?.shipping?.address?.admin_area_2 || "",
+            postalCode: order.purchase_units[0]?.shipping?.address?.postal_code || "",
+            country: order.purchase_units[0]?.shipping?.address?.country_code || "US"
           },
           items: cart,
           total: document.getElementById('checkout-total').textContent,
@@ -794,7 +804,7 @@ function renderPayPalButton() {
     }
   }).render('#paypal-button-container');
 }
-</script>  
+</script> 
   <script>
    // ==================== RENDER RESUMEN ====================
   function renderCheckoutCart() {
