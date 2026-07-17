@@ -709,18 +709,22 @@ function renderPayPalButton() {
     createOrder: function(data, actions) {
   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
   let totalBottles = 0;
+  let subtotal = 0;
 
   cart.forEach(item => {
-    totalBottles += item.quantity || 1;
+    const qty = item.quantity || 1;
+    const price = parseFloat(item.price) || 0;
+    totalBottles += qty;
+    subtotal += price * qty;
   });
 
   const shippingCost = totalBottles >= 12 ? 0 : 6.99;
-  const subtotal = calculateTotal ? calculateTotal() - shippingCost : 0;
+  const total = subtotal + shippingCost;
 
   return actions.order.create({
     purchase_units: [{
       amount: {
-        value: (subtotal + shippingCost).toFixed(2),
+        value: total.toFixed(2),
         currency_code: 'EUR',
         breakdown: {
           item_total: {
