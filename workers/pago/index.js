@@ -52,46 +52,47 @@ export default {
           headers: corsHeaders 
         });
       }
-    }  
-    // ==================== SEND ORDER EMAILS ====================
+    }   
+        // ==================== SEND ORDER EMAILS ====================
     if (request.url.endsWith('/send-order-emails') && request.method === 'POST') {
       try {
         const order = await request.json();
 
         const orderNumber = order.orderId || "SIN-ID";
         const totalAmount = order.total || "0.00";
+        const shippingCost = order.shippingCost || 0;
+        const isFreeShipping = shippingCost === 0;
 
         let productsHTML = (order.items || []).map(item => `
-          <li>${item.quantity || 1} × ${item.name} — €${(item.price * (item.quantity || 1)).toFixed(2)}</li>
+          <li>${item.quantity || 1} × ${item.name} 
+              ${item.sku ? `(SKU: ${item.sku})` : ''} 
+              — €${(item.price * (item.quantity || 1)).toFixed(2)}</li>
         `).join('');
 
-        const emailHTML = `
-          <h2>Nuevo Pedido Recibido</h2>
-          <p><strong>Nº Pedido:</strong> ${orderNumber}</p>
-          <p><strong>Total:</strong> ${totalAmount}</p>
-          <p><strong>Cliente:</strong> ${order.customer.name} (${order.customer.email})</p>
-          <p><strong>Dirección:</strong> ${order.customer.address}, ${order.customer.city} ${order.customer.postalCode}</p>
-          <hr>
-          <h3>Productos:</h3>
-          <ul>${productsHTML}</ul>
+        const emailHTMLClient = `
+          <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
+            <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000 Malbecs" style="width: 180px; margin: 20px 0;">
+            
+            <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
+            <p>Tu pedido ha sido confirmado correctamente.</p>
+            
+            <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 25px 0;">
+              <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
+              <p><strong>Total pagado:</strong> ${totalAmount}</p>
+              ${isFreeShipping 
+                ? `<p style="color: #27ae60; font-weight: bold;">✅ Envío GRATIS</p>` 
+                : `<p><strong>Envío:</strong> €${shippingCost.toFixed(2)}</p>`}
+            </div>
+
+            <h3>Productos comprados:</h3>
+            <ul style="padding-left: 20px;">${productsHTML}</ul>
+
+            <p>Te avisaremos cuando enviemos tu pedido.</p>
+            <p style="color: #666;">Cualquier duda, contáctanos.</p>
+          </div>
         `;
 
-        // Email para ventas
-        await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            from: '1000 Malbecs <no-reply@1000malbecs.com>',
-            to: ['ventas@1000malbecs.com'],
-            subject: `Nuevo Pedido #${orderNumber}`,
-            html: emailHTML
-          })
-        });
-
-               // Email para el cliente
+                // Email para el cliente
         if (order.customer.email) {
           const shippingCost = order.shippingCost || 0;
           const isFreeShipping = shippingCost === 0;
@@ -107,16 +108,16 @@ export default {
               to: [order.customer.email],
               subject: `Confirmación de tu pedido #${orderNumber}`,
               html: `
-                <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; line-height: 1.6;">
-                  <img src="https://www.1000malbecs.com/iamges/1000-malbecs-logo.png" alt="1000 Malbecs" style="width: 180px; margin: 20px 0;">
-                  
+                <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                  <img src="https://www.1000malbecs.com/logo.png" alt="1000 Malbecs" style="width: 180px; margin: 30px 0 20px;">
+
                   <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
                   <p>Tu pedido ha sido confirmado correctamente.</p>
-                  
+
                   <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 25px 0;">
                     <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
-                    <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
                     <p><strong>Total pagado:</strong> ${totalAmount}</p>
+                    <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
                     ${isFreeShipping 
                       ? `<p style="color: #27ae60; font-weight: bold;">✅ Envío GRATIS</p>` 
                       : `<p><strong>Envío:</strong> €${shippingCost.toFixed(2)}</p>`}
@@ -127,20 +128,45 @@ export default {
                     ${productsHTML}
                   </ul>
 
-                  <p>Te avisaremos cuando enviemos tu pedido.</p>
-                  
-                  <p style="color: #666; font-size: 0.9em;">Si tienes cualquier duda, contáctanos a <a href="mailto:ventas@1000malbecs.com">ventas@1000malbecs.com</a></p>
-                  
-                  <hr style="margin: 30px 0;">
-                  <p style="text-align: center; color: #999; font-size: 0.85em;">
+                  <hr style="margin: 30px 0; border: 1px solid #eee;">
+
+                  <p style="text-align: center; color: #666; font-size: 0.95em;">
                     Gracias por elegir 1000 Malbecs<br>
-                    Argentina, a click away
+                    <strong>Argentina, un click away</strong>
                   </p>
                 </div>
               `
             })
           });
         }
+
+        // Email para ventas (con teléfono)
+        const emailHTMLSeller = `
+          <h2>Nuevo Pedido Recibido</h2>
+          <p><strong>Nº Pedido:</strong> ${orderNumber}</p>
+          <p><strong>Total:</strong> ${totalAmount}</p>
+          <p><strong>Envío:</strong> ${isFreeShipping ? 'GRATIS' : '€' + shippingCost.toFixed(2)}</p>
+          <hr>
+          <p><strong>Cliente:</strong> ${order.customer.name}</p>
+          <p><strong>Email:</strong> ${order.customer.email}</p>
+          <p><strong>Teléfono:</strong> ${order.customer.phone || 'No proporcionado'}</p>
+          <p><strong>Dirección:</strong> ${order.customer.address}, ${order.customer.city} ${order.customer.postalCode}</p>
+          <hr>
+          <h3>Productos:</h3>
+          <ul>${productsHTML}</ul>
+        `;
+
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: '1000 Malbecs <no-reply@1000malbecs.com>',
+            to: ['ventas@1000malbecs.com'],
+            subject: `Nuevo Pedido #${orderNumber}`,
+            html: emailHTMLSeller
+          })
+        });
+
         return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
 
       } catch (error) {
@@ -148,7 +174,7 @@ export default {
         return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: corsHeaders });
       }
     }
-
+    
 
     // GET SESSION
     if (request.url.endsWith('/get-session') && request.method === 'POST') {
@@ -225,6 +251,17 @@ export default {
         const session = await stripeResponse.json();
 
         if (session.error) throw new Error(session.error.message);
+
+        
+        return new Response(JSON.stringify({ url: session.url }), {
+          headers: { 'Content-Type': 'application/json', ...corsHeaders }
+        });
+
+      } catch (error) {
+        console.error("Error:", error);
+        return new Response(JSON.stringify({ error: error.message }), { status: 400, headers: corsHeaders });
+      }
+    }
 
     return new Response('Method not allowed', { status: 405, headers: corsHeaders });
   }
