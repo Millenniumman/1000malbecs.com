@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - 1000 Malbecs</title>
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <style>
+    .main-content {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+/* ========================================
+     HEADER MOBILE
+     ======================================== */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 70px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1500;
+  }
+
+  .hamburger {
+    background: none; 
+    border: none; 
+    cursor: pointer;
+    width: 50px; 
+    height: 50px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+  }
+
+  .logo-link {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .logo {
+    height: 48px;
+    width: auto;
+  }
+
+  /* Ocultar header mobile en desktop */
+  @media (min-width: 769px) {
+    .mobile-header {
+      display: none !important;
+    }
+  }
+
+  /* ========================================
+     HEADER DESKTOP
+     ======================================== */
+  .header {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1400;
+    background: white;
+    padding: 18px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  @media (min-width: 769px) {
+    .header {
+      display: block;
+    }
+    .logo {
+      height: 120px;
+    }
+    body {
+      padding-top: 180px;
+    }
+  }
+
+  /* ========================================
+     SIDEBAR
+     ======================================== */
+  #sidebar {
+    top: 70px !important;
+    height: calc(100vh - 70px) !important;
+    width: 280px;
+    background: #f8f8f8;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #e0e0e0;
+    z-index: 1100;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+  }
+
+  #sidebar.open { 
+    transform: translateX(0); 
+  }
+
+  @media (min-width: 769px) {
+    #sidebar {
+      top: 0 !important;
+      height: 100vh !important;
+      transform: translateX(0) !important;
+    }
+  }
+
+  /* Ocultar logo en sidebar mobile */
+  @media (max-width: 768px) {
+    #sidebar .logo-container {
+      display: none !important;
+    }
+  }
+    /* LAYOUT PRINCIPAL */
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .right-column {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 16px;
+      position: sticky;
+      top: 20px;
+    }
+
+    /* BOTONES DE PAGO */
+    .payment-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .payment-btn {
+      padding: 18px 20px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .payment-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* RESUMEN */
+    #checkout-items {
+      margin: 25px 0;
+    }
+
+    .checkout-item {
+      display: grid;
+      grid-template-columns: 70px 1fr auto;
+      gap: 15px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .checkout-item:last-child {
+      border-bottom: none;
+    }
+
+    .checkout-item img {
+      width: 70px;
+      height: 95px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .item-details h4 {
+      margin: 0 0 5px 0;
+      font-size: 1.05rem;
+    }
+
+    .item-details p {
+      margin: 0;
+      color: #666;
+    }
+
+    .item-price {
+      font-weight: 700;
+      font-size: 1.12rem;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .checkout-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+      }
+
+      .right-column {
+        position: static;
+      }
+
+      .checkout-item img {
+        width: 65px;
+        height: 88px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .main-content {
+        margin-left: 280px !important;
+      }
+    }
+    /* ========================================
+   LAYOUT CHECKOUT
+   ======================================== */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Mobile: Resumen ARRIBA + Botones ABAJO */
+@media (max-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Esto invierte el orden: resumen primero */
+  .right-column { order: 1; }
+  .left-column { order: 2; }
+}
+
+/* Botones todos del mismo tamaño */
+.payment-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.payment-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.payment-btn {
+  width: 100% !important;
+  min-height: 72px;           /* ← Esto hace que todos tengan la misma altura */
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  line-height: 1.3;
+}
+  </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER MOBILE ==================== -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+
+  <!-- Logo en el medio o derecha -->
+  <a href="/{{ lang }}/" class="logo-link" style="margin-left: auto; margin-right: 15px;">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height: 48px;">
+  </a>
+
+  </header>
+
+<div class="main-content">
+  <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">Checkout</h1>
+
+  <div class="checkout-grid">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="left-column">
+
+<!-- MÉTODOS DE PAGO -->
+<!-- MÉTODOS DE PAGO + FORMULARIO DE ENVÍO -->
+<div style="background:#f9f9f9; padding:30px; border-radius:16px;">
+  <h3 style="text-align:center; margin-bottom:25px;">Finalizar Compra</h3>
+  
+  <div class="payment-buttons" style="margin-bottom:30px;">
+    <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
+   <button onclick="startStripePayment()" class="payment-btn" style="background:#000; color:white;">Pagar con Tarjeta</button>
+    <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">📱 WhatsApp</button>
+    <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">✉️ Transferencia</button>
+  </div>
+
+  <!-- FORMULARIO DE ENVÍO + TARJETA (se muestra al elegir Stripe) -->
+  <div id="stripe-checkout-form" style="display:none; background:white; padding:25px; border-radius:12px; border:1px solid #ddd;">
+    
+    <h4 style="margin-bottom:20px;">📍 Dirección de Entrega</h4>
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+      <input type="text" id="customer-name" placeholder="Nombre completo" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="email" id="email" placeholder="Email" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+    </div>
+    
+    <input type="text" id="address" placeholder="Dirección completa" style="margin-top:15px; padding:12px; width:100%; border:1px solid #ccc; border-radius:8px;">
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
+      <input type="text" id="postal-code" placeholder="Código Postal" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="text" id="city" placeholder="Ciudad" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+    </div>
+<div>
+  <label for="phone">Teléfono (opcional)</label>
+  <input type="tel" id="phone" placeholder="+34 600 000 000" style="width:100%; padding:10px;">
+</div>
+    <h4 style="margin:25px 0 15px 0;">💳 Datos de la Tarjeta</h4>
+    <div id="card-element" style="padding:14px; border:1px solid #ccc; border-radius:8px; background:#fafafa;"></div>
+    <div id="card-errors" style="color:red; margin-top:8px; min-height:20px;"></div>
+
+    <button onclick="payWithStripeCard()" 
+        style="margin-top:25px; width:100%; padding:16px; background:#635BFF; color:white; border:none; border-radius:10px; font-size:1.1rem; font-weight:600;">
+  Pagar €<span id="final-total-amount">0.00</span>
+</button>
+    </div>
+    <!-- Contenedor PayPal (se muestra al hacer clic) -->
+  <div id="paypal-button-container" style="margin-top:25px; display:none;"></div>
+
+  
+</div>
+      <!-- CONTACTO y ENTREGA -->
+      <div style="margin-bottom:30px;">
+        <h3>Contacto</h3>
+        <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px;">
+        <label><input type="checkbox" id="createAccount"> Crear cuenta con este email</label>
+      </div>
+
+      <div>
+        <h3>Entrega</h3>
+        <div style="display:flex; gap:15px; margin-bottom:20px;">
+          <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
+            Enviar a domicilio
+          </div>
+          <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer; opacity:0.6;">
+            Click & Collect
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA DERECHA - RESUMEN -->
+    <div class="right-column">
+      <h3>Resumen del pedido</h3>
+      <div id="checkout-items"></div>
+
+      <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
+        <div style="display:flex; justify-content:space-between;">
+          <span>Subtotal</span>
+          <span id="checkout-subtotal">€0.00</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin:8px 0;">
+          <span>Envío</span>
+          <span id="checkout-shipping">Gratis</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
+          <span>Total</span>
+          <span id="checkout-total">€0.00</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>  
+  </div> <!-- Cierre de .main-content -->
+
+<script src="/js/cart.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+// ==================== HAMBURGER MENU ====================
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.getElementById('sidebar');
+
+if (hamburger && sidebar) {
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !expanded);
+    sidebar.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+      sidebar.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+  </script>
+<!-- ==================== STRIPE PAYMENT ==================== -->
+<script>
+// Variables
+let stripe;
+let cardElement;
+let clientSecret = null;
+
+// ==================== CREAR PAYMENT INTENT ====================
+async function createPaymentIntent() {
+  const total = calculateTotal ? calculateTotal() : 2999;
+
+  try {
+    const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: Math.round(total * 100) })
+    });
+
+    const data = await response.json();
+
+    if (data.clientSecret) {
+      clientSecret = data.clientSecret;
+      console.log("✅ clientSecret recibido");
+      return true;
+    } else {
+      throw new Error(data.error || "No se recibió clientSecret");
+    }
+  } catch (err) {
+    console.error("Error creando PaymentIntent:", err);
+    alert("Error al preparar el pago: " + err.message);
+    return false;
+  }
+}
+
+// ==================== INICIALIZACIÓN ====================
+function initializeStripe() {
+  if (stripe) return;
+
+  stripe = Stripe('pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs');
+
+  const elements = stripe.elements();
+
+  cardElement = elements.create('card', {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        '::placeholder': { color: '#aab7c4' }
+      }
+    },
+    hidePostalCode: true
+  });
+
+  cardElement.mount('#card-element');
+}
+
+// ==================== ABRIR FORMULARIO ====================
+async function startStripePayment() {
+  const formContainer = document.getElementById('stripe-checkout-form') || document.getElementById('stripe-form-container');
+
+  if (!formContainer) {
+    alert("No se encontró el formulario de pago");
+    return;
+  }
+
+  const success = await createPaymentIntent();
+  if (!success) return;
+
+  formContainer.style.display = 'block';
+
+  if (!stripe) initializeStripe();
+
+  const totalEl = document.getElementById('checkout-total');
+  const amountSpan = document.getElementById('final-total-amount');
+  if (totalEl && amountSpan) {
+    amountSpan.textContent = totalEl.textContent.replace('€', '').trim();
+  }
+
+  formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+// ==================== PROCESAR PAGO ====================
+async function payWithStripeCard() {
+  if (!clientSecret) {
+    alert("El pago no está preparado. Abre el formulario nuevamente.");
+    return;
+  }
+
+  const email = document.getElementById('email').value.trim();
+  const name = document.getElementById('customer-name').value.trim() || "Cliente";
+  const address = document.getElementById('address').value.trim();
+  const postalCode = document.getElementById('postal-code').value.trim();
+  const city = document.getElementById('city').value.trim();
+  const phone = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
+  const country = "DE";
+
+  if (!email || !postalCode || !city) {
+    alert("Por favor completa los campos obligatorios");
+    return;
+  }
+
+  // Calcular shipping cost (igual que en cart.js)
+  let totalBottles = 0;
+  const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+  cartItems.forEach(item => {
+    totalBottles += item.quantity || 1;
+  });
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+
+  try {
+    const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: cardElement,
+        billing_details: {
+          name: name,
+          email: email,
+          phone: phone,
+          address: {
+            line1: address,
+            city: city,
+            postal_code: postalCode,
+            country: country
+          }
+        }
+      }
+    });
+
+    if (error) {
+      alert(error.message || "Error en el pago");
+    } else {
+      console.log("✅ Pago confirmado:", paymentIntent);
+
+      const orderData = {
+        orderId: "ORD-" + Date.now().toString().slice(-8),
+        date: new Date().toLocaleDateString('es-ES'),
+        customer: { 
+          name, 
+          email, 
+          phone, 
+          address, 
+          postalCode, 
+          city, 
+          country 
+        },
+        items: cartItems,
+        total: document.getElementById('checkout-total').textContent,
+        shippingCost: shippingCost,           // ← Ahora está definido
+        paymentMethod: "Stripe",
+        status: "Pagado",
+        paymentIntentId: paymentIntent.id
+      };
+
+      localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+      // Enviar emails
+      try {
+        await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+        });
+        console.log("Emails enviados correctamente");
+      } catch (e) {
+        console.error("Error enviando emails:", e);
+      }
+
+      alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
+
+      setTimeout(() => {
+        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+      }, 800);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error al confirmar el pago");
+  }
+}
+  // Hacer globales
+window.startStripePayment = startStripePayment;
+window.payWithStripeCard = payWithStripeCard;
+
+console.log("✅ Stripe functions loaded");
+</script> 
+<script>
+ 
+  function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
+  function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
+
+  function payWithWhatsApp() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    let message = "Hola, quiero comprar desde 1000 Malbecs:\n\n";
+    let subtotal = 0;
+    let totalBottles = 0;
+
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+      subtotal += price * qty;
+      totalBottles += qty;
+    });
+
+    const shipping = totalBottles >= 12 ? 0 : 6.99;
+    const finalTotal = subtotal + shipping;
+
+    message += `\nSubtotal: €${subtotal.toFixed(2)}`;
+    if (shipping === 0) message += `\n✅ Envío GRATIS`;
+    else message += `\nEnvío: €${shipping.toFixed(2)}`;
+    message += `\n\nTotal: €${finalTotal.toFixed(2)}\n\n¿Podemos confirmar el pedido?`;
+
+    const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  function payWithEmail() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    let body = "Hola equipo de 1000 Malbecs,\n\nQuiero realizar el siguiente pedido:\n\n";
+    let subtotal = 0;
+    let totalBottles = 0;
+
+    cart.forEach(item => {
+      const price = parseFloat(item.price) || 0;
+      const qty = item.quantity || 1;
+      body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
+      subtotal += price * qty;
+      totalBottles += qty;
+    });
+
+    const shipping = totalBottles >= 12 ? 0 : 6.99;
+    const finalTotal = subtotal + shipping;
+
+    body += `\nSubtotal: €${subtotal.toFixed(2)}`;
+    if (shipping === 0) body += `\n✅ Envío GRATIS (12+ botellas)`;
+    else body += `\nEnvío a Alemania: €${shipping.toFixed(2)}`;
+    body += `\n\nTotal: €${finalTotal.toFixed(2)}\n\nGracias!`;
+
+    const subject = "Pedido - " + cart.map(i => i.name).join(", ");
+    const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = url;
+  }
+</script>
+<script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
+
+<script>
+function payWithPayPal() {
+  // Cerrar formulario de Stripe si está abierto
+  const stripeForm = document.getElementById('stripe-checkout-form');
+  if (stripeForm) {
+    stripeForm.style.display = 'none';
+  }
+
+  const container = document.getElementById('paypal-button-container');
+  if (!container) {
+    alert("No se encontró el contenedor de PayPal");
+    return;
+  }
+
+  container.style.display = 'block';
+  container.innerHTML = '<p style="text-align:center; padding:40px; color:#666;">Cargando PayPal...</p>';
+
+  setTimeout(() => {
+    if (typeof paypal !== 'undefined') {
+      renderPayPalButton();
+    } else {
+      container.innerHTML = '<p style="color:red; text-align:center;">Error cargando PayPal. Recarga la página.</p>';
+    }
+  }, 500);
+}
+function renderPayPalButton() {
+  const container = document.getElementById('paypal-button-container');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  paypal.Buttons({
+    style: {
+      shape: 'rect',
+      color: 'blue',
+      layout: 'vertical',
+      label: 'paypal'
+    },
+
+    createOrder: function(data, actions) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      let totalBottles = 0;
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const qty = item.quantity || 1;
+        const price = parseFloat(item.price) || 0;
+        totalBottles += qty;
+        subtotal += price * qty;
+      });
+
+      const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+      const total = subtotal + shippingCost;
+
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: total.toFixed(2),
+            currency_code: 'EUR',
+            breakdown: {
+              item_total: { value: subtotal.toFixed(2), currency_code: 'EUR' },
+              shipping: { value: shippingCost.toFixed(2), currency_code: 'EUR' }
+            }
+          }
+        }]
+      });
+    },
+
+  onApprove: async function(data, actions) {
+  try {
+    const order = await actions.order.capture();
+    console.log("✅ Pago PayPal exitoso:", order);
+
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let totalBottles = 0;
+    cart.forEach(item => totalBottles += item.quantity || 1);
+    const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+
+    const orderData = {
+      orderId: "PP-" + order.id.slice(-8),
+      date: new Date().toLocaleDateString('es-ES'),
+      customer: {
+        name: (order.payer?.name?.given_name || "") + " " + (order.payer?.name?.surname || "Cliente PayPal"),
+        email: order.payer?.email_address || "cliente@ejemplo.com", // fallback
+        phone: order.payer?.phone?.phone_number?.national_number || "No proporcionado",
+        address: order.purchase_units[0]?.shipping?.address?.address_line_1 || "Dirección PayPal",
+        city: order.purchase_units[0]?.shipping?.address?.admin_area_2 || "No proporcionada",
+        postalCode: order.purchase_units[0]?.shipping?.address?.postal_code || "No proporcionado",
+        country: order.purchase_units[0]?.shipping?.address?.country_code || "US"
+      },
+      items: cart,
+      total: document.getElementById('checkout-total').textContent,
+      shippingCost: shippingCost,
+      paymentMethod: "PayPal",
+      status: "Pagado",
+      paymentId: order.id
+    };
+
+    localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+    // Enviar emails
+    try {
+      const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+      const result = await response.json();
+      console.log("Emails enviados:", result);
+    } catch (e) {
+      console.error("Error enviando emails:", e);
+    }
+
+    alert("¡Pago con PayPal realizado con éxito!");
+    window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+
+  } catch (err) {
+    console.error(err);
+    alert("Error al confirmar el pago con PayPal");
+  }
+},
+  }).render('#paypal-button-container');
+}
+</script> 
+  <script>
+   // ==================== RENDER RESUMEN ====================
+  function renderCheckoutCart() {
+  const container = document.getElementById('checkout-items');
+  if (!container) {
+    console.error("❌ No se encontró #checkout-items");
+    return;
+  }
+
+  const lang = getLang();
+  const t = translations[lang] || translations.es;
+
+  if (cart.length === 0) {
+    container.innerHTML = `<p style="text-align:center; padding:50px;">${t.empty}</p>`;
+    return;
+  }
+
+  let html = '';
+  let subtotal = 0;
+  let totalBottles = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    const itemTotal = price * qty;
+    subtotal += itemTotal;
+    totalBottles += qty;
+
+    html += `
+      <div class="checkout-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-details">
+          <h4>${item.name}</h4>
+          <p>${qty} × €${price.toFixed(2)}</p>
+        </div>
+        <div class="item-price">
+          €${itemTotal.toFixed(2)}
+        </div>
+      </div>`;
+  });
+
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shippingCost;
+
+  container.innerHTML = html;
+
+  // Actualizar totales
+  document.getElementById('checkout-subtotal') && 
+    (document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`);
+  
+  const shippingEl = document.getElementById('checkout-shipping');
+  if (shippingEl) {
+    shippingEl.innerHTML = shippingCost === 0 
+      ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
+      : `Envío: <strong>€${shippingCost.toFixed(2)}</strong>`;
+  }
+
+  document.getElementById('checkout-total') && 
+    (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
+}
+window.startStripePayment = startStripePayment;
+window.payWithStripeCard = payWithStripeCard;
+window.payWithPayPal = payWithPayPal;
+window.payWithApplePay = payWithApplePay;
+window.payWithGooglePay = payWithGooglePay;
+window.payWithWhatsApp = payWithWhatsApp;
+window.payWithEmail = payWithEmail;
+</script>
+
+  
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof renderCheckoutCart === 'function') renderCheckoutCart();
+  if (typeof showPaymentButtons === 'function') showPaymentButtons();
+  // Actualizar monto cuando se abre el formulario
+document.getElementById('final-total-amount') && 
+  (document.getElementById('final-total-amount').textContent = 
+   document.getElementById('checkout-total').textContent.replace('€','').trim());
+});
+</script>
+
+</body>
+</html>
