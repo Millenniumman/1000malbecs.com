@@ -10,7 +10,7 @@ export default {
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders });
     }
-    // ==================== CREATE PAYMENT INTENT (para formulario integrado) ====================
+       // ==================== CREATE PAYMENT INTENT (sin librería) ====================
     if (request.url.endsWith('/create-payment-intent') && request.method === 'POST') {
       try {
         const { amount } = await request.json();
@@ -19,13 +19,25 @@ export default {
           throw new Error("Monto inválido");
         }
 
-        const stripe = new Stripe(env.STRIPE_SECRET_KEY);   // o env.stripe_secret_key según tu variable
+        const formData = new URLSearchParams();
+        formData.append('amount', Math.round(amount));
+        formData.append('currency', 'eur');
+        formData.append('automatic_payment_methods[enabled]', 'true');
 
-        const paymentIntent = await stripe.paymentIntents.create({
-          amount: Math.round(amount),
-          currency: 'eur',
-          automatic_payment_methods: { enabled: true },
+        const stripeResponse = await fetch('https://api.stripe.com/v1/payment_intents', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formData
         });
+
+        const paymentIntent = await stripeResponse.json();
+
+        if (paymentIntent.error) {
+          throw new Error(paymentIntent.error.message);
+        }
 
         return new Response(JSON.stringify({ 
           clientSecret: paymentIntent.client_secret 
@@ -40,38 +52,7 @@ export default {
           headers: corsHeaders 
         });
       }
-    }    
-        // ==================== CREATE PAYMENT INTENT ====================
-    if (request.url.endsWith('/create-payment-intent') && request.method === 'POST') {
-      try {
-        const { amount } = await request.json();
-
-        if (!amount || amount < 100) {
-          throw new Error("Monto inválido");
-        }
-
-        const stripe = new Stripe(env.STRIPE_SECRET_KEY);
-
-        const paymentIntent = await stripe.paymentIntents.create({
-          amount: Math.round(amount),
-          currency: 'eur',
-          automatic_payment_methods: { enabled: true },
-        });
-
-        return new Response(JSON.stringify({ 
-          clientSecret: paymentIntent.client_secret 
-        }), {
-          headers: { 'Content-Type': 'application/json', ...corsHeaders }
-        });
-
-      } catch (error) {
-        console.error("Error creando PaymentIntent:", error);
-        return new Response(JSON.stringify({ error: error.message }), { 
-          status: 400, 
-          headers: corsHeaders 
-        });
-      }
-    }
+    }   
     // GET SESSION
     if (request.url.endsWith('/get-session') && request.method === 'POST') {
       try {
