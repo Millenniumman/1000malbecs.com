@@ -607,7 +607,10 @@ window.payWithStripeCard = payWithStripeCard;
 console.log("✅ Stripe functions loaded");
 </script> 
 <script>
-  function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
+  function payWithPayPal() {
+  alert("⏳ Cargando PayPal...");
+  initPayPal();   // Esto cargará el botón real
+}
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
 
