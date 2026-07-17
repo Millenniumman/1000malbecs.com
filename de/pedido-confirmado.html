@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bestellbestätigung - 1000 Malbecs</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f9f9f9; }
+    .container { max-width: 700px; margin: 40px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    h1 { color: #4A2C59; text-align: center; }
+    .thankyou { text-align: center; color: #27ae60; font-size: 1.4em; margin: 20px 0 30px; }
+    .order-box { background: #f8f8f8; padding: 25px; border-radius: 8px; margin: 25px 0; }
+    .item { padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+    .summary { margin-top: 20px; font-size: 1.1em; }
+    .summary div { display: flex; justify-content: space-between; padding: 8px 0; }
+    .summary strong { color: #4A2C59; }
+    footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vielen Dank für Ihren Kauf!</h1>
+    <p class="thankyou">Ihre Bestellung wurde erfolgreich bestätigt.</p>
+
+    <div class="order-box" id="order-details"></div>
+
+    <div style="text-align:center;">
+      <a href="/de/" style="background:#4A2C59; color:white; padding:14px 32px; text-decoration:none; border-radius:8px; font-weight:bold;">
+        Zurück zum Shop
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 1000 Malbecs • Argentinien, nur ein Klick entfernt
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get('orderId');
+    const order = JSON.parse(localStorage.getItem('lastOrder') || '{}');
+
+    const container = document.getElementById('order-details');
+
+    if (order.orderId && order.orderId === orderId) {
+      let itemsHTML = '';
+      let subtotal = 0;
+
+      (order.items || []).forEach(item => {
+        const qty = item.quantity || 1;
+        const price = parseFloat(item.price) || 0;
+        const itemTotal = price * qty;
+        subtotal += itemTotal;
+
+        itemsHTML += `
+          <div class="item">
+            <span>${qty} × ${item.name}</span>
+            <span>€${itemTotal.toFixed(2)}</span>
+          </div>`;
+      });
+
+      const shippingCost = order.shippingCost || 0;
+      const total = subtotal + shippingCost;
+
+      container.innerHTML = `
+        <h2>Bestellung #${order.orderId}</h2>
+        <p><strong>Datum:</strong> ${order.date}</p>
+
+        <h3>Produkte:</h3>
+        ${itemsHTML}
+
+        <div class="summary">
+          <div><span>Zwischensumme</span><span>€${subtotal.toFixed(2)}</span></div>
+          <div><span>Versand</span><span>${shippingCost === 0 ? 'KOSTENLOS' : '€' + shippingCost.toFixed(2)}</span></div>
+          <div style="font-size:1.3em; font-weight:bold; border-top: 2px solid #4A2C59; padding-top: 12px;">
+            <span>Gesamtbetrag</span><span>€${total.toFixed(2)}</span>
+          </div>
+        </div>
+
+        <p><strong>Kunde:</strong> ${order.customer.name}<br>
+           <strong>Email:</strong> ${order.customer.email}<br>
+           <strong>Telefon:</strong> ${order.customer.phone || 'Nicht angegeben'}</p>
+      `;
+
+      localStorage.removeItem('cart');
+
+    } else {
+      container.innerHTML = `<p style="color:red; text-align:center;">Keine Bestellinformationen gefunden.</p>`;
+    }
+  </script>
+</body>
+</html>
