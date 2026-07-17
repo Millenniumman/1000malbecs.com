@@ -92,10 +92,13 @@ ${isFreeShipping
           </div>
         `;
 
-                // Email para el cliente
+                      // Email para el cliente
         if (order.customer.email) {
           const shippingCost = order.shippingCost || 0;
           const isFreeShipping = shippingCost === 0;
+          const subtotal = order.items.reduce((sum, item) => {
+            return sum + (parseFloat(item.price) || 0) * (item.quantity || 1);
+          }, 0);
 
           await fetch('https://api.resend.com/emails', {
             method: 'POST',
@@ -114,22 +117,37 @@ ${isFreeShipping
                   <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
                   <p>Tu pedido ha sido confirmado correctamente.</p>
 
-                  <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                  <div style="background: #f8f8f8; padding: 25px; border-radius: 8px; margin: 25px 0;">
                     <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
-                    <p><strong>Total pagado:</strong> ${totalAmount}</p>
                     <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
-                    ${isFreeShipping 
-                      ? `<p style="color: #27ae60; font-weight: bold;">✅ Envío GRATIS</p>` 
-                      : `<p><strong>Envío:</strong> €${shippingCost.toFixed(2)}</p>`}
                   </div>
 
                   <h3>Productos comprados:</h3>
-                  <ul style="padding-left: 20px; line-height: 1.8;">
+                  <div style="margin-bottom: 20px;">
                     ${productsHTML}
-                  </ul>
+                  </div>
 
-                  <hr style="margin: 30px 0; border: 1px solid #eee;">
+                  <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+                      <span>Subtotal</span>
+                      <span>€${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+                      <span>Envío</span>
+                      <span>${isFreeShipping ? 'GRATIS' : '€' + shippingCost.toFixed(2)}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 0; font-size: 1.25em; font-weight: bold; border-top: 2px solid #4A2C59; margin-top: 10px;">
+                      <span>Total pagado</span>
+                      <span>€${(subtotal + shippingCost).toFixed(2)}</span>
+                    </div>
+                  </div>
 
+                  <p style="text-align: center; margin-top: 30px;">
+                    Te avisaremos cuando enviemos tu pedido.<br>
+                    Cualquier duda, contáctanos a <a href="mailto:ventas@1000malbecs.com">ventas@1000malbecs.com</a>
+                  </p>
+
+                  <hr style="margin: 30px 0;">
                   <p style="text-align: center; color: #666; font-size: 0.95em;">
                     Gracias por elegir 1000 Malbecs<br>
                     <strong>Argentina, un click away</strong>
