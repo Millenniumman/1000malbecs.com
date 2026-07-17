@@ -77,9 +77,7 @@
         <p><strong>Total pagado:</strong> ${order.total}</p>
       `;
 
-      if (order.shippingCost !== undefined) {
-        html += `<p><strong>Envío:</strong> ${order.shippingCost === 0 ? 'GRATIS' : '€' + order.shippingCost.toFixed(2)}</p>`;
-      }
+      
 
       html += `<h3>Productos:</h3>`;
 
@@ -90,6 +88,9 @@
           <div class="item">
             ${qty} × ${item.name} — €${(price * qty).toFixed(2)}
           </div>`;
+        if (order.shippingCost !== undefined) {
+        html += `<p><strong>Envío:</strong> ${order.shippingCost === 0 ? 'GRATIS' : '€' + order.shippingCost.toFixed(2)}</p>`;
+      }
       });
 
       html += `<p><strong>Cliente:</strong> ${order.customer.name}<br>
