@@ -424,9 +424,9 @@ let stripe;
 let cardElement;
 let clientSecret = null;
 
-// ==================== CREAR PAYMENT INTENT (desde tu Worker) ====================
+// ==================== CREAR PAYMENT INTENT ====================
 async function createPaymentIntent() {
-  const total = calculateTotal ? calculateTotal() : 2999; // fallback
+  const total = calculateTotal ? calculateTotal() : 2999;
 
   try {
     const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/create-payment-intent', {
@@ -439,7 +439,7 @@ async function createPaymentIntent() {
 
     if (data.clientSecret) {
       clientSecret = data.clientSecret;
-      console.log("✅ clientSecret recibido correctamente");
+      console.log("✅ clientSecret recibido");
       return true;
     } else {
       throw new Error(data.error || "No se recibió clientSecret");
@@ -490,7 +490,6 @@ async function startStripePayment() {
 
   if (!stripe) initializeStripe();
 
-  // Actualizar monto
   const totalEl = document.getElementById('checkout-total');
   const amountSpan = document.getElementById('final-total-amount');
   if (totalEl && amountSpan) {
@@ -524,62 +523,55 @@ async function payWithStripeCard() {
       payment_method: {
         card: cardElement,
         billing_details: {
-          name,
-          email,
-          address: { line1: address, city, postal_code: postalCode, country }
+          name: name,
+          email: email,
+          address: {
+            line1: address,
+            city: city,
+            postal_code: postalCode,
+            country: country
+          }
         }
       }
     });
 
     if (error) {
-      alert(error.message);
+      alert(error.message || "Error en el pago");
     } else {
-      alert("¡Pago exitoso!");
+      console.log("✅ Pago confirmado:", paymentIntent);
+
       const orderData = {
-    orderId: "ORD-" + Date.now().toString().slice(-8),
-    date: new Date().toLocaleDateString('es-ES'),
-    customer: { 
-      name, 
-      email, 
-      address, 
-      postalCode, 
-      city, 
-      country 
-    },
-    items: JSON.parse(localStorage.getItem('cart') || '[]'),
-    total: document.getElementById('checkout-total').textContent,
-    paymentMethod: "Stripe",
-    status: "Pagado",
-    paymentIntentId: paymentIntent.id
-  };
+        orderId: "ORD-" + Date.now().toString().slice(-8),
+        date: new Date().toLocaleDateString('es-ES'),
+        customer: { name, email, address, postalCode, city, country },
+        items: JSON.parse(localStorage.getItem('cart') || '[]'),
+        total: document.getElementById('checkout-total').textContent,
+        paymentMethod: "Stripe",
+        status: "Pagado",
+        paymentIntentId: paymentIntent.id
+      };
 
-  localStorage.setItem('lastOrder', JSON.stringify(orderData));
+      localStorage.setItem('lastOrder', JSON.stringify(orderData));
 
-  // Enviar datos al Worker para emails
-  try {
-    await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(orderData)
-    });
-  } catch (e) {
-    console.error("Error enviando emails:", e);
+      alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
+
+      setTimeout(() => {
+        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+      }, 800);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error al confirmar el pago");
   }
-
-  alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
-
-  setTimeout(() => {
-    window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
-  }, 800);
 }
 
-// Globales
+// Hacer globales
 window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 
-console.log("✅ Stripe listo");
-</script>
-  <script>
+console.log("✅ Stripe functions loaded");
+</script> 
+<script>
   function payWithPayPal() { alert("Redirigiendo a PayPal..."); }
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
