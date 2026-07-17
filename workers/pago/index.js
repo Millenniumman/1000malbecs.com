@@ -79,14 +79,14 @@ export default {
             <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 25px 0;">
               <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
               <p><strong>Total pagado:</strong> ${totalAmount}</p>
-              ${isFreeShipping 
-                ? `<p style="color: #27ae60; font-weight: bold;">✅ Envío GRATIS</p>` 
-                : `<p><strong>Envío:</strong> €${shippingCost.toFixed(2)}</p>`}
+              
             </div>
 
             <h3>Productos comprados:</h3>
             <ul style="padding-left: 20px;">${productsHTML}</ul>
-
+${isFreeShipping 
+                ? `<p style="color: #27ae60; font-weight: bold;">✅ Envío GRATIS</p>` 
+                : `<p><strong>Envío:</strong> €${shippingCost.toFixed(2)}</p>`}
             <p>Te avisaremos cuando enviemos tu pedido.</p>
             <p style="color: #666;">Cualquier duda, contáctanos.</p>
           </div>
