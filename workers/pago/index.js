@@ -91,7 +91,7 @@ export default {
           })
         });
 
-        // Email para el cliente
+ // Email para el cliente
         if (order.customer.email) {
           await fetch('https://api.resend.com/emails', {
             method: 'POST',
@@ -104,12 +104,32 @@ export default {
               to: [order.customer.email],
               subject: `Confirmación de tu pedido #${orderNumber}`,
               html: `
-                <h2>¡Gracias por tu compra!</h2>
-                <p>Tu pedido ha sido confirmado correctamente.</p>
-                <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
-                <p><strong>Total pagado:</strong> ${totalAmount}</p>
-                <p>Te avisaremos cuando enviemos tu pedido.</p>
-                <p>Saludos,<br>Equipo 1000 Malbecs</p>
+                <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
+                  <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000 Malbecs" style="width: 180px; margin: 20px 0;">
+                  
+                  <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
+                  <p>Tu pedido ha sido confirmado correctamente.</p>
+                  
+                  <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <p><strong>Nº de Pedido:</strong> ${orderNumber}</p>
+                    <p><strong>Total pagado:</strong> ${totalAmount}</p>
+                    <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
+                  </div>
+
+                  <h3>Productos comprados:</h3>
+                  <ul style="padding-left: 20px;">
+                    ${productsHTML}
+                  </ul>
+
+                  <p>Te avisaremos cuando enviemos tu pedido.</p>
+                  <p style="color: #666; font-size: 0.9em;">Si tienes cualquier duda, contáctanos a <a href="mailto:ventas@1000malbecs.com">ventas@1000malbecs.com</a></p>
+                  
+                  <hr style="margin: 30px 0;">
+                  <p style="text-align: center; color: #999; font-size: 0.85em;">
+                    Gracias por elegir 1000 Malbecs<br>
+                    Argentina, un click away
+                  </p>
+                </div>
               `
             })
           });
