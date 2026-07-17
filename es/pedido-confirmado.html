@@ -4,13 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Confirmación de Pedido - 1000 Malbecs</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f9f9f9; }
-    .container { max-width: 700px; margin: 40px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+   <style>
+    * { box-sizing: border-box; }
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #f9f9f9; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { 
+      max-width: 700px; 
+      margin: 40px auto; 
+      background: white; 
+      padding: 40px; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+      flex: 1;
+    }
     h1 { color: #4A2C59; text-align: center; }
-    .order-box { background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 25px 0; }
-    .item { padding: 10px 0; border-bottom: 1px solid #eee; }
-    .thankyou { text-align: center; color: #27ae60; font-size: 1.3em; margin: 30px 0; }
+    .order-box { 
+      background: #f8f8f8; 
+      padding: 25px; 
+      border-radius: 8px; 
+      margin: 25px 0; 
+    }
+    .thankyou { 
+      text-align: center; 
+      color: #27ae60; 
+      font-size: 1.4em; 
+      margin: 30px 0; 
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 0.9em;
+      margin-top: auto;
+    }
   </style>
 </head>
 <body>
