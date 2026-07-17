@@ -746,35 +746,60 @@ window.payWithEmail = payWithEmail;
 <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
-  function initPayPal() {
-    if (typeof paypal === 'undefined') return;
+  function payWithPayPal() {
+  const container = document.getElementById('paypal-button-container');
+  if (!container) {
+    alert("No se encontró el contenedor de PayPal");
+    return;
+  }
 
-    paypal.Buttons({
-      style: {
-        shape: 'rect',
-        color: 'blue',
-        layout: 'vertical',
-        label: 'paypal'
-      },
-      createOrder: async function(data, actions) {
-        const total = calculateTotal();   // tu función existente
+  container.style.display = 'block';
+  container.innerHTML = '<p style="text-align:center; padding:20px;">Cargando PayPal...</p>';
 
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: total.toFixed(2),
-              currency_code: 'EUR'
-            },
-            description: 'Pedido 1000 Malbecs'
-          }]
-        });
-      },
+  if (typeof paypal !== 'undefined') {
+    renderPayPalButton();
+  } else {
+    alert("PayPal no se cargó correctamente. Recarga la página e intenta de nuevo.");
+  }
+}
 
-      onApprove: async function(data, actions) {
-        try {
-          const order = await actions.order.capture();
-          console.log("✅ Pago PayPal aprobado:", order);
+function renderPayPalButton() {
+  const container = document.getElementById('paypal-button-container');
 
+  paypal.Buttons({
+    style: {
+      shape: 'rect',
+      color: 'blue',
+      layout: 'vertical',
+      label: 'paypal'
+    },
+
+    createOrder: async function(data, actions) {
+      const total = calculateTotal ? calculateTotal() : 0;
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: total.toFixed(2),
+            currency_code: 'EUR'
+          }
+        }]
+      });
+    },
+
+    onApprove: async function(data, actions) {
+      const order = await actions.order.capture();
+      console.log("Pago PayPal exitoso", order);
+
+      alert("¡Pago con PayPal realizado con éxito!");
+      window.location.href = "/es/pedido-confirmado.html";
+    },
+
+    onError: function(err) {
+      console.error(err);
+      alert("Error con PayPal. Inténtalo de nuevo.");
+    }
+  }).render('#paypal-button-container');
+}
           // Crear orderData similar al de Stripe
           const orderData = {
             orderId: "PP-" + order.id.slice(-8),
