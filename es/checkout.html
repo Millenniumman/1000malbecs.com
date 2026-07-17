@@ -677,7 +677,8 @@ console.log("✅ Stripe functions loaded");
   <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
-// Función principal para PayPal
+<script>
+// Función para iniciar PayPal
 function payWithPayPal() {
   const container = document.getElementById('paypal-button-container');
   if (!container) {
@@ -686,18 +687,21 @@ function payWithPayPal() {
   }
 
   container.style.display = 'block';
-  container.innerHTML = '<p style="text-align:center; padding:20px; color:#666;">Cargando PayPal...</p>';
+  container.innerHTML = '<p style="text-align:center; padding:30px; color:#666;">Cargando PayPal...</p>';
 
-  setTimeout(renderPayPalButton, 300); // pequeño delay para asegurar carga
+  // Pequeño delay para asegurar que el SDK cargue
+  setTimeout(() => {
+    if (typeof paypal !== 'undefined') {
+      renderPayPalButton();
+    } else {
+      container.innerHTML = '<p style="color:red; text-align:center;">Error al cargar PayPal. Recarga la página.</p>';
+    }
+  }, 500);
 }
 
+// Función que renderiza el botón
 function renderPayPalButton() {
   const container = document.getElementById('paypal-button-container');
-
-  if (typeof paypal === 'undefined') {
-    container.innerHTML = '<p style="color:red; text-align:center;">Error cargando PayPal. Recarga la página.</p>';
-    return;
-  }
 
   paypal.Buttons({
     style: {
@@ -728,7 +732,7 @@ function renderPayPalButton() {
           orderId: "PP-" + order.id.slice(-8),
           date: new Date().toLocaleDateString('es-ES'),
           customer: {
-            name: (order.payer?.name?.given_name || "") + " " + (order.payer?.name?.surname || ""),
+            name: (order.payer?.name?.given_name || "") + " " + (order.payer?.name?.surname || "Cliente"),
             email: order.payer?.email_address || ""
           },
           items: JSON.parse(localStorage.getItem('cart') || '[]'),
