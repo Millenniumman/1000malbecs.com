@@ -678,27 +678,12 @@ console.log("✅ Stripe functions loaded");
 <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
-// Función principal
-function payWithPayPal() {
-  const container = document.getElementById('paypal-button-container');
-  if (!container) {
-    alert("No se encontró el contenedor de PayPal");
-    return;
-  }
-
-  container.style.display = 'block';
-  container.innerHTML = '<p style="text-align:center; padding:30px; color:#666;">Cargando PayPal...</p>';
-
-  setTimeout(renderPayPalButton, 400);
-}
-
+// Renderizar PayPal automáticamente al cargar la página
 function renderPayPalButton() {
   const container = document.getElementById('paypal-button-container');
+  if (!container) return;
 
-  if (typeof paypal === 'undefined') {
-    container.innerHTML = '<p style="color:red; text-align:center;">Error cargando PayPal. Recarga la página.</p>';
-    return;
-  }
+  container.innerHTML = ''; // limpiar
 
   paypal.Buttons({
     style: {
@@ -742,16 +727,13 @@ function renderPayPalButton() {
 
         localStorage.setItem('lastOrder', JSON.stringify(orderData));
 
-        // Enviar email
         try {
           await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderData)
           });
-        } catch (e) {
-          console.error("Error enviando email PayPal:", e);
-        }
+        } catch (e) {}
 
         alert("¡Pago con PayPal realizado con éxito!");
         window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
@@ -768,6 +750,11 @@ function renderPayPalButton() {
     }
   }).render('#paypal-button-container');
 }
+
+// Cargar automáticamente al abrir la página
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(renderPayPalButton, 600); // pequeño delay para que todo cargue
+});
 </script>
   <script>
    // ==================== RENDER RESUMEN ====================
