@@ -350,7 +350,9 @@
   Pagar €<span id="final-total-amount">0.00</span>
 </button>
     </div>
-    <div id="paypal-button-container"></div>
+    <!-- Contenedor PayPal (se muestra al hacer clic) -->
+  <div id="paypal-button-container" style="margin-top:25px; display:none;"></div>
+
   
 </div>
       <!-- CONTACTO y ENTREGA -->
@@ -678,6 +680,17 @@ console.log("✅ Stripe functions loaded");
 <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
+  function payWithPayPal() {
+  // Ocultar formulario de Stripe si está abierto
+  const stripeForm = document.getElementById('stripe-checkout-form');
+  if (stripeForm) stripeForm.style.display = 'none';
+
+  const container = document.getElementById('paypal-button-container');
+  container.style.display = 'block';
+  container.innerHTML = '<p style="text-align:center; padding:20px;">Cargando PayPal...</p>';
+
+  setTimeout(renderPayPalButton, 400);
+}
 // Renderizar PayPal automáticamente al cargar la página
 function renderPayPalButton() {
   const container = document.getElementById('paypal-button-container');
