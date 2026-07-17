@@ -4,16 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Confirmación de Pedido - 1000 Malbecs</title>
-   <style>
-    * { box-sizing: border-box; }
+  <style>
     body { 
       font-family: Arial, sans-serif; 
       margin: 0; 
-      padding: 0; 
+      padding: 20px; 
       background: #f9f9f9; 
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
     .container { 
       max-width: 700px; 
@@ -22,28 +18,15 @@
       padding: 40px; 
       border-radius: 12px; 
       box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
-      flex: 1;
     }
     h1 { color: #4A2C59; text-align: center; }
-    .order-box { 
-      background: #f8f8f8; 
-      padding: 25px; 
-      border-radius: 8px; 
-      margin: 25px 0; 
-    }
-    .thankyou { 
-      text-align: center; 
-      color: #27ae60; 
-      font-size: 1.4em; 
-      margin: 30px 0; 
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #777;
-      font-size: 0.9em;
-      margin-top: auto;
-    }
+    .thankyou { text-align: center; color: #27ae60; font-size: 1.4em; margin: 20px 0 30px; }
+    .order-box { background: #f8f8f8; padding: 25px; border-radius: 8px; margin: 25px 0; }
+    .item { padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+    .summary { margin-top: 20px; font-size: 1.1em; }
+    .summary div { display: flex; justify-content: space-between; padding: 8px 0; }
+    .summary strong { color: #4A2C59; }
+    footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.9em; }
   </style>
 </head>
 <body>
@@ -51,60 +34,71 @@
     <h1>¡Gracias por tu compra!</h1>
     <p class="thankyou">Tu pedido ha sido confirmado correctamente.</p>
 
-    <div class="order-box" id="order-details">
-      <!-- Se llena con JavaScript -->
-    </div>
+    <div class="order-box" id="order-details"></div>
 
-    <div style="text-align:center; margin-top:40px;">
-      <a href="/" style="background:#4A2C59; color:white; padding:12px 30px; text-decoration:none; border-radius:8px;">
+    <div style="text-align:center;">
+      <a href="/" style="background:#4A2C59; color:white; padding:14px 32px; text-decoration:none; border-radius:8px; font-weight:bold;">
         Volver a la tienda
       </a>
     </div>
   </div>
 
+  <footer>
+    © 2026 1000 Malbecs • Argentina, un click away
+  </footer>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const orderId = params.get('orderId');
-
     const order = JSON.parse(localStorage.getItem('lastOrder') || '{}');
 
     const container = document.getElementById('order-details');
 
     if (order.orderId && order.orderId === orderId) {
-      let html = `
-        <h2>Pedido #${order.orderId}</h2>
-        <p><strong>Fecha:</strong> ${order.date}</p>
-        <p><strong>Total pagado:</strong> ${order.total}</p>
-      `;
+      let itemsHTML = '';
+      let subtotal = 0;
 
-      
-
-      html += `<h3>Productos:</h3>`;
-
-      order.items.forEach(item => {
+      (order.items || []).forEach(item => {
         const qty = item.quantity || 1;
         const price = parseFloat(item.price) || 0;
-        html += `
+        const itemTotal = price * qty;
+        subtotal += itemTotal;
+
+        itemsHTML += `
           <div class="item">
-            ${qty} × ${item.name} — €${(price * qty).toFixed(2)}
+            <span>${qty} × ${item.name}</span>
+            <span>€${itemTotal.toFixed(2)}</span>
           </div>`;
-        if (order.shippingCost !== undefined) {
-        html += `<p><strong>Envío:</strong> ${order.shippingCost === 0 ? 'GRATIS' : '€' + order.shippingCost.toFixed(2)}</p>`;
-      }
       });
 
-      html += `<p><strong>Cliente:</strong> ${order.customer.name}<br>
-               <strong>Email:</strong> ${order.customer.email}<br>
-               <strong>Teléfono:</strong> ${order.customer.phone || 'No proporcionado'}</p>`;
+      const shippingCost = order.shippingCost || 0;
+      const total = subtotal + shippingCost;
 
-      container.innerHTML = html;
+      container.innerHTML = `
+        <h2>Pedido #${order.orderId}</h2>
+        <p><strong>Fecha:</strong> ${order.date}</p>
+
+        <h3>Productos:</h3>
+        ${itemsHTML}
+
+        <div class="summary">
+          <div><span>Subtotal</span><span>€${subtotal.toFixed(2)}</span></div>
+          <div><span>Envío</span><span>${shippingCost === 0 ? 'GRATIS' : '€' + shippingCost.toFixed(2)}</span></div>
+          <div style="font-size:1.3em; font-weight:bold; border-top: 2px solid #4A2C59; padding-top: 12px;">
+            <span>Total pagado</span><span>€${total.toFixed(2)}</span>
+          </div>
+        </div>
+
+        <p><strong>Cliente:</strong> ${order.customer.name}<br>
+           <strong>Email:</strong> ${order.customer.email}<br>
+           <strong>Teléfono:</strong> ${order.customer.phone || 'No proporcionado'}</p>
+      `;
 
       // Borrar carrito
       localStorage.removeItem('cart');
-      console.log("Carrito borrado después de la compra");
 
     } else {
-      container.innerHTML = `<p style="color:red;">No se encontró información del pedido.</p>`;
+      container.innerHTML = `<p style="color:red; text-align:center;">No se encontró información del pedido.</p>`;
     }
   </script>
 </body>
