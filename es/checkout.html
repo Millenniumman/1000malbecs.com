@@ -535,11 +535,42 @@ async function payWithStripeCard() {
       alert(error.message);
     } else {
       alert("¡Pago exitoso!");
-      // Aquí puedes guardar el pedido
-    }
-  } catch (err) {
-    alert("Error al confirmar el pago");
+      const orderData = {
+    orderId: "ORD-" + Date.now().toString().slice(-8),
+    date: new Date().toLocaleDateString('es-ES'),
+    customer: { 
+      name, 
+      email, 
+      address, 
+      postalCode, 
+      city, 
+      country 
+    },
+    items: JSON.parse(localStorage.getItem('cart') || '[]'),
+    total: document.getElementById('checkout-total').textContent,
+    paymentMethod: "Stripe",
+    status: "Pagado",
+    paymentIntentId: paymentIntent.id
+  };
+
+  localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+  // Enviar datos al Worker para emails
+  try {
+    await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
+  } catch (e) {
+    console.error("Error enviando emails:", e);
   }
+
+  alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
+
+  setTimeout(() => {
+    window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+  }, 800);
 }
 
 // Globales
