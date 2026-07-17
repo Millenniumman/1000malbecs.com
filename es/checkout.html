@@ -674,11 +674,11 @@ console.log("✅ Stripe functions loaded");
     window.location.href = url;
   }
 </script>
-  <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
+  <!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
-<script>
-// Función para iniciar PayPal
+// Función principal
 function payWithPayPal() {
   const container = document.getElementById('paypal-button-container');
   if (!container) {
@@ -689,19 +689,16 @@ function payWithPayPal() {
   container.style.display = 'block';
   container.innerHTML = '<p style="text-align:center; padding:30px; color:#666;">Cargando PayPal...</p>';
 
-  // Pequeño delay para asegurar que el SDK cargue
-  setTimeout(() => {
-    if (typeof paypal !== 'undefined') {
-      renderPayPalButton();
-    } else {
-      container.innerHTML = '<p style="color:red; text-align:center;">Error al cargar PayPal. Recarga la página.</p>';
-    }
-  }, 500);
+  setTimeout(renderPayPalButton, 400);
 }
 
-// Función que renderiza el botón
 function renderPayPalButton() {
   const container = document.getElementById('paypal-button-container');
+
+  if (typeof paypal === 'undefined') {
+    container.innerHTML = '<p style="color:red; text-align:center;">Error cargando PayPal. Recarga la página.</p>';
+    return;
+  }
 
   paypal.Buttons({
     style: {
@@ -745,6 +742,17 @@ function renderPayPalButton() {
 
         localStorage.setItem('lastOrder', JSON.stringify(orderData));
 
+        // Enviar email
+        try {
+          await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+          });
+        } catch (e) {
+          console.error("Error enviando email PayPal:", e);
+        }
+
         alert("¡Pago con PayPal realizado con éxito!");
         window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
 
@@ -760,55 +768,8 @@ function renderPayPalButton() {
     }
   }).render('#paypal-button-container');
 }
-
-  // Crear orderData similar al de Stripe
-          const orderData = {
-            orderId: "PP-" + order.id.slice(-8),
-            date: new Date().toLocaleDateString('es-ES'),
-            customer: { 
-              name: order.payer?.name?.given_name + " " + order.payer?.name?.surname || "Cliente PayPal",
-              email: order.payer?.email_address || ""
-            },
-            items: JSON.parse(localStorage.getItem('cart') || '[]'),
-            total: document.getElementById('checkout-total').textContent,
-            shippingCost: 0, // calcular si quieres
-            paymentMethod: "PayPal",
-            status: "Pagado",
-            paymentId: order.id
-          };
-
-          localStorage.setItem('lastOrder', JSON.stringify(orderData));
-
-          // Enviar email (opcional - puedes llamar al mismo endpoint)
-          try {
-            await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(orderData)
-            });
-          } catch (e) {}
-
-          alert("¡Pago con PayPal realizado con éxito!");
-          window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
-
-        } catch (err) {
-          console.error(err);
-          alert("Error al confirmar el pago con PayPal");
-        }
-      },
-
-      onError: function(err) {
-        console.error(err);
-        alert("Error en el proceso de pago con PayPal");
-      }
-    }).render('#paypal-button-container');
-  }
-
-  // Inicializar PayPal cuando se carga la página o se abre el checkout
-  document.addEventListener('DOMContentLoaded', initPayPal);
 </script>
-<script>
-  
+  <script>
    // ==================== RENDER RESUMEN ====================
   function renderCheckoutCart() {
   const container = document.getElementById('checkout-items');
