@@ -676,11 +676,10 @@ console.log("✅ Stripe functions loaded");
     window.location.href = url;
   }
 </script>
-  <!-- PayPal SDK -->
+ <!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
-// Esperar a que PayPal SDK cargue
 function payWithPayPal() {
   const container = document.getElementById('paypal-button-container');
   if (!container) return;
@@ -688,13 +687,13 @@ function payWithPayPal() {
   container.style.display = 'block';
   container.innerHTML = '<p style="text-align:center; padding:40px; color:#666;">Cargando PayPal...</p>';
 
-  // Esperar hasta que PayPal esté disponible
-  const checkPayPal = setInterval(() => {
+  setTimeout(() => {
     if (typeof paypal !== 'undefined') {
-      clearInterval(checkPayPal);
       renderPayPalButton();
+    } else {
+      container.innerHTML = '<p style="color:red; text-align:center;">Error cargando PayPal. Recarga la página.</p>';
     }
-  }, 300);
+  }, 500);
 }
 
 function renderPayPalButton() {
