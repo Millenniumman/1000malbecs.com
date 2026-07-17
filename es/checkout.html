@@ -676,13 +676,17 @@ console.log("✅ Stripe functions loaded");
     window.location.href = url;
   }
 </script>
- <!-- PayPal SDK -->
+<!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
+// Función para iniciar PayPal
 function payWithPayPal() {
   const container = document.getElementById('paypal-button-container');
-  if (!container) return;
+  if (!container) {
+    alert("No se encontró el contenedor de PayPal");
+    return;
+  }
 
   container.style.display = 'block';
   container.innerHTML = '<p style="text-align:center; padding:40px; color:#666;">Cargando PayPal...</p>';
@@ -696,6 +700,7 @@ function payWithPayPal() {
   }, 500);
 }
 
+// Función que renderiza el botón
 function renderPayPalButton() {
   const container = document.getElementById('paypal-button-container');
   if (!container) return;
@@ -740,53 +745,56 @@ function renderPayPalButton() {
     },
 
     onApprove: async function(data, actions) {
-  try {
-    const order = await actions.order.capture();
-    console.log("✅ Pago PayPal exitoso:", order);
+      try {
+        const order = await actions.order.capture();
+        console.log("✅ Pago PayPal exitoso:", order);
 
-    // Cerrar la ventana de PayPal automáticamente
-    actions.order.close();
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        let totalBottles = 0;
+        cart.forEach(item => totalBottles += item.quantity || 1);
+        const shippingCost = totalBottles >= 12 ? 0 : 6.99;
 
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    let totalBottles = 0;
-    cart.forEach(item => totalBottles += item.quantity || 1);
-    const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+        const orderData = {
+          orderId: "PP-" + order.id.slice(-8),
+          date: new Date().toLocaleDateString('es-ES'),
+          customer: {
+            name: (order.payer?.name?.given_name || "") + " " + (order.payer?.name?.surname || "Cliente"),
+            email: order.payer?.email_address || ""
+          },
+          items: cart,
+          total: document.getElementById('checkout-total').textContent,
+          shippingCost: shippingCost,
+          paymentMethod: "PayPal",
+          status: "Pagado",
+          paymentId: order.id
+        };
 
-    const orderData = {
-      orderId: "PP-" + order.id.slice(-8),
-      date: new Date().toLocaleDateString('es-ES'),
-      customer: {
-        name: (order.payer?.name?.given_name || "") + " " + (order.payer?.name?.surname || "Cliente"),
-        email: order.payer?.email_address || ""
-      },
-      items: cart,
-      total: document.getElementById('checkout-total').textContent,
-      shippingCost: shippingCost,
-      paymentMethod: "PayPal",
-      status: "Pagado",
-      paymentId: order.id
-    };
+        localStorage.setItem('lastOrder', JSON.stringify(orderData));
 
-    localStorage.setItem('lastOrder', JSON.stringify(orderData));
+        try {
+          await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+          });
+        } catch (e) {}
 
-    try {
-      await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
-      });
-    } catch (e) {}
+        alert("¡Pago con PayPal realizado con éxito!");
+        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
 
-    alert("¡Pago con PayPal realizado con éxito!");
-    window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+      } catch (err) {
+        console.error(err);
+        alert("Error al confirmar el pago con PayPal");
+      }
+    },
 
-  } catch (err) {
-    console.error(err);
-    alert("Error al confirmar el pago con PayPal");
-  }
-},
-</script>
-  
+    onError: function(err) {
+      console.error(err);
+      alert("Error en el proceso de PayPal. Inténtalo de nuevo.");
+    }
+  }).render('#paypal-button-container');
+}
+</script>  
   <script>
    // ==================== RENDER RESUMEN ====================
   function renderCheckoutCart() {
