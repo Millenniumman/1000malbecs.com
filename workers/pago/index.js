@@ -109,7 +109,7 @@ ${isFreeShipping
               subject: `Confirmación de tu pedido #${orderNumber}`,
               html: `
                 <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-                  <img src="https://www.1000malbecs.com/logo.png" alt="1000 Malbecs" style="width: 180px; margin: 30px 0 20px;">
+                  <img src="https://www.1000malbecs.com/images/1000-malbecs-logo.png" alt="1000 Malbecs" style="width: 180px; margin: 30px 0 20px;">
 
                   <h2 style="color: #4A2C59;">¡Gracias por tu compra!</h2>
                   <p>Tu pedido ha sido confirmado correctamente.</p>
