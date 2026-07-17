@@ -539,7 +539,17 @@ async function payWithStripeCard() {
       alert(error.message || "Error en el pago");
     } else {
       console.log("✅ Pago confirmado:", paymentIntent);
-
+// Dentro del else del pago exitoso:
+try {
+  await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(orderData)
+  });
+  console.log("Emails enviados");
+} catch (e) {
+  console.error("Error enviando emails:", e);
+}
       const orderData = {
         orderId: "ORD-" + Date.now().toString().slice(-8),
         date: new Date().toLocaleDateString('es-ES'),
