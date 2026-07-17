@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación de Pedido - 1000 Malbecs</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f9f9f9; }
+    .container { max-width: 700px; margin: 40px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    h1 { color: #4A2C59; text-align: center; }
+    .order-box { background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 25px 0; }
+    .item { padding: 10px 0; border-bottom: 1px solid #eee; }
+    .thankyou { text-align: center; color: #27ae60; font-size: 1.3em; margin: 30px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>¡Gracias por tu compra!</h1>
+    <p class="thankyou">Tu pedido ha sido confirmado correctamente.</p>
+
+    <div class="order-box" id="order-details">
+      <!-- Se llena con JavaScript -->
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="/" style="background:#4A2C59; color:white; padding:12px 30px; text-decoration:none; border-radius:8px;">
+        Volver a la tienda
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get('orderId');
+
+    const order = JSON.parse(localStorage.getItem('lastOrder') || '{}');
+
+    const container = document.getElementById('order-details');
+
+    if (order.orderId && order.orderId === orderId) {
+      let html = `
+        <h2>Pedido #${order.orderId}</h2>
+        <p><strong>Fecha:</strong> ${order.date}</p>
+        <p><strong>Total pagado:</strong> ${order.total}</p>
+      `;
+
+      if (order.shippingCost !== undefined) {
+        html += `<p><strong>Envío:</strong> ${order.shippingCost === 0 ? 'GRATIS' : '€' + order.shippingCost.toFixed(2)}</p>`;
+      }
+
+      html += `<h3>Productos:</h3>`;
+
+      order.items.forEach(item => {
+        const qty = item.quantity || 1;
+        const price = parseFloat(item.price) || 0;
+        html += `
+          <div class="item">
+            ${qty} × ${item.name} — €${(price * qty).toFixed(2)}
+          </div>`;
+      });
+
+      html += `<p><strong>Cliente:</strong> ${order.customer.name}<br>
+               <strong>Email:</strong> ${order.customer.email}<br>
+               <strong>Teléfono:</strong> ${order.customer.phone || 'No proporcionado'}</p>`;
+
+      container.innerHTML = html;
+
+      // Borrar carrito
+      localStorage.removeItem('cart');
+      console.log("Carrito borrado después de la compra");
+
+    } else {
+      container.innerHTML = `<p style="color:red;">No se encontró información del pedido.</p>`;
+    }
+  </script>
+</body>
+</html>
