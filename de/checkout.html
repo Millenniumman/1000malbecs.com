@@ -316,9 +316,9 @@
   
   <div class="payment-buttons" style="margin-bottom:30px;">
     <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
-   <button onclick="startStripePayment()" class="payment-btn" style="background:#000; color:white;">Pagar con Tarjeta</button>
+   <button onclick="startStripePayment()" class="payment-btn" style="background:#000; color:white;">Mit Kreditkarte bezahlen</button>
     <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">📱 WhatsApp</button>
-    <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">✉️ Transferencia</button>
+    <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">✉️ Überweisen</button>
   </div>
 
   <!-- FORMULARIO DE ENVÍO + TARJETA (se muestra al elegir Stripe) -->
@@ -347,7 +347,7 @@
 
     <button onclick="payWithStripeCard()" 
         style="margin-top:25px; width:100%; padding:16px; background:#635BFF; color:white; border:none; border-radius:10px; font-size:1.1rem; font-weight:600;">
-  Pagar €<span id="final-total-amount">0.00</span>
+ Bezahlen €<span id="final-total-amount">0.00</span>
 </button>
     </div>
     <!-- Contenedor PayPal (se muestra al hacer clic) -->
@@ -357,7 +357,7 @@
 </div>
       <!-- CONTACTO y ENTREGA -->
       <div style="margin-bottom:30px;">
-        <h3>Contacto</h3>
+        <h3>Kontakt</h3>
         <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px;">
         <label><input type="checkbox" id="createAccount"> Konto mit dieser E-Mail erstellen</label>
       </div>
@@ -366,7 +366,7 @@
         <h3>Lieferung</h3>
         <div style="display:flex; gap:15px; margin-bottom:20px;">
           <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
-            Enviar a domicilio
+            nach Hause schicken
           </div>
           <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer; opacity:0.6;">
             Click & Collect
@@ -383,15 +383,15 @@
 
       <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
         <div style="display:flex; justify-content:space-between;">
-          <span>Subtotal</span>
+          <span>Zwischensumme</span>
           <span id="checkout-subtotal">€0.00</span>
         </div>
         <div style="display:flex; justify-content:space-between; margin:8px 0;">
-          <span>Envío</span>
+          <span>Versandkosten</span>
           <span id="checkout-shipping">Gratis</span>
         </div>
         <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
-          <span>Total</span>
+          <span>Summe</span>
           <span id="checkout-total">€0.00</span>
         </div>
       </div>
