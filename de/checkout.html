@@ -312,7 +312,7 @@
 <!-- MÉTODOS DE PAGO -->
 <!-- MÉTODOS DE PAGO + FORMULARIO DE ENVÍO -->
 <div style="background:#f9f9f9; padding:30px; border-radius:16px;">
-  <h3 style="text-align:center; margin-bottom:25px;">Finalizar Compra</h3>
+  <h3 style="text-align:center; margin-bottom:25px;">Bestellung abschließen</h3>
   
   <div class="payment-buttons" style="margin-bottom:30px;">
     <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
@@ -324,24 +324,24 @@
   <!-- FORMULARIO DE ENVÍO + TARJETA (se muestra al elegir Stripe) -->
   <div id="stripe-checkout-form" style="display:none; background:white; padding:25px; border-radius:12px; border:1px solid #ddd;">
     
-    <h4 style="margin-bottom:20px;">📍 Dirección de Entrega</h4>
+    <h4 style="margin-bottom:20px;">📍 Lieferadresse </h4>
     
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
-      <input type="text" id="customer-name" placeholder="Nombre completo" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
-      <input type="email" id="email" placeholder="Email" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="text" id="customer-name" placeholder="Vollständiger Name" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="email" id="email" placeholder="E-Mail" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
     </div>
     
-    <input type="text" id="address" placeholder="Dirección completa" style="margin-top:15px; padding:12px; width:100%; border:1px solid #ccc; border-radius:8px;">
+    <input type="text" id="address" placeholder="Vollständige Adresse" style="margin-top:15px; padding:12px; width:100%; border:1px solid #ccc; border-radius:8px;">
     
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
-      <input type="text" id="postal-code" placeholder="Código Postal" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
-      <input type="text" id="city" placeholder="Ciudad" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="text" id="postal-code" placeholder="Postleitzahl" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      <input type="text" id="city" placeholder="Stadt" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
     </div>
 <div>
-  <label for="phone">Teléfono (opcional)</label>
-  <input type="tel" id="phone" placeholder="+34 600 000 000" style="width:100%; padding:10px;">
+  <label for="phone">Telefon (optional)</label>
+  <input type="tel" id="phone" placeholder="+49 600 000 000" style="width:100%; padding:10px;">
 </div>
-    <h4 style="margin:25px 0 15px 0;">💳 Datos de la Tarjeta</h4>
+    <h4 style="margin:25px 0 15px 0;">💳 Kartendaten</h4>
     <div id="card-element" style="padding:14px; border:1px solid #ccc; border-radius:8px; background:#fafafa;"></div>
     <div id="card-errors" style="color:red; margin-top:8px; min-height:20px;"></div>
 
@@ -359,11 +359,11 @@
       <div style="margin-bottom:30px;">
         <h3>Contacto</h3>
         <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px;">
-        <label><input type="checkbox" id="createAccount"> Crear cuenta con este email</label>
+        <label><input type="checkbox" id="createAccount"> Konto mit dieser E-Mail erstellen</label>
       </div>
 
       <div>
-        <h3>Entrega</h3>
+        <h3>Lieferung</h3>
         <div style="display:flex; gap:15px; margin-bottom:20px;">
           <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
             Enviar a domicilio
@@ -378,7 +378,7 @@
 
     <!-- COLUMNA DERECHA - RESUMEN -->
     <div class="right-column">
-      <h3>Resumen del pedido</h3>
+      <h3>Bestellübersicht</h3>
       <div id="checkout-items"></div>
 
       <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
