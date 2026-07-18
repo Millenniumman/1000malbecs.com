@@ -312,7 +312,7 @@
 <!-- MÉTODOS DE PAGO -->
 <!-- MÉTODOS DE PAGO + FORMULARIO DE ENVÍO -->
 <div style="background:#f9f9f9; padding:30px; border-radius:16px;">
-  <h3 style="text-align:center; margin-bottom:25px;">Finalizar Compra</h3>
+  <h3 style="text-align:center; margin-bottom:25px;">Checkout</h3>
   
   <div class="payment-buttons" style="margin-bottom:30px;">
     <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
@@ -324,7 +324,7 @@
   <!-- FORMULARIO DE ENVÍO + TARJETA (se muestra al elegir Stripe) -->
   <div id="stripe-checkout-form" style="display:none; background:white; padding:25px; border-radius:12px; border:1px solid #ddd;">
     
-    <h4 style="margin-bottom:20px;">📍 Dirección de Entrega</h4>
+    <h4 style="margin-bottom:20px;">📍 Delivery Address </h4>
     
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
       <input type="text" id="customer-name" placeholder="Nombre completo" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
@@ -338,7 +338,7 @@
       <input type="text" id="city" placeholder="Ciudad" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
     </div>
 <div>
-  <label for="phone">Teléfono (opcional)</label>
+  <label for="phone">Telephone Number (optional)</label>
   <input type="tel" id="phone" placeholder="+34 600 000 000" style="width:100%; padding:10px;">
 </div>
     <h4 style="margin:25px 0 15px 0;">💳 Datos de la Tarjeta</h4>
@@ -347,7 +347,7 @@
 
     <button onclick="payWithStripeCard()" 
         style="margin-top:25px; width:100%; padding:16px; background:#635BFF; color:white; border:none; border-radius:10px; font-size:1.1rem; font-weight:600;">
-  Pagar €<span id="final-total-amount">0.00</span>
+  Pay €<span id="final-total-amount">0.00</span>
 </button>
     </div>
     <!-- Contenedor PayPal (se muestra al hacer clic) -->
@@ -357,16 +357,16 @@
 </div>
       <!-- CONTACTO y ENTREGA -->
       <div style="margin-bottom:30px;">
-        <h3>Contacto</h3>
+        <h3>Subscribe</h3>
         <input type="email" id="email" placeholder="Email" style="width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px;">
         <label><input type="checkbox" id="createAccount"> Crear cuenta con este email</label>
       </div>
 
       <div>
-        <h3>Entrega</h3>
+        <h3>Delivery</h3>
         <div style="display:flex; gap:15px; margin-bottom:20px;">
           <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
-            Enviar a domicilio
+            Ship to Address
           </div>
           <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer; opacity:0.6;">
             Click & Collect
@@ -378,7 +378,7 @@
 
     <!-- COLUMNA DERECHA - RESUMEN -->
     <div class="right-column">
-      <h3>Resumen del pedido</h3>
+      <h3>Order Summary</h3>
       <div id="checkout-items"></div>
 
       <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
@@ -387,7 +387,7 @@
           <span id="checkout-subtotal">€0.00</span>
         </div>
         <div style="display:flex; justify-content:space-between; margin:8px 0;">
-          <span>Envío</span>
+          <span>Shipping Cost</span>
           <span id="checkout-shipping">Gratis</span>
         </div>
         <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
