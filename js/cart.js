@@ -350,7 +350,7 @@ window.goToCheckout = goToCheckout;
 window.renderCheckoutCart = renderCheckoutCart;
 window.showPaymentButtons = showPaymentButtons;
 window.calculateTotal = calculateTotal;
-
+window.updateCartCount = updateCartCount;
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
