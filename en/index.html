@@ -1152,5 +1152,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return url;
     }
 </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof updateCartCount === 'function') {
+    updateCartCount();
+    console.log("✅ Contador del carrito actualizado en index");
+  } else {
+    console.error("updateCartCount no está definida");
+  }
+});
+</script>
 </body>
 </html>
