@@ -339,7 +339,9 @@ function renderCheckoutCart() {
   }
   if (totalEl) totalEl.textContent = `€${finalTotal.toFixed(2)}`;
 }
-
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartCount();
+  
 // Hacer globales solo las funciones necesarias
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
@@ -353,7 +355,6 @@ window.calculateTotal = calculateTotal;
 window.updateCartCount = updateCartCount;
 
 // Inicialización
-document.addEventListener('DOMContentLoaded', () => {
-  updateCartCount();
+
   console.log("✅ cart.js cargado correctamente");
 });
