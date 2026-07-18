@@ -1216,13 +1216,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return url;
     }
 </script>
- <script>
-document.addEventListener('DOMContentLoaded', function() {
+<script>
+document.addEventListener('DOMContentLoaded', () => {
   if (typeof updateCartCount === 'function') {
     updateCartCount();
     console.log("✅ Contador del carrito actualizado en index");
   } else {
-    console.error("updateCartCount no está definida");
+    console.error("updateCartCount no está definida en index");
   }
 });
 </script>
