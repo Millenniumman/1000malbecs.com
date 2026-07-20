@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout - 1000 Malbecs</title>
   <link rel="stylesheet" href="/css/style.css">
-  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18090475554'); </script>
   <style>
     .main-content {
       max-width: 1200px;
@@ -594,7 +603,7 @@ async function payWithStripeCard() {
       alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
 
       setTimeout(() => {
-        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+        window.location.href = `/de/pedido-confirmado.html?orderId=${orderData.orderId}`;
       }, 800);
     }
   } catch (err) {
@@ -676,7 +685,7 @@ console.log("✅ Stripe functions loaded");
     window.location.href = url;
   }
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AQc90BMcD5XKLZeUbNrJH83VQDfT2ByuHLU6RaEIKNUVQa7gQEuMOHZJH97KW2d9Xalk-hFbo0NyD0A9&currency=EUR"></script>
 
 <script>
 function payWithPayPal() {
