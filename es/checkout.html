@@ -603,7 +603,7 @@ async function payWithStripeCard() {
       alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
 
       setTimeout(() => {
-        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+        window.location.href = `/de/pedido-confirmado.html?orderId=${orderData.orderId}`;
       }, 800);
     }
   } catch (err) {
