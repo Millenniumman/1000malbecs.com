@@ -71,42 +71,31 @@ body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-/* Logo sin borde blanco */
-.logo-link {
-  display: block;
-}
-
-.logo {
-  height: 120px;
-  width: auto;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
-  border: none !important;           /* ← Eliminado borde */
-  background: transparent;
-  padding: 0;
-  margin: 0;
-}
-
-/* Contenedor Idiomas + Carrito */
+/* Contenedor Idiomas + Carrito - MÁS GRANDE */
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 30px;                    /* más espacio entre idiomas y carrito */
+  background: #f8f8f8;          /* fondo suave para que se vea más grande */
+  padding: 12px 20px;           /* ← más grande */
+  border-radius: 50px;          /* forma más moderna y amplia */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Selector de idiomas */
+/* Selector de idiomas más grande */
 .lang-selector-desktop {
   display: flex;
-  gap: 8px;
+  gap: 12px;
 }
 
 .lang-selector-desktop a {
   color: #666;
   text-decoration: none;
   font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 10px 16px;           /* botones más grandes */
+  border-radius: 30px;
+  font-size: 15px;
   transition: all 0.3s;
-  font-size: 14px;
 }
 
 .lang-selector-desktop a.active { 
@@ -117,7 +106,6 @@ body {
 .lang-selector-desktop a:hover { 
   background: #eee; 
 }
-
 /* Carrito */
 .cart-icon {
   position: relative;
@@ -310,11 +298,15 @@ body {
 /* ========================================
    SIDEBAR (Worker)
    ======================================== */
+/* ========================================
+   SIDEBAR (Worker) - Más grande y hasta arriba
+   ======================================== */
 #sidebar {
   position: fixed;
-  top: 0; left: 0;
-  width: 280px;
-  height: 100vh;
+  top: 0;                  /* ← llega hasta el borde superior */
+  left: 0;
+  width: 300px;            /* ← más ancho (antes 280px) */
+  height: 100vh;           /* ← ocupa toda la altura de la pantalla */
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
@@ -322,15 +314,24 @@ body {
   z-index: 1100;
   transition: transform 0.3s ease;
   transform: translateX(-100%);
+  box-shadow: 4px 0 15px rgba(0,0,0,0.1);   /* sombra más visible */
 }
 
 #sidebar.open { 
   transform: translateX(0); 
 }
 
+/* Quitar espacio superior que pudiera estar dejando */
 #sidebar .logo-container { 
-  margin-bottom: 20px; 
-  display: none; 
+  margin-bottom: 25px; 
+}
+
+/* Ajuste para que no se solape con la topbar */
+@media (min-width: 768px) {
+  #sidebar {
+    top: 0;                  /* se mantiene pegado arriba */
+    height: 100vh;
+  }
 }
 
 #sidebar h2 { 
