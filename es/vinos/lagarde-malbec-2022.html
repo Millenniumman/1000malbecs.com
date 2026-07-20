@@ -91,29 +91,29 @@ body {
     /* Carrito */
 .cart-icon {
   position: relative;
-  font-size: 1.85em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;                    /* espacio entre el emoji y el número */
+  font-size: 1.75em;
   color: #4A2C59;
   text-decoration: none;
 }
 
 .cart-count {
-  position: absolute;
-  top: -8px;
-  right: -8px;
   background: #6B1D49;
   color: white;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  min-width: 24px;
-  height: 24px;
+  min-width: 20px;
+  height: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;           /* importante */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  line-height: 1;
+  padding: 0 6px;              /* para que se vea bien con números de 2 dígitos */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
   border: 2px solid white;
-  padding-top: 1px;         /* ← pequeño ajuste fino para que quede perfecto */
 }
 
 /* ==================== MOBILE ==================== */
@@ -136,10 +136,19 @@ body {
   gap: 15px;
 }
 
-.mobile-header .cart-icon {
-  font-size: 1.7em;
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+  .cart-icon {
+    font-size: 1.65em;
+  }
+  
+  .cart-count {
+    font-size: 13px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+  }
 }
-
 .mobile-header .lang-selector-mobile {
   background: white;
   padding: 6px 10px;
