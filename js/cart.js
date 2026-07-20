@@ -48,7 +48,7 @@ function getLang() {
 
 function updateCartCount() {
   const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-  document.querySelectorAll('.cart-count, #cart-count, #mobile-cart-count').forEach(el => {
+  document.querySelectorAll('.cart-count, #cart-count, #cart-count-mobile').forEach(el => {
     el.textContent = totalItems;
     el.style.display = totalItems > 0 ? 'inline-block' : 'none';
   });
