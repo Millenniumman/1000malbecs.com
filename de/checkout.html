@@ -600,7 +600,9 @@ async function payWithStripeCard() {
         console.error("Error enviando emails:", e);
       }
 
-      alert(`🎉 ¡Gracias ${name.split(" ")[0]}!\n\nTu pedido ha sido procesado correctamente.`);
+      alert(`🎉 ¡Danke ${name.split(" ")[0]}!\n\nnDeine Bestellung wurde erfolgreich bearbeitet.
+
+.`);
 
       setTimeout(() => {
         window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
