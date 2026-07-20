@@ -83,30 +83,34 @@ body {
 }
 
 /* Selector de idiomas más grande */
-.lang-selector-desktop {
+        .language-selector {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1500;
   display: flex;
-  gap: 12px;
-}
-
-.lang-selector-desktop a {
-  color: #666;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 10px 16px;           /* botones más grandes */
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  padding: 6px 12px;
   border-radius: 30px;
-  font-size: 15px;
-  transition: all 0.3s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
-.lang-selector-desktop a.active { 
-  background: var(--primary); 
-  color: white; 
+.language-selector a {
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
 }
 
-.lang-selector-desktop a:hover { 
-  background: #eee; 
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
 }
-/* Carrito */
+    /* Carrito */
 .cart-icon {
   position: relative;
   font-size: 1.85em;
