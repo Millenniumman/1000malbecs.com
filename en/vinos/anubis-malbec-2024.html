@@ -1,17 +1,7 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1068768833');
-</script>
-<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18090475554'); </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Elegant entry wine from Susana Balbo. Fresh and fruity expression of Argentine Malbec">
@@ -21,7 +11,7 @@
   <meta property="og:url" content="https://www.1000malbecs.com/en/vinos/anubis-malbec-2024.html">
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="1000malbecs">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="de_DE">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="1000 Malbecs - Anubis Malbec 2024">
   <meta name="twitter:description" content="Elegant entry wine from Susana Balbo. Fresh and fruity expression of Argentine Malbec">
@@ -34,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-:root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
+ :root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
 
 body { 
   font-family: 'Montserrat', sans-serif; 
@@ -45,19 +35,141 @@ body {
 /* ========================================
    HEADER MOBILE
    ======================================== */
+:root { 
+  --primary: #6B1D49; 
+  --whatsapp: #25D366; 
+  --border: #d4af37; 
+}
+
+body { 
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0; padding: 0; 
+  background: #fdfdfd; color: #333; 
+}
+
+/* ==================== TOPBAR DESKTOP ==================== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: white;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* Contenedor Idiomas + Carrito - MÁS GRANDE */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;                    /* más espacio entre idiomas y carrito */
+  background: #f8f8f8;          /* fondo suave para que se vea más grande */
+  padding: 12px 20px;           /* ← más grande */
+  border-radius: 50px;          /* forma más moderna y amplia */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Selector de idiomas más grande */
+        .language-selector {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.language-selector a {
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4A2C59;
+}
+
+.language-selector a.active {
+  background: #4A2C59 !important;
+  color: white !important;
+}
+    /* Carrito */
+.cart-icon {
+  position: relative;
+  font-size: 1.85em;
+  color: #4A2C59;
+  text-decoration: none;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #e74c3c;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+/* ==================== MOBILE ==================== */
 .mobile-header {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 60px;
+  height: 70px;
   background: white;
-  z-index: 1300;
+  z-index: 1500;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   align-items: center;
-  justify-content: space-between;
   padding: 0 15px;
+  justify-content: space-between;
 }
 
+.mobile-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mobile-header .cart-icon {
+  font-size: 1.7em;
+}
+
+.mobile-header .lang-selector-mobile {
+  background: white;
+  padding: 6px 10px;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 6px;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .mobile-header { display: none !important; }
+  .topbar { display: flex !important; }
+}
+
+@media (max-width: 767px) {
+  .topbar { display: none !important; }
+  .mobile-header { display: flex !important; }
+  .logo { height: 48px !important; }
+}
 .hamburger {
   background: none; border: none; cursor: pointer;
   width: 50px; height: 50px;
@@ -101,13 +213,13 @@ body {
     display: block;                 /* ← Visible en desktop */
   }
   .logo {
-    max-height: 64px;               /* Logo más grande */
+    max-height: 80px;               /* Logo más grande */
   }
   .header {
     padding: 16px 20px;
   }
   body {
-    padding-top: 180px;             /* Espacio para logo + navbar */
+    padding-top: 110px;             /* Espacio para logo + navbar */
   }
 }
 
@@ -165,7 +277,7 @@ body {
   }
 
   .logo {
-    max-height: 64px;           /* ← Logo más grande */
+    max-height: 80px;           /* ← Logo más grande */
   }
 
   .desktop-header {
@@ -180,69 +292,38 @@ body {
 /* ========================================
    SIDEBAR (Worker)
    ======================================== */
+/* ========================================
+   SIDEBAR (Worker) - Más grande y hasta arriba
+   ======================================== */
+/* ========================================
+   SIDEBAR - Pegado completamente arriba (sin margen)
+   ======================================== */
+/* SIDEBAR - Pegado totalmente arriba y por encima de todo */
 #sidebar {
   position: fixed;
-  top: 0; left: 0;
-  width: 280px;
+  top: 0 !important;
+  left: 0;
+  width: 280px;           /* o 300px si quieres más ancho */
   height: 100vh;
   background: #f8f8f8;
   padding: 20px;
   overflow-y: auto;
   border-right: 1px solid #e0e0e0;
-  z-index: 1100;
+  z-index: 1500;          /* ← Más alto que la topbar */
   transition: transform 0.3s ease;
   transform: translateX(-100%);
+  box-shadow: 4px 0 12px rgba(0,0,0,0.15);
+  margin: 0 !important;
+  padding-top: 25px;
 }
 
-#sidebar.open { 
-  transform: translateX(0); 
-}
 
-#sidebar .logo-container { 
-  margin-bottom: 20px; 
-  display: none; 
-}
 
-#sidebar h2 { 
-  font-size: 16px; 
-  font-weight: 600; 
-  color: var(--primary); 
-  margin: 20px 0 10px; 
-  text-transform: uppercase; 
+/* Quitar cualquier espacio superior interno */
+#sidebar > *:first-child {
+  margin-top: 0;
 }
-
-#sidebar ul { 
-  list-style: none; 
-  padding: 0 0 0 10px; 
-  margin: 0; 
-}
-
-#sidebar li { 
-  margin: 6px 0; 
-}
-
-#sidebar .nav-link {
-  font-size: 15px; 
-  color: #333; 
-  text-decoration: none;
-  display: block; 
-  padding: 8px 12px; 
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-#sidebar .nav-link:hover, 
-#sidebar .nav-link.active {
-  background: var(--primary); 
-  color: white;
-}
-
-/* <details> en mobile */
-#sidebar details[open] summary { 
-  color: #5A1D39; 
-}
-
-/* ========================================
+    /* ========================================
    SELECTOR DE IDIOMAS
    ======================================== */
 .lang-selector-desktop {
@@ -284,7 +365,7 @@ body {
    ======================================== */
 .container {
   max-width: 900px;
-  margin: 80px auto 40px;
+  margin: 40px auto 40px;
   padding: 0 20px;
   margin-left: 300px;
 }
@@ -294,7 +375,7 @@ body {
    ======================================== */
 .product { 
   display: flex; gap: 30px; background: white; 
-  padding: 30px; border-radius: 14px; 
+  padding: 0px; border-radius: 14px; 
   box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
 }
 
@@ -407,7 +488,19 @@ body {
   .container { margin-top: 80px; margin-left: 0 !important; padding: 0 15px; }
   #sidebar { top: 60px; }
 }
-
+@media (max-width: 767px) {
+  #sidebar.open .logo-container,
+  #sidebar .logo-container {
+    display: none;
+  }
+  
+  #sidebar {
+    top: 0 !important;
+    padding-top: 80px;        /* espacio para la mobile-header */
+  }
+} { 
+  transform: translateX(0); 
+}
 @media (min-width: 769px) {
   .mobile-header { display: none !important; }
   .desktop-header { display: block !important; }
@@ -418,12 +511,13 @@ body {
    TOPBAR: LOGO GRANDE + IDIOMAS
    ======================================== */
 .topbar {
-  display: none;
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 100px;
   background: white;
-  z-index: 1600;
+  z-index: 1400;           /* ← Más bajo que el sidebar */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -431,19 +525,81 @@ body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-.header {
+/* El sidebar debe "pasar por encima" de la topbar en la zona izquierda */
+#sidebar {
+  z-index: 1500;
+}
+/* Logo sin borde blanco */
+.logo-link {
+  display: block;
+}
+
+.logo {
+  height: 130px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  border: none !important;           /* ← Eliminado borde */
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+/* Contenedor Idiomas + Carrito */
+.topbar-right {
   display: flex;
   align-items: center;
+  gap: 25px;
 }
 
-@media (min-width: 768px) {
-  .logo {
-    height: 120px !important;     /* ← MÁS GRANDE */
-    width: auto;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
-  }
+/* Selector de idiomas */
+.lang-selector-desktop {
+  display: flex;
+  gap: 8px;
 }
 
+.lang-selector-desktop a {
+  color: #666;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.lang-selector-desktop a.active { 
+  background: var(--primary); 
+  color: white; 
+}
+
+.lang-selector-desktop a:hover { 
+  background: #eee; 
+}
+
+/* Carrito */
+.cart-icon {
+  position: relative;
+  font-size: 1.85em;
+  color: #4A2C59;
+  text-decoration: none;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #e74c3c;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
 /* ========================================
    CONTENIDO PRINCIPAL
    ======================================== */
@@ -706,7 +862,7 @@ body {
 }
 
 .region-section {
-  margin-left: 300px !important;
+  margin-left: 320px !important;
   margin-right: 20px;
 }
 
@@ -752,6 +908,16 @@ body {
 </style>
 
 </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18090475554'); </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -813,49 +979,37 @@ body {
     </svg>
   </button>
   
-  <a href="/en/" class="logo-link">
-    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
-  </a>
-
-  <!-- CARRITO MOBILE -->
-  <a href="/en/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.65em; margin-left: auto; padding-right: 15px;">
-    🛒
-    <span id="cart-count" style="position:absolute; top:-7px; right:-6px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
-  </a>
-    <!-- SELECTOR MÓVIL -->
-  <div class="lang-selector-mobile">
-    <a href="/es/vinos/anubis-malbec-2024.html" >ES</a>
-    <a href="/en/vinos/anubis-malbec-2024.html" class="active">EN</a>
-    <a href="/de/vinos/anubis-malbec-2024.html" >DE</a>
+<a href="/en/carrito.html" class="cart-icon">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="21" r="1"></circle>
+    <circle cx="20" cy="21" r="1"></circle>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+  </svg>
+  <span id="cart-count-mobile" class="cart-count">0</span>
+</a>
+    <div class="lang-selector-mobile">
+     <a href="/es/vinos/anubis-malbec-2024.html" >ES</a>
+  <a href="/en/vinos/anubis-malbec-2024.html" class="active">EN</a>
+  <a href="/de/vinos/anubis-malbec-2024.html" >DE</a>
+    </div>
   </div>
 </header>
-
-<!-- ==================== TOPBAR DESKTOP ==================== -->
-<div class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 85px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-
-  <!-- Logo - Izquierda -->
-  <header class="header">
-    <a href="/en/" title="1000 Malbecs">
-      <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+<header>
+  <!-- ==================== TOPBAR DESKTOP ==================== -->
+<header class="desktop-header">
+  <!-- Contenedor: Idiomas + Carrito -->
+    <div class="lang-selector-desktop">
+       <a href="/es/vinos/anubis-malbec-2024.html" >ES</a>
+  <a href="/en/vinos/anubis-malbec-2024.html" class="active">EN</a>
+  <a href="/de/vinos/anubis-malbec-2024.html" >DE</a>
+    <a href="/en/carrito.html" class="cart-icon">
+      🛒
+      <span id="cart-count" class="cart-count">0</span>
     </a>
-  </header>
- <!-- Selector de Idiomas - Centro -->
-  <div class="lang-selector-desktop" style="position: absolute; left: 50%; transform: translateX(-50%);">
-    <a href="/es/vinos/anubis-malbec-2024.html">ES</a>
-    <a href="/en/vinos/anubis-malbec-2024.html" class="active">EN</a>
-    <a href="/de/vinos/anubis-malbec-2024.html">DE</a>
-  </div>
-    <!-- Carrito - Derecha -->
-  <a href="/en/carrito.html" style="position: relative; text-decoration: none; color: #4A2C59; font-size: 1.8em; margin-left: auto;">
-    🛒
-    <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#e74c3c; color:white; font-size:12px; font-weight:bold; min-width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1;">0</span>
-  </a>
-
-
-
   </div>
 </div>
-
+</header>
+  <main>
   <!-- CONTENIDO -->
   <div class="container">
     <div class="product">
@@ -1155,7 +1309,7 @@ Pairing...
     </div>
   </div>
 </div>
-
+</main>
         <!-- 1. Primero el sidebar -->
   <script>
     const hamburger = document.querySelector('.hamburger');
