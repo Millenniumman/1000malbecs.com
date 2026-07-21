@@ -177,11 +177,11 @@ body {
    LANGUAGE SELECTOR
    ======================================== */
 .lang-selector-desktop {
+  display: none; /* shown only at >=768px, see media query below */
   position: fixed;
   top: 35px;
   right: 130px; /* leaves room for the cart icon in .topbar-right */
   z-index: calc(var(--z-header) + 1);
-  display: flex;
   gap: 8px;
 }
 
@@ -570,6 +570,7 @@ body {
 @media (max-width: 767px) {
   .container { margin-top: 80px; }
 }
+
 
 </style>
 
