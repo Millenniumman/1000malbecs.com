@@ -87,29 +87,37 @@ body {
    MOBILE HEADER
    ======================================== */
 .mobile-header {
-  display: flex; /* hidden at >=768px below */
+  display: grid; /* hidden at >=768px below */
+  grid-template-columns: auto 1fr auto; /* hamburger | logo | cart */
+  align-items: center;
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 70px;
   background: white;
   z-index: var(--z-mobile-header);
-  align-items: center;
-  justify-content: space-between;
   padding: 0 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+.mobile-header .hamburger { justify-self: start; }
+.mobile-header .logo-link { justify-self: center; }
 
 .mobile-right {
   display: flex;
   align-items: center;
   gap: 15px;
+  justify-self: end;
 }
 
 .mobile-header .cart-icon { font-size: 1.7em; }
 
+/* Sits centered directly below the logo, outside the flex row above */
 .mobile-header .lang-selector-mobile {
-  position: static;
-  transform: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 6px;
   background: white;
   padding: 6px 10px;
   border-radius: 30px;
