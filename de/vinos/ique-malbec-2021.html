@@ -27,39 +27,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
- :root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
+:root { --primary: #6B1D49; --whatsapp: #25D366; --border: #d4af37; }
 
 body { 
   font-family: 'Montserrat', sans-serif; 
   margin: 0; padding: 0; 
   background: #fdfdfd; color: #333; 
 }
-/* ==================== TOPBAR DESKTOP ==================== */
-.topbar {
-  position: fixed;
-  top: 0; 
-  left: 0; 
-  right: 0;
-  height: 85px;                    /* ← Reducido para que no sea tan alta */
-  background: white;
-  z-index: 1400;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;       /* ← Todo a la derecha */
-  padding: 0 30px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-}
 
-/* Contenedor Idiomas + Carrito */
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  background: #f8f8f8;
-  padding: 10px 22px;              /* ← Más compacto */
-  border-radius: 50px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
 /* ========================================
    HEADER MOBILE
    ======================================== */
@@ -75,8 +50,30 @@ body {
   background: #fdfdfd; color: #333; 
 }
 
+/* ==================== TOPBAR DESKTOP ==================== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: white;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
 
-
+/* Contenedor Idiomas + Carrito - MÁS GRANDE */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;                    /* más espacio entre idiomas y carrito */
+  background: #f8f8f8;          /* fondo suave para que se vea más grande */
+  padding: 12px 20px;           /* ← más grande */
+  border-radius: 50px;          /* forma más moderna y amplia */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 
 /* Selector de idiomas más grande */
         .language-selector {
@@ -168,6 +165,11 @@ body {
   font-size: 13px;
 }
 
+/* Responsive */
+@media (min-width: 768px) {
+  .mobile-header { display: none !important; }
+  .topbar { display: flex !important; }
+}
 
 @media (max-width: 767px) {
   .topbar { display: none !important; }
@@ -205,7 +207,7 @@ body {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 1450;
+  z-index: 1400;
   background: white;
   padding: 18px 24px;
   border-radius: 12px;
@@ -267,7 +269,7 @@ body {
   right: 0;
   width: 100%;
   background: white;
-  z-index: 1400;
+  z-index: 1300;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 12px 0;
 }
@@ -313,7 +315,7 @@ body {
   padding: 20px;
   overflow-y: auto;
   border-right: 1px solid #e0e0e0;
-  z-index: 1600;          /* ← Más alto que la topbar */
+  z-index: 1500;          /* ← Más alto que la topbar */
   transition: transform 0.3s ease;
   transform: translateX(-100%);
   box-shadow: 4px 0 12px rgba(0,0,0,0.15);
@@ -511,7 +513,23 @@ body {
   #sidebar { transform: translateX(0) !important; }
   .container { margin-left: 300px; }
 }
-
+/* ========================================
+   TOPBAR: LOGO GRANDE + IDIOMAS
+   ======================================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: white;
+  z-index: 1400;           /* ← Más bajo que el sidebar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
 
 /* El sidebar debe "pasar por encima" de la topbar en la zona izquierda */
 #sidebar {
@@ -532,6 +550,12 @@ body {
   margin: 0;
 }
 
+/* Contenedor Idiomas + Carrito */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
 
 /* Selector de idiomas */
 .lang-selector-desktop {
@@ -589,7 +613,7 @@ body {
    CONTENIDO PRINCIPAL
    ======================================== */
 .main-content {
-  margin-top: 70px;     /* ← Debajo de topbar */
+  margin-top: 50px;     /* ← Debajo de topbar */
   padding: 0 30px;
 }
 
@@ -632,7 +656,13 @@ body {
   text-align: left;
 }
 
-
+/* ========================================
+   DESKTOP: ACTIVAR
+   ======================================== */
+@media (min-width: 768px) {
+  .topbar {
+    display: flex !important;
+  }
 
   /* Empujar Worker navbar */
   nav, .navbar, [class*="nav"], header:not(.header) {
@@ -898,7 +928,6 @@ body {
   border: 2px solid white;
   padding-top: 1px;         /* ← pequeño ajuste fino para que quede perfecto */
 }
-
 </style>
 
 </style>
