@@ -31,7 +31,32 @@ body {
   margin: 0; padding: 0; 
   background: #fdfdfd; color: #333; 
 }
+/* ==================== TOPBAR DESKTOP ==================== */
+.topbar {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0;
+  height: 85px;                    /* ← Reducido para que no sea tan alta */
+  background: white;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;       /* ← Todo a la derecha */
+  padding: 0 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
 
+/* Contenedor Idiomas + Carrito */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: #f8f8f8;
+  padding: 10px 22px;              /* ← Más compacto */
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 /* ========================================
    HEADER MOBILE
    ======================================== */
@@ -870,32 +895,7 @@ body {
   border: 2px solid white;
   padding-top: 1px;         /* ← pequeño ajuste fino para que quede perfecto */
 }
-/* ==================== TOPBAR DESKTOP ==================== */
-.topbar {
-  position: fixed;
-  top: 0; 
-  left: 0; 
-  right: 0;
-  height: 85px;                    /* ← Reducido para que no sea tan alta */
-  background: white;
-  z-index: 1400;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;       /* ← Todo a la derecha */
-  padding: 0 30px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-}
 
-/* Contenedor Idiomas + Carrito */
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  background: #f8f8f8;
-  padding: 10px 22px;              /* ← Más compacto */
-  border-radius: 50px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
 </style>
 
 </style>
