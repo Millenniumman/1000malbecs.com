@@ -204,6 +204,7 @@ bodegas = [
 { name: "San Telmo", slug: "san-telmo" },
 { name: "Susana Balbo", slug: "susana-balbo" },
 { name: "Trapiche", slug: "trapiche" },
+{ name: "Vinos de Potrero", slug: "vinos-de-potrero" },
 { name: "Viña Alicia", slug: "vina-alicia" },
 { name: "Viña Cobos", slug: "vina-cobos" },
 { name: "Weinert Bodega y Cavas", slug: "weinert-bodega-y-cavas" }
