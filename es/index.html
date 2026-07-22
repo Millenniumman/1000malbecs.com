@@ -653,8 +653,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="/js/cart.js"></script>   <!-- ← Debe estar ANTES de cualquier otro script que use carrito -->
 
 <script>
-    // Hamburger menu
-    document.querySelector('.hamburger').addEventListener('click', function() { document.getElementById('sidebar').classList.toggle('open'); });
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.getElementById('sidebar');
+
+// Toggle con un solo clic
+hamburger.addEventListener('click', function() {
+  const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+  
+  if (isOpen) {
+    closeSidebar();
+  } else {
+    openSidebar();
+  }
+});
+
+// Cerrar al hacer clic fuera del sidebar
+document.addEventListener('click', function(e) {
+  if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+    closeSidebar();
+  }
+});
+
+// Cerrar con doble clic en el botón hamburguesa
+hamburger.addEventListener('dblclick', function() {
+  closeSidebar();
+});
+
+// Funciones auxiliares
+function openSidebar() {
+  sidebar.classList.add('open');
+  hamburger.setAttribute('aria-expanded', 'true');
+}
+
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+}
 
     // Banner carousel
     let currentBanner = 0;
