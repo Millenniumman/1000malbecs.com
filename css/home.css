@@ -197,7 +197,7 @@ body {
   position: fixed;
   top: 0 !important;
   left: 0;
-  var(--sidebar-width);
+  width: var(--sidebar-width);
   height: 100vh;
   background: #f8f8f8;
   padding: 20px;
