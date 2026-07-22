@@ -189,21 +189,33 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+
 /* ========================================
    SIDEBAR
    ======================================== */
 #sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background-color: #F8F8F8;
+  background: #f8f8f8;
   padding: 20px;
-  position: fixed;
-  top: 0; left: 0;
+  padding-top: 80px; /* clears mobile-header by default */
   overflow-y: auto;
-  border-right: 1px solid #E0E0E0;
+  border-right: 1px solid #e0e0e0;
   z-index: var(--z-sidebar);
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
   transform: translateX(-100%); /* hidden by default (mobile) */
+}
+
+#sidebar > *:first-child { margin-top: 0; }
+
+#sidebar.open { transform: translateX(0); }
+
+@media (max-width: 767px) {
+  #sidebar .logo-container { display: none; }
 }
 
 #sidebar h2 {
