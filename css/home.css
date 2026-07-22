@@ -195,24 +195,27 @@ body {
    ======================================== */
 #sidebar {
   position: fixed;
-  top: 0;
+  top: 0 !important;
   left: 0;
-  width: var(--sidebar-width);
+  width: 280px;
   height: 100vh;
   background: #f8f8f8;
   padding: 20px;
-  padding-top: 80px; /* clears mobile-header by default */
   overflow-y: auto;
   border-right: 1px solid #e0e0e0;
-  z-index: var(--z-sidebar);
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  z-index: 1700 !important;           /* ← Más alto que todo */
   transition: transform 0.3s ease;
-  transform: translateX(-100%); /* hidden by default (mobile) */
+  transform: translateX(-100%);
+  box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+}
+
+/* Cuando está abierto */
+#sidebar.open {
+  transform: translateX(0);
 }
 
 #sidebar > *:first-child { margin-top: 0; }
 
-#sidebar.open { transform: translateX(0); }
 
 @media (max-width: 767px) {
   #sidebar .logo-container { display: none; }
