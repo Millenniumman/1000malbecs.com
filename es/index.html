@@ -56,49 +56,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDT7QWLQ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
 <!-- ==================== HEADER MOBILE ==================== -->
 <header class="mobile-header">
   <button class="hamburger" aria-label="Menu" aria-expanded="false">
     <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
-      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
-      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5"/>
     </svg>
   </button>
-  
-  <a href="/es/" class="logo-link">
+
+  <a href="/{{ lang }}/" class="logo-link">
     <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
   </a>
 
   <div class="mobile-right">
-    <a href="/es/carrito.html" class="cart-icon">
-      🛒
-      <span id="cart-count" style="margin-left: 4px; background:#e74c3c; color:white; font-size:11px; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
+    <a href="/{{ lang }}/carrito.html" class="cart-icon">
+      ðŸ›’
+      <span class="cart-count">0</span>
     </a>
     <div class="lang-selector-mobile">
-      <a aria-label="Spanisch" class="active" data-lang="es" href="/es/index.html">ES</a>
-    <a aria-label="Deutsch"  data-lang="de" href="/de/index.html">DE</a>
-    <a aria-label="Englisch"  data-lang="en" href="/en/index.html">EN</a>
+      <a href="/es/vinos/1300-malbec-magnum-2024.html" class="{{ 'active' if lang == 'es' }}">ES</a>
+      <a href="/en/vinos/1300-malbec-magnum-2024.html" class="{{ 'active' if lang == 'en' }}">EN</a>
+      <a href="/de/vinos/1300-malbec-magnum-2024.html" class="{{ 'active' if lang == 'de' }}">DE</a>
     </div>
   </div>
 </header>
-  
 
-<header>
+<!-- ==================== DESKTOP LOGO (floating, centered over sidebar) ==================== -->
+<header class="header">
+  <a href="/{{ lang }}/" class="logo-link">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo">
+  </a>
+</header>
+
 <!-- ==================== TOPBAR DESKTOP ==================== -->
-   <div class="topbar-right">
-    <div class="lang-selector">
-      <a aria-label="Spanisch" class="active" data-lang="es" href="/es/index.html">ES</a>
-    <a aria-label="Deutsch"  data-lang="de" href="/de/index.html">DE</a>
-    <a aria-label="Englisch"  data-lang="en" href="/en/index.html">EN</a>
-    <a href="/es/carrito.html" class="cart-icon">
-      🛒
-      <span id="cart-count" style="margin-left: 4px;font-size:11px; background:#e74c3c; color:white; font-weight:bold; padding: 2px 6px; border-radius:50%;">0</span>
+<header class="topbar">
+  <div class="topbar-right">
+    <div class="lang-selector-desktop">
+      <a href="/es/vinos/1300-malbec-magnum-2024.html" class="{{ 'active' if lang == 'es' }}">ES</a>
+      <a href="/en/vinos/1300-malbec-magnum-2024.html" class="{{ 'active' if lang == 'en' }}">EN</a>
+      <a href="/de/vinos/1300-malbec-magnum-2024.html" class="{{ 'active' if lang == 'de' }}">DE</a>
+    </div>
+    <a href="/{{ lang }}/carrito.html" class="cart-icon">
+      ðŸ›’
+      <span class="cart-count">0</span>
     </a>
   </div>
-</div>
-
 </header>
 <main>
     <div class="banner-carousel">
