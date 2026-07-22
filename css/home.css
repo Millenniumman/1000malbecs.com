@@ -40,19 +40,8 @@ body {
   gap: 25px;
 }
 
-/* Logo box, centered over the sidebar's width on desktop */
-.header {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: calc(var(--sidebar-width) / 2);
-  transform: translateX(-50%);
-  z-index: var(--z-header);
-  background: white;
-  padding: 16px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-}
+/* Desktop logo: injected by default into the sidebar by the worker,
+   using the shared .logo class below — no separate box needed here. */
 
 .logo-link { display: block; }
 
@@ -113,7 +102,7 @@ body {
   font-size: 13px;
 }
 
-.lang-selector-mobile a { color: var(--primary); text-decoration: none; }
+.lang-selector-mobile a { font-family: 'Montserrat', sans-serif; color: var(--primary); text-decoration: none; }
 .lang-selector-mobile a.active { font-weight: 700; }
 
 /* ========================================
@@ -134,6 +123,7 @@ body {
 }
 
 .lang-selector-desktop a {
+  font-family: 'Montserrat', sans-serif; /* guards against an icon font (e.g. Font Awesome) leaking in */
   color: var(--primary);
   text-decoration: none;
   font-weight: 600;
@@ -696,7 +686,6 @@ main h1 { font-size: 24px; color: var(--primary); margin-bottom: 20px; }
 
   .mobile-header { display: none; }
   .topbar { display: flex; }
-  .header { display: block; }
   .lang-selector-desktop { display: flex; }
   .lang-selector-mobile { display: none; }
 
@@ -717,9 +706,8 @@ main h1 { font-size: 24px; color: var(--primary); margin-bottom: 20px; }
   body { display: block; }
 
   #sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #E0E0E0;
+    width: 85%;
+    max-width: 320px;
     padding-top: 80px; /* clears the 70px mobile-header */
     padding-bottom: 20px;
     box-sizing: border-box;
