@@ -30,6 +30,8 @@ Podés ver todos sus vinos aquí:
 
  ### Los vinos de Vinos de Potrero
 
+### Los vinos de Vinos de Potrero
+
 <div class="product-grid">
 
   <div class="product-card">
@@ -37,8 +39,10 @@ Podés ver todos sus vinos aquí:
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vinos de Potrero</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
       <p><strong>Altura:</strong> 1350 msnm</p>
-      <p>Blend ícono de Gualtallary.</p>
+      <p><strong>Descripción:</strong> Blend ícono (85% Malbec + 15% Cabernet Franc) de Gualtallary. 18 meses en roble francés. Complejo y elegante.</p>
     </div>
     <h3>El Debut 2022</h3>
     <div class="price-container">
@@ -53,8 +57,10 @@ Podés ver todos sus vinos aquí:
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vinos de Potrero</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
       <p><strong>Altura:</strong> 1350 msnm</p>
-      <p>Malbec con pureza y complejidad.</p>
+      <p><strong>Descripción:</strong> Malbec con pureza, elegancia y reflejo de terroir. De Gualtallary.</p>
     </div>
     <h3>Gran Potrero 2023</h3>
     <div class="price-container">
@@ -69,8 +75,10 @@ Podés ver todos sus vinos aquí:
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vinos de Potrero</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
       <p><strong>Altura:</strong> 1350 msnm</p>
-      <p>Reserva con crianza en roble.</p>
+      <p><strong>Descripción:</strong> Expresión del Malbec de Gualtallary con 12 meses en roble francés nuevo.</p>
     </div>
     <h3>Potrero Reserva 2024</h3>
     <div class="price-container">
@@ -85,8 +93,10 @@ Podés ver todos sus vinos aquí:
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vinos de Potrero</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
       <p><strong>Altura:</strong> 1350 msnm</p>
-      <p>Expresión pura del Malbec de Gualtallary.</p>
+      <p><strong>Descripción:</strong> La mayor expresión del Malbec de Gualtallary. Pureza de fruta y mineralidad.</p>
     </div>
     <h3>Potrero 2024</h3>
     <div class="price-container">
@@ -97,7 +107,6 @@ Podés ver todos sus vinos aquí:
   </div>
 
 </div>
-
 ---
 
 ## Polo, Malbec y La Dolfina
@@ -110,16 +119,19 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
 
 ### La Dolfina Wines – Vignes des Andes
 
-<div class="-product-grid">
+### La Dolfina Wines – Vignes des Andes
+
+<div class="product-grid">
 
   <div class="product-card">
     <img src="/images/small/la-dolfina-rose-2024.jpg" alt="La Dolfina Rosé 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vignes des Andes</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> Alto Agrelo</p>
       <p><strong>Altura:</strong> 1050 msnm</p>
-      <p>Rosé premium de la línea La Dolfina.</p>
+      <p><strong>Descripción:</strong> Rosé premium de la línea La Dolfina. Fresco y aromático con notas de fresas y flores.</p>
     </div>
     <h3>La Dolfina Rosé 2024</h3>
     <div class="price-container">
@@ -134,9 +146,10 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vignes des Andes</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> Alto Agrelo</p>
       <p><strong>Altura:</strong> 1050 msnm</p>
-      <p>Blend de alta gama.</p>
+      <p><strong>Descripción:</strong> Blend de alta gama. Fruta madura, especias y notas de roble.</p>
     </div>
     <h3>La Dolfina Blend Grand Reserve 2021</h3>
     <div class="price-container">
@@ -151,9 +164,10 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vignes des Andes</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> Alto Agrelo</p>
       <p><strong>Altura:</strong> 1050 msnm</p>
-      <p>Malbec Reserve.</p>
+      <p><strong>Descripción:</strong> Malbec Reserve. Aromas de ciruela, cassis y chocolate.</p>
     </div>
     <h3>La Dolfina Reserve Malbec 2020</h3>
     <div class="price-container">
@@ -168,9 +182,10 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     <div class="info-icon">🍷</div>
     <div class="overlay">
       <p><strong>Bodega:</strong> Vignes des Andes</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
       <p><strong>Región:</strong> Alto Agrelo</p>
       <p><strong>Altura:</strong> 1050 msnm</p>
-      <p>Malbec insignia de la línea.</p>
+      <p><strong>Descripción:</strong> Malbec insignia de la línea La Dolfina.</p>
     </div>
     <h3>La Dolfina Malbec 2021</h3>
     <div class="price-container">
