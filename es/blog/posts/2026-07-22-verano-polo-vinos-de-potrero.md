@@ -28,10 +28,6 @@ Podés ver todos sus vinos aquí:
 
 ### Los vinos de Vinos de Potrero
 
- ### Los vinos de Vinos de Potrero
-
-### Los vinos de Vinos de Potrero
-
 <div class="product-grid">
 
   <div class="product-card">
@@ -119,8 +115,6 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
 
 ### La Dolfina Wines – Vignes des Andes
 
-### La Dolfina Wines – Vignes des Andes
-
 <div class="product-grid">
 
   <div class="product-card">
@@ -135,7 +129,7 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     </div>
     <h3>La Dolfina Rosé 2024</h3>
     <div class="price-container">
-      <div class="price-main">€32,80</div>
+      <div class="price-main">€20.66</div>
       <div class="price-per-liter">43,73 €/L</div>
     </div>
     <a href="/es/vinos/la-dolfina-rose-2024.html" class="buy-button">Comprar</a>
@@ -153,8 +147,8 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     </div>
     <h3>La Dolfina Blend Grand Reserve 2021</h3>
     <div class="price-container">
-      <div class="price-main">€17,50</div>
-      <div class="price-per-liter">23,33 €/L</div>
+      <div class="price-main">€32.8</div>
+      <div class="price-per-liter">43.74 €/L</div>
     </div>
     <a href="/es/vinos/la-dolfina-blend-grand-reserve-2021.html" class="buy-button">Comprar</a>
   </div>
@@ -171,8 +165,8 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     </div>
     <h3>La Dolfina Reserve Malbec 2020</h3>
     <div class="price-container">
-      <div class="price-main">€17,50</div>
-      <div class="price-per-liter">23,33 €/L</div>
+      <div class="price-main">€24.5</div>
+      <div class="price-per-liter">32.66 €/L</div>
     </div>
     <a href="/es/vinos/la-dolfina-reserve-malbec-2020.html" class="buy-button">Comprar</a>
   </div>
@@ -189,8 +183,8 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     </div>
     <h3>La Dolfina Malbec 2021</h3>
     <div class="price-container">
-      <div class="price-main">€15,50</div>
-      <div class="price-per-liter">20,67 €/L</div>
+      <div class="price-main">€17,50</div>
+      <div class="price-per-liter">23,33 €/L</div>
     </div>
     <a href="/es/vinos/la-dolfina-malbec-2021.html" class="buy-button">Comprar</a>
   </div>
