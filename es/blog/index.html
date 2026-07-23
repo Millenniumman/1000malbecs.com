@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detrás de un gran vino, siempre hay una historia extraordinaria y las vamos a contar">
-    <meta property="og:title" content="1000 Historias - El Blog de 1000 Malbecs">
-    <meta property="og:description" content="Detrás de un gran vino, siempre hay una historia extraordinaria y las vamos a contar">
+    <meta name="description" content="Hinter einem großartigen Wein steht immer eine außergewöhnliche Geschichte, und wir werden sie erzählen">
+    <meta property="og:title" content="1000 Geschichten - Der 1000 Malbecs Blog">
+    <meta property="og:description" content="Hinter einem großartigen Wein steht immer eine außergewöhnliche Geschichte, und wir werden sie erzählen">
     <meta property="og:image" content="https://www.1000malbecs.com/images/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://www.1000malbecs.com/es/blog.html">
+    <meta property="og:url" content="https://www.1000malbecs.com/de/blog.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="1000 Historias - El Blog de 1000 Malbecs">
-    <meta name="twitter:description" content="Detrás de un gran vino, siempre hay una historia extraordinaria y las vamos a contar">
+    <meta name="twitter:title" content="1000 Geschichten - Der 1000 Malbecs Blog">
+    <meta name="twitter:description" content="Hinter einem großartigen Wein steht immer eine außergewöhnliche Geschichte, und wir werden sie erzählen">
     <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
-    <link rel="canonical" href="https://www.1000malbecs.com/es/blog.html">
+    <link rel="canonical" href="https://www.1000malbecs.com/de/blog.html">
     <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog.html">
     <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog.html">
     <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog.html">
@@ -167,10 +167,32 @@
             text-transform: uppercase;
             text-align: left;
         }
+        #sidebar details {
+            margin-bottom: 15px;
+        }
+        #sidebar details:first-of-type {
+            margin-bottom: 25px;
+        }
+        #sidebar summary {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4A2C59;
+            cursor: pointer;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        #sidebar summary i {
+            margin-right: 10px;
+            color: #4A2C59;
+        }
         #sidebar ul {
             list-style: none;
             padding: 0 0 0 20px;
             margin: 10px 0;
+        }
+        #sidebar li {
+            margin: 5px 0;
         }
         .nav-link {
             font-size: 14px;
@@ -228,7 +250,7 @@
                 color: #FFFFFF;
             }
             .language-selector a.active {
-                background-color: #4A2C59;
+                backgroundാണ്: #4A2C59;
                 color: #FFFFFF;
             }
             .header {
@@ -257,7 +279,7 @@
                 z-index: 110;
             }
             .hamburger:hover {
-                color: #5-European
+                color: #5A1D39;
             }
             #sidebar {
                 display: none !important;
@@ -314,91 +336,59 @@
 </head>
 <body>
     <div class="language-selector">
-        <a href="/es/blog.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
+        <a href="/es/blog.html" data-lang="es" aria-label="Español" class="">ES 🇪🇸</a>
         <a href="/en/blog.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
-        <a href="/de/blog.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
+        <a href="/de/blog.html" data-lang="de" aria-label="Deutsch" class="active">DE 🇩🇪</a>
     </div>
     <div class="header">
-        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
+        <a href="https://1000malbecs.com/de"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
     </div>
     <button class="hamburger"><i class="fas fa-bars"></i></button>
+    <aside id="sidebar">
+        <div class="logo-container">
+            <a href="/de/"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo"></a>
+        </div>
+        <h2>Menu</h2>
+        <details open>
+            <summary><i class="fas fa-wine-bottle"></i> Wines</summary>
+            <ul>
+                <li><a class="nav-link" href="/de/vinos.html">All Wines</a></li>
+            </ul>
+        </details>
+        <details open>
+            <summary><i class="fas fa-map"></i> Regions</summary>
+            <ul>
+                <li><a class="nav-link" href="/de/provincias/mendoza.html">Mendoza</a></li>
+                <li><a class="nav-link" href="/de/provincias/salta.html">Salta</a></li>
+                <li><a class="nav-link" href="/de/provincias/la-rioja.html">La Rioja</a></li>
+                <li><a class="nav-link" href="/de/provincias/neuquen.html">Neuquén</a></li>
+            </ul>
+        </details>
+        <details open>
+            <summary><i class="fas fa-glass-cheers"></i> Wineries</summary>
+            <ul>
+                <li><a class="nav-link" href="/de/bodegas/bodega-foster-lorca.html">Bodega Foster Lorca</a></li>
+                <li><a class="nav-link" href="/de/bodegas/bodegas-bianchi.html">Bodegas Bianchi</a></li>
+                <li><a class="nav-link" href="/de/bodegas/luigi-bosca.html">Luigi Bosca</a></li>
+                <li><a class="nav-link" href="/de/bodegas/bodega-tukma.html">Bodega Tukma</a></li>
+                <li><a class="nav-link" href="/de/bodegas/bemberg-estate-wines.html">Bemberg Estate Wines</a></li>
+                <li><a class="nav-link" href="/de/bodegas/agustin-lanus.html">Agustín Lanús</a></li>
+                <li><a class="nav-link" href="/de/bodegas/rutini-wines.html">Rutini Wines</a></li>
+                <li><a class="nav-link" href="/de/bodegas/finca-las-moras.html">Finca Las Moras</a></li>
+            </ul>
+        </details>
+        <details open>
+            <summary><i class="fas fa-calendar-alt"></i> Events</summary>
+            <ul>
+                <li><a class="nav-link" href="/de/eventos/eventos.html">Events</a></li>
+            </ul>
+        </details>
+    </aside>
     <main>
         <div class="main-content">
-            <h1>1000 Historias - El Blog de 1000 Malbecs</h1>
-            <div class="post-list">
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/malbec_world_day.html">Celebrando el Malbec World Day en el Consulado Argentino de Frankfurt</a></h2>
-                    <p class="post-date">2026-04-23</p>
-                    <p class="post-excerpt">Malbec World Day en Frankfurt: velada en el Consulado Argentino junto a diplomáticos y amigos. Cinco Malbecs excepcionales y nota en la prensa alemana. <a href="/es/blog/posts/malbec_world_day.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/canciones-de-amor-despues-del-carnaval.html">Canciones de amor después del carnaval</a></h2>
-                    <p class="post-date">2026-02-23</p>
-                    <p class="post-excerpt">Después de la fiesta de carnaval y San Valentín, el espacio para recordar vuelve. Una canción de The Cure, amores a distancia y la magia de los Malbecs: cómo vinos y música nos devuelven momentos inolvidables. <a href="/es/blog/posts/canciones-de-amor-despues-del-carnaval.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/la-fuerza.html">La Fuerza del invierno - Aires de Primavera</a></h2>
-                    <p class="post-date">2026-02-12</p>
-                    <p class="post-excerpt">La Fuerza no es solo un vermut: es una declaración de identidad. Aromas mediterráneos con alma de Buenos Aires. Perfecto para compartir o disfrutar solo. Consejos de consumo y maridajes irresistibles. <a href="/es/blog/posts/la-fuerza.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/san valentin.html">¿Existe el amor? Ideas para un San Valentín inolvidable con Malbec</a></h2>
-                    <p class="post-date">2026-02-10</p>
-                    <p class="post-excerpt">Si estás solo este 14 de febrero, un Malbec puede ser tu mejor cita. Restaurantes recomendados con cartas de 1000malbecs.com y tips para compartir vino. Amor, aromas y sabores que conquistan. <a href="/es/blog/posts/san valentin.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/Dieter-Meier.html">Por qué Dieter Meier está en Argentina y yo no?</a></h2>
-                    <p class="post-date">2026-01-29</p>
-                    <p class="post-excerpt">Dieter Meier eligió Mendoza para su bodega Ojo de Agua, mientras yo estoy en Alemania. ¿Por qué? Una historia de emociones, Malbec y recuerdos a través de 1000malbecs. <a href="/es/blog/posts/Dieter-Meier.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/sumate-a-la-revolucion.html">Sumate a la Revolución del Malbec</a></h2>
-                    <p class="post-date">2025-10-16</p>
-                    <p class="post-excerpt">Unite a la revolución del Malbec argentino en Alemania con nuestro Discovery Pack de 3 vinos únicos por EUR 38,99 con envío gratis. <a href="/es/blog/posts/sumate-a-la-revolucion.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/la-revolucion-del-malbec.html">La Revolución del Malbec</a></h2>
-                    <p class="post-date">2025-10-09</p>
-                    <p class="post-excerpt">Únete a la revolución del Malbec argentino en Alemania con nuestro Combo Descubrimiento de 3 vinos únicos por EUR 38.99 con envío gratis. <a href="/es/blog/posts/la-revolucion-del-malbec.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/3-de-octubre.html">3 de Octubre del 89 – Cae el muro</a></h2>
-                    <p class="post-date">2025-10-03</p>
-                    <p class="post-excerpt">Descubre cómo los vinos argentinos han evolucionado desde la caída del Muro de Berlín y prueba nuestro Combo Discovery con 3 vinos únicos por EUR 38.99 con envío gratis. <a href="/es/blog/posts/3-de-octubre.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/viajar no cuesta nada.html">Viajar no cuesta nada</a></h2>
-                    <p class="post-date">2025-09-25</p>
-                    <p class="post-excerpt">Descubre cómo viajar sin moverte de casa con los sabores del Malbec argentino. ¡Aprovecha nuestra oferta especial de 3 vinos icónicos por EUR 38.99 con envío gratis! <a href="/es/blog/posts/viajar no cuesta nada.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/polo y malbec.html">Polo y Malbec</a></h2>
-                    <p class="post-date">2025-09-18</p>
-                    <p class="post-excerpt">Soy de los que extrañan. Al punto de terminar creando 1000malbecs.com, una tienda online en Alemania para vender vinos argentinos. No me culpen, es lo que soy. ¿Cuándo me di cuenta que era de extrañar? Supongo que cuando era chiquito y mis padres se vinieron de viaje a este país. Ya de más grande, cuando me mudé por trabajo a Boston y, si bien tenía la compañía de mis compañeros de trabajo, estaba más solo que un hongo. &lt;!DOCTYPE html&gt; <a href="/es/blog/posts/polo y malbec.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/de paseo por espana.html">De paseo por España</a></h2>
-                    <p class="post-date">2025-09-10</p>
-                    <p class="post-excerpt">Visitando amigos y probando vinos Me gusta viajar. Creo que soy un sujeto viajado que ya recorrió al menos 3 continentes y varios países más. De hecho, si bien tengo pasaporte alemán, nací y me crié en Argentina y no soy más que un extranjero en la tierra de Goethe. Por supuesto, también me gusta visitar amigos y tomar vinos. ¡A eso nos dedicamos en este lugar! <a href="/es/blog/posts/de paseo por espana.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                
-                <div class="post-preview">
-                    <h2><a href="/es/blog/posts/De_Francia_a_Argentina.html">De Francia a Argentina y de regreso a Alemania</a></h2>
-                    <p class="post-date">2025-09-01</p>
-                    <p class="post-excerpt">De Francia a Argentina y de regreso a Alemania La historia del Malbec en Argentina es una notable que merece ser contada. Originaria de la región de Cahors, en el sudoeste francés, a mediados del siglo XIX llega a Argentina de la mano de Michel Aimé Pouget, un botánico francés contratado por el entonces presidente Domingo Faustino Sarmiento para desarrollar la vitivinicultura en la región cuyana, de la que el mismo Sarmiento provenía. <a href="/es/blog/posts/De_Francia_a_Argentina.html" class="read-more">(...) Leer más</a></p>
-                </div>
-                </div>
-            <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
+            <h1>1000 Geschichten - Der 1000 Malbecs Blog</h1>
+            <div class="post-list"></div>
+            <a href="https://1000malbecs.com/de" class="back-link">Zurück zur Startseite</a>
         </div>
     </main>
 </body>
