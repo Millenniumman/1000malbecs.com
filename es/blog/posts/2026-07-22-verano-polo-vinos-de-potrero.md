@@ -28,37 +28,131 @@ Podés ver todos sus vinos aquí:
 
 ### Los vinos de Vinos de Potrero
 
-<div class="grid">
+ <div class="product-grid">
+         
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/el-debut-2022.jpg" alt="El Debut 2022"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> El Debut 2022</p>
+      <p><strong>Provincia:</strong> nan</p>
+      <p><strong>Región:</strong> nan</p>
+      <p><strong>Altura:</strong> 1350 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> El Debut 2023 es el vino ícono de Vinos de Potrero, un blend de 85% Malbec y 15% Cabernet Franc nacido en los vi...</p>
+      
+      
+      
+    </div>
+    <h3>El Debut 2022</h3>
 
-<div class="card">
-  <h4>El Debut 2022</h4>
-  <p><strong>€30,99</strong> / botella (0,75 L)</p>
-  <p>Blend ícono (85% Malbec + 15% Cabernet Franc) de Gualtallary. 18 meses en roble francés. Complejo, elegante y con gran potencial de guarda.</p>
-  <a href="/es/vinos/el-debut-2022.html">Comprar</a>
-</div>
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">30,99 €</div>
+      <div class="price-per-liter">41,32 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
 
-<div class="card">
-  <h4>Gran Potrero 2023</h4>
-  <p><strong>€22,99</strong> / botella (0,75 L)</p>
-  <p>Malbec con pureza, elegancia, complejidad y reflejo de terroir. De Gualtallary, 1350 msnm.</p>
-  <a href="/es/vinos/gran-potrero-2023.html">Comprar</a>
-</div>
+   <a href="/es/vinos/el-debut-2022.html" class="buy-button">Comprar</a>
 
-<div class="card">
-  <h4>Potrero Reserva 2024</h4>
-  <p><strong>€18,49</strong> / botella (0,75 L)</p>
-  <p>Expresión del Malbec de Gualtallary con 12 meses en roble francés nuevo. Fresco, con cuerpo y elegancia.</p>
-  <a href="/es/vinos/potrero-reserva-2024.html">Comprar</a>
-</div>
+  </div>
+        
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/gran-potrero-2023.jpg" alt="Gran Potrero 2023"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> Gran Potrero 2023</p>
+      <p><strong>Provincia:</strong> nan</p>
+      <p><strong>Región:</strong> nan</p>
+      <p><strong>Altura:</strong> 1350 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> Malbec con pureza, elegancia, complejidad y reflejo de terroir. Todo al mismo tiempo. Fácil de decir, pero difíc...</p>
+      
+      
+      
+    </div>
+    <h3>Gran Potrero 2023</h3>
 
-<div class="card">
-  <h4>Potrero 2024</h4>
-  <p><strong>€15,99</strong> / botella (0,75 L)</p>
-  <p>La mayor expresión del Malbec de Gualtallary. Pureza de fruta, flores y minerales. Fresco y complejo al mismo tiempo.</p>
-  <a href="/es/vinos/potrero-2024.html">Comprar</a>
-</div>
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">22,99 €</div>
+      <div class="price-per-liter">30,65 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
 
-</div>
+   <a href="/es/vinos/gran-potrero-2023.html" class="buy-button">Comprar</a>
+
+  </div>
+        
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/potrero-reserva-2024.jpg" alt="Potrero Reserva 2024"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> Potrero Reserva 2024</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
+      <p><strong>Altura:</strong> 1350 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> La expresión del Malbec de Gualtallary, combinando notas de fruta, flores y minerales del terroir, sumado a una ...</p>
+      
+      
+      
+    </div>
+    <h3>Potrero Reserva 2024</h3>
+
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">18,49 €</div>
+      <div class="price-per-liter">24,65 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
+
+   <a href="/es/vinos/potrero-reserva-2024.html" class="buy-button">Comprar</a>
+
+  </div>
+        
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/potrero-2024.jpg" alt="Potrero 2024"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> Potrero 2024</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Valle de Uco</p>
+      <p><strong>Altura:</strong> 1350 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> La mayor expresión del Malbec de Gualtallary, combinando pureza de fruta con notas florales y minerales del terr...</p>
+      
+      
+      
+    </div>
+    <h3>Potrero 2024</h3>
+
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">15,99 €</div>
+      <div class="price-per-liter">21,32 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
+
+   <a href="/es/vinos/potrero-2024.html" class="buy-button">Comprar</a>
+
+  </div>
+        
+      </div>
+      
+
 
 ---
 
@@ -72,37 +166,130 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
 
 ### La Dolfina Wines – Vignes des Andes
 
-<div class="grid">
+    <div class="product-grid">
+         
+    <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/la-dolfina-rose-2024.jpg" alt="La Dolfina Rosé 2024"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> La Dolfina Rosé 2024</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Alto Agrelo</p>
+      <p><strong>Altura:</strong> 1050 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> Rosé premium de la línea La Dolfina.</p>
+      
+      
+      
+    </div>
+    <h3>La Dolfina Rosé 2024</h3>
 
-<div class="card">
-  <h4>La Dolfina Blend Grand Reserve 2021</h4>
-  <p><strong>€17,50</strong> / botella</p>
-  <p>Blend de alta gama. Intensidad, fruta madura, especias y roble. Taninos pulidos y final largo.</p>
-  <a href="/es/vinos/la-dolfina-blend-grand-reserve-2021.html">Comprar</a>
-</div>
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">32,80 €</div>
+      <div class="price-per-liter">43,73 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
 
-<div class="card">
-  <h4>La Dolfina Reserve Malbec 2020</h4>
-  <p><strong>€17,50</strong> / botella</p>
-  <p>Malbec Reserve. Aromas de ciruela, cassis y chocolate. Boca potente y elegante.</p>
-  <a href="/es/vinos/la-dolfina-reserve-malbec-2020.html">Comprar</a>
-</div>
+   <a href="/es/vinos/la-dolfina-rose-2024.html" class="buy-button">Comprar</a>
 
-<div class="card">
-  <h4>La Dolfina Malbec 2021</h4>
-  <p><strong>€15,50</strong> / botella</p>
-  <p>El Malbec insignia de la línea. Color cereza intenso, frutos rojos, especias y vainilla.</p>
-  <a href="/es/vinos/la-dolfina-malbec-2021.html">Comprar</a>
-</div>
+  </div>
+        
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/la-dolfina-blend-grand-reserve-2021.jpg" alt="La Dolfina Blend Grand Reserve 2021"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> La Dolfina Blend Grand Reserve 2021</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Alto Agrelo</p>
+      <p><strong>Altura:</strong> 1050 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> Blend de alta gama de la línea La Dolfina.</p>
+      
+      
+      
+    </div>
+    <h3>La Dolfina Blend Grand Reserve 2021</h3>
 
-<div class="card">
-  <h4>La Dolfina Rosé 2024</h4>
-  <p><strong>€32,80</strong> / botella</p>
-  <p>Rosé premium. Fresco y aromático, con notas de fresas y flores. Ideal para el verano y el polo.</p>
-  <a href="/es/vinos/la-dolfina-rose-2024.html">Comprar</a>
-</div>
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">17,50 €</div>
+      <div class="price-per-liter">23,33 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
 
-</div>
+   <a href="/es/vinos/la-dolfina-blend-grand-reserve-2021.html" class="buy-button">Comprar</a>
+
+  </div>
+        
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/la-dolfina-reserve-malbec-2020.jpg" alt="La Dolfina Reserve Malbec 2020"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> La Dolfina Reserve Malbec 2020</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Alto Agrelo</p>
+      <p><strong>Altura:</strong> 1050 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> Malbec Reserve de la línea La Dolfina.</p>
+      
+      
+      
+    </div>
+    <h3>La Dolfina Reserve Malbec 2020</h3>
+
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">17,50 €</div>
+      <div class="price-per-liter">23,33 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
+
+   <a href="/es/vinos/la-dolfina-reserve-malbec-2020.html" class="buy-button">Comprar</a>
+
+  </div>
+        
+  <div class="product-card" data-overlay-id=".html">
+    <img src="/images/small/la-dolfina-malbec-2021.jpg" alt="La Dolfina Malbec 2021"
+         onerror="this.src='https://via.placeholder.com/180x180?text=No+Image';">
+    <div class="info-icon" data-overlay-id=".html">🍷</div>
+                <div class="overlay" data-overlay-id=".html">
+      <p><strong>Vino:</strong> La Dolfina Malbec 2021</p>
+      <p><strong>Provincia:</strong> Mendoza</p>
+      <p><strong>Región:</strong> Alto Agrelo</p>
+      <p><strong>Altura:</strong> 1050 msnm</p>
+      
+      
+      <p><strong>Descripción:</strong> Malbec insignia de la línea La Dolfina.</p>
+      
+      
+      
+    </div>
+    <h3>La Dolfina Malbec 2021</h3>
+
+    <!-- BLOQUE DE PRECIO NUEVO -->
+    
+    <div class="price-container">
+      <div class="price-main">15,50 €</div>
+      <div class="price-per-liter">20,67 €/L</div>
+      <div class="shipping-note">+ Gastos de envío</div>
+    </div>
+
+   <a href="/es/vinos/la-dolfina-malbec-2021.html" class="buy-button">Comprar</a>
+
+  </div>
+        
+      </div>
+     
 
 ---
 
