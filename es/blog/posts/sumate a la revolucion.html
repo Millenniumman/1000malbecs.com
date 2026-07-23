@@ -12,131 +12,13 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://www.1000malbecs.com/es/blog/posts/sumate a la revolucion.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sumate a la Revolución del Malbec - 1000 Malbecs">
-    <meta name="twitter:description" content="Descubre cómo el Malbec argentino está conquistando el mercado alemán">
-    <meta name="twitter:image" content="https://www.1000malbecs.com/images/og-image.jpg">
-    <link rel="canonical" href="https://www.1000malbecs.com/es/blog/posts/sumate a la revolucion.html">
-    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/posts/sumate a la revolucion.html">
-    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/posts/sumate a la revolucion.html">
-    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/posts/sumate a la revolucion.html">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/post.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide language selector on scroll (mobile only)
-            if (window.innerWidth <= 768) {
-                const languageSelector = document.querySelector('.language-selector');
-                let lastScrollTop = 0;
-                window.addEventListener('scroll', function() {
-                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                    if (currentScroll > lastScrollTop) {
-                        languageSelector.classList.add('hidden');
-                    } else {
-                        languageSelector.classList.remove('hidden');
-                    }
-                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-                });
-            }
-            // Fallback toggle for hamburger menu
-            const hamburger = document.querySelector('.hamburger');
-            const sidebar = document.querySelector('#sidebar');
-            if (hamburger && sidebar) {
-                hamburger.addEventListener('click', () => {
-                    sidebar.classList.toggle('open');
-                });
-            } else {
-                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
-            }
-            // Recently added carousel
-            let currentRecent = 0;
-            const recentItems = document.querySelectorAll('.recent-item');
-            const recentContainer = document.querySelector('.recent-container');
-            console.log('Number of recently added wines:', recentItems.length);
-            function moveRecent(direction) {
-                currentRecent += direction;
-                if (currentRecent < 0) currentRecent = recentItems.length - 1;
-                if (currentRecent >= recentItems.length) currentRecent = 0;
-                recentContainer.style.transform = `translateX(-${currentRecent * 16.66}%)`;
-                console.log('Current recently added wine:', currentRecent);
-            }
-            if (recentItems.length > 1) { 
-                document.querySelector('.recent-nav .recent-prev').addEventListener('click', () => moveRecent(-1));
-                document.querySelector('.recent-nav .recent-next').addEventListener('click', () => moveRecent(1));
-                setInterval(() => moveRecent(1), 5000); 
-            }
-            // Info icons for mobile
-            if (window.innerWidth <= 768) {
-                const infoIcons = document.querySelectorAll('.info-icon');
-                infoIcons.forEach(icon => {
-                    ['click', 'touchstart'].forEach(eventType => {
-                        icon.addEventListener(eventType, (e) => {
-                            e.stopPropagation();
-                            e.preventDefault();
-                            const overlayId = icon.getAttribute('data-overlay-id');
-                            const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
-                            const isActive = overlay.classList.contains('active');
-                            document.querySelectorAll('.overlay.active').forEach(ov => { ov.classList.remove('active'); });
-                            if (!isActive && overlay) { overlay.classList.add('active'); }
-                        }, { passive: false });
-                    });
-                });
-                document.addEventListener('click', (e) => {
-                    if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
-                        document.querySelectorAll('.overlay.active').forEach(overlay => { overlay.classList.remove('active'); });
-                    }
-                });
-            }
-            // Buy buttons
-            const buyButtons = document.querySelectorAll('.buy-button');
-            buyButtons.forEach(button => {
-                button.addEventListener('click', (e) => { e.stopPropagation(); });
-            });
-            // Winery grid scroll indicators
-            const wineryGrid = document.querySelector('.winery-grid');
-            const wineryPrev = document.querySelector('.winery-prev');
-            const wineryNext = document.querySelector('.winery-next');
-            function updateWineryScrollIndicators() {
-                const scrollLeft = wineryGrid.scrollLeft;
-                const scrollWidth = wineryGrid.scrollWidth;
-                const clientWidth = wineryGrid.clientWidth;
-                wineryGrid.classList.toggle('has-left', scrollLeft > 0);
-                wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
-                if (wineryPrev && wineryNext) {
-                    wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
-                    wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
-                }
-            }
-            if (wineryGrid) {
-                wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
-                window.addEventListener('resize', updateWineryScrollIndicators);
-                updateWineryScrollIndicators();
-            }
-            if (wineryPrev && wineryNext) {
-                wineryPrev.addEventListener('click', () => { wineryGrid.scrollBy({ left: -150, behavior: 'smooth' }); });
-                wineryNext.addEventListener('click', () => { wineryGrid.scrollBy({ left: 150, behavior: 'smooth' }); });
-            }
-        });
-    </script>
+    <title>Sumate a la Revolución del Malbec - 1000 Malbecs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/post.css">
 </head>
 <body>
-    <div class="language-selector">
-        <a href="/es/blog/posts/sumate a la revolucion.html" data-lang="es" aria-label="Español" class="active">ES 🇪🇸</a>
-        <a href="/en/blog/posts/sumate a la revolucion.html" data-lang="en" aria-label="English" class="">EN 🇬🇧</a>
-        <a href="/de/blog/posts/sumate a la revolucion.html" data-lang="de" aria-label="Deutsch" class="">DE 🇩🇪</a>
-    </div>
-    <div class="header">
-        <a href="https://1000malbecs.com/es"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo" class="logo-mobile"></a>
-    </div>
-    <button class="hamburger"><i class="fas fa-bars"></i></button>
-    <aside id="sidebar">
-        <div class="logo-container">
-            <a href="/es/"><img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs Logo"></a>
-        </div>
-    <main>
-        <div class="main-content">
-            <div class="post-content"><p><link rel="stylesheet" href="/styles.css">
+    <main class="main-content">
+        <div class="post-content"><p><link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></p>
 <style>
     body {
@@ -682,42 +564,104 @@
         <p><a href="https://1000malbecs.com/es" class="back-link">Volver al inicio</a></p>
     </div>
 </div></div>
-            <p>No recently added wines found.</p>
-            
-<h3 class="section-title">Visit Our Wineries</h3>
-<div class="winery-grid">
-    <a class="winery-card" href="/es/bodegas/bodega-foster-lorca.html">
-        <img class="logo" src="/images/bodegas/logo-bodega-foster-lorca.jpg" alt="Logo of Bodega Foster Lorca" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <a class="winery-card" href="/es/bodegas/bodegas-bianchi.html">
-        <img class="logo" src="/images/bodegas/logo-bodegas-bianchi.jpg" alt="Logo of Bodegas Bianchi" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <a class="winery-card" href="/es/bodegas/luigi-bosca.html">
-        <img class="logo" src="/images/bodegas/logo-luigi-bosca.jpg" alt="Logo of Luigi Bosca" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <a class="winery-card" href="/es/bodegas/bodega-tukma.html">
-        <img class="logo" src="/images/bodegas/logo-bodega-tukma.jpg" alt="Logo of Bodega Tukma" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <a class="winery-card" href="/es/bodegas/bemberg-estate-wines.html">
-        <img class="logo" src="/images/bodegas/logo-bemberg-estate-wines.jpg" alt="Logo of Bemberg Estate Wines" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <a class="winery-card" href="/es/bodegas/agustin-lanus.html">
-        <img class="logo" src="/images/bodegas/logo-agustin-lanus.jpg" alt="Logo of Agustín Lanús" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <a class="winery-card" href="/es/bodegas/rutini-wines.html">
-        <img class="logo" src="/images/bodegas/logo-rutini-wines.jpg" alt="Logo of Rutini Wines" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <a class="winery-card" href="/es/bodegas/finca-las-moras.html">
-        <img class="logo" src="/images/bodegas/logo-finca-las-moras.jpg" alt="Logo of Finca Las Moras" onerror="this.src='https://via.placeholder.com/200x200?text=Logo+Not+Available';">
-    </a>
-    <div class="winery-nav">
-        <button class="winery-prev hidden">❮</button>
-        <button class="winery-next">❯</button>
-    </div>
-</div>
-
-            <a href="https://1000malbecs.com/es" class="back-link">Volver al Home</a>
-        </div>
+        <a href="https://1000malbecs.com/es" class="back-link" style="display:block; text-align:center; margin:40px 0; color:#4A2C59; font-size:16px;">← Volver al Blog</a>
     </main>
 </body>
 </html>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide language selector on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                const languageSelector = document.querySelector('.language-selector');
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    if (currentScroll > lastScrollTop) {
+                        languageSelector.classList.add('hidden');
+                    } else {
+                        languageSelector.classList.remove('hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+            // Fallback toggle for hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('#sidebar');
+            if (hamburger && sidebar) {
+                hamburger.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+            } else {
+                console.warn('Hamburger or sidebar not found. Hamburger:', !!hamburger, 'Sidebar:', !!sidebar);
+            }
+            // Recently added carousel
+            let currentRecent = 0;
+            const recentItems = document.querySelectorAll('.recent-item');
+            const recentContainer = document.querySelector('.recent-container');
+            console.log('Number of recently added wines:', recentItems.length);
+            function moveRecent(direction) {
+                currentRecent += direction;
+                if (currentRecent < 0) currentRecent = recentItems.length - 1;
+                if (currentRecent >= recentItems.length) currentRecent = 0;
+                recentContainer.style.transform = `translateX(-${currentRecent * 16.66}%)`;
+                console.log('Current recently added wine:', currentRecent);
+            }
+            if (recentItems.length > 1) { 
+                document.querySelector('.recent-nav .recent-prev').addEventListener('click', () => moveRecent(-1));
+                document.querySelector('.recent-nav .recent-next').addEventListener('click', () => moveRecent(1));
+                setInterval(() => moveRecent(1), 5000); 
+            }
+            // Info icons for mobile
+            if (window.innerWidth <= 768) {
+                const infoIcons = document.querySelectorAll('.info-icon');
+                infoIcons.forEach(icon => {
+                    ['click', 'touchstart'].forEach(eventType => {
+                        icon.addEventListener(eventType, (e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            const overlayId = icon.getAttribute('data-overlay-id');
+                            const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+                            const isActive = overlay.classList.contains('active');
+                            document.querySelectorAll('.overlay.active').forEach(ov => { ov.classList.remove('active'); });
+                            if (!isActive && overlay) { overlay.classList.add('active'); }
+                        }, { passive: false });
+                    });
+                });
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.product-card') && !e.target.closest('.info-icon')) {
+                        document.querySelectorAll('.overlay.active').forEach(overlay => { overlay.classList.remove('active'); });
+                    }
+                });
+            }
+            // Buy buttons
+            const buyButtons = document.querySelectorAll('.buy-button');
+            buyButtons.forEach(button => {
+                button.addEventListener('click', (e) => { e.stopPropagation(); });
+            });
+            // Winery grid scroll indicators
+            const wineryGrid = document.querySelector('.winery-grid');
+            const wineryPrev = document.querySelector('.winery-prev');
+            const wineryNext = document.querySelector('.winery-next');
+            function updateWineryScrollIndicators() {
+                const scrollLeft = wineryGrid.scrollLeft;
+                const scrollWidth = wineryGrid.scrollWidth;
+                const clientWidth = wineryGrid.clientWidth;
+                wineryGrid.classList.toggle('has-left', scrollLeft > 0);
+                wineryGrid.classList.toggle('has-right', scrollLeft < scrollWidth - clientWidth - 1);
+                if (wineryPrev && wineryNext) {
+                    wineryPrev.classList.toggle('hidden', scrollLeft <= 0);
+                    wineryNext.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
+                }
+            }
+            if (wineryGrid) {
+                wineryGrid.addEventListener('scroll', updateWineryScrollIndicators);
+                window.addEventListener('resize', updateWineryScrollIndicators);
+                updateWineryScrollIndicators();
+            }
+            if (wineryPrev && wineryNext) {
+                wineryPrev.addEventListener('click', () => { wineryGrid.scrollBy({ left: -150, behavior: 'smooth' }); });
+                wineryNext.addEventListener('click', () => { wineryGrid.scrollBy({ left: 150, behavior: 'smooth' }); });
+            }
+        });
+    </script>
+
