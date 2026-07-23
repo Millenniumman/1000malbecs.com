@@ -30,9 +30,9 @@ Podés ver todos sus vinos aquí:
 
  ### Los vinos de Vinos de Potrero
 
-<div class="grid">
+<div class="product-grid">
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/el-debut-2022.jpg" alt="El Debut 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
@@ -48,7 +48,7 @@ Podés ver todos sus vinos aquí:
     <a href="/es/vinos/el-debut-2022.html" class="buy-button">Comprar</a>
   </div>
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/gran-potrero-2023.jpg" alt="Gran Potrero 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
@@ -64,7 +64,7 @@ Podés ver todos sus vinos aquí:
     <a href="/es/vinos/gran-potrero-2023.html" class="buy-button">Comprar</a>
   </div>
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/potrero-reserva-2024.jpg" alt="Potrero Reserva 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
@@ -80,7 +80,7 @@ Podés ver todos sus vinos aquí:
     <a href="/es/vinos/potrero-reserva-2024.html" class="buy-button">Comprar</a>
   </div>
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/potrero-2024.jpg" alt="Potrero 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
@@ -110,9 +110,9 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
 
 ### La Dolfina Wines – Vignes des Andes
 
-<div class="grid">
+<div class="-product-grid">
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/la-dolfina-rose-2024.jpg" alt="La Dolfina Rosé 2024" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
@@ -129,7 +129,7 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     <a href="/es/vinos/la-dolfina-rose-2024.html" class="buy-button">Comprar</a>
   </div>
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/la-dolfina-blend-grand-reserve-2021.jpg" alt="La Dolfina Blend Grand Reserve 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
@@ -146,7 +146,7 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     <a href="/es/vinos/la-dolfina-blend-grand-reserve-2021.html" class="buy-button">Comprar</a>
   </div>
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/la-dolfina-reserve-malbec-2020.jpg" alt="La Dolfina Reserve Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
@@ -163,7 +163,7 @@ Los invitamos a acompañarnos en nuestras próximas fechas en **Berlín, Frankfu
     <a href="/es/vinos/la-dolfina-reserve-malbec-2020.html" class="buy-button">Comprar</a>
   </div>
 
-  <div class="card">
+  <div class="product-card">
     <img src="/images/small/la-dolfina-malbec-2021.jpg" alt="La Dolfina Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
     <div class="info-icon">🍷</div>
     <div class="overlay">
