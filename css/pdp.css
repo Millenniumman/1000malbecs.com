@@ -39,7 +39,8 @@ body {
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;                 /* espacio entre idiomas y carrito */
+  margin-left: auto;         /* ← Empuja todo el bloque a la derecha */
 }
 
 /* Logo box, centered over the sidebar's width on desktop */
