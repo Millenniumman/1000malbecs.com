@@ -56,7 +56,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/bodegas/logo-vignes-des-andes-1.jpg" alt="Vignes des Andes">
+        <img src="/images/bodegas/logo-la-dolfina.jpg" alt="Vignes des Andes">
         <div class="overlay">
           <p><strong>Provincia:</strong> Mendoza</p>
           <p><strong>Región:</strong> Alto Agrelo</p>
@@ -71,7 +71,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/bodegas/logo-bodega-colome-1.jpg" alt="Bodega Colomé">
+        <img src="/images/bodegas/logo-bodega-colome.jpg" alt="Bodega Colomé">
         <div class="overlay">
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
