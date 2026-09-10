@@ -6,15 +6,120 @@
     <title>1000 Geschichten - Der 1000 Malbecs Blog</title>
     <meta name="description" content="Hinter einem großartigen Wein steht immer eine außergewöhnliche Geschichte, und wir werden sie erzählen">
     <link rel="canonical" href="https://www.1000malbecs.com/de/blog/">
+    <link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/blog/">
+    <link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/blog/">
+    <link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/blog/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/post.css">
+    <style>
+        .blog-page, .blog-page * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .blog-page {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px 16px 64px;
+            color: #4A2C59;
+        }
+        .blog-page h1 {
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .blog-intro {
+            text-align: center;
+            margin: 0 auto 32px;
+            max-width: 640px;
+            line-height: 1.6;
+        }
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .post-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 20px;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid #E8E0EC;
+            border-radius: 14px;
+            background: #fff;
+        }
+        .post-thumb {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #F4EEF6;
+        }
+        .post-item h2 {
+            margin: 0 0 6px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .post-item h2 a {
+            color: #4A2C59;
+            text-decoration: none;
+        }
+        .post-date {
+            margin: 0 0 8px;
+            font-size: 13px;
+            color: #6B5A73;
+        }
+        .post-excerpt {
+            margin: 0 0 10px;
+            font-size: 14px;
+            line-height: 1.55;
+            color: #333;
+        }
+        .read-more {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4A2C59;
+            text-decoration: none;
+        }
+        @media (max-width: 640px) {
+            .post-item {
+                grid-template-columns: 1fr;
+            }
+            .post-thumb {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <main class="main-content">
+    <main class="main-content blog-page">
         <h1>1000 Geschichten - Der 1000 Malbecs Blog</h1>
         <p class="blog-intro">Hinter einem großartigen Wein steht immer eine außergewöhnliche Geschichte, und wir werden sie erzählen</p>
-        <section class="post-list"><article class="post-item"><h2><a href="/de/blog/posts/cierre-temporada-2026.html">Saisonabschluss Polo in Frankfurt: Malbec, Asado und ein argentinischer Sommer</a></h2><p class="post-date">2026-09-10</p><p class="post-excerpt">Saisonabschluss Polo in Frankfurt Am vergangenen Wochenende haben wir in **Frankfurt** eine großartige Polosaison abgeschlossen. Es ist das erste Jahr, in dem wir die **German Polo Tour** auf ihrem Weg durch verschiedene…</p><a class="read-more" href="/de/blog/posts/cierre-temporada-2026.html">Mehr lesen</a></article>
-<article class="post-item"><h2><a href="/de/blog/posts/2026-07-22-verano-polo-vinos-de-potrero.html">Die Weltmeisterschaft ist vorbei… aber der Sommer geht mit Malbec und Polo weiter</a></h2><p class="post-date">2025-07-22</p><p class="post-excerpt">Die Weltmeisterschaft ist vorbei… aber der Sommer geht weiter Die Weltmeisterschaft ist vorbei und der Sommer geht weiter. Ein anderer Sommer, der uns beschäftigt hielt, während wir unserem Lieblingsteam folgten. Jetzt, …</p><a class="read-more" href="/de/blog/posts/2026-07-22-verano-polo-vinos-de-potrero.html">Mehr lesen</a></article></section>
+        <section class="post-list">
+            <article class="post-item">
+    <a href="/de/blog/posts/cierre-temporada-2026.html"><img class="post-thumb" src="/images/1000-malbecs-logo.png" alt="Saisonabschluss Polo in Frankfurt: Malbec, Asado und ein argentinischer Sommer"></a>
+    <div>
+        <h2><a href="/de/blog/posts/cierre-temporada-2026.html">Saisonabschluss Polo in Frankfurt: Malbec, Asado und ein argentinischer Sommer</a></h2>
+        <p class="post-date">2026-09-10</p>
+        <p class="post-excerpt">Saisonabschluss Polo in Frankfurt Am vergangenen Wochenende haben wir in **Frankfurt** eine großartige Polosaison abgeschlossen. Es ist das erste Jahr, in dem wir die **German Polo Tour** auf ihrem Weg durch verschiedene…</p>
+        <a class="read-more" href="/de/blog/posts/cierre-temporada-2026.html">Mehr lesen</a>
+    </div>
+</article>
+<article class="post-item">
+    <a href="/de/blog/posts/2026-07-22-verano-polo-vinos-de-potrero.html"><img class="post-thumb" src="https://via.placeholder.com/200x200?text=Kein+Bild" alt="Die Weltmeisterschaft ist vorbei… aber der Sommer geht mit Malbec und Polo weiter"></a>
+    <div>
+        <h2><a href="/de/blog/posts/2026-07-22-verano-polo-vinos-de-potrero.html">Die Weltmeisterschaft ist vorbei… aber der Sommer geht mit Malbec und Polo weiter</a></h2>
+        <p class="post-date">2025-07-22</p>
+        <p class="post-excerpt">Die Weltmeisterschaft ist vorbei… aber der Sommer geht weiter Die Weltmeisterschaft ist vorbei und der Sommer geht weiter. Ein anderer Sommer, der uns beschäftigt hielt, während wir unserem Lieblingsteam folgten. Jetzt, …</p>
+        <a class="read-more" href="/de/blog/posts/2026-07-22-verano-polo-vinos-de-potrero.html">Mehr lesen</a>
+    </div>
+</article>
+        </section>
     </main>
 </body>
 </html>
