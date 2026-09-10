@@ -48,7 +48,7 @@ El último fin de semana del Tour quedó registrado en stories, reels y fotos de
 
 ## Los vinos que degustamos a lo largo de la temporada
 
-En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Malbecs— y hacemos un esfuerzo extra para encontrar botellas que acompañen la experiencia que se está viviendo. A lo largo del Tour pudimos degustar vinos de diversas bodegas argentinas. Estos fueron algunos de los invitados de honor:
+En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Malbecs— y hacemos un esfuerzo extra para encontrar botellas que acompañen la experiencia que se está viviendo. A lo largo del Tour pudimos degustar vinos de las siguientes  bodegas argentinas. 
 
 <div class="horizontal-reel-container">
   <div class="horizontal-reel">
@@ -56,7 +56,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/small/la-dolfina-malbec-2021.jpg" alt="Vignes des Andes">
+        <img src="/images/bodegas/vignes-des-andes-1.jpg" alt="Vignes des Andes">
         <div class="overlay">
           <p><strong>Provincia:</strong> Mendoza</p>
           <p><strong>Región:</strong> Alto Agrelo</p>
@@ -71,7 +71,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/small/colome-autentico-malbec-2021.jpg" alt="Bodega Colomé">
+        <img src="/images/bodegas/bodega-colome-1.jpg" alt="Bodega Colomé">
         <div class="overlay">
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
@@ -86,7 +86,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/small/chakana-nuna-rose-2022.jpg" alt="Chakana">
+        <img src="/images/bodegas/chakana-1.jpg" alt="Chakana">
         <div class="overlay">
           <p><strong>Provincia:</strong> Mendoza</p>
           <p><strong>Región:</strong> Luján de Cuyo</p>
@@ -101,7 +101,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/small/amalaya-malbec-2023.jpg" alt="Bodega Amalaya">
+        <img src="/images/bodegas/bodega-amalaya-1.jpg" alt="Bodega Amalaya">
         <div class="overlay">
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
@@ -116,7 +116,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/small/la-fuerza-rojo.jpg" alt="La Fuerza Vermú">
+        <img src="/images/bodegas/la-fuerza-1.jpg" alt="La Fuerza Vermú">
         <div class="overlay">
           <p><strong>Provincia:</strong> Mendoza</p>
           <p><strong>Región:</strong> Andes</p>
@@ -130,6 +130,8 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
 
   </div>
 </div>
+
+<P> Y estos los invitados de honor!</p>
 <div class="horizontal-reel-container">
   <div class="horizontal-reel">
 
@@ -225,100 +227,6 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
 
   </div>
 </div>
-<div class="product-grid">
-
-  <div class="product-card">
-    <img src="/images/small/la-dolfina-reserve-malbec-2020.jpg" alt="La Dolfina Reserve Malbec 2020" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
-    <div class="info-icon">🍷</div>
-    <div class="overlay">
-      <p><strong>Bodega:</strong> Vignes des Andes</p>
-      <p><strong>Provincia:</strong> Mendoza</p>
-      <p><strong>Región:</strong> Alto Agrelo</p>
-      <p><strong>Altura:</strong> 1050 msnm</p>
-      <p><strong>Descripción:</strong> Malbec Reserve de la línea La Dolfina. Color profundo. Ciruela, cassis y chocolate. Boca potente y elegante.</p>
-    </div>
-    <h3>La Dolfina Reserve Malbec 2020</h3>
-    <div class="price-container">
-      <div class="price-main">€24,50</div>
-      <div class="price-per-liter">32,67 €/L</div>
-    </div>
-    <a href="/es/vinos/la-dolfina-reserve-malbec-2020.html" class="buy-button">Comprar</a>
-  </div>
-
-  <div class="product-card">
-    <img src="/images/small/colome-autentico-malbec-2021.jpg" alt="Colomé Auténtico Malbec 2021" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
-    <div class="info-icon">🍷</div>
-    <div class="overlay">
-      <p><strong>Bodega:</strong> Bodega Colomé</p>
-      <p><strong>Provincia:</strong> Salta</p>
-      <p><strong>Región:</strong> Valles Calchaquíes</p>
-      <p><strong>Altura:</strong> 2300 msnm</p>
-      <p><strong>Descripción:</strong> Expresión auténtica del terroir de altura. Sin roble, para conservar frescura y pureza de fruta.</p>
-    </div>
-    <h3>Colomé Auténtico Malbec 2021</h3>
-    <div class="price-container">
-      <div class="price-main">€37,10</div>
-      <div class="price-per-liter">49,47 €/L</div>
-    </div>
-    <a href="/es/vinos/colome-autentico-malbec-2021.html" class="buy-button">Comprar</a>
-  </div>
-
-  <div class="product-card">
-    <img src="/images/small/chakana-nuna-rose-2022.jpg" alt="CHAKANA Nuna Rose 2022" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
-    <div class="info-icon">🍷</div>
-    <div class="overlay">
-      <p><strong>Bodega:</strong> Chakana</p>
-      <p><strong>Provincia:</strong> Mendoza</p>
-      <p><strong>Región:</strong> Luján de Cuyo</p>
-      <p><strong>Altura:</strong> 960 msnm</p>
-      <p><strong>Descripción:</strong> Nuna significa “espíritu de la tierra”. Rosé de noir orgánico y biodinámico, estilo Provence.</p>
-    </div>
-    <h3>CHAKANA Nuna Rosé 2022</h3>
-    <div class="price-container">
-      <div class="price-main">€12,95</div>
-      <div class="price-per-liter">17,27 €/L</div>
-    </div>
-    <a href="/es/vinos/chakana-nuna-rose-2022.html" class="buy-button">Comprar</a>
-  </div>
-
-  <div class="product-card">
-    <img src="/images/small/amalaya-malbec-2023.jpg" alt="Amalaya Malbec 2023" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
-    <div class="info-icon">🍷</div>
-    <div class="overlay">
-      <p><strong>Bodega:</strong> Bodega Amalaya</p>
-      <p><strong>Provincia:</strong> Salta</p>
-      <p><strong>Región:</strong> Valles Calchaquíes</p>
-      <p><strong>Altura:</strong> 1800 msnm</p>
-      <p><strong>Descripción:</strong> Malbec de altura en Cafayate. Aportes de Tannat y Petit Verdot. Fresco, vibrante y de clima extremo.</p>
-    </div>
-    <h3>Amalaya Malbec 2023</h3>
-    <div class="price-container">
-      <div class="price-main">€13,50</div>
-      <div class="price-per-liter">18,00 €/L</div>
-    </div>
-    <a href="/es/vinos/amalaya-malbec-2023.html" class="buy-button">Comprar</a>
-  </div>
-
-  <div class="product-card">
-    <img src="/images/small/la-fuerza-rojo.jpg" alt="La Fuerza Rojo" onerror="this.src='https://via.placeholder.com/200x200?text=Sin+imagen';">
-    <div class="info-icon">🍷</div>
-    <div class="overlay">
-      <p><strong>Bodega:</strong> La Fuerza Vermú</p>
-      <p><strong>Provincia:</strong> Mendoza</p>
-      <p><strong>Región:</strong> Andes</p>
-      <p><strong>Altura:</strong> N/A</p>
-      <p><strong>Descripción:</strong> Vermú rojo con base de Malbec mendocino y hierbas de los Andes. Con soda y una rodaja de naranja.</p>
-    </div>
-    <h3>La Fuerza Rojo</h3>
-    <div class="price-container">
-      <div class="price-main">€21,00</div>
-      <div class="price-per-liter">28,00 €/L</div>
-    </div>
-    <a href="/es/vinos/la-fuerza-rojo.html" class="buy-button">Comprar</a>
-  </div>
-
-</div>
-
 ---
 
 Que no termine nunca el verano. A destapar botellas y revivir la magia de los momentos que no deberían tener final.
