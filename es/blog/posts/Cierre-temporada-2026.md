@@ -27,7 +27,7 @@ El último fin de semana del Tour quedó registrado en stories, reels y fotos de
 
 <div class="instagram-embed" style="max-width:540px;margin:24px auto;">
   <blockquote class="instagram-media"
-    data-instgrm-permalink="https://www.instagram.com/1000malbecs/"
+    data-instgrm-permalink="https://www.instagram.com/p/DdGJv8BDmvo/"
     data-instgrm-version="14"
     style="background:#FFF;border:0;border-radius:12px;margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;">
     <a href="https://www.instagram.com/1000malbecs/" target="_blank" rel="noopener">
@@ -56,7 +56,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/bodegas/vignes-des-andes-1.jpg" alt="Vignes des Andes">
+        <img src="/images/bodegas/logo-vignes-des-andes-1.jpg" alt="Vignes des Andes">
         <div class="overlay">
           <p><strong>Provincia:</strong> Mendoza</p>
           <p><strong>Región:</strong> Alto Agrelo</p>
@@ -71,7 +71,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/bodegas/bodega-colome-1.jpg" alt="Bodega Colomé">
+        <img src="/images/bodegas/logo-bodega-colome-1.jpg" alt="Bodega Colomé">
         <div class="overlay">
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
@@ -86,7 +86,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/bodegas/chakana-1.jpg" alt="Chakana">
+        <img src="/images/bodegas/logo-chakana.jpg" alt="Chakana">
         <div class="overlay">
           <p><strong>Provincia:</strong> Mendoza</p>
           <p><strong>Región:</strong> Luján de Cuyo</p>
@@ -101,7 +101,7 @@ En **1000 Malbecs** nos especializamos en vinos argentinos —particularmente Ma
     <div class="product-card">
       <div class="info-icon">🍷</div>
       <div class="img-wrapper">
-        <img src="/images/bodegas/bodega-amalaya-1.jpg" alt="Bodega Amalaya">
+        <img src="/images/bodegas/logo-bodega-amalaya.jpg" alt="Bodega Amalaya">
         <div class="overlay">
           <p><strong>Provincia:</strong> Salta</p>
           <p><strong>Región:</strong> Valles Calchaquíes</p>
