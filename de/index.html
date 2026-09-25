@@ -611,104 +611,108 @@
     </div>
     <div class="twitter-box"><h3 class="section-title">Neuigkeiten</h3><p>Keine Tweets verfügbar.</p></div>
 </main>
+<script src="/js/cart.js"></script>
 <script>
-       const hamburger = document.querySelector('.hamburger');
+    const hamburger = document.querySelector('.hamburger');
     if (hamburger) {
         hamburger.addEventListener('click', function() {
             const sidebar = document.getElementById('sidebar');
-            if (sidebar) sidebar.classList.toggle('open');
+            if (sidebar) {
+                sidebar.classList.toggle('open');
+            }
             document.body.classList.toggle('menu-open');
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         });
     }
-    // Banner carousel
+
     let currentBanner = 0;
     const banners = document.querySelectorAll('.banner-item');
     const bannerContainer = document.querySelector('.banner-container');
-    console.log('Anzahl der Banner:', banners.length);
     function moveBanner(direction) {
+        if (!banners.length || !bannerContainer) return;
         currentBanner += direction;
         if (currentBanner < 0) currentBanner = banners.length - 1;
         if (currentBanner >= banners.length) currentBanner = 0;
         bannerContainer.style.transform = `translateX(-${currentBanner * 100}%)`;
-        console.log('Aktuelles Banner:', currentBanner);
     }
-    setInterval(() => moveBanner(1), 5000);
+    if (banners.length > 1) {
+        setInterval(() => moveBanner(1), 5000);
+    }
 
-    // Tweet carousel
     let currentTweet = 0;
     const tweetItems = document.querySelectorAll('.tweet-item');
     const tweetContainer = document.querySelector('.tweet-container');
-    console.log('Anzahl der Tweets:', tweetItems.length);
     function moveTweet(direction) {
+        if (!tweetItems.length || !tweetContainer) return;
         currentTweet += direction;
         if (currentTweet < 0) currentTweet = tweetItems.length - 1;
         if (currentTweet >= tweetItems.length) currentTweet = 0;
         tweetContainer.style.transform = `translateX(-${currentTweet * 100}%)`;
-        console.log('Aktueller Tweet:', currentTweet);
     }
-    if (tweetItems.length > 1) { setInterval(() => moveTweet(1), 5000); }
-                  // Recently added carousel
-        function initRecentCarousel() {
-            const recentCarousel = document.querySelector('.recently-added-carousel');
-            if (!recentCarousel) return;
-            
-            const recentContainer = recentCarousel.querySelector('.recent-container');
-            const recentItems = recentContainer.querySelectorAll('.recent-item');
-            const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
-            
-            if (itemCount <= 1) {
-                const recentNav = recentCarousel.querySelector('.recent-nav');
-                if (recentNav) recentNav.style.display = 'none';
-                return;
-            }
-            
-            recentItems.forEach(item => {
-                const cloneStart = item.cloneNode(true);
-                const cloneEnd = item.cloneNode(true);
-                recentContainer.insertBefore(cloneEnd, recentItems[0]);
-                recentContainer.appendChild(cloneStart);
-            });
-            
-            const totalItems = recentContainer.querySelectorAll('.recent-item').length;
-            let currentRecent = itemCount;
-            const itemWidthPercentage = 100 / itemCount;
-            recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-            
-            function moveRecent(direction) {
-                currentRecent += direction;
-                const newTranslateX = -currentRecent * itemWidthPercentage;
-                recentContainer.style.transition = 'transform 0.5s ease';
-                recentContainer.style.transform = `translateX(${newTranslateX}%)`;
-                
-                setTimeout(() => {
-                    if (currentRecent >= itemCount * 2) {
-                        currentRecent = itemCount;
-                        recentContainer.style.transition = 'none';
-                        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                    } else if (currentRecent < itemCount) {
-                        currentRecent = itemCount * 2 - 1;
-                        recentContainer.style.transition = 'none';
-                        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
-                    }
-                }, 500);
-            }
-            
-            let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
-            recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-            recentCarousel.addEventListener('mouseleave', () => {
-                autoScrollInterval = setInterval(() => moveRecent(1), 5000);
-            });
-            
-            const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
-            const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
-            if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
-            if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
-            
-            console.log('Cantidad de vinos recientemente agregados:', itemCount);
-        }
-        document.addEventListener('DOMContentLoaded', initRecentCarousel);
+    if (tweetItems.length > 1) {
+        setInterval(() => moveTweet(1), 5000);
+    }
 
-    // Info icons for mobile
+    function initRecentCarousel() {
+        const recentCarousel = document.querySelector('.recently-added-carousel');
+        if (!recentCarousel) return;
+
+        const recentContainer = recentCarousel.querySelector('.recent-container');
+        if (!recentContainer) return;
+
+        const recentItems = recentContainer.querySelectorAll('.recent-item');
+        const itemCount = parseInt(recentContainer.getAttribute('data-item-count')) || recentItems.length;
+
+        if (itemCount <= 1) {
+            const recentNav = recentCarousel.querySelector('.recent-nav');
+            if (recentNav) recentNav.style.display = 'none';
+            return;
+        }
+
+        recentItems.forEach(item => {
+            const cloneStart = item.cloneNode(true);
+            const cloneEnd = item.cloneNode(true);
+            recentContainer.insertBefore(cloneEnd, recentItems[0]);
+            recentContainer.appendChild(cloneStart);
+        });
+
+        let currentRecent = itemCount;
+        const itemWidthPercentage = 100 / itemCount;
+        recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+
+        function moveRecent(direction) {
+            currentRecent += direction;
+            const newTranslateX = -currentRecent * itemWidthPercentage;
+            recentContainer.style.transition = 'transform 0.5s ease';
+            recentContainer.style.transform = `translateX(${newTranslateX}%)`;
+
+            setTimeout(() => {
+                if (currentRecent >= itemCount * 2) {
+                    currentRecent = itemCount;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                } else if (currentRecent < itemCount) {
+                    currentRecent = itemCount * 2 - 1;
+                    recentContainer.style.transition = 'none';
+                    recentContainer.style.transform = `translateX(-${currentRecent * itemWidthPercentage}%)`;
+                }
+            }, 500);
+        }
+
+        let autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        recentCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        recentCarousel.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(() => moveRecent(1), 5000);
+        });
+
+        const prevButton = recentCarousel.querySelector('.recent-nav button:first-child');
+        const nextButton = recentCarousel.querySelector('.recent-nav button:last-child');
+        if (prevButton) prevButton.addEventListener('click', () => moveRecent(-1));
+        if (nextButton) nextButton.addEventListener('click', () => moveRecent(1));
+    }
+    document.addEventListener('DOMContentLoaded', initRecentCarousel);
+
     if (window.innerWidth <= 768) {
         const infoIcons = document.querySelectorAll('.info-icon');
         infoIcons.forEach(icon => {
@@ -718,9 +722,10 @@
                     e.preventDefault();
                     const overlayId = icon.getAttribute('data-overlay-id');
                     const overlay = document.querySelector(`.overlay[data-overlay-id="${overlayId}"]`);
+                    if (!overlay) return;
                     const isActive = overlay.classList.contains('active');
                     document.querySelectorAll('.overlay.active').forEach(ov => { ov.classList.remove('active'); });
-                    if (!isActive && overlay) { overlay.classList.add('active'); }
+                    if (!isActive) { overlay.classList.add('active'); }
                 }, { passive: false });
             });
         });
@@ -731,173 +736,119 @@
         });
     }
 
-    // Buy buttons
-    const buyButtons = document.querySelectorAll('.buy-button');
-    buyButtons.forEach(button => {
+    document.querySelectorAll('.buy-button').forEach(button => {
         button.addEventListener('click', (e) => { e.stopPropagation(); });
     });
 
-    // Language selector
-    const languageSelector = document.querySelector('.language-selector');
-    let lastScrollY = window.scrollY;
-    let scrollThreshold = 50;
-    if (languageSelector) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-                languageSelector.classList.add('hidden');
-            } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
-                languageSelector.classList.remove('hidden');
-            }
-            lastScrollY = currentScrollY;
-        });
-        const langLinks = languageSelector.querySelectorAll('a[data-lang]');
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetLang = link.getAttribute('data-lang');
-                const currentPath = window.location.pathname;
-                let newPath = currentPath;
-                if (targetLang === 'en') { newPath = currentPath.replace(/\/(es|de)\//, '/en/'); }
-                else if (targetLang === 'de') { newPath = currentPath.replace(/\/(es|en)\//, '/de/'); }
-                else { newPath = currentPath.replace(/\/(en|de)\//, '/es/'); }
-                if (newPath !== currentPath) { window.location.href = newPath; }
-            });
-        });
-        const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
-        langLinks.forEach(link => {
-            if (link.getAttribute('data-lang') === currentLang) { link.classList.add('active'); }
-        });
-    }
-
-    // Search functionality
     const searchInput = document.querySelector('.search-input');
     const suggestionsList = document.querySelector('.search-suggestions');
-    let wines = [];
+    let allWines = [];
+    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'es';
 
-    // Determine current language
-    const currentLang = window.location.pathname.match(/\/(es|de|en)\//)?.[1] || 'de';
+    function adjustUrlForLanguage(url, lang) {
+        if (url.startsWith('/vinos/')) {
+            return `/${lang}${url}`;
+        }
+        return url;
+    }
 
-    // Language-specific labels
-    const labels = {
-        es: { winery: 'Bodega', province: 'Provincia', region: 'Región' },
-        en: { winery: 'Winery', province: 'Province', region: 'Region' },
-        de: { winery: 'Weingut', province: 'Provinz', region: 'Region' }
-    };
-
-    // Function to fetch JSON data
     async function loadWines() {
         try {
             const jsonPath = '/data/vinos.json';
             const response = await fetch(jsonPath);
-            if (!response.ok) throw new Error(`Konnte ${jsonPath} nicht laden`);
-            const data = await response.json();
-            return data;
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+            }
+            return JSON.parse(await response.text());
         } catch (error) {
-            console.error('Fehler beim Laden der Weine:', error);
+            console.error('Error al cargar o parsear JSON:', error);
             return [];
         }
     }
 
-    // Load wines when the page loads
-    document.addEventListener('DOMContentLoaded', async () => {
-        wines = await loadWines();
-        console.log('Weine geladen:', wines);
-    });
+    async function initSearch() {
+        if (!searchInput || !suggestionsList) return;
+        allWines = await loadWines();
+        if (allWines.length === 0) return;
 
-    // Handle search input
-    searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
-        suggestionsList.innerHTML = '';
-        suggestionsList.style.display = 'none';
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+            suggestionsList.innerHTML = '';
+            suggestionsList.style.display = 'none';
+            if (query.length < 3) return;
 
-        if (query.length >= 3) {
-            const matches = wines
+            const matches = allWines
                 .filter(wine => {
-                    return (
-                        wine.Nombre?.toLowerCase().includes(query) ||
-                        wine.Bodega?.toLowerCase().includes(query) ||
-                        wine.Provincia?.toLowerCase().includes(query) ||
-                        wine.Región?.toLowerCase().includes(query) ||
-                        wine.Tipo?.toLowerCase().includes(query) ||
-                        wine.Año?.toString().includes(query)
-                    );
+                    const text = [
+                        wine.Nombre || '',
+                        wine.Bodega || '',
+                        wine.Provincia || '',
+                        wine.Región || '',
+                        wine.Tipo || '',
+                        wine.Año?.toString() || ''
+                    ].join(' ').toLowerCase();
+                    return text.includes(query);
                 })
-                .sort((a, b) => a.Precio - b.Precio)
-                .slice(0, 5);
+                .sort((a, b) => (a.Precio || 0) - (b.Precio || 0))
+                .slice(0, 6);
 
             if (matches.length > 0) {
                 matches.forEach(wine => {
                     const li = document.createElement('li');
-                    li.textContent = `${wine.Nombre} - ${wine.Bodega} (${wine.Provincia})`;
-                    li.dataset.url = adjustUrlForLanguage(wine.url, currentLang);
+                    li.style.cssText = 'display:flex; align-items:center; gap:12px; padding:10px 14px; cursor:pointer; border-bottom:1px solid #eee;';
+
+                    const img = document.createElement('img');
+                    img.src = wine.Imagen || '/images/small/placeholder.jpg';
+                    img.alt = wine.Nombre || 'Vino';
+                    img.onerror = () => img.src = '/images/small/placeholder.jpg';
+                    img.style.cssText = 'width:32px; height:64px; object-fit:contain; border-radius:4px; flex-shrink:0;';
+
+                    const textDiv = document.createElement('div');
+                    textDiv.innerHTML = `
+                        <strong>${wine.Nombre || 'Sin nombre'}</strong><br>
+                        <small style="color:#666;">
+                            ${wine.Bodega || ''} ${wine.Año ? '(' + wine.Año + ')' : ''}
+                            ${wine.Provincia ? ' - ' + wine.Provincia : ''}
+                        </small>
+                    `;
+
+                    li.appendChild(img);
+                    li.appendChild(textDiv);
+                    li.dataset.url = adjustUrlForLanguage(wine.url || '#', currentLang);
+                    li.addEventListener('click', () => {
+                        if (li.dataset.url !== '#') window.location.href = li.dataset.url;
+                    });
                     suggestionsList.appendChild(li);
                 });
                 suggestionsList.style.display = 'block';
             } else {
                 const li = document.createElement('li');
-                li.textContent = currentLang === 'es' ? 'No se encontraron resultados' :
-                                 currentLang === 'en' ? 'No results found' :
-                                 'Keine Ergebnisse gefunden';
-                li.style.cursor = 'default';
+                li.textContent = 'No se encontraron resultados';
+                li.style.padding = '12px';
                 suggestionsList.appendChild(li);
                 suggestionsList.style.display = 'block';
             }
-        }
-    });
-
-    // Handle suggestion clicks
-    suggestionsList.addEventListener('click', function(e) {
-        const li = e.target.closest('li');
-        if (li && li.dataset.url) {
-            window.location.href = li.dataset.url;
-        }
-    });
-
-    // Keyboard navigation
-    let focusedSuggestion = -1;
-    searchInput.addEventListener('keydown', function(e) {
-        const suggestions = suggestionsList.querySelectorAll('li');
-        if (suggestions.length === 0) return;
-
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            focusedSuggestion = Math.min(focusedSuggestion + 1, suggestions.length - 1);
-            updateFocus(suggestions);
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            focusedSuggestion = Math.max(focusedSuggestion - 1, -1);
-            updateFocus(suggestions);
-        } else if (e.key === 'Enter' && focusedSuggestion >= 0) {
-            e.preventDefault();
-            if (suggestions[focusedSuggestion].dataset.url) {
-                window.location.href = suggestions[focusedSuggestion].dataset.url;
-            }
-        }
-    });
-
-    function updateFocus(suggestions) {
-        suggestions.forEach((suggestion, index) => {
-            suggestion.classList.toggle('focused', index === focusedSuggestion);
         });
-        if (focusedSuggestion >= 0) {
-            suggestions[focusedSuggestion].scrollIntoView({ block: 'nearest' });
-        }
+
+        document.addEventListener('click', e => {
+            if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+                suggestionsList.style.display = 'none';
+            }
+        });
     }
 
-    // Hide suggestions when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
-            suggestionsList.style.display = 'none';
-            focusedSuggestion = -1;
+    document.addEventListener('DOMContentLoaded', () => {
+        initSearch();
+        if (typeof updateCartCount === 'function') {
+            updateCartCount();
         }
     });
 
-    // Winery grid scroll indicators
     const wineryGrid = document.querySelector('.winery-grid');
     const wineryPrev = document.querySelector('.winery-prev');
     const wineryNext = document.querySelector('.winery-next');
     function updateWineryScrollIndicators() {
+        if (!wineryGrid) return;
         const scrollLeft = wineryGrid.scrollLeft;
         const scrollWidth = wineryGrid.scrollWidth;
         const clientWidth = wineryGrid.clientWidth;
@@ -916,14 +867,6 @@
     if (wineryPrev && wineryNext) {
         wineryPrev.addEventListener('click', () => { wineryGrid.scrollBy({ left: -150, behavior: 'smooth' }); });
         wineryNext.addEventListener('click', () => { wineryGrid.scrollBy({ left: 150, behavior: 'smooth' }); });
-    }
-
-    // Function to adjust URL with current language
-    function adjustUrlForLanguage(url, lang) {
-        if (url.startsWith('/vinos/')) {
-            return `/${lang}${url}`;
-        }
-        return url;
     }
 </script>
 </body>
