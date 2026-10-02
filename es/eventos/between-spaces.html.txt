@@ -1,0 +1,100 @@
+<!-- header y barra: los inyecta el worker -->
+<main id="between-spaces">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">1000malbecs × Between Spaces</p>
+      <h1>Between Spaces</h1>
+      <p class="lead">Fotografía, tatuaje, pintura, live art y música. Nosotros ponemos el Malbec.</p>
+      <p class="when">Sábado 10 de octubre de 2026 · 15:00–23:00</p>
+      <p class="where">Schivelbeiner Straße 9, 10439 Berlín</p>
+      <div class="cta-row">
+        <a class="btn" href="https://wa.me/4915158224728?text=Quiero%20reservar%20en%20Between%20Spaces%20%E2%80%94%2010%20oct%202026">Reservar por WhatsApp</a>
+        <a class="btn ghost" href="#la-mesa">Ver la mesa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="la-mesa">
+    <div class="grid">
+      <article>
+        <h2>El evento</h2>
+        <p>Safe Light y Leo Acosta arman una jornada entre la cámara y la aguja: photography, tattoo, painting, live art y music, de 15 a 23 h.</p>
+        <ul>
+          <li>Sábado 10 oct 2026</li>
+          <li>15:00 – 23:00</li>
+          <li>Schivelbeiner Straße 9, Berlín</li>
+        </ul>
+      </article>
+      <article>
+        <h2>La mesa 1000malbecs</h2>
+        <p>Malbec de altura para acompañar la tarde: copa, botella y una selección corta para llevar. Pedido asistido, como siempre, por WhatsApp.</p>
+        <ul>
+          <li>Copa y botella en sala</li>
+          <li>Selección para llevar</li>
+          <li>Mayores de 18</li>
+        </ul>
+      </article>
+    </div>
+    <a class="btn" href="https://wa.me/4915158224728?text=Quiero%20la%20mesa%201000malbecs%20en%20Between%20Spaces">Quiero un lugar en la mesa</a>
+  </section>
+</main>
+<!-- footer: lo inyecta el worker -->
+
+<style>
+  #between-spaces {
+    --pink: #f3a8bc;
+    --ink: #1a1214;
+    margin: 0;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  #between-spaces .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(243,168,188,.18) 0%, rgba(243,168,188,.55) 70%, rgba(243,168,188,.92) 100%),
+      url("/assets/between-spaces.jpg") center top / cover no-repeat;
+    background-color: var(--pink);
+    display: flex;
+    align-items: flex-end;
+    padding: 12vh 8vw 8vh;
+  }
+  #between-spaces .hero-copy { max-width: 38rem; }
+  #between-spaces .eyebrow {
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    font-family: system-ui, sans-serif;
+  }
+  #between-spaces h1 {
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    line-height: .85;
+    margin: .2em 0 .35em;
+    text-transform: uppercase;
+  }
+  #between-spaces .lead { font-size: 1.25rem; max-width: 30rem; }
+  #between-spaces .when, #between-spaces .where { font-family: system-ui, sans-serif; }
+  #between-spaces .cta-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.4rem; }
+  #between-spaces .btn {
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    padding: .85rem 1.2rem;
+    font-family: system-ui, sans-serif;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: .85rem;
+  }
+  #between-spaces .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  #between-spaces .panel { background: #f7d5df; padding: 4.5rem 8vw 5rem; }
+  #between-spaces .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  #between-spaces h2 { font-size: 1.6rem; margin-top: 0; }
+  #between-spaces ul { padding-left: 1.1rem; }
+  @media (max-width: 700px) {
+    #between-spaces .hero { align-items: flex-end; padding: 40vh 1.4rem 2.2rem; }
+  }
+</style>
