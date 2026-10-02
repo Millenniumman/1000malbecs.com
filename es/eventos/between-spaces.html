@@ -1,7 +1,3 @@
-
-
-
-<!-- header y barra: los inyecta el worker -->
 <main id="between-spaces">
   <section class="hero">
     <div class="hero-copy">
@@ -12,57 +8,38 @@
       <p class="where">Schivelbeiner Straße 9, 10439 Berlín</p>
       <div class="cta-row">
         <a class="btn" href="https://wa.me/4915158224728?text=Quiero%20reservar%20en%20Between%20Spaces%20%E2%80%94%2010%20oct%202026">Reservar por WhatsApp</a>
-        <a class="btn ghost" href="#la-mesa">Ver la mesa</a>
+        <a class="btn ghost" href="#los-vinos">Ver los vinos</a>
       </div>
     </div>
   </section>
 
-  <section class="panel" id="la-mesa">
-    <div class="grid">
-      <article>
-        <h2>El evento</h2>
-        <p>Safe Light y Leo Acosta arman una jornada entre la cámara y la aguja: photography, tattoo, painting, live art y music, de 15 a 23 h.</p>
-        <ul>
-          <li>Sábado 10 oct 2026</li>
-          <li>15:00 – 23:00</li>
-          <li>Schivelbeiner Straße 9, Berlín</li>
-        </ul>
-      </article>
-      <article>
-        <h2>La mesa 1000malbecs</h2>
-        <p>Malbec de altura para acompañar la tarde: copa, botella y una selección corta para llevar. Pedido asistido, como siempre, por WhatsApp.</p>
-        <ul>
-          <li>Copa y botella en sala</li>
-          <li>Selección para llevar</li>
-          <li>Mayores de 18</li>
-        </ul>
-      </article>
+  <section class="panel" id="el-evento">
+    <article class="copy">
+      <h2>El evento</h2>
+      <p>Safe Light y Leo Acosta arman una jornada entre la cámara y la aguja: photography, tattoo, painting, live art y music, de 15 a 23 h.</p>
+      <ul>
+        <li>Sábado 10 oct 2026</li>
+        <li>15:00 – 23:00</li>
+        <li>Schivelbeiner Straße 9, Berlín</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="panel wines" id="los-vinos">
+    <div class="copy">
+      <h2>Los vinos de la noche</h2>
+      <p>Cuatro Malbecs para llevar. Pasá el mouse, leé la ficha y sumala al carrito.</p>
     </div>
-    <a class="btn" href="https://wa.me/4915158224728?text=Quiero%20la%20mesa%201000malbecs%20en%20Between%20Spaces">Quiero un lugar en la mesa</a>
+    <div class="reel" id="bs-reel"></div>
   </section>
 </main>
-<!-- footer: lo inyecta el worker -->
-
-<section class="bs-block" id="los-vinos">
-    <h2>Los vinos de la noche</h2>
-    <p>Cuatro Malbecs para llevar. Tocá la botella, leé la ficha y sumala al carrito.</p>
-  </section>
-  <div class="reel" id="bs-reel"></div>
-</div>
 
 <script>
   const VINOS = [
-    {
-      id: 0, // id de producto Magento
-      sku: "sku-1",
-      name: "Vino 1",
-      price: "€00.00",
-      img: "https://www.1000malbecs.com/media/catalog/product/placeholder.jpg",
-      info: "Bodega · región · altura · añada. Notas cortas para el overlay."
-    },
-    { id: 0, sku: "sku-2", name: "Vino 2", price: "€00.00", img: "", info: "" },
-    { id: 0, sku: "sku-3", name: "Vino 3", price: "€00.00", img: "", info: "" },
-    { id: 0, sku: "sku-4", name: "Vino 4", price: "€00.00", img: "", info: "" }
+    { id: 0, name: "Vino 1", price: "€00.00", img: "https://www.1000malbecs.com/media/catalog/product/placeholder.jpg", info: "Bodega · región · altura · añada." },
+    { id: 0, name: "Vino 2", price: "€00.00", img: "", info: "" },
+    { id: 0, name: "Vino 3", price: "€00.00", img: "", info: "" },
+    { id: 0, name: "Vino 4", price: "€00.00", img: "", info: "" }
   ];
 
   function formKey() {
@@ -76,11 +53,7 @@
     const prev = btn.textContent;
     btn.textContent = "Sumando…";
     try {
-      const body = new URLSearchParams({
-        product: String(vino.id),
-        qty: "1",
-        form_key: formKey()
-      });
+      const body = new URLSearchParams({ product: String(vino.id), qty: "1", form_key: formKey() });
       const res = await fetch("/checkout/cart/add/product/" + vino.id + "/", {
         method: "POST",
         credentials: "same-origin",
@@ -89,8 +62,6 @@
       });
       if (!res.ok) throw new Error("cart");
       btn.textContent = "En el carrito";
-      const n = document.querySelector(".counter-number, .minicart-wrapper .counter.qty");
-      if (n) n.textContent = String((parseInt(n.textContent, 10) || 0) + 1);
     } catch (e) {
       btn.disabled = false;
       btn.textContent = prev;
@@ -110,10 +81,12 @@
     reel.appendChild(card);
   });
 </script>
+
 <style>
-#between-spaces {
+  #between-spaces {
     --pink: #f3a8bc;
     --ink: #1a1214;
+    --bar: 40vw;
     margin: 0;
     color: var(--ink);
     font-family: Georgia, "Times New Roman", serif;
@@ -126,9 +99,17 @@
     background-color: var(--pink);
     display: flex;
     align-items: flex-end;
-    padding: 12vh 8vw 8vh;
+    justify-content: center;
+    padding: 12vh 6vw 8vh var(--bar);
+    box-sizing: border-box;
   }
-  #between-spaces .hero-copy { max-width: 38rem; }
+  #between-spaces .hero-copy,
+  #between-spaces .copy {
+    width: min(36rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
   #between-spaces .eyebrow {
     letter-spacing: .18em;
     text-transform: uppercase;
@@ -136,14 +117,20 @@
     font-family: system-ui, sans-serif;
   }
   #between-spaces h1 {
-    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    font-size: clamp(3.2rem, 7vw, 6rem);
     line-height: .85;
     margin: .2em 0 .35em;
     text-transform: uppercase;
   }
-  #between-spaces .lead { font-size: 1.25rem; max-width: 30rem; }
+  #between-spaces .lead { font-size: 1.25rem; margin-inline: auto; }
   #between-spaces .when, #between-spaces .where { font-family: system-ui, sans-serif; }
-  #between-spaces .cta-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.4rem; }
+  #between-spaces .cta-row {
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.4rem;
+  }
   #between-spaces .btn {
     background: var(--ink);
     color: #fff;
@@ -153,66 +140,56 @@
     letter-spacing: .04em;
     text-transform: uppercase;
     font-size: .85rem;
+    border: 0;
+    cursor: pointer;
   }
   #between-spaces .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
-  #between-spaces .panel { background: #f7d5df; padding: 4.5rem 8vw 5rem; }
-  #between-spaces .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+  #between-spaces .panel {
+    background: #f7d5df;
+    padding: 4.5rem 6vw 5rem var(--bar);
+    box-sizing: border-box;
   }
   #between-spaces h2 { font-size: 1.6rem; margin-top: 0; }
-  #between-spaces ul { padding-left: 1.1rem; }
-  @media (max-width: 700px) {
-    #between-spaces .hero { align-items: flex-end; padding: 40vh 1.4rem 2.2rem; }
+  #between-spaces ul { padding-left: 1.1rem; display: inline-block; text-align: left; }
+  #between-spaces .reel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-top: 1.6rem;
   }
-  .bs-page {
-    --bar: 270px;
-    margin-left: var(--bar);
-    width: calc(100% - var(--bar));
-    box-sizing: border-box;
-    color: #f4efe6;
-    font-family: Georgia, "Times New Roman", serif;
+  #between-spaces .card {
+    position: relative;
+    flex: 0 0 min(260px, 70vw);
+    scroll-snap-align: center;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #1a120c;
+    color: #fff;
+    min-height: 400px;
+    text-align: left;
   }
-  .bs-hero, .bs-block { text-align: center; padding: 48px 8vw; }
-  .bs-kicker { letter-spacing: .22em; text-transform: uppercase; font-size: 12px; opacity: .75; }
-  .bs-hero h1 { font-size: clamp(40px, 6vw, 78px); margin: 10px 0 8px; }
-  .bs-meta { opacity: .85; }
-  .bs-block h2 { font-size: 32px; margin-bottom: 8px; }
-  .reel {
-    display: flex; gap: 16px; overflow-x: auto;
-    scroll-snap-type: x mandatory; padding: 12px 8vw 28px;
-    scrollbar-width: thin;
+  #between-spaces .card img { width: 100%; height: 400px; object-fit: cover; display: block; }
+  #between-spaces .base {
+    position: absolute; inset: auto 0 0 0;
+    padding: 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,.82));
   }
-  .card {
-    position: relative; flex: 0 0 min(280px, 78vw);
-    scroll-snap-align: center; border-radius: 16px; overflow: hidden;
-    background: #1a120c; min-height: 420px;
-  }
-  .card img { width: 100%; height: 420px; object-fit: cover; display: block; }
-  .card .base {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,.82));
-  }
-  .card .name { font-size: 20px; margin: 0; }
-  .card .price { margin: 4px 0 0; font-size: 18px; }
-  .card .overlay {
+  #between-spaces .name { font-size: 1.2rem; margin: 0; }
+  #between-spaces .price { margin: 4px 0 0; }
+  #between-spaces .overlay {
     position: absolute; inset: 0; padding: 20px;
     background: rgba(18,10,6,.92);
     display: flex; flex-direction: column; justify-content: flex-end;
     opacity: 0; transition: opacity .25s ease;
   }
-  .card:hover .overlay, .card:focus-within .overlay { opacity: 1; }
-  .card .info { font-size: 14px; line-height: 1.45; margin-bottom: 14px; }
-  .card button {
-    border: 0; border-radius: 999px; padding: 12px 16px;
-    background: #c45c26; color: #fff; cursor: pointer; font-size: 15px;
-  }
-  .card button:disabled { opacity: .6; cursor: wait; }
-  @media (max-width: 768px) {
-    .bs-page { margin-left: 0; width: 100%; }
+  #between-spaces .card:hover .overlay,
+  #between-spaces .card:focus-within .overlay { opacity: 1; }
+  #between-spaces .info { font-size: .95rem; line-height: 1.45; margin-bottom: 14px; }
+  #between-spaces .card button { border-radius: 999px; }
+  @media (max-width: 700px) {
+    #between-spaces { --bar: 0px; }
+    #between-spaces .hero { padding: 40vh 1.4rem 2.2rem; }
+    #between-spaces .panel { padding: 3rem 1.4rem; }
   }
 </style>
-
-
