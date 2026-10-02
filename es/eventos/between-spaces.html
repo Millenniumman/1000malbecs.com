@@ -1,54 +1,5 @@
 
 
-<style>
-  .bs-page {
-    --bar: 270px;
-    margin-left: var(--bar);
-    width: calc(100% - var(--bar));
-    box-sizing: border-box;
-    color: #f4efe6;
-    font-family: Georgia, "Times New Roman", serif;
-  }
-  .bs-hero, .bs-block { text-align: center; padding: 48px 8vw; }
-  .bs-kicker { letter-spacing: .22em; text-transform: uppercase; font-size: 12px; opacity: .75; }
-  .bs-hero h1 { font-size: clamp(40px, 6vw, 78px); margin: 10px 0 8px; }
-  .bs-meta { opacity: .85; }
-  .bs-block h2 { font-size: 32px; margin-bottom: 8px; }
-  .reel {
-    display: flex; gap: 16px; overflow-x: auto;
-    scroll-snap-type: x mandatory; padding: 12px 8vw 28px;
-    scrollbar-width: thin;
-  }
-  .card {
-    position: relative; flex: 0 0 min(280px, 78vw);
-    scroll-snap-align: center; border-radius: 16px; overflow: hidden;
-    background: #1a120c; min-height: 420px;
-  }
-  .card img { width: 100%; height: 420px; object-fit: cover; display: block; }
-  .card .base {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,.82));
-  }
-  .card .name { font-size: 20px; margin: 0; }
-  .card .price { margin: 4px 0 0; font-size: 18px; }
-  .card .overlay {
-    position: absolute; inset: 0; padding: 20px;
-    background: rgba(18,10,6,.92);
-    display: flex; flex-direction: column; justify-content: flex-end;
-    opacity: 0; transition: opacity .25s ease;
-  }
-  .card:hover .overlay, .card:focus-within .overlay { opacity: 1; }
-  .card .info { font-size: 14px; line-height: 1.45; margin-bottom: 14px; }
-  .card button {
-    border: 0; border-radius: 999px; padding: 12px 16px;
-    background: #c45c26; color: #fff; cursor: pointer; font-size: 15px;
-  }
-  .card button:disabled { opacity: .6; cursor: wait; }
-  @media (max-width: 768px) {
-    .bs-page { margin-left: 0; width: 100%; }
-  }
-</style>
-
 
 <!-- header y barra: los inyecta el worker -->
 <main id="between-spaces">
@@ -159,3 +110,109 @@
     reel.appendChild(card);
   });
 </script>
+<style>
+#between-spaces {
+    --pink: #f3a8bc;
+    --ink: #1a1214;
+    margin: 0;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  #between-spaces .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(243,168,188,.18) 0%, rgba(243,168,188,.55) 70%, rgba(243,168,188,.92) 100%),
+      url("/assets/between-spaces.jpg") center top / cover no-repeat;
+    background-color: var(--pink);
+    display: flex;
+    align-items: flex-end;
+    padding: 12vh 8vw 8vh;
+  }
+  #between-spaces .hero-copy { max-width: 38rem; }
+  #between-spaces .eyebrow {
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    font-family: system-ui, sans-serif;
+  }
+  #between-spaces h1 {
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    line-height: .85;
+    margin: .2em 0 .35em;
+    text-transform: uppercase;
+  }
+  #between-spaces .lead { font-size: 1.25rem; max-width: 30rem; }
+  #between-spaces .when, #between-spaces .where { font-family: system-ui, sans-serif; }
+  #between-spaces .cta-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.4rem; }
+  #between-spaces .btn {
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    padding: .85rem 1.2rem;
+    font-family: system-ui, sans-serif;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: .85rem;
+  }
+  #between-spaces .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  #between-spaces .panel { background: #f7d5df; padding: 4.5rem 8vw 5rem; }
+  #between-spaces .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  #between-spaces h2 { font-size: 1.6rem; margin-top: 0; }
+  #between-spaces ul { padding-left: 1.1rem; }
+  @media (max-width: 700px) {
+    #between-spaces .hero { align-items: flex-end; padding: 40vh 1.4rem 2.2rem; }
+  }
+  .bs-page {
+    --bar: 270px;
+    margin-left: var(--bar);
+    width: calc(100% - var(--bar));
+    box-sizing: border-box;
+    color: #f4efe6;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .bs-hero, .bs-block { text-align: center; padding: 48px 8vw; }
+  .bs-kicker { letter-spacing: .22em; text-transform: uppercase; font-size: 12px; opacity: .75; }
+  .bs-hero h1 { font-size: clamp(40px, 6vw, 78px); margin: 10px 0 8px; }
+  .bs-meta { opacity: .85; }
+  .bs-block h2 { font-size: 32px; margin-bottom: 8px; }
+  .reel {
+    display: flex; gap: 16px; overflow-x: auto;
+    scroll-snap-type: x mandatory; padding: 12px 8vw 28px;
+    scrollbar-width: thin;
+  }
+  .card {
+    position: relative; flex: 0 0 min(280px, 78vw);
+    scroll-snap-align: center; border-radius: 16px; overflow: hidden;
+    background: #1a120c; min-height: 420px;
+  }
+  .card img { width: 100%; height: 420px; object-fit: cover; display: block; }
+  .card .base {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,.82));
+  }
+  .card .name { font-size: 20px; margin: 0; }
+  .card .price { margin: 4px 0 0; font-size: 18px; }
+  .card .overlay {
+    position: absolute; inset: 0; padding: 20px;
+    background: rgba(18,10,6,.92);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    opacity: 0; transition: opacity .25s ease;
+  }
+  .card:hover .overlay, .card:focus-within .overlay { opacity: 1; }
+  .card .info { font-size: 14px; line-height: 1.45; margin-bottom: 14px; }
+  .card button {
+    border: 0; border-radius: 999px; padding: 12px 16px;
+    background: #c45c26; color: #fff; cursor: pointer; font-size: 15px;
+  }
+  .card button:disabled { opacity: .6; cursor: wait; }
+  @media (max-width: 768px) {
+    .bs-page { margin-left: 0; width: 100%; }
+  }
+</style>
+
+
