@@ -82,6 +82,12 @@
     reel.appendChild(card);
   });
 </script>
+<script>
+  document.querySelector(".bs-burger").addEventListener("click", () => {
+    const d = document.querySelector(".bs-drawer");
+    d.hidden = !d.hidden;
+  });
+</script>
 
 <style>
   #between-spaces {
@@ -194,4 +200,43 @@
     #between-spaces .hero { flex-direction: column; padding: 1rem; }
     #between-spaces .poster { max-width: 100%; height: auto; width: min(100%, 480px); }
   }
+  #between-spaces .bs-top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .7rem 1rem;
+  background: #1a1214;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+#between-spaces .bs-top a { color: #fff; text-decoration: none; }
+#between-spaces .bs-brand { font-family: Anton, sans-serif; letter-spacing: .04em; }
+#between-spaces .bs-cart { margin-left: auto; }
+#between-spaces .bs-burger {
+  display: none;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+#between-spaces .bs-drawer {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  padding: .8rem 1rem 1rem;
+  background: #2a1c22;
+}
+#between-spaces .bs-drawer a { color: #fff; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+@media (max-width: 900px) {
+  #between-spaces .bs-burger { display: block; }
+}
+@media (min-width: 901px) {
+  #between-spaces .bs-drawer { display: none; }
+}
 </style>
