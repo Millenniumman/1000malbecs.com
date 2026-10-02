@@ -2,26 +2,30 @@
 
 <main id="between-spaces">
   <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">1000malbecs × Between Spaces</p>
-      <p class="lead">Fotografía, tatuaje, pintura, live art y música. Nosotros ponemos el Malbec.</p>
-      <p class="when">Sábado 10 oct 2026 · 15:00–23:00</p>
-      <p class="where">Schivelbeiner Straße 9, Berlín</p>
-      <div class="cta-row">
-        <a class="btn" href="https://wa.me/4915158224728?text=Quiero%20reservar%20en%20Between%20Spaces%20%E2%80%94%2010%20oct%202026">Reservar por WhatsApp</a>
-        <a class="btn ghost" href="#los-vinos">Ver los vinos</a>
+    <img class="poster" src="/images/eventos/between-spaces.png" alt="Between Spaces, 10 de octubre 2026, Berlín">
+    <div class="side">
+      <div class="hero-copy">
+        <p class="eyebrow">1000malbecs × Between Spaces</p>
+        <p class="lead">Fotografía, tatuaje, pintura, live art y música. Nosotros ponemos el Malbec.</p>
+        <p class="when">Sábado 10 oct 2026 · 15:00–23:00</p>
+        <p class="where">Schivelbeiner Straße 9, Berlín</p>
+        <div class="cta-row">
+          <a class="btn" href="https://wa.me/4915158224728?text=Quiero%20reservar%20en%20Between%20Spaces%20%E2%80%94%2010%20oct%202026">Reservar por WhatsApp</a>
+          <a class="btn ghost" href="#los-vinos">Ver los vinos</a>
+        </div>
       </div>
+      <article class="evento">
+        <h2>El evento</h2>
+        <p>Safe Light y Leo Acosta arman una jornada entre la cámara y la aguja: photography, tattoo, painting, live art y music, de 15 a 23 h.</p>
+        <ul>
+          <li>Sábado 10 oct 2026</li>
+          <li>15:00 – 23:00</li>
+          <li>Schivelbeiner Straße 9, Berlín</li>
+        </ul>
+      </article>
     </div>
-     <article class="copy">
-      <h2>El evento</h2>
-      <p>Safe Light y Leo Acosta arman una jornada entre la cámara y la aguja: photography, tattoo, painting, live art y music, de 15 a 23 h.</p>
-      <ul>
-        <li>Sábado 10 oct 2026</li>
-        <li>15:00 – 23:00</li>
-        <li>Schivelbeiner Straße 9, Berlín</li>
-      </ul>
-    </article>
   </section>
+
   <section class="panel wines" id="los-vinos">
     <div class="copy">
       <h2>Los vinos de la noche</h2>
@@ -83,98 +87,111 @@
   #between-spaces {
     --ink: #1a1214;
     --pink: #f3a8bc;
-    margin: 0;
+    --bar: 280px;
+    margin: 0 0 0 var(--bar);
+    width: calc(100% - var(--bar));
+    box-sizing: border-box;
     color: var(--ink);
     font-family: "Barlow Condensed", Impact, sans-serif;
+    background: #f7d5df;
   }
   #between-spaces .hero {
-    position: relative;
-    min-height: 100vh;
-    background:
-      linear-gradient(90deg, rgba(243,168,188,0) 46%, rgba(243,168,188,.55) 68%, rgba(243,168,188,.88) 100%),
-      url("/images/eventos/between-spaces.png") center top / cover no-repeat;
-    background-color: var(--pink);
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2rem 4vw 2.5rem 2rem;
+    background: var(--pink);
   }
-  #between-spaces .hero-copy {
-    position: absolute;
-    top: 50%;
-    right: 5vw;
-    transform: translateY(-50%);
-    width: min(22rem, 32vw);
-    text-align: left;
-    z-index: 2;
+  #between-spaces .poster {
+    display: block;
+    height: min(88vh, 960px);
+    width: auto;
+    max-width: 46%;
+    object-fit: contain;
+    flex: 0 0 auto;
   }
+  #between-spaces .side { flex: 1; min-width: 0; }
+  #between-spaces .evento { margin-top: 1.6rem; }
   #between-spaces .eyebrow,
   #between-spaces .when,
   #between-spaces .where {
-    font-family: "Barlow Condensed", sans-serif;
     font-weight: 700;
-    letter-spacing: .16em;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    font-size: .95rem;
-    margin: .35rem 0;
+    font-size: 1rem;
+    margin: .3rem 0;
   }
   #between-spaces .lead {
-    font-family: "Barlow Condensed", sans-serif;
     font-weight: 500;
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     line-height: 1.15;
-    letter-spacing: .02em;
-    margin: .6rem 0 1rem;
+    margin: .7rem 0 1rem;
   }
   #between-spaces h2 {
     font-family: Anton, Impact, sans-serif;
     font-weight: 400;
     letter-spacing: .04em;
     text-transform: uppercase;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin: 0 0 .4rem;
   }
-  #between-spaces .cta-row { display: flex; flex-direction: column; gap: .6rem; margin-top: 1.2rem; }
+  #between-spaces .evento p,
+  #between-spaces .evento li { font-size: 1.15rem; line-height: 1.3; }
+  #between-spaces .cta-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; }
   #between-spaces .btn {
     background: var(--ink);
     color: #fff;
     text-decoration: none;
     text-align: center;
-    padding: .8rem 1rem;
+    padding: .75rem 1rem;
     font-family: "Barlow Condensed", sans-serif;
     font-weight: 700;
     letter-spacing: .12em;
     text-transform: uppercase;
     font-size: 1rem;
+    border: 0;
+    cursor: pointer;
   }
   #between-spaces .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
-  #between-spaces .panel { background: #f7d5df; padding: 4rem 8vw 4.5rem; }
+  #between-spaces .panel { padding: 3rem 4vw 4rem 2rem; }
   #between-spaces .copy { max-width: 40rem; }
   #between-spaces .reel {
-    display: flex; gap: 16px; overflow-x: auto;
-    scroll-snap-type: x mandatory; margin-top: 1.4rem;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-top: 1.4rem;
+    padding-bottom: .4rem;
   }
   #between-spaces .card {
-    position: relative; flex: 0 0 260px; scroll-snap-align: start;
-    border-radius: 16px; overflow: hidden; background: #1a120c; color: #fff; min-height: 400px;
+    position: relative;
+    flex: 0 0 240px;
+    scroll-snap-align: start;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #1a120c;
+    color: #fff;
+    min-height: 360px;
   }
-  #between-spaces .card img { width: 100%; height: 400px; object-fit: cover; display: block; }
+  #between-spaces .card img { width: 100%; height: 360px; object-fit: cover; display: block; }
   #between-spaces .base {
     position: absolute; left: 0; right: 0; bottom: 0; padding: 16px;
     background: linear-gradient(transparent, rgba(0,0,0,.82));
   }
-  #between-spaces .name { font-family: Anton, Impact, sans-serif; font-size: 1.3rem; margin: 0; letter-spacing: .03em; }
-  #between-spaces .price { margin: 4px 0 0; font-weight: 700; letter-spacing: .06em; }
+  #between-spaces .name { font-family: Anton, sans-serif; font-size: 1.25rem; margin: 0; }
+  #between-spaces .price { margin: 4px 0 0; font-weight: 700; }
   #between-spaces .overlay {
-    position: absolute; inset: 0; padding: 20px; background: rgba(18,10,6,.92);
+    position: absolute; inset: 0; padding: 20px;
+    background: rgba(18,10,6,.92);
     display: flex; flex-direction: column; justify-content: flex-end;
     opacity: 0; transition: opacity .25s ease;
   }
   #between-spaces .card:hover .overlay,
   #between-spaces .card:focus-within .overlay { opacity: 1; }
-  #between-spaces .card button { border: 0; border-radius: 999px; padding: .7rem 1rem; background: #c45c26; color: #fff; cursor: pointer; }
-  @media (max-width: 800px) {
-    #between-spaces .hero { min-height: 100vh; }
-    #between-spaces .hero-copy {
-      top: auto; bottom: 1.4rem; right: 1.2rem; left: 1.2rem;
-      transform: none; width: auto;
-      background: rgba(243,168,188,.88); padding: 1rem;
-    }
+  #between-spaces .card button { border-radius: 999px; background: #c45c26; }
+  @media (max-width: 900px) {
+    #between-spaces { --bar: 0px; margin-left: 0; width: 100%; }
+    #between-spaces .hero { flex-direction: column; padding: 1rem; }
+    #between-spaces .poster { max-width: 100%; height: auto; width: min(100%, 480px); }
   }
 </style>
