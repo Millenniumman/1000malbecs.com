@@ -61,4 +61,83 @@
     { id: 0, url: "/en/vinos/dilema-day-malbec-2021.html", name: "Dilema Day Malbec", price: "€10.99", was: "€13.09", img: "/images/small/dilema-day-malbec-2021.jpg", info: "Estancia Mendoza · Tupungato, 1,000 m · 13.8%. Cherry, raspberry and violet; juicy palate, soft tannins. Event price." },
     { id: 0, name: "Dilema Day Pink", price: "€10.99", was: "€13.09", img: "/images/small/dilema-day-pink-2022.jpg", info: "Estancia Mendoza · rosé from Tupungato, blend with Malbec. Fresh and fruity, best served well chilled." },
     { id: 0, name: "Viejo Feo Chardonnay", price: "€10.99", was: "€12.95", img: "/images/small/viejo-feo-chardonnay-2023.jpg", info: "Tinajas del Maule · Maule Valley, Chile · 2024 · 13% · dry. Apple, peach and citrus, with a touch of butter." },
-    { id: 0, name: "Sinzero Brut", price: "€14.99", was: "€18.99", img: "/images/small/sinzero-sparkling-brut-2022.jpg", info: "Bodega Sinzero, Chile · dealcoholised Chardonnay sparkling (0–0.5%). Pineapple, banana and citrus
+    { id: 0, name: "Sinzero Brut", price: "€14.99", was: "€18.99", img: "/images/small/sinzero-sparkling-brut-2022.jpg", info: "Bodega Sinzero, Chile · dealcoholised Chardonnay sparkling (0–0.5%). Pineapple, banana and citrus, fine bubble." }
+  ];
+  function formKey() {
+    const m = document.cookie.match(/(?:^|; )form_key=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : "";
+  }
+  async function addToCart(vino, btn) {
+    if (!vino.id) return;
+    btn.disabled = true;
+    const prev = btn.textContent;
+    btn.textContent = "Adding…";
+    try {
+      const body = new URLSearchParams({ product: String(vino.id), qty: "1", form_key: formKey() });
+      const res = await fetch("/checkout/cart/add/product/" + vino.id + "/", {
+        method: "POST", credentials: "same-origin",
+        headers: { "Content-Type": "application/x-www-form-urlencoded", "X-Requested-With": "XMLHttpRequest" },
+        body
+      });
+      if (!res.ok) throw new Error("cart");
+      btn.textContent = "In the cart";
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = prev;
+    }
+  }
+  const reel = document.getElementById("bs-reel");
+  VINOS.forEach((v, i) => {
+    const card = document.createElement("article");
+    card.className = "card";
+    const label = v.id ? "Add to cart" : "Order via WhatsApp";
+    card.innerHTML =
+      '<img alt="' + v.name + '" src="' + v.img + '">' +
+      '<div class="base"><p class="name">' + v.name + '</p><p class="price"><s>' + v.was + '</s> ' + v.price + '</p></div>' +
+      '<div class="overlay"><p class="info">' + v.info + '</p><button type="button" data-i="' + i + '">' + label + '</button></div>';
+    reel.appendChild(card);
+  });
+  reel.addEventListener("click", (ev) => {
+    const btn = ev.target.closest("button");
+    if (!btn) return;
+    const vino = VINOS[btn.dataset.i];
+    if (vino.id) { addToCart(vino, btn); return; }
+    location.href = "https://wa.me/4915158224728?text=" + encodeURIComponent("I want the " + vino.name + " from Between Spaces at " + vino.price);
+  });
+</script>
+<style>
+  #between-spaces { --ink:#1a1214; --pink:#f3a8bc; --bar:280px; margin:0 0 0 var(--bar); width:calc(100% - var(--bar)); box-sizing:border-box; color:var(--ink); font-family:"Barlow Condensed",Impact,sans-serif; background:#f7d5df; }
+  #between-spaces .bs-top { position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:1rem; padding:.7rem 1rem; background:#1a1214; color:#fff; letter-spacing:.12em; text-transform:uppercase; }
+  #between-spaces .bs-top a { color:#fff; text-decoration:none; }
+  #between-spaces .bs-brand { font-family:Anton,sans-serif; letter-spacing:.04em; }
+  #between-spaces .switcher-language { margin-left:auto; display:flex; gap:.15rem; }
+  #between-spaces .switcher-language a { padding:.2rem .45rem; border:1px solid transparent; }
+  #between-spaces .switcher-language a[aria-current="page"] { border-color:#fff; }
+  #between-spaces .hero { display:flex; align-items:center; gap:2.5rem; padding:2rem 4vw 2.5rem 2rem; background:var(--pink); }
+  #between-spaces .poster { display:block; height:min(88vh,960px); width:auto; max-width:46%; object-fit:contain; flex:0 0 auto; }
+  #between-spaces .side { flex:1; min-width:0; }
+  #between-spaces .evento { margin-top:1.6rem; }
+  #between-spaces .eyebrow, #between-spaces .when, #between-spaces .where { font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:1rem; margin:.3rem 0; }
+  #between-spaces .lead { font-weight:500; font-size:1.45rem; line-height:1.15; margin:.7rem 0 1rem; }
+  #between-spaces h2 { font-family:Anton,Impact,sans-serif; font-weight:400; letter-spacing:.04em; text-transform:uppercase; font-size:2.2rem; margin:0 0 .4rem; }
+  #between-spaces .evento p, #between-spaces .evento li { font-weight:500; font-size:1.15rem; line-height:1.3; letter-spacing:.02em; }
+  #between-spaces .cta-row { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.1rem; }
+  #between-spaces .btn { background:var(--ink); color:#fff; text-decoration:none; text-align:center; padding:.75rem 1rem; font-family:"Barlow Condensed",sans-serif; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:1rem; border:0; cursor:pointer; }
+  #between-spaces .btn.ghost { background:transparent; color:var(--ink); border:2px solid var(--ink); }
+  #between-spaces .panel { padding:3rem 4vw 4rem 2rem; }
+  #between-spaces .copy { max-width:40rem; }
+  #between-spaces .reel { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; margin-top:1.4rem; padding-bottom:.4rem; }
+  #between-spaces .card { position:relative; flex:0 0 240px; scroll-snap-align:start; border-radius:16px; overflow:hidden; background:#1a120c; color:#fff; min-height:360px; }
+  #between-spaces .card img { width:100%; height:360px; object-fit:cover; display:block; }
+  #between-spaces .base { position:absolute; left:0; right:0; bottom:0; padding:16px; background:linear-gradient(transparent,rgba(0,0,0,.82)); }
+  #between-spaces .name { font-family:Anton,sans-serif; font-size:1.25rem; margin:0; }
+  #between-spaces .price { margin:4px 0 0; font-weight:700; }
+  #between-spaces .overlay { position:absolute; inset:0; padding:20px; background:rgba(18,10,6,.92); display:flex; flex-direction:column; justify-content:flex-end; opacity:0; transition:opacity .25s ease; }
+  #between-spaces .card:hover .overlay, #between-spaces .card:focus-within .overlay { opacity:1; }
+  #between-spaces .card button { border-radius:999px; background:#c45c26; color:#fff; border:0; padding:.6rem 1rem; font-family:inherit; font-weight:700; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
+  @media (max-width:900px) {
+    #between-spaces { --bar:0px; margin-left:0; width:100%; }
+    #between-spaces .hero { flex-direction:column; padding:1rem; }
+    #between-spaces .poster { max-width:100%; height:auto; width:min(100%,480px); }
+  }
+</style>
