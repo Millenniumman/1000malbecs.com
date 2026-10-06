@@ -1,157 +1,113 @@
 <head>
-<!-- Open Graph (base para casi todas las redes) -->
 <meta property="og:title" content="Between Spaces × 1000malbecs">
-<meta property="og:description" content="Fotografía, tatuaje, pintura, live art y música. Nosotros ponemos el Malbec. Sábado 10 de octubre · Berlín.">
+<meta property="og:description" content="Photography, tattoo, painting, live art and music. We bring the Malbec. Saturday 10 October · Berlin.">
 <meta property="og:image" content="https://www.1000malbecs.com/images/eventos/between-spaces.png">
-<meta property="og:url" content="https://www.1000malbecs.com/es/eventos/between-spaces.html">
+<meta property="og:url" content="https://www.1000malbecs.com/en/eventos/between-spaces.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="1000malbecs">
-
-<!-- Twitter / X Card (imprescindible para foto grande) -->
+<meta property="og:locale" content="en_GB">
+<link rel="alternate" hreflang="es" href="https://www.1000malbecs.com/es/eventos/between-spaces.html">
+<link rel="alternate" hreflang="en" href="https://www.1000malbecs.com/en/eventos/between-spaces.html">
+<link rel="alternate" hreflang="de" href="https://www.1000malbecs.com/de/eventos/between-spaces.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Between Spaces × 1000malbecs">
-<meta name="twitter:description" content="Fotografía, tatuaje, pintura, live art y música. Nosotros ponemos el Malbec. Sábado 10 de octubre · Berlín.">
-<meta name="twitter:image" content="https://www.1000malbecs.com/images/eventos/between-spaces.png">  
-
+<meta name="twitter:description" content="Photography, tattoo, painting, live art and music. We bring the Malbec. Saturday 10 October · Berlin.">
+<meta name="twitter:image" content="https://www.1000malbecs.com/images/eventos/between-spaces.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;700&display=swap">
 </head>
-<main id="between-spaces" lang="de">
+<main id="between-spaces" lang="en">
  <div class="bs-top">
-  <a class="bs-brand" href="/es/" aria-label="1000malbecs">
+  <a class="bs-brand" href="/en/" aria-label="1000malbecs">
     <img src="/images/l000-malbecs-logo.png" alt="1000malbecs">
   </a>
   <nav class="switcher language switcher-language" aria-label="Language">
-    <a href="/es/eventos/between-spaces.html" aria-current="page">ES</a>
-    <a href="/en/eventos/between-spaces.html">EN</a>
-    <a href="/de/eventos/between-spaces.html">DE</a>
+    <a href="/es/eventos/between-spaces.html">ES</a>
+    <a href="/en/eventos/between-spaces.html"aria-current="page">EN</a>
+    <a href="/de/eventos/between-spaces.html" >DE</a>
   </nav>
-  </div>
+</div>
+  
   <section class="hero">
-    <img class="poster" src="/images/eventos/between-spaces.png" alt="Between Spaces, 10 de octubre 2026, Berlín">
+    <img class="poster" src="/images/eventos/between-spaces.png" alt="Between Spaces, 10 October 2026, Berlin">
     <div class="side">
       <div class="hero-copy">
         <p class="eyebrow">1000malbecs × Between Spaces</p>
-        <p class="lead">Fotografía, tatuaje, pintura, live art y música. Nosotros ponemos el Malbec.</p>
-        <p class="when">Sábado 10 oct 2026 · 15:00–23:00</p>
-        <p class="where">Schivelbeiner Straße 9, Berlín</p>
+        <p class="lead">Photography, tattoo, painting, live art and music. We bring the Malbec.</p>
+        <p class="when">Saturday 10 Oct 2026 · 15:00–23:00</p>
+        <p class="where">Schivelbeiner Straße 9, Berlin</p>
         <div class="cta-row">
-          <a class="btn" href="https://wa.me/4915158224728?text=Quiero%20reservar%20en%20Between%20Spaces%20%E2%80%94%2010%20oct%202026">Reservar por WhatsApp</a>
-          <a class="btn ghost" href="#los-vinos">Ver los vinos</a>
+          <a class="btn" href="https://wa.me/4915158224728?text=I%20want%20to%20reserve%20at%20Between%20Spaces%20%E2%80%94%2010%20Oct%202026">Reserve via WhatsApp</a>
+          <a class="btn ghost" href="#the-wines">See the wines</a>
         </div>
       </div>
       <article class="evento">
-        <h2>El evento</h2>
-        <p>Safe Light y Leo Acosta arman una jornada entre la cámara y la aguja: photography, tattoo, painting, live art y music, de 15 a 23 h.</p>
+        <h2>The event</h2>
+        <p>Safe Light and Leo Acosta put together a day between the camera and the needle: photography, tattoo, painting, live art and music, from 3 to 11 pm.</p>
         <ul>
-          <li>Sábado 10 oct 2026</li>
+          <li>Saturday 10 Oct 2026</li>
           <li>15:00 – 23:00</li>
-          <li>Schivelbeiner Straße 9, Berlín</li>
+          <li>Schivelbeiner Straße 9, Berlin</li>
         </ul>
       </article>
     </div>
   </section>
-
-  <section class="panel wines" id="los-vinos">
+  <section class="panel wines" id="the-wines">
     <div class="copy">
-      <h2>Los vinos de la noche</h2>
-      <p>Cuatro vinos para llevar. Pasá el mouse, leé la ficha y sumala al carrito.</p>
+      <h2>The wines of the night</h2>
+      <p>Four wines to take away. Hover, read the notes and add to cart.</p>
     </div>
     <div class="reel" id="bs-reel"></div>
-  
   </section>
 </main>
-
 <script>
   const VINOS = [
-    {
-      id: 0,
-      url: "/es/vinos/dilema-day-malbec-2021.html",
-      name: "Dilema Day Malbec",
-      price: "€10.99",
-      was: "€13.09",
-      img: "/images/small/dilema-day-malbec-2021.jpg",
-      info: "Estancia Mendoza · Tupungato, 1000 msnm · 13,8%. Cereza, frambuesa y violeta; boca jugosa, tanino suave. Precio evento."
-    },
-    {
-      id: 0,
-      name: "Dilema Day Pink",
-      price: "€10.99",
-      was: "€13.09",
-      img: "/images/small/dilema-day-pink-2022.jpg",
-      info: "Estancia Mendoza · rosado de Tupungato, blend con Malbec. Fresco y frutal, para tomar bien frío."
-    },
-    {
-      id: 0,
-      name: "Viejo Feo Chardonnay",
-      price: "€10.99",
-      was: "€12.95",
-      img: "/images/small/viejo-feo-chardonnay-2023.jpg",
-      info: "Tinajas del Maule · Valle del Maule, Chile · 2024 · 13% · seco. Manzana, durazno y cítricos, con un toque de manteca."
-    },
-    {
-      id: 0,
-      name: "Sinzero Brut",
-      price: "€14.99",
-      was: "€18.99",
-      img: "/images/small/sinzero-sparkling-brut-2022.jpg",
-      info: "Bodega Sinzero, Chile · espumante de Chardonnay desalcoholizado (0–0,5%). Piña, banana y cítricos, burbuja fina."
-    }
+    { id: 0, url: "/en/vinos/dilema-day-malbec-2021.html", name: "Dilema Day Malbec", price: "€10.99", was: "€13.09", img: "/images/small/dilema-day-malbec-2021.jpg", info: "Estancia Mendoza · Tupungato, 1,000 m · 13.8%. Cherry, raspberry and violet; juicy palate, soft tannins. Event price." },
+    { id: 0, name: "Dilema Day Pink", price: "€10.99", was: "€13.09", img: "/images/small/dilema-day-pink-2022.jpg", info: "Estancia Mendoza · rosé from Tupungato, blend with Malbec. Fresh and fruity, best served well chilled." },
+    { id: 0, name: "Viejo Feo Chardonnay", price: "€10.99", was: "€12.95", img: "/images/small/viejo-feo-chardonnay-2023.jpg", info: "Tinajas del Maule · Maule Valley, Chile · 2024 · 13% · dry. Apple, peach and citrus, with a touch of butter." },
+    { id: 0, name: "Sinzero Brut", price: "€14.99", was: "€18.99", img: "/images/small/sinzero-sparkling-brut-2022.jpg", info: "Bodega Sinzero, Chile · dealcoholised Chardonnay sparkling (0–0.5%). Pineapple, banana and citrus, fine bubble." }
   ];
-
   function formKey() {
     const m = document.cookie.match(/(?:^|; )form_key=([^;]+)/);
     return m ? decodeURIComponent(m[1]) : "";
   }
-
   async function addToCart(vino, btn) {
     if (!vino.id) return;
     btn.disabled = true;
     const prev = btn.textContent;
-    btn.textContent = "Sumando…";
+    btn.textContent = "Adding…";
     try {
       const body = new URLSearchParams({ product: String(vino.id), qty: "1", form_key: formKey() });
       const res = await fetch("/checkout/cart/add/product/" + vino.id + "/", {
-        method: "POST",
-        credentials: "same-origin",
+        method: "POST", credentials: "same-origin",
         headers: { "Content-Type": "application/x-www-form-urlencoded", "X-Requested-With": "XMLHttpRequest" },
         body
       });
       if (!res.ok) throw new Error("cart");
-      btn.textContent = "En el carrito";
+      btn.textContent = "In the cart";
     } catch (e) {
       btn.disabled = false;
       btn.textContent = prev;
     }
   }
-
   const reel = document.getElementById("bs-reel");
   VINOS.forEach((v, i) => {
     const card = document.createElement("article");
     card.className = "card";
-    const label = v.id ? "Agregar al carrito" : "Pedir por WhatsApp";
+    const label = v.id ? "Add to cart" : "Order via WhatsApp";
     card.innerHTML =
       '<img alt="' + v.name + '" src="' + v.img + '">' +
       '<div class="base"><p class="name">' + v.name + '</p><p class="price"><s>' + v.was + '</s> ' + v.price + '</p></div>' +
       '<div class="overlay"><p class="info">' + v.info + '</p><button type="button" data-i="' + i + '">' + label + '</button></div>';
     reel.appendChild(card);
   });
-
   reel.addEventListener("click", (ev) => {
     const btn = ev.target.closest("button");
     if (!btn) return;
     const vino = VINOS[btn.dataset.i];
     if (vino.id) { addToCart(vino, btn); return; }
-    const text = encodeURIComponent("Quiero el " + vino.name + " de Between Spaces a " + vino.price);
-    location.href = "https://wa.me/4915158224728?text=" + text;
+    location.href = "https://wa.me/4915158224728?text=" + encodeURIComponent("I want the " + vino.name + " from Between Spaces at " + vino.price);
   });
 </script>
-<script>
-  document.querySelector(".bs-burger").addEventListener("click", () => {
-    const d = document.querySelector(".bs-drawer");
-    d.hidden = !d.hidden;
-  });
-</script>
-
 <style>
   #between-spaces { --ink:#1a1214; --pink:#f3a8bc; --bar:280px; margin:0 0 0 var(--bar); width:calc(100% - var(--bar)); box-sizing:border-box; color:var(--ink); font-family:"Barlow Condensed",Impact,sans-serif; background:#f7d5df; }
   #between-spaces .bs-top { position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:1rem; padding:.7rem 1rem; background:#1a1214; color:#fff; letter-spacing:.12em; text-transform:uppercase; }
