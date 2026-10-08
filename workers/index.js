@@ -47,7 +47,8 @@ san_juan: "San Juan"
 },
 events_list: {
 view_events: "Ver eventos",
-sign_up: "Anotate"
+sign_up: "Anotate",
+between_spaces: "Between Spaces"
 },
 info_list: {
 about_us: "About us",
@@ -86,7 +87,8 @@ san_juan: "San Juan"
 },
 events_list: {
 view_events: "View events",
-sign_up: "Sign Up"
+sign_up: "Sign Up",
+between_spaces: "Between Spaces"
 },
 info_list: {
 about_us: "About us",
@@ -123,7 +125,8 @@ san_juan: "San Juan"
 },
 events_list: {
 view_events: "Veranstaltungen ansehen",
-sign_up: "Anmelden"
+sign_up: "Anmelden",
+between_spaces: "Between Spaces"
 },
 info_list: {
 about_us: "About us",
@@ -224,11 +227,12 @@ return `<li><a href="/${lang}/bodegas/${bodega.slug}.html" class="nav-link${isAc
 }).join("");
 
 const eventLinks = [
-{ href: `/eventos/eventos.html`, text: translations[lang].navbar.events_list.view_events },
-{ href: `/eventos/anotate.html`, text: translations[lang].navbar.events_list.sign_up }
+  { href: `/eventos/between-spaces.html`, text: translations[lang].navbar.events_list.between_spaces },
+  { href: `/eventos/eventos.html`, text: translations[lang].navbar.events_list.view_events },
+  { href: `/eventos/anotate.html`, text: translations[lang].navbar.events_list.sign_up }
 ].map((link) => {
-const isActive = path === `/${lang}${link.href}` ? " active" : "";
-return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
+  const isActive = path === `/${lang}${link.href}` ? " active" : "";
+  return `<li><a href="/${lang}${link.href}" class="nav-link${isActive}">${link.text}</a></li>`;
 }).join("");
 
 const infoLinks = [
