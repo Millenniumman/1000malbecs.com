@@ -201,6 +201,7 @@ bodegas = [
 { name: "Los Haroldos", slug: "los-haroldos" },
 { name: "Luigi Bosca", slug: "luigi-bosca" },
 { name: "Mascota Vineyards", slug: "mascota-vineyards" },
+{ name: "Mosquita Muerta", slug: "mosquita-muerta" },
 { name: "Vignes des Andes", slug: "vignes des andes" },
 { name: "Piattelli Vineyards", slug: "piattelli-vineyards" },
 { name: "Rutini Wines", slug: "rutini-wines" },
