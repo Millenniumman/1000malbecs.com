@@ -209,7 +209,12 @@ bodegas = [
 { name: "Trapiche", slug: "trapiche" },
 { name: "Vinos de Potrero", slug: "vinos-de-potrero" },
 { name: "Viña Alicia", slug: "vina-alicia" },
+{ name: "Abrasado Wines", slug: "abrasado-wines" },
+{ name: "Rocamadre", slug: "rocamadre" },
 { name: "Viña Cobos", slug: "vina-cobos" },
+{ name: "Vinyes Ocults", slug: "vynes-ocults" },
+{ name: "Bodega Polo", slug: "bodega-polo" },
+{ name: "Wapisa", slug: "wapisa" },
 { name: "Weinert Bodega y Cavas", slug: "weinert-bodega-y-cavas" }
 ];
 }
