@@ -11,19 +11,27 @@
       "name": "A Corazón Abierto",
       "slug": "a-corazon-abierto"
     },
-     {
-      "name": "Alamos",
-      "slug": "alamos"
+    {
+      "name": "Abrasado Wines",
+      "slug": "abrasado-wines"
     },
     {
       "name": "Agustin Lanus",
       "slug": "agustin-lanus"
     },
     {
+      "name": "Alamos",
+      "slug": "alamos"
+    },
+    {
       "name": "Andeluna",
       "slug": "andeluna"
     },
-     {
+    {
+      "name": "Bemberg Estate Wines",
+      "slug": "bemberg-estate-wines"
+    },
+    {
       "name": "Bodega Amalaya",
       "slug": "bodega-amalaya"
     },
@@ -31,15 +39,11 @@
       "name": "Bodega Bressia",
       "slug": "bodega-bressia"
     },
-        {
-      "name": "Bemberg Estate Wines",
-      "slug": "bemberg-estate-wines"
-    },
     {
       "name": "Bodega Chanarmuyo",
       "slug": "bodega-chanarmuyo"
     },
-     {
+    {
       "name": "Bodega Colomé",
       "slug": "bodega-colome"
     },
@@ -64,6 +68,10 @@
       "slug": "bodega-noemia-patagonia"
     },
     {
+      "name": "Bodega Polo",
+      "slug": "bodega-polo"
+    },
+    {
       "name": "Bodega Séptima",
       "slug": "bodega-septima"
     },
@@ -75,15 +83,15 @@
       "name": "Bodegas Bianchi",
       "slug": "bodegas-bianchi"
     },
-      {
+    {
       "name": "Bodegas Caro",
       "slug": "bodegas-caro"
     },
-      {
+    {
       "name": "Casa Araujo",
       "slug": "casa-araujo"
     },
-     {
+    {
       "name": "Catena Zapata",
       "slug": "catena-zapata"
     },
@@ -95,11 +103,11 @@
       "name": "Cicchitti",
       "slug": "cicchitti"
     },
-     {
+    {
       "name": "Dieter Meier & Family Wines",
       "slug": "dieter-meier-and-family-wines"
     },
-       {
+    {
       "name": "El Esteco",
       "slug": "el-esteco"
     },
@@ -111,7 +119,7 @@
       "name": "Escorihuela Gascón",
       "slug": "escorihuela-gascon"
     },
-       {
+    {
       "name": "Falasco Wines",
       "slug": "falasco-wines"
     },
@@ -119,10 +127,10 @@
       "name": "Familia Schroeder",
       "slug": "familia-schroeder"
     },
-       {
+    {
       "name": "Finca & Bodega Arca Yaco",
       "slug": "finca-bodega-arca-yaco"
-    },  
+    },
     {
       "name": "Finca La Anita",
       "slug": "finca-la-anita"
@@ -131,7 +139,7 @@
       "name": "Finca Las Moras",
       "slug": "finca-las-moras"
     },
-       {
+    {
       "name": "Finca Las Nubes",
       "slug": "finca-las-nubes"
     },
@@ -139,7 +147,7 @@
       "name": "Finca y Bodega Vistalba",
       "slug": "finca-y-bodega-vistalba"
     },
-      {
+    {
       "name": "Humberto Canale",
       "slug": "humberto-canale"
     },
@@ -151,7 +159,7 @@
       "name": "Jorge Rubio",
       "slug": "jorge-rubio"
     },
-     {
+    {
       "name": "Kaiken",
       "slug": "kaiken"
     },
@@ -159,7 +167,7 @@
       "name": "La Rural",
       "slug": "la-rural"
     },
-       {
+    {
       "name": "Los Haroldos",
       "slug": "los-haroldos"
     },
@@ -167,71 +175,62 @@
       "name": "Luigi Bosca",
       "slug": "luigi-bosca"
     },
-        {
+    {
       "name": "Mascota Vineyards",
       "slug": "mascota-vineyards"
-    },
-      {
-      "name": "Piattelli Vineyards",
-      "slug": "piattelli-vineyards"
-    },
-    {
-      "name": "Rutini Wines",
-      "slug": "rutini-wines"
-    },
-     {
-      "name": "San Telmo",
-      "slug": "san-telmo"
-    },
-     {
-      "name": "Susana Balbo",
-      "slug": "susana-balbo"
-    },
-     {
-      "name": "Trapiche",
-      "slug": "trapiche"
-    },
-       {
-      "name": "Vignes des Andes",
-      "slug": "vignes-des-andes"
-    },
-     {
-      "name": "Vinos de Potrero",
-      "slug": "vinos-de-potrero"
-    },
-    {
-      "name": "Viña Alicia",
-      "slug": "via-alicia"
-    },
-      {
-      "name": "Viña Cobos",
-      "slug": "vina-cobos"
-    },
-    {
-      "name": "Rocamadre",
-      "slug": "rocamadre"
-    },
-    {
-      "name": "Wapisa",
-      "slug": "wapisa"
     },
     {
       "name": "Mosquita Muerta",
       "slug": "mosquita-muerta"
     },
     {
-      "name": "Bodega Polo",
-      "slug": "bodega-polo"
+      "name": "Piattelli Vineyards",
+      "slug": "piattelli-vineyards"
     },
     {
-      "name": "Abrasado Wines",
-      "slug": "abrasado-wines"
+      "name": "Rocamadre",
+      "slug": "rocamadre"
+    },
+    {
+      "name": "Rutini Wines",
+      "slug": "rutini-wines"
+    },
+    {
+      "name": "San Telmo",
+      "slug": "san-telmo"
+    },
+    {
+      "name": "Susana Balbo",
+      "slug": "susana-balbo"
+    },
+    {
+      "name": "Trapiche",
+      "slug": "trapiche"
+    },
+    {
+      "name": "Vignes des Andes",
+      "slug": "vignes-des-andes"
+    },
+    {
+      "name": "Viña Alicia",
+      "slug": "via-alicia"
+    },
+    {
+      "name": "Viña Cobos",
+      "slug": "vina-cobos"
+    },
+    {
+      "name": "Vinos de Potrero",
+      "slug": "vinos-de-potrero"
     },
     {
       "name": "Vinyes Ocults",
       "slug": "vinyes-ocults"
     },
- 
+    {
+      "name": "Wapisa",
+      "slug": "wapisa"
+    },
     {
       "name": "Weinert Bodega y Cavas",
       "slug": "weinert-bodega-y-cavas"
