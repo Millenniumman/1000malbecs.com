@@ -210,7 +210,7 @@ bodegas = [
 { name: "Trapiche", slug: "trapiche" },
 { name: "Vinos de Potrero", slug: "vinos-de-potrero" },
 { name: "Viña Alicia", slug: "vina-alicia" },
-{ name: "Abrasado Wines", slug: "abrasado-wines" },
+{ name: "Abrasado", slug: "abrasado" },
 { name: "Rocamadre", slug: "rocamadre" },
 { name: "Viña Cobos", slug: "vina-cobos" },
 { name: "Vinyes Ocults", slug: "vynes-ocults" },
