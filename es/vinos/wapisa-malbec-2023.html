@@ -235,7 +235,127 @@
     </div>
            <!-- OTROS VINOS DE LA MISMA BODEGA -->
     
+<!-- ========== RESEÑAS ========== -->
+<div class="section" id="reviews-section">
+  <h2>Reseñas</h2>
 
+  <!-- Promedio -->
+  <div id="reviews-summary" style="margin-bottom: 20px; font-size: 15px;">
+    <span id="avg-rating">—</span> 
+    (<span id="review-count">0</span> reseñas)
+  </div>
+
+  <!-- Lista de reseñas -->
+  <div id="reviews-list"></div>
+
+  <!-- Formulario -->
+  <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+    <h3 style="margin-top: 0;">Deja tu reseña</h3>
+    <form id="review-form">
+      <div style="margin-bottom: 12px;">
+        <label>Valoración:</label><br>
+        <select id="review-rating" required style="padding: 8px; font-size: 15px;">
+          <option value="">Selecciona...</option>
+          <option value="5">★★★★★ Excelente</option>
+          <option value="4">★★★★☆ Muy bueno</option>
+          <option value="3">★★★☆☆ Bueno</option>
+          <option value="2">★★☆☆☆ Regular</option>
+          <option value="1">★☆☆☆☆ Malo</option>
+        </select>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label>Nombre:</label><br>
+        <input type="text" id="review-name" required style="width: 100%; max-width: 400px; padding: 8px;">
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label>Comentario:</label><br>
+        <textarea id="review-comment" rows="4" required style="width: 100%; max-width: 500px; padding: 8px;"></textarea>
+      </div>
+      <button type="submit" style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">
+        Enviar reseña
+      </button>
+      <p id="review-message" style="margin-top: 10px; font-size: 14px;"></p>
+    </form>
+  </div>
+</div>
+
+<script>
+const WINE_SLUG = "wapisa-malbec-2023";
+const API_BASE = "https://TU-WORKER.workers.dev"; // ← cambia esto
+
+async function loadReviews() {
+  try {
+    const res = await fetch(`${API_BASE}/reviews?wine=${WINE_SLUG}`);
+    const data = await res.json();
+
+    const list = document.getElementById('reviews-list');
+    const avgEl = document.getElementById('avg-rating');
+    const countEl = document.getElementById('review-count');
+
+    if (!data.reviews || data.reviews.length === 0) {
+      list.innerHTML = '<p style="color:#777;">Aún no hay reseñas. ¡Sé el primero!</p>';
+      avgEl.textContent = '—';
+      countEl.textContent = '0';
+      return;
+    }
+
+    // Promedio
+    const avg = (data.reviews.reduce((sum, r) => sum + r.rating, 0) / data.reviews.length).toFixed(1);
+    avgEl.innerHTML = '★'.repeat(Math.round(avg)) + ` ${avg}`;
+    countEl.textContent = data.reviews.length;
+
+    // Lista
+    list.innerHTML = data.reviews.map(r => `
+      <div style="border-bottom: 1px solid #eee; padding: 12px 0;">
+        <div style="font-weight: 600;">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)} 
+          <span style="color:#555; font-weight: normal;">— ${r.author_name}</span>
+        </div>
+        <p style="margin: 6px 0 0; color:#333;">${r.comment}</p>
+        <small style="color:#999;">${new Date(r.created_at).toLocaleDateString('es-ES')}</small>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+document.getElementById('review-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('review-message');
+  msg.textContent = 'Enviando...';
+
+  const payload = {
+    wine_slug: WINE_SLUG,
+    rating: parseInt(document.getElementById('review-rating').value),
+    author_name: document.getElementById('review-name').value.trim(),
+    comment: document.getElementById('review-comment').value.trim()
+  };
+
+  try {
+    const res = await fetch(`${API_BASE}/reviews`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await res.json();
+
+    if (res.ok) {
+      msg.style.color = 'green';
+      msg.textContent = '¡Gracias! Tu reseña está pendiente de moderación.';
+      e.target.reset();
+    } else {
+      msg.style.color = 'red';
+      msg.textContent = result.error || 'Error al enviar';
+    }
+  } catch (err) {
+    msg.style.color = 'red';
+    msg.textContent = 'Error de conexión';
+  }
+});
+
+// Cargar al iniciar
+loadReviews();
+</script>
     <!-- OTROS VINOS DE LA MISMA REGIÓN -->
     
     
