@@ -614,7 +614,7 @@ document.getElementById('review-form')?.addEventListener('submit', async (e) => 
 
 loadReviews();
 </script>
-script>
+<script>
 async function loadHeaderRating() {
   try {
     const res = await fetch(`${API_BASE}/reviews?wine=${WINE_SLUG}`);
