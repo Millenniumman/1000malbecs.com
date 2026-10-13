@@ -1,4 +1,4 @@
-name = "1000malbecs"
+name = "malbec-reviews"
 main = "workers/index.js" 
 compatibility_date = "2025-06-01"
 compatibility_flags = ["nodejs_compat"]
@@ -10,6 +10,9 @@ node_compat = true
 [build.upload]
 format = "modules"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "malbecs-reviews"
 [[d1_databases]]
 binding = "DB"
 database_name = "malbecs-reviews"
