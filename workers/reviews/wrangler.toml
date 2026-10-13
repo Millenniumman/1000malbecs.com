@@ -1,0 +1,8 @@
+name = "malbecs-reviews"
+main = "index.js"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "malbecs-reviews"
+database_id = "4cb22423-001b-4c10-8956-78670513c77a"
