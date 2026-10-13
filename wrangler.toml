@@ -1,18 +1,7 @@
-name = "malbec-reviews"
-main = "workers/index.js" 
-compatibility_date = "2025-06-01"
-compatibility_flags = ["nodejs_compat"]
+name = "malbecs-reviews"
+main = "workers/index.js"
+compatibility_date = "2024-09-23"
 
-[functions]
-node_compat = true
-
-# Ignorar stripe temporalmente
-[build.upload]
-format = "modules"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "malbecs-reviews"
 [[d1_databases]]
 binding = "DB"
 database_name = "malbecs-reviews"
