@@ -160,8 +160,8 @@
         <h1>La Fuerza Primavera</h1>
 <!-- Estrellas resumen debajo del título -->
 <div id="rating-summary" style="margin: 6px 0 18px; font-size: 15px; color: #555;">
-  <span id="header-stars" style="color: #f5a623; font-size: 18px; letter-spacing: 1px;">—</span>
-  <span id="header-count" style="margin-left: 6px; font-size: 14px;"></span>
+  <span id="header-stars" style="color: #f5a623; font-size: 18px; letter-spacing: 1px;">☆☆☆☆☆</span>
+  <span id="header-count" style="margin-left: 6px; font-size: 14px; color: #777;">(0)</span>
 </div>
         <div style="margin: 15px 0 25px; padding: 12px 16px; background: #e3f2fd; border-radius: 8px; border: 1px solid #bbdefb; text-align: center;">
           <p style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0;">
@@ -596,22 +596,23 @@ async function loadHeaderRating() {
     const starsEl = document.getElementById('header-stars');
     const countEl = document.getElementById('header-count');
 
-    if (!data.reviews || data.reviews.length === 0) {
-      starsEl.textContent = '—';
-      countEl.textContent = '';
+    const count = data.reviews ? data.reviews.length : 0;
+
+    if (count === 0) {
+      starsEl.innerHTML = '☆☆☆☆☆';
+      countEl.textContent = '(0)';
       return;
     }
 
-    const avg = (data.reviews.reduce((sum, r) => sum + r.rating, 0) / data.reviews.length).toFixed(1);
+    const avg = (data.reviews.reduce((sum, r) => sum + r.rating, 0) / count).toFixed(1);
     const rounded = Math.round(avg);
     starsEl.innerHTML = '★'.repeat(rounded) + '☆'.repeat(5 - rounded);
-    countEl.textContent = `(${avg})`;
+    countEl.textContent = `(${count})`;
   } catch (err) {
     console.error(err);
   }
 }
 
-// Llamar junto con loadReviews
 loadHeaderRating();
 </script>
     <!-- OTROS VINOS DE LA MISMA REGIÓN -->
