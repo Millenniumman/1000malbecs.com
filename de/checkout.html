@@ -679,7 +679,7 @@ console.log("✅ Stripe functions loaded");
 
     body += `\nSubtotal: €${subtotal.toFixed(2)}`;
     if (shipping === 0) body += `\n✅ Envío GRATIS (12+ botellas)`;
-    else body += `\nEnvío a Alemania: €${shipping.toFixed(2)}`;
+    else body += `\nVersand innerhalb Deutschlands: €${shipping.toFixed(2)}`;
     body += `\n\nTotal: €${finalTotal.toFixed(2)}\n\nGracias!`;
 
     const subject = "Pedido - " + cart.map(i => i.name).join(", ");
