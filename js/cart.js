@@ -342,7 +342,7 @@ function renderCheckoutCart() {
   if (shippingEl) {
     shippingEl.innerHTML = shippingCost === 0 
       ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
-      : `Envío: €${shippingCost.toFixed(2)}`;
+      : `€${shippingCost.toFixed(2)}`;
   }
   if (totalEl) totalEl.textContent = `€${finalTotal.toFixed(2)}`;
 }
