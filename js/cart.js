@@ -146,7 +146,7 @@ function renderCart() {
     if (totalEl) totalEl.innerHTML = '';
     return;
   }
-}
+
   let html = '';
   let subtotal = 0;
   let totalBottles = 0;
@@ -182,22 +182,23 @@ function renderCart() {
 
   container.innerHTML = html;
 
-if (totalEl) {
-  totalEl.innerHTML = `
-    <div style="font-size:1.05em; color:#555;">${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong></div>
-    <div style="margin:8px 0;">
-      ${shippingCost === 0 
-        ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
-        : `${t.shippingToGermany} <strong>€6.99</strong>`}
-    </div>
-    ${totalBottles < 12 
-      ? `<p style="color:#e67e22; font-size:0.95em;">${t.freeShippingCondition.replace('{missing}', 12 - totalBottles)}</p>` 
-      : ''}
-    <hr>
-    <div style="font-size:1.65em; font-weight:700;">
-      ${t.total}: <strong>€${finalTotal.toFixed(2)}</strong>
-    </div>
-  `;
+  if (totalEl) {
+    totalEl.innerHTML = `
+      <div style="font-size:1.05em; color:#555;">${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong></div>
+      <div style="margin:8px 0;">
+        ${shippingCost === 0 
+          ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
+          : `${t.shippingToGermany} <strong>€6.99</strong>`}
+      </div>
+      ${totalBottles < 12 
+        ? `<p style="color:#e67e22; font-size:0.95em;">${t.freeShippingCondition.replace('{missing}', 12 - totalBottles)}</p>` 
+        : ''}
+      <hr>
+      <div style="font-size:1.65em; font-weight:700;">
+        ${t.total}: <strong>€${finalTotal.toFixed(2)}</strong>
+      </div>
+    `;
+  }
 }
 
 function addToCart(product) {
