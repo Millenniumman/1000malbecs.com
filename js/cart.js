@@ -146,7 +146,7 @@ function renderCart() {
     if (totalEl) totalEl.innerHTML = '';
     return;
   }
-
+}
   let html = '';
   let subtotal = 0;
   let totalBottles = 0;
