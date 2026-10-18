@@ -7,6 +7,7 @@ const translations = {
   es: { 
     added: "¡Agregado al carrito!",
     subtotal: "Subtotal", 
+    shippingToGermany: "Envío a Alemania:",
     freeShipping: "✅ Envío gratis", 
     freeShippingCondition: "Agrega {missing} botellas más y obtén envío gratis",
     total: "Total",
@@ -18,6 +19,7 @@ const translations = {
   en: { 
     added: "Added to your cart!",
     subtotal: "Subtotal", 
+    shippingToGermany: "Shipping to Germany:",
     freeShipping: "✅ Free Shipping", 
     freeShippingCondition: "Add {missing} more bottles and get free shipping",
     total: "Total",
@@ -29,6 +31,7 @@ const translations = {
   de: { 
     added: "Zum Warenkorb hinzugefügt!",
     subtotal: "Zwischensumme", 
+    shippingToGermany: "Versand nach Deutschland:",
     freeShipping: "✅ Versandkostenfrei", 
     freeShippingCondition: "Kaufen Sie {missing} Flaschen mehr und erhalten Sie kostenlosen Versand",
     total: "Gesamt",
@@ -179,19 +182,18 @@ function renderCart() {
 
   container.innerHTML = html;
 
-  if (totalEl) {
-    totalEl.innerHTML = `
-      <div style="font-size:1.05em; color:#555;">${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong></div>
-      <div style="margin:8px 0;">
-        ${shippingCost === 0 ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` : `Envío a Alemania: <strong>€6.99</strong>`}
-      </div>
-      ${totalBottles < 12 ? `<p style="color:#e67e22; font-size:0.95em;">${t.freeShippingCondition.replace('{missing}', 12 - totalBottles)}</p>` : ''}
-      <hr>
-      <div style="font-size:1.65em; font-weight:700;">
-        ${t.total}: <strong>€${finalTotal.toFixed(2)}</strong>
-      </div>
-    `;
-  }
+if (totalEl) {
+  totalEl.innerHTML = `
+    <div style="font-size:1.05em; color:#555;">${t.subtotal}: <strong>€${subtotal.toFixed(2)}</strong></div>
+    <div style="margin:8px 0;">
+      ${shippingCost === 0 ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` : `${t.shippingToGermany} <strong>€6.99</strong>`}
+    </div>
+    ${totalBottles < 12 ? `<p style="color:#e67e22; font-size:0.95em;">${t.freeShippingCondition.replace('{missing}', 12 - totalBottles)}</p>` : ''}
+    <hr>
+    <div style="font-size:1.65em; font-weight:700;">
+      ${t.total}: <strong>€${finalTotal.toFixed(2)}</strong>
+    </div>
+  `;
 }
 
 function addToCart(product) {
