@@ -656,6 +656,7 @@ console.log("✅ Stripe functions loaded");
 
   const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
+  }  
 function payWithEmail() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
