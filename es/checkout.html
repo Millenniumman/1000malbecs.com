@@ -865,7 +865,7 @@ function renderPayPalButton() {
   if (shippingEl) {
     shippingEl.innerHTML = shippingCost === 0 
       ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
-      : `Envío: <strong>€${shippingCost.toFixed(2)}</strong>`;
+      : `<strong>€${shippingCost.toFixed(2)}</strong>`;
   }
 
   document.getElementById('checkout-total') && 
