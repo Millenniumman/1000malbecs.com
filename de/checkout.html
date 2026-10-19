@@ -794,7 +794,8 @@ function renderPayPalButton() {
       const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
+        body: JSON.stringify(orderData),
+        language: getLang()  
       });
       const result = await response.json();
       console.log("Emails enviados:", result);
