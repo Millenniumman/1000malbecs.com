@@ -756,7 +756,7 @@
             return wine.Imagen;
         }
         const slug = (wine.url || '').split('/').pop().replace('.html', '');
-        return slug ? `/images/small/${slug}.jpg` : '/images/small/placeholder.jpg';
+        return slug ? `/images/large/${slug}.jpg` : '/images/large/placeholder.jpg';
     }
 
     async function loadWines() {
@@ -825,7 +825,7 @@
                 const img = document.createElement('img');
                 img.src = wineImage(wine);
                 img.alt = wine.Nombre || 'Vino';
-                img.onerror = function() { this.src = '/images/small/placeholder.jpg'; };
+                img.onerror = function() { this.src = '/images/large/placeholder.jpg'; };
                 img.style.cssText = 'width:32px; height:64px; object-fit:contain; border-radius:4px; flex-shrink:0;';
 
                 const textDiv = document.createElement('div');
