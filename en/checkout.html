@@ -593,7 +593,8 @@ async function payWithStripeCard() {
         await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(orderData)
+          body: JSON.stringify(orderData),
+          language: getLang()  
         });
         console.log("Emails enviados correctamente");
       } catch (e) {
