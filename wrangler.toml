@@ -13,7 +13,4 @@ format = "modules"
 [[d1_databases]]
 binding = "DB"
 database_name = "malbecs-reviews"
-[[d1_databases]]
-binding = "DB"
-database_name = "malbecs-reviews"
 database_id = "4cb22423-001b-4c10-8956-78670513c77a"
