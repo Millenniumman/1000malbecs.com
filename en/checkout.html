@@ -289,6 +289,18 @@
   text-align: center;
   line-height: 1.3;
 }
+    @media (max-width: 767px) {
+  .container { margin-top: 80px; }
+}
+footer {
+  margin-left: var(--sidebar-width);
+  /* o calc(var(--sidebar-width) + 20px) si quieres el mismo espacio que .container */
+}
+
+@media (max-width: 767px) {
+  footer {
+    margin-left: 0; /* en móvil el sidebar está oculto */
+  }
   </style>
 </head>
 <body>
