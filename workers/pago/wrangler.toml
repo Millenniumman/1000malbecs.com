@@ -1,5 +1,5 @@
 cat > wrangler.toml << 'EOF'
-name = "1000malbecs-pago"
+name = "1000malbecs-pago-test"
 main = "index.js"
 compatibility_date = "2025-07-01"
 
