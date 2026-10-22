@@ -448,8 +448,40 @@ if (hamburger && sidebar) {
   });
 }
   </script>
+  <script>
+// ========== FUNCIÓN AUXILIAR (debe ir primero) ==========
+function getCurrentShippingAndTotal() {
+  const isCollect = document.getElementById('option-collect')?.style.border.includes('4A2C59') || false;
+  const destination = document.getElementById('checkout-destination')?.value || '';
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
+  const subtotal = cart.reduce((sum, item) => {
+    const price = parseFloat(item.price) || 0;
+    const qty = parseInt(item.quantity) || 1;
+    return sum + (price * qty);
+  }, 0);
+
+  let shipping = 0;
+  if (!isCollect && destination) {
+    if (destination === 'DE') {
+      shipping = bottles >= 12 ? 0 : 6.99;
+    } else if (destination === 'EU') {
+      shipping = 18.99;
+    }
+  }
+
+  return {
+    subtotal,
+    shipping,
+    total: subtotal + shipping,
+    bottles,
+    destination,
+    isCollect,
+    cart
+  };
+}
 <!-- ==================== STRIPE PAYMENT ==================== -->
-<script>
+
 // Variables
 let stripe;
 let cardElement;
@@ -639,8 +671,7 @@ window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 
 console.log("✅ Stripe functions loaded");
-</script> 
-<script>
+
  
   function payWithApplePay() { alert("Redirigiendo a Apple Pay..."); }
   function payWithGooglePay() { alert("Redirigiendo a Google Pay..."); }
@@ -661,7 +692,7 @@ function payWithWhatsApp() {
     const price = parseFloat(item.price) || 0;
     const qty = item.quantity || 1;
     message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
-  });</script>
+  });
 <script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
 
 <script>
