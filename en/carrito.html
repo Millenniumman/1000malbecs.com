@@ -316,9 +316,11 @@
       <span id="cart-subtotal">€0.00</span>
     </div>
     <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-      <span>Shipping</span>
-      <span id="cart-shipping">—</span>
-    </div>
+  <span>Shipping</span>
+  <span id="cart-shipping">—</span>
+</div>
+<!-- Nuevo mensaje -->
+<p id="free-shipping-hint" style="margin: -4px 0 12px 0; font-size: 0.95rem; color: #c45c26; display: none;"></p>
     <div style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; margin-top: 10px;">
       <span>Total</span>
       <span id="cart-total">€0.00</span>
@@ -415,31 +417,43 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateCartTotals() {
-    const destination = destinationSelect.value;
-    const bottles = getBottleCount();
-    const subtotal = getSubtotal();
-    const result = calculateShipping(destination, bottles);
+  const destination = destinationSelect.value;
+  const bottles = getBottleCount();
+  const subtotal = getSubtotal();
+  const result = calculateShipping(destination, bottles);
+  const freeShippingHint = document.getElementById('free-shipping-hint');
 
-    // Subtotal
-    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+  // Subtotal
+  if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
 
-    // Shipping
-    if (result.cost === null) {
-      if (shippingEl) shippingEl.textContent = '—';
-    } else if (result.cost === 0) {
-      if (shippingEl) shippingEl.textContent = 'Free';
-    } else {
-      if (shippingEl) shippingEl.textContent = '€' + result.cost.toFixed(2);
-    }
-
-    // Message
-    if (shippingMessage) shippingMessage.textContent = result.message || '';
-
-    // Total
-    const shippingCost = result.cost || 0;
-    if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
+  // Shipping
+  if (result.cost === null) {
+    if (shippingEl) shippingEl.textContent = '—';
+  } else if (result.cost === 0) {
+    if (shippingEl) shippingEl.textContent = 'Free';
+  } else {
+    if (shippingEl) shippingEl.textContent = '€' + result.cost.toFixed(2);
   }
 
+  // Mensaje principal
+  if (shippingMessage) shippingMessage.textContent = result.message || '';
+
+  // Hint "Add X more bottles" (solo Alemania y menos de 12)
+  if (freeShippingHint) {
+    if (destination === 'DE' && bottles < 12 && bottles > 0) {
+      const remaining = 12 - bottles;
+      freeShippingHint.textContent = `Add ${remaining} more bottle${remaining === 1 ? '' : 's'} and get free shipping`;
+      freeShippingHint.style.display = 'block';
+    } else {
+      freeShippingHint.style.display = 'none';
+      freeShippingHint.textContent = '';
+    }
+  }
+
+  // Total
+  const shippingCost = result.cost || 0;
+  if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
+}
   // Cuando cambia el destino
   if (destinationSelect) {
     destinationSelect.addEventListener('change', updateCartTotals);
