@@ -296,6 +296,22 @@
     <div id="cart-total" class="total"></div>
     <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
     <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
+  
+<div class="shipping-destination" style="margin: 20px 0; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+  <label for="destination" style="font-weight: 600; display: block; margin-bottom: 8px;">
+    Destino del envío
+  </label>
+  <select id="destination" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">
+    <option value="">Selecciona destino</option>
+    <option value="DE">Alemania</option>
+    <option value="EU">Otros países de Europa</option>
+    <!-- O si prefieres listar países concretos: -->
+    <!-- <option value="ES">España</option> -->
+    <!-- <option value="FR">Francia</option> -->
+    <!-- etc. -->
+  </select>
+  <p id="shipping-message" style="margin: 10px 0 0; font-size: 0.95rem; color: #555;"></p>
+</div>
   </main>
  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
