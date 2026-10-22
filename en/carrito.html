@@ -291,29 +291,44 @@
 
   </header>
   <main>
-    <div class="shipping-destination" style="margin: 20px 0; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
-  <label for="destination" style="font-weight: 600; display: block; margin-bottom: 8px;">
-   Choose your country
-  </label>
-  <select id="destination" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">
-    <option value="">Choose your destination</option>
-    <option value="DE">Ship to Germany</option>
-    <option value="EU">Ship to other EU Countries</option>
-    <!-- O si prefieres listar países concretos: -->
-    <!-- <option value="ES">España</option> -->
-    <!-- <option value="FR">Francia</option> -->
-    <!-- etc. -->
-  </select>
-  <p id="shipping-message" style="margin: 10px 0 0; font-size: 0.95rem; color: #555;"></p>
-</div>
-    <h1>Your Cart</h1>
-    <div id="cart-items"></div>
-    <div id="cart-total" class="total"></div>
-    <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
-    <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
-  
+  <h1>Your Cart</h1>
 
-  </main>
+  <!-- 1. Los vinos -->
+  <div id="cart-items"></div>
+
+  <!-- 2. Destino + envío -->
+  <div class="shipping-destination" style="margin: 30px 0; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fafafa;">
+    <label for="destination" style="font-weight: 600; display: block; margin-bottom: 10px; font-size: 1.1rem;">
+      Shipping destination
+    </label>
+    <select id="destination" style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+      <option value="">Choose destination</option>
+      <option value="DE">Germany</option>
+      <option value="EU">Other EU countries</option>
+    </select>
+    <p id="shipping-message" style="margin: 12px 0 0; font-size: 0.95rem; color: #444;"></p>
+  </div>
+
+  <!-- 3. Totales -->
+  <div id="cart-summary" style="margin-top: 20px; padding: 20px; border-top: 2px solid #eee;">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">€0.00</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+      <span>Shipping</span>
+      <span id="cart-shipping">—</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; margin-top: 10px;">
+      <span>Total</span>
+      <span id="cart-total">€0.00</span>
+    </div>
+  </div>
+
+  <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
+  <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
+</main>
+
  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
     const hamburger = document.querySelector('.hamburger');
@@ -362,59 +377,82 @@
     }
   });
 </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
+ <script>
+document.addEventListener('DOMContentLoaded', function () {
   const destinationSelect = document.getElementById('destination');
   const shippingMessage = document.getElementById('shipping-message');
-  const shippingCostEl = document.getElementById('shipping-cost'); // el elemento donde muestras el coste
-  const totalEl = document.getElementById('cart-total');           // total del carrito
+  const shippingEl = document.getElementById('cart-shipping');
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const totalEl = document.getElementById('cart-total');
 
-  // Función que cuenta las botellas (ajústala a cómo tienes el carrito)
+  // Cuenta las botellas reales del carrito (ajusta según tu estructura)
   function getBottleCount() {
-    // Ejemplo: si tienes un data-attribute o sumas cantidades
-    // return parseInt(document.getElementById('bottle-count').textContent) || 0;
-    return 0; // ← sustituye por tu lógica real
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
+  }
+
+  function getSubtotal() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.reduce((sum, item) => {
+      const price = parseFloat(item.price) || 0;
+      const qty = parseInt(item.quantity) || 1;
+      return sum + (price * qty);
+    }, 0);
   }
 
   function calculateShipping(destination, bottleCount) {
-    if (!destination) return { cost: 0, message: 'Selecciona un destino para ver el coste de envío' };
-
+    if (!destination) {
+      return { cost: null, message: 'Select a destination to see shipping cost' };
+    }
     if (destination === 'DE') {
       if (bottleCount >= 12) {
-        return { cost: 0, message: 'Envío gratuito (pedido de 12 o más botellas)' };
+        return { cost: 0, message: 'Free shipping (12 or more bottles)' };
       }
-      return { cost: 6.99, message: 'Envío a Alemania: 6,99 € (gratis a partir de 12 botellas)' };
+      return { cost: 6.99, message: 'Shipping to Germany: €6.99 (free from 12 bottles)' };
     }
-
-    // Resto de Europa
-    return { cost: 18.99, message: 'Envío a otros países de Europa: 18,99 €' };
+    // Other EU
+    return { cost: 18.99, message: 'Shipping to other EU countries: €18.99' };
   }
 
-  function updateCartShipping() {
+  function updateCartTotals() {
     const destination = destinationSelect.value;
     const bottles = getBottleCount();
+    const subtotal = getSubtotal();
     const result = calculateShipping(destination, bottles);
 
-    if (shippingCostEl) {
-      shippingCostEl.textContent = result.cost === 0 ? 'Gratis' : result.cost.toFixed(2) + ' €';
-    }
-    if (shippingMessage) {
-      shippingMessage.textContent = result.message;
+    // Subtotal
+    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+
+    // Shipping
+    if (result.cost === null) {
+      if (shippingEl) shippingEl.textContent = '—';
+    } else if (result.cost === 0) {
+      if (shippingEl) shippingEl.textContent = 'Free';
+    } else {
+      if (shippingEl) shippingEl.textContent = '€' + result.cost.toFixed(2);
     }
 
-    // Actualiza el total (ejemplo)
-    // const subtotal = ...;
-    // totalEl.textContent = (subtotal + result.cost).toFixed(2) + ' €';
+    // Message
+    if (shippingMessage) shippingMessage.textContent = result.message || '';
+
+    // Total
+    const shippingCost = result.cost || 0;
+    if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
   }
 
-  destinationSelect.addEventListener('change', updateCartShipping);
+  // Cuando cambia el destino
+  if (destinationSelect) {
+    destinationSelect.addEventListener('change', updateCartTotals);
+  }
 
-  // Llama también cuando cambie la cantidad de productos
-  // (escucha tus botones + / - o el evento que uses)
-  updateCartShipping();
+  // Cuando el carrito se actualiza (si tu cart.js dispara un evento, úsalo)
+  // Por ahora lo llamamos al cargar y cada vez que se renderice el carrito
+  window.updateCartTotals = updateCartTotals; // para que cart.js pueda llamarlo si quieres
+
+  // Primera carga
+  setTimeout(updateCartTotals, 100); // pequeño delay para que cart.js termine de renderizar
 });
 </script>
-
   
 </body>
 </html>
