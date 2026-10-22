@@ -434,7 +434,10 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     if (shippingEl) shippingEl.textContent = '€' + result.cost.toFixed(2);
   }
-
+// Guardar destino elegido
+if (destination) {
+  localStorage.setItem('shippingDestination', destination);
+}
   // Mensaje principal
   if (shippingMessage) shippingMessage.textContent = result.message || '';
 
