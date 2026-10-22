@@ -383,9 +383,11 @@ footer {
         <label><input type="checkbox" id="createAccount"> Create an account using this email</label>
       </div>
 
-      <div>
+  <div>
   <h3>Delivery</h3>
-  <div style="display:flex; gap:15px; margin-bottom:20px;">
+
+  <!-- Opciones principales -->
+  <div style="display:flex; gap:15px; margin-bottom:15px;">
     <div id="option-ship" class="delivery-option" style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
       Ship to Address
     </div>
@@ -393,8 +395,21 @@ footer {
       Click & Collect<br><small>(Free)</small>
     </div>
   </div>
-  <p id="destination-display" style="font-size:0.95rem; color:#555; margin-top:8px;"></p>
+
+  <!-- Selector de destino (solo visible cuando se elige Ship) -->
+  <div id="destination-selector" style="margin-top:10px;">
+    <label for="checkout-destination" style="font-weight:600; display:block; margin-bottom:8px;">
+      Shipping destination
+    </label>
+    <select id="checkout-destination" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; font-size:1rem;">
+      <option value="">Choose destination</option>
+      <option value="DE">Germany</option>
+      <option value="EU">Other EU countries</option>
+    </select>
+    <p id="destination-display" style="font-size:0.95rem; color:#555; margin-top:8px;"></p>
+  </div>
 </div>
+
 
     <!-- COLUMNA DERECHA - RESUMEN -->
 <div class="right-column">
@@ -913,6 +928,8 @@ document.getElementById('final-total-amount') &&
 document.addEventListener('DOMContentLoaded', function () {
   const optionShip = document.getElementById('option-ship');
   const optionCollect = document.getElementById('option-collect');
+  const destinationSelect = document.getElementById('checkout-destination');
+  const destinationSelectorBox = document.getElementById('destination-selector');
   const shippingEl = document.getElementById('checkout-shipping');
   const subtotalEl = document.getElementById('checkout-subtotal');
   const totalEl = document.getElementById('checkout-total');
@@ -920,7 +937,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const destinationDisplay = document.getElementById('destination-display');
 
   let isCollect = false;
-  const destination = localStorage.getItem('shippingDestination') || '';
+
+  // Cargar destino guardado del carrito (si existe)
+  const savedDestination = localStorage.getItem('shippingDestination') || '';
+  if (destinationSelect && savedDestination) {
+    destinationSelect.value = savedDestination;
+  }
 
   function getBottleCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -936,22 +958,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 0);
   }
 
-  function calculateShipping() {
-    if (isCollect) return { cost: 0, message: '' };
+  function getCurrentDestination() {
+    return destinationSelect ? destinationSelect.value : '';
+  }
 
-    if (!destination) return { cost: null, message: 'Select destination in the cart' };
+  function calculateShipping() {
+    if (isCollect) return { cost: 0 };
+
+    const destination = getCurrentDestination();
+    if (!destination) return { cost: null };
 
     const bottles = getBottleCount();
     if (destination === 'DE') {
-      if (bottles >= 12) return { cost: 0, message: 'Free shipping' };
-      return { cost: 6.99, message: '' };
+      return { cost: bottles >= 12 ? 0 : 6.99 };
     }
-    return { cost: 18.99, message: '' };
+    return { cost: 18.99 };
   }
 
   function updateCheckoutTotals() {
     const bottles = getBottleCount();
     const subtotal = getSubtotal();
+    const destination = getCurrentDestination();
     const result = calculateShipping();
 
     if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
@@ -964,7 +991,7 @@ document.addEventListener('DOMContentLoaded', function () {
       shippingEl.textContent = '€' + result.cost.toFixed(2);
     }
 
-    // Hint
+    // Hint solo para Alemania + Ship + menos de 12
     if (freeHint) {
       if (!isCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
         const remaining = 12 - bottles;
@@ -978,42 +1005,52 @@ document.addEventListener('DOMContentLoaded', function () {
     const shippingCost = result.cost || 0;
     if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
 
-    // Actualiza también el botón de Stripe si existe
     const stripeAmount = document.getElementById('final-total-amount');
     if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
 
-    // Mostrar destino
+    // Texto informativo
     if (destinationDisplay) {
       if (isCollect) {
-        destinationDisplay.textContent = 'Pickup at store (free shipping)';
+        destinationDisplay.textContent = 'Pickup at store — free shipping';
       } else if (destination === 'DE') {
         destinationDisplay.textContent = 'Shipping to Germany';
       } else if (destination === 'EU') {
         destinationDisplay.textContent = 'Shipping to other EU countries';
       } else {
-        destinationDisplay.textContent = 'Please select destination in the cart';
+        destinationDisplay.textContent = 'Please choose a destination';
       }
+    }
+
+    // Guardar el destino actual para que persista
+    if (destination) {
+      localStorage.setItem('shippingDestination', destination);
     }
   }
 
   function selectDelivery(collect) {
     isCollect = collect;
+
     if (collect) {
       optionCollect.style.border = '2px solid #4A2C59';
       optionCollect.style.opacity = '1';
       optionShip.style.border = '1px solid #ddd';
       optionShip.style.opacity = '0.7';
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
     } else {
       optionShip.style.border = '2px solid #4A2C59';
       optionShip.style.opacity = '1';
       optionCollect.style.border = '1px solid #ddd';
       optionCollect.style.opacity = '0.7';
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
     }
+
     updateCheckoutTotals();
   }
 
+  // Eventos
   if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
   if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+  if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
 
   // Inicial
   selectDelivery(false);
