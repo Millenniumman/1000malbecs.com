@@ -384,42 +384,41 @@ footer {
       </div>
 
       <div>
-        <h3>Delivery</h3>
-        <div style="display:flex; gap:15px; margin-bottom:20px;">
-          <div style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
-            Ship to Address
-          </div>
-          <div style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer; opacity:0.6;">
-            Click & Collect
-          </div>
-        </div>
-      </div>
-
+  <h3>Delivery</h3>
+  <div style="display:flex; gap:15px; margin-bottom:20px;">
+    <div id="option-ship" class="delivery-option" style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
+      Ship to Address
     </div>
+    <div id="option-collect" class="delivery-option" style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
+      Click & Collect<br><small>(Free)</small>
+    </div>
+  </div>
+  <p id="destination-display" style="font-size:0.95rem; color:#555; margin-top:8px;"></p>
+</div>
 
     <!-- COLUMNA DERECHA - RESUMEN -->
-    <div class="right-column">
-      <h3>Order Summary</h3>
-      <div id="checkout-items"></div>
+<div class="right-column">
+  <h3>Order Summary</h3>
+  <div id="checkout-items"></div>
 
-      <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px;">
-        <div style="display:flex; justify-content:space-between;">
-          <span>Subtotal</span>
-          <span id="checkout-subtotal">€0.00</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; margin:8px 0;">
-          <span>Shipping Cost</span>
-          <span id="checkout-shipping">Gratis</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700;">
-          <span>Total</span>
-          <span id="checkout-total">€0.00</span>
-        </div>
-      </div>
+  <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px; font-size:1.15rem;">
+    <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+      <span>Subtotal</span>
+      <span id="checkout-subtotal">€0.00</span>
     </div>
-
+    <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+      <span>Shipping Cost</span>
+      <span id="checkout-shipping">—</span>
+    </div>
+    <!-- Hint free shipping -->
+    <p id="checkout-free-hint" style="margin:0 0 12px 0; font-size:1.15rem; color:#c45c26; display:none;"></p>
+    
+    <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:700; margin-top:10px;">
+      <span>Total</span>
+      <span id="checkout-total">€0.00</span>
+    </div>
   </div>
-</div>  
+</div> 
   </div> <!-- Cierre de .main-content -->
 
 <script src="/js/cart.js"></script>
@@ -910,6 +909,116 @@ document.getElementById('final-total-amount') &&
    document.getElementById('checkout-total').textContent.replace('€','').trim());
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const optionShip = document.getElementById('option-ship');
+  const optionCollect = document.getElementById('option-collect');
+  const shippingEl = document.getElementById('checkout-shipping');
+  const subtotalEl = document.getElementById('checkout-subtotal');
+  const totalEl = document.getElementById('checkout-total');
+  const freeHint = document.getElementById('checkout-free-hint');
+  const destinationDisplay = document.getElementById('destination-display');
 
+  let isCollect = false;
+  const destination = localStorage.getItem('shippingDestination') || '';
+
+  function getBottleCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
+  }
+
+  function getSubtotal() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.reduce((sum, item) => {
+      const price = parseFloat(item.price) || 0;
+      const qty = parseInt(item.quantity) || 1;
+      return sum + (price * qty);
+    }, 0);
+  }
+
+  function calculateShipping() {
+    if (isCollect) return { cost: 0, message: '' };
+
+    if (!destination) return { cost: null, message: 'Select destination in the cart' };
+
+    const bottles = getBottleCount();
+    if (destination === 'DE') {
+      if (bottles >= 12) return { cost: 0, message: 'Free shipping' };
+      return { cost: 6.99, message: '' };
+    }
+    return { cost: 18.99, message: '' };
+  }
+
+  function updateCheckoutTotals() {
+    const bottles = getBottleCount();
+    const subtotal = getSubtotal();
+    const result = calculateShipping();
+
+    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+
+    if (result.cost === null) {
+      shippingEl.textContent = '—';
+    } else if (result.cost === 0) {
+      shippingEl.textContent = 'Free';
+    } else {
+      shippingEl.textContent = '€' + result.cost.toFixed(2);
+    }
+
+    // Hint
+    if (freeHint) {
+      if (!isCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
+        const remaining = 12 - bottles;
+        freeHint.textContent = `Add ${remaining} more bottle${remaining === 1 ? '' : 's'} and get free shipping`;
+        freeHint.style.display = 'block';
+      } else {
+        freeHint.style.display = 'none';
+      }
+    }
+
+    const shippingCost = result.cost || 0;
+    if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
+
+    // Actualiza también el botón de Stripe si existe
+    const stripeAmount = document.getElementById('final-total-amount');
+    if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
+
+    // Mostrar destino
+    if (destinationDisplay) {
+      if (isCollect) {
+        destinationDisplay.textContent = 'Pickup at store (free shipping)';
+      } else if (destination === 'DE') {
+        destinationDisplay.textContent = 'Shipping to Germany';
+      } else if (destination === 'EU') {
+        destinationDisplay.textContent = 'Shipping to other EU countries';
+      } else {
+        destinationDisplay.textContent = 'Please select destination in the cart';
+      }
+    }
+  }
+
+  function selectDelivery(collect) {
+    isCollect = collect;
+    if (collect) {
+      optionCollect.style.border = '2px solid #4A2C59';
+      optionCollect.style.opacity = '1';
+      optionShip.style.border = '1px solid #ddd';
+      optionShip.style.opacity = '0.7';
+    } else {
+      optionShip.style.border = '2px solid #4A2C59';
+      optionShip.style.opacity = '1';
+      optionCollect.style.border = '1px solid #ddd';
+      optionCollect.style.opacity = '0.7';
+    }
+    updateCheckoutTotals();
+  }
+
+  if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
+  if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+
+  // Inicial
+  selectDelivery(false);
+  updateCheckoutTotals();
+});
+</script>
 </body>
 </html>
