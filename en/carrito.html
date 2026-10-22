@@ -291,20 +291,14 @@
 
   </header>
   <main>
-    <h1>Your Cart</h1>
-    <div id="cart-items"></div>
-    <div id="cart-total" class="total"></div>
-    <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
-    <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
-  
-<div class="shipping-destination" style="margin: 20px 0; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+    <div class="shipping-destination" style="margin: 20px 0; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
   <label for="destination" style="font-weight: 600; display: block; margin-bottom: 8px;">
-    Destino del envío
+   Choose your country
   </label>
   <select id="destination" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">
-    <option value="">Selecciona destino</option>
-    <option value="DE">Alemania</option>
-    <option value="EU">Otros países de Europa</option>
+    <option value="">Choose your destination</option>
+    <option value="DE">Ship to Germany</option>
+    <option value="EU">Ship to other EU Countries</option>
     <!-- O si prefieres listar países concretos: -->
     <!-- <option value="ES">España</option> -->
     <!-- <option value="FR">Francia</option> -->
@@ -312,6 +306,13 @@
   </select>
   <p id="shipping-message" style="margin: 10px 0 0; font-size: 0.95rem; color: #555;"></p>
 </div>
+    <h1>Your Cart</h1>
+    <div id="cart-items"></div>
+    <div id="cart-total" class="total"></div>
+    <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
+    <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
+  
+
   </main>
  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
   <script>
@@ -360,7 +361,59 @@
       if (typeof addToCart === 'function') addToCart(product);
     }
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const destinationSelect = document.getElementById('destination');
+  const shippingMessage = document.getElementById('shipping-message');
+  const shippingCostEl = document.getElementById('shipping-cost'); // el elemento donde muestras el coste
+  const totalEl = document.getElementById('cart-total');           // total del carrito
+
+  // Función que cuenta las botellas (ajústala a cómo tienes el carrito)
+  function getBottleCount() {
+    // Ejemplo: si tienes un data-attribute o sumas cantidades
+    // return parseInt(document.getElementById('bottle-count').textContent) || 0;
+    return 0; // ← sustituye por tu lógica real
+  }
+
+  function calculateShipping(destination, bottleCount) {
+    if (!destination) return { cost: 0, message: 'Selecciona un destino para ver el coste de envío' };
+
+    if (destination === 'DE') {
+      if (bottleCount >= 12) {
+        return { cost: 0, message: 'Envío gratuito (pedido de 12 o más botellas)' };
+      }
+      return { cost: 6.99, message: 'Envío a Alemania: 6,99 € (gratis a partir de 12 botellas)' };
+    }
+
+    // Resto de Europa
+    return { cost: 18.99, message: 'Envío a otros países de Europa: 18,99 €' };
+  }
+
+  function updateCartShipping() {
+    const destination = destinationSelect.value;
+    const bottles = getBottleCount();
+    const result = calculateShipping(destination, bottles);
+
+    if (shippingCostEl) {
+      shippingCostEl.textContent = result.cost === 0 ? 'Gratis' : result.cost.toFixed(2) + ' €';
+    }
+    if (shippingMessage) {
+      shippingMessage.textContent = result.message;
+    }
+
+    // Actualiza el total (ejemplo)
+    // const subtotal = ...;
+    // totalEl.textContent = (subtotal + result.cost).toFixed(2) + ' €';
+  }
+
+  destinationSelect.addEventListener('change', updateCartShipping);
+
+  // Llama también cuando cambie la cantidad de productos
+  // (escucha tus botones + / - o el evento que uses)
+  updateCartShipping();
+});
 </script>
+
   
 </body>
 </html>
