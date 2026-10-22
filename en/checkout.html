@@ -543,20 +543,17 @@ async function payWithStripeCard() {
   const postalCode = document.getElementById('postal-code').value.trim();
   const city = document.getElementById('city').value.trim();
   const phone = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
-  const country = "DE";
 
   if (!email || !postalCode || !city) {
     alert("Por favor completa los campos obligatorios");
     return;
   }
 
-  // Calcular shipping cost (igual que en cart.js)
-  let totalBottles = 0;
-  const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
-  cartItems.forEach(item => {
-    totalBottles += item.quantity || 1;
-  });
-  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  // === NUEVA LÓGICA DE ENVÍO ===
+  const { total, shipping, destination, isCollect, cart: cartItems } = getCurrentShippingAndTotal();
+
+  // País real según lo elegido (o DE por defecto si es Click & Collect)
+  const country = isCollect ? "DE" : (destination === "DE" ? "DE" : "EU");
 
   try {
     const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
@@ -570,7 +567,7 @@ async function payWithStripeCard() {
             line1: address,
             city: city,
             postal_code: postalCode,
-            country: country
+            country: country === "EU" ? "DE" : country   // Stripe necesita un código ISO real; ajusta si quieres
           }
         }
       }
@@ -591,17 +588,27 @@ async function payWithStripeCard() {
           address, 
           postalCode, 
           city, 
-          country 
+          country: destination || (isCollect ? "Click & Collect" : "N/A")
         },
         items: cartItems,
-        total: document.getElementById('checkout-total').textContent,
-        shippingCost: shippingCost,           // ← Ahora está definido
+        total: total.toFixed(2),
+        shippingCost: shipping,
+        deliveryMethod: isCollect ? "click_collect" : "ship",
+        destination: destination || null,
         paymentMethod: "Stripe",
         status: "Pagado",
         paymentIntentId: paymentIntent.id
       };
 
-      localStorage.setItem('lastOrder', JSON.stringify(orderData));
+      // ... el resto de tu código (guardar pedido, limpiar carrito, etc.)
+      console.log("Order data:", orderData);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error inesperado en el pago");
+  }
+} 
+  localStorage.setItem('lastOrder', JSON.stringify(orderData));
 
       // Enviar emails
       try {
@@ -711,11 +718,9 @@ function payWithWhatsApp() {
 
 <script>
 function payWithPayPal() {
-  // Cerrar formulario de Stripe si está abierto
-  const stripeForm = document.getElementById('stripe-checkout-form');
-  if (stripeForm) {
-    stripeForm.style.display = 'none';
-  }
+  const { total } = getCurrentShippingAndTotal();
+  // Usa `total` al crear la orden de PayPal
+  console.log('PayPal total:', total);
 
   const container = document.getElementById('paypal-button-container');
   if (!container) {
