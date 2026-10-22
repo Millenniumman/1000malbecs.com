@@ -309,23 +309,24 @@
     <p id="shipping-message" style="margin: 12px 0 0; font-size: 0.95rem; color: #444;"></p>
   </div>
 
-  <!-- 3. Totales -->
-  <div id="cart-summary" style="margin-top: 20px; padding: 20px; border-top: 2px solid #eee;">
-    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-      <span>Subtotal</span>
-      <span id="cart-subtotal">€0.00</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-  <span>Shipping</span>
-  <span id="cart-shipping">—</span>
-</div>
-<!-- Nuevo mensaje -->
-<p id="free-shipping-hint" style="margin: -4px 0 12px 0; font-size: 0.95rem; color: #c45c26; display: none;"></p>
-    <div style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; margin-top: 10px;">
-      <span>Total</span>
-      <span id="cart-total">€0.00</span>
-    </div>
+ !-- 3. Totales -->
+<div id="cart-summary" style="margin-top: 20px; padding: 20px; border-top: 2px solid #eee; font-size: 1.15rem;">
+  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+    <span>Subtotal</span>
+    <span id="cart-subtotal">€0.00</span>
   </div>
+  <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+    <span>Shipping</span>
+    <span id="cart-shipping">—</span>
+  </div>
+  <!-- Hint free shipping -->
+  <p id="free-shipping-hint" style="margin: 0 0 12px 0; font-size: 1.15rem; color: #c45c26; display: none;"></p>
+  
+  <div style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; margin-top: 10px;">
+    <span>Total</span>
+    <span id="cart-total">€0.00</span>
+  </div>
+</div>
 
   <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
   <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
