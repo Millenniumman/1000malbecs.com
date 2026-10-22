@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - 1000 Malbecs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068768833');
+</script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18090475554"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18090475554'); </script>
+  <style>
+  body { 
+    font-family: 'Montserrat', sans-serif; 
+    margin:0; padding:0; 
+    background:#fdfdfd; 
+  }
+
+  main { 
+    max-width: 900px; 
+    margin: 120px auto 60px; 
+    padding: 20px; 
+  }
+
+  h1 { 
+    color: #4A2C59; 
+    text-align: center; 
+    margin-bottom: 30px; 
+  }
+
+  /* ========================================
+     HEADER MOBILE
+     ======================================== */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 70px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1500;
+  }
+
+  .hamburger {
+    background: none; 
+    border: none; 
+    cursor: pointer;
+    width: 50px; 
+    height: 50px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+  }
+
+  .logo-link {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .logo {
+    height: 48px;
+    width: auto;
+  }
+
+  /* Ocultar header mobile en desktop */
+  @media (min-width: 769px) {
+    .mobile-header {
+      display: none !important;
+    }
+  }
+
+  /* ========================================
+     HEADER DESKTOP
+     ======================================== */
+  .header {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1400;
+    background: white;
+    padding: 18px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  @media (min-width: 769px) {
+    .header {
+      display: block;
+    }
+    .logo {
+      height: 120px;
+    }
+    body {
+      padding-top: 180px;
+    }
+  }
+
+  /* ========================================
+     SIDEBAR
+     ======================================== */
+  #sidebar {
+    top: 70px !important;
+    height: calc(100vh - 70px) !important;
+    width: 280px;
+    background: #f8f8f8;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #e0e0e0;
+    z-index: 1100;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+  }
+
+  #sidebar.open { 
+    transform: translateX(0); 
+  }
+
+  @media (min-width: 769px) {
+    #sidebar {
+      top: 0 !important;
+      height: 100vh !important;
+      transform: translateX(0) !important;
+    }
+  }
+
+  /* Ocultar logo en sidebar mobile */
+  @media (max-width: 768px) {
+    #sidebar .logo-container {
+      display: none !important;
+    }
+  }
+
+  /* ========================================
+     CARRITO
+     ======================================== */
+ .cart-item {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-size: 14px;
+}
+
+.cart-item img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  margin-right: 12px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.item-info {
+  flex: 1;
+  padding-right: 8px;
+}
+
+.item-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 14.5px;
+  color: #4A2C59;
+  line-height: 1.3;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 10px;
+  flex-shrink: 0;
+}
+
+.quantity-controls button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.cart-item .price-column {
+  text-align: right;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.cart-item .price-column strong {
+  display: block;
+  font-size: 15px;
+  color: #4A2C59;
+}
+
+.cart-item .price-column small {
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 12px;
+}  
+.total {
+  font-size: 1.55em;     /* Más grande */
+  font-weight: 700;
+  color: #4A2C59;
+  text-align: right;
+  margin: 30px 0 20px;
+}
+        /* Alinear el resumen de productos a la derecha */
+#cart-items {
+  margin-left: 40px;           /* Empuja todo a la derecha */
+  max-width: 800px;
+}
+
+.cart-item {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Opcional: más espacio en mobile */
+@media (max-width: 768px) {
+  #cart-items {
+    margin-left: 0;
+  }
+}
+.btn-checkout {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto 20px;
+  padding: 16px;
+  background: #4A2C59;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(74,44,89,0.2);
+  transition: all 0.3s;
+}
+
+.btn-checkout:hover {
+  background: #5A1D39;
+  transform: translateY(-2px);
+}
+/* ========================================
+     FOOTER
+======================================== */
+  footer {
+    margin-top: 120px;
+    padding-top: 60px;
+  }
+
+  @media (min-width: 769px) {
+    footer {
+      margin-top: 180px;
+    }
+  }
+</style>
+</head>
+<body>
+    <!-- ==================== HEADER MOBILE ==================== -->
+<header class="mobile-header">
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <svg class="hamburger-icon" viewBox="0 0 100 100" width="30" height="30">
+      <rect class="line top" x="15" y="25" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line mid" x="15" y="45" width="70" height="10" rx="5" fill="var(--primary)"/>
+      <rect class="line bot" x="15" y="65" width="70" height="10" rx="5" fill="var(--primary)"/>
+    </svg>
+  </button>
+
+  <!-- Logo en el medio o derecha -->
+  <a href="/{{ lang }}/" class="logo-link" style="margin-left: auto; margin-right: 15px;">
+    <img src="/images/1000-malbecs-logo.png" alt="1000 Malbecs" class="logo" style="height: 48px;">
+  </a>
+
+  </header>
+  <main>
+  <h1>Your Cart</h1>
+
+  <!-- 1. Los vinos -->
+  <div id="cart-items"></div>
+
+  <!-- 2. Destino + envío -->
+  <div class="shipping-destination" style="margin: 30px 0; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fafafa;">
+    <label for="destination" style="font-weight: 600; display: block; margin-bottom: 10px; font-size: 1.1rem;">
+      Shipping destination
+    </label>
+    <select id="destination" style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+      <option value="">Choose destination</option>
+      <option value="DE">Germany</option>
+      <option value="EU">Other EU countries</option>
+    </select>
+    <p id="shipping-message" style="margin: 12px 0 0; font-size: 0.95rem; color: #444;"></p>
+  </div>
+
+<div id="cart-summary" style="margin-top: 20px; padding: 20px; border-top: 2px solid #eee; font-size: 1.15rem;">
+  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+    <span>Subtotal</span>
+    <span id="cart-subtotal">€0.00</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+    <span>Shipping</span>
+    <span id="cart-shipping">—</span>
+  </div>
+  <!-- Hint free shipping -->
+  <p id="free-shipping-hint" style="margin: 0 0 12px 0; font-size: 1.15rem; color: #c45c26; display: none;"></p>
+  
+  <div style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; margin-top: 10px;">
+    <span>Total</span>
+    <span id="cart-total">€0.00</span>
+  </div>
+</div>
+
+  <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
+  <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
+</main>
+
+ <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      sidebar.classList.toggle('open');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+ <script src="/js/cart.js"></script>
+
+<script>
+  console.log("Página del carrito cargada");
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof renderCart === 'function') {
+      renderCart();
+    }
+    if (typeof updateCartCount === 'function') {
+      updateCartCount();
+    }
+  });
+
+  // Delegación para botones (por si hay)
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-add-to-cart')) {
+      const btn = e.target;
+      const product = {
+        id: btn.dataset.id,
+        name: btn.dataset.name,
+        price: btn.dataset.price,
+        image: btn.dataset.image,
+        url: btn.dataset.url
+      };
+      if (typeof addToCart === 'function') addToCart(product);
+    }
+  });
+</script>
+ <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const destinationSelect = document.getElementById('destination');
+  const shippingMessage = document.getElementById('shipping-message');
+  const shippingEl = document.getElementById('cart-shipping');
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const totalEl = document.getElementById('cart-total');
+
+  // Cuenta las botellas reales del carrito (ajusta según tu estructura)
+  function getBottleCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
+  }
+
+  function getSubtotal() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.reduce((sum, item) => {
+      const price = parseFloat(item.price) || 0;
+      const qty = parseInt(item.quantity) || 1;
+      return sum + (price * qty);
+    }, 0);
+  }
+
+  function calculateShipping(destination, bottleCount) {
+    if (!destination) {
+      return { cost: null, message: 'Select a destination to see shipping cost' };
+    }
+    if (destination === 'DE') {
+      if (bottleCount >= 12) {
+        return { cost: 0, message: 'Free shipping (12 or more bottles)' };
+      }
+      return { cost: 6.99, message: 'Shipping to Germany: €6.99 (free from 12 bottles)' };
+    }
+    // Other EU
+    return { cost: 18.99, message: 'Shipping to other EU countries: €18.99' };
+  }
+
+  function updateCartTotals() {
+  const destination = destinationSelect.value;
+  const bottles = getBottleCount();
+  const subtotal = getSubtotal();
+  const result = calculateShipping(destination, bottles);
+  const freeShippingHint = document.getElementById('free-shipping-hint');
+
+  // Subtotal
+  if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+
+  // Shipping
+  if (result.cost === null) {
+    if (shippingEl) shippingEl.textContent = '—';
+  } else if (result.cost === 0) {
+    if (shippingEl) shippingEl.textContent = 'Free';
+  } else {
+    if (shippingEl) shippingEl.textContent = '€' + result.cost.toFixed(2);
+  }
+// Guardar destino elegido
+if (destination) {
+  localStorage.setItem('shippingDestination', destination);
+}
+  // Mensaje principal
+  if (shippingMessage) shippingMessage.textContent = result.message || '';
+
+  // Hint "Add X more bottles" (solo Alemania y menos de 12)
+  if (freeShippingHint) {
+    if (destination === 'DE' && bottles < 12 && bottles > 0) {
+      const remaining = 12 - bottles;
+      freeShippingHint.textContent = `Add ${remaining} more bottle${remaining === 1 ? '' : 's'} and get free shipping`;
+      freeShippingHint.style.display = 'block';
+    } else {
+      freeShippingHint.style.display = 'none';
+      freeShippingHint.textContent = '';
+    }
+  }
+
+  // Total
+  const shippingCost = result.cost || 0;
+  if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
+}
+  // Cuando cambia el destino
+  if (destinationSelect) {
+    destinationSelect.addEventListener('change', updateCartTotals);
+  }
+
+  // Cuando el carrito se actualiza (si tu cart.js dispara un evento, úsalo)
+  // Por ahora lo llamamos al cargar y cada vez que se renderice el carrito
+  window.updateCartTotals = updateCartTotals; // para que cart.js pueda llamarlo si quieres
+
+  // Primera carga
+  setTimeout(updateCartTotals, 100); // pequeño delay para que cart.js termine de renderizar
+});
+</script>
+  
+</body>
+</html>
