@@ -325,38 +325,38 @@ footer {
 <div class="main-content">
   <h1 style="text-align:center; margin-bottom:40px; color:#4A2C59;">Checkout</h1>
 
-  <div class="checkout-grid" style="display: flex; flex-direction: column; gap: 30px;">
+ <div class="checkout-grid" style="display: flex; flex-direction: column; gap: 30px;">
 
-  <!-- 1. DELIVERY ARRIBA (ancho completo) -->
-  <div class="delivery-section" style="background:#f9f9f9; padding:25px; border-radius:16px;">
-    <h3>Delivery</h3>
-    <div style="display:flex; gap:15px; margin-bottom:15px;">
-      <div id="option-ship" class="delivery-option" style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
-        Ship to Address
+  <!-- ARRIBA: 2 COLUMNAS -->
+  <div class="top-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+
+    <!-- Caja izquierda: Shipping -->
+    <div class="shipping-box" style="background:#f9f9f9; padding:25px; border-radius:16px;">
+      <h3>Delivery</h3>
+      <div style="display:flex; gap:15px; margin-bottom:15px;">
+        <div id="option-ship" class="delivery-option" style="flex:1; border:2px solid #4A2C59; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
+          Ship to Address
+        </div>
+        <div id="option-collect" class="delivery-option" style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
+          Click & Collect<br><small>(Free)</small>
+        </div>
       </div>
-      <div id="option-collect" class="delivery-option" style="flex:1; border:1px solid #ddd; padding:20px; border-radius:12px; text-align:center; cursor:pointer;">
-        Click & Collect<br><small>(Free)</small>
+
+      <div id="destination-selector" style="margin-top:10px;">
+        <label for="checkout-destination" style="font-weight:600; display:block; margin-bottom:8px;">
+          Shipping destination
+        </label>
+        <select id="checkout-destination" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; font-size:1rem;">
+          <option value="">Choose destination</option>
+          <option value="DE">Germany</option>
+          <option value="EU">Other EU countries</option>
+        </select>
+        <p id="destination-display" style="font-size:0.95rem; color:#555; margin-top:8px;"></p>
       </div>
     </div>
 
-    <div id="destination-selector" style="margin-top:10px;">
-      <label for="checkout-destination" style="font-weight:600; display:block; margin-bottom:8px;">
-        Shipping destination
-      </label>
-      <select id="checkout-destination" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; font-size:1rem;">
-        <option value="">Choose destination</option>
-        <option value="DE">Germany</option>
-        <option value="EU">Other EU countries</option>
-      </select>
-      <p id="destination-display" style="font-size:0.95rem; color:#555; margin-top:8px;"></p>
-    </div>
-  </div>
-
-  <!-- 2. DOS COLUMNAS ABAJO -->
-  <div class="bottom-columns" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px;">
-
-    <!-- Columna izquierda: Order Summary -->
-    <div class="right-column" style="background:#fff; padding:25px; border-radius:16px; border:1px solid #eee;">
+    <!-- Caja derecha: Order Summary -->
+    <div class="order-summary-box" style="background:#fff; padding:25px; border-radius:16px; border:1px solid #eee;">
       <h3>Order Summary</h3>
       <div id="checkout-items"></div>
 
@@ -378,53 +378,53 @@ footer {
       </div>
     </div>
 
-    <!-- Columna derecha: Medios de pago -->
-    <div class="left-column" style="background:#f9f9f9; padding:25px; border-radius:16px;">
-      <h3 style="text-align:center; margin-bottom:25px;">Payment Methods</h3>
-      
-      <div class="payment-buttons" style="margin-bottom:30px;">
-        <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white;">PayPal</button>
-        <button onclick="startStripePayment()" class="payment-btn" style="background:#000; color:white;">Pay with credit card</button>
-        <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white;">📱 WhatsApp</button>
-        <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white;">✉️ Bank Transfer</button>
-      </div>
+  </div>
 
-      <!-- FORMULARIO DE ENVÍO + TARJETA (se muestra al elegir Stripe) -->
-      <div id="stripe-checkout-form" style="display:none; background:white; padding:25px; border-radius:12px; border:1px solid #ddd;">
-        <h4 style="margin-bottom:20px;">📍 Delivery Address</h4>
-        
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
-          <input type="text" id="customer-name" placeholder="Full name" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
-          <input type="email" id="email" placeholder="Email" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
-        </div>
-        
-        <input type="text" id="address" placeholder="Full Address" style="margin-top:15px; padding:12px; width:100%; border:1px solid #ccc; border-radius:8px;">
-        
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
-          <input type="text" id="postal-code" placeholder="Zip Code" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
-          <input type="text" id="city" placeholder="City" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
-        </div>
-        <div style="margin-top:15px;">
-          <label for="phone">Telephone Number (optional)</label>
-          <input type="tel" id="phone" placeholder="+34 600 000 000" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
-        </div>
-
-        <h4 style="margin:25px 0 15px 0;">💳 Card Details</h4>
-        <div id="card-element" style="padding:14px; border:1px solid #ccc; border-radius:8px; background:#fafafa;"></div>
-        <div id="card-errors" style="color:red; margin-top:8px; min-height:20px;"></div>
-
-        <button onclick="payWithStripeCard()" 
-            style="margin-top:25px; width:100%; padding:16px; background:#635BFF; color:white; border:none; border-radius:10px; font-size:1.1rem; font-weight:600;">
-          Pay €<span id="final-total-amount">0.00</span>
-        </button>
-      </div>
-
-      <div id="paypal-button-container" style="margin-top:25px; display:none;"></div>
+  <!-- ABAJO: MÉTODOS DE PAGO (ancho completo) -->
+  <div class="payment-section" style="background:#f9f9f9; padding:30px; border-radius:16px;">
+    <h3 style="text-align:center; margin-bottom:25px;">Payment Methods</h3>
+    
+    <div class="payment-buttons" style="margin-bottom:30px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+      <button onclick="payWithPayPal()" class="payment-btn" style="background:#00457C; color:white; padding:14px 24px; border:none; border-radius:10px; cursor:pointer;">PayPal</button>
+      <button onclick="startStripePayment()" class="payment-btn" style="background:#000; color:white; padding:14px 24px; border:none; border-radius:10px; cursor:pointer;">Pay with credit card</button>
+      <button onclick="payWithWhatsApp()" class="payment-btn" style="background:#25D366; color:white; padding:14px 24px; border:none; border-radius:10px; cursor:pointer;">📱 WhatsApp</button>
+      <button onclick="payWithEmail()" class="payment-btn" style="background:#1E88E5; color:white; padding:14px 24px; border:none; border-radius:10px; cursor:pointer;">✉️ Bank Transfer</button>
     </div>
 
-  </div>
-</div>
+    <!-- FORMULARIO DE ENVÍO + TARJETA (se muestra al elegir Stripe) -->
+    <div id="stripe-checkout-form" style="display:none; background:white; padding:25px; border-radius:12px; border:1px solid #ddd; max-width:600px; margin:0 auto;">
+      <h4 style="margin-bottom:20px;">📍 Delivery Address</h4>
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+        <input type="text" id="customer-name" placeholder="Full name" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+        <input type="email" id="email" placeholder="Email" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      </div>
+      
+      <input type="text" id="address" placeholder="Full Address" style="margin-top:15px; padding:12px; width:100%; border:1px solid #ccc; border-radius:8px;">
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
+        <input type="text" id="postal-code" placeholder="Zip Code" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+        <input type="text" id="city" placeholder="City" style="padding:12px; border:1px solid #ccc; border-radius:8px;">
+      </div>
+      <div style="margin-top:15px;">
+        <label for="phone">Telephone Number (optional)</label>
+        <input type="tel" id="phone" placeholder="+34 600 000 000" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
+      </div>
 
+      <h4 style="margin:25px 0 15px 0;">💳 Card Details</h4>
+      <div id="card-element" style="padding:14px; border:1px solid #ccc; border-radius:8px; background:#fafafa;"></div>
+      <div id="card-errors" style="color:red; margin-top:8px; min-height:20px;"></div>
+
+      <button onclick="payWithStripeCard()" 
+          style="margin-top:25px; width:100%; padding:16px; background:#635BFF; color:white; border:none; border-radius:10px; font-size:1.1rem; font-weight:600;">
+        Pay €<span id="final-total-amount">0.00</span>
+      </button>
+    </div>
+
+    <div id="paypal-button-container" style="margin-top:25px; display:none; max-width:500px; margin-left:auto; margin-right:auto;"></div>
+  </div>
+
+</div>
   <script src="/js/cart.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 
