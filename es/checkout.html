@@ -913,7 +913,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
-  let isClickAndCollect = false;
   let isCollect = false;
   function getCurrentShippingAndTotal() {
   const destination = document.getElementById('checkout-destination')?.value || '';
@@ -1035,7 +1034,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function selectDelivery(collect) {
-  isClickAndCollect = collect;   // ← esta línea es clave
+  isCollect = collect;   // ← esta línea es clave
 
   if (collect) {
     optionCollect.style.border = '2px solid #4A2C59';
