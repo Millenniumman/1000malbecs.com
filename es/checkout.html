@@ -950,6 +950,21 @@ document.addEventListener('DOMContentLoaded', function () {
     destinationSelect.value = savedDestination;
   }
 
+if (destinationSelect) {
+  destinationSelect.addEventListener('change', function() {
+    updateCheckoutTotals();
+    refreshPayPalIfVisible();
+  });
+}
+
+// Función auxiliar
+function refreshPayPalIfVisible() {
+  const paypalContainer = document.getElementById('paypal-button-container');
+  if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
+    console.log("Refrescando botón de PayPal...");
+    payWithPayPal();
+  }
+}
   function getBottleCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     return cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
@@ -1080,7 +1095,9 @@ function selectDelivery(collect) {
 }
   updateCheckoutTotals();
 }
-
+  // Refrescar PayPal si el botón ya está visible
+  refreshPayPalIfVisible();
+}
 // Asignar clics de forma directa
 document.getElementById('option-ship').onclick = function() { selectDelivery(false); };
 document.getElementById('option-collect').onclick = function() { selectDelivery(true); };
