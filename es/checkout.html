@@ -439,8 +439,8 @@ if (hamburger && sidebar) {
 <script>
 // Variable global para el método de entrega
 <script>
-// Variable global
-let isCollect = false;
+let isClickAndCollect = false;
+// ========== FUNCIÓN AUXILIAR ==========
 
 function getCurrentShippingAndTotal() {
   const destination = document.getElementById('checkout-destination')?.value || '';
@@ -453,7 +453,7 @@ function getCurrentShippingAndTotal() {
   }, 0);
 
   let shipping = 0;
-  if (!isCollect && destination) {
+  if (!isClickAndCollect && destination) {
     if (destination === 'DE') {
       shipping = bottles >= 12 ? 0 : 6.99;
     } else if (destination === 'EU') {
@@ -467,7 +467,7 @@ function getCurrentShippingAndTotal() {
     total: subtotal + shipping,
     bottles,
     destination,
-    isCollect,
+    isCollect: isClickAndCollect,
     cart
   };
 }
@@ -488,13 +488,16 @@ async function createPaymentIntent() {
     });
 
     const data = await response.json();
+
     if (data.clientSecret) {
       clientSecret = data.clientSecret;
+      console.log("✅ clientSecret recibido");
       return true;
+    } else {
+      throw new Error(data.error || "No se recibió clientSecret");
     }
-    throw new Error(data.error || "No se recibió clientSecret");
   } catch (err) {
-    console.error(err);
+    console.error("Error creando PaymentIntent:", err);
     alert("Error al preparar el pago: " + err.message);
     return false;
   }
@@ -502,23 +505,39 @@ async function createPaymentIntent() {
 
 function initializeStripe() {
   if (stripe) return;
+
   stripe = Stripe('pk_live_51TbKblCWcVRBeV4kr6w33DAQZhI3QPhNdAqFhQoOQNjkerMrWHvjo1OFBSzDtZS3F31rJeYIMFk0Ws3n7CoYluo2002v6GBIKs');
+
   const elements = stripe.elements();
+
   cardElement = elements.create('card', {
-    style: { base: { fontSize: '16px', color: '#32325d' } },
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        '::placeholder': { color: '#aab7c4' }
+      }
+    },
     hidePostalCode: true
   });
+
   cardElement.mount('#card-element');
 }
 
 async function startStripePayment() {
-  const formContainer = document.getElementById('stripe-checkout-form');
-  if (!formContainer) return alert("No se encontró el formulario");
+  const formContainer = document.getElementById('stripe-checkout-form') || document.getElementById('stripe-form-container');
+
+  if (!formContainer) {
+    alert("No se encontró el formulario de pago");
+    return;
+  }
 
   const success = await createPaymentIntent();
   if (!success) return;
 
   formContainer.style.display = 'block';
+
   if (!stripe) initializeStripe();
 
   const totalEl = document.getElementById('checkout-total');
@@ -526,58 +545,105 @@ async function startStripePayment() {
   if (totalEl && amountSpan) {
     amountSpan.textContent = totalEl.textContent.replace('€', '').trim();
   }
-  formContainer.scrollIntoView({ behavior: "smooth" });
+
+  formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 async function payWithStripeCard() {
-  if (!clientSecret) return alert("El pago no está preparado");
+  if (!clientSecret) {
+    alert("El pago no está preparado. Abre el formulario nuevamente.");
+    return;
+  }
 
   const email = document.getElementById('email').value.trim();
   const name = document.getElementById('customer-name').value.trim() || "Cliente";
   const address = document.getElementById('address').value.trim();
   const postalCode = document.getElementById('postal-code').value.trim();
   const city = document.getElementById('city').value.trim();
-  const phone = document.getElementById('phone')?.value.trim() || '';
+  const phone = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
 
-  if (!email || !postalCode || !city) return alert("Completa los campos obligatorios");
+  if (!email || !postalCode || !city) {
+    alert("Por favor completa los campos obligatorios");
+    return;
+  }
 
   const { total, shipping, destination, isCollect, cart: cartItems } = getCurrentShippingAndTotal();
+  const country = isCollect ? "DE" : (destination === "DE" ? "DE" : "EU");
 
   try {
     const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: cardElement,
         billing_details: {
-          name, email, phone,
-          address: { line1: address, city, postal_code: postalCode, country: "DE" }
+          name: name,
+          email: email,
+          phone: phone,
+          address: {
+            line1: address,
+            city: city,
+            postal_code: postalCode,
+            country: country === "EU" ? "DE" : country
+          }
         }
       }
     });
 
-    if (error) return alert(error.message);
+    if (error) {
+      alert(error.message || "Error en el pago");
+    } else {
+      console.log("✅ Pago confirmado:", paymentIntent);
 
-    const orderData = {
-      orderId: "ORD-" + Date.now().toString().slice(-8),
-      customer: { name, email, phone, address, postalCode, city },
-      items: cartItems,
-      total: total.toFixed(2),
-      shippingCost: shipping,
-      deliveryMethod: isCollect ? "click_collect" : "ship",
-      destination,
-      paymentMethod: "Stripe",
-      paymentIntentId: paymentIntent.id
-    };
+      const orderData = {
+        orderId: "ORD-" + Date.now().toString().slice(-8),
+        date: new Date().toLocaleDateString('es-ES'),
+        customer: { 
+          name, 
+          email, 
+          phone, 
+          address, 
+          postalCode, 
+          city, 
+          country: destination || (isCollect ? "Click & Collect" : "N/A")
+        },
+        items: cartItems,
+        total: total.toFixed(2),
+        shippingCost: shipping,
+        deliveryMethod: isCollect ? "click_collect" : "ship",
+        destination: destination || null,
+        paymentMethod: "Stripe",
+        status: "Pagado",
+        paymentIntentId: paymentIntent.id
+      };
 
-    localStorage.setItem('lastOrder', JSON.stringify(orderData));
-    alert("Pago realizado con éxito");
-    window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+      localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+      try {
+        await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+        });
+        console.log("Emails enviados correctamente");
+      } catch (e) {
+        console.error("Error enviando emails:", e);
+      }
+
+      alert(`🎉 ¡Thanks ${name.split(" ")[0]}!\n\nYour order has been processed.`);
+
+      setTimeout(() => {
+        window.location.href = `/en/pedido-confirmado.html?orderId=${orderData.orderId}`;
+      }, 800);
+    }
   } catch (err) {
     console.error(err);
     alert("Error al confirmar el pago");
   }
 }
 
-// WhatsApp, Email y PayPal (usa la misma getCurrentShippingAndTotal)
+window.startStripePayment = startStripePayment;
+window.payWithStripeCard = payWithStripeCard;
+
+/ WhatsApp, Email y PayPal (usa la misma getCurrentShippingAndTotal)
 function payWithWhatsApp() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (!cart.length) return alert("Tu carrito está vacío");
@@ -614,23 +680,43 @@ function payWithEmail() {
   window.location.href = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent("Pedido")}&body=${encodeURIComponent(body)}`;
 }
 
+// ========== PAYPAL ==========
 function payWithPayPal() {
   const container = document.getElementById('paypal-button-container');
-  if (!container) return;
+  if (!container) {
+    alert("No se encontró el contenedor de PayPal");
+    return;
+  }
+
   container.style.display = 'block';
-  container.innerHTML = '<p style="text-align:center;padding:40px;">Cargando PayPal...</p>';
+  container.innerHTML = '<p style="text-align:center; padding:40px; color:#666;">Cargando PayPal...</p>';
+
   setTimeout(() => {
-    if (typeof paypal !== 'undefined') renderPayPalButton();
-    else container.innerHTML = '<p style="color:red;text-align:center;">Error cargando PayPal</p>';
-  }, 300);
+    if (typeof paypal !== 'undefined') {
+      renderPayPalButton();
+    } else {
+      container.innerHTML = '<p style="color:red; text-align:center;">Error cargando PayPal. Recarga la página.</p>';
+    }
+  }, 500);
 }
 
 function renderPayPalButton() {
   const container = document.getElementById('paypal-button-container');
+  if (!container) return;
+
   container.innerHTML = '';
+
   paypal.Buttons({
+    style: {
+      shape: 'rect',
+      color: 'blue',
+      layout: 'vertical',
+      label: 'paypal'
+    },
+
     createOrder: function(data, actions) {
       const { total, shipping, subtotal } = getCurrentShippingAndTotal();
+
       return actions.order.create({
         purchase_units: [{
           amount: {
@@ -644,22 +730,133 @@ function renderPayPalButton() {
         }]
       });
     },
+
     onApprove: async function(data, actions) {
-      const order = await actions.order.capture();
-      const { shipping, destination, isCollect, cart } = getCurrentShippingAndTotal();
-      // ... resto de tu lógica de guardado
-      alert("Pago con PayPal realizado");
-      window.location.href = `/es/pedido-confirmado.html?orderId=PP-${order.id.slice(-8)}`;
-    }
+      try {
+        const order = await actions.order.capture();
+        console.log("✅ Pago PayPal exitoso:", order);
+
+        const { shipping, destination, isCollect, cart } = getCurrentShippingAndTotal();
+
+        const orderData = {
+          orderId: "PP-" + order.id.slice(-8),
+          date: new Date().toLocaleDateString('es-ES'),
+          customer: {
+            name: (order.payer?.name?.given_name || "") + " " + (order.payer?.name?.surname || "Cliente PayPal"),
+            email: order.payer?.email_address || "cliente@ejemplo.com",
+            phone: order.payer?.phone?.phone_number?.national_number || "No proporcionado",
+            address: order.purchase_units[0]?.shipping?.address?.address_line_1 || "Dirección PayPal",
+            city: order.purchase_units[0]?.shipping?.address?.admin_area_2 || "No proporcionada",
+            postalCode: order.purchase_units[0]?.shipping?.address?.postal_code || "No proporcionado",
+            country: order.purchase_units[0]?.shipping?.address?.country_code || "DE"
+          },
+          items: cart,
+          total: document.getElementById('checkout-total')?.textContent || "0.00",
+          shippingCost: shipping,
+          deliveryMethod: isCollect ? "click_collect" : "ship",
+          destination: destination || null,
+          paymentMethod: "PayPal",
+          status: "Pagado",
+          paymentId: order.id
+        };
+
+        localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+        try {
+          const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+          });
+          const result = await response.json();
+          console.log("Emails enviados:", result);
+        } catch (e) {
+          console.error("Error enviando emails:", e);
+        }
+
+        alert("¡Pago con PayPal realizado con éxito!");
+        window.location.href = `/es/pedido-confirmado.html?orderId=${orderData.orderId}`;
+
+      } catch (err) {
+        console.error(err);
+        alert("Error al confirmar el pago con PayPal");
+      }
+    },
   }).render('#paypal-button-container');
 }
 
+console.log("✅ All payment functions loaded");
+</script>
+ 
+  <script>
+   // ==================== RENDER RESUMEN ====================
+  function renderCheckoutCart() {
+  const container = document.getElementById('checkout-items');
+  if (!container) {
+    console.error("❌ No se encontró #checkout-items");
+    return;
+  }
+
+  const lang = getLang();
+  const t = translations[lang] || translations.es;
+
+  if (cart.length === 0) {
+    container.innerHTML = `<p style="text-align:center; padding:50px;">${t.empty}</p>`;
+    return;
+  }
+
+  let html = '';
+  let subtotal = 0;
+  let totalBottles = 0;
+
+  cart.forEach(item => {
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    const itemTotal = price * qty;
+    subtotal += itemTotal;
+    totalBottles += qty;
+
+    html += `
+      <div class="checkout-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-details">
+          <h4>${item.name}</h4>
+          <p>${qty} × €${price.toFixed(2)}</p>
+        </div>
+        <div class="item-price">
+          €${itemTotal.toFixed(2)}
+        </div>
+      </div>`;
+  });
+
+  const shippingCost = totalBottles >= 12 ? 0 : 6.99;
+  const finalTotal = subtotal + shippingCost;
+
+  container.innerHTML = html;
+
+  // Actualizar totales
+  document.getElementById('checkout-subtotal') && 
+    (document.getElementById('checkout-subtotal').textContent = `€${subtotal.toFixed(2)}`);
+  
+  const shippingEl = document.getElementById('checkout-shipping');
+  if (shippingEl) {
+    shippingEl.innerHTML = shippingCost === 0 
+      ? `<strong style="color:#27ae60;">${t.freeShipping}</strong>` 
+      : `<strong>€${shippingCost.toFixed(2)}</strong>`;
+  }
+
+  document.getElementById('checkout-total') && 
+    (document.getElementById('checkout-total').textContent = `€${finalTotal.toFixed(2)}`);
+}
 window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 window.payWithPayPal = payWithPayPal;
+window.payWithApplePay = payWithApplePay;
+window.payWithGooglePay = payWithGooglePay;
 window.payWithWhatsApp = payWithWhatsApp;
 window.payWithEmail = payWithEmail;
 </script>
+
   
   <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -683,36 +880,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
-  let isCollect = false;
-  function getCurrentShippingAndTotal() {
-  const destination = document.getElementById('checkout-destination')?.value || '';
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
-  const subtotal = cart.reduce((sum, item) => {
-    const price = parseFloat(item.price) || 0;
-    const qty = parseInt(item.quantity) || 1;
-    return sum + (price * qty);
-  }, 0);
-
-  let shipping = 0;
-  if (!isCollect && destination) {
-    if (destination === 'DE') {
-      shipping = bottles >= 12 ? 0 : 6.99;
-    } else if (destination === 'EU') {
-      shipping = 18.99;
-    }
-  }
-
-  return {
-    subtotal,
-    shipping,
-    total: subtotal + shipping,
-    bottles,
-    destination,
-    isCollect: isCollect,
-    cart
-  };
-}
+  let isClickAndCollect = false;
 
   // Cargar destino guardado del carrito (si existe)
   const savedDestination = localStorage.getItem('shippingDestination') || '';
@@ -739,108 +907,100 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function calculateShipping() {
-    if (isCollect) return { cost: 0 };
+  if (isClickAndCollect) return { cost: 0 };
 
-    const destination = getCurrentDestination();
-    if (!destination) return { cost: null };
+  const destination = getCurrentDestination();
+  if (!destination) return { cost: null };
 
-    const bottles = getBottleCount();
-    if (destination === 'DE') {
-      return { cost: bottles >= 12 ? 0 : 6.99 };
-    }
-    return { cost: 18.99 };
+  const bottles = getBottleCount();
+  if (destination === 'DE') {
+    return { cost: bottles >= 12 ? 0 : 6.99 };
+  }
+  return { cost: 18.99 };
+}
+
+ function updateCheckoutTotals() {
+  const bottles = getBottleCount();
+  const subtotal = getSubtotal();
+  const destination = getCurrentDestination();
+  const result = calculateShipping();
+
+  if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+
+  if (result.cost === null) {
+    shippingEl.textContent = '—';
+  } else if (result.cost === 0) {
+    shippingEl.textContent = 'Free';
+  } else {
+    shippingEl.textContent = '€' + result.cost.toFixed(2);
   }
 
-  function updateCheckoutTotals() {
-    const bottles = getBottleCount();
-    const subtotal = getSubtotal();
-    const destination = getCurrentDestination();
-    const result = calculateShipping();
-
-    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
-
-    if (result.cost === null) {
-      shippingEl.textContent = '—';
-    } else if (result.cost === 0) {
-      shippingEl.textContent = 'Free';
+  // Hint
+  if (freeHint) {
+    if (!isClickAndCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
+      const remaining = 12 - bottles;
+      freeHint.textContent = `Add ${remaining} more bottle${remaining === 1 ? '' : 's'} and get free shipping`;
+      freeHint.style.display = 'block';
     } else {
-      shippingEl.textContent = '€' + result.cost.toFixed(2);
-    }
-
-    // Hint solo para Alemania + Ship + menos de 12
-    if (freeHint) {
-      if (!isCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
-        const remaining = 12 - bottles;
-        freeHint.textContent = `Añade ${remaining} botellas má${remaining === 1 ? '' : 's'} para obtener envío sin cargo`;
-        freeHint.style.display = 'block';
-      } else {
-        freeHint.style.display = 'none';
-      }
-    }
-
-    const shippingCost = result.cost || 0;
-    if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
-
-    const stripeAmount = document.getElementById('final-total-amount');
-    if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
-
-    // Texto informativo
-    if (destinationDisplay) {
-      if (isCollect) {
-        destinationDisplay.textContent = 'Retiro coordinado — Sin Cargo';
-      } else if (destination === 'DE') {
-        destinationDisplay.textContent = 'Envío a Alemania';
-      } else if (destination === 'EU') {
-        destinationDisplay.textContent = 'Envío a otros países de Europa';
-      } else {
-        destinationDisplay.textContent = 'Por favor selecciona el destino de la entrega';
-      }
-    }
-
-    // Guardar el destino actual para que persista
-    if (destination) {
-      localStorage.setItem('shippingDestination', destination);
+      freeHint.style.display = 'none';
     }
   }
 
-  function selectDelivery(collect) {
-  isCollect = collect;   // ← esta línea es clave
+  const shippingCost = result.cost || 0;
+  if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
+
+  const stripeAmount = document.getElementById('final-total-amount');
+  if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
+
+  if (destinationDisplay) {
+    if (isClickAndCollect) {
+      destinationDisplay.textContent = 'Pickup at store — free shipping';
+    } else if (destination === 'DE') {
+      destinationDisplay.textContent = 'Shipping to Germany';
+    } else if (destination === 'EU') {
+      destinationDisplay.textContent = 'Shipping to other EU countries';
+    } else {
+      destinationDisplay.textContent = 'Please choose a destination';
+    }
+  }
+
+  if (destination) {
+    localStorage.setItem('shippingDestination', destination);
+  }
+}
+function selectDelivery(collect) {
+  isClickAndCollect = collect;
 
   if (collect) {
     optionCollect.style.border = '2px solid #4A2C59';
     optionCollect.style.opacity = '1';
     optionShip.style.border = '1px solid #ddd';
     optionShip.style.opacity = '0.7';
-    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
-      destinationSelectorBox.style.display = 'none';
-    }
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
   } else {
     optionShip.style.border = '2px solid #4A2C59';
     optionShip.style.opacity = '1';
     optionCollect.style.border = '1px solid #ddd';
     optionCollect.style.opacity = '0.7';
-    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
-      destinationSelectorBox.style.display = 'block';
-    }
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
 
   updateCheckoutTotals();
-    // Si el contenedor de PayPal está visible, re-renderiza el botón
+  
+  // Si el contenedor de PayPal está visible, re-renderiza el botón
   const paypalContainer = document.getElementById('paypal-button-container');
   if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
     payWithPayPal(); // vuelve a cargar el botón con los valores nuevos
   }
 }
 
-  // Eventos
-  if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
-  if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
-  if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
+// Eventos (fuera de la función)
+if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
+if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
 
-  // Inicial
-  selectDelivery(false);
-  updateCheckoutTotals();
-});
-</script>
-</body>
-</html>
+// Inicial
+selectDelivery(false);
+updateCheckoutTotals();
+
+}); // ← esta línea es la que falta
