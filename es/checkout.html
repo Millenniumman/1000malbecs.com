@@ -440,7 +440,6 @@ if (hamburger && sidebar) {
 
 // ========== FUNCIÓN AUXILIAR ==========
 function getCurrentShippingAndTotal() {
-  const isCollect = document.getElementById('option-collect')?.style.border.includes('4A2C59') || false;
   const destination = document.getElementById('checkout-destination')?.value || '';
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
@@ -451,7 +450,7 @@ function getCurrentShippingAndTotal() {
   }, 0);
 
   let shipping = 0;
-  if (!isCollect && destination) {
+  if (!isClickAndCollect && destination) {
     if (destination === 'DE') {
       shipping = bottles >= 12 ? 0 : 6.99;
     } else if (destination === 'EU') {
@@ -465,7 +464,7 @@ function getCurrentShippingAndTotal() {
     total: subtotal + shipping,
     bottles,
     destination,
-    isCollect,
+    isCollect: isClickAndCollect,
     cart
   };
 }
@@ -913,6 +912,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
+  let isClickAndCollect = false;
   let isCollect = false;
   function getCurrentShippingAndTotal() {
   const destination = document.getElementById('checkout-destination')?.value || '';
@@ -1034,22 +1034,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function selectDelivery(collect) {
-    isCollect = collect;
+  isClickAndCollect = collect;   // ← esta línea es clave
 
-    if (collect) {
-    // estilos de Click & Collect
+  if (collect) {
     optionCollect.style.border = '2px solid #4A2C59';
     optionCollect.style.opacity = '1';
     optionShip.style.border = '1px solid #ddd';
     optionShip.style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
+    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
+      destinationSelectorBox.style.display = 'none';
+    }
   } else {
-    // estilos de Ship
     optionShip.style.border = '2px solid #4A2C59';
     optionShip.style.opacity = '1';
     optionCollect.style.border = '1px solid #ddd';
     optionCollect.style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
+    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
+      destinationSelectorBox.style.display = 'block';
+    }
   }
 
   updateCheckoutTotals();
