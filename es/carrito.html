@@ -456,30 +456,27 @@ function updateCartTotals() {
   const subtotal = getSubtotal();
   const result = calculateShipping(destination, bottles);
   const freeShippingHint = document.getElementById('free-shipping-hint');
-}
-  // Subtotal
+
+  // Actualizar subtotal
   if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
 
-  // Shipping
+  // Actualizar coste de envío
   if (result.cost === null) {
     if (shippingEl) shippingEl.textContent = '—';
   } else if (result.cost === 0) {
-    if (shippingEl) shippingEl.textContent = 'Free';
+    if (shippingEl) shippingEl.textContent = 'Gratis';
   } else {
     if (shippingEl) shippingEl.textContent = '€' + result.cost.toFixed(2);
   }
-// Guardar destino elegido
-if (destination) {
-  localStorage.setItem('shippingDestination', destination);
-}
+
   // Mensaje principal
   if (shippingMessage) shippingMessage.textContent = result.message || '';
 
-  // Hint "Add X more bottles" (solo Alemania y menos de 12)
+  // Hint "Añade X botellas más..."
   if (freeShippingHint) {
     if (destination === 'DE' && bottles < 12 && bottles > 0) {
       const remaining = 12 - bottles;
-      freeShippingHint.textContent = `Add ${remaining} more bottle${remaining === 1 ? '' : 's'} and get free shipping`;
+      freeShippingHint.textContent = `Añade ${remaining} botella${remaining === 1 ? '' : 's'} más y obtén envío gratuito`;
       freeShippingHint.style.display = 'block';
     } else {
       freeShippingHint.style.display = 'none';
@@ -487,14 +484,15 @@ if (destination) {
     }
   }
 
-  // Total
+  // Actualizar total
   const shippingCost = result.cost || 0;
   if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
-}
-  // Cuando cambia el destino
-  if (destinationSelect) {
-    destinationSelect.addEventListener('change', updateCartTotals);
+
+  // Guardar destino para el checkout
+  if (destination) {
+    localStorage.setItem('shippingDestination', destination);
   }
+}
 
   // Cuando el carrito se actualiza (si tu cart.js dispara un evento, úsalo)
   // Por ahora lo llamamos al cargar y cada vez que se renderice el carrito
