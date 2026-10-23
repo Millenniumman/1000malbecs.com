@@ -1055,6 +1055,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   updateCheckoutTotals();
+    // Si el contenedor de PayPal está visible, re-renderiza el botón
+  const paypalContainer = document.getElementById('paypal-button-container');
+  if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
+    payWithPayPal(); // vuelve a cargar el botón con los valores nuevos
+  }
 }
 
   // Eventos
