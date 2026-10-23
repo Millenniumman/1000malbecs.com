@@ -440,13 +440,15 @@ function calculateShipping(destination, bottleCount) {
   if (!destination) {
     return { cost: null, message: 'Selecciona un destino para ver el coste de envío' };
   }
-  if (destination === 'DE' && bottles < 12 && bottles > 0) {
-  const remaining = 12 - bottles;
-  freeShippingHint.textContent = `Añade ${remaining} botella${remaining === 1 ? '' : 's'} más y obtén envío gratuito`;
-  freeShippingHint.style.display = 'block';
-}
+
+  if (destination === 'DE') {
+    if (bottleCount >= 12) {
+      return { cost: 0, message: 'Envío gratuito (12 o más botellas)' };
+    }
     return { cost: 6.99, message: 'Envío a Alemania: 6,99 € (gratis a partir de 12 botellas)' };
   }
+
+  // Otros países de Europa
   return { cost: 18.99, message: 'Envío a otros países de Europa: 18,99 €' };
 }
 
