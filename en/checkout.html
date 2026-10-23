@@ -1020,8 +1020,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function selectDelivery(collect) {
-  isClickAndCollect = collect;   // ← debe usar exactamente este nombre
+function selectDelivery(collect) {
+  isClickAndCollect = collect;
 
   if (collect) {
     optionCollect.style.border = '2px solid #4A2C59';
@@ -1037,15 +1037,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
 
-  // Eventos
-  if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
-  if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
-  if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
-
-  // Inicial
-  selectDelivery(false);
   updateCheckoutTotals();
-});
+}
+
+// Eventos (fuera de la función)
+if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
+if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
+
+// Inicial
+selectDelivery(false);
+updateCheckoutTotals();
 </script>
 </body>
 </html>
