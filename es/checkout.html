@@ -970,17 +970,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function calculateShipping() {
-    if (isCollect) return { cost: 0 };
+  if (isCollect) return { cost: 0 };
 
-    const destination = getCurrentDestination();
-    if (!destination) return { cost: null };
+  const destination = document.getElementById('checkout-destination')?.value || '';
+  console.log("Calculando envío → destino:", destination, "botellas:", getBottleCount());
 
-    const bottles = getBottleCount();
-    if (destination === 'DE') {
-      return { cost: bottles >= 12 ? 0 : 6.99 };
-    }
-    return { cost: 18.99 };
+  if (!destination) return { cost: null };
+
+  const bottles = getBottleCount();
+
+  if (destination === 'DE') {
+    const cost = bottles >= 12 ? 0 : 6.99;
+    console.log("Es Alemania → coste:", cost);
+    return { cost };
   }
+
+  console.log("Es otro país de Europa → 18.99");
+  return { cost: 18.99 };
+}
 
   function updateCheckoutTotals() {
     const bottles = getBottleCount();
