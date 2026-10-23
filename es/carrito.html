@@ -348,7 +348,7 @@
     <span id="cart-subtotal">€0.00</span>
   </div>
   <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-    <span>Envîo</span>
+    <span>Envío</span>
     <span id="cart-shipping">—</span>
   </div>
   <!-- Hint free shipping -->
@@ -450,7 +450,7 @@ function calculateShipping(destination, bottleCount) {
   return { cost: 18.99, message: 'Envío a otros países de Europa: 18,99 €' };
 }
 
-  function updateCartTotals() {
+function updateCartTotals() {
   const destination = destinationSelect.value;
   const bottles = getBottleCount();
   const subtotal = getSubtotal();
