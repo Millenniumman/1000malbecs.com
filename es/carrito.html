@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart - 1000 Malbecs</title>
+  <title>Warenkorb - 1000 Malbecs</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
+ <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068768833"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -220,7 +220,7 @@
   text-align: right;
   margin: 30px 0 20px;
 }
-        /* Alinear el resumen de productos a la derecha */
+         /* Alinear el resumen de productos a la derecha */
 #cart-items {
   margin-left: 40px;           /* Empuja todo a la derecha */
   max-width: 800px;
@@ -271,6 +271,39 @@
       margin-top: 180px;
     }
   }
+  .mini-cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 380px;
+  height: 100vh;
+  background: white;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+  transition: right 0.4s ease;
+  z-index: 3000;
+  overflow-y: auto;
+}
+
+.mini-cart.open { right: 0; }
+
+.mini-cart-content { padding: 20px; }
+
+.mini-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+}    
 </style>
 </head>
 <body>
@@ -291,7 +324,7 @@
 
   </header>
   <main>
-  <h1>Your Cart</h1>
+  <h1>Tu Carrito</h1>
 
   <!-- 1. Los vinos -->
   <div id="cart-items"></div>
@@ -315,7 +348,7 @@
     <span id="cart-subtotal">€0.00</span>
   </div>
   <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-    <span>Shipping</span>
+    <span>Envîo</span>
     <span id="cart-shipping">—</span>
   </div>
   <!-- Hint free shipping -->
@@ -327,8 +360,8 @@
   </div>
 </div>
 
-  <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout</a>
-  <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Continue Shopping</a>
+  <a href="#" id="checkout-btn" class="btn-checkout" onclick="goToCheckout()">Ir a la caja</a>
+  <a href="/en/" style="display:block; text-align:center; margin-top:25px; color:#666;">← Seguir comprando</a>
 </main>
 
  <!-- JAVASCRIPT: HAMBURGUESA + SIDEBAR -->
