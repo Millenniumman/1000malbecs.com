@@ -929,7 +929,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
-  let isCollect = false;
+  let isClickAndCollect = false;
 
   // Cargar destino guardado del carrito (si existe)
   const savedDestination = localStorage.getItem('shippingDestination') || '';
