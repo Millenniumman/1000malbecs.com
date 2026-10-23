@@ -677,11 +677,10 @@ message += `\n\n¿Podemos confirmar el pedido?`;
   window.open(url, '_blank');
 }
 
-// ========== EMAIL ==========
 function payWithEmail() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
-    alert("Your cart is empty");
+    alert("Tu carrito está vacío");
     return;
   }
 
@@ -698,23 +697,22 @@ function payWithEmail() {
   body += `\nSubtotal: €${subtotal.toFixed(2)}`;
 
   if (isCollect) {
-  message += `\n✅ Recoger en tienda (envío gratuito)`;
-} else if (shipping === 0) {
-  message += `\n✅ Envío gratuito`;
-} else {
-  const destText = destination === "DE" ? "Alemania" : "otros países de Europa";
-  message += `\nEnvío a ${destText}: €${shipping.toFixed(2)}`;
-}
-message += `\n\nTotal: €${total.toFixed(2)}`;
-message += `\nBotellas: ${bottles}`;
-message += `\n\n¿Podemos confirmar el pedido?`;
+    body += `\n✅ Recoger en tienda (envío gratuito)`;
+  } else if (shipping === 0) {
+    body += `\n✅ Envío gratuito`;
+  } else {
+    const destText = destination === "DE" ? "Alemania" : "otros países de Europa";
+    body += `\nEnvío a ${destText}: €${shipping.toFixed(2)}`;
+  }
 
+  body += `\n\nTotal: €${total.toFixed(2)}`;
+  body += `\nBotellas: ${bottles}`;
+  body += `\n\n¡Gracias!`;
 
-  const subject = "Order - " + cart.map(i => i.name).join(", ");
+  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
   const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = url;
 }
-
 // ========== PAYPAL ==========
 function payWithPayPal() {
   const container = document.getElementById('paypal-button-container');
@@ -916,6 +914,35 @@ document.addEventListener('DOMContentLoaded', function () {
   const destinationDisplay = document.getElementById('destination-display');
 
   let isCollect = false;
+  function getCurrentShippingAndTotal() {
+  const destination = document.getElementById('checkout-destination')?.value || '';
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
+  const subtotal = cart.reduce((sum, item) => {
+    const price = parseFloat(item.price) || 0;
+    const qty = parseInt(item.quantity) || 1;
+    return sum + (price * qty);
+  }, 0);
+
+  let shipping = 0;
+  if (!isCollect && destination) {
+    if (destination === 'DE') {
+      shipping = bottles >= 12 ? 0 : 6.99;
+    } else if (destination === 'EU') {
+      shipping = 18.99;
+    }
+  }
+
+  return {
+    subtotal,
+    shipping,
+    total: subtotal + shipping,
+    bottles,
+    destination,
+    isCollect: isCollect,
+    cart
+  };
+}
 
   // Cargar destino guardado del carrito (si existe)
   const savedDestination = localStorage.getItem('shippingDestination') || '';
@@ -974,7 +1001,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (freeHint) {
       if (!isCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
         const remaining = 12 - bottles;
-        freeHint.textContent = `Añade ${remaining} botellas más${remaining === 1 ? '' : 's'} para obtener envío sin cargo`;
+        freeHint.textContent = `Añade ${remaining} botellas má${remaining === 1 ? '' : 's'} para obtener envío sin cargo`;
         freeHint.style.display = 'block';
       } else {
         freeHint.style.display = 'none';
@@ -1010,21 +1037,23 @@ document.addEventListener('DOMContentLoaded', function () {
     isCollect = collect;
 
     if (collect) {
-      optionCollect.style.border = '2px solid #4A2C59';
-      optionCollect.style.opacity = '1';
-      optionShip.style.border = '1px solid #ddd';
-      optionShip.style.opacity = '0.7';
-      if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
-    } else {
-      optionShip.style.border = '2px solid #4A2C59';
-      optionShip.style.opacity = '1';
-      optionCollect.style.border = '1px solid #ddd';
-      optionCollect.style.opacity = '0.7';
-      if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
-    }
-
-    updateCheckoutTotals();
+    // estilos de Click & Collect
+    optionCollect.style.border = '2px solid #4A2C59';
+    optionCollect.style.opacity = '1';
+    optionShip.style.border = '1px solid #ddd';
+    optionShip.style.opacity = '0.7';
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
+  } else {
+    // estilos de Ship
+    optionShip.style.border = '2px solid #4A2C59';
+    optionShip.style.opacity = '1';
+    optionCollect.style.border = '1px solid #ddd';
+    optionCollect.style.opacity = '0.7';
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
+
+  updateCheckoutTotals();
+}
 
   // Eventos
   if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
