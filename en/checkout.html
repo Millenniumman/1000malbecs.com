@@ -450,10 +450,10 @@ if (hamburger && sidebar) {
   </script>
   <script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
 <script>
-
+let isClickAndCollect = false;
 // ========== FUNCIÓN AUXILIAR ==========
+
 function getCurrentShippingAndTotal() {
-  const isCollect = document.getElementById('option-collect')?.style.border.includes('4A2C59') || false;
   const destination = document.getElementById('checkout-destination')?.value || '';
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
@@ -464,7 +464,7 @@ function getCurrentShippingAndTotal() {
   }, 0);
 
   let shipping = 0;
-  if (!isCollect && destination) {
+  if (!isClickAndCollect && destination) {
     if (destination === 'DE') {
       shipping = bottles >= 12 ? 0 : 6.99;
     } else if (destination === 'EU') {
@@ -478,7 +478,7 @@ function getCurrentShippingAndTotal() {
     total: subtotal + shipping,
     bottles,
     destination,
-    isCollect,
+    isCollect: isClickAndCollect,
     cart
   };
 }
@@ -1021,23 +1021,20 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function selectDelivery(collect) {
-    isCollect = collect;
+  isClickAndCollect = collect;   // ← debe usar exactamente este nombre
 
-    if (collect) {
-      optionCollect.style.border = '2px solid #4A2C59';
-      optionCollect.style.opacity = '1';
-      optionShip.style.border = '1px solid #ddd';
-      optionShip.style.opacity = '0.7';
-      if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
-    } else {
-      optionShip.style.border = '2px solid #4A2C59';
-      optionShip.style.opacity = '1';
-      optionCollect.style.border = '1px solid #ddd';
-      optionCollect.style.opacity = '0.7';
-      if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
-    }
-
-    updateCheckoutTotals();
+  if (collect) {
+    optionCollect.style.border = '2px solid #4A2C59';
+    optionCollect.style.opacity = '1';
+    optionShip.style.border = '1px solid #ddd';
+    optionShip.style.opacity = '0.7';
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
+  } else {
+    optionShip.style.border = '2px solid #4A2C59';
+    optionShip.style.opacity = '1';
+    optionCollect.style.border = '1px solid #ddd';
+    optionCollect.style.opacity = '0.7';
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
 
   // Eventos
