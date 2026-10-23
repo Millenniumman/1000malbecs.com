@@ -883,11 +883,11 @@ console.log("✅ All payment functions loaded");
 window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 window.payWithPayPal = payWithPayPal;
-window.payWithApplePay = payWithApplePay;
-window.payWithGooglePay = payWithGooglePay;
 window.payWithWhatsApp = payWithWhatsApp;
 window.payWithEmail = payWithEmail;
-</script>
+//window.payWithApplePay = payWithApplePay;
+//window.payWithGooglePay = payWithGooglePay;
+  </script>
 
   
   <script>
@@ -1087,20 +1087,22 @@ function selectDelivery(collect) {
     document.getElementById('option-collect').style.opacity = '0.7';
     if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
-  if (destinationSelect) {
-    destinationSelect.addEventListener('change', function() {
-    console.log("Cambió el destino a:", this.value);
-    updateCheckoutTotals();
-  });
-}
+
   updateCheckoutTotals();
-}
-  // Refrescar PayPal si el botón ya está visible
   refreshPayPalIfVisible();
 }
-// Asignar clics de forma directa
+
+// Eventos (fuera de la función)
 document.getElementById('option-ship').onclick = function() { selectDelivery(false); };
 document.getElementById('option-collect').onclick = function() { selectDelivery(true); };
+
+if (destinationSelect) {
+  destinationSelect.addEventListener('change', function() {
+    console.log("Cambió el destino a:", this.value);
+    updateCheckoutTotals();
+    refreshPayPalIfVisible();
+  });
+}
 
 // Inicial
 selectDelivery(false);
