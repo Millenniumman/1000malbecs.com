@@ -438,10 +438,8 @@ if (hamburger && sidebar) {
   <script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
 <script>
 // Variable global para el método de entrega
-<script>
 let isClickAndCollect = false;
 // ========== FUNCIÓN AUXILIAR ==========
-
 function getCurrentShippingAndTotal() {
   const destination = document.getElementById('checkout-destination')?.value || '';
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -643,43 +641,78 @@ async function payWithStripeCard() {
 window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 
-/ WhatsApp, Email y PayPal (usa la misma getCurrentShippingAndTotal)
+// ========== WHATSAPP ==========
 function payWithWhatsApp() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  if (!cart.length) return alert("Tu carrito está vacío");
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
 
   const { subtotal, shipping, total, bottles, destination, isCollect } = getCurrentShippingAndTotal();
+
   let message = "Hola, me gustaría hacer un pedido en 1000 Malbecs:\n\n";
   cart.forEach(item => {
-    message += `- ${item.quantity || 1} x ${item.name} = €${((item.price || 0) * (item.quantity || 1)).toFixed(2)}\n`;
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    message += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
   });
-  message += `\nSubtotal: €${subtotal.toFixed(2)}`;
-  if (isCollect) message += `\n✅ Recoger en tienda (envío gratuito)`;
-  else if (shipping === 0) message += `\n✅ Envío gratuito`;
-  else message += `\nEnvío a ${destination === "DE" ? "Alemania" : "otros países de Europa"}: €${shipping.toFixed(2)}`;
-  message += `\n\nTotal: €${total.toFixed(2)}\nBotellas: ${bottles}\n\n¿Podemos confirmar el pedido?`;
 
-  window.open(`https://wa.me/4915158224728?text=${encodeURIComponent(message)}`, '_blank');
+  message += `\nSubtotal: €${subtotal.toFixed(2)}`;
+
+  
+  if (isCollect) {
+  message += `\n✅ Recoger en tienda (envío gratuito)`;
+} else if (shipping === 0) {
+  message += `\n✅ Envío gratuito`;
+} else {
+  const destText = destination === "DE" ? "Alemania" : "otros países de Europa";
+  message += `\nEnvío a ${destText}: €${shipping.toFixed(2)}`;
+}
+message += `\n\nTotal: €${total.toFixed(2)}`;
+message += `\nBotellas: ${bottles}`;
+message += `\n\n¿Podemos confirmar el pedido?`;
+
+  const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
 }
 
 function payWithEmail() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  if (!cart.length) return alert("Tu carrito está vacío");
+  if (cart.length === 0) {
+    alert("Tu carrito está vacío");
+    return;
+  }
 
   const { subtotal, shipping, total, bottles, destination, isCollect } = getCurrentShippingAndTotal();
+
   let body = "Hola equipo de 1000 Malbecs,\n\nMe gustaría realizar el siguiente pedido:\n\n";
+
   cart.forEach(item => {
-    body += `- ${item.quantity || 1} x ${item.name} = €${((item.price || 0) * (item.quantity || 1)).toFixed(2)}\n`;
+    const price = parseFloat(item.price) || 0;
+    const qty = item.quantity || 1;
+    body += `- ${qty} x ${item.name} = €${(price * qty).toFixed(2)}\n`;
   });
+
   body += `\nSubtotal: €${subtotal.toFixed(2)}`;
-  if (isCollect) body += `\n✅ Recoger en tienda (envío gratuito)`;
-  else if (shipping === 0) body += `\n✅ Envío gratuito`;
-  else body += `\nEnvío a ${destination === "DE" ? "Alemania" : "otros países de Europa"}: €${shipping.toFixed(2)}`;
-  body += `\n\nTotal: €${total.toFixed(2)}\nBotellas: ${bottles}\n\n¡Gracias!`;
 
-  window.location.href = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent("Pedido")}&body=${encodeURIComponent(body)}`;
+  if (isCollect) {
+    body += `\n✅ Recoger en tienda (envío gratuito)`;
+  } else if (shipping === 0) {
+    body += `\n✅ Envío gratuito`;
+  } else {
+    const destText = destination === "DE" ? "Alemania" : "otros países de Europa";
+    body += `\nEnvío a ${destText}: €${shipping.toFixed(2)}`;
+  }
+
+  body += `\n\nTotal: €${total.toFixed(2)}`;
+  body += `\nBotellas: ${bottles}`;
+  body += `\n\n¡Gracias!`;
+
+  const subject = "Pedido - " + cart.map(i => i.name).join(", ");
+  const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = url;
 }
-
 // ========== PAYPAL ==========
 function payWithPayPal() {
   const container = document.getElementById('paypal-button-container');
@@ -881,6 +914,36 @@ document.addEventListener('DOMContentLoaded', function () {
   const destinationDisplay = document.getElementById('destination-display');
 
   let isClickAndCollect = false;
+  let isCollect = false;
+  function getCurrentShippingAndTotal() {
+  const destination = document.getElementById('checkout-destination')?.value || '';
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
+  const subtotal = cart.reduce((sum, item) => {
+    const price = parseFloat(item.price) || 0;
+    const qty = parseInt(item.quantity) || 1;
+    return sum + (price * qty);
+  }, 0);
+
+  let shipping = 0;
+  if (!isCollect && destination) {
+    if (destination === 'DE') {
+      shipping = bottles >= 12 ? 0 : 6.99;
+    } else if (destination === 'EU') {
+      shipping = 18.99;
+    }
+  }
+
+  return {
+    subtotal,
+    shipping,
+    total: subtotal + shipping,
+    bottles,
+    destination,
+    isCollect: isCollect,
+    cart
+  };
+}
 
   // Cargar destino guardado del carrito (si existe)
   const savedDestination = localStorage.getItem('shippingDestination') || '';
@@ -907,100 +970,103 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function calculateShipping() {
-  if (isClickAndCollect) return { cost: 0 };
+    if (isCollect) return { cost: 0 };
 
-  const destination = getCurrentDestination();
-  if (!destination) return { cost: null };
+    const destination = getCurrentDestination();
+    if (!destination) return { cost: null };
 
-  const bottles = getBottleCount();
-  if (destination === 'DE') {
-    return { cost: bottles >= 12 ? 0 : 6.99 };
-  }
-  return { cost: 18.99 };
-}
-
- function updateCheckoutTotals() {
-  const bottles = getBottleCount();
-  const subtotal = getSubtotal();
-  const destination = getCurrentDestination();
-  const result = calculateShipping();
-
-  if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
-
-  if (result.cost === null) {
-    shippingEl.textContent = '—';
-  } else if (result.cost === 0) {
-    shippingEl.textContent = 'Free';
-  } else {
-    shippingEl.textContent = '€' + result.cost.toFixed(2);
+    const bottles = getBottleCount();
+    if (destination === 'DE') {
+      return { cost: bottles >= 12 ? 0 : 6.99 };
+    }
+    return { cost: 18.99 };
   }
 
-  // Hint
-  if (freeHint) {
-    if (!isClickAndCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
-      const remaining = 12 - bottles;
-      freeHint.textContent = `Add ${remaining} more bottle${remaining === 1 ? '' : 's'} and get free shipping`;
-      freeHint.style.display = 'block';
+  function updateCheckoutTotals() {
+    const bottles = getBottleCount();
+    const subtotal = getSubtotal();
+    const destination = getCurrentDestination();
+    const result = calculateShipping();
+
+    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+
+    if (result.cost === null) {
+      shippingEl.textContent = '—';
+    } else if (result.cost === 0) {
+      shippingEl.textContent = 'Free';
     } else {
-      freeHint.style.display = 'none';
+      shippingEl.textContent = '€' + result.cost.toFixed(2);
+    }
+
+    // Hint solo para Alemania + Ship + menos de 12
+    if (freeHint) {
+      if (!isCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
+        const remaining = 12 - bottles;
+        freeHint.textContent = `Añade ${remaining} botellas má${remaining === 1 ? '' : 's'} para obtener envío sin cargo`;
+        freeHint.style.display = 'block';
+      } else {
+        freeHint.style.display = 'none';
+      }
+    }
+
+    const shippingCost = result.cost || 0;
+    if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
+
+    const stripeAmount = document.getElementById('final-total-amount');
+    if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
+
+    // Texto informativo
+    if (destinationDisplay) {
+      if (isCollect) {
+        destinationDisplay.textContent = 'Retiro coordinado — Sin Cargo';
+      } else if (destination === 'DE') {
+        destinationDisplay.textContent = 'Envío a Alemania';
+      } else if (destination === 'EU') {
+        destinationDisplay.textContent = 'Envío a otros países de Europa';
+      } else {
+        destinationDisplay.textContent = 'Por favor selecciona el destino de la entrega';
+      }
+    }
+
+    // Guardar el destino actual para que persista
+    if (destination) {
+      localStorage.setItem('shippingDestination', destination);
     }
   }
 
-  const shippingCost = result.cost || 0;
-  if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
-
-  const stripeAmount = document.getElementById('final-total-amount');
-  if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
-
-  if (destinationDisplay) {
-    if (isClickAndCollect) {
-      destinationDisplay.textContent = 'Pickup at store — free shipping';
-    } else if (destination === 'DE') {
-      destinationDisplay.textContent = 'Shipping to Germany';
-    } else if (destination === 'EU') {
-      destinationDisplay.textContent = 'Shipping to other EU countries';
-    } else {
-      destinationDisplay.textContent = 'Please choose a destination';
-    }
-  }
-
-  if (destination) {
-    localStorage.setItem('shippingDestination', destination);
-  }
-}
-function selectDelivery(collect) {
-  isClickAndCollect = collect;
+  function selectDelivery(collect) {
+  isClickAndCollect = collect;   // ← esta línea es clave
 
   if (collect) {
     optionCollect.style.border = '2px solid #4A2C59';
     optionCollect.style.opacity = '1';
     optionShip.style.border = '1px solid #ddd';
     optionShip.style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
+    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
+      destinationSelectorBox.style.display = 'none';
+    }
   } else {
     optionShip.style.border = '2px solid #4A2C59';
     optionShip.style.opacity = '1';
     optionCollect.style.border = '1px solid #ddd';
     optionCollect.style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
+    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
+      destinationSelectorBox.style.display = 'block';
+    }
   }
 
   updateCheckoutTotals();
-  
-  // Si el contenedor de PayPal está visible, re-renderiza el botón
-  const paypalContainer = document.getElementById('paypal-button-container');
-  if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
-    payWithPayPal(); // vuelve a cargar el botón con los valores nuevos
-  }
 }
 
-// Eventos (fuera de la función)
-if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
-if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
-if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
+  // Eventos
+  if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
+  if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+  if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
 
-// Inicial
-selectDelivery(false);
-updateCheckoutTotals();
-
-}); // ← esta línea es la que falta
+  // Inicial
+  selectDelivery(false);
+  updateCheckoutTotals();
+});
+</script>
+</body>
+</html>
