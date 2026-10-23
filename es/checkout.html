@@ -989,13 +989,27 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
   function updateCheckoutTotals() {
-    const bottles = getBottleCount();
-    const subtotal = getSubtotal();
-    const destination = getCurrentDestination();
-    const result = calculateShipping();
+  console.log("updateCheckoutTotals ejecutado. isCollect:", isCollect);
+  
+  const bottles = getBottleCount();
+  const subtotal = getSubtotal();
+  const destination = getCurrentDestination();
+  const result = calculateShipping();
 
-    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+  console.log("Resultado:", result);
 
+  if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+
+  if (shippingEl) {
+    if (result.cost === null) {
+      shippingEl.textContent = '—';
+    } else if (result.cost === 0) {
+      shippingEl.textContent = 'Gratis';
+    } else {
+      shippingEl.textContent = '€' + result.cost.toFixed(2);
+    }
+  }
+  
     if (result.cost === null) {
       shippingEl.textContent = '—';
     } else if (result.cost === 0) {
@@ -1058,7 +1072,12 @@ function selectDelivery(collect) {
     document.getElementById('option-collect').style.opacity = '0.7';
     if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
-
+  if (destinationSelect) {
+    destinationSelect.addEventListener('change', function() {
+    console.log("Cambió el destino a:", this.value);
+    updateCheckoutTotals();
+  });
+}
   updateCheckoutTotals();
 }
 
