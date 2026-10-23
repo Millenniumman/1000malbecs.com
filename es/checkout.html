@@ -1038,6 +1038,11 @@ function selectDelivery(collect) {
   isClickAndCollect = collect;   // actualiza la global (pagos)
   isCollect = collect;           // actualiza la local (resumen)
 
+ window.selectDelivery = function(collect) {
+  console.log("selectDelivery ejecutado:", collect);
+  isClickAndCollect = collect;   // variable global
+  isCollect = collect;           // variable local (si existe)
+
   if (collect) {
     optionCollect.style.border = '2px solid #4A2C59';
     optionCollect.style.opacity = '1';
@@ -1053,12 +1058,13 @@ function selectDelivery(collect) {
   }
 
   updateCheckoutTotals();
-}
+};
 
   // Eventos
-  if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
-  if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+ if (optionShip) optionShip.addEventListener('click', () => window.selectDelivery(false));
+  if (optionCollect) optionCollect.addEventListener('click', () => window.selectDelivery(true));
   if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
+
 
   // Inicial
   selectDelivery(false);
