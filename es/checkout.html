@@ -1035,39 +1035,33 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 function selectDelivery(collect) {
-  isClickAndCollect = collect;   // actualiza la global (pagos)
-  isCollect = collect;           // actualiza la local (resumen)
-
- window.selectDelivery = function(collect) {
-  console.log("selectDelivery ejecutado:", collect);
-  isClickAndCollect = collect;   // variable global
-  isCollect = collect;           // variable local (si existe)
+  console.log("selectDelivery:", collect);
+  isClickAndCollect = collect;
+  isCollect = collect;
 
   if (collect) {
-    optionCollect.style.border = '2px solid #4A2C59';
-    optionCollect.style.opacity = '1';
-    optionShip.style.border = '1px solid #ddd';
-    optionShip.style.opacity = '0.7';
+    document.getElementById('option-collect').style.border = '2px solid #4A2C59';
+    document.getElementById('option-collect').style.opacity = '1';
+    document.getElementById('option-ship').style.border = '1px solid #ddd';
+    document.getElementById('option-ship').style.opacity = '0.7';
     if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
   } else {
-    optionShip.style.border = '2px solid #4A2C59';
-    optionShip.style.opacity = '1';
-    optionCollect.style.border = '1px solid #ddd';
-    optionCollect.style.opacity = '0.7';
+    document.getElementById('option-ship').style.border = '2px solid #4A2C59';
+    document.getElementById('option-ship').style.opacity = '1';
+    document.getElementById('option-collect').style.border = '1px solid #ddd';
+    document.getElementById('option-collect').style.opacity = '0.7';
     if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
 
   updateCheckoutTotals();
-};
+}
 
-  // Eventos
- if (optionShip) optionShip.addEventListener('click', () => window.selectDelivery(false));
-  if (optionCollect) optionCollect.addEventListener('click', () => window.selectDelivery(true));
-  if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
+// Asignar clics de forma directa
+document.getElementById('option-ship').onclick = function() { selectDelivery(false); };
+document.getElementById('option-collect').onclick = function() { selectDelivery(true); };
 
-
-  // Inicial
-  selectDelivery(false);
+// Inicial
+selectDelivery(false);
   updateCheckoutTotals();
 });
 </script>
