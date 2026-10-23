@@ -501,7 +501,11 @@ function updateCartTotals() {
   window.updateCartTotals = updateCartTotals; // para que cart.js pueda llamarlo si quieres
 
   // Primera carga
-  setTimeout(updateCartTotals, 100); // pequeño delay para que cart.js termine de renderizar
+  // Cuando cambia el destino
+if (destinationSelect) {
+  destinationSelect.addEventListener('change', updateCartTotals);
+}
+setTimeout(updateCartTotals, 100);out(updateCartTotals, 100); // pequeño delay para que cart.js termine de renderizar
 });
 </script>
   
