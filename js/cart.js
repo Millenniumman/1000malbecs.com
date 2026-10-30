@@ -249,6 +249,11 @@ function changeQuantity(id, delta) {
     localStorage.setItem('cart', JSON.stringify(cart));
     renderCart();
     updateCartCount();
+
+    // Actualiza el resumen de envío y totales
+    if (typeof window.updateCartTotals === 'function') {
+      window.updateCartTotals();
+    }
   }
 }
 // ==================== FUNCIONES PARA CHECKOUT ====================
