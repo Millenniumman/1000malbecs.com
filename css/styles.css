@@ -366,3 +366,34 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 14px;
     }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+.welcome-box {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem 2.5rem;
+  background: #5c2d91;
+  color: #ffffff;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(92, 45, 145, 0.25);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.welcome-box h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 0 0 0.8rem 0;
+  letter-spacing: -0.3px;
+}
+
+.welcome-box p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.95;
+}
