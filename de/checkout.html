@@ -443,6 +443,38 @@ if (hamburger && sidebar) {
   });
 }
   </script>
+  // ==================== GOOGLE TAG MANAGER - PURCHASE ====================
+
+function trackPurchase(transactionId, value, provider) {
+
+  const purchaseValue = Number(value);
+
+  if (!transactionId || !Number.isFinite(purchaseValue)) {
+    console.error("❌ Purchase tracking inválido", {
+      transactionId,
+      value,
+      provider
+    });
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+
+  window.dataLayer.push({
+    event: "purchase",
+    transaction_id: String(transactionId),
+    value: Number(purchaseValue.toFixed(2)),
+    currency: "EUR",
+    payment_provider: provider
+  });
+
+  console.log("✅ Purchase enviado a GTM", {
+    transaction_id: transactionId,
+    value: Number(purchaseValue.toFixed(2)),
+    currency: "EUR",
+    payment_provider: provider
+  });
+}
 <!-- ==================== STRIPE PAYMENT ==================== -->
 <script>
 // Variables
@@ -597,7 +629,16 @@ async function payWithStripeCard() {
       };
 
       localStorage.setItem('lastOrder', JSON.stringify(orderData));
-
+    if (
+  paymentIntent &&
+  paymentIntent.status === "succeeded"
+) {
+  trackPurchase(
+    paymentIntent.id,
+    total,
+    "stripe"
+  );
+}
       // Enviar emails
       try {
         await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
@@ -776,7 +817,7 @@ function renderPayPalButton() {
   try {
     const order = await actions.order.capture();
     console.log("✅ Pago PayPal exitoso:", order);
-
+  
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let totalBottles = 0;
     cart.forEach(item => totalBottles += item.quantity || 1);
@@ -803,6 +844,31 @@ function renderPayPalButton() {
     };
 
     localStorage.setItem('lastOrder', JSON.stringify(orderData));
+// =====================================================
+    // GOOGLE TAG MANAGER
+    // =====================================================
+
+    const capture =
+      order.purchase_units?.[0]
+        ?.payments
+        ?.captures?.[0];
+
+    if (capture) {
+
+      trackPurchase(
+        capture.id,
+        capture.amount.value,
+        "paypal",
+        capture.amount.currency_code
+      );
+
+    } else {
+
+      console.warn(
+        "⚠️ PayPal pagado pero no encontré capture para GTM",
+        order
+      );
+    }
 
     // Enviar emails
     try {
