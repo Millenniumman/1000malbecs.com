@@ -388,6 +388,40 @@ if (hamburger && sidebar) {
   });
 }
 </script>
+  <script>
+    // ==================== GOOGLE TAG MANAGER - PURCHASE ====================
+
+function trackPurchase(transactionId, value, provider) {
+
+  const purchaseValue = Number(value);
+
+  if (!transactionId || !Number.isFinite(purchaseValue)) {
+    console.error("❌ Purchase tracking inválido", {
+      transactionId,
+      value,
+      provider
+    });
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+
+  window.dataLayer.push({
+    event: "purchase",
+    transaction_id: String(transactionId),
+    value: Number(purchaseValue.toFixed(2)),
+    currency: "EUR",
+    payment_provider: provider
+  });
+
+  console.log("✅ Purchase enviado a GTM", {
+    transaction_id: transactionId,
+    value: Number(purchaseValue.toFixed(2)),
+    currency: "EUR",
+    payment_provider: provider
+  });
+}
+  </script>
 <script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
 <script>
 let isClickAndCollect = false;
