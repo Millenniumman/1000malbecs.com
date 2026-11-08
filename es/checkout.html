@@ -503,12 +503,26 @@ function getCurrentShippingAndTotal() {
     cart
   };
 }
+
+function isDestinationReady() {
+  if (isClickAndCollect) return true;
+  const dest = document.getElementById('checkout-destination')?.value || '';
+  return dest === 'DE' || dest === 'EU';
+}
+
+function requireDestination() {
+  if (!isDestinationReady()) {
+    alert("POR FAVOR ELEGÍ PRIMERO EL MÉTODO DE ENTREGA"); // ← traducir este texto
+    return false;
+  }
+  return true;
+}
 // ========== STRIPE ==========
 let stripe;
 let cardElement;
 let clientSecret = null;
 
-async function createPaymentIntent() {
+async function createPaymentIntent() {if (!requireDestination()) return false;
   const { total } = getCurrentShippingAndTotal();
 
   try {
@@ -556,7 +570,7 @@ function initializeStripe() {
   cardElement.mount('#card-element');
 }
 
-async function startStripePayment() {
+async function startStripePayment() {if (!requireDestination()) return;
   const formContainer = document.getElementById('stripe-checkout-form') || document.getElementById('stripe-form-container');
 
   if (!formContainer) {
@@ -683,7 +697,7 @@ window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 
 // ========== WHATSAPP ==========
-function payWithWhatsApp() {
+function payWithWhatsApp() {if (!requireDestination()) return;
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
     alert("Your cart is empty");
@@ -718,7 +732,7 @@ message += `\n\n¿Podemos confirmar el pedido?`;
   window.open(url, '_blank');
 }
 
-function payWithEmail() {
+function payWithEmail() {if (!requireDestination()) return;
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
     alert("Tu carrito está vacío");
@@ -755,7 +769,7 @@ function payWithEmail() {
   window.location.href = url;
 }
 // ========== PAYPAL ==========
-function payWithPayPal() {
+function payWithPayPal() {if (!requireDestination()) return;
   const container = document.getElementById('paypal-button-container');
   if (!container) {
     alert("No se encontró el contenedor de PayPal");
@@ -974,59 +988,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
-  let isClickAndCollect = false;
-  let isCollect = false;
-  function getCurrentShippingAndTotal() {
-  const destination = document.getElementById('checkout-destination')?.value || '';
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
-  const subtotal = cart.reduce((sum, item) => {
-    const price = parseFloat(item.price) || 0;
-    const qty = parseInt(item.quantity) || 1;
-    return sum + (price * qty);
-  }, 0);
-
-  let shipping = 0;
-  if (!isCollect && destination) {
-    if (destination === 'DE') {
-      shipping = bottles >= 12 ? 0 : 6.99;
-    } else if (destination === 'EU') {
-      shipping = 18.99;
-    }
-  }
-
-  return {
-    subtotal,
-    shipping,
-    total: subtotal + shipping,
-    bottles,
-    destination,
-    isCollect: isCollect,
-    cart
-  };
-}
-
-  // Cargar destino guardado del carrito (si existe)
   const savedDestination = localStorage.getItem('shippingDestination') || '';
   if (destinationSelect && savedDestination) {
     destinationSelect.value = savedDestination;
   }
 
-if (destinationSelect) {
-  destinationSelect.addEventListener('change', function() {
-    updateCheckoutTotals();
-    refreshPayPalIfVisible();
-  });
-}
-
-// Función auxiliar
-function refreshPayPalIfVisible() {
-  const paypalContainer = document.getElementById('paypal-button-container');
-  if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
-    console.log("Refrescando botón de PayPal...");
-    payWithPayPal();
-  }
-}
   function getBottleCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     return cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
@@ -1046,38 +1012,26 @@ function refreshPayPalIfVisible() {
   }
 
   function calculateShipping() {
-  if (isCollect) return { cost: 0 };
+    if (isClickAndCollect) return { cost: 0 };
 
-  const destination = document.getElementById('checkout-destination')?.value || '';
-  console.log("Calculando envío → destino:", destination, "botellas:", getBottleCount());
+    const destination = getCurrentDestination();
+    if (!destination) return { cost: null };
 
-  if (!destination) return { cost: null };
-
-  const bottles = getBottleCount();
-
-  if (destination === 'DE') {
-    const cost = bottles >= 12 ? 0 : 6.99;
-    console.log("Es Alemania → coste:", cost);
-    return { cost };
+    const bottles = getBottleCount();
+    if (destination === 'DE') {
+      return { cost: bottles >= 12 ? 0 : 6.99 };
+    }
+    return { cost: 18.99 };
   }
 
-  console.log("Es otro país de Europa → 18.99");
-  return { cost: 18.99 };
-}
-
   function updateCheckoutTotals() {
-  console.log("updateCheckoutTotals ejecutado. isCollect:", isCollect);
-  
-  const bottles = getBottleCount();
-  const subtotal = getSubtotal();
-  const destination = getCurrentDestination();
-  const result = calculateShipping();
+    const bottles = getBottleCount();
+    const subtotal = getSubtotal();
+    const destination = getCurrentDestination();
+    const result = calculateShipping();
 
-  console.log("Resultado:", result);
+    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
 
-  if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
-
-  if (shippingEl) {
     if (result.cost === null) {
       shippingEl.textContent = '—';
     } else if (result.cost === 0) {
@@ -1085,21 +1039,11 @@ function refreshPayPalIfVisible() {
     } else {
       shippingEl.textContent = '€' + result.cost.toFixed(2);
     }
-  }
-  
-    if (result.cost === null) {
-      shippingEl.textContent = '—';
-    } else if (result.cost === 0) {
-      shippingEl.textContent = 'Free';
-    } else {
-      shippingEl.textContent = '€' + result.cost.toFixed(2);
-    }
 
-    // Hint solo para Alemania + Ship + menos de 12
     if (freeHint) {
-      if (!isCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
+      if (!isClickAndCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
         const remaining = 12 - bottles;
-        freeHint.textContent = `Añade ${remaining} botellas má${remaining === 1 ? '' : 's'} para obtener envío sin cargo`;
+        freeHint.textContent = `Añade ${remaining} botella${remaining === 1 ? '' : 's'} más para obtener envío sin cargo`;
         freeHint.style.display = 'block';
       } else {
         freeHint.style.display = 'none';
@@ -1112,9 +1056,8 @@ function refreshPayPalIfVisible() {
     const stripeAmount = document.getElementById('final-total-amount');
     if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
 
-    // Texto informativo
     if (destinationDisplay) {
-      if (isCollect) {
+      if (isClickAndCollect) {
         destinationDisplay.textContent = 'Retiro coordinado — Sin Cargo';
       } else if (destination === 'DE') {
         destinationDisplay.textContent = 'Envío a Alemania';
@@ -1125,49 +1068,61 @@ function refreshPayPalIfVisible() {
       }
     }
 
-    // Guardar el destino actual para que persista
     if (destination) {
       localStorage.setItem('shippingDestination', destination);
     }
   }
 
-function selectDelivery(collect) {
-  console.log("selectDelivery:", collect);
-  isClickAndCollect = collect;
-  isCollect = collect;
-
-  if (collect) {
-    document.getElementById('option-collect').style.border = '2px solid #4A2C59';
-    document.getElementById('option-collect').style.opacity = '1';
-    document.getElementById('option-ship').style.border = '1px solid #ddd';
-    document.getElementById('option-ship').style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
-  } else {
-    document.getElementById('option-ship').style.border = '2px solid #4A2C59';
-    document.getElementById('option-ship').style.opacity = '1';
-    document.getElementById('option-collect').style.border = '1px solid #ddd';
-    document.getElementById('option-collect').style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
+  function refreshPayPalIfOpen() {
+    const paypalContainer = document.getElementById('paypal-button-container');
+    if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
+      if (typeof payWithPayPal === 'function') {
+        payWithPayPal();
+      }
+    }
   }
 
-  updateCheckoutTotals();
-  refreshPayPalIfVisible();
-}
+  function selectDelivery(collect) {
+    isClickAndCollect = collect;
 
-// Eventos (fuera de la función)
-document.getElementById('option-ship').onclick = function() { selectDelivery(false); };
-document.getElementById('option-collect').onclick = function() { selectDelivery(true); };
+    if (collect) {
+      if (optionCollect) {
+        optionCollect.style.border = '2px solid #4A2C59';
+        optionCollect.style.opacity = '1';
+      }
+      if (optionShip) {
+        optionShip.style.border = '1px solid #ddd';
+        optionShip.style.opacity = '0.7';
+      }
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
+    } else {
+      if (optionShip) {
+        optionShip.style.border = '2px solid #4A2C59';
+        optionShip.style.opacity = '1';
+      }
+      if (optionCollect) {
+        optionCollect.style.border = '1px solid #ddd';
+        optionCollect.style.opacity = '0.7';
+      }
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
+    }
 
-if (destinationSelect) {
-  destinationSelect.addEventListener('change', function() {
-    console.log("Cambió el destino a:", this.value);
     updateCheckoutTotals();
-    refreshPayPalIfVisible();
-  });
-}
+    refreshPayPalIfOpen();
+  }
 
-// Inicial
-selectDelivery(false);
+  // Eventos
+  if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
+  if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+  if (destinationSelect) {
+    destinationSelect.addEventListener('change', () => {
+      updateCheckoutTotals();
+      refreshPayPalIfOpen();
+    });
+  }
+
+  // Inicial
+  selectDelivery(false);
   updateCheckoutTotals();
 });
 </script>
