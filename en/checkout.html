@@ -852,7 +852,27 @@ function renderPayPalButton() {
         };
 
         localStorage.setItem('lastOrder', JSON.stringify(orderData));
+const capture =
+  order.purchase_units?.[0]
+    ?.payments
+    ?.captures?.[0];
 
+if (capture) {
+
+  trackPurchase(
+    capture.id,
+    capture.amount.value,
+    "paypal",
+    capture.amount.currency_code
+  );
+
+} else {
+
+  console.warn(
+    "⚠️ Pago PayPal confirmado pero no encontré capture para GTM",
+    order
+  );
+}
         try {
           const response = await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
             method: 'POST',
