@@ -485,8 +485,6 @@ function trackPurchase(transactionId, value, provider) {
   <script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
 <script>
 let isClickAndCollect = false;
-// ========== FUNCIÓN AUXILIAR ==========
-
 function getCurrentShippingAndTotal() {
   const destination = document.getElementById('checkout-destination')?.value || '';
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -517,12 +515,25 @@ function getCurrentShippingAndTotal() {
   };
 }
 
+function isDestinationReady() {
+  if (isClickAndCollect) return true;
+  const dest = document.getElementById('checkout-destination')?.value || '';
+  return dest === 'DE' || dest === 'EU';
+}
+
+function requireDestination() {
+  if (!isDestinationReady()) {
+    alert("Please choose the delivery method first (store pickup or shipping to Germany / Europe)."); // ← traducir este texto
+    return false;
+  }
+  return true;
+}
 // ========== STRIPE ==========
 let stripe;
 let cardElement;
 let clientSecret = null;
 
-async function createPaymentIntent() {
+async function createPaymentIntent() {if (!requireDestination()) return false;
   const { total } = getCurrentShippingAndTotal();
 
   try {
@@ -570,7 +581,7 @@ function initializeStripe() {
   cardElement.mount('#card-element');
 }
 
-async function startStripePayment() {
+async function startStripePayment() {if (!requireDestination()) return;
   const formContainer = document.getElementById('stripe-checkout-form') || document.getElementById('stripe-form-container');
 
   if (!formContainer) {
@@ -697,7 +708,7 @@ window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 
 // ========== WHATSAPP ==========
-function payWithWhatsApp() {
+function payWithWhatsApp() {if (!requireDestination()) return;
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
     alert("Your cart is empty");
@@ -734,7 +745,7 @@ function payWithWhatsApp() {
 }
 
 // ========== EMAIL ==========
-function payWithEmail() {
+function payWithEmail() {if (!requireDestination()) return;
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
     alert("Your cart is empty");
@@ -772,7 +783,7 @@ function payWithEmail() {
 }
 
 // ========== PAYPAL ==========
-function payWithPayPal() {
+function payWithPayPal() {if (!requireDestination()) return;
   const container = document.getElementById('paypal-button-container');
   if (!container) {
     alert("No se encontró el contenedor de PayPal");
@@ -991,9 +1002,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
-  let isClickAndCollect = false;
-
-  // Cargar destino guardado del carrito (si existe)
   const savedDestination = localStorage.getItem('shippingDestination') || '';
   if (destinationSelect && savedDestination) {
     destinationSelect.value = savedDestination;
@@ -1018,98 +1026,119 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function calculateShipping() {
-  if (isClickAndCollect) return { cost: 0 };
+    if (isClickAndCollect) return { cost: 0 };
 
-  const destination = getCurrentDestination();
-  if (!destination) return { cost: null };
+    const destination = getCurrentDestination();
+    if (!destination) return { cost: null };
 
-  const bottles = getBottleCount();
-  if (destination === 'DE') {
-    return { cost: bottles >= 12 ? 0 : 6.99 };
-  }
-  return { cost: 18.99 };
-}
-
- function updateCheckoutTotals() {
-  const bottles = getBottleCount();
-  const subtotal = getSubtotal();
-  const destination = getCurrentDestination();
-  const result = calculateShipping();
-
-  if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
-
-  if (result.cost === null) {
-    shippingEl.textContent = '—';
-  } else if (result.cost === 0) {
-    shippingEl.textContent = 'Free';
-  } else {
-    shippingEl.textContent = '€' + result.cost.toFixed(2);
+    const bottles = getBottleCount();
+    if (destination === 'DE') {
+      return { cost: bottles >= 12 ? 0 : 6.99 };
+    }
+    return { cost: 18.99 };
   }
 
-  // Hint
-  if (freeHint) {
-    if (!isClickAndCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
-      const remaining = 12 - bottles;
-      freeHint.textContent = `Add ${remaining} more bottle${remaining === 1 ? '' : 's'} and get free shipping`;
-      freeHint.style.display = 'block';
+  function updateCheckoutTotals() {
+    const bottles = getBottleCount();
+    const subtotal = getSubtotal();
+    const destination = getCurrentDestination();
+    const result = calculateShipping();
+
+    if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2);
+
+    if (result.cost === null) {
+      shippingEl.textContent = '—';
+    } else if (result.cost === 0) {
+      shippingEl.textContent = 'Gratis';
     } else {
-      freeHint.style.display = 'none';
+      shippingEl.textContent = '€' + result.cost.toFixed(2);
+    }
+
+    if (freeHint) {
+      if (!isClickAndCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
+        const remaining = 12 - bottles;
+        freeHint.textContent = `Añade ${remaining} botella${remaining === 1 ? '' : 's'} más para obtener envío sin cargo`;
+        freeHint.style.display = 'block';
+      } else {
+        freeHint.style.display = 'none';
+      }
+    }
+
+    const shippingCost = result.cost || 0;
+    if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
+
+    const stripeAmount = document.getElementById('final-total-amount');
+    if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
+
+    if (destinationDisplay) {
+      if (isClickAndCollect) {
+        destinationDisplay.textContent = 'Retiro coordinado — Sin Cargo';
+      } else if (destination === 'DE') {
+        destinationDisplay.textContent = 'Envío a Alemania';
+      } else if (destination === 'EU') {
+        destinationDisplay.textContent = 'Envío a otros países de Europa';
+      } else {
+        destinationDisplay.textContent = 'Por favor selecciona el destino de la entrega';
+      }
+    }
+
+    if (destination) {
+      localStorage.setItem('shippingDestination', destination);
     }
   }
 
-  const shippingCost = result.cost || 0;
-  if (totalEl) totalEl.textContent = '€' + (subtotal + shippingCost).toFixed(2);
-
-  const stripeAmount = document.getElementById('final-total-amount');
-  if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
-
-  if (destinationDisplay) {
-    if (isClickAndCollect) {
-      destinationDisplay.textContent = 'Pickup at store — free shipping';
-    } else if (destination === 'DE') {
-      destinationDisplay.textContent = 'Shipping to Germany';
-    } else if (destination === 'EU') {
-      destinationDisplay.textContent = 'Shipping to other EU countries';
-    } else {
-      destinationDisplay.textContent = 'Please choose a destination';
+  function refreshPayPalIfOpen() {
+    const paypalContainer = document.getElementById('paypal-button-container');
+    if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
+      if (typeof payWithPayPal === 'function') {
+        payWithPayPal();
+      }
     }
   }
 
-  if (destination) {
-    localStorage.setItem('shippingDestination', destination);
-  }
-}
-function selectDelivery(collect) {
-  isClickAndCollect = collect;
+  function selectDelivery(collect) {
+    isClickAndCollect = collect;
 
-  if (collect) {
-    optionCollect.style.border = '2px solid #4A2C59';
-    optionCollect.style.opacity = '1';
-    optionShip.style.border = '1px solid #ddd';
-    optionShip.style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
-  } else {
-    optionShip.style.border = '2px solid #4A2C59';
-    optionShip.style.opacity = '1';
-    optionCollect.style.border = '1px solid #ddd';
-    optionCollect.style.opacity = '0.7';
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
+    if (collect) {
+      if (optionCollect) {
+        optionCollect.style.border = '2px solid #4A2C59';
+        optionCollect.style.opacity = '1';
+      }
+      if (optionShip) {
+        optionShip.style.border = '1px solid #ddd';
+        optionShip.style.opacity = '0.7';
+      }
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
+    } else {
+      if (optionShip) {
+        optionShip.style.border = '2px solid #4A2C59';
+        optionShip.style.opacity = '1';
+      }
+      if (optionCollect) {
+        optionCollect.style.border = '1px solid #ddd';
+        optionCollect.style.opacity = '0.7';
+      }
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
+    }
+
+    updateCheckoutTotals();
+    refreshPayPalIfOpen();
   }
 
+  // Eventos
+  if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
+  if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
+  if (destinationSelect) {
+    destinationSelect.addEventListener('change', () => {
+      updateCheckoutTotals();
+      refreshPayPalIfOpen();
+    });
+  }
+
+  // Inicial
+  selectDelivery(false);
   updateCheckoutTotals();
-  
-  // Si el contenedor de PayPal está visible, re-renderiza el botón
-  const paypalContainer = document.getElementById('paypal-button-container');
-  if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
-    payWithPayPal(); // vuelve a cargar el botón con los valores nuevos
-  }
-}
-
-// Eventos (fuera de la función)
-if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
-if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
-if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
-
+});
 // Inicial
 selectDelivery(false);
 updateCheckoutTotals();
