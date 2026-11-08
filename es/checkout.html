@@ -490,7 +490,9 @@ let stripe;
 let cardElement;
 let clientSecret = null;
 
-async function createPaymentIntent() if (!requireDestination()) return false;
+async function createPaymentIntent() {
+  if (!requireDestination()) return false;
+
   const { total } = getCurrentShippingAndTotal();
 
   try {
