@@ -422,6 +422,23 @@ function trackPurchase(transactionId, value, provider) {
   });
 }
   </script>
+    <script>
+    // ==================== GOOGLE TAG MANAGER - Kontakt ====================
+
+    function trackContact(method) {
+
+  window.dataLayer = window.dataLayer || [];
+
+  window.dataLayer.push({
+    event: "contact",
+    contact_method: method
+  });
+
+  console.log("✅ Contact enviado a GTM", {
+    contact_method: method
+  });
+}
+  </script>
 <script src="https://www.paypal.com/sdk/js?client-id=AXLHiDeAghAwl3asPmswAfodoDC_uK8nXCFaqhCt2EkEUJ9BBqu4Wr5gIJ9ebhKC3jznaAjgUOAeUlhB&currency=EUR"></script>
 <script>
 let isClickAndCollect = false;
@@ -681,6 +698,7 @@ function payWithWhatsApp() {if (!requireDestination()) return;
   message += `\n\nKönnen wir die Bestellung bestätigen?`;
 
   const url = `https://wa.me/4915158224728?text=${encodeURIComponent(message)}`;
+  trackContact("whatsapp");
   window.open(url, '_blank');
 }
 
@@ -718,6 +736,7 @@ function payWithEmail() {if (!requireDestination()) return;
 
   const subject = "Bestellung - " + cart.map(i => i.name).join(", ");
   const url = `mailto:ventas@1000malbecs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  trackContact("bank_transfer");
   window.location.href = url;
 }
 
