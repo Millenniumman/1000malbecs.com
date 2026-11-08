@@ -440,7 +440,21 @@ if (hamburger && sidebar) {
 // Variable global para el método de entrega
 let isClickAndCollect = false;
 // ========== FUNCIÓN AUXILIAR ==========
-function getCurrentShippingAndTotal() {
+function getCurrentShippingAndTotal() 
+function isDestinationReady() {
+  if (isClickAndCollect) return true;
+  const dest = document.getElementById('checkout-destination')?.value || '';
+  return dest === 'DE' || dest === 'EU';
+}
+
+function requireDestination() {
+  if (!isDestinationReady()) {
+    alert("Por favor elegí primero el método de entrega (retiro en tienda o envío a Alemania / Europa).");
+    return false;
+  }
+  return true;
+}
+{
   const destination = document.getElementById('checkout-destination')?.value || '';
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
@@ -475,7 +489,7 @@ let stripe;
 let cardElement;
 let clientSecret = null;
 
-async function createPaymentIntent() {
+async function createPaymentIntent() {if (!requireDestination()) return;
   const { total } = getCurrentShippingAndTotal();
 
   try {
