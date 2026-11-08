@@ -930,7 +930,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
-  // Cargar destino guardado
   const savedDestination = localStorage.getItem('shippingDestination') || '';
   if (destinationSelect && savedDestination) {
     destinationSelect.value = savedDestination;
@@ -955,7 +954,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function calculateShipping() {
-    if (isClickAndCollect) return { cost: 0 };  // usa la GLOBAL
+    if (isClickAndCollect) return { cost: 0 };
 
     const destination = getCurrentDestination();
     if (!destination) return { cost: null };
@@ -1016,8 +1015,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function refreshPayPalIfOpen() {
+    const paypalContainer = document.getElementById('paypal-button-container');
+    if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
+      if (typeof payWithPayPal === 'function') {
+        payWithPayPal();
+      }
+    }
+  }
+
   function selectDelivery(collect) {
-    isClickAndCollect = collect;  // actualiza la GLOBAL
+    isClickAndCollect = collect;
 
     if (collect) {
       if (optionCollect) {
@@ -1042,28 +1050,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     updateCheckoutTotals();
-  }
-refreshPayPalIfOpen();
-}
-
-function refreshPayPalIfOpen() {
-  const paypalContainer = document.getElementById('paypal-button-container');
-  if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
-    // Si PayPal ya está visible, lo volvemos a renderizar con los valores nuevos
-    if (typeof payWithPayPal === 'function') {
-      payWithPayPal();
-    }
+    refreshPayPalIfOpen();
   }
 
   // Eventos
   if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
   if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
   if (destinationSelect) {
-  destinationSelect.addEventListener('change', () => {
-    updateCheckoutTotals();
-    refreshPayPalIfOpen();
-  });
-}
+    destinationSelect.addEventListener('change', () => {
+      updateCheckoutTotals();
+      refreshPayPalIfOpen();
+    });
+  }
+
+ 
   // Inicial
   selectDelivery(false);
   updateCheckoutTotals();
