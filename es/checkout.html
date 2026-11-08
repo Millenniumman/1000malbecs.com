@@ -647,7 +647,15 @@ async function payWithStripeCard() {
       };
 
       localStorage.setItem('lastOrder', JSON.stringify(orderData));
+// ==================== GOOGLE TAG MANAGER ====================
+// El pago ya fue confirmado antes de llegar acá.
 
+trackPurchase(
+  paymentIntent.id,
+  total,
+  "stripe",
+  "EUR"
+);
       try {
         await fetch('https://1000malbecs-pago.federico-augspach.workers.dev/send-order-emails', {
           method: 'POST',
