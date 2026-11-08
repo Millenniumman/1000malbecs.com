@@ -439,22 +439,9 @@ if (hamburger && sidebar) {
 <script>
 // Variable global para el método de entrega
 let isClickAndCollect = false;
-// ========== FUNCIÓN AUXILIAR ==========
-function getCurrentShippingAndTotal() 
-function isDestinationReady() {
-  if (isClickAndCollect) return true;
-  const dest = document.getElementById('checkout-destination')?.value || '';
-  return dest === 'DE' || dest === 'EU';
-}
 
-function requireDestination() {
-  if (!isDestinationReady()) {
-    alert("Por favor elegí primero el método de entrega (retiro en tienda o envío a Alemania / Europa).");
-    return false;
-  }
-  return true;
-}
-{
+// ========== FUNCIÓN AUXILIAR ==========
+function getCurrentShippingAndTotal() {
   const destination = document.getElementById('checkout-destination')?.value || '';
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
@@ -484,12 +471,26 @@ function requireDestination() {
   };
 }
 
+function isDestinationReady() {
+  if (isClickAndCollect) return true;
+  const dest = document.getElementById('checkout-destination')?.value || '';
+  return dest === 'DE' || dest === 'EU';
+}
+
+function requireDestination() {
+  if (!isDestinationReady()) {
+    alert("Por favor elegí primero el método de entrega (retiro en tienda o envío a Alemania / Europa).");
+    return false;
+  }
+  return true;
+}
+
 // ========== STRIPE ==========
 let stripe;
 let cardElement;
 let clientSecret = null;
 
-async function createPaymentIntent() {if (!requireDestination()) return;
+async function createPaymentIntent() if (!requireDestination()) return false;
   const { total } = getCurrentShippingAndTotal();
 
   try {
@@ -537,7 +538,7 @@ function initializeStripe() {
   cardElement.mount('#card-element');
 }
 
-async function startStripePayment() {
+async function startStripePayment() {if (!requireDestination()) return;
   const formContainer = document.getElementById('stripe-checkout-form') || document.getElementById('stripe-form-container');
 
   if (!formContainer) {
@@ -656,7 +657,7 @@ window.startStripePayment = startStripePayment;
 window.payWithStripeCard = payWithStripeCard;
 
 // ========== WHATSAPP ==========
-function payWithWhatsApp() {
+function payWithWhatsApp() {if (!requireDestination()) return;
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
     alert("Your cart is empty");
@@ -691,7 +692,7 @@ message += `\n\n¿Podemos confirmar el pedido?`;
   window.open(url, '_blank');
 }
 
-function payWithEmail() {
+function payWithEmail() {if (!requireDestination()) return;
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
     alert("Tu carrito está vacío");
@@ -728,7 +729,7 @@ function payWithEmail() {
   window.location.href = url;
 }
 // ========== PAYPAL ==========
-function payWithPayPal() {
+function payWithPayPal() {if (!requireDestination()) return;
   const container = document.getElementById('paypal-button-container');
   if (!container) {
     alert("No se encontró el contenedor de PayPal");
