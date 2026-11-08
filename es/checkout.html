@@ -1043,12 +1043,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateCheckoutTotals();
   }
+refreshPayPalIfOpen();
+}
 
+function refreshPayPalIfOpen() {
+  const paypalContainer = document.getElementById('paypal-button-container');
+  if (paypalContainer && paypalContainer.style.display !== 'none' && paypalContainer.innerHTML.trim() !== '') {
+    // Si PayPal ya está visible, lo volvemos a renderizar con los valores nuevos
+    if (typeof payWithPayPal === 'function') {
+      payWithPayPal();
+    }
+  }
+}
   // Eventos
   if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
   if (optionCollect) optionCollect.addEventListener('click', () => selectDelivery(true));
-  if (destinationSelect) destinationSelect.addEventListener('change', updateCheckoutTotals);
-
+  if (destinationSelect) {
+  destinationSelect.addEventListener('change', () => {
+    updateCheckoutTotals();
+    refreshPayPalIfOpen();
+  });
+}
   // Inicial
   selectDelivery(false);
   updateCheckoutTotals();
