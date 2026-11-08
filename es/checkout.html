@@ -1051,29 +1051,41 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function selectDelivery(collect) {
-  isClickAndCollect = collect;   // ← esta línea es clave
+  
+function selectDelivery(collect) {
+  isClickAndCollect = collect;  // ← esto actualiza la variable GLOBAL
+
+  const optionShip = document.getElementById('option-ship');
+  const optionCollect = document.getElementById('option-collect');
+  const destinationSelectorBox = document.getElementById('destination-selector');
 
   if (collect) {
-    optionCollect.style.border = '2px solid #4A2C59';
-    optionCollect.style.opacity = '1';
-    optionShip.style.border = '1px solid #ddd';
-    optionShip.style.opacity = '0.7';
-    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
-      destinationSelectorBox.style.display = 'none';
+    if (optionCollect) {
+      optionCollect.style.border = '2px solid #4A2C59';
+      optionCollect.style.opacity = '1';
     }
+    if (optionShip) {
+      optionShip.style.border = '1px solid #ddd';
+      optionShip.style.opacity = '0.7';
+    }
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
   } else {
-    optionShip.style.border = '2px solid #4A2C59';
-    optionShip.style.opacity = '1';
-    optionCollect.style.border = '1px solid #ddd';
-    optionCollect.style.opacity = '0.7';
-    if (typeof destinationSelectorBox !== 'undefined' && destinationSelectorBox) {
-      destinationSelectorBox.style.display = 'block';
+    if (optionShip) {
+      optionShip.style.border = '2px solid #4A2C59';
+      optionShip.style.opacity = '1';
     }
+    if (optionCollect) {
+      optionCollect.style.border = '1px solid #ddd';
+      optionCollect.style.opacity = '0.7';
+    }
+    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
   }
 
-  updateCheckoutTotals();
-}
+  // Forzar actualización de totales
+  if (typeof updateCheckoutTotals === 'function') {
+    updateCheckoutTotals();
+  }
+} 
 
   // Eventos
   if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
