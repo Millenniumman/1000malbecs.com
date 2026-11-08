@@ -930,39 +930,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const freeHint = document.getElementById('checkout-free-hint');
   const destinationDisplay = document.getElementById('destination-display');
 
-  let isClickAndCollect = false;
-  let isCollect = false;
-  function getCurrentShippingAndTotal() {
-  const destination = document.getElementById('checkout-destination')?.value || '';
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const bottles = cart.reduce((sum, item) => sum + (parseInt(item.quantity) || 1), 0);
-  const subtotal = cart.reduce((sum, item) => {
-    const price = parseFloat(item.price) || 0;
-    const qty = parseInt(item.quantity) || 1;
-    return sum + (price * qty);
-  }, 0);
-
-  let shipping = 0;
-  if (!isCollect && destination) {
-    if (destination === 'DE') {
-      shipping = bottles >= 12 ? 0 : 6.99;
-    } else if (destination === 'EU') {
-      shipping = 18.99;
-    }
-  }
-
-  return {
-    subtotal,
-    shipping,
-    total: subtotal + shipping,
-    bottles,
-    destination,
-    isCollect: isCollect,
-    cart
-  };
-}
-
-  // Cargar destino guardado del carrito (si existe)
+  // Cargar destino guardado
   const savedDestination = localStorage.getItem('shippingDestination') || '';
   if (destinationSelect && savedDestination) {
     destinationSelect.value = savedDestination;
@@ -987,7 +955,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function calculateShipping() {
-    if (isCollect) return { cost: 0 };
+    if (isClickAndCollect) return { cost: 0 };  // usa la GLOBAL
 
     const destination = getCurrentDestination();
     if (!destination) return { cost: null };
@@ -1010,16 +978,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if (result.cost === null) {
       shippingEl.textContent = '—';
     } else if (result.cost === 0) {
-      shippingEl.textContent = 'Free';
+      shippingEl.textContent = 'Gratis';
     } else {
       shippingEl.textContent = '€' + result.cost.toFixed(2);
     }
 
-    // Hint solo para Alemania + Ship + menos de 12
     if (freeHint) {
-      if (!isCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
+      if (!isClickAndCollect && destination === 'DE' && bottles < 12 && bottles > 0) {
         const remaining = 12 - bottles;
-        freeHint.textContent = `Añade ${remaining} botellas má${remaining === 1 ? '' : 's'} para obtener envío sin cargo`;
+        freeHint.textContent = `Añade ${remaining} botella${remaining === 1 ? '' : 's'} más para obtener envío sin cargo`;
         freeHint.style.display = 'block';
       } else {
         freeHint.style.display = 'none';
@@ -1032,9 +999,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const stripeAmount = document.getElementById('final-total-amount');
     if (stripeAmount) stripeAmount.textContent = (subtotal + shippingCost).toFixed(2);
 
-    // Texto informativo
     if (destinationDisplay) {
-      if (isCollect) {
+      if (isClickAndCollect) {
         destinationDisplay.textContent = 'Retiro coordinado — Sin Cargo';
       } else if (destination === 'DE') {
         destinationDisplay.textContent = 'Envío a Alemania';
@@ -1045,47 +1011,38 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Guardar el destino actual para que persista
     if (destination) {
       localStorage.setItem('shippingDestination', destination);
     }
   }
 
-  
-function selectDelivery(collect) {
-  isClickAndCollect = collect;  // ← esto actualiza la variable GLOBAL
+  function selectDelivery(collect) {
+    isClickAndCollect = collect;  // actualiza la GLOBAL
 
-  const optionShip = document.getElementById('option-ship');
-  const optionCollect = document.getElementById('option-collect');
-  const destinationSelectorBox = document.getElementById('destination-selector');
+    if (collect) {
+      if (optionCollect) {
+        optionCollect.style.border = '2px solid #4A2C59';
+        optionCollect.style.opacity = '1';
+      }
+      if (optionShip) {
+        optionShip.style.border = '1px solid #ddd';
+        optionShip.style.opacity = '0.7';
+      }
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
+    } else {
+      if (optionShip) {
+        optionShip.style.border = '2px solid #4A2C59';
+        optionShip.style.opacity = '1';
+      }
+      if (optionCollect) {
+        optionCollect.style.border = '1px solid #ddd';
+        optionCollect.style.opacity = '0.7';
+      }
+      if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
+    }
 
-  if (collect) {
-    if (optionCollect) {
-      optionCollect.style.border = '2px solid #4A2C59';
-      optionCollect.style.opacity = '1';
-    }
-    if (optionShip) {
-      optionShip.style.border = '1px solid #ddd';
-      optionShip.style.opacity = '0.7';
-    }
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'none';
-  } else {
-    if (optionShip) {
-      optionShip.style.border = '2px solid #4A2C59';
-      optionShip.style.opacity = '1';
-    }
-    if (optionCollect) {
-      optionCollect.style.border = '1px solid #ddd';
-      optionCollect.style.opacity = '0.7';
-    }
-    if (destinationSelectorBox) destinationSelectorBox.style.display = 'block';
-  }
-
-  // Forzar actualización de totales
-  if (typeof updateCheckoutTotals === 'function') {
     updateCheckoutTotals();
   }
-} 
 
   // Eventos
   if (optionShip) optionShip.addEventListener('click', () => selectDelivery(false));
@@ -1096,6 +1053,7 @@ function selectDelivery(collect) {
   selectDelivery(false);
   updateCheckoutTotals();
 });
+
 </script>
 </body>
 </html>
